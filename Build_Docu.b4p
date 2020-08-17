@@ -1,0 +1,925 @@
+
+include( Utility Library );
+
+//	A "Doxygen" like document compilation system for B4P.  Fits in less than 1000 lines of code.
+
+//	Specify all paths and file name patterns where to look for contents to include.
+//	The main variable must be "inputs[...]" where the member names are free of choice.
+
+	inputs[hand written stuff]	= "inputs\*.txt";
+	inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
+
+//	Destination path for all HTML files
+//	I am putting the files directly into the directory where the web contents will be copied to.  Include slash at the end.
+
+
+	destination[] = "C:\Users\Zur Bonsen Georg\Documents\Programme\georgzurbonsen.github.io\";
+
+
+//	Temporary files
+
+	file[ collected contents json ] = "Collection.json"; // All contents gathered in one JSON file and ready for further use
+
+//
+//	Revolving Table of Contents (RTOC)
+//	The table of contents will be opened and updated during the document generation run.  It helps to put all the individual
+//	descriptions into a organized docuement structure and also provides the information base for including cross-referencing
+//	hyperlinks.
+
+
+
+define procedure( load revolving TOC )
+{
+	global() RTOC headers[] = { Status, Category, Level, Section Nr, HTML File Name, Section Name, Feature Names, Keywords, Remarks };
+	file name[] = choose recent file( "", "", "Revolving TOC*.csv", newest, 1 );
+
+	if (file name[]='')
+	{
+		table initialize( RTOC, { RTOC headers[] } );					// Create a new table with the headers
+	}
+	else
+	{
+		table load			( RTOC, file name[] );
+		table insert missing columns	( RTOC, RTOC headers[] );
+		table keep columns		( RTOC, RTOC headers[]);			// Discard unnecessary columns, rearrange existing ones in right order
+		[RTOC:{Section Nr, HTML File Name, Feature Names, Keywords},..] = '';		// Clear all output columns
+		[RTOC:Status,..] = Missing;
+	}
+}
+
+
+define procedure( update revolving TOC, { {section name, literal}, { item, all, reference }, { HTML file name, literal } })
+{
+
+	row[] = [RTOC:Section Name,section name[]];
+
+	if (row[] < 0) // New row
+	{
+	    row[] = table length( RTOC );
+	    [RTOC:Section Name, row[]] = section name[];
+	    [RTOC:Status,row[]] = New;
+	}
+	else
+	{
+	    [RTOC:Status,row[]] = OK;
+	}
+
+	with table( RTOC, row[] )
+	{
+	    [HTML File Name] 	= HTML file name[];
+	    if (existing(item[Feature Names]))	[Feature Names]		= join(set( item[Feature Names] ), ',' );
+	    if (existing(item[Function Names]))	[Feature Names]		= join(set( item[Function Names] ), ',' );
+	    if (existing(item[Keywords]))	[Keywords]		= join(set( item[Keywords] ), ',' );
+	}
+}
+
+
+define procedure( sequence revolving TOC )
+{
+	counter[Intro] = {0};
+	counter[Body] = {0};
+	counter[Appendix] = {0};
+
+	table process( RTOC ,
+	{
+		if ([Category]<>'Intro','Body','Appendix')
+		{
+		    if ([Status] = OK,Missing) [Status] += ", yet to integrate";
+		    continue;
+		}
+
+		if ([Level]<>0..10)
+		{
+		    if ([Status] = OK,Missing) [Status] += ", but check Level (Must be 0..10)";
+		    continue;
+		}
+
+		if ([Level]>=1) // 0 = Ignore, 1..10 = 10 hierarchical levels
+		{
+		    if (counter[[Category]]{} > [Level]) // Next upper level section
+		    {
+			counter[[Category]] = counter[[Category]]{0..[Level]-1};
+		    }
+
+		    if (counter[[Category]]{} == [Level]) // Next section at same level
+		    {
+			counter[[Category]]{-1}+= 1; // Increment
+		    }
+		    else
+		    {
+			counter[[Category]] += { [Level]-counter[[Category]]{} : 1 };
+		    }
+		}
+
+		[Section Nr] = [Category]{0} + " " + join( counter[[Category]], "." );
+
+	} );
+
+}
+
+define procedure ( create navigator from revolving TOC )
+{
+	table initialize( navigator, { { "<ul>", Level } } );
+	level[] = 1; // Initial level
+
+	table process ( RTOC, 
+		next level[] = select if( [Level]=='', 1, [Level] );
+		while (next level[] < level[])  { table append( navigator, {{ "</ul></li>", level[]-- }} );  }
+		while (next level[] > level[])  { table append( navigator, {{ '<li class="navi"><ul>',   ++level[] }} );  }
+		if ([HTML File Name] != '')
+		{
+			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><span>' + right([Section Nr],' ') + " " + [Section Name] + " </span></a></li>", level[] } } );
+		}
+		else
+		{
+			table append( navigator, { { '<li class="navi"><span>' + right([Section Nr],' ') + " " + [Section Name] + " </span></li>", level[] } } );
+		} );
+	while (1 < level[])  { table append( navigator, { "</ul></li>" } ); level[]--; } // Close all nested itemizations
+
+	table append( navigator, { "</ul>" } );
+	table save ( navigator, "Navigator.csv"  );
+}	
+
+
+
+define procedure ( create index from revolving TOC )
+{
+	table initialize( INDEX, { { Keywords, Attribute, HTML File Name } } ); // Attribute not yet used
+	table process ( RTOC,
+		keywords[] = parameter set( [Keywords] ) + parameter set( [Feature Names] ) ;
+		for all parameters ( keywords[], keyword[] )
+		{
+			table append( INDEX, {{ keyword[], "", [HTML File Name] }} );
+		} );
+
+	table sort rows ( INDEX, Keywords, alphabetic ignore case);
+	table save ( INDEX, "Keyword Index.csv" );
+}
+
+
+
+
+define function( gather all file names )
+{
+	for all variables( inputs[], member[] ) input files[] += search files( member[]  );
+	return ( input files[]);
+}
+
+
+define procedure( collect json docu sequences )
+{
+	echo(new line, "Collect JSON document sequences from specified files", new line );
+	table initialize( json extract, { "", "{" } ); // Blank header row is OK
+	json active[]= false;
+
+	convenient mode[] = 0; // 0 = Not yet effective, >0 = effective with line counter
+
+	for all parameters( gather all file names(), file name[] ) // Capture all JSON codes
+	{
+	    echo( "  Scan ", file name[] );
+	    table load( code, file name[], TEXT );
+	    table process( code, 
+		if ( [0]='*B4PDOCU.STOP*' )
+		{
+		    json active[] = false;
+		    table append ( json extract, {","} ); // Expect further items
+		}
+		else: if ( [0]='*B4PDOCU.START*')
+		{
+		    json active[] = true;
+		}
+		else: if (json active[])
+		{
+		    if ( [0]='*::' ) // Convenient descriptor detected
+		    {
+			if (convenient mode[] > 0) // Mode already effective
+			{
+			    table append on same field( json extract, " ]," );
+			}
+			convenient mode[] = 1;
+			table append( json extract, { left(trim([0]),-2) + ' : [' } ); // Open array
+			continue;
+		    }
+
+		    if (convenient mode[] > 0)
+		    {
+			st[] = [0];
+			if (trim(st[])='+++*') // Convenient description ends here (closing symbol at beginning of line )
+			{
+			    table append  ( json extract, { ' ]', st[] - '+++'} );
+			    convenient mode[] = 0;
+			}
+			else
+			{
+			    if (convenient mode[]++ > 1) table append on same field ( json extract, ',' );
+			    substitute all( st[], {'\', '"'}, {'\\', '\"' } );
+			    table append( json extract, { '"' + st[] + '"' } );
+			}
+		    }
+		    else
+		    {
+		        table append( json extract, {[0]} );
+		    }
+
+		} );
+	}
+
+	[ json extract : 0, -1 ] = "}"; // Last row: Replace final comma by closing braces
+	table save( json extract, file[ collected contents json ], new line ); // Save the JSON code
+
+}
+
+
+
+define procedure( load them )
+{
+	global { docu[] = {}; } // Force this variable name to be global
+	variable load( docu[], file[ collected contents json ], JSON ); // Load the JSON code into variable structure
+
+}
+
+
+table initialize ( table of general descriptors,
+	{ {	"Name",				"Required",	"Variable",	"Todo",		"Values"		},	
+	//	-------------------		-------------	-------------	-------------   ----------------------------------	
+	  {	"Documentation",		Yes,		simple,		"identify"},
+// Hidden {	"Feature Names",		Yes,		"simple,array",	"list,comma break,monospace"},
+	  {	"Feature Names",		Yes,		"simple,array",	""},
+// Hidden {	"Keywords",			No,		"simple,array",	"list,comma break"},
+	  {	"Keywords",			No,		"simple,array",	""},
+	  {	"Library",			No,		simple,		"list,comma break"},
+	  {	"Version",			No,		simple,		"append"},
+	  {	"Description 01",		Yes,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 01",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 01",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 02",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 02",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 02",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 03",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 03",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 03",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 04",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 04",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 04",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 05",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 05",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 05",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 06",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 06",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 06",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 07",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 07",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 07",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 08",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 08",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 08",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 09",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 09",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 09",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Description 10",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples 10",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output 10",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"Restrictions",			No,		"simple,array",	"list,line break,html"},
+	  {	"OS differences",		No,		"simple,array",	"text,html"},
+	  {	"Exceptions",			No,		"simple,array",	"text,line break,html"},
+	  {	"See also",			No,		"simple,array",	"list,line break,link keywords"},
+	  {	"Notes",			No,		"simple,array",	"text,html"} } );
+
+
+table initialize ( table of function descriptors,
+	{ {	"Name",				"Required",	"Variable",	"Todo",		"Values"		},	
+	//	-------------------		-------------	-------------	-------------   ----------------------------------	
+	  {	"Documentation",		Yes,		simple,		"identify"},
+	  {	"Function Names",		Yes,		"simple,array",	"list,comma break,monospace"},
+	  {	"Keywords",			No,		"simple,array",	""},
+	  {	"Library",			No,		simple,		"list,comma break"},
+	  {	"Synopsis",			No,		"simple,array",	"list,line break,html,monospace"},
+	  {	"Version",			No,		simple,		"append"},
+	  {	"Description",			Yes,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Call as",			Yes,		simple,		"append","procedure,function,procedure or function" },
+	  {	"Restrictions",			No,		"simple,array",	"list,html,line break,link embedded keywords"},
+	  {	"OS differences",		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Parameter count",		Yes,		simple,		"append"},
+	  {	"Parameters",			No,		array,		"parameters"},
+	  {	"Return value",			No,		array,		"return values"},
+	  {	"Exceptions",			No,		"simple,array",	"list,html,line break"},
+	  {	"Examples",			No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output",			No,		"simple,array",	"list,line break,monospace,output"},
+	  {	"See also",			No,		"simple,array",	"list,line break,link keywords"},
+	  {	"Notes",			No,		"simple,array",	"text,html"} } );
+
+
+supported types checked[] = 
+
+	"all types," +
+	"valid types," +
+	"boolean," +
+	"numeral," +
+	"numeral or literal," +
+	"numeral or literal or date," +
+	"table column," +
+	"table columns," +
+	"date," +
+	"literal," +
+	"blank literal," +
+	"parameter set," +
+	"parameter set containing numerals," +
+	"parameter set containing literals," +
+	"parameter set containing dates," +
+	"parameter set or literal," +
+	"matrix,matrix of numerals," +
+	"variable," +
+	"comparison expression," +
+	"expression," +
+	"statements," +
+	":literal," +
+	"parameter set of numerals," +
+	"numerals or literals," +
+	"date or literal converted to date";
+
+
+table initialize ( table of parameter descriptors,
+	{ {	"Name",				"Required",	"Variable",	"Todo",		"Values"		},	
+	//	-------------------		-------------	-------------	-------------   ----------------------------------	
+	  {	"Number",			Yes,		simple,		"list" },
+	  {	"Types",			Yes,		"simple,array",	"list,line break", supported types checked[] },
+	  {	"Name",				Yes,		simple,		"list"	},
+	  {	"Direction",			Yes,		simple,		"list", 	"input,output,io,reference,code" },
+	  {	"Description",			Yes,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Default value",		No,		"simple",	"list" } } );
+	
+
+// Derive the table for return values (subset of 'table of table descriptions'
+
+table copy table 		( table of parameter descriptors, table of return value descriptors );
+table keep selected rows	( table of return value descriptors, [Name] = Name, Types, Description );
+
+
+
+
+define procedure( check descriptions, { {name, literal}, { item, all, reference }, {descriptor table, literal } } )
+{
+
+    echo(new line, "Check: ", name[] );
+    descriptors[] = set names( item[], 1, all );
+    for all parameters( descriptors[], value[], index[])
+    {
+	if (value[] = 'Description ## *')
+	{
+	    descriptors[]{index[]} = left( value[], 14 ); // Keep 'Description ##' only
+	    echo("Truncated: ", descriptors[]{index[]} );
+	}
+    }
+
+    redundant descriptors[] = descriptors[] - [descriptor table[]:Name,..];
+    if (redundant descriptors[] <> {} ) 
+	throw( "Entry '" + name[] + "'" + new line + "has following redundant descriptors:" + new line + join( redundant descriptors[], "," ) );
+
+    required descriptors[] 	= [descriptor table[]:Required,:Yes,Name];
+    missing descriptors[]	= required descriptors[] - descriptors[];
+    if (missing descriptors[] <> {})
+	throw( "Entry '" + name[] + "'" + new line + "has missing following required descriptors:" + new line + join( missing descriptors[], "," ) );
+
+   for all variables( item[], value[], counter[], var_name[] )
+   {
+//	echo( var_name[] );
+	id[] = identify( item[counter[]] );
+
+        var_name_short[] = select if((var_name[] = 'Description ## *'),  left( var_name[], 14 ), var_name[] ); // Keep 'Description ##' only
+
+
+	if ( id[] <> softquoted literal([descriptor table[]: Name, var_name_short[], Variable ]) )
+	    throw( "Entry '" + name[] + "'" + new line + "Descriptor '" + var_name[] 
+		+ "'" + new line + "is of type '" + id[] + "' while expecting one of: " + [descriptor table[]: Name, var_name_short[], Variable ] );
+
+	valid values[] = softquoted literal([descriptor table[]: Name, var_name_short[], Values ]);
+	if (valid values[] = '') valid values[] = '*';
+	begin of message[] = "Entry '" + name[] + "'" + new line + "Descriptor '" + var_name[] + "'" + new line;
+
+	if (var_name[] <> Parameters,Return value)
+	{
+
+	    if (id[] == simple) // Check that simple values are literals
+	    {
+		if (type(item[counter[]]) = void )	
+		   throw( begin of message[] + "contains no data.");
+
+		item[counter[],Text] = item[counter[]]; // Move simple contents to member variables so all contents are in member variables
+		item[counter[]] = 0;
+	    }
+
+	    for all variables ( item[counter[]], tmp[], index[] ) // Check that all array members are literals
+	    {
+		subitem[] =^ item[counter[], index[]];
+		if (type( subitem[] ) != literal)
+		    throw( begin of message[] + literal(index[]+1) + ". Value: '"  + literal(subitem[]) + "' is of data type '" + type(subitem[]) + "' while expecting 'literal'.");
+
+		if (subitem[] <> valid values[])
+		    throw( begin of message[] + literal(index[]+1) + ". Value: '" + subitem[]          + "' is not one of:  " + [descriptor table[]: Name, var_name[], Values]);
+
+	    }
+	}
+    }
+}
+
+
+define procedure( check all descriptions )
+{
+	titles[]= set names( docu[], 1, all );
+	echo( "Identified following descriptions:", new line, join( titles[], "    ", new line + "    ")  );
+
+	for all variables( docu[], value[], counter[], name[] )
+	{
+	    id[] = identify( docu[ name[], Documentation ] );
+	    if (id[] <> simple) throw ( "Entry '" + name[] + "'" + new line + "Identifier 'Documentation' not defined. ");
+
+	    item[] =^ docu[ name[] ]; // Refers to one function description
+
+	    if ( item [ Documentation ] == "Function Description" )
+	    {
+		check descriptions( name[], item[], table of function descriptors );
+		for all parameters( {Parameters, Return value}, keyword[] )
+		{
+		    for all variables if existing( item[keyword[]], value[], para_counter[] ) // Loop through parameters
+		    {
+		        parameter[] =^ item[keyword[], para_counter[]];
+		        check descriptions( literal(para_counter[]+1) + ". " + keyword[], parameter[], select if ( keyword[]==Parameters, table of parameter descriptors, table of return value descriptors ) );
+		    }
+		}
+	    }
+	    else: if ( item [ Documentation ] == "General Description" )
+	    {
+		check descriptions( name[], item[], table of general descriptors );
+	    }
+	}
+}
+
+
+
+define function( run example program, { { program table, literal } } )
+{
+	table save	( program table[], "Example_Program.b4p", new line );
+	echo		( "    Run an example program.  If no reaction, then look at Example_Program.b4p", new line, "    and run on its own.  Here: Type 'exit' to contineue");
+	system		( quote path(system info[bin directory] + system info[directory separator] + B4P) + " -wx Example_Program.b4p > Example_Out.txt" );
+	echo		( "    Done running.");
+	table load	( example output, Example_Out.txt, TEXT );
+	return 		( join([example output:0,], new line) ); // Return output as one string.
+}
+
+
+
+
+define procedure( apply HTML links on keywords, { { text, all, reference } } )
+{
+	for all variables( text[], line[], i[] )
+	{
+		row[] = table search row ( INDEX, [Keywords]=+literal(line[]) );
+		with table (INDEX, row[])
+		{
+			if (row[] >= 0) // Found
+			{
+			    text[i[]] = '<a href="' + [HTML File Name] + '">' + line[] + '</a>';
+			}
+			else
+			{
+			    text[i[]] = '<span class="red_text">' + line[] + '</span>';
+			}
+
+		}
+	}
+}
+
+
+
+define procedure( apply HTML links on embedded keywords, { { text, all, reference } } )
+{
+	for all variables( text[], line[], i[] )
+	{
+		while ( text[i[]] = '*__*__*')
+		{
+		    item[] = middle ( text[i[]], '__', '__' );
+		    is function[] = item[] = '*('; // If ending with open parentheses, then this one is a function name
+
+
+		    pure item[] = item[] - '('; // Remove the open parentheses
+
+		    row[]  = pick if( is function[], 
+				table search row ( INDEX, ([Keywords]=+literal(pure item[])) & ([HTML File Name]='Function*') ),  
+				table search row ( INDEX, ([Keywords]=+literal(pure item[])) ) );
+
+		    with table (INDEX, row[])
+		    {
+			if (row[] >= 0) // Found
+			{
+			    new item[] = '<a ' + select if( is function[], 'class="bold_text"','')  + ' href="' + [HTML File Name] + '">' + pure item[] + '</a>';
+			}
+			else
+			{
+			    new item[] = '<span class="red_text">' + pure item[] + '</span>';
+			}
+			if (is function[]) new item[] += '(';
+		    }
+		    substitute( text[i[]], "__" + item[] + "__", new item[] );
+
+
+
+		}
+	}
+}
+
+
+define procedure( convert manuscript itemizations into HTML, { { text, all, reference } } ) // Converts * xxx and ** xxx markdowns to 2-level bullet itemization
+{
+	level[] = 0; // 0 = No itemization
+	prev[] = 0;
+	for all variables( text[], line[], i[] )
+	{
+		line[] = trim(line[]);
+		if (line[]{0..2} == "** ") level[]= 2;
+		else: level[]= select if (line[]{0..1} == "* ", 1, 0);
+
+		switch( level[] )
+		{
+		    case (0)
+		    {
+			prefix[] = select( prev[], "", 		"</ul><p>", 	"</ul></li></ul><p>" );
+			text[i[]] = prefix[] + line[];
+		    }
+		    case (1)
+		    {
+			prefix[] = select( prev[], '</p><ul class="bullets">', 	"", 		"</ul></li>" );
+			text[i[]]  = prefix[] + '<li class="bullets">' + (line[]-"* ") + "</li>";
+		    }
+		    case (2)
+		    {
+			prefix[] = select( prev[], '</p><ul class="bullets"><li class="bullets"><ul class="bullets">', '<li class="bullets"><ul class="bullets">', 	"" );
+			text[i[]]  = prefix[] + '<li class="bullets">' + (line[]-"** ") + "</li>";
+		    }
+		}
+		prev[] = level[];
+	}
+}
+
+
+
+
+define procedure( convert manuscript tables into HTML, { { text, all, reference } } )
+{
+	table state[] = idle; // Shall take values idle, th, td  (th = table header, td = table details, bot used as HTML markups)
+	for all variables( text[], line[], i[] )
+	{
+		if (line[]='*===*')
+		{
+		    if (table state[]=idle)
+		    {
+			widths[] = parameter set( right(line[],'===') ); // Pick up widths
+			table id[] = '';
+			table state[] = th;
+			text[i[]] = '';
+			table width[] = 0;
+			for all parameters( widths[], w[] )
+			{
+			    if (numeral( w[] ) != 0)
+			    {
+				table width[] += w[];
+				text[i[]] += '<col style = "width:' + literal(w[]) + 'px">';   
+			    }
+			    else: if (trim(w[]) == 'noheader')
+			    {
+				table state[] = td;
+			    }
+			    else
+			    {
+				table id[] = ' class="' + w[] + '"';
+			    }
+			}
+			if (table width[]>0)
+			{
+				table id[] += ' style = "width:' + literal(table width[]) + 'px"';
+				if (table width[] > 1000) pause("Attention: Summed width is ", table width[], " and greater than 1000 pixel");
+			}
+			text[i[]] = "</p><table" + table id[] + ">" + text[i[]];
+
+//		        echo("    Did: ", text[i[]] );
+		    }
+		    else
+		    {
+			text[i[]] = "</table><p>";
+			table state[] = idle;
+//		        echo("    Did: ", text[i[]] );
+		    }
+		}
+		else: if (table state[] <> idle)
+		{
+		    text[i[]] = "<tr>";
+		    do
+		    {
+			segment[] 	= left	(line[],'|');
+			next[] 		= find	(line[],'|');
+			line[] 		= right	(line[],'|');
+			text[i[]] += "<" + table state[] + ">" + segment[] + "</" + table state[] + ">";
+		    }
+		    while (next[] >= 0);
+		    text[i[]] += "</tr>";
+		    table state[]  = td;
+//		    echo("    Did: ", text[i[]] );
+		}
+	}
+}
+
+
+
+
+define procedure ( create function description in HTML, { { item, all, reference }, { HTML out, literal }, { content type, literal } } )
+{
+    table name[] = select if ( content type[] == "Function Names", table of function descriptors, table of general descriptors );
+    table create( example program ); // Make sure this table is empty
+
+
+    for all table rows(  table name[], Name, name[] )
+    {
+	description title[] = '';
+	full name[] = name[];	// Standard name + text name
+	text name[] = name[];	// Text only
+
+	if ( name[] = 'Description ##')
+	{
+	    full name[] = filter( set names( item[], 1, all ), softquoted literal(name[]+' *') );
+	    if (full name[] == {})  continue loop;
+	    full name[] = full name[]{0};
+	    text name[] = full name[] - name[] - ' ';
+	}
+	else
+	{
+	    if (!existing( item[name[]] )) continue loop;
+	}
+
+	echo("  ", full name[] );
+	check( [Todo] )
+	{
+
+	    case ( '*append*' )
+	    {
+		table append( HTML out[], { "<h4> " + text name[] + ": " + '<span class="black_text">' + join( set( item[full name[]], 1 ),", ") + "</span></h4>" } );
+	    }
+
+	    case ( '*list*,*text*,*parameters*,*return values*' )
+	    {
+		if (name[]='Examples ##','Output ##')	table append( HTML out[], { "<h5> " + left(text name[],' ') + ":</h5>" } );
+		else:					table append( HTML out[], { "<h4> " + text name[] + "</h4>" } );
+	    }
+
+	    case ( '*parameter*' )
+	    {
+		param list[] =^ item[[Name]];
+		table append( HTML out[], { '<table class="simple"><col style = "width:80px"><col style = "width:120px"><col style = "width:800px"><tr><th>No.</th><th>Type</th><th>Description</th></tr>' } );
+		for all variables( param list[], dummy value[], index[])
+		{
+			param[] =^ param list[index[]]; 
+			convert manuscript itemizations into HTML( param[Description] );
+			convert manuscript tables into HTML( param[Description] );
+			apply HTML links on embedded keywords( param[Description] );
+
+			table append( HTML out[], 
+				{ "<tr><td>" + param[Number,0] + "<br/>" + param[Direction,0] + "</td>",
+				  "<td>" + join( set( param[Types], 1 ),"<br/>") + "</td>",
+				  "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( set( param[Description], 1 ),new line) + "</p>" } );
+			if (existing( param[Default value]))
+			    table append( HTML out[], { '<span class="black_text"><b> Default value: </b></span>' + param[Default value,0]  } );
+			table append( HTML out[], { "</td></tr>" } );
+		}
+
+		table append( HTML out[], { "</table>" } );
+	    }
+
+	    case ( '*return values*' )
+	    {
+		param list[] =^ item[[Name]];
+		table append( HTML out[], { '<table class="simple"><col style = "width:120px"><col style = "width:880px"><tr><th>Type</th><th>Description</th></tr>' } );
+		for all variables( param list[], dummy value[], index[])
+		{
+			param[] =^ param list[index[]]; 
+			table append( HTML out[], 
+				{ "<tr>", "<td>" + join( set( param[Types], 1 ),"<br/>") + "</td>",
+			          "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( set( param[Description], 1 ),new line) + "</p></td></tr>" } );
+		}
+
+		table append( HTML out[], { "</table>" } );
+	    }
+	    case ('*code*')
+	    {
+		table create( example program );
+	    }
+
+	    case ( '*link keywords*' )		apply HTML links on keywords( item[full name[]] );
+
+	    case ( '*link embedded keywords*' )
+	    {
+		apply HTML links on embedded keywords( item[full name[]] );
+	    }
+
+	    case ( '*list*' )
+	    {
+		if ([Todo]='*monospace*')
+		{
+		    payloads[] <== item[full name[]]; // Pick up all values into variable payloads;
+		    for all variables( payloads[], value[], index[] )
+		    {
+		        if ([Todo]='*code*') table append( example program, { payloads[index[]] } ); // Record the example program in case of running it
+
+		        if ([Todo]='*code*','*output*') // Output example
+		        {
+			    substitute all( payloads[index[]], {"&","<",">","\","  "}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;" } );
+		        }
+
+			if ( ([Todo]='*output*') & (trim(value[])=automatic) )
+			{
+				payloads[index[]] = run example program( example program );
+			        substitute all( payloads[index[]], {"&","<",">","\","  ",new line}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;","<br/>" + new line } );
+			}
+		    }	
+		    payload[] = join ( set (payloads[] , 1), "<code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code>" );
+		    table append( HTML out[], { payload[] } );
+		}
+		else
+		{
+		    table append( HTML out[], { join ( set (item[full name[]] , 1), "<p>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</p>" ) } );
+		}
+	    }
+
+	    case( '*html*' )
+	    {
+		convert manuscript itemizations into HTML( item[full name[]] );
+		convert manuscript tables into HTML( item[full name[]] );
+	    }
+
+	    case ( '*text*' )
+	    {
+		table append( HTML out[], { join ( set (item[full name[]] , 1), "<p>", new line, "</p>" ) } );
+	    }
+
+
+	}
+    }
+}
+
+
+
+define procedure ( create all general and function descriptions in HTML )
+{
+
+	for all variables( docu[], value[], counter[], name[] )
+	{
+	    // Identify a file name
+	    echo(new line, "Generate HTML for: ", name[] );
+
+	    item[] =^ docu[ name[] ]; // Refers to one function description
+
+	    for all parameters( { Function Names, Feature Names }, content type[] )
+	    {
+		if (existing( item[content type[],0] )) break;
+	    }		
+	    if ( !existing(content type[]) ) throw ( "Identified neither function nore feature names" );
+
+	    if (content type[] == Function Names)
+	    {
+		plain file name[]= "Function_" + replace all( item[Function Names,0], " ", "_" ) + ".html";
+	    }
+	    else
+	    {
+		plain file name[]= "Features_" + replace all( item[Feature Names,0], " ", "_" ) + ".html";
+	    }
+	    file name[] = destination[] + plain file name[];
+
+
+	    table create( HTML function description );
+	    create function description in HTML( item[], HTML function description, content type[] );
+	    table load ( HTML template, "HTML Template.txt", TEXT );
+	    if (file existing("Navigator.csv"))	 
+	    {
+		   table load ( HTML navigator, "Navigator.csv" );
+	    }
+	    else:  	table initialize( HTML navigator, { { "<ul>", Level } } );
+
+	    [HTML navigator:2,0] = "Action"; // Hide or blank
+
+
+	    applicable row[] = table search row( HTML navigator, ["<ul>"] = '*"' + softquoted literal(plain file name[]) + '"*' );
+
+	    if ( [HTML navigator:"<ul>",applicable row[] ] = '*Table of Contents*' ) applicable row[]= -1; // Skip on table of contents
+
+	    if (applicable row[] > 0) // From applicable row to top: Mark all items at same level (local only) and superior levels visible
+	    {
+		level[] = [HTML navigator:Level,applicable row[]];
+		prev action[] = '';
+		for (i[] = applicable row[], i[]>0, i[]--) with table( HTML navigator, i[] )
+		{
+		    if (([Level] > level[]) & ([Level]>2)) // Identified deeper places. Hide them.  But show level 1 and level 2 sections
+		    {
+			[Action] = Hide; 
+			prev action[] = Hide;
+		    }  
+		    else
+		    {
+			if (prev action[] == Hide)
+			{
+			    substitute( ["<ul>"], "<span>", "<span>+ " ); // Add a plus sign
+			}
+			prev action[] = '';
+			if ([Level] < level[]) level[] = [Level]; // Step up
+		    }
+		}
+
+		level[] = [HTML navigator:Level,applicable row[]]+1;
+		for (i[] = applicable row[]+1, i[]<table length(HTML navigator), i[]++) with table( HTML navigator, i[] )
+		{
+		    if (([Level] > level[]) & ([Level]>2)) // Identified deeper places. Hide them.  But show level 1 and level 2 sections
+		    {
+			if (prev action[] != Hide)
+			{
+			    substitute( ["<ul>",i[]-1], "<span>", "<span>+ " ); // Add a plus sign in the row above
+			}
+			[Action] = Hide; 
+			prev action[] = Hide;
+		    }  
+		    else
+		    {
+			prev action[] = '';
+			if ([Level] < level[]) level[] = [Level]; // Step up
+		    }
+		}
+	    }
+
+	    table delete selected rows( HTML navigator, [Action]==Hide );
+
+//		table save( HTML navigator, test.csv );
+//		echo("Row checked was: ", applicable row[] );
+//		interactive;
+
+//
+
+	    table process	( HTML template,
+		switch( [0] )
+		{
+		    case ('*$Header$*')
+		    {
+			[0] = "<h3>" + name[] + "</h3>";
+		    }
+
+		    case ('*$Body$*')
+		    {
+			[0..] = [HTML function description:0,];
+		    }
+
+		    case ('*$Navigation$*')
+		    {
+			[0..] = [HTML navigator:0,];
+		    }
+
+		} );
+
+	    table save( HTML template, file name[], new line );
+
+	    update revolving TOC( name[], item[], plain file name[] );
+
+
+	}
+
+}
+
+
+
+{	// Main program part
+
+	load revolving TOC;
+	table load ( INDEX, "Keyword Index.csv" );
+
+	collect json docu sequences;
+	load them;
+	check all descriptions;
+	create all general and function descriptions in HTML;
+
+	sequence revolving TOC;
+	create index from revolving TOC;
+	create navigator from revolving TOC;
+	table save( RTOC, "Revolving TOC " + literal( date(now), "YYYY-MM-DD HH.II.SS" ) + ".csv" );
+	table save( RTOC, destination[] + "TOC.csv" );
+
+	directory delete recursive all( destination[] + Images );
+	sleep(0.3);
+	file copy recursive( ".\Images", destination[]+"Images", "*.*" );
+
+	file copy overwrite ( styles.css, destination[] + styles.css ); // Style sheet
+	file copy overwrite ( destination[] + Features_Table_of_Contents.html, destination[] + index.html );
+}
+
+
+
+catch ( msg[] ) // Exception handling
+{
+	substitute all ( msg[], new line, new line + "    ");
+	echo( new line, "*** Error: ", msg[], new line );
+	exit;
+
+}
+

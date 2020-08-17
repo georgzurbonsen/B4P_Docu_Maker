@@ -1,0 +1,50 @@
+//
+B4PDOCU.START
+
+  "Comments" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "comments" ],
+    "Keywords":			[ "comments" ],
+    "Description 01 Introduction to Comments"::
+	Documenting comments is very similar as in C/C++. The language supports following comment symbols:
+
+
+	=== 120, 120, 480, simple
+	Types		| Examples | Description
+	Line comment	| // | Comment starting with double slashes and effective until end of line. The symbols for comment blocks /* and */ are ignored inside line comments.
+	Comment block	| /* ... */ | Commented code section. <br/>/* begins commented section<br/>*/ ends commented sections<br/>Commented section is not ended prematurely with line comments.<br/>Nested comments are not supported, e.g. /* … /* … */ … */
+	===
+
+	You may wonder why obvious names such as 'if', 'while' and 'for' are not considered as similar reserved keywords.  In Beyond4P, the control flow statements
+	are actually procedure names which then influence executing further statements or blocks.  Therefore, you can actually use 'if' as the given function.
+	+++,
+    "Examples 01"::
+	// This is a commment
+	// Bla Bla /* Bla Bla
+	echo( This statement is outside a comment block );
+	// Bla Bla */ Bla Bla
+	+++,
+    "Output 01":		"automatic",
+
+    "Description 02 Github Markdown files"::
+	Beyond4P <i>understands</i> markdown files (with filenames ending '.md') where it only executes code lines which inside the code blocks.  All other contents
+	outside the code blocks are treated like comments.  Code blocks must be delimited with three accent-grave symbols ```. Multiple such code blocks in one
+	markdown file are supported.  Presently, Beyond4P does not check for possible text such as language names after these symbols, e.g  <b>```beyond4p</b>.
+
+    "Examples 02"::
+	# This is a markdown header
+	And some text to describe it
+	```program code
+	echo( This statement is inside a code block );
+	```
+	# This is the next header
+
+	+++,
+    "Output 02":		"This statement is inside a block"
+
+
+  }
+
+
+B4PDOCU.STOP

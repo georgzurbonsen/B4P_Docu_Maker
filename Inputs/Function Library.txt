@@ -1,0 +1,593 @@
+//
+B4PDOCU.START
+
+  "Function Library" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function Library" ],
+    "Keywords":			[ "function library" ],
+    "Description 01 Introduction to Function Library"::
+
+	Beyond4P provides a large and comprehenisve library of different functions.¨
+	Use the navigator bar to deep-dive into them.
+
+
+	+++
+   },
+
+  "Control Flow Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Control Flow Functions" ],
+    "Keywords":			[ "Control Flow Functions" ],
+    "Description 01 Introduction to Control Flow Functions"::
+
+	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.
+	In contrast to other programming languages, trivial features such as the __if(__) statement is actually
+	a Beyond4P function which influences execution the next statement or block.
+
+	<br><br>
+
+	In case you miss the <b>goto</b> statement, there is a good reason for this.  The highly structured
+	Beyond4P interpreter would have faced risky challenge if that statement would have been impleemented.
+
+	+++
+   },
+
+  "Loops" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loops" ],
+    "Keywords":			[ "Loops" ],
+    "Description 01 Introduction into Loops"::
+
+	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all
+	common programming languages.  In addition, various <b>for all...</b> loops are available to work through
+	tables and/or parameter sets.
+
+	+++
+   },
+
+
+  "Branches" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Branches" ],
+    "Keywords":			[ "Branches" ],
+    "Description 01 Introduction into Branches"::
+
+	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.
+
+	+++
+   },
+
+
+
+  "Other Control Flow Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Other Control Flow Functions" ],
+    "Keywords":			[ "Other Control Flow Functions" ],
+    "Description 01 Other Control Flow Functions"::
+
+	Inclcudes: __with table(__) to provide a context allowing partial table references.
+
+	+++
+   },
+
+
+
+  "User-Defined Procedures and Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User Defined Procedures and Functiions" ],
+    "Keywords":			[ "User-defined procedures and functions", "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
+    "Description 01 User-Defined Procedures and Functions"::
+
+	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
+	Procedures are defined as functions which do not provide a return value and must be called as a procedure.
+	Functions are defined to always provide return values and must be called as functions where the return value must be used further.
+	A combination of both is allowed which provides flexibility to use defined code either as a procedure or function.
+
+	<br><br>
+	Additional function names may be defined for the same user code.  In this case, the local variable <b>function name[]</b> will be
+	available to identify the function name used.
+
+
+	<br><br>
+	Inside the user-defined procedures and functions, following local variables are available, but cannot be deleted using __delete(__) function:
+
+	=== 300, 700, bold_column_1
+	Name of local variable | Description
+	function name[] | Name of called function.  This is insofar useful if __additional function names__ have been defined for the same code
+	<i>parameter name</i>[] | Name of parameter provided.  Example: <b>hello[]</b> is defined if one of the parameters is called <b>hello</b>.
+	parameter <i>n</i>[] | Numbered parameter provided.  If the number of parameter is not limited, then all remaining parameters are numbered, with 1 as 1st parameter.
+	parameter count[] | Contains the number of parameters passed.  This is useful if the defined function allows for flexibility regarding number of parameters passed.
+	===
+
+	+++
+   },
+
+
+  "Start or include Beyond4P Programs" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Start or include Beyond4P Programs" ],
+    "Keywords":			[ "start programs", "include programs" ],
+    "Description 01 Introduction"::
+
+	Beyond4P provides __start(__) to start other Beyond4P programs.  Execution of this calling program continues when the Beyond4P program has ended.
+	The __include(__) behaves similarly like __start(__), but memorizes the loaded program including the defined functions.  This features is useful
+	to define and include user specific function libraries which can be re-used in different Beyond4P programs.
+
+	+++
+   },
+
+
+
+  "Type Conversion and Formatting Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Type Conversion Functions" ],
+    "Keywords":			[ "type conversion" ],
+    "Description 01 Type Conversion Functions and Formatting Functions"::
+
+	A set of functions are available to convert data in one type (e.g. __literals__) into other types (e.g. __dates__ and __numerals__).
+	Converting values to __literal__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
+	in a desirable format.
+
+	+++
+   },
+
+
+
+
+  "Mathematics and Statistics" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Mathematics and Statistics" ],
+    "Keywords":			[ "mathematics and statistics" ],
+    "Description 01 Mathematics and Statistics Functions"::
+
+	Beyond4P provides a broad range of advanced mathematics and statistics functions.
+
+	+++
+   },
+
+
+
+  "Basic Math Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "basic math functions" ],
+    "Keywords":			[ "basic math functions" ],
+    "Description 01 Basic Math Functions"::
+
+	Beyond4P provides various functions to check numeric values and carry out basic mathematis functions.
+
+	+++
+   },
+
+
+ "Transcendental Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "transcendental functions" ],
+    "Keywords":			[ "transcendental functions" ],
+    "Description 01 Transcendental Functions"::
+
+	Transcendental functions include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions.
+
+	+++
+   },
+
+
+
+ "Series Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "series functions" ],
+    "Keywords":			[ "series functions" ],
+    "Description 01 Series Functions"::
+
+	This section covers all functions which can process value series of variable sizes.
+
+	+++
+   },	
+
+"Matrix Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "matrix functions" ],
+    "Keywords":			[ "matrix functions" ],
+    "Description 01 Matrix Functions"::
+
+	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
+	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
+
+	Example: <b>{{ 1, 2, 3 }, { 4, 5, 6 }}</b> is a matrix consisting of 2 rows and 3 columns:<br><br>
+
+	| 1  2  3 |<br>
+	| 4  5  6 |<br>
+
+	<br>
+
+	These matrix functions are a supplement to __matrix arithmetics__ which make use of so called __deep operators__.
+	You won't find a matrix addition function (like <i>madd(a[],b[])</i>) because it is realized with <b>a[] +^^ b[]</b>.
+
+	<br><br>
+
+	In addition to Matrix Functions which are part of the mathematical function library, __Matrix Manipulations__ provide additional
+	matrix functions where the contents may be of any data type.  These functions do not apply any arithmetics on the values.
+
+
+	+++
+   },	
+
+ "Statistics Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "statistics functions" ],
+    "Keywords":			[ "statistics functions" ],
+    "Description 01 Statistics Functions"::
+
+	This section covers all statistics functions.
+
+	+++
+  },
+
+
+
+ "Finance and Business Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "finance functions" ],
+    "Keywords":			[ "finance functions", "business functions" ],
+    "Description 01 Number Introduction to Finance and Business Functions"::
+
+	This section various functions needed for financial calculations, business and capacity planning.
+
+	+++
+  },
+
+
+
+
+ "Parameter Set Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "parameter set functions" ],
+    "Keywords":			[ "parameter set functions" ],
+    "Description 01 Parameter Set Functions"::
+
+	This section describes various functions used to process or check parameter sets.
+	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, 
+	__statistics functions__ and __conditional combination functions__.
+
+	+++
+  },
+
+
+
+"Set Search and Extraction Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "parameter set search and extraction" ],
+    "Keywords":			[ "parameter set search functions", "parameter set extraction functions" ],
+    "Description 01 Introduction to Parameter Set Search and Extraction Functions"::
+
+	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.
+
+	+++
+  },
+
+
+
+ "Matrix Manipulation Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "matrix manipulation functions" ],
+    "Keywords":			[ "matrix manipulation functions", "matrix manipulations" ],
+    "Description 01 Introduction to Matrix Manipulation Functions"::
+
+	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
+	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
+
+	Example: <b>{{ 1, A, 3 }, { B, 5, F }}</b> is a matrix consisting of 2 rows and 3 columns:<br><br>
+
+	| 1  A  3 |<br>
+	| B  5  F |<br>
+
+	<br>
+
+	In addition to these functions, a different section called __Matrix Functions__ provide arithmetic functions on matrixes containing
+	numerals, for example matrix multiplication, inversion and calculating determinants.
+
+	+++
+  },
+
+
+
+"Date and Time Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "date and time functions" ],
+    "Description 01 Introduction to Date Functions"::
+
+
+	Beyond4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.
+
+	The sections are:
+	* __Date functions__
+	* __Time functions__
+	* __Stopwatch functions__
+
+	The following important date functions are found in the section __Type Conversion Functions__ and connvert data of other types, e.g. __literals__, to __dates__.:
+	* __date(__)
+	* __pure date(__)
+	* __date time(__)
+	* __time(__)
+	* __pure time(__)
+
+	+++
+  },
+
+"Date Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "date functions" ],
+    "Description 01 Introduction to Date, Time and Stopwatch Functions"::
+
+
+	Beyond4P provides some powerful functions to process date .
+
+	<br><br>
+
+	The following important date functions are found in the section __Type Conversion Functions__ and connvert data of other types, e.g. __literals__, to __dates__.:
+	* __date(__)
+	* __pure date(__)
+	* __date time(__)
+	* __time(__)
+	* __pure time(__)
+
+	+++
+  },
+
+
+"Time and Stopwatch Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "time and stopwatch functions" ],
+    "Description 01 Introduction to Time and Stopwatch Functions"::
+
+	Beyond4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
+	as well as stopwatch functions to measure the performance of your applications.
+
+	+++
+  },
+
+
+"Sleep and Wait Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "sleep and wait functions" ],
+    "Description 01 Introduction Sleep and Wait Functions"::
+
+	The following functions suspend program execution for a specified time or until a specific time has been reached.
+	The delay will pause Beyond4P's process and lets other application run at full speed.
+
+	+++
+  },
+
+
+"String Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "string functions" ],
+    "Keywords":			[ "literal functions", "string functions" ],
+    "Description 01 Introduction to String Functions"::
+
+	This section describes procedures and functions for character and string manipulations.
+
+	+++
+  },
+
+
+"String Search and Extraction Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "string search and extraction" ],
+    "Keywords":			[ "string search functions", "string extraction functions" ],
+    "Description 01 Introduction to String Search and Extraction Functions"::
+
+	This subsection describes various functions to search for string patterns and extract substrings from stings.
+
+	+++
+  },
+
+
+"Character Encoding and Decoding":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "character coding" ],
+    "Description 01 Introduction to String Search and Extraction Functions"::
+
+	This subsection describes various functions to search for string patterns and extract substrings from stings.
+
+	+++
+  },
+
+
+
+"Table Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "table functions" ],
+    "Description 01 Introduction to Table Function"::
+
+	This section summarizes all table functions.
+
+	+++
+  },
+
+
+	
+"Creating and Deleting Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "table creating deleting" ],
+    "Description 01 Introduction"::
+
+	This subsection contains basic functions to create and delete tables.
+
+	+++
+  },
+
+
+"Accessing Table Information":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "accessing table info" ],
+    "Description 01 Introduction"::
+
+	This subsection contains basic table functions to access following information
+
+	* Existence of specified table
+	* Lengths
+	* Widths
+
+	+++
+  },
+
+"Accessing Table Contents":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "accessing table contents" ],
+    "Description 01 Introduction"::
+
+	This subsection contains basic table functions to access contents.
+
+	+++
+  },
+
+
+"Loading and Saving Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "loading and saving tables" ],
+    "Description 01 Introduction"::
+
+	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.
+
+	+++
+  },
+
+
+
+
+
+"Directory and File System Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "directory and file system" ],
+    "Keywords": 		[ "short error messages on directories and files"],
+    "Description 01 Introduction to Directory and File System Functions"::
+
+	This subsection describes various functions to access and process files and directories.  Following key features 
+	are included.
+
+	* Accessing, searching and manipulating directories (create, change to, rename, remove directories)
+	* Accessing, searching and manipulating files (directory listings, copy files, rename files, delete files)
+	* Disk functions (e.g. disk size info)
+	* Internet access (download files)
+
+	+++,
+
+    "Description 02 Path and File Names"::
+
+	Under Windows, the path names are a chain of directory and subdirectory names separated with backslash '\' symbols.  Under LINUX and MACOS,
+	the forward slash '/' is used.  Unless specified otherwise do add quotation marks to (sub-) directory and file names if they contain spaces.
+	Avoid using symbols not supported or recommended by the operating systems, e.g. '<', , '&', '>' and ':'.
+
+	<br><br>
+
+	Beyond4P tolerates both slash symbols and does the operating system conversions automatically. Even a mix of both symbols are OK. Following examples are valid:
+	* C:/Program Files\Beyond4P.exe
+	* \usr\local/bin\Beyond4P
+
+	<br><br>
+
+	If the specified directory or file name contains no path name in front, then the current drive and working directory are assumed.
+
+	<br><br>
+
+	<u>Attention:</u> Directory and file names are case sensitive in LINUX and MACOS systems, but not in Windows.
+
+	+++,
+    "Description 03 Exception Handling"::
+
+	Various procedures and functions contain <b>... silently</b> as ending part of their names.  This suffix
+	lets Beyond4P to issue return values which are either "OK" or contain a short error message.  Without the
+	suffix, an exception happens, program execution will stop and enters __interactive mode__.
+
+	=== 250, 250, 500
+	Return values for file functions	| Return values for directory functions | Description
+	OK					| OK					| Successful execution
+	Path not found				| Path not found			| Specified directory path not found or invalid
+	File not Found				| Directory not found			| File / directory not found
+	File access denied			| Directory access denied		| File / directory access denied. Insufficient privileges.
+	File write-protected			| (n/a)					| File is write-protected.  Check protection settings.
+	(n/a)					| Directory not empty			| Directory is not empty (contains files and/or sub-directories)
+	File locked				| Directory locked			| File / directory is locked by other applications. Close the other application.
+	File already existing			| Directory already existing		| File / The file already exists (e.g. attempt to overwrite with file copy function). For files, use the equivalent function name containing the suffix <b>overwrite</b>.
+	File error				| Directory error			| Invalid file / directory name or file locked by other application.
+	File invalid chars			| (n/a)					| File name contains invalid characters
+	Can't move files across devices		| Can't move files across devices	| Can't move files across devices (with __file rename(__) function)
+	File found directory expected		| Directory found file expected		| Specified directory name refers to an existing file, and vice versa
+	===
+
+	+++
+  },
+
+
+
+"Basic Directory and File Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "basic directory and file functions" ],
+    "Description 01 Introduction to Basic Directory and File Functions"::
+
+	This subsection describes various functions to search to accesss directories and files.
+
+	+++
+  },
+
+
+"Listing and Searching Directories and Files":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "listing directories and files" ],
+    "Description 01 Introduction to Listing Directories and Files"::
+
+	This subsection describes various functions to obtain list of existing filse and directories, as well as searching for files and directories.
+
+	+++
+  },
+
+"Manipulating Directories and Files":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "deleting directories and files" ],
+    "Description 01 Introduction to Manipulating Directories and Files"::
+
+	This subsection describes various functions to create, copy, rename and delete files and directories
+
+	+++
+  }
+
+
+
+
+
+B4PDOCU.STOP
+
