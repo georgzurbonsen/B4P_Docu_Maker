@@ -10617,7 +10617,122 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "table width" ]
+	"See also": [ "table row width" ]
+}
+
+,
+
+"table min/max width" :
+{
+	"Function Names":	[ "table min width", "table max width" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		<b>table min width</b> returns the number of columns in the narrowest row.<br>",
+"		<b>table nax width</b> returns the number of columns in the widest row.<br>",
+"		In both cases all rows will be considered, including the header row."
+ ]
+		,
+	"Call as":			"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "" ]
+		}
+		],
+	"Return value":
+	[
+		{ "Name": "Width",
+		  "Types": [ "numeral" ],
+		  "Description": "Minimum resp. maximum number of columns"
+		}
+	],
+	"Exceptions": [ "Table not found" ],
+"Examples" : [
+"	table initialize ( table 1,",
+"	{ { Animal, leg count, hair color }, { Worm,  0}, { Bird, 2, colorful }, { Dog, 4 }, { Fly }, { Tick, 8 } } );",
+"",
+"	echo( table min width ( table 1 ), \" and \", table max width ( table 1 ) );",
+"",
+"	table create ( table 2 );",
+"	[ table 2: 5, 10 ] = Hi; // column position 5 also counts the ones on the left: 0..4",
+"",
+"	echo( table min width ( table 2 ), \" and \", table max width ( table 2 ) );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table row width" ]
+}
+
+,
+
+"table row width" :
+{
+	"Function Names":	[ "table row width" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This table returns the width of a specific table row.<br>",
+"		__partial table specification__ is supported: If the context is available, then the current table and optionally current row number will be used."
+ ]
+		,
+	"Call as":			"function",
+	"Parameter count":	"0-2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "name of table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "If partial table specification is given: current table name",
+		  "Description":
+			[ "If context for __partial table specifications__ is provided, then name of table can be skipped if to use the current table." ]
+		},
+		{ "Number": "1 / 2",
+		  "Name": "row number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "If partial table specification is given: current table row",
+		  "Description":
+			[ "Note that the first table row (header row) begins with row 0.  Negative row numbers count from the bottom up. Example: -1 = last row." ]
+		}
+
+		],
+		"Return value":
+	[
+		{ "Name": "Width",
+		  "Types": [ "numeral" ],
+		  "Description": "Number of columns in the row"
+		}
+	],
+	"Exceptions": [ "Table not found", "No context available for partial table specifications", "row number is outside table boundaries" ],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( table 1,",
+"	{ { Animal, leg count, hair color }, { Worm,  0}, { Bird, 2, white, brown, yellow }, { Dog, 4 }, { Fly }, {}, { Tick, 8 } } );",
+"",
+"	echo(\"table 1 ________________________\");",
+"	table list ( table 1 );",
+"",
+"	print( table row width( table 1, 1 ),\", \" );		// 2 (2nd row)",
+"	print( table row width( table 1	 ),  \", \" );		// 3 (row 0)",
+"	echo ( table row width( table 1, -2 ) ); 		// 0 (2nd last row)",
+"	with table (table 1, 1)",
+"	{",
+"		print( table row width( 2 )); // 5 (Row 3)",
+"		echo( \", \", table row width(  )); // 2 (Row 1)",
+"	}",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table min width", "table max width" ]
 }
 
 ,
@@ -11493,6 +11608,322 @@
 }
 
 
+
+,
+
+"table check header" :
+{
+	"Function Names":	[ "table check header" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"	",
+"	This function checks if a header with the specified header name is existing. ",
+"	If the header is found, then the column number will be returned.  Otherwise, an exception will be asserted.",
+""
+ ]
+		,
+	"Call as":			"function",
+	"Parameter count":	"2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Header name or column number",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Description":
+			[ "Specify exactly one table header name or column number." ]
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Column number",
+		  "Types": [ "numeral" ],
+		  "Description": "Note: 1st column begins with 0"
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( table 1,",
+"	{ { Last Name, First Name, Phone No, Age }, { Larsson, Lara, \"1-212-555-1212\", 28 } } );",
+"",
+"	echo( table check header ( table 1, Phone No ) );",
+"//	echo( table check header ( table 1, Gender ) ); // Not executed now, would cause exception",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table column number", "table check headers" ]
+},
+
+"table column number" :
+{
+	"Function Names":	[ "table column number" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function checks if a header with the specified header name is existing.",
+"	If the header is found, then the column number will be returned.  Otherwise, -1 is returned.",
+""
+ ]
+		,
+	"Call as":			"function",
+	"Parameter count":	"2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Header name or column number",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Description":
+			[ "Specify exactly one table header name or column number." ]
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Column number",
+		  "Types": [ "numeral" ],
+		  "Description": "Note: 1st column begins with 0. -1 is returned if the column cannot be found."
+		}
+	],
+	"Exceptions": [ "Table not found" ],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( table 1,",
+"	{ { Last Name, First Name, Phone No, Age }, { Larsson, Lara, \"1-212-555-1212\", 28 } } );",
+"",
+"	echo( table column number ( table 1, Phone No ) );",
+"	echo( table column number ( table 1, Gender ) ); // Returns -1",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table check header" ]
+}
+
+
+,
+
+"table check headers ..." :
+{
+	"Function Names":	[ "table check headers", "table check headers silently" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		THis function checks the table for column headers in a smart way according to specific rules you can provide. ",
+"		If no further options are specified, then just the existence of the headers will be checked.  ",
+"		The function <b>table check headers silently</b> suppresses exceptions in case the header check fails and returns appropriate return values instead."
+ ]
+		,
+	"Call as":			"function",
+	"Parameter count":	"Min 2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Header names and/or column numbers",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Description":
+			[ "Specify exactly one table header name or column number.  Restrictions as specified in the 3rd and 4th function parameter may apply." ]
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Check header option 1",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "must exist",
+"Description" : [
+"			This option affects the header checking rules.  See table below for available values.  The value <i>n</i> used in the table below stands for number of columns in row 0.",
+"",
+"			=== 200, 550, noframe_1stcolbold, noheader",
+"			must not exist				|	Specified header names <i>must not exist</i> in the table.<br>Specified column numbers must like outside range 0..<i>n</i>-1.<br>All negative numbers are rejected.",
+"			may exist					|	Specified headers names may exist, i.e. all header names are accepted.<br>All positive column numbers are accepted.<br>Negative numbers from -<i>n</i>..-1 are accepted.",
+"			create if missing			|	Create additional headers if the headers do not yet exist.  The rows below those new headers will not be initialized!<br>Positive column numbers from 0 to <i>n</i> are accepted.  If <i>n</i> is specified, then an additional blank column will be created.  <br>Negative numbers: -1 refers to next blank column beyond the last existing one.  Smaller numbers refer to existing columns further to the left.  Values smaller than -(<i>n</i>+1) will be rejected.",
+"			must exist or any number	|	The <must exist> rule desribed below applies if names are provided.<br>The <b>may exist</b> rule described above applies if positive or negative column numbers are provided.",
+"			must exist					|	The specified header names must exist<br>Specifeid column numbers must be within 0..<i>n</i>-1 or -<i>n</i>..-1.",
+"			unique						|	Like <b>must exist</b>, but also checks that the specified column headers are unique in the table, i.e. they exist only once.",
+"			full match					|	Like <b>unique</b>, however the table must not contain more (or less) headers than those specified to check.  The ordering does not matter. It's like tolerating full number of white pins after a guess in the <i>Master Mind</i> game.",
+"			sequence					|	Like <b>unique</b>, but listed parameters are in left-to-right sequence. The checked headers do not need to be adjacent.",
+"			strict sequence				|	Like <b>sequence</b> but all headers must be adjacent, being next to each other from left to right",
+"			identical					|	Combination of <b>full match</b> and <b>strict sequence</b>. The headers provided and table headers must be identical: Same header names in the same sequence.  This corresponds to full number of black pins in the <i>Master Mind</i> game.",
+"			===",
+""
+ ]
+			
+		},
+
+		{ "Number": "Opt. 4, 5, etc.",
+		  "Name": "Additional option(s)",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Additional checking options:",
+"",
+"			=== 200, 550, noframe_1stcolbold, noheader",
+"			no repetition				|	Column specifications must not repeat (i.e. no repeated header names, no repeated column numbers)",
+"			no numbers					|	No column numbers allowed in the 2nd parameter. Only header names are allowed",
+"			no blanks					|	No blank headers allowed.",
+"			ignore blanks				|	Ignore blank headers (supersedes previous option 'no blanks' if specified)",
+"			only 1						|	Exactly 1 column to be specified",
+"			max 1						|	0 or 1 columns to be specified (not more)",
+"			min 1						|	Min. 1 column to be specified (not 0).  <br><u>Note:</u> Specifying both 'min 1' and 'max 1' means 'only 1'",
+"			===",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Feedback",
+		  "Types": [ "literal" ],
+"Description" : [
+"			<b>ok</b> (lower case) is returned if no issues have been identified.<br>",
+"			In all other cases, if <b>table check headers</b> is specified, exeptions will be asserted.  If the function <b>table check headers silently</b> is called instead,",
+"			following additional values can be returned:",
+"		  ",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			ok						|	All OK (Note: lower case letters)",
+"			empty and ok			|   Applicable to option 'may exist': No matches found, but deemed OK.",
+"			not found				|	Header name not found, or column number not inside valid range",
+"			already existing		|	Header name is alrady existing resp. column number is inside the range of existing headers",
+"			duplicate				|	A duplicated header name has been found in the table",
+"			no full match			|	Header names in the table not matching.",
+"			incorrect sequence		|	Specified headers / column numbers are not in a correct left-to-right sequence.",
+"			repeated				|	Repeated reference to same table colummn",
+"			forbidden number		|	Encountered forbidden column number in the 2nd function parameter. Only header names are allowed",
+"			forbidden blank			|	Encountered forbidden blank header name in the 2nd function parameter.",
+"			wrong count				|	Wrong number of columns specified",
+"			range error				|	Specified column lies outside the range",
+"			===",
+""
+ ]
+			
+		}
+	],
+	"Exceptions": [ "Table not found", "Various exceptions resulting from issues identified while checking headers" ],
+"Examples" : [
+"	table initialize ( table 1,",
+"	{ { Name, Street, Town, Country }, { Miller, \"...\" } } );",
+"",
+"	echo(\"1. Demonstrate 'must not exist':\");",
+"	echo( table check headers silently( table 1, {\"State\", \"Province\"}, must not exist ) );	// OK",
+"	echo( table check headers silently( table 1, {\"Town\", \"State\"} , must not exist ) );	// Not OK",
+"	echo( table check headers silently( table 1, 10,      must not exist ) );	// OK",
+"	echo( table check headers silently( table 1, -1,      must not exist ) );	// Not OK (last column exists)",
+"	echo;",
+"",
+"	echo(\"2. Demonstrate 'may exist':\");",
+"	echo( table check headers silently( table 1, {\"State\", \"Province\"}, may exist ) );	// Empty and OK",
+"	echo( table check headers silently( table 1, {\"Town\", \"Province\"}, may exist ) );	// OK",
+"	echo( table check headers silently( table 1, {\"Town\", \"State\"} , may exist ) );	// OK",
+"	echo( table check headers silently( table 1, 10,      must not exist ) );	// OK",
+"	echo( table check headers silently( table 1, -11,      must not exist ) );	// Not OK (range error)",
+"	echo;",
+"",
+"	echo(\"3. Demonstrate 'create if missing':\");",
+"	table copy table ( table 1, table 2 );",
+"	echo( table check headers silently( table 2, {\"State\", \"City\"}, create if missing ) );	// OK",
+"	echo( \"Header row: \", [table 2: .., 0 ] );",
+"	echo;",
+"",
+"	echo(\"4. Demonstrate 'must exist':\");",
+"	echo( table check headers silently( table 1, {\"Name\", \"Town\"}, must exist ) );	// OK",
+"	echo( table check headers silently( table 1, {\"Name\", \"State\"} , must exist ) );	// Not OK",
+"	echo( table check headers silently( table 1, 10,      must exist ) );	// Not OK",
+"	echo( table check headers silently( table 1, -1,      must exist ) ); // OK (last column exists)",
+"	echo( table check headers silently( table 1, {},      must exist ) ); // Empty and oK",
+"	echo;",
+"",
+"	echo(\"5. Demonstrate 'unique':\");",
+"	table initialize ( table 2,",
+"	{ { Name, Street, Town, Country, Town }, { Miller, \"...\" } } );",
+"	echo( table check headers silently( table 1, \"Town\", unique ) );	// OK",
+"	echo( table check headers silently( table 2, \"Town\", unique ) );	// Not OK",
+"	echo( table check headers silently( table 2, -1, unique ) );		// Not OK (Also \"Town\")",
+"	echo;",
+"",
+"	echo(\"6. Demonstrate 'full match':\");",
+"	echo( table check headers silently( table 1, { Country, Town, Street, Name }, full match ) );	// OK",
+"	echo( table check headers silently( table 1, { 1,3,2,0  }, full match ) );	// OK",
+"	echo( table check headers silently( table 1, { Country, Town, Street, Name, Name }, full match ) );	// Not OK",
+"	echo;",
+"",
+"	echo(\"7. Demonstrate 'sequence':\");",
+"	echo( table check headers silently( table 1, { Name, Country }, sequence ) );	// OK",
+"	echo( table check headers silently( table 1, { Country, Name }, sequence ) );	// Not OK",
+"	echo( table check headers silently( table 1, { 0,2,3  }, sequence ) );	// OK",
+"	echo( table check headers silently( table 1, { 0,3,2  }, sequence ) );	// Not OK",
+"	echo;",
+"",
+"	echo(\"8.Demonstrate 'strict sequence':\");",
+"	echo( table check headers silently( table 1, { Name, Country }, strict sequence ) );	// Not OK",
+"	echo( table check headers silently( table 1, { Town, Country }, strict sequence ) );	// OK",
+"	echo( table check headers silently( table 1, { 0,1,2  }, strict sequence ) );	// OK",
+"	echo( table check headers silently( table 1, { 0,3,3  }, strict sequence ) );	// Not OK",
+"	echo;",
+"",
+"	echo(\"9. Demonstrate 'identical':\");",
+"	echo( table check headers silently( table 1, { Name, Street, Town, Country }, identical ) );	// OK",
+"	echo( table check headers silently( table 1, { Street, Name, Town, Country }, identical ) );	// Not OK",
+"	echo( table check headers silently( table 1, { 0,1,2,3  }, identical) );	// OK",
+"	echo( table check headers silently( table 1, { -4,-3,-2,-1  }, identical ) );	// Also OK",
+"	echo;",
+"",
+"	echo(\"10. Demonstrate 'no repetition':\");",
+"	echo( table check headers silently( table 1, { Name, Town, Town }, must exist ) );	// OK",
+"	echo( table check headers silently( table 1, { Name, Town, Town }, must exist, no repetition ) );	// Not OK",
+"	echo;",
+"",
+"	echo(\"11. Demonstrate 'no numbers':\");",
+"	echo( table check headers silently( table 1, { Name, Town }, must exist, no numbers ) );	// OK",
+"	echo( table check headers silently( table 1, { Name, 2 }, must exist, no numbers ) );	// Not OK",
+"	echo;",
+"",
+"	echo(\"12. Demonstrate 'no blanks':\");",
+"	echo( table check headers silently( table 1, { Name, Town, \"\" }, must exist, no blanks ) );	// Not OK",
+"	echo;",
+"",
+"	echo(\"13. Demonstrate 'ignore blanks':\");",
+"	echo( table check headers silently( table 1, { Name, Town, \"\" }, must exist, ignore blanks ) );	// OK",
+"	echo;",
+"",
+"	echo(\"14. Demonstrate 'max 1':\");",
+"	echo( table check headers silently( table 1, { Name, Town }, must exist, max 1 ) ); // Not OK",
+"	echo( table check headers silently( table 1, { Name  }, must exist, max 1 ) );	//  OK",
+"	echo( table check headers silently( table 1, {  }, must exist, max 1 ) );	//  OK",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table check header", "table insert missing columns" ]
+}
 
 ,
 
@@ -13008,6 +13439,19 @@
   },
 
 
+"Checking Table Headers":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "checking table headers" ],
+"Description 01 Introduction" : [
+"",
+"	This subsection various functions which check table headers.  The first table row is treated as the header row.",
+"	Functions are also available to lift table haders up to the top automatically if they are not yet at the top.",
+"",
+""
+ ]
+	
+  },
 
 
 

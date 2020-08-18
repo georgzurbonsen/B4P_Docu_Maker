@@ -483,6 +483,18 @@ B4PDOCU.START
   },
 
 
+"Checking Table Headers":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "checking table headers" ],
+    "Description 01 Introduction"::
+
+	This subsection various functions which check table headers.  The first table row is treated as the header row.
+	Functions are also available to lift table haders up to the top automatically if they are not yet at the top.
+
+
+	+++
+  },
 
 
 

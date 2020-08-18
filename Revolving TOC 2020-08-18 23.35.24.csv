@@ -187,6 +187,8 @@ OK;Body;4;B 4.7.1.5;Function_table_delete.html;table delete ...;table delete,tab
 OK;Body;3;B 4.7.2;Features_accessing_table_info.html;Accessing Table Information;accessing table info;;
 OK;Body;4;B 4.7.2.1;Function_table_existing.html;table existing;table existing;;
 OK;Body;4;B 4.7.2.2;Function_table_length.html;table length;table length;;
+OK;Body;4;B 4.7.2.3;Function_table_row_width.html;table row width;table row width;;
+OK;Body;4;B 4.7.2.4;Function_table_min_width.html;table min/max width;table min width,table max width;;
 OK;Body;3;B 4.7.3;Features_accessing_table_contents.html;Accessing Table Contents;accessing table contents;;
 OK;Body;4;B 4.7.3.1;Function_row.html;row;row;;
 OK;Body;4;B 4.7.3.2;Function_forget_memorized_table_columns.html;forget memorized table columns;forget memorized table columns;;
@@ -199,6 +201,10 @@ OK;Body;4;B 4.7.4.3;Features_Loading_XML_files.html;Loading XML files;Loading XM
 OK;Body;4;B 4.7.4.4;Features_Loading_JSON_files.html;Loading JSON files;Loading JSON files;loading JSON files;
 OK;Body;4;B 4.7.4.5;Function_table_save.html;table save ...;table save,table save with local decimal separator,table save with decimal comma,table save multiple;;
 OK;Body;4;B 4.7.4.6;Features_Saving_JSON_files.html;Saving JSON files;Saving JSON files;;
+OK;Body;3;B 4.7.5;Features_checking_table_headers.html;Checking Table Headers;checking table headers;;
+OK;Body;4;B 4.7.5.1;Function_table_check_header.html;table check header;table check header;;
+OK;Body;4;B 4.7.5.2;Function_table_column_number.html;table column number;table column number;;
+OK;Body;4;B 4.7.5.3;Function_table_check_headers.html;table check headers ...;table check headers,table check headers silently;;
 OK;Body;2;B 4.8;Features_directory_and_file_system.html;Directory and File System Functions;directory and file system;short error messages on directories and files;
 OK;Body;3;B 4.8.1;Features_basic_directory_and_file_functions.html;Basic Directory and File Functions;basic directory and file functions;;
 OK;Body;4;B 4.8.1.1;Function_directory_existing.html;directory existing, file existing;directory existing,file existing;;

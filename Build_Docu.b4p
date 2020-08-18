@@ -699,6 +699,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		for all variables( param list[], dummy value[], index[])
 		{
 			param[] =^ param list[index[]]; 
+			convert manuscript tables into HTML( param[Description] );
 			table append( HTML out[], 
 				{ "<tr>", "<td>" + join( set( param[Types], 1 ),"<br/>") + "</td>",
 			          "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( set( param[Description], 1 ),new line) + "</p></td></tr>" } );

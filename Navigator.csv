@@ -258,6 +258,8 @@
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""Function_table_existing.html""><span>4.7.2.1 table existing </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_length.html""><span>4.7.2.2 table length </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_row_width.html""><span>4.7.2.3 table row width </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_min_width.html""><span>4.7.2.4 table min/max width </span></a></li>";4
 </ul></li>;4
 "<li class=""navi""><a href=""Features_accessing_table_contents.html""><span>4.7.3 Accessing Table Contents </span></a></li>";3
 "<li class=""navi""><ul>";4
@@ -274,6 +276,12 @@
 "<li class=""navi""><a href=""Features_Loading_JSON_files.html""><span>4.7.4.4 Loading JSON files </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_save.html""><span>4.7.4.5 table save ... </span></a></li>";4
 "<li class=""navi""><a href=""Features_Saving_JSON_files.html""><span>4.7.4.6 Saving JSON files </span></a></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_checking_table_headers.html""><span>4.7.5 Checking Table Headers </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""Function_table_check_header.html""><span>4.7.5.1 table check header </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_column_number.html""><span>4.7.5.2 table column number </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_check_headers.html""><span>4.7.5.3 table check headers ... </span></a></li>";4
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""Features_directory_and_file_system.html""><span>4.8 Directory and File System Functions </span></a></li>";2

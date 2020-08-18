@@ -60,6 +60,7 @@ character encoding;;Function_chr.html
 character set;;Features_UNICODE_character_set.html
 check;;Function_switch.html
 checking numbers;;Function_is_numeric.html
+checking table headers;;Features_checking_table_headers.html
 chr;;Function_chr.html
 clean if numeral;;Function_clean_numeral.html
 clean numeral;;Function_clean_numeral.html
@@ -730,7 +731,11 @@ switch;;Function_switch.html
 table append;;Function_table_initialize.html
 table append on same field;;Function_table_initialize.html
 table append on same row;;Function_table_initialize.html
+table check header;;Function_table_check_header.html
+table check headers;;Function_table_check_headers.html
+table check headers silently;;Function_table_check_headers.html
 table clear;;Function_table_clear.html
+table column number;;Function_table_column_number.html
 table configure;;Function_table_configure.html
 table create;;Function_table_create.html
 table create if not existing;;Function_table_create.html
@@ -743,9 +748,12 @@ table initialize;;Function_table_initialize.html
 table length;;Function_table_length.html
 table load;;Function_table_load.html
 table load unchanged;;Function_table_load.html
+table max width;;Function_table_min_width.html
+table min width;;Function_table_min_width.html
 Table of Contents;;Features_Table_of_Contents.html
 Table of Contents;;Features_Table_of_Contents.html
 table read column selected rows;;Function_table_read_column_selected_rows.html
+table row width;;Function_table_row_width.html
 table save;;Function_table_save.html
 table save multiple;;Function_table_save.html
 table save with decimal comma;;Function_table_save.html
