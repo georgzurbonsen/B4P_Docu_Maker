@@ -261,14 +261,14 @@
 "<li class=""navi""><a href=""Function_table_row_width.html""><span>4.7.2.3 table row width </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_min_width.html""><span>4.7.2.4 table min/max width </span></a></li>";4
 </ul></li>;4
-"<li class=""navi""><a href=""Features_accessing_table_contents.html""><span>4.7.3 Accessing Table Contents </span></a></li>";3
+"<li class=""navi""><a href=""Features_Accessing_table_contents.html""><span>4.7.3 Accessing Table Contents </span></a></li>";3
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""Function_row.html""><span>4.7.3.1 row </span></a></li>";4
 "<li class=""navi""><a href=""Function_forget_memorized_table_columns.html""><span>4.7.3.2 forget memorized table columns </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_read_column_selected_rows.html""><span>4.7.3.3 table read column selected rows </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_write_column_selected_rows.html""><span>4.7.3.4 table write column selected rows </span></a></li>";4
 </ul></li>;4
-"<li class=""navi""><a href=""Features_loading_and_saving_tables.html""><span>4.7.4 Loading and Saving Tables </span></a></li>";3
+"<li class=""navi""><a href=""Features_Loading_and_saving_tables.html""><span>4.7.4 Loading and Saving Tables </span></a></li>";3
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""Function_table_load.html""><span>4.7.4.1 table load ... </span></a></li>";4
 "<li class=""navi""><a href=""Features_Loading_HTML_files.html""><span>4.7.4.2 Loading HTML files </span></a></li>";4
@@ -277,11 +277,22 @@
 "<li class=""navi""><a href=""Function_table_save.html""><span>4.7.4.5 table save ... </span></a></li>";4
 "<li class=""navi""><a href=""Features_Saving_JSON_files.html""><span>4.7.4.6 Saving JSON files </span></a></li>";4
 </ul></li>;4
-"<li class=""navi""><a href=""Features_checking_table_headers.html""><span>4.7.5 Checking Table Headers </span></a></li>";3
+"<li class=""navi""><a href=""Features_Checking_headers.html""><span>4.7.5 Checking and Processing Headers </span></a></li>";3
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""Function_table_check_header.html""><span>4.7.5.1 table check header </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_column_number.html""><span>4.7.5.2 table column number </span></a></li>";4
 "<li class=""navi""><a href=""Function_table_check_headers.html""><span>4.7.5.3 table check headers ... </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_rename_headers.html""><span>4.7.5.4 table rename ... headers </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_correct_headers.html""><span>4.7.5.5 table correct headers ... </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_lift_header_row.html""><span>4.7.5.6 table lift ... </span></a></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Searching_tables.html""><span>4.7.6 Searching Tables </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""Function_table_search.html""><span>4.7.6.1 table search ... </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_search_row.html""><span>4.7.6.2 table search row </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_selected_rows.html""><span>4.7.6.3 table selected rows </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_selected_columns.html""><span>4.7.6.4 table selected columns/headers ... </span></a></li>";4
+"<li class=""navi""><a href=""Function_table_search_header_row.html""><span>4.7.6.5 table search header row </span></a></li>";4
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""Features_directory_and_file_system.html""><span>4.8 Directory and File System Functions </span></a></li>";2
@@ -324,4 +335,5 @@
 "<li class=""navi""><a href=""Function_identify.html""><span> Identify variable forms (if structure, array, or simple) </span></a></li>";1
 "<li class=""navi""><a href=""Function_cursor.html""><span> Set cursor positions </span></a></li>";1
 "<li class=""navi""><a href=""Function_text_color.html""><span> Set console text and background colors </span></a></li>";1
+"<li class=""navi""><a href=""Features_Searching_tables.html""><span> Processing Table Columns </span></a></li>";1
 </ul>

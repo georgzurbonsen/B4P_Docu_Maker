@@ -10528,7 +10528,7 @@
 		  "Direction": "input",
 		  "Types": [ "parameter set or literal" ],
 		  "Description":
-			[ "Use literal to to specify a single table, or a parameter set or softquoted literal (single quotation marks) with names separated by comma to specify multiple tables." ]
+			[ "Use literal to specify a single table, or a parameter set or softquoted literal (single quotation marks) with names separated by comma to specify multiple tables." ]
 		},
 		{ "Number": "2, 4, ...",
 		  "Name": "Configuration parameter names",
@@ -10702,7 +10702,7 @@
 			[ "Note that the first table row (header row) begins with row 0.  Negative row numbers count from the bottom up. Example: -1 = last row." ]
 		}
 
-		],
+	],
 		"Return value":
 	[
 		{ "Name": "Width",
@@ -11923,6 +11923,716 @@
 	,
 	"Output": "automatic",
 	"See also": [ "table check header", "table insert missing columns" ]
+}
+
+,
+
+"table rename ... headers" :
+{
+	"Function Names":	[ "table rename headers", "table rename column headers", "table rename existing headers" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function renames specified table headers.",
+"	Whereas <b>table rename column headers</b> asserts exceptions if headers are not found, the <b>table rename existing headers</b> will simply ignore",
+"	the headers not found.",
+"",
+"	<br><br>",
+"",
+"	<u>Note: </u>Every table header will be renamed only once.",
+"",
+"	<br><br>",
+"	The function name <b>table rename column headers</b> is declared obsolete and will be replaced by the new name <b>table rename headers</b> in order to make",
+"	the naming more consistent.",
+""
+ ]
+		,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing header name(s) or column number(s)",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Description":
+			[ "Specify any number of table header names and/or column numbers." ]
+		},
+		{ "Number": "3",
+		  "Name": "New header name(s)",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+"Description" : [
+"			List the new header names corresponding to the existing ones specified in the previous function parameter.<br>",
+"			Use literal to specify a single table, or a parameter set or softquoted literal (single quotation marks) with names separated by comma to specify multiple columns."
+ ]
+			
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Number of renamings done",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found","number of existing and new headers is inconsistent" ],
+"Examples" : [
+"	include( Support Library );",
+"",
+"	table initialize ( table, { { First Name, Last Name, Phone No, Age }, { Archer, Jim, \"1-212-555-1212\", 28 } } );",
+"",
+"	count[] = table rename existing headers( table, ' Last Name, First Name, Family Name ', ' First Name, Last Name, Other Name ' );",
+"	//        table rename existing headers( table, { Last Name, First Name, Family Name }, {First Name, Last Name, Other Name} );",
+"	//        Both formulations are valid (see 2+3. parameter: Either softquoted literal with comma separated items or parameters)",
+"",
+"	table list ( table );",
+"	echo;",
+"	echo(\"Number of headers renamed: \", count[]);",
+"",
+"	echo( new line, \"This example demonstrates that each \"First Name\" column is touched only once.\", new line );",
+"	table initialize ( table, 	{ { First Name, First Name, Phone No, Age }, { Tanner, Lisa, \"1-212-555-1212\", 28 } } );",
+"	table rename headers( table,  { First Name, First Name }, { Last Name, Given Name } );",
+"	table list ( table );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table correct headers", "table check headers" ]
+}
+
+
+,
+
+"table correct headers ..." :
+{
+	"Function Names":	[ "table correct headers", "table correct headers ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function helps to correct or align column header names and is particularly useful for tables originating from different sources where ",
+"		wordings or spellings of header names show slight differences and you want to harmonize them easily be correcting them.  The functions described",
+"		here differ from __table rename headers(__) in the 2nd parameter: Instead of specifying specific columns, comparison patterns are used to check",
+"		all headers from left to right until the first match is found.",
+"		<br><br>",
+"		The function name <b>table correct headers ignore case</b> ignore case sensitivity while comparing headers with comparison patterns provided.<br>",
+"		No exceptions are asserted if a comparison of a matching pattern with the table headers results in no matches.",
+"",
+"		<br><br>",
+"		<u>Note:</u> This function supports __wildcard symbols__ if the literals used for comparison patterns are softquoted, i.e. using single quotation marks.",
+"",
+""
+ ]
+		,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing header name(s) or column number(s)",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+"Description" : [
+"				Specify the comparison patterns.<br>",
+"				* Unquoted or quoted literals as elements in parameter set: True comparison of contents without wildcards, e.g. { Name, \"Street\" }<br>",
+"				* Softquoted literals in parameter set: You can use __wildcard symbols__, e.g. { '* Name', 'City,Town' }<br>",
+"				* One quoted literal specifies just one item to compare, e.g. \"Last Name\"<br>",
+"				* One softquoted literal converts the contents into a parameter set and treats contents as unquoted resp. quoted literals."
+ ]
+				
+		},
+		{ "Number": "3",
+		  "Name": "New header name(s)",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+"Description" : [
+"			List the new header names corresponding to the existing ones specified in the previous function parameter.<br>",
+"			Use literal to specify a single table, or a parameter set or softquoted literal (single quotation marks) with names separated by comma to specify multiple columns."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of corrections accomplished",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Table not found", "number of comparison pattersn and new headers is inconsistent" ],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( table, { { first  name, Lastname, Phone No, Age }, { Jim, Archer, \"1-212-555-1212\", 28 } } );",
+"",
+"	count[] = table correct headers ignore case( table, {'Last*name', 'First*name', 'Family*' },",
+"		{ Last Name, First Name, Last Name } );",
+"",
+"	table list ( table );",
+"	echo;",
+"	echo(\"Number of headers corrected: \", count[]);"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table rename existing headers" ]
+}
+
+,
+
+"table search ..." :
+{
+	"Function Names":	[ "table search", "table search vertically" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	The table will be searched until the first (or next) pattern is matching the comparison expression. <br>",
+"	<b>table search</b> searches the table horizontally line by line.  To include header row, specify 0 as starting row number, otherwise 1 (or a bigger number if needed).<br>",
+"	<b>table search vertically</b> searches the table vertically through the columns and then proceeding to the right.",
+"	In this case, searching at the next colum begins at row 1 downward and not with the header row.",
+"",
+"	<br><br>",
+"	<u>Attention: </u>All values from the table being compared are literals, even if they contain numbers."
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"4-6",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Value compared with the table contents",
+			"Direction" :	"code",
+			"Types" :		[ "comparison expression", ":literal" ] ,
+"Description" : [
+"			This parameter is a piece of code typically found on the right-hand side of a comparison wiht '=' or '<>'.  Single values,",
+"			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
+"			literal is of type __softquoted literal__."
+ ]
+		  
+		},
+		{ "Number": "3.",
+		  "Name": "Row number",
+		  "Direction": "io",
+		  "Types": [ "numeral" ],
+		  "Description": [ "The row number is considered the starting row number for the search.  When a match has been found, then the corresponding row number will be returned." ]
+		},
+		{ "Number": "4.",
+		  "Name": "Column number",
+		  "Direction": "io",
+		  "Types": [ "numeral" ],
+		  "Description": [ "The column number is considered the starting column number for the search.  When a match has been found, then the corresponding row number will be returned." ]
+		},
+		{ "Number": "Opt. 5",
+		  "Name": "Column representing left boundary for searching",
+		  "Direction": "input",
+		  "Default value": "0 (1st column)",
+		  "Types": [ "table column" ],
+		  "Description": [ "Specify a header name or column number where to start searching and comparing from left to right." ]
+		},
+		{ "Number": "Opt. 6",
+		  "Name": "Column representing right boundary for searching",
+		  "Direction": "input",
+		  "Default value": "0 (1st column)",
+		  "Types": [ "table column" ],
+		  "Description": [ "Specify a header name or column number where to stop searching and comparing from left to right." ]
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Match found",
+		  "Types": [ "boolean" ],
+		  "Description": "true if match has been found, otherwise false."
+		}
+	],
+
+
+"Examples" : [
+"	table initialize( table 1,",
+"		{ { A,  B,  C,  D,  E,  A,  G },",
+"		  { E,  C,  D,  B,  A,  H,  X },",
+"		  { T,  E,  B,  C,  A,  E,  A  } } );",
+"",
+"	row[] = 0; col[] = 0;",
+"	echo(\"Search entire table\");",
+"	while ( table search( table 1, (A), row[], col[] ) = true)",
+"	{",
+"		echo(\"Row: \", row[], \"  Col: \", col[]++ );",
+"	}",
+"",
+"	row[] = 0; col[] = 0;",
+"	echo(\"Search entire table vertically (Attention: begins at row 1 at next column\");",
+"	while ( table search vertically( table 1, (A), row[], col[] ) = true)",
+"	{",
+"		echo(\"Row: \", row[]++, \"  Col: \", col[] );",
+"	}",
+"",
+"	row[] = 0; col[] = 0;",
+"	echo(\"Limit search to column 1 - 4:\");",
+"	while ( table search( table 1, (A), row[], col[], B, E ) = true)",
+"	{",
+"		echo(\"Row: \", row[], \"  Col: \", col[]++ );",
+"	}"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table search header row" ]
+}
+,
+
+"table search row" :
+{
+	"Function Names":	[ "table search row" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function works through all table rows until the expression specfified returns true.  The row number is returned.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"2-3",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+			"Description" : ["The expression must return boolean values which determine whether to run the loop or not.  <i>Partial table specifications</i> is allowed and recommended inside the expression."]
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Starting row number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description": [ "Note: Negative row numbers count from last row upwards" ]
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Row number with match found",
+		  "Types": [ "numeral" ],
+		  "Description": "-1 is returned if no match has been found."
+		}
+	],
+"Examples" : [
+"	table initialize ( table 1,",
+"	{ { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );",
+"",
+"	r[1] = table search row( table 1, [Animal]='*i*' );",
+"	r[2] = table search row( table 1, ([Animal]='*i*'), r[1]+1 );",
+"	r[3] = table search row( table 1, ([Animal]='*i*'), r[2]+1 );",
+"",
+"	// Note that comparison is in parentheses, so the next function parameter is not regarded",
+"	// as part of a comparison expression.",
+"",
+"	echo( \"1st match: \", r[1] );",
+"	echo( \"2nd match: \", r[2] );",
+"	echo( \"3rd match: \", r[3] ); // -1 because only 2 words containing 'i' exist."
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table read column selected rows", "table search row", "table selected columns" ]
+}
+,
+
+"table selected rows" :
+{
+	"Function Names":	[ "table selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function obtains the row numbers of the selected rows and returns them as a parameter set containing numerals.  Row 0 (header row) is not checked.",
+"	This function is very useful for searching contents in known columns and retrieving all matches.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+			"Description" : ["The expression must return boolean values which determine whether to run the loop or not.  <i>Partial table specifications</i> is allowed and recommended inside the expression."]
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Retrieved row numbers",
+		  "Types": [ "parameter set" ],
+		  "Description": "The parameter set contains numerals.  An empty parameter set is returned if there are no matches."
+		}
+	],
+"Examples" : [
+"	table initialize ( table 1, { { Animal, leg count },",
+"		{ Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );",
+"",
+"	echo( table selected rows( table 1, mod( [leg count], 4 ) = 0 ) );",
+"	// Leg countsa are 0, 4, 8, row numbers are 1, 3, 5.",
+"",
+"	echo( table selected rows( table 1, ([Animal]='B*','D*') ) );",
+"	// Returns rows 2 and 3."
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table read column selected rows", "table search row", "table selected columns" ]
+}
+,
+
+"table selected columns/headers ..." :
+{
+	"Function Names":	[ "table selected columns", "table selected column numbers", "table selected headers" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function searches the contents in one specified table row and returns the following:<br>",
+"	With <b>table selected columns</b>: Actual values in the columns where the matches are successful<br>",
+"	With <b>table selected column numbers</b>: The column numbers where where the matches are successful<br>",
+"	With <b>table selected column numbers</b>: The corresponding header names of the columns where matches are successful",
+"",
+"	<br><br>",
+"	<u>Attention: </u>All values from the table being compared are literals, even if they contain numbers."
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"2-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Value compared with the table contents",
+			"Direction" :	"code",
+			"Types" :		[ "comparison expression", ":literal" ] ,
+"Description" : [
+"			This parameter is a piece of code typically found on the right-hand side of a comparison wiht '=' or '<>'.  Single values,",
+"			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
+"			literal is of type __softquoted literal__."
+ ]
+		  
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Row number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0",
+		  "Description": [ "Specifies the row number where to carry out the comparisons" ]
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "Existing column",
+		  "Direction": "input",
+		  "Default value": "0 (1st column)",
+		  "Types": [ "table column" ],
+		  "Description": [ "Specify a header name or column number to specify where to start searching and comparing from left to right." ]
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Retrieved values",
+		  "Types": [ "parameter set" ],
+		  "Description": "Contains literals or numerals, depending on the function name used."
+		}
+	],
+
+
+"Examples" : [
+"	table initialize( table 1,",
+"		{ { Last Name, 1st Name, Street, Town, Postal Code, \"Spouse's Name\", Zip Code },",
+"		  { Miller,    Phil,     Main St., Denver, 80208, Ann, 80123 } } );",
+"",
+"	echo( table selected columns( table 1, '*Code' ) );",
+"",
+"	// If the comparison expression is not the last function parameter, then put it into",
+"	// parentheses to avoidi including further parameters used in the comparison process.",
+"",
+"	echo( table selected columns( table 1, (=80208), 1 ) );",
+"	echo( table selected headers( table 1, ( '80*' ), 1 ) );",
+"	echo( table selected column numbers( table 1, ( '80*' ), 1, 5 ) ); // Column 4 skipped"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table selected rows" ]
+}
+,
+
+"table search header row" :
+{
+	"Function Names":	[ "table search header row" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function is particularly useful for imported tables where the headers are not necessarily be located in the top row but somewhere else.",
+"		To make things worse, the headers of the imported tables may be located in different rows.",
+"		This function searches for the header row and returns the row number.  In contrast to __table lift header row(__), the table remains untouched.",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2, 3",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing columns",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Description": [ "Specify a header names and/or column numbers which are considered as part of the headers" ]
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Check header option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "must exist",
+"Description" : [
+"",
+"			With this option, you can make the search more restrictive, so wrong arrangements located further up in the table will not be detected first.",
+"			Checking option 1 affecting the table headers.  Only one option can be chosen.  See separate table on next page for more details.",
+"",
+"			<br><br>",
+"			<u>Hint: </u>The following terms behave similarly as in the function __table check headers__ in order to qualify for matches.  For example, the",
+"			option \"full match\" expects that the header row contains all specified headers and not more in oder to consider them found.  Otherwise, searching continues",
+"			in the rows below until the criteria are met.",
+"",
+"			=== 200, 550, noframe_1stcolbold, noheader",
+"			must exist					|	The specified header names must exist<br>Specifeid column numbers must be within 0..<i>n</i>-1 or -<i>n</i>..-1.",
+"			unique						|	Like <b>must exist</b>, but also checks that the specified column headers are unique in the table, i.e. they exist only once.",
+"			full match					|	Like <b>unique</b>, however the table must not contain more (or less) headers than those specified to check.  The ordering does not matter. It's like tolerating full number of white pins after a guess in the <i>Master Mind</i> game.",
+"			sequence					|	Like <b>unique</b>, but listed parameters are in left-to-right sequence. The checked headers do not need to be adjacent.",
+"			strict sequence				|	Like <b>sequence</b> but all headers must be adjacent, being next to each other from left to right",
+"			identical					|	Combination of <b>full match</b> and <b>strict sequence</b>. The headers provided and table headers must be identical: Same header names in the same sequence.  This corresponds to full number of black pins in the <i>Master Mind</i> game.",
+"			==="
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Row number where header row has been found",
+		  "Types": [ "numeral" ],
+		  "Description": "-1 is returned if no header row has been found"
+		}
+	],
+
+"Examples" : [
+"	include( Support Library );",
+"	line[]= \"______________________________________________________________________\";",
+"",
+"	table initialize( 2 tables,",
+"	{ {	Created by,  Nick, Miller, \"\", Last Update, \"31.12.2019\" },",
+"	  {	Tennis, Players, \"\", \"\", Squash, Players },",
+"	  {     Still a, \"\", \"\", \"\", Last Name, First Name, City },",
+"	  {     Draft, \"\", \"\", \"\", Weber, Abel, 'Wilkes-Barre' },",
+"	  {	First Name, Last Name, City, and, Tanner, Berta, San Monica },",
+"	  {	Jane, Dominique, The Bronx, \"\", Miller, Dominique, Trenton },",
+"	  {	Jasmine, Nelsson, Francfort, \"\", Quinn, Alex, Denver },",
+"	  {	Dominique, Miller, Trenton, \"\", Jansen, Patricia, Albany } } );",
+"",
+"",
+"	echo(\"Original table:\");",
+"	echo(line[]);",
+"	table list( 2 tables );",
+"	echo(line[], new line);",
+"",
+"	a[] = table search header row( 2 tables, {First Name, Last Name, City} ); // 'must exist' is default",
+"	// Finds header row in the right table (headers are on row 2)",
+"	b[] = table search header row( 2 tables, {First Name, Last Name, City}, sequence ); // 'must exist' is default",
+"	// Finds header row in the left table (headers are on row 4)",
+"",
+"	c[] = table search header row( 2 tables, {First Name, Last Name, Town} ); // Not found, returns -1",
+"	// Header row will not be found.",
+"",
+"	echo(a[], \" / \", b[], \" / \", c[] );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table lift header row" ]
+}
+
+,
+
+"table lift ..." :
+{
+	"Function Names":	[ "table lift header row", "table lift headers", "table lift contents" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function is particularly useful for imported tables where the headers are not necessarily be located in the top row but somewhere else.",
+"		To make things worse, the headers of the imported tables may be located in different rows.",
+"		These functions described here will first search for existence of specified headers and then take following actions:",
+"",
+"		=== 300, 700, noframe_1stcolbold, noheader",
+"		table search header row		|		Just return the row number where headers have been found.  No manipulations done on the table.",
+"		table lift header row		|		Delete all rows above the detected headers so the entire header row and all contents below move up to the top of the table.",
+"		table lift headers			|		Move the headers to the 1st row.  The original location of the headers become blank.  Old contents in the 1st row will be overwritten. All other contents remain unchanged.",
+"		table lift contents			|		Moves the headers as well as the affected columns underneath up. All other columns in the table remain unaffected.",
+"		===",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2, 3",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing columns",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Description": [ "Specify a header names and/or column numbers which are considered as part of the headers" ]
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Check header option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "must exist",
+"Description" : [
+"",
+"			With this option, you can make the search more restrictive, so wrong arrangements located further up in the table will not be detected first.",
+"			Checking option 1 affecting the table headers.  Only one option can be chosen.  See separate table on next page for more details.",
+"			",
+"			<br><br>",
+"			<u>Hint: </u>The following terms behave similarly as in the function __table check headers__ in order to qualify for matches.  For example, the ",
+"			option \"full match\" expects that the header row contains all specified headers and not more in oder to consider them found.  Otherwise, searching continues",
+"			in the rows below until the criteria are met.",
+"",
+"			=== 200, 550, noframe_1stcolbold, noheader",
+"			must exist					|	The specified header names must exist<br>Specifeid column numbers must be within 0..<i>n</i>-1 or -<i>n</i>..-1.",
+"			unique						|	Like <b>must exist</b>, but also checks that the specified column headers are unique in the table, i.e. they exist only once.",
+"			full match					|	Like <b>unique</b>, however the table must not contain more (or less) headers than those specified to check.  The ordering does not matter. It's like tolerating full number of white pins after a guess in the <i>Master Mind</i> game.",
+"			sequence					|	Like <b>unique</b>, but listed parameters are in left-to-right sequence. The checked headers do not need to be adjacent.",
+"			strict sequence				|	Like <b>sequence</b> but all headers must be adjacent, being next to each other from left to right",
+"			identical					|	Combination of <b>full match</b> and <b>strict sequence</b>. The headers provided and table headers must be identical: Same header names in the same sequence.  This corresponds to full number of black pins in the <i>Master Mind</i> game.",
+"			==="
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Row number where header row has been found",
+		  "Types": [ "numeral" ],
+		  "Description": "-1 is returned if no header row has been found"
+		}
+	],
+
+"Examples" : [
+"	include( Support Library );",
+"	line[]= \"______________________________________________________________________\";",
+"",
+"	table initialize( 2 tables,",
+"	{ {	Created by,  Nick, Miller, \"\", Last Update, \"31.12.2019\" },",
+"	  {	Tennis, Players, \"\", \"\", Squash, Players },",
+"	  {     Still a, \"\", \"\", \"\", Last Name, First Name, City },",
+"	  {     Draft, \"\", \"\", \"\", Weber, Abel, 'Wilkes-Barre' },",
+"	  {	First Name, Last Name, City, and, Tanner, Berta, San Monica },",
+"	  {	Jane, Dominique, The Bronx, \"\", Miller, Dominique, Trenton },",
+"	  {	Jasmine, Nelsson, Francfort, \"\", Quinn, Alex, Denver },",
+"	  {	Dominique, Miller, Trenton, \"\", Jansen, Patricia, Albany } } );",
+"",
+"",
+"	echo(\"Original table:\");",
+"	echo(line[]);",
+"	table list( 2 tables );",
+"	echo(line[], new line);",
+"",
+"",
+"	table copy table( 2 tables, table );",
+"	echo(\"Show 'table lift headers(..., must exist)':\" );",
+"	echo(\"Note: It will recognize the headers in the right table.\");",
+"	echo(\"Note: Contents below headers are not moved up.\");",
+"",
+"	table lift headers( table, {First Name, Last Name, City} ); // 'must exist' is default",
+"	echo(line[]);",
+"	table list( table );",
+"	echo(line[], new line);",
+"",
+"",
+"	table copy table( 2 tables, table );",
+"	echo(\"Show 'table lift header row(..., must exist)':\" );",
+"	echo(\"Note: It will recognize the headers in the right table. Entire rows below move up.\");",
+"",
+"	table lift header row( table, {First Name, Last Name, City} ); // 'must exist' is default",
+"	echo(line[]);",
+"	table list( table );",
+"	echo(line[], new line);",
+"",
+"	table copy table( 2 tables, table );",
+"	echo(\"Show 'table lift header row(..., sequence)':\" );",
+"	echo(\"Note: It will recognize the headers in the left table because they have same sequence.\");",
+"",
+"	table lift header row( table, {First Name, Last Name, City}, sequence );",
+"	echo(line[]);",
+"	table list( table );",
+"	echo(line[], new line);",
+"",
+"	table copy table( 2 tables, table );",
+"	echo(\"Following code puts both tables with headers to 1st row\" );",
+"	table lift contents( table, {First Name, Last Name, City}, sequence );",
+"	table lift contents( table, {Last Name, First Name, City}, sequence );",
+"	echo(line[]);",
+"	table list( table );",
+"	echo(line[], new line);",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table search header row" ]
 }
 
 ,
@@ -13416,7 +14126,7 @@
 "Accessing Table Contents":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "accessing table contents" ],
+    "Feature Names":		[ "Accessing table contents" ],
 "Description 01 Introduction" : [
 "",
 "	This subsection contains basic table functions to access contents.",
@@ -13429,7 +14139,7 @@
 "Loading and Saving Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "loading and saving tables" ],
+    "Feature Names":		[ "Loading and saving tables" ],
 "Description 01 Introduction" : [
 "",
 "	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.",
@@ -13439,19 +14149,52 @@
   },
 
 
-"Checking Table Headers":
+"Checking and Processing Headers":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "checking table headers" ],
+    "Feature Names":		[ "Checking headers", "Processing headers" ],
 "Description 01 Introduction" : [
 "",
-"	This subsection various functions which check table headers.  The first table row is treated as the header row.",
-"	Functions are also available to lift table haders up to the top automatically if they are not yet at the top.",
+"	This subsection various functions which check table headers.",
+"	It is highly advisable to check the input data to ensure that the corresponding headers and structures",
+"	are available and error messages can be issued very early rather than somewhere in the middle of data processing steps.",
+""
+ ]
+	
+  },
+
+
+"Searching Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Searching tables" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described next provide efficient means to search for data inside tables.",
+"",
 "",
 ""
  ]
 	
   },
+
+
+
+"Processing Table Columns":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Searching tables" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described next provide efficient means to search for data inside tables.",
+"",
+"",
+""
+ ]
+	
+  },
+
+
 
 
 

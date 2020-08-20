@@ -2,7 +2,7 @@
 10p;;Function_exp.html
 abs;;Function_abs.html
 absolute value;;Function_abs.html
-accessing table contents;;Features_accessing_table_contents.html
+Accessing table contents;;Features_Accessing_table_contents.html
 accessing table info;;Features_accessing_table_info.html
 acos;;Function_sin.html
 acos deg;;Function_sin.html
@@ -59,8 +59,8 @@ character decoding;;Function_code.html
 character encoding;;Function_chr.html
 character set;;Features_UNICODE_character_set.html
 check;;Function_switch.html
+Checking headers;;Features_Checking_headers.html
 checking numbers;;Function_is_numeric.html
-checking table headers;;Features_checking_table_headers.html
 chr;;Function_chr.html
 clean if numeral;;Function_clean_numeral.html
 clean numeral;;Function_clean_numeral.html
@@ -408,7 +408,7 @@ literals extracting substrings;;Features_data_types_literals_extracting_substrin
 literals indexing;;Features_literals_indexing.html
 literals indexing;;Features_literals_indexing.html
 ln;;Function_ln.html
-loading and saving tables;;Features_loading_and_saving_tables.html
+Loading and saving tables;;Features_Loading_and_saving_tables.html
 loading files;;Features_loading_files.html
 loading files;;Features_loading_files.html
 loading HTML files;;Features_Loading_HTML_files.html
@@ -611,6 +611,7 @@ pow;;Function_pow.html
 power function;;Function_pow.html
 print;;Function_print.html
 print line;;Function_print.html
+Processing headers;;Features_Checking_headers.html
 product;;Function_average.html
 product if;;Function_sum_if.html
 product if any;;Function_sum_if.html
@@ -668,6 +669,8 @@ Saving JSON files;;Features_Saving_JSON_files.html
 screen color;;Function_text_color.html
 search files;;Function_search_files.html
 search files recursive;;Function_search_files.html
+Searching tables;;Features_Searching_tables.html
+Searching tables;;Features_Searching_tables.html
 second;;Function_hour.html
 serial date;;Function_serial_date.html
 series functions;;Features_series_functions.html
@@ -737,6 +740,8 @@ table check headers silently;;Function_table_check_headers.html
 table clear;;Function_table_clear.html
 table column number;;Function_table_column_number.html
 table configure;;Function_table_configure.html
+table correct headers;;Function_table_correct_headers.html
+table correct headers ignore case;;Function_table_correct_headers.html
 table create;;Function_table_create.html
 table create if not existing;;Function_table_create.html
 table creating deleting;;Features_table_creating_deleting.html
@@ -746,6 +751,9 @@ table existing;;Function_table_existing.html
 table functions;;Features_table_functions.html
 table initialize;;Function_table_initialize.html
 table length;;Function_table_length.html
+table lift contents;;Function_table_lift_header_row.html
+table lift header row;;Function_table_lift_header_row.html
+table lift headers;;Function_table_lift_header_row.html
 table load;;Function_table_load.html
 table load unchanged;;Function_table_load.html
 table max width;;Function_table_min_width.html
@@ -753,11 +761,22 @@ table min width;;Function_table_min_width.html
 Table of Contents;;Features_Table_of_Contents.html
 Table of Contents;;Features_Table_of_Contents.html
 table read column selected rows;;Function_table_read_column_selected_rows.html
+table rename column headers;;Function_table_rename_headers.html
+table rename existing headers;;Function_table_rename_headers.html
+table rename headers;;Function_table_rename_headers.html
 table row width;;Function_table_row_width.html
 table save;;Function_table_save.html
 table save multiple;;Function_table_save.html
 table save with decimal comma;;Function_table_save.html
 table save with local decimal separator;;Function_table_save.html
+table search;;Function_table_search.html
+table search header row;;Function_table_search_header_row.html
+table search row;;Function_table_search_row.html
+table search vertically;;Function_table_search.html
+table selected column numbers;;Function_table_selected_columns.html
+table selected columns;;Function_table_selected_columns.html
+table selected headers;;Function_table_selected_columns.html
+table selected rows;;Function_table_selected_rows.html
 table write column selected rows;;Function_table_write_column_selected_rows.html
 tan;;Function_sin.html
 tan deg;;Function_sin.html

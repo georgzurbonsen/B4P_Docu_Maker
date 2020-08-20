@@ -326,6 +326,18 @@ th, td
 
 
 
+.code_background_color {
+    background-color: #f0f0f0;
+}
+
+.output_background_color {
+    background-color: #f0f4ff;
+}
+
+.white_background_color {
+    background-color: #ffffff;
+}
+
 
 /*
 

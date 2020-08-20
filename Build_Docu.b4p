@@ -739,7 +739,11 @@ define procedure ( create function description in HTML, { { item, all, reference
 			        substitute all( payloads[index[]], {"&","<",">","\","  ",new line}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;","<br/>" + new line } );
 			}
 		    }	
-		    payload[] = join ( set (payloads[] , 1), "<code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code>" );
+		    
+		    class[] = compare select( [Todo], white_background_color, ('*code*'), code_background_color, ('*output*'), output_background_color );
+		    class[] = 'class="' + class[] + '"';
+
+		    payload[] = join ( set (payloads[] , 1), "<div " + class[] + " ><code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code></div>" );
 		    table append( HTML out[], { payload[] } );
 		}
 		else

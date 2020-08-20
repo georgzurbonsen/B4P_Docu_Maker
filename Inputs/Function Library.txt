@@ -462,7 +462,7 @@ B4PDOCU.START
 "Accessing Table Contents":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "accessing table contents" ],
+    "Feature Names":		[ "Accessing table contents" ],
     "Description 01 Introduction"::
 
 	This subsection contains basic table functions to access contents.
@@ -474,7 +474,7 @@ B4PDOCU.START
 "Loading and Saving Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "loading and saving tables" ],
+    "Feature Names":		[ "Loading and saving tables" ],
     "Description 01 Introduction"::
 
 	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.
@@ -483,18 +483,49 @@ B4PDOCU.START
   },
 
 
-"Checking Table Headers":
+"Checking and Processing Headers":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "checking table headers" ],
+    "Feature Names":		[ "Checking headers", "Processing headers" ],
     "Description 01 Introduction"::
 
-	This subsection various functions which check table headers.  The first table row is treated as the header row.
-	Functions are also available to lift table haders up to the top automatically if they are not yet at the top.
+	This subsection various functions which check table headers.
+	It is highly advisable to check the input data to ensure that the corresponding headers and structures
+	are available and error messages can be issued very early rather than somewhere in the middle of data processing steps.
+
+	+++
+  },
+
+
+"Searching Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Searching tables" ],
+    "Description 01 Introduction"::
+
+	The functions described next provide efficient means to search for data inside tables.
+
 
 
 	+++
   },
+
+
+
+"Processing Table Columns":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Searching tables" ],
+    "Description 01 Introduction"::
+
+	The functions described next provide efficient means to search for data inside tables.
+
+
+
+	+++
+  },
+
+
 
 
 
