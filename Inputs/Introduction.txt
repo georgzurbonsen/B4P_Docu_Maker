@@ -21,22 +21,29 @@ B4PDOCU.START
     "Keywords":			[ "introduction" ],
     "Description 01 Introduction to B4P"::
 
-	B4P a Low-Code Solution for data analysts to dramatically improve their performance. B4P is a powerful data integration 
-	and analytics engine with built-in programming language purpose-built for high speed integration and processing of large, 
-	complex data sets (tens of millions of rows) from multiple diverse data sources, producing rapid insights in easily understood 
-	form in Excel or other standard visualization tools. 
+	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  B4P is comprised of a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, complex data sets (tens of millions of rows) from multiple diverse data sources (listed below) to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
 
-	<br/><br/><img src="Images/B4P_General_Overview.jpg" alt="B4P General Overview"><br/>
+	<br><br>
+
+	<br/><img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
+
+
+	=== 250, 600, noframe_1stcolbold, noheader
+			| <b> data files </b>:  Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..
+			| <b> databases </b>:   Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)
+			| <b> web data </b>:    Any source of structured data on the web(Wikipedia, ...)
+			| <b> other data </b>:  PDF (via Tabula), Statistical data sets (R, SAS, SPPSS, Stata)
+	===
 
 	+++,
 
+	
+
     "Description 02 Distinct Language Features"::
 
-	B4P includes an <i>interpreted language</i> with powerful syntax, highly flexible data structures, and a large function library which enables
-	immediate results with a minimum of code. Programs containing just a few statements can perform sophisticated operations such as merging two tables with very different data arrangements and formats. 
-	<br><br>
+	<b> B4P includes an <i>interpreted language</i> with powerful syntax, highly flexible data structures, and a large function library which enables immediate results with a minimum of code. </b>  Programs containing just a few statements can perform sophisticated operations such as merging two tables with very different data arrangements and formats.  The following key features makes the B4P language distinct from other popular programming languages:
 
-	The following key features makes the B4P language distinct from other popular programming languages:
+	<br><br>
 
 	=== 240, 760, noframe_1stcolbold, noheader
 	Interpreted	| The __run-time machine__ is designed to __echo(__) interpret and process the code with very high performance. One performance aspects includes checking and tokenizing the code before starting to run.
@@ -63,10 +70,11 @@ B4PDOCU.START
 	
 	+++,
 
-    "Description 03 Think Big to be Successful !!!"::
+    "Description 03 Think Big to be Successful"::
 
-	You can unleash the full power of B4P if you are thinking big.  Doing all the detail coding <i>on your own by foot</i> (with lots of loops, variable assignments, doing comparisons
-	of individual values, etc.) is nice and runs with acceptable performance.  Other languages like Python can do this, too., but your patience is needed when processing big data with tens of million of elements.
+	You can unleash the full power of B4P if you are thinking big.  Writing a complete end-to-end solution (with loops, variable assignments, comparisons
+	of individual values, etc.) is straighforward to learn with no special programming background.  Other languages like Python can do similar processing, but requires one to learn object-oriented programming, and does not scale for complexity.
+	
 
 	=== 60, 940, noframe_1stcolbold, noheader
 	Hint 1 | Use the rich B4P function library to process these tables and big data.  Large tables will be analyzed and processed at naked machine performance.<br/>

@@ -1,2 +1,16 @@
-﻿      a[] = "14. July 2020, 15:30:40";
-      echo( year( a[] ), ", ", quarter( a[] ), ", ", month( a[] ), ", ", day( a[] ) );
+﻿  
+  echo("Distinguish between simple and zero members variables");
+  a[] = Hi;
+  echo(identify(a[0])); // simple
+
+  a[0] = Ho;
+  echo(identify(a[0])); // array
+
+  delete(a[0]);
+  echo(identify(a[0])); // not found
+  echo(identify(a[])); // zero members
+
+  a[dog] = Hund;
+  echo(identify(a[])); // structure
+
+

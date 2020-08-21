@@ -6,14 +6,23 @@ include( Utility Library );
 //	Specify all paths and file name patterns where to look for contents to include.
 //	The main variable must be "inputs[...]" where the member names are free of choice.
 
-	inputs[hand written stuff]	= "inputs\*.txt";
-	inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
 
 //	Destination path for all HTML files
-//	I am putting the files directly into the directory where the web contents will be copied to.  Include slash at the end.
+//	I am putting the files directly into the directory where the web contents will be copied to.  
+//  Include slash at the end.
 
 
-	destination[] = "C:\Users\Zur Bonsen Georg\Documents\Programme\georgzurbonsen.github.io\";
+// Georg: Windows version  (file paths using "\")
+//	inputs[hand written stuff]	= "inputs\*.txt";
+//	inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
+//	destination[] = "C:\Users\Zur Bonsen Georg\Documents\Programme\georgzurbonsen.github.io\";
+
+
+
+// Rafael: MacOS/Unix version (file paths must use "/" )
+	inputs[hand written stuff]	= "Inputs/*.txt";
+	destination[] = "Outputs/";
+
 
 
 //	Temporary files
