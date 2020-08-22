@@ -1,35 +1,119 @@
 ﻿Keywords;Attribute;HTML File Name
+10p;;Function_exp.html
+abs;;Function_abs.html
+absolute value;;Function_abs.html
 Accessing table contents;;Features_Accessing_table_contents.html
 accessing table info;;Features_accessing_table_info.html
+acos;;Function_sin.html
+acos deg;;Function_sin.html
+acosh;;Function_sinh.html
+add;;Function_add.html
+additional function names;;Function_define_additional_procedure.html
+alternative execution of code blocks;;Function_switch.html
+and;;Function_add.html
+Arithmetic and Boolean Series Functions;;Function_add.html
 array;;Features_arrays.html
 arrays;;Features_arrays.html
 arrays;;Features_arrays.html
+asin;;Function_sin.html
+asin deg;;Function_sin.html
+asinh;;Function_sinh.html
+atan;;Function_sin.html
+atan deg;;Function_sin.html
+atanh;;Function_sinh.html
+average;;Function_average.html
+average if;;Function_sum_if.html
+average if any;;Function_sum_if.html
+average ignore blanks;;Function_average.html
+average ignore blanks if;;Function_sum_if.html
+average ignore blanks if any;;Function_sum_if.html
+average ignore zero;;Function_average.html
+average ignore zero if;;Function_sum_if.html
+average ignore zero if any;;Function_sum_if.html
+background colors;;Function_text_color.html
 base variable;;Features_variables.html
 base variables;;Features_variables.html
 basic data types;;Features_data_types.html
 basic directory and file functions;;Features_basic_directory_and_file_functions.html
 basic math functions;;Features_basic_math_functions.html
 basic math functions;;Features_basic_math_functions.html
+basic statistics functions;;Function_average.html
 boolean;;Features_data_types_booleans.html
+boolean;;Function_boolean.html
+boolean conversion function;;Function_boolean.html
+boolean to literal conversion and formatting;;Features_boolean_to_literal_conversion_and_formatting.html
+Boolean to Literal Formatting Parameters;;Features_boolean_to_literal_conversion_and_formatting.html
 booleans;;Features_data_types_booleans.html
 Branches;;Features_Branches.html
 Branches;;Features_Branches.html
+break;;Function_break_case.html
+break case;;Function_break_case.html
+break loop;;Function_break_case.html
 business functions;;Features_finance_functions.html
+cagr;;Function_cagr.html
+case;;Function_case.html
 case sensitivity;;Features_case_sensitivity.html
 case sensitivity;;Features_case_sensitivity.html
 character coding;;Features_character_coding.html
+character decoding;;Function_code.html
+character encoding;;Function_chr.html
 character set;;Features_UNICODE_character_set.html
+check;;Function_switch.html
 Checking headers;;Features_Checking_headers.html
+checking numbers;;Function_is_numeric.html
+chr;;Function_chr.html
+clean if numeral;;Function_clean_numeral.html
+clean numeral;;Function_clean_numeral.html
+clean numerals;;Function_clean_numeral.html
+clear the screen;;Function_cls.html
+cls;;Function_cls.html
+code;;Function_code.html
 Code Piece;;Features_Code_Piece.html
 code pieces;;Features_Code_Piece.html
 comments;;Features_comments.html
 comments;;Features_comments.html
+compose;;Function_print.html
+compose line;;Function_print.html
+compound annual growth rate;;Function_cagr.html
+conditional branches;;Function_if.html
+conditional combination functions;;Function_sum_if.html
 console;;Features_console.html
 console;;Features_console.html
+continue;;Function_break_case.html
+continue case;;Function_break_case.html
+continue loop;;Function_break_case.html
+continue with next case;;Function_break_case.html
 Control Flow Functions;;Features_Control_Flow_Functions.html
 Control Flow Functions;;Features_Control_Flow_Functions.html
+correlation;;Function_covariance.html
+cos;;Function_sin.html
+cos deg;;Function_sin.html
+cosh;;Function_sinh.html
+count;;Function_count.html
+count elements;;Function_count_elements.html
+count elements ignore blanks;;Function_count_elements.html
+count elements ignore both;;Function_count_elements.html
+count elements ignore case;;Function_count_elements.html
+count files;;Function_count_files.html
+count files recursive;;Function_count_files.html
+count functions;;Function_count.html
+count if;;Function_sum_if.html
+count if any;;Function_sum_if.html
+count ignore blanks;;Function_count.html
+count ignore blanks if;;Function_sum_if.html
+count ignore blanks if any;;Function_sum_if.html
+count ignore both;;Function_count.html
+count ignore both if;;Function_sum_if.html
+count ignore both if any;;Function_sum_if.html
+count ignore zero;;Function_count.html
+count ignore zero if;;Function_sum_if.html
+count ignore zero if any;;Function_sum_if.html
+covariance;;Function_covariance.html
+covariance and correlation;;Function_covariance.html
 CSV;;Features_CSV.html
 CSV;;Features_CSV.html
+cursor;;Function_cursor.html
+cursor position;;Function_cursor.html
 data types;;Features_data_types.html
 data types;;Features_data_types.html
 data types booleans;;Features_data_types_booleans.html
@@ -44,71 +128,473 @@ data types parameter sets value ranges;;Features_data_types_parameter_sets_value
 data types parameter sets value repetitions;;Features_data_types_parameter_sets_value_repetitions.html
 data types voids;;Features_data_types_voids.html
 date;;Features_data_types_dates.html
+date;;Function_date.html
+Date and Time Detection Rules;;Features_Detects_dates_correctly_in_literals.html
 date and time functions;;Features_date_and_time_functions.html
+date conversion functions;;Function_date.html
 date functions;;Features_date_functions.html
+Date info functions;;Function_year.html
+date info functions;;Function_serial_date.html
+date inside;;Function_date_inside.html
+date time;;Function_date.html
+date to literal conversion and formatting;;Features_date_to_literal_conversion_and_formatting.html
+Date to Literal Formatting Parameters;;Features_date_to_literal_conversion_and_formatting.html
 dates;;Features_data_types_dates.html
+day;;Function_year.html
+day of year;;Function_day_of_year.html
+decode entities;;Function_decode_entities.html
+define additional function;;Function_define_additional_procedure.html
+define additional procedure;;Function_define_additional_procedure.html
+define additional procedure and function;;Function_define_additional_procedure.html
+define function;;Function_define_procedure.html
+define procedure;;Function_define_procedure.html
+define procedure and function;;Function_define_procedure.html
+defining user procedures and user functions;;Function_define_procedure.html
+delete user function;;Function_delete_user_function.html
+delete user function;;Function_delete_user_function.html
 deleting directories and files;;Features_deleting_directories_and_files.html
+Detects dates correctly in literals;;Features_Detects_dates_correctly_in_literals.html
+deviation;;Function_average.html
+deviation if;;Function_sum_if.html
+deviation if any;;Function_sum_if.html
+deviation ignore blanks;;Function_average.html
+deviation ignore blanks if;;Function_sum_if.html
+deviation ignore blanks if any;;Function_sum_if.html
+deviation ignore zero;;Function_average.html
+deviation ignore zero if;;Function_sum_if.html
+deviation ignore zero if any;;Function_sum_if.html
+diagonal;;Function_diagonal.html
+diagonal;;Function_diagonal.html
 directory and file system;;Features_directory_and_file_system.html
+directory create;;Function_directory_create.html
+directory create ... Functions;;Function_directory_create.html
+directory create all;;Function_directory_create.html
+directory create silently;;Function_directory_create.html
+directory delete;;Function_directory_delete.html
+directory delete ... Functions;;Function_directory_delete.html
+directory delete all;;Function_directory_delete.html
+directory delete multiple;;Function_directory_delete_multiple.html
+directory delete multiple all;;Function_directory_delete_multiple.html
+directory delete multiple/recursive ... Functions;;Function_directory_delete_multiple.html
+directory delete recursive;;Function_directory_delete_multiple.html
+directory delete recursive all;;Function_directory_delete_multiple.html
+directory delete recursive if empty;;Function_directory_delete_multiple.html
+directory delete silently;;Function_directory_delete.html
+directory existing;;Function_directory_existing.html
+directory listing;;Function_directory_listing.html
+directory listing recursive;;Function_directory_listing.html
+directory rename;;Function_directory_rename.html
+directory rename ... Functions;;Function_directory_rename.html
+directory rename all;;Function_directory_rename.html
+directory rename silently;;Function_directory_rename.html
+directory size;;Function_directory_size.html
+discount;;Function_discount.html
+discount;;Function_discount.html
+disk space;;Function_disk_space.html
+disk space free;;Function_disk_space.html
+distribute;;Function_distribute.html
+distribute advance;;Function_distribute.html
+distribution over timeline;;Function_distribute.html
+div;;Function_add.html
+do;;Function_do.html
+do-loop;;Function_do.html
+echo;;Function_print.html
+encode entities;;Function_encode_entities.html
 entities;;Features_entities.html
 entities;;Features_entities.html
+even;;Function_even.html
+even numbers;;Function_even.html
+exp;;Function_exp.html
+exponential functions;;Function_exp.html
+exponential regression;;Function_regression.html
 Expressions to select rows;;Features_Expressions_to_select_rows.html
+file copy;;Function_file_copy.html
+file copy ... Functions;;Function_file_copy.html
+file copy all;;Function_file_copy.html
+file copy multiple;;Function_file_copy_multiple.html
+file copy multiple all;;Function_file_copy_multiple.html
+file copy multiple overwrite;;Function_file_copy_multiple.html
+file copy multiple overwrite all;;Function_file_copy_multiple.html
+file copy multiple/recursive ... Functions;;Function_file_copy_multiple.html
+file copy overwrite;;Function_file_copy.html
+file copy overwrite all;;Function_file_copy.html
+file copy overwrite silently;;Function_file_copy.html
+file copy recursive;;Function_file_copy_multiple.html
+file copy recursive all;;Function_file_copy_multiple.html
+file copy recursive overwrite;;Function_file_copy_multiple.html
+file copy recursive overwrite all;;Function_file_copy_multiple.html
+file copy silently;;Function_file_copy.html
+file create link;;Function_file_create_link.html
+file create link ... Functions;;Function_file_create_link.html
+file create link all;;Function_file_create_link.html
+file create link silently;;Function_file_create_link.html
+file delete;;Function_file_delete.html
+file delete ... Functions;;Function_file_delete.html
+file delete all;;Function_file_delete.html
+file delete multiple;;Function_file_delete_multiple.html
+file delete multiple all;;Function_file_delete_multiple.html
+file delete multiple/recursive ... Functions;;Function_file_delete_multiple.html
+file delete recursive;;Function_file_delete_multiple.html
+file delete recursive all;;Function_file_delete_multiple.html
+file delete silently;;Function_file_delete.html
+file download;;Function_file_download.html
+file download ... Functions;;Function_file_download.html
+file download all;;Function_file_download.html
+file download overwrite;;Function_file_download.html
+file download overwrite all;;Function_file_download.html
+file download overwrite silently;;Function_file_download.html
+file download silently;;Function_file_download.html
+file existing;;Function_directory_existing.html
 file name;;Features_path_names.html
 file names;;Features_path_names.html
+file rename;;Function_file_rename.html
+file rename ... Functions;;Function_file_rename.html
+file rename all;;Function_file_rename.html
+file rename silently;;Function_file_rename.html
+file size;;Function_file_size.html
+filter;;Function_filter.html
+filter 1;;Function_filter.html
+filter n;;Function_filter.html
+filter start;;Function_filter.html
+filter start include;;Function_filter.html
+filter start n;;Function_filter.html
+filter start n include;;Function_filter.html
+filter stop;;Function_filter.html
+filter stop include;;Function_filter.html
 finance functions;;Features_finance_functions.html
 finance functions;;Features_finance_functions.html
+find;;Function_find.html
+find;;Function_find_.html
+find (parameter set function);;Function_find_.html
+find (string function);;Function_find.html
+find ignore blanks;;Function_find.html
+find ignore blanks;;Function_find_.html
+find ignore both;;Function_find.html
+find ignore both;;Function_find_.html
+find ignore case;;Function_find.html
+find ignore case;;Function_find_.html
+find [parameter set function];;Function_find_.html
+find [string function];;Function_find.html
+flat;;Function_flat.html
+flat;;Function_flat.html
+font color;;Function_text_color.html
+for;;Function_for.html
+for all current table columns;;Function_for_all_current_table_columns.html
+for all current table selected columns;;Function_for_all_current_table_selected_columns.html
+for all parameters;;Function_for_all_parameters.html
+for all table columns;;Function_for_all_table_columns.html
+for all table rows;;Function_for_all_table_rows.html
+for all table selected columns;;Function_for_all_table_selected_columns.html
+for all table selected rows;;Function_for_all_table_selected_rows.html
+for all variables;;Function_for_all_variables.html
+for all variables if existing;;Function_for_all_variables.html
+for-loop;;Function_for.html
+for-loop through current table columns;;Function_for_all_current_table_columns.html
+for-loop through parameter elements;;Function_for_all_parameters.html
+for-loop through selected table rows;;Function_for_all_table_selected_rows.html
+for-loop through table columns;;Function_for_all_table_columns.html
+for-loop through table rows;;Function_for_all_table_rows.html
+for-loop through table selected columns;;Function_for_all_current_table_selected_columns.html
+for-loop through table selected columns;;Function_for_all_table_selected_columns.html
+for-loop through variables;;Function_for_all_variables.html
+foreground color;;Function_text_color.html
+forget memorized table columns;;Function_forget_memorized_table_columns.html
+formatting template;;Function_literal.html
+function existing;;Function_function_existing.html
+function existing;;Function_function_existing.html
 function library;;Features_Function_Library.html
 Function Library;;Features_Function_Library.html
 Function parameter directions;;Features_Function_parameter_directions.html
 Function parameter types;;Features_Function_parameter_types.html
 Function Parameters;;Features_Function_Parameters.html
 Functions and Procedures;;Features_Functions_and_Procedures.html
+geometric mean;;Function_average.html
+geometric mean if;;Function_sum_if.html
+geometric mean if any;;Function_sum_if.html
+geometric mean ignore blanks;;Function_average.html
+geometric mean ignore blanks if;;Function_sum_if.html
+geometric mean ignore blanks if any;;Function_sum_if.html
+geometric mean ignore zero;;Function_average.html
+geometric mean ignore zero if;;Function_sum_if.html
+geometric mean ignore zero if any;;Function_sum_if.html
+get differences;;Function_get_differences.html
+gini;;Function_gini.html
+gini coefficient;;Function_gini.html
+gini ignore blanks;;Function_gini.html
+gini ignore zero;;Function_gini.html
+harmonic mean;;Function_average.html
+harmonic mean if;;Function_sum_if.html
+harmonic mean if any;;Function_sum_if.html
+horizontal;;Function_horizontal.html
+horizontal;;Function_horizontal.html
+hour;;Function_hour.html
 html entities;;Features_entities.html
+hyperbolic functions;;Function_sinh.html
+identify;;Function_identify.html
+Identify variable types;;Function_type.html
+identify variables;;Function_identify.html
+if;;Function_if.html
+include;;Function_include.html
+include B4P program;;Function_include.html
+include libraries;;Function_include.html
+include library;;Function_include.html
 include programs;;Features_Start_or_include_Beyond4P_Programs.html
+income disparity;;Function_gini.html
 Indirect parameter passing;;Features_Indirect_parameter_passing.html
 installation;;Features_starting.html
 installing;;Features_starting.html
 interactive;;Features_interactive.html
 interactive;;Features_interactive.html
 interactive mode;;Features_interactive.html
+interpolation;;Function_linear_interpolation.html
+interpolation examples;;Features_Interpolation_Examples.html
+Interpolation Examples;;Features_Interpolation_Examples.html
 introduction;;Features_introduction.html
 introduction;;Features_introduction.html
+irr;;Function_irr.html
+irr;;Function_irr.html
+is integer;;Function_is_numeric.html
+is integer or blank;;Function_is_numeric.html
+is numeric;;Function_is_numeric.html
+is numeric or blank;;Function_is_numeric.html
+is strictly integer;;Function_is_numeric.html
+is strictly integer or blank;;Function_is_numeric.html
+is strictly numeric;;Function_is_numeric.html
+is strictly numeric or blank;;Function_is_numeric.html
+join;;Function_join.html
+join if;;Function_sum_if.html
+join if any;;Function_sum_if.html
+join if any;;Function_sum_if.html
+join ignore blanks;;Function_join.html
+join ignore blanks if;;Function_sum_if.html
+join ignore blanks if any;;Function_sum_if.html
+join ignore blanks if any;;Function_sum_if.html
+join unique;;Function_join.html
+join unique if;;Function_sum_if.html
+join unique ignore blanks;;Function_join.html
+join unique ignore blanks if;;Function_sum_if.html
 keywords;;Features_reserved_keywords.html
 launching;;Features_starting.html
+left;;Function_left.html
+left;;Function_left_.html
+left (parameter set function);;Function_left_.html
+left (string function);;Function_left.html
+left include;;Function_left.html
+left include;;Function_left_.html
+left last match;;Function_left.html
+left last match;;Function_left_.html
+left last match include;;Function_left.html
+left last match include;;Function_left_.html
+left [parameter set function];;Function_left_.html
+left [string function];;Function_left.html
+length;;Function_length.html
+length;;Function_length_.html
+length (parameter set function);;Function_length_.html
+length (string function);;Function_length.html
 length of literals;;Features_literals_indexing.html
 length of parameter sets;;Features_data_types_parameter_sets_indexing.html
+length [parameter set function];;Function_length_.html
+length [string function];;Function_length.html
 licensing;;Features_licensing.html
 licensing;;Features_licensing.html
+linear;;Function_linear.html
+linear equation;;Function_linear.html
+linear interpolation;;Function_linear_interpolation.html
+linear regression;;Function_regression.html
 list of Locales;;Features_Locales.html
+list of parameter types in user functions;;Features_user_parameter_types.html
 listing directories and files;;Features_listing_directories_and_files.html
 literal;;Features_data_types_literals.html
+literal;;Function_literal.html
+literal conversion;;Function_literal.html
+literal conversion functions;;Function_literal.html
 literal functions;;Features_string_functions.html
+literal to literal conversion and formatting;;Features_literal_to_literal_conversion_and_formatting.html
+Literal to Literal Formatting Parameters;;Features_literal_to_literal_conversion_and_formatting.html
 literals;;Features_data_types_literals.html
 literals extracting substrings;;Features_data_types_literals_extracting_substrings.html
 literals indexing;;Features_literals_indexing.html
 literals indexing;;Features_literals_indexing.html
+ln;;Function_ln.html
 Loading and saving tables;;Features_Loading_and_saving_tables.html
 loading files;;Features_loading_files.html
 loading files;;Features_loading_files.html
+loading HTML files;;Features_Loading_HTML_files.html
+Loading HTML files;;Features_Loading_HTML_files.html
+loading JSON files;;Features_Loading_JSON_files.html
+Loading JSON files;;Features_Loading_JSON_files.html
+loading XML files;;Features_Loading_XML_files.html
+Loading XML files;;Features_Loading_XML_files.html
 locale;;Features_Locales.html
 Locales;;Features_Locales.html
+locate differences;;Function_locate_differences.html
+log;;Function_ln.html
+logarithmic functions;;Function_ln.html
 Loops;;Features_Loops.html
 Loops;;Features_Loops.html
+Loops;;Function_while.html
 lower case;;Features_case_sensitivity.html
 mathematics and statistics;;Features_Mathematics_and_Statistics.html
 Mathematics and Statistics;;Features_Mathematics_and_Statistics.html
+matrix determinant;;Function_mdet.html
+matrix division;;Function_mmul.html
 matrix functions;;Features_matrix_functions.html
 matrix functions;;Features_matrix_functions.html
+matrix inversion;;Function_minv.html
 matrix manipulation functions;;Features_matrix_manipulation_functions.html
 matrix manipulation functions;;Features_matrix_manipulation_functions.html
 matrix manipulations;;Features_matrix_manipulation_functions.html
+matrix multiplication;;Function_mmul.html
+max;;Function_min.html
+max 123;;Function_min_123.html
+max 123 if;;Function_sum_if.html
+max 123 if any;;Function_sum_if.html
+max 123 ignore zero if;;Function_sum_if.html
+max 123 ignore zero if any;;Function_sum_if.html
+max 124 ignore zero;;Function_min_123.html
+max abc;;Function_min_abc.html
+max abc if;;Function_sum_if.html
+max abc if any;;Function_sum_if.html
+max abc ignore case;;Function_min_abc.html
+max abc ignore case if;;Function_sum_if.html
+max if;;Function_sum_if.html
+max if any;;Function_sum_if.html
+max ignore blanks;;Function_min.html
+max ignore blanks if;;Function_sum_if.html
+max ignore blanks if any;;Function_sum_if.html
+max ignore zero;;Function_min.html
+max ignore zero;;Function_min.html
+max ignore zero if;;Function_sum_if.html
+max ignore zero if any;;Function_sum_if.html
+max literal;;Function_min_abc.html
+max literal if;;Function_sum_if.html
+max literal if any;;Function_sum_if.html
+max literal ignore case;;Function_min_abc.html
+max literal ignore case if;;Function_sum_if.html
+max numeral;;Function_min_123.html
+max numeral if;;Function_sum_if.html
+max numeral if any;;Function_sum_if.html
+max numeral ignore zero;;Function_min_123.html
+max numeral ignore zero if;;Function_sum_if.html
+max numeral ignore zero if any;;Function_sum_if.html
+mdet;;Function_mdet.html
+mdiv;;Function_mmul.html
+median;;Function_average.html
+median if;;Function_sum_if.html
+median if any;;Function_sum_if.html
+median ignore zero;;Function_average.html
+median ignore zero if;;Function_sum_if.html
+median ignore zero if any;;Function_sum_if.html
 member variable;;Features_variables.html
 member variables;;Features_variables.html
+middle;;Function_middle.html
+middle;;Function_middle_.html
+middle (parameter set function);;Function_middle_.html
+middle (string function);;Function_middle.html
+middle include;;Function_middle.html
+middle include;;Function_middle_.html
+middle until;;Function_middle.html
+middle until;;Function_middle_.html
+middle until include;;Function_middle.html
+middle until include;;Function_middle_.html
+middle [parameter set function];;Function_middle_.html
+middle [string function];;Function_middle.html
+min;;Function_min.html
+min 123;;Function_min_123.html
+min 123 if;;Function_sum_if.html
+min 123 if any;;Function_sum_if.html
+min 123 ignore zero;;Function_min_123.html
+min 123 ignore zero if;;Function_sum_if.html
+min 123 ignore zero if any;;Function_sum_if.html
+min abc;;Function_min_abc.html
+min abc if;;Function_sum_if.html
+min abc if any;;Function_sum_if.html
+min abc ignore blanks;;Function_min_abc.html
+min abc ignore blanks if;;Function_sum_if.html
+min abc ignore blanks if any;;Function_sum_if.html
+min abc ignore both;;Function_min_abc.html
+min abc ignore both if;;Function_sum_if.html
+min abc ignore both if any;;Function_sum_if.html
+min abc ignore case;;Function_min_abc.html
+min abc ignore case if;;Function_sum_if.html
+min abc ignore case if any;;Function_sum_if.html
+min abc ignore case if any;;Function_sum_if.html
+min and max functions;;Function_min.html
+min and max functions on literals;;Function_min_abc.html
+min and max functions on numerals;;Function_min_123.html
+min if;;Function_sum_if.html
+min if any;;Function_sum_if.html
+min ignore blanks;;Function_min.html
+min ignore blanks if;;Function_sum_if.html
+min ignore blanks if any;;Function_sum_if.html
+min ignore zero if;;Function_sum_if.html
+min ignore zero if any;;Function_sum_if.html
+min literal;;Function_min_abc.html
+min literal if;;Function_sum_if.html
+min literal if any;;Function_sum_if.html
+min literal ignore blanks;;Function_min_abc.html
+min literal ignore blanks if;;Function_sum_if.html
+min literal ignore blanks if any;;Function_sum_if.html
+min literal ignore both;;Function_min_abc.html
+min literal ignore both if;;Function_sum_if.html
+min literal ignore both if any;;Function_sum_if.html
+min literal ignore case;;Function_min_abc.html
+min literal ignore case if;;Function_sum_if.html
+min literal ignore case if any;;Function_sum_if.html
+min literal ignore case if any;;Function_sum_if.html
+min numeral;;Function_min_123.html
+min numeral if;;Function_sum_if.html
+min numeral if any;;Function_sum_if.html
+min numeral ignore zero;;Function_min_123.html
+min numeral ignore zero if;;Function_sum_if.html
+min numeral ignore zero if any;;Function_sum_if.html
+minute;;Function_hour.html
+minv;;Function_minv.html
+mmul;;Function_mmul.html
+mod;;Function_mod.html
+modulo;;Function_mod.html
+month;;Function_year.html
+move cursor;;Function_cursor.html
+mul;;Function_add.html
+nearest neighbor interpolation;;Function_linear_interpolation.html
+nearest right neighbor interpolation;;Function_linear_interpolation.html
+null;;Function_null.html
+null function;;Function_null.html
 numeral;;Features_data_types_numerals.html
+numeral;;Function_numeral.html
+numeral conversion function;;Function_numeral.html
+numeral to literal conversion and formatting;;Features_numeral_to_literal_conversion_and_formatting.html
+Numeral to Literal Formatting Parameters;;Features_numeral_to_literal_conversion_and_formatting.html
 numerals;;Features_data_types_numerals.html
+odd;;Function_even.html
+odd numbers;;Function_even.html
+once;;Function_once.html
+one-time execution;;Function_once.html
+or;;Function_add.html
 Other Control Flow Functions;;Features_Other_Control_Flow_Functions.html
 Other Control Flow Functions;;Features_Other_Control_Flow_Functions.html
+output to screen;;Function_print.html
+output to strings;;Function_print.html
+outside;;Function_outside.html
+outside;;Function_outside_.html
+outside (parameter set function);;Function_outside_.html
+outside (string function);;Function_outside.html
+outside exclude;;Function_outside.html
+outside exclude;;Function_outside_.html
+outside until;;Function_outside.html
+outside until;;Function_outside_.html
+outside until exclude;;Function_outside.html
+outside until exclude;;Function_outside_.html
+outside [parameter set function];;Function_outside_.html
+outside [string function];;Function_outside.html
+parallel;;Function_average.html
+parallel if;;Function_sum_if.html
+parallel if any;;Function_sum_if.html
 parameter directions;;Features_Function_parameter_directions.html
 parameter set;;Features_data_types_parameter_sets.html
+parameter set;;Function_for_all_parameters.html
+parameter set;;Function_parameter_set.html
+parameter set conversion function;;Function_parameter_set.html
 parameter set extraction functions;;Features_parameter_set_search_and_extraction.html
 parameter set functions;;Features_parameter_set_functions.html
 parameter set functions;;Features_parameter_set_functions.html
@@ -117,10 +603,13 @@ parameter set or literal;;Features_parameter_set_or_literal.html
 parameter set or literal;;Features_parameter_set_or_literal.html
 parameter set search and extraction;;Features_parameter_set_search_and_extraction.html
 parameter set search functions;;Features_parameter_set_search_and_extraction.html
+Parameter Set to literal conversion and formatting;;Features_Parameter_Set_to_literal_conversion_and_formatting.html
+Parameter Set to Literal Formatting Parameters;;Features_Parameter_Set_to_literal_conversion_and_formatting.html
 parameter set value ranges;;Features_data_types_parameter_sets_value_ranges.html
 parameter set value repetitions;;Features_data_types_parameter_sets_value_repetitions.html
 parameter sets;;Features_data_types_parameter_sets.html
 parameter sets extracting subsets;;Features_data_types_parameter_sets_extracting_subsets.html
+partial table specification;;Function_with_table.html
 path name;;Features_path_names.html
 path names;;Features_path_names.html
 path names;;Features_path_names.html
@@ -128,25 +617,106 @@ plain date;;Features_data_types_dates.html
 plain dates;;Features_data_types_dates.html
 plain numeral;;Features_data_types_numerals.html
 plain numerals;;Features_data_types_numerals.html
+polynomial interpolation;;Function_linear_interpolation.html
+pow;;Function_pow.html
+power function;;Function_pow.html
+print;;Function_print.html
+print line;;Function_print.html
 Processing headers;;Features_Checking_headers.html
 Processing table columns;;Features_Processing_table_columns.html
+product;;Function_average.html
+product if;;Function_sum_if.html
+product if any;;Function_sum_if.html
+product ignore blanks;;Function_average.html
+product ignore blanks if;;Function_sum_if.html
+product ignore blanks if any;;Function_sum_if.html
+product ignore zero;;Function_average.html
+product ignore zero if;;Function_sum_if.html
+product ignore zero if any;;Function_sum_if.html
+pure date;;Function_date.html
+pure time;;Function_time.html
+quarter;;Function_year.html
 quoted literal;;Features_data_types_literals.html
 quoted literals;;Features_data_types_literals.html
+random;;Function_random.html
+random;;Function_random.html
+read access;;Function_read_access.html
+read access repeat if locked;;Function_read_access.html
+regression;;Function_regression.html
+replace;;Function_replace.html
+replace all;;Function_replace.html
+reschedule;;Function_reschedule.html
 reserved keywords;;Features_reserved_keywords.html
+resolve directory name;;Function_resolve_path_name.html
+resolve file name;;Function_resolve_path_name.html
+resolve path name;;Function_resolve_path_name.html
+return;;Function_return.html
+right;;Function_right.html
+right;;Function_right_.html
+right (parameter set function);;Function_right_.html
+right (string function);;Function_right.html
+right include;;Function_right.html
+right include;;Function_right_.html
+right last match;;Function_right.html
+right last match;;Function_right_.html
+right last match include;;Function_right.html
+right last match include;;Function_right_.html
+right [parameter set function];;Function_right_.html
+right [string function];;Function_right.html
+rms;;Function_average.html
+rms if;;Function_sum_if.html
+rms if any;;Function_sum_if.html
+rms ignore blanks;;Function_average.html
+rms ignore blanks if;;Function_sum_if.html
+rms ignore blanks if any;;Function_sum_if.html
+rms ignore zero;;Function_average.html
+rms ignore zero if;;Function_sum_if.html
+rms ignore zero if any;;Function_sum_if.html
+round;;Function_round.html
+round down;;Function_round.html
+round up;;Function_round.html
+rounding functions;;Function_round.html
+row;;Function_row.html
+Saving JSON files;;Features_Saving_JSON_files.html
+screen color;;Function_text_color.html
+search files;;Function_search_files.html
+search files recursive;;Function_search_files.html
 Searching tables;;Features_Searching_tables.html
+second;;Function_hour.html
+serial date;;Function_serial_date.html
 series functions;;Features_series_functions.html
 series functions;;Features_series_functions.html
 short error messages on directories and files;;Features_directory_and_file_system.html
 simple variable;;Features_simple_variables.html
 simple variables;;Features_simple_variables.html
 simple variables;;Features_simple_variables.html
+sin;;Function_sin.html
+sin deg;;Function_sin.html
+sinh;;Function_sinh.html
+sleep;;Function_sleep.html
 sleep and wait functions;;Features_sleep_and_wait_functions.html
+sleep countdown;;Function_sleep.html
+sleep until;;Function_sleep_until.html
+sleep until countdown;;Function_sleep_until.html
+smart conversion and formatting;;Features_smart_conversion_and_formatting.html
+smart formatting;;Features_smart_conversion_and_formatting.html
+Smart Formatting Parameters;;Features_smart_conversion_and_formatting.html
+smart if numeral;;Function_smart_numeral.html
+smart numeral;;Function_smart_numeral.html
+smart numerals;;Function_smart_numeral.html
 softquoted literal;;Features_data_types_literals.html
+softquoted literal;;Function_literal.html
 softquoted literals;;Features_data_types_literals.html
+spline interpolation;;Function_linear_interpolation.html
+sqrt;;Function_sqrt.html
+Square Root;;Function_sqrt.html
+start;;Function_start.html
+start B4P program;;Function_start.html
 Start or include Beyond4P Programs;;Features_Start_or_include_Beyond4P_Programs.html
 start programs;;Features_Start_or_include_Beyond4P_Programs.html
 starting;;Features_starting.html
 starting;;Features_starting.html
+starting directory;;Function_starting_directory.html
 statistics functions;;Features_statistics_functions.html
 statistics functions;;Features_statistics_functions.html
 string extraction functions;;Features_string_search_and_extraction.html
@@ -157,34 +727,159 @@ string search functions;;Features_string_search_and_extraction.html
 structure;;Features_structures.html
 structures;;Features_structures.html
 structures;;Features_structures.html
+sub;;Function_add.html
+subset;;Function_subset.html
+subset ignore blanks;;Function_subset.html
+subset ignore both;;Function_subset.html
+subset ignore case;;Function_subset.html
+subset recursive;;Function_subset.html
+subset recursive ignore blanks;;Function_subset.html
+subset recursive ignore both;;Function_subset.html
+subset recursive ignore case;;Function_subset.html
+substitute;;Function_substitute.html
+substitute all;;Function_substitute.html
+sum;;Function_average.html
+sum if;;Function_sum_if.html
+sum if any;;Function_sum_if.html
+switch;;Function_switch.html
+table append;;Function_table_initialize.html
+table append on same field;;Function_table_initialize.html
+table append on same row;;Function_table_initialize.html
+table check header;;Function_table_check_header.html
+table check headers;;Function_table_check_headers.html
+table check headers silently;;Function_table_check_headers.html
+table clear;;Function_table_clear.html
 Table column;;Features_Table_columns.html
+table column number;;Function_table_column_number.html
 Table columns;;Features_Table_columns.html
+table configure;;Function_table_configure.html
+table copy columns;;Function_table_copy_columns.html
+table copy columns selected rows;;Function_table_copy_columns.html
+table correct headers;;Function_table_correct_headers.html
+table correct headers ignore case;;Function_table_correct_headers.html
+table create;;Function_table_create.html
+table create if not existing;;Function_table_create.html
 table creating deleting;;Features_table_creating_deleting.html
+table delete;;Function_table_delete.html
+table delete silently;;Function_table_delete.html
+table existing;;Function_table_existing.html
 table functions;;Features_table_functions.html
+table initialize;;Function_table_initialize.html
+table length;;Function_table_length.html
+table lift contents;;Function_table_lift_header_row.html
+table lift header row;;Function_table_lift_header_row.html
+table lift headers;;Function_table_lift_header_row.html
+table load;;Function_table_load.html
+table load unchanged;;Function_table_load.html
+table max width;;Function_table_min_width.html
+table min width;;Function_table_min_width.html
 Table of Contents;;Features_Table_of_Contents.html
 Table of Contents;;Features_Table_of_Contents.html
+table read column selected rows;;Function_table_read_column_selected_rows.html
+table rename column headers;;Function_table_rename_headers.html
+table rename existing headers;;Function_table_rename_headers.html
+table rename headers;;Function_table_rename_headers.html
+table row width;;Function_table_row_width.html
+table save;;Function_table_save.html
+table save multiple;;Function_table_save.html
+table save with decimal comma;;Function_table_save.html
+table save with local decimal separator;;Function_table_save.html
+table search;;Function_table_search.html
+table search header row;;Function_table_search_header_row.html
+table search row;;Function_table_search_row.html
+table search vertically;;Function_table_search.html
+table selected column numbers;;Function_table_selected_columns.html
+table selected columns;;Function_table_selected_columns.html
+table selected headers;;Function_table_selected_columns.html
+table selected rows;;Function_table_selected_rows.html
+table write column selected rows;;Function_table_write_column_selected_rows.html
+tan;;Function_sin.html
+tan deg;;Function_sin.html
+tanh;;Function_sinh.html
+text color;;Function_text_color.html
+text output;;Function_print.html
+time;;Function_time.html
 time and stopwatch functions;;Features_time_and_stopwatch_functions.html
+time conversion functions;;Function_time.html
+Time Info Functions;;Function_hour.html
+time inside;;Function_date_inside.html
 transcendental functions;;Features_transcendental_functions.html
 transcendental functions;;Features_transcendental_functions.html
+transpose;;Function_transpose.html
+transpose matrices;;Function_transpose.html
+transpose matrix;;Function_transpose.html
+trigonometric functions;;Function_sin.html
+trim;;Function_trim.html
+trim;;Function_trim_.html
+trim (parameter set function);;Function_trim_.html
+trim (string function);;Function_trim.html
+trim all;;Function_trim.html
+trim [parameter set function];;Function_trim_.html
+trim [string function];;Function_trim.html
+tv;;Function_tv.html
+tv;;Function_tv.html
+Two parameter passing methods for series functions;;Function_add.html
+typd detailed;;Function_type.html
+type;;Function_type.html
 type conversion;;Features_Type_Conversion_Functions.html
 Type Conversion Functions;;Features_Type_Conversion_Functions.html
 UNICODE;;Features_UNICODE_character_set.html
 UNICODE character set;;Features_UNICODE_character_set.html
+unless;;Function_if.html
 unlock;;Features_licensing.html
 unquoted literal;;Features_data_types_literals.html
 unquoted literals;;Features_data_types_literals.html
+until;;Function_while.html
 upper case;;Features_case_sensitivity.html
 User Defined Procedures and Functiions;;Features_User_Defined_Procedures_and_Functiions.html
+user function existing;;Function_function_existing.html
 user functions;;Features_User_Defined_Procedures_and_Functiions.html
+user parameter types;;Features_user_parameter_types.html
 user procedures;;Features_User_Defined_Procedures_and_Functiions.html
 user-defined functions;;Features_User_Defined_Procedures_and_Functiions.html
 user-defined procedures;;Features_User_Defined_Procedures_and_Functiions.html
 User-defined procedures and functions;;Features_User_Defined_Procedures_and_Functiions.html
 value repetition;;Features_data_types_parameter_sets_value_repetitions.html
 value repetitions;;Features_data_types_parameter_sets_value_repetitions.html
+variable members;;Function_for_all_variables.html
 variables;;Features_variables.html
 variables;;Features_variables.html
+variance;;Function_average.html
+variance if;;Function_sum_if.html
+variance if any;;Function_sum_if.html
+variance ignore blanks;;Function_average.html
+variance ignore blanks if;;Function_sum_if.html
+variance ignore blanks if any;;Function_sum_if.html
+variance ignore zero;;Function_average.html
+variance ignore zero if;;Function_sum_if.html
+variance ignore zero if any;;Function_sum_if.html
+vertical;;Function_vertical.html
+vertical;;Function_vertical.html
 void;;Features_data_types_voids.html
+void to literal conversion and formatting;;Features_void_to_literal_conversion_and_formatting.html
+Void to Literal Formatting Parameters;;Features_void_to_literal_conversion_and_formatting.html
 voids;;Features_data_types_voids.html
+wait;;Function_wait.html
+wait countdown;;Function_wait.html
+wait until;;Function_wait_until.html
+wait until countdown;;Function_wait_until.html
+watch continue;;Function_watch_start.html
+watch read;;Function_watch_start.html
+watch reset;;Function_watch_start.html
+watch start;;Function_watch_start.html
+watch stop;;Function_watch_start.html
+week;;Function_week.html
+weekday;;Function_weekday.html
+weekday from date;;Function_weekday.html
+while;;Function_while.html
+whole;;Function_even.html
+whole numbers;;Function_even.html
+with table;;Function_with_table.html
+working directory;;Function_working_directory.html
+write access;;Function_read_access.html
+write access repeat if locked;;Function_read_access.html
+xnor;;Function_add.html
+xor;;Function_add.html
+year;;Function_year.html
 zero members;;Features_zero_members.html
 zero members;;Features_zero_members.html

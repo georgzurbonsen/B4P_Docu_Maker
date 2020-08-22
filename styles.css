@@ -79,6 +79,17 @@ li li.bullets
 }
 
 
+div.navi:hover
+{
+    color: blue;
+    background: #ccc;
+}
+
+div.navi-selected
+{
+    background: #ddd;
+}
+
 
 li.navi
 {
@@ -91,7 +102,7 @@ li.navi
 
 li li.navi
 {
-  font-weight: 600;
+  font-weight: 500;
   line-height: 100%;  
   text-indent: 8px;
   padding-left: 3px;

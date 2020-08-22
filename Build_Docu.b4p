@@ -12,11 +12,11 @@ include( Utility Library );
 //  Include slash at the end.
 
 
-	if (system info[user name] = "Zur Bonsen Georg")
+	if (system info[user name] = "Zur Bonsen Georg") // Georg on Windows
 	{
 		// Georg: Windows version  (file paths using "\")
 		inputs[hand written stuff]	= "inputs\*.txt";
-		// inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
+		inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
 		destination[] = "C:/Users/Zur Bonsen Georg/Documents/Programme/georgzurbonsen.github.io/";
 	}
 	else
@@ -131,7 +131,7 @@ define procedure( sequence revolving TOC )
 
 define procedure ( create navigator from revolving TOC )
 {
-	table initialize( navigator, { { "<ul>", Level } } );
+	table initialize( navigator, { { "<ul>", Level, HTML File Name, Section Name} } );
 	level[] = 1; // Initial level
 
 	table process ( RTOC, 
@@ -140,11 +140,11 @@ define procedure ( create navigator from revolving TOC )
 		while (next level[] > level[])  { table append( navigator, {{ '<li class="navi"><ul>',   ++level[] }} );  }
 		if ([HTML File Name] != '')
 		{
-			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><span>' + right([Section Nr],' ') + " " + [Section Name] + " </span></a></li>", level[] } } );
+			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><div class="navi">' + right([Section Nr],' ') + " " + [Section Name] + " </div></a></li>", level[], [HTML File Name], [Section Name] } } );
 		}
 		else
 		{
-			table append( navigator, { { '<li class="navi"><span>' + right([Section Nr],' ') + " " + [Section Name] + " </span></li>", level[] } } );
+			table append( navigator, { { '<li class="navi"><div>' + right([Section Nr],' ') + " " + [Section Name] + " </div></li>", level[] } } );
 		} );
 	while (1 < level[])  { table append( navigator, { "</ul></li>" } ); level[]--; } // Close all nested itemizations
 
@@ -818,11 +818,11 @@ define procedure ( create all general and function descriptions in HTML )
 	    }
 	    else:  	table initialize( HTML navigator, { { "<ul>", Level } } );
 
-	    [HTML navigator:2,0] = "Action"; // Hide or blank
+	    table insert columns( HTML navigator, "Action" );
 
-
+		// ***************** SIMPLIFY ************************
 	    applicable row[] = table search row( HTML navigator, ["<ul>"] = '*"' + softquoted literal(plain file name[]) + '"*' );
-
+	    applicable row 2[] = applicable row[];
 	    if ( [HTML navigator:"<ul>",applicable row[] ] = '*Table of Contents*' ) applicable row[]= -1; // Skip on table of contents
 
 	    if (applicable row[] > 0) // From applicable row to top: Mark all items at same level (local only) and superior levels visible
@@ -867,14 +867,6 @@ define procedure ( create all general and function descriptions in HTML )
 		}
 	    }
 
-	    table delete selected rows( HTML navigator, [Action]==Hide );
-
-//		table save( HTML navigator, test.csv );
-//		echo("Row checked was: ", applicable row[] );
-//		interactive;
-
-//
-
 	    table process	( HTML template,
 		switch( [0] )
 		{
@@ -888,12 +880,42 @@ define procedure ( create all general and function descriptions in HTML )
 			[0..] = [HTML function description:0,];
 		    }
 
-		    case ('*$Navigation$*')
+		    case ('*$Navigation$*') // Shall be referenced only once and after $PrevNext$
 		    {
+			table delete selected rows( HTML navigator, [Action]==Hide );
+			table process selected rows( HTML navigator, [Section Name]==name[], [0] = replace([0], 'div class="navi"', 'div class="navi navi-selected"') );
 			[0..] = [HTML navigator:0,];
 		    }
 
+		    case ('*$PrevNext$*') // !!! See important note above	
+		    {
+			link text[] = '';
+
+			i[] = applicable row 2[]; // Look upwards for previous entry
+			while (--i[] >= 1) with table ( HTML navigator, i[] )
+			{
+			    if ( [HTML File Name] != '')
+			    {
+				link text[] += '<a href="' + [HTML File Name] + '"><span>Prev</span></a> ';
+				break;
+			    }
+			}
+
+			i[] = applicable row 2[]; // Look upwards for previous entry
+			while (++i[] < table length(HTML navigator)) with table ( HTML navigator, i[] )
+			{
+			    if ( [HTML File Name] != '')
+			    {
+				link text[] += '<a href="' + [HTML File Name] + '"><span>Next</span></a> ';
+				break;
+			    }
+			}
+			[0] = link text[];
+
+		    }
+
 		} );
+
 
 	    table save( HTML template, file name[], new line );
 
@@ -919,6 +941,7 @@ define procedure ( create all general and function descriptions in HTML )
 	sequence revolving TOC;
 	create index from revolving TOC;
 	create navigator from revolving TOC;
+
 	table save( RTOC, "Revolving TOC " + literal( date(now), "YYYY-MM-DD HH.II.SS" ) + ".csv" );
 	table save( RTOC, destination[] + "TOC.csv" );
 
