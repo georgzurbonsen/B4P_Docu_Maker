@@ -15,6 +15,10 @@ B4PDOCU.START
 	+++
    },
 
+
+
+
+
   "Control Flow Functions" :
   {
     "Documentation":		"General Description", // Required value
@@ -515,7 +519,7 @@ B4PDOCU.START
 "Processing Table Columns":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Searching tables" ],
+    "Feature Names":		[ "Processing table columns" ],
     "Description 01 Introduction"::
 
 	The functions described next provide efficient means to search for data inside tables.

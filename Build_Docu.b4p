@@ -12,17 +12,20 @@ include( Utility Library );
 //  Include slash at the end.
 
 
-// Georg: Windows version  (file paths using "\")
-	inputs[hand written stuff]	= "inputs\*.txt";
-	inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
-	destination[] = "C:\Users\Zur Bonsen Georg\Documents\Programme\georgzurbonsen.github.io\";
+	if (system info[user name] = "Zur Bonsen Georg")
+	{
+		// Georg: Windows version  (file paths using "\")
+		inputs[hand written stuff]	= "inputs\*.txt";
+		// inputs[from source files]	= "C:\Users\Zur Bonsen Georg\source\repos\Beyond4P_Code\F*.cpp";
+		destination[] = "C:/Users/Zur Bonsen Georg/Documents/Programme/georgzurbonsen.github.io/";
+	}
+	else
+	{
 
-
-
-// Rafael: MacOS/Unix version (file paths must use "/" )
-//	inputs[hand written stuff]	= "Inputs/*.txt";
-//	destination[] = "Outputs/";
-
+		// Rafael: MacOS/Unix version (file paths must use "/" )
+		inputs[hand written stuff]	= "Inputs/*.txt";
+		destination[] = "Outputs/";
+	}
 
 
 //	Temporary files

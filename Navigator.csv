@@ -1,72 +1,355 @@
-﻿<ul>,Level
-"<li class=""navi""><a href=""Features_Accessing_table_contents.html""><span> Accessing Table Contents </span></a></li>",1
-"<li class=""navi""><a href=""Features_accessing_table_info.html""><span> Accessing Table Information </span></a></li>",1
-"<li class=""navi""><a href=""Features_arrays.html""><span> Arrays </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types.html""><span> Basic Data Types </span></a></li>",1
-"<li class=""navi""><a href=""Features_basic_directory_and_file_functions.html""><span> Basic Directory and File Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_basic_math_functions.html""><span> Basic Math Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_booleans.html""><span> Booleans </span></a></li>",1
-"<li class=""navi""><a href=""Features_Branches.html""><span> Branches </span></a></li>",1
-"<li class=""navi""><a href=""Features_CSV.html""><span> CSV File Format </span></a></li>",1
-"<li class=""navi""><a href=""Features_case_sensitivity.html""><span> Case Sensitivity </span></a></li>",1
-"<li class=""navi""><a href=""Features_character_coding.html""><span> Character Encoding and Decoding </span></a></li>",1
-"<li class=""navi""><a href=""Features_Checking_headers.html""><span> Checking and Processing Headers </span></a></li>",1
-"<li class=""navi""><a href=""Features_comments.html""><span> Comments </span></a></li>",1
-"<li class=""navi""><a href=""Features_console.html""><span> Console Input / Output </span></a></li>",1
-"<li class=""navi""><a href=""Features_Control_Flow_Functions.html""><span> Control Flow Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_table_creating_deleting.html""><span> Creating and Deleting Tables </span></a></li>",1
-"<li class=""navi""><a href=""Features_date_functions.html""><span> Date Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_date_and_time_functions.html""><span> Date and Time Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_dates.html""><span> Dates </span></a></li>",1
-"<li class=""navi""><a href=""Features_directory_and_file_system.html""><span> Directory and File System Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_finance_functions.html""><span> Finance and Business Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_Function_Library.html""><span> Function Library </span></a></li>",1
-"<li class=""navi""><a href=""Features_entities.html""><span> HTML Entities </span></a></li>",1
-"<li class=""navi""><a href=""Features_interactive.html""><span> Interactive Mode </span></a></li>",1
-"<li class=""navi""><a href=""Features_introduction.html""><span> Introduction </span></a></li>",1
-"<li class=""navi""><a href=""Features_licensing.html""><span> Licensing </span></a></li>",1
-"<li class=""navi""><a href=""Features_listing_directories_and_files.html""><span> Listing and Searching Directories and Files </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_literals.html""><span> Literals </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_literals_extracting_substrings.html""><span> Literals - Extracting Substrings </span></a></li>",1
-"<li class=""navi""><a href=""Features_literals_indexing.html""><span> Literals - Indexing </span></a></li>",1
-"<li class=""navi""><a href=""Features_loading_files.html""><span> Loading and Saving Files </span></a></li>",1
-"<li class=""navi""><a href=""Features_Loading_and_saving_tables.html""><span> Loading and Saving Tables </span></a></li>",1
-"<li class=""navi""><a href=""Features_Locales.html""><span> Locales </span></a></li>",1
-"<li class=""navi""><a href=""Features_Loops.html""><span> Loops </span></a></li>",1
-"<li class=""navi""><a href=""Features_deleting_directories_and_files.html""><span> Manipulating Directories and Files </span></a></li>",1
-"<li class=""navi""><a href=""Features_Mathematics_and_Statistics.html""><span> Mathematics and Statistics </span></a></li>",1
-"<li class=""navi""><a href=""Features_matrix_functions.html""><span> Matrix Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_matrix_manipulation_functions.html""><span> Matrix Manipulation Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_numerals.html""><span> Numerals </span></a></li>",1
-"<li class=""navi""><a href=""Features_Other_Control_Flow_Functions.html""><span> Other Control Flow Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_parameter_set_functions.html""><span> Parameter Set Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_parameter_sets.html""><span> Parameter sets </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_parameter_sets_extracting_subsets.html""><span> Parameter sets - Extracting Subsets </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_parameter_sets_indexing.html""><span> Parameter sets - Indexing </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_parameter_sets_value_ranges.html""><span> Parameter sets - Value Ranges </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_parameter_sets_value_repetitions.html""><span> Parameter sets - Value Repetitions </span></a></li>",1
-"<li class=""navi""><a href=""Features_path_names.html""><span> Path and File Names </span></a></li>",1
-"<li class=""navi""><a href=""Features_Searching_tables.html""><span> Processing Table Columns </span></a></li>",1
-"<li class=""navi""><a href=""Features_reserved_keywords.html""><span> Reserved keywords </span></a></li>",1
-"<li class=""navi""><a href=""Features_Searching_tables.html""><span> Searching Tables </span></a></li>",1
-"<li class=""navi""><a href=""Features_series_functions.html""><span> Series Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_parameter_set_search_and_extraction.html""><span> Set Search and Extraction Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_simple_variables.html""><span> Simple Variables </span></a></li>",1
-"<li class=""navi""><a href=""Features_sleep_and_wait_functions.html""><span> Sleep and Wait Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_Start_or_include_Beyond4P_Programs.html""><span> Start or include Beyond4P Programs </span></a></li>",1
-"<li class=""navi""><a href=""Features_starting.html""><span> Starting B4P </span></a></li>",1
-"<li class=""navi""><a href=""Features_statistics_functions.html""><span> Statistics Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_string_functions.html""><span> String Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_string_search_and_extraction.html""><span> String Search and Extraction Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_structures.html""><span> Structures </span></a></li>",1
-"<li class=""navi""><a href=""Features_table_functions.html""><span> Table Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_Table_of_Contents.html""><span> Table of Contents </span></a></li>",1
-"<li class=""navi""><a href=""Features_time_and_stopwatch_functions.html""><span> Time and Stopwatch Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_transcendental_functions.html""><span> Transcendental Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_Type_Conversion_Functions.html""><span> Type Conversion and Formatting Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_UNICODE_character_set.html""><span> UNICODE Character Set </span></a></li>",1
-"<li class=""navi""><a href=""Features_User_Defined_Procedures_and_Functiions.html""><span> User-Defined Procedures and Functions </span></a></li>",1
-"<li class=""navi""><a href=""Features_variables.html""><span> Variables </span></a></li>",1
-"<li class=""navi""><a href=""Features_data_types_voids.html""><span> Voids </span></a></li>",1
-"<li class=""navi""><a href=""Features_zero_members.html""><span> Zero Members Variables </span></a></li>",1
+﻿<ul>;Level
+"<li class=""navi""><a href=""Features_Table_of_Contents.html""><span>1 Table of Contents </span></a></li>";1
+"<li class=""navi""><a href=""Features_starting.html""><span>2 Starting B4P </span></a></li>";1
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""Features_interactive.html""><span>2.1 Interactive Mode </span></a></li>";2
+"<li class=""navi""><a href=""Features_licensing.html""><span>2.2 Licensing </span></a></li>";2
+</ul></li>;2
+"<li class=""navi""><a href=""Features_introduction.html""><span>3 Introduction </span></a></li>";1
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""Features_UNICODE_character_set.html""><span>3.1 UNICODE Character Set </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_case_sensitivity.html""><span>3.1.1 Case Sensitivity </span></a></li>";3
+"<li class=""navi""><a href=""Features_entities.html""><span>3.1.2 HTML Entities </span></a></li>";3
+"<li class=""navi""><a href=""Features_console.html""><span>3.1.3 Console Input / Output </span></a></li>";3
+"<li class=""navi""><a href=""Features_loading_files.html""><span>3.1.4 Loading and Saving Files </span></a></li>";3
+"<li class=""navi""><a href=""Features_CSV.html""><span>3.1.5 CSV File Format </span></a></li>";3
+</ul></li>;3
+"<li class=""navi""><a href=""Features_data_types.html""><span>3.2 Basic Data Types </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_data_types_literals.html""><span>3.2.1 Literals </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""Features_literals_indexing.html""><span>3.2.1.1 Literals - Indexing </span></a></li>";4
+"<li class=""navi""><a href=""Features_data_types_literals_extracting_substrings.html""><span>3.2.1.2 Literals - Extracting Substrings </span></a></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_data_types_numerals.html""><span>3.2.2 Numerals </span></a></li>";3
+"<li class=""navi""><a href=""Features_data_types_dates.html""><span>3.2.3 Dates </span></a></li>";3
+"<li class=""navi""><a href=""Features_data_types_booleans.html""><span>3.2.4 Booleans </span></a></li>";3
+"<li class=""navi""><a href=""Features_data_types_voids.html""><span>3.2.5 Voids </span></a></li>";3
+"<li class=""navi""><a href=""Features_data_types_parameter_sets.html""><span>3.2.6 Parameter sets </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""Features_data_types_parameter_sets_indexing.html""><span>3.2.6.1 Parameter sets - Indexing </span></a></li>";4
+"<li class=""navi""><a href=""Features_data_types_parameter_sets_extracting_subsets.html""><span>3.2.6.2 Parameter sets - Extracting Subsets </span></a></li>";4
+"<li class=""navi""><a href=""Features_data_types_parameter_sets_value_ranges.html""><span>3.2.6.3 Parameter sets - Value Ranges </span></a></li>";4
+"<li class=""navi""><a href=""Features_data_types_parameter_sets_value_repetitions.html""><span>3.2.6.4 Parameter sets - Value Repetitions </span></a></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_variables.html""><span>3.3 Variables </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_simple_variables.html""><span>3.3.1 Simple Variables </span></a></li>";3
+"<li class=""navi""><a href=""Features_arrays.html""><span>3.3.2 Arrays </span></a></li>";3
+"<li class=""navi""><a href=""Features_structures.html""><span>3.3.3 Structures </span></a></li>";3
+"<li class=""navi""><a href=""Features_zero_members.html""><span>3.3.4 Zero Members Variables </span></a></li>";3
+</ul></li>;3
+"<li class=""navi""><a href=""Features_comments.html""><span>3.4 Comments </span></a></li>";2
+"<li class=""navi""><a href=""Features_reserved_keywords.html""><span>3.5 Reserved keywords </span></a></li>";2
+"<li class=""navi""><a href=""Features_path_names.html""><span>3.6 Path and File Names </span></a></li>";2
+"<li class=""navi""><a href=""Features_Locales.html""><span>3.7 Locales </span></a></li>";2
+</ul></li>;2
+"<li class=""navi""><a href=""Features_Functions_and_Procedures.html""><span>4 Functions and Procedures </span></a></li>";1
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""Features_Function_Parameters.html""><span>4.1 Function Parameters </span></a></li>";2
+"<li class=""navi""><a href=""Features_Function_parameter_directions.html""><span>4.2 Function Parameter Directions </span></a></li>";2
+"<li class=""navi""><a href=""Features_Function_parameter_types.html""><span>4.3 Function Parameter Types </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_parameter_set_or_literal.html""><span>4.3.1 Parameter Set or Literal (Func. Param. Type) </span></a></li>";3
+"<li class=""navi""><a href=""Features_Table_columns.html""><span>4.3.2 Table Columns (Func. Param. Type) </span></a></li>";3
+"<li class=""navi""><a href=""Features_Code_Piece.html""><span>4.3.3 Code Pieces (Func. Param. Type) </span></a></li>";3
+"<li class=""navi""><a href=""Features_Expressions_to_select_rows.html""><span>4.3.4 Expressions to Select Rows </span></a></li>";3
+</ul></li>;3
+"<li class=""navi""><a href=""Features_Indirect_parameter_passing.html""><span>4.4 Indirect Parameter Passing </span></a></li>";2
+</ul></li>;2
+"<li class=""navi""><a href=""Features_Function_Library.html""><span>5 Function Library </span></a></li>";1
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""Features_Control_Flow_Functions.html""><span>5.1 Control Flow Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_Loops.html""><span>5.1.1 Loops </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.1.1.1 do </span></li>";4
+"<li class=""navi""><span>5.1.1.2 for </span></li>";4
+"<li class=""navi""><span>5.1.1.3 while, until </span></li>";4
+"<li class=""navi""><span>5.1.1.4 for all table columns </span></li>";4
+"<li class=""navi""><span>5.1.1.5 for all current table columns </span></li>";4
+"<li class=""navi""><span>5.1.1.6 for all parameters </span></li>";4
+"<li class=""navi""><span>5.1.1.7 for all table rows </span></li>";4
+"<li class=""navi""><span>5.1.1.8 for all table selected rows </span></li>";4
+"<li class=""navi""><span>5.1.1.9 for all variables </span></li>";4
+"<li class=""navi""><span>5.1.1.10 for all current table selected columns </span></li>";4
+"<li class=""navi""><span>5.1.1.11 for all table selected columns </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Branches.html""><span>5.1.2 Branches </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.1.2.1 if, unless </span></li>";4
+"<li class=""navi""><span>5.1.2.2 once </span></li>";4
+"<li class=""navi""><span>5.1.2.3 switch, check </span></li>";4
+"<li class=""navi""><span>5.1.2.4 case </span></li>";4
+"<li class=""navi""><span>5.1.2.5 break, continue </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_User_Defined_Procedures_and_Functiions.html""><span>5.1.3 User-Defined Procedures and Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.1.3.1 define procedure / function </span></li>";4
+"<li class=""navi""><span>5.1.3.2 define additional procedure / function </span></li>";4
+"<li class=""navi""><span>5.1.3.3 Parameter Types in User-Defined Functions </span></li>";4
+"<li class=""navi""><span>5.1.3.4 return </span></li>";4
+"<li class=""navi""><span>5.1.3.5 function / user function existing </span></li>";4
+"<li class=""navi""><span>5.1.3.6 delete user function </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Start_or_include_Beyond4P_Programs.html""><span>5.1.4 Start or include Beyond4P Programs </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.1.4.1 start - Function </span></li>";4
+"<li class=""navi""><span>5.1.4.2 include - Function </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Other_Control_Flow_Functions.html""><span>5.1.5 Other Control Flow Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.1.5.1 null - Function </span></li>";4
+"<li class=""navi""><span>5.1.5.2 Provide Context for Partial Table Specification with 'with table' Procedure </span></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_Type_Conversion_Functions.html""><span>5.2 Type Conversion and Formatting Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><span>5.2.1 literal, quoted literal, softquoted literal </span></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.2.1.1 Literal to Literal Formatting </span></li>";4
+"<li class=""navi""><span>5.2.1.2 Void to Literal Formatting </span></li>";4
+"<li class=""navi""><span>5.2.1.3 Numeral to Literal Formatting </span></li>";4
+"<li class=""navi""><span>5.2.1.4 Date to Literal Formatting </span></li>";4
+"<li class=""navi""><span>5.2.1.5 Parameter Set to Literal Formatting </span></li>";4
+"<li class=""navi""><span>5.2.1.6 Boolean to Literal Formatting </span></li>";4
+"<li class=""navi""><span>5.2.1.7 Smart Formatting </span></li>";4
+</ul></li>;4
+"<li class=""navi""><span>5.2.2 numeral </span></li>";3
+"<li class=""navi""><span>5.2.3 clean (if) numeral </span></li>";3
+"<li class=""navi""><span>5.2.4 smart (if) numeral </span></li>";3
+"<li class=""navi""><span>5.2.5 date, pure date, date time </span></li>";3
+"<li class=""navi""><span>5.2.6 time, pure time </span></li>";3
+"<li class=""navi""><span>5.2.7 Date and Time Detection Rules </span></li>";3
+"<li class=""navi""><span>5.2.8 boolean </span></li>";3
+"<li class=""navi""><span>5.2.9 parameter set </span></li>";3
+"<li class=""navi""><span>5.2.10 join ... </span></li>";3
+"<li class=""navi""><span>5.2.11 type, type detailed </span></li>";3
+</ul></li>;3
+"<li class=""navi""><a href=""Features_Mathematics_and_Statistics.html""><span>5.3 Mathematics and Statistics </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_basic_math_functions.html""><span>5.3.1 Basic Math Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.3.1.1 is numeric / integer - Functions </span></li>";4
+"<li class=""navi""><span>5.3.1.2 even, odd, whole </span></li>";4
+"<li class=""navi""><span>5.3.1.3 abs - Absolute Value </span></li>";4
+"<li class=""navi""><span>5.3.1.4 round, round up / down </span></li>";4
+"<li class=""navi""><span>5.3.1.5 mod - Modulo function </span></li>";4
+"<li class=""navi""><span>5.3.1.6 random - Random Integers </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_transcendental_functions.html""><span>5.3.2 Transcendental Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.3.2.1 sqrt - Square Root </span></li>";4
+"<li class=""navi""><span>5.3.2.2 pow - Power Function </span></li>";4
+"<li class=""navi""><span>5.3.2.3 Exponential Functions </span></li>";4
+"<li class=""navi""><span>5.3.2.4 Logarithmic Functions </span></li>";4
+"<li class=""navi""><span>5.3.2.5 Trigonometric Functions </span></li>";4
+"<li class=""navi""><span>5.3.2.6 Hyperbolic Functions </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_series_functions.html""><span>5.3.3 Series Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.3.3.1 Arithmetic and Boolean Series Functions </span></li>";4
+"<li class=""navi""><span>5.3.3.2 min, max Functions </span></li>";4
+"<li class=""navi""><span>5.3.3.3 min, max Functions on Literals </span></li>";4
+"<li class=""navi""><span>5.3.3.4 min, max Functions on Numerals </span></li>";4
+"<li class=""navi""><span>5.3.3.5 count Functions </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_matrix_functions.html""><span>5.3.4 Matrix Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.3.4.1 minv - Matrix Inversion </span></li>";4
+"<li class=""navi""><span>5.3.4.2 mdet - Matrix Determinant </span></li>";4
+"<li class=""navi""><span>5.3.4.3 mmul, mmdiv - Multiplication and Division </span></li>";4
+"<li class=""navi""><span>5.3.4.4 linear - Solve Linear Equations </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_statistics_functions.html""><span>5.3.5 Statistics Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.3.5.1 Basic Statistics Functions </span></li>";4
+"<li class=""navi""><span>5.3.5.2 covariance, correlation </span></li>";4
+"<li class=""navi""><span>5.3.5.3 gini Coefficient Functions </span></li>";4
+"<li class=""navi""><span>5.3.5.4 Linear and Exponential Regression </span></li>";4
+"<li class=""navi""><span>5.3.5.5 Interpolation Functions </span></li>";4
+"<li class=""navi""><ul>";5
+"<li class=""navi""><span>5.3.5.5.1 Interpolation Examples Visualized </span></li>";5
+</ul></li>;5
+</ul></li>;4
+"<li class=""navi""><span>5.3.6 Conditional Combination Functions </span></li>";3
+"<li class=""navi""><a href=""Features_finance_functions.html""><span>5.3.7 Finance and Business Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.3.7.1 cagr - Compond Annual Growth Rate </span></li>";4
+"<li class=""navi""><span>5.3.7.2 irr - Internal Rate of Return </span></li>";4
+"<li class=""navi""><span>5.3.7.3 tv - Terminal Value </span></li>";4
+"<li class=""navi""><span>5.3.7.4 discount - Discount Values </span></li>";4
+"<li class=""navi""><span>5.3.7.5 distribute - Value Distribution over Timeline </span></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_string_functions.html""><span>5.4 String Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_string_search_and_extraction.html""><span>5.4.1 String Search and Extraction Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.4.1.1 length ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.2 find ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.3 left ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.4 right ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.5 middle ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.6 outside ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.7 trim ... (string function) </span></li>";4
+"<li class=""navi""><span>5.4.1.8 replace, replace all </span></li>";4
+"<li class=""navi""><span>5.4.1.9 substitute, substitute all </span></li>";4
+"<li class=""navi""><span>5.4.1.10 get differences </span></li>";4
+"<li class=""navi""><span>5.4.1.11 locate differences </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_character_coding.html""><span>5.4.2 Character Encoding and Decoding </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.4.2.1 chr </span></li>";4
+"<li class=""navi""><span>5.4.2.2 code </span></li>";4
+"<li class=""navi""><span>5.4.2.3 decode entities </span></li>";4
+"<li class=""navi""><span>5.4.2.4 encode entities </span></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_date_and_time_functions.html""><span>5.5 Date and Time Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_date_functions.html""><span>5.5.1 Date Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.5.1.1 date inside, time inside </span></li>";4
+"<li class=""navi""><span>5.5.1.2 year, quarter, month, day </span></li>";4
+"<li class=""navi""><span>5.5.1.3 day of year </span></li>";4
+"<li class=""navi""><span>5.5.1.4 serial date </span></li>";4
+"<li class=""navi""><span>5.5.1.5 weekday </span></li>";4
+"<li class=""navi""><span>5.5.1.6 week </span></li>";4
+"<li class=""navi""><span>5.5.1.7 reschedule </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_time_and_stopwatch_functions.html""><span>5.5.2 Time and Stopwatch Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.5.2.1 hour, minute, second </span></li>";4
+"<li class=""navi""><span>5.5.2.2 Stopwatch Functions </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_sleep_and_wait_functions.html""><span>5.5.3 Sleep and Wait Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.5.3.1 sleep, sleep countdown </span></li>";4
+"<li class=""navi""><span>5.5.3.2 sleep until, sleep until countdown </span></li>";4
+"<li class=""navi""><span>5.5.3.3 wait until, wait until countdown </span></li>";4
+"<li class=""navi""><span>5.5.3.4 wait, wait countdown </span></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_parameter_set_functions.html""><span>5.6 Parameter Set Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_parameter_set_search_and_extraction.html""><span>5.6.1 Set Search and Extraction Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.6.1.1 length ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.2 find ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.3 left ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.4 right ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.5 middle ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.6 outside ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.7 trim ... (parameter set function) </span></li>";4
+"<li class=""navi""><span>5.6.1.8 count elements ... </span></li>";4
+"<li class=""navi""><span>5.6.1.9 subset ... </span></li>";4
+"<li class=""navi""><span>5.6.1.10 filter ... </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_matrix_manipulation_functions.html""><span>5.6.2 Matrix Manipulation Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.6.2.1 horizontal </span></li>";4
+"<li class=""navi""><span>5.6.2.2 vertical </span></li>";4
+"<li class=""navi""><span>5.6.2.3 flat </span></li>";4
+"<li class=""navi""><span>5.6.2.4 diagonal </span></li>";4
+"<li class=""navi""><span>5.6.2.5 transpose </span></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_table_functions.html""><span>5.7 Table Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_table_creating_deleting.html""><span>5.7.1 Creating and Deleting Tables </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.1.1 table create ... </span></li>";4
+"<li class=""navi""><span>5.7.1.2 table initialize/append ... </span></li>";4
+"<li class=""navi""><span>5.7.1.3 table configure </span></li>";4
+"<li class=""navi""><span>5.7.1.4 table clear ... </span></li>";4
+"<li class=""navi""><span>5.7.1.5 table delete ... </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_accessing_table_info.html""><span>5.7.2 Accessing Table Information </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.2.1 table existing </span></li>";4
+"<li class=""navi""><span>5.7.2.2 table length </span></li>";4
+"<li class=""navi""><span>5.7.2.3 table row width </span></li>";4
+"<li class=""navi""><span>5.7.2.4 table min/max width </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Accessing_table_contents.html""><span>5.7.3 Accessing Table Contents </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.3.1 row </span></li>";4
+"<li class=""navi""><span>5.7.3.2 forget memorized table columns </span></li>";4
+"<li class=""navi""><span>5.7.3.3 table read column selected rows </span></li>";4
+"<li class=""navi""><span>5.7.3.4 table write column selected rows </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Loading_and_saving_tables.html""><span>5.7.4 Loading and Saving Tables </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.4.1 table load ... </span></li>";4
+"<li class=""navi""><span>5.7.4.2 Loading HTML files </span></li>";4
+"<li class=""navi""><span>5.7.4.3 Loading XML files </span></li>";4
+"<li class=""navi""><span>5.7.4.4 Loading JSON files </span></li>";4
+"<li class=""navi""><span>5.7.4.5 table save ... </span></li>";4
+"<li class=""navi""><span>5.7.4.6 Saving JSON files </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Checking_headers.html""><span>5.7.5 Checking and Processing Headers </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.5.1 table check header </span></li>";4
+"<li class=""navi""><span>5.7.5.2 table column number </span></li>";4
+"<li class=""navi""><span>5.7.5.3 table check headers ... </span></li>";4
+"<li class=""navi""><span>5.7.5.4 table rename ... headers </span></li>";4
+"<li class=""navi""><span>5.7.5.5 table correct headers ... </span></li>";4
+"<li class=""navi""><span>5.7.5.6 table lift ... </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Searching_tables.html""><span>5.7.6 Searching Tables </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.6.1 table search ... </span></li>";4
+"<li class=""navi""><span>5.7.6.2 table search row </span></li>";4
+"<li class=""navi""><span>5.7.6.3 table selected rows </span></li>";4
+"<li class=""navi""><span>5.7.6.4 table selected columns/headers ... </span></li>";4
+"<li class=""navi""><span>5.7.6.5 table search header row </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_Processing_table_columns.html""><span>5.7.7 Processing Table Columns </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.7.7.1 table copy columns ... </span></li>";4
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""Features_directory_and_file_system.html""><span>5.8 Directory and File System Functions </span></a></li>";2
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""Features_basic_directory_and_file_functions.html""><span>5.8.1 Basic Directory and File Functions </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.8.1.1 directory existing, file existing </span></li>";4
+"<li class=""navi""><span>5.8.1.2 read access ..., write access ... </span></li>";4
+"<li class=""navi""><span>5.8.1.3 working directory </span></li>";4
+"<li class=""navi""><span>5.8.1.4 starting directory </span></li>";4
+"<li class=""navi""><span>5.8.1.5 directory size </span></li>";4
+"<li class=""navi""><span>5.8.1.6 file size </span></li>";4
+"<li class=""navi""><span>5.8.1.7 disk space ... </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_listing_directories_and_files.html""><span>5.8.2 Listing and Searching Directories and Files </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.8.2.1 directory listing ... </span></li>";4
+"<li class=""navi""><span>5.8.2.2 search files ... </span></li>";4
+"<li class=""navi""><span>5.8.2.3 count files ... </span></li>";4
+"<li class=""navi""><span>5.8.2.4 resolve path/directory/file name </span></li>";4
+</ul></li>;4
+"<li class=""navi""><a href=""Features_deleting_directories_and_files.html""><span>5.8.3 Manipulating Directories and Files </span></a></li>";3
+"<li class=""navi""><ul>";4
+"<li class=""navi""><span>5.8.3.1 directory create ... </span></li>";4
+"<li class=""navi""><span>5.8.3.2 file delete ... </span></li>";4
+"<li class=""navi""><span>5.8.3.3 file delete multiple/recursive ... </span></li>";4
+"<li class=""navi""><span>5.8.3.4 directory delete ... </span></li>";4
+"<li class=""navi""><span>5.8.3.5 directory delete multiple/recursive ... </span></li>";4
+"<li class=""navi""><span>5.8.3.6 file rename ... </span></li>";4
+"<li class=""navi""><span>5.8.3.7 directory rename ... </span></li>";4
+"<li class=""navi""><span>5.8.3.8 file copy ... </span></li>";4
+"<li class=""navi""><span>5.8.3.9 file copy mulitple/recursive ... </span></li>";4
+"<li class=""navi""><span>5.8.3.10 file create link ... </span></li>";4
+"<li class=""navi""><span>5.8.3.11 file download ... </span></li>";4
+</ul></li>;4
+</ul></li>;3
+</ul></li>;2
+"<li class=""navi""><span> Basic Text Output Functions </span></li>";1
+"<li class=""navi""><span> Clear screen </span></li>";1
+"<li class=""navi""><span> Identify variable forms (if structure, array, or simple) </span></li>";1
+"<li class=""navi""><span> Set cursor positions </span></li>";1
+"<li class=""navi""><span> Set console text and background colors </span></li>";1
 </ul>

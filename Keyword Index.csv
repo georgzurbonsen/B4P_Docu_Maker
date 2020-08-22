@@ -1,177 +1,190 @@
-﻿Keywords,Attribute,HTML File Name
-Accessing table contents,,Features_Accessing_table_contents.html
-accessing table info,,Features_accessing_table_info.html
-array,,Features_arrays.html
-arrays,,Features_arrays.html
-arrays,,Features_arrays.html
-base variable,,Features_variables.html
-base variables,,Features_variables.html
-basic data types,,Features_data_types.html
-basic directory and file functions,,Features_basic_directory_and_file_functions.html
-basic math functions,,Features_basic_math_functions.html
-basic math functions,,Features_basic_math_functions.html
-boolean,,Features_data_types_booleans.html
-booleans,,Features_data_types_booleans.html
-Branches,,Features_Branches.html
-Branches,,Features_Branches.html
-business functions,,Features_finance_functions.html
-case sensitivity,,Features_case_sensitivity.html
-case sensitivity,,Features_case_sensitivity.html
-character coding,,Features_character_coding.html
-character set,,Features_UNICODE_character_set.html
-Checking headers,,Features_Checking_headers.html
-comments,,Features_comments.html
-comments,,Features_comments.html
-console,,Features_console.html
-console,,Features_console.html
-Control Flow Functions,,Features_Control_Flow_Functions.html
-Control Flow Functions,,Features_Control_Flow_Functions.html
-CSV,,Features_CSV.html
-CSV,,Features_CSV.html
-data types,,Features_data_types.html
-data types,,Features_data_types.html
-data types booleans,,Features_data_types_booleans.html
-data types dates,,Features_data_types_dates.html
-data types literals,,Features_data_types_literals.html
-data types literals extracting substrings,,Features_data_types_literals_extracting_substrings.html
-data types numerals,,Features_data_types_numerals.html
-data types parameter sets,,Features_data_types_parameter_sets.html
-data types parameter sets extracting subsets,,Features_data_types_parameter_sets_extracting_subsets.html
-data types parameter sets indexing,,Features_data_types_parameter_sets_indexing.html
-data types parameter sets value ranges,,Features_data_types_parameter_sets_value_ranges.html
-data types parameter sets value repetitions,,Features_data_types_parameter_sets_value_repetitions.html
-data types voids,,Features_data_types_voids.html
-date,,Features_data_types_dates.html
-date and time functions,,Features_date_and_time_functions.html
-date functions,,Features_date_functions.html
-dates,,Features_data_types_dates.html
-deleting directories and files,,Features_deleting_directories_and_files.html
-directory and file system,,Features_directory_and_file_system.html
-entities,,Features_entities.html
-entities,,Features_entities.html
-file name,,Features_path_names.html
-file names,,Features_path_names.html
-finance functions,,Features_finance_functions.html
-finance functions,,Features_finance_functions.html
-function library,,Features_Function_Library.html
-Function Library,,Features_Function_Library.html
-html entities,,Features_entities.html
-include programs,,Features_Start_or_include_Beyond4P_Programs.html
-installation,,Features_starting.html
-installing,,Features_starting.html
-interactive,,Features_interactive.html
-interactive,,Features_interactive.html
-interactive mode,,Features_interactive.html
-introduction,,Features_introduction.html
-introduction,,Features_introduction.html
-keywords,,Features_reserved_keywords.html
-launching,,Features_starting.html
-length of literals,,Features_literals_indexing.html
-length of parameter sets,,Features_data_types_parameter_sets_indexing.html
-licensing,,Features_licensing.html
-licensing,,Features_licensing.html
-list of Locales,,Features_Locales.html
-listing directories and files,,Features_listing_directories_and_files.html
-literal,,Features_data_types_literals.html
-literal functions,,Features_string_functions.html
-literals,,Features_data_types_literals.html
-literals extracting substrings,,Features_data_types_literals_extracting_substrings.html
-literals indexing,,Features_literals_indexing.html
-literals indexing,,Features_literals_indexing.html
-Loading and saving tables,,Features_Loading_and_saving_tables.html
-loading files,,Features_loading_files.html
-loading files,,Features_loading_files.html
-locale,,Features_Locales.html
-Locales,,Features_Locales.html
-Loops,,Features_Loops.html
-Loops,,Features_Loops.html
-lower case,,Features_case_sensitivity.html
-mathematics and statistics,,Features_Mathematics_and_Statistics.html
-Mathematics and Statistics,,Features_Mathematics_and_Statistics.html
-matrix functions,,Features_matrix_functions.html
-matrix functions,,Features_matrix_functions.html
-matrix manipulation functions,,Features_matrix_manipulation_functions.html
-matrix manipulation functions,,Features_matrix_manipulation_functions.html
-matrix manipulations,,Features_matrix_manipulation_functions.html
-member variable,,Features_variables.html
-member variables,,Features_variables.html
-numeral,,Features_data_types_numerals.html
-numerals,,Features_data_types_numerals.html
-Other Control Flow Functions,,Features_Other_Control_Flow_Functions.html
-Other Control Flow Functions,,Features_Other_Control_Flow_Functions.html
-parameter set,,Features_data_types_parameter_sets.html
-parameter set extraction functions,,Features_parameter_set_search_and_extraction.html
-parameter set functions,,Features_parameter_set_functions.html
-parameter set functions,,Features_parameter_set_functions.html
-parameter set indexing,,Features_data_types_parameter_sets_indexing.html
-parameter set search and extraction,,Features_parameter_set_search_and_extraction.html
-parameter set search functions,,Features_parameter_set_search_and_extraction.html
-parameter set value ranges,,Features_data_types_parameter_sets_value_ranges.html
-parameter set value repetitions,,Features_data_types_parameter_sets_value_repetitions.html
-parameter sets,,Features_data_types_parameter_sets.html
-parameter sets extracting subsets,,Features_data_types_parameter_sets_extracting_subsets.html
-path name,,Features_path_names.html
-path names,,Features_path_names.html
-path names,,Features_path_names.html
-plain date,,Features_data_types_dates.html
-plain dates,,Features_data_types_dates.html
-plain numeral,,Features_data_types_numerals.html
-plain numerals,,Features_data_types_numerals.html
-Processing headers,,Features_Checking_headers.html
-quoted literal,,Features_data_types_literals.html
-quoted literals,,Features_data_types_literals.html
-reserved keywords,,Features_reserved_keywords.html
-Searching tables,,Features_Searching_tables.html
-Searching tables,,Features_Searching_tables.html
-series functions,,Features_series_functions.html
-series functions,,Features_series_functions.html
-short error messages on directories and files,,Features_directory_and_file_system.html
-simple variable,,Features_simple_variables.html
-simple variables,,Features_simple_variables.html
-simple variables,,Features_simple_variables.html
-sleep and wait functions,,Features_sleep_and_wait_functions.html
-softquoted literal,,Features_data_types_literals.html
-softquoted literals,,Features_data_types_literals.html
-Start or include Beyond4P Programs,,Features_Start_or_include_Beyond4P_Programs.html
-start programs,,Features_Start_or_include_Beyond4P_Programs.html
-starting,,Features_starting.html
-starting,,Features_starting.html
-statistics functions,,Features_statistics_functions.html
-statistics functions,,Features_statistics_functions.html
-string extraction functions,,Features_string_search_and_extraction.html
-string functions,,Features_string_functions.html
-string functions,,Features_string_functions.html
-string search and extraction,,Features_string_search_and_extraction.html
-string search functions,,Features_string_search_and_extraction.html
-structure,,Features_structures.html
-structures,,Features_structures.html
-structures,,Features_structures.html
-table creating deleting,,Features_table_creating_deleting.html
-table functions,,Features_table_functions.html
-Table of Contents,,Features_Table_of_Contents.html
-Table of Contents,,Features_Table_of_Contents.html
-time and stopwatch functions,,Features_time_and_stopwatch_functions.html
-transcendental functions,,Features_transcendental_functions.html
-transcendental functions,,Features_transcendental_functions.html
-type conversion,,Features_Type_Conversion_Functions.html
-Type Conversion Functions,,Features_Type_Conversion_Functions.html
-UNICODE,,Features_UNICODE_character_set.html
-UNICODE character set,,Features_UNICODE_character_set.html
-unlock,,Features_licensing.html
-unquoted literal,,Features_data_types_literals.html
-unquoted literals,,Features_data_types_literals.html
-upper case,,Features_case_sensitivity.html
-User Defined Procedures and Functiions,,Features_User_Defined_Procedures_and_Functiions.html
-user functions,,Features_User_Defined_Procedures_and_Functiions.html
-user procedures,,Features_User_Defined_Procedures_and_Functiions.html
-user-defined functions,,Features_User_Defined_Procedures_and_Functiions.html
-user-defined procedures,,Features_User_Defined_Procedures_and_Functiions.html
-User-defined procedures and functions,,Features_User_Defined_Procedures_and_Functiions.html
-value repetition,,Features_data_types_parameter_sets_value_repetitions.html
-value repetitions,,Features_data_types_parameter_sets_value_repetitions.html
-variables,,Features_variables.html
-variables,,Features_variables.html
-void,,Features_data_types_voids.html
-voids,,Features_data_types_voids.html
-zero members,,Features_zero_members.html
-zero members,,Features_zero_members.html
+﻿Keywords;Attribute;HTML File Name
+Accessing table contents;;Features_Accessing_table_contents.html
+accessing table info;;Features_accessing_table_info.html
+array;;Features_arrays.html
+arrays;;Features_arrays.html
+arrays;;Features_arrays.html
+base variable;;Features_variables.html
+base variables;;Features_variables.html
+basic data types;;Features_data_types.html
+basic directory and file functions;;Features_basic_directory_and_file_functions.html
+basic math functions;;Features_basic_math_functions.html
+basic math functions;;Features_basic_math_functions.html
+boolean;;Features_data_types_booleans.html
+booleans;;Features_data_types_booleans.html
+Branches;;Features_Branches.html
+Branches;;Features_Branches.html
+business functions;;Features_finance_functions.html
+case sensitivity;;Features_case_sensitivity.html
+case sensitivity;;Features_case_sensitivity.html
+character coding;;Features_character_coding.html
+character set;;Features_UNICODE_character_set.html
+Checking headers;;Features_Checking_headers.html
+Code Piece;;Features_Code_Piece.html
+code pieces;;Features_Code_Piece.html
+comments;;Features_comments.html
+comments;;Features_comments.html
+console;;Features_console.html
+console;;Features_console.html
+Control Flow Functions;;Features_Control_Flow_Functions.html
+Control Flow Functions;;Features_Control_Flow_Functions.html
+CSV;;Features_CSV.html
+CSV;;Features_CSV.html
+data types;;Features_data_types.html
+data types;;Features_data_types.html
+data types booleans;;Features_data_types_booleans.html
+data types dates;;Features_data_types_dates.html
+data types literals;;Features_data_types_literals.html
+data types literals extracting substrings;;Features_data_types_literals_extracting_substrings.html
+data types numerals;;Features_data_types_numerals.html
+data types parameter sets;;Features_data_types_parameter_sets.html
+data types parameter sets extracting subsets;;Features_data_types_parameter_sets_extracting_subsets.html
+data types parameter sets indexing;;Features_data_types_parameter_sets_indexing.html
+data types parameter sets value ranges;;Features_data_types_parameter_sets_value_ranges.html
+data types parameter sets value repetitions;;Features_data_types_parameter_sets_value_repetitions.html
+data types voids;;Features_data_types_voids.html
+date;;Features_data_types_dates.html
+date and time functions;;Features_date_and_time_functions.html
+date functions;;Features_date_functions.html
+dates;;Features_data_types_dates.html
+deleting directories and files;;Features_deleting_directories_and_files.html
+directory and file system;;Features_directory_and_file_system.html
+entities;;Features_entities.html
+entities;;Features_entities.html
+Expressions to select rows;;Features_Expressions_to_select_rows.html
+file name;;Features_path_names.html
+file names;;Features_path_names.html
+finance functions;;Features_finance_functions.html
+finance functions;;Features_finance_functions.html
+function library;;Features_Function_Library.html
+Function Library;;Features_Function_Library.html
+Function parameter directions;;Features_Function_parameter_directions.html
+Function parameter types;;Features_Function_parameter_types.html
+Function Parameters;;Features_Function_Parameters.html
+Functions and Procedures;;Features_Functions_and_Procedures.html
+html entities;;Features_entities.html
+include programs;;Features_Start_or_include_Beyond4P_Programs.html
+Indirect parameter passing;;Features_Indirect_parameter_passing.html
+installation;;Features_starting.html
+installing;;Features_starting.html
+interactive;;Features_interactive.html
+interactive;;Features_interactive.html
+interactive mode;;Features_interactive.html
+introduction;;Features_introduction.html
+introduction;;Features_introduction.html
+keywords;;Features_reserved_keywords.html
+launching;;Features_starting.html
+length of literals;;Features_literals_indexing.html
+length of parameter sets;;Features_data_types_parameter_sets_indexing.html
+licensing;;Features_licensing.html
+licensing;;Features_licensing.html
+list of Locales;;Features_Locales.html
+listing directories and files;;Features_listing_directories_and_files.html
+literal;;Features_data_types_literals.html
+literal functions;;Features_string_functions.html
+literals;;Features_data_types_literals.html
+literals extracting substrings;;Features_data_types_literals_extracting_substrings.html
+literals indexing;;Features_literals_indexing.html
+literals indexing;;Features_literals_indexing.html
+Loading and saving tables;;Features_Loading_and_saving_tables.html
+loading files;;Features_loading_files.html
+loading files;;Features_loading_files.html
+locale;;Features_Locales.html
+Locales;;Features_Locales.html
+Loops;;Features_Loops.html
+Loops;;Features_Loops.html
+lower case;;Features_case_sensitivity.html
+mathematics and statistics;;Features_Mathematics_and_Statistics.html
+Mathematics and Statistics;;Features_Mathematics_and_Statistics.html
+matrix functions;;Features_matrix_functions.html
+matrix functions;;Features_matrix_functions.html
+matrix manipulation functions;;Features_matrix_manipulation_functions.html
+matrix manipulation functions;;Features_matrix_manipulation_functions.html
+matrix manipulations;;Features_matrix_manipulation_functions.html
+member variable;;Features_variables.html
+member variables;;Features_variables.html
+numeral;;Features_data_types_numerals.html
+numerals;;Features_data_types_numerals.html
+Other Control Flow Functions;;Features_Other_Control_Flow_Functions.html
+Other Control Flow Functions;;Features_Other_Control_Flow_Functions.html
+parameter directions;;Features_Function_parameter_directions.html
+parameter set;;Features_data_types_parameter_sets.html
+parameter set extraction functions;;Features_parameter_set_search_and_extraction.html
+parameter set functions;;Features_parameter_set_functions.html
+parameter set functions;;Features_parameter_set_functions.html
+parameter set indexing;;Features_data_types_parameter_sets_indexing.html
+parameter set or literal;;Features_parameter_set_or_literal.html
+parameter set or literal;;Features_parameter_set_or_literal.html
+parameter set search and extraction;;Features_parameter_set_search_and_extraction.html
+parameter set search functions;;Features_parameter_set_search_and_extraction.html
+parameter set value ranges;;Features_data_types_parameter_sets_value_ranges.html
+parameter set value repetitions;;Features_data_types_parameter_sets_value_repetitions.html
+parameter sets;;Features_data_types_parameter_sets.html
+parameter sets extracting subsets;;Features_data_types_parameter_sets_extracting_subsets.html
+path name;;Features_path_names.html
+path names;;Features_path_names.html
+path names;;Features_path_names.html
+plain date;;Features_data_types_dates.html
+plain dates;;Features_data_types_dates.html
+plain numeral;;Features_data_types_numerals.html
+plain numerals;;Features_data_types_numerals.html
+Processing headers;;Features_Checking_headers.html
+Processing table columns;;Features_Processing_table_columns.html
+quoted literal;;Features_data_types_literals.html
+quoted literals;;Features_data_types_literals.html
+reserved keywords;;Features_reserved_keywords.html
+Searching tables;;Features_Searching_tables.html
+series functions;;Features_series_functions.html
+series functions;;Features_series_functions.html
+short error messages on directories and files;;Features_directory_and_file_system.html
+simple variable;;Features_simple_variables.html
+simple variables;;Features_simple_variables.html
+simple variables;;Features_simple_variables.html
+sleep and wait functions;;Features_sleep_and_wait_functions.html
+softquoted literal;;Features_data_types_literals.html
+softquoted literals;;Features_data_types_literals.html
+Start or include Beyond4P Programs;;Features_Start_or_include_Beyond4P_Programs.html
+start programs;;Features_Start_or_include_Beyond4P_Programs.html
+starting;;Features_starting.html
+starting;;Features_starting.html
+statistics functions;;Features_statistics_functions.html
+statistics functions;;Features_statistics_functions.html
+string extraction functions;;Features_string_search_and_extraction.html
+string functions;;Features_string_functions.html
+string functions;;Features_string_functions.html
+string search and extraction;;Features_string_search_and_extraction.html
+string search functions;;Features_string_search_and_extraction.html
+structure;;Features_structures.html
+structures;;Features_structures.html
+structures;;Features_structures.html
+Table column;;Features_Table_columns.html
+Table columns;;Features_Table_columns.html
+table creating deleting;;Features_table_creating_deleting.html
+table functions;;Features_table_functions.html
+Table of Contents;;Features_Table_of_Contents.html
+Table of Contents;;Features_Table_of_Contents.html
+time and stopwatch functions;;Features_time_and_stopwatch_functions.html
+transcendental functions;;Features_transcendental_functions.html
+transcendental functions;;Features_transcendental_functions.html
+type conversion;;Features_Type_Conversion_Functions.html
+Type Conversion Functions;;Features_Type_Conversion_Functions.html
+UNICODE;;Features_UNICODE_character_set.html
+UNICODE character set;;Features_UNICODE_character_set.html
+unlock;;Features_licensing.html
+unquoted literal;;Features_data_types_literals.html
+unquoted literals;;Features_data_types_literals.html
+upper case;;Features_case_sensitivity.html
+User Defined Procedures and Functiions;;Features_User_Defined_Procedures_and_Functiions.html
+user functions;;Features_User_Defined_Procedures_and_Functiions.html
+user procedures;;Features_User_Defined_Procedures_and_Functiions.html
+user-defined functions;;Features_User_Defined_Procedures_and_Functiions.html
+user-defined procedures;;Features_User_Defined_Procedures_and_Functiions.html
+User-defined procedures and functions;;Features_User_Defined_Procedures_and_Functiions.html
+value repetition;;Features_data_types_parameter_sets_value_repetitions.html
+value repetitions;;Features_data_types_parameter_sets_value_repetitions.html
+variables;;Features_variables.html
+variables;;Features_variables.html
+void;;Features_data_types_voids.html
+voids;;Features_data_types_voids.html
+zero members;;Features_zero_members.html
+zero members;;Features_zero_members.html

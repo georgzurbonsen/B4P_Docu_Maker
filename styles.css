@@ -82,6 +82,7 @@ li li.bullets
 
 li.navi
 {
+  font-weight: bold;
   line-height: 100%;  
   text-indent: 4px;
   padding-bottom: 4px;
@@ -90,6 +91,7 @@ li.navi
 
 li li.navi
 {
+  font-weight: 600;
   line-height: 100%;  
   text-indent: 8px;
   padding-left: 3px;
@@ -100,6 +102,7 @@ li li.navi
 
 li li li.navi
 {
+  font-weight: normal;
   line-height: 100%;  
   padding-left: 6px;
   padding-top: 2px;
