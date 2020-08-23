@@ -16,9 +16,6 @@ B4PDOCU.START
    },
 
 
-
-
-
   "Control Flow Functions" :
   {
     "Documentation":		"General Description", // Required value
@@ -630,11 +627,104 @@ B4PDOCU.START
 	This subsection describes various functions to create, copy, rename and delete files and directories
 
 	+++
+  },
+
+
+// ________________________________________________________________________________________ "/
+
+
+"Cross-Functional Info":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Cross-functional info" ],
+    "Description 01 Introduction"::
+
+	This section contains various information which apply to different functions across the function library,
+	for example applicable sorting and consolidating options.
+
+	+++
+  },
+
+
+"Sorting and Ranking Options":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Sorting options", "Ranking options" ],
+    "Description 01 Introduction"::
+
+	The sorting options are used (amongst others) by following functions:
+	* __table sort columns(__)
+	* __table sort rows(__)
+	* __table sort selected rows(__)
+	* __table rank rows(__)
+	* __table rank selected rows(__)
+
+	+++,
+    "Description 02 Overview of Available Options"::
+
+	=== 200, 800, bold_column_1
+	Sorting / Ranking Option 	| Description
+	alphabetic			| Alphabetic order by UNICODE character set.
+	alphabetic down			| Opposite direction of above
+	alphabetic ignore case		| Alphabetic order, but ignores case (e.g. 'the Hague' comes before 'Uruguay')
+	alphabetic down ignore case	| Opposite direction of above
+	alphabetic ignore blanks	| Same as alphabetic. Blanks (incl. new line, tabs, space) are ignored.  'St. Moritz' and 'St.Moritz' are equivalent.
+	alphabetic down ignore blanks	| Opposite direction of above
+	alphabetic ignore both		| Same as alphabetic, ignoring both case and blanks
+	alphabetic down ignore both	| Opposite direction of above
+	numeric				| Sorts by numbers.  Non-numeric contents are interpreted like zero.  Smallest number comes first.
+	numeric down			| Opposite direction of above
+	date				| Sorts by dates.  Fields containing no qualified dates are interpreted like blank dates.  See rules below the table.
+	===
+
+	Rules on literals:
+	* Blank literal '' comes first
+	* One space symbol ' ' (UNICODE 32) comes next.
+	* Sorting is done based on UNICODE character codes.
+	* Sorting takes no cultural implications into consideration (e.g. Spanish: LL follows L).
+	* Numbers are also treated as literals: 0100 comes before 10.
+
+	Rules on numerals:
+	* For contents beginning a number: The 1st number will be recognized.
+	* For contents beginning with non-numeric symbols: Interpreted as zero.
+
+	Rules on dates:
+	* Blank dates come first.
+	* If year is missing, current year is assumed.
+	* If day is missing, the 1st day of month is assumed.
+	* Month names in key languages like "Jan", "feb", "März", "avril", "May", "juni", etc. are recognized as months and sorted accordingly.
+	* Local settings are used as rules to resolve country dependent date formats like 01/02/2015 (day and month ordering: 2. Jan 2015 or 1. Feb 2015).  Local settings are in the system variables and can be changed.
+	* Time values in the date are ignored.  E.g. "14.07.2016 10:00" and "14.07.2016 11:00" are treated as identical values
+
+	Rules on dates and times:
+	* Blank dates come first.
+	* Date values without time come before date values with time (e.g. "00:00:00") if date are on the same day.
+	* Time values are not ignored
+
+	Rules on times:
+	* Blank dates come first.
+	* Date values are ignored.  "14.07.2016 10:00” and “15.07.2016 10:00” are treated as identical values
+
+	Following example shows a ranking based on the different options applied.
+	+++,
+
+    "Examples 02"::
+	include( Support Library );
+	
+	table initialize ( t,
+	{ { Scheme, alphabetic, alphabetic down, alphabetic ignore case, alphabetic down ignore case, numeric, numeric down, date, date down, time, time down },
+	    "02-Dec-2020 10:00", "02-Nov-2020 11:00", "05", "1", "Dec", "apr 15", "-1", "", "begin" } );
+
+	for all parameters( [t:1..,0], option[] )  table rank rows( t, option[], Scheme, option[], 113 ); // 113 - Same ranking share same ranking position
+	table transpose (t);
+	table list (t);		
+	+++,
+
+    "Output 02": "automatic"
+
   }
 
 
 
 
-
 B4PDOCU.STOP
-

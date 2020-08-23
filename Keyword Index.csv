@@ -110,6 +110,7 @@ count ignore zero if;;Function_sum_if.html
 count ignore zero if any;;Function_sum_if.html
 covariance;;Function_covariance.html
 covariance and correlation;;Function_covariance.html
+Cross-functional info;;Features_Cross-functional_info.html
 CSV;;Features_CSV.html
 CSV;;Features_CSV.html
 cursor;;Function_cursor.html
@@ -640,6 +641,7 @@ quoted literal;;Features_data_types_literals.html
 quoted literals;;Features_data_types_literals.html
 random;;Function_random.html
 random;;Function_random.html
+Ranking options;;Features_Sorting_options.html
 read access;;Function_read_access.html
 read access repeat if locked;;Function_read_access.html
 regression;;Function_regression.html
@@ -686,6 +688,7 @@ second;;Function_hour.html
 serial date;;Function_serial_date.html
 series functions;;Features_series_functions.html
 series functions;;Features_series_functions.html
+Shifted Table Column Specifications;;Features_Table_columns.html
 short error messages on directories and files;;Features_directory_and_file_system.html
 simple variable;;Features_simple_variables.html
 simple variables;;Features_simple_variables.html
@@ -707,6 +710,7 @@ smart numerals;;Function_smart_numeral.html
 softquoted literal;;Features_data_types_literals.html
 softquoted literal;;Function_literal.html
 softquoted literals;;Features_data_types_literals.html
+Sorting options;;Features_Sorting_options.html
 spline interpolation;;Function_linear_interpolation.html
 sqrt;;Function_sqrt.html
 Square Root;;Function_sqrt.html
@@ -749,9 +753,9 @@ table check header;;Function_table_check_header.html
 table check headers;;Function_table_check_headers.html
 table check headers silently;;Function_table_check_headers.html
 table clear;;Function_table_clear.html
-Table column;;Features_Table_columns.html
 table column number;;Function_table_column_number.html
 Table columns;;Features_Table_columns.html
+table columns as function parameters;;Features_Table_columns.html
 table configure;;Function_table_configure.html
 table copy columns;;Function_table_copy_columns.html
 table copy columns selected rows;;Function_table_copy_columns.html
@@ -761,10 +765,23 @@ table create;;Function_table_create.html
 table create if not existing;;Function_table_create.html
 table creating deleting;;Features_table_creating_deleting.html
 table delete;;Function_table_delete.html
+table delete all blank columns;;Function_table_delete_blank_columns.html
+table delete all empty columns;;Function_table_delete_blank_columns.html
+table delete all unnamed columns;;Function_table_delete_blank_columns.html
+table delete blank columns;;Function_table_delete_blank_columns.html
+table delete columns;;Function_table_delete_columns.html
+table delete empty columns;;Function_table_delete_blank_columns.html
+table delete remaining columns;;Function_table_delete_remaining_columns.html
 table delete silently;;Function_table_delete.html
+table delete unnamed columns;;Function_table_delete_blank_columns.html
+table duplicate columns;;Function_table_duplicate_columns.html
 table existing;;Function_table_existing.html
 table functions;;Features_table_functions.html
 table initialize;;Function_table_initialize.html
+table insert columns;;Function_table_insert_columns.html
+table insert missing columns;;Function_table_insert_columns.html
+table keep columns;;Function_table_keep_columns.html
+table keep existing columns;;Function_table_keep_columns.html
 table length;;Function_table_length.html
 table lift contents;;Function_table_lift_header_row.html
 table lift header row;;Function_table_lift_header_row.html
@@ -776,6 +793,8 @@ table min width;;Function_table_min_width.html
 Table of Contents;;Features_Table_of_Contents.html
 Table of Contents;;Features_Table_of_Contents.html
 table read column selected rows;;Function_table_read_column_selected_rows.html
+table rearrange columns;;Function_table_rearrange_columns.html
+table rearrange existing columns;;Function_table_rearrange_columns.html
 table rename column headers;;Function_table_rename_headers.html
 table rename existing headers;;Function_table_rename_headers.html
 table rename headers;;Function_table_rename_headers.html
@@ -792,6 +811,7 @@ table selected column numbers;;Function_table_selected_columns.html
 table selected columns;;Function_table_selected_columns.html
 table selected headers;;Function_table_selected_columns.html
 table selected rows;;Function_table_selected_rows.html
+table sort columns;;Function_table_sort_columns.html
 table write column selected rows;;Function_table_write_column_selected_rows.html
 tan;;Function_sin.html
 tan deg;;Function_sin.html

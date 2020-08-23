@@ -72,7 +72,7 @@ B4PDOCU.START
 
 	Depending on the specific functions, they may acceept parameters with values of any type (e.g. numerals only), a combination of them, or
 	or any type.  Type checking of the function parameters happen before the actual function is executed.  Type mismatches will be report
-	as exceptions (error messages).  Various functions dealing with tables do also accept __table columns__ which is a flexible parameter
+	as exceptions (error messages).  Various functions dealing with tables do also accept __table columns as function parameters__ which is a flexible parameter
 	type and accepts one of the following: individual header names, individual column numbers or several of them provided in a __parameter set__ variable.
 
 
@@ -207,7 +207,7 @@ B4PDOCU.START
 	Date or literal		| In this case, literals will be converted to dates automatically, e.g. "29.Feb. 20" to 2020-02-29, or "today" to today's date
 	Parameter set		| Accepts parameter sets or expressiosn returning parameter sets
 	Combinations of above	| Various functions accept values of different types
-	__Table columns__	| Parameter to specify one or multiple table columns in a flexible way
+	Table columns		| Parameter to specify one or multiple table columns in a flexible way. See section on __table columns as function parameters__.
 	Parameter set or literal| Various functions accept either parameter sets or literals.  See section on __parameter set or literal__  for details
 	All types		| Accepts values of all types, including void
 	Valid types		| Accepts values of all types, except void
@@ -289,7 +289,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
-    "Keywords":			[ "Table column" ],
+    "Keywords":			[ "table columns as function parameters", "Shifted Table Column Specifications" ],
     "Description 01 Introduction"::
 
 	Whenever a function expects a __function parameter__ for table columns, the following types are supported:
@@ -316,7 +316,7 @@ B4PDOCU.START
 	<u>Note</u>: If Table headers contain numbers, the put the numbers into quotation marks.
 
 	+++,
-    "Description 02 Shifted Table Table Column Specifications"::
+    "Description 02 Shifted Table Column Specifications"::
 
 	In some cases, you want to refer to neighboring columns to the left or to the right of a column for which the header name is presently
 	known. In this case, put the header name into <u>single</u> quotation marks so it will be regarded as a softquoted literal, and

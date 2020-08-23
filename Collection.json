@@ -10649,7 +10649,9 @@
 "Description" : [
 "		<b>table min width</b> returns the number of columns in the narrowest row.<br>",
 "		<b>table nax width</b> returns the number of columns in the widest row.<br>",
-"		In both cases all rows will be considered, including the header row."
+"		In both cases all rows will be considered, including the header row.",
+"",
+"		<u>Attention:</u> Contents are already considered blank if they contain white spaces.."
  ]
 		,
 	"Call as":			"function",
@@ -10880,7 +10882,13 @@
 		  "Name": "Existing column",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
-		  "Description": [ "Header name or column name of column to read out" ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+		    
 		},
 		{   "Number":		"3.",
 			"Name" :		"Expression to select rows",
@@ -10950,7 +10958,13 @@
 		  "Name": "Existing column",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
-		  "Description": [ "Header name or column name of column to write data" ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
 		},
 		{   "Number":		"3.",
 			"Name" :		"Expression to select rows",
@@ -11670,8 +11684,13 @@
 		  "Name": "Header name or column number",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
-		  "Description":
-			[ "Specify exactly one table header name or column number." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
 		}
 
 	],
@@ -11725,8 +11744,13 @@
 		  "Name": "Header name or column number",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
-		  "Description":
-			[ "Specify exactly one table header name or column number." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
 		}
 	],
 	"Return value":
@@ -11782,8 +11806,13 @@
 		  "Name": "Header names and/or column numbers",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
-		  "Description":
-			[ "Specify exactly one table header name or column number.  Restrictions as specified in the 3rd and 4th function parameter may apply." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
 		},
 		{ "Number": "Opt. 3",
 		  "Name": "Check header option 1",
@@ -11995,8 +12024,13 @@
 		  "Name": "Existing header name(s) or column number(s)",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
-		  "Description":
-			[ "Specify any number of table header names and/or column numbers." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
 		},
 		{ "Number": "3",
 		  "Name": "New header name(s)",
@@ -12181,14 +12215,27 @@
 		  "Direction": "input",
 		  "Default value": "0 (1st column)",
 		  "Types": [ "table column" ],
-		  "Description": [ "Specify a header name or column number where to start searching and comparing from left to right." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Specify exactly one header name or column number where to start searching and comparing from left to right",
+""
+ ]
+			
 		},
 		{ "Number": "Opt. 6",
 		  "Name": "Column representing right boundary for searching",
 		  "Direction": "input",
 		  "Default value": "0 (1st column)",
 		  "Types": [ "table column" ],
-		  "Description": [ "Specify a header name or column number where to stop searching and comparing from left to right." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Specify exactly one header name or column number where to stop searching and comparing from left to right",
+""
+ ]
+			
+
 		}
 	],
 	"Return value":
@@ -12410,7 +12457,13 @@
 		  "Direction": "input",
 		  "Default value": "0 (1st column)",
 		  "Types": [ "table column" ],
-		  "Description": [ "Specify a header name or column number to specify where to start searching and comparing from left to right." ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Specify one header name or column number to indicate where to start searching and comparing frmo left to right.",
+""
+ ]
+			
 		}
 
 	],
@@ -12468,10 +12521,16 @@
 		  "Description": [ "" ]
 		},
 		{ "Number": "2",
-		  "Name": "Existing columns",
+		  "Name": "Existing columns considered part of headers",
 		  "Direction": "input",
-		  "Types": [ "table column" ],
-		  "Description": [ "Specify header names and/or column numbers which are considered as part of the headers" ]
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
 		},
 		{ "Number": "Opt. 3",
 		  "Name": "Check header option",
@@ -12579,8 +12638,14 @@
 		{ "Number": "2",
 		  "Name": "Existing columns",
 		  "Direction": "input",
-		  "Types": [ "table column" ],
-		  "Description": [ "Specify header names and/or column numbers which are considered as part of the headers" ]
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
 		},
 		{ "Number": "Opt. 3",
 		  "Name": "Check header option",
@@ -12683,18 +12748,210 @@
 
 ,
 
+"table insert (missing) columns" :
+{
+	"Function Names":	[ "table insert columns", "table insert missing columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function inserts one or more columns into the table with initial values.<br>",
+"	<b>table insert missing columns</b> will only insert and initialize columns if they are missing.  If they exist, then they will not be touched or the contents being initialized.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2 -4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Header names columns to add",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names may be specified.  Column numbers are not allowed here.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Initial Values",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+"Description" : [
+"			If this set contains more values than in 2nd argument, then the excess values will be discarded.",
+"			If this set contains less values, then the first value will be referred after the last one (modulo pattern).",
+"			If the parameter is blank, or missing, then the columns will be initialized with blanks."
+ ]
+			
+		},
+		{ "Number": "opt. 4",
+		  "Name": "Destination column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"		    See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Specify only one header name and column number",
+"			",
+"			The new column will be inserted to the left. To insert them to the right, using __shifted Table Column Specifications__ is a possible option, or",
+"			use column numbers. Negative indexing is supported, where -1 adds the new column after (and not before) the last column."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of headers inserted",
+		  "Types": [ "numeral" ],
+		  "Description": "-1 is returned if no header row has been found"
+		}
+	],
+	"Exceptions": [ "Table not found" ],
+
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t,",
+"		{ { First Name, Last Name, Given Name, Birth Year },",
+"		  { Abel,       Adams,	   A.,         1990 },",
+"		  { Betty,      Beavers,   B.,         1995 },",
+"		  { Charlie,    Collins,   C.,         2000 },",
+"		  { Daniela,    Douglas,   D.,         2005 } } );",
+"",
+"	table insert columns( t, Gender, \"M or F\", First Name );",
+"	table insert columns( t, Phone, {\"1-202...\", \"1-212...\"}, '>First Name' );",
+"	table insert columns( t, Birthplace, \"-\", -1 );",
+"",
+"	count[] = table insert missing columns( t, {Birthplace, Street} );",
+"	echo(count[]); // Inserted 1 additional column.",
+"",
+"	table list ( t );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete columns", "table copy columns" ]
+}
+
+,
+
+"table duplicate columns ..." :
+{
+	"Function Names":	[ "table duplicate columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function duplicates specified columns to a destination column and assigns new header names accordingly.",
+"		No existing columns will be overwritten.  If the destination column is not at the end of the table, then the existing columns",
+"		on the right will shift to the right in order provide space for the destination columns.  In contrast to __table copy columns__, ",
+"		if a destination header name is already existing, existing columns remain untouched.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3, 4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "3",
+		  "Name": "New header names",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Number of columns specified must be the same as in the previous parameter.",
+"			* Only header names are allowed. Column numbers are not allowed.",
+"			* Even if the header names are already existing, new columns (with same names) will be created anyhow.",
+""
+ ]
+		  
+		},
+		{ "Number": "3",
+		  "Name": "Destination column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only one header name or column number may be specified.",
+"			* Existing columns further to the right will shift accordingly to clear space for new columns.",
+""
+ ]
+		  
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Number of columns duplicated",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+
+"Examples" : [
+"	include( Support Library );",
+"",
+"	table initialize ( table,",
+"		{ { First Name, Last Name, Given Name, Birth Year },",
+"		  { Abel,       Adams,	   A.,         1990 },",
+"		  { Betty,      Beavers,   B.,         1995 },",
+"		  { Charlie,    Collins,   C.,         2000 },",
+"		  { Daniela,    Douglas,   D.,         2005 } } );",
+"",
+"	table duplicate columns( table, { Birth Year, Given Name }, { BY, GN }, First Name );",
+"",
+"	table list( table );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table duplicate columns" ]
+}
+
+,
+
 "table copy columns ..." :
 {
 	"Function Names":	[ "table copy columns", "table copy columns selected rows" ],
 	"Documentation":	"Function Description",
 "Description" : [
 "",
-"		This function copies contents from selected columns to another set of selected columns.<br>",
+"		This function copies contents from selected columns to another set of selected columns.  New columns will be created if the destination header",
+"		names are not yet existing.  Otherwise, the existing columns will be overwritten.",
 "		<br>table copy columns selected rows</br> copies the contents only in rows meeting the conditional expression in the 2nd function parameter.",
 ""
  ]
 	,
-	"Call as":			"procedure",
+	"Call as":			"procedure or function",
 	"Parameter count":	"3, 4",
 	"Restrictions":		["Indirect parameter passing is disabled" ],
 	"Parameters":
@@ -12722,20 +12979,35 @@
 		  "Name": "Existing columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
-		  "Description": [ "Specify header names and/or column numbers which are considered as part of the headers" ]
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
 		},
-		{ "Number": "2 / 3",
+		{ "Number": "3 / 4",
 		  "Name": "New columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
 "Description" : [
-"		  ",
-"			Column numbers or header names of destination columns.<br>",
-"			Missing header names will be created on the right hand side of the table.<br>",
-"			Column numbers outside existing range creates columns with blank header names.<br>",
-"		  "
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Number of columns specified must be the same as in the previous parameter.",
+"			* If header names are missing in the table, then additional columns will be created on the right hand side of the table.",
+"			* Column numbers outside the existing range results in creating columns with blank header names.<br>",
+""
  ]
 		  
+
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of columns copied",
+		  "Types": [ "numeral" ],
+		  "Description": ""
 		}
 	],
 	"Exceptions": [ "Table not found", "Header name not found" ],
@@ -12758,8 +13030,475 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "table search header row" ]
+	"See also": [ "table duplicate columns" ]
 }
+
+,
+
+"table delete columns" :
+{
+	"Function Names":	[ "table delete columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function deletes specified columns.",
+"		",
+"		<br><br>",
+"",
+"		Deleting begins with the right-most column in the table, and not with the first (or last) column referenced.   With this approach, the positions of the remaining",
+"		columns further to the left will not shift.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-3",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* No exceptions are asserted if header names are missing or column numbers are out of range.",
+"			* Repeatedly specified header names and column numbers will be ignored",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Number of columns to delete",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "1",
+"Description" : [
+"			By default, the specified column will be deleted.<br>",
+"			If 0 is specified, then nothing will be deleted.<br>",
+"			If a value greater than 1 is specified, then additional columns to the right will be deleted, too.<br>",
+"			-1 deletes all remaining columns to the end of the table (maximum table width)<br>",
+"			-2 (-3, ...) deletes all remaining columns except the last (2nd last, ...) column.  Strongly recommended to use negative number only with one one header name or column number."
+ ]
+		  
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of columns deleted",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+
+"Examples" : [
+"	include( Support Library );",
+"",
+"	echo(\"Delete 3 column pairs\");",
+"	table initialize ( table, { { 'Col A' .. 'Col K' }, { 'Val A' .. 'Val K' } } );",
+"",
+"	// Deletes 6 columns: H & I, C & D, and B & E. Remaining; A, F, G, J and K",
+"	echo( \"# columns deleted: \", table delete columns ( table, {7, Col B, Col C}, 2 ) );",
+"",
+"	table delete columns ( table, Col A, 0 );  // Nothing happens here (0 columns deleted)",
+"",
+"	table list( table );",
+"",
+"	echo(\"Delete all columns between D and K\");",
+"	table initialize ( table, { { 'Col A' .. 'Col K' }, { 'Val A' .. 'Val K' } } );",
+"",
+"	table delete columns ( table, Col F, -2 );",
+"",
+"	table list( table );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete remaining columns" ]
+}
+
+
+,
+
+"table delete remaining columns" :
+{
+	"Function Names":	[ "table delete remaining columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function deletes all remaining columns to the right, including the specified column.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing column",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only one header name or column numbers may be specified",
+"			<u>Hint</u>: Use __shifted table column specifications__ like '>Last Name' to delete remaining columns without the one specified."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of columns deleted",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+
+"Examples" : [
+"	include( Support Library );",
+"",
+"	echo(\"Delete 3 column pairs\");",
+"	table initialize ( table, { { 'Col A' .. 'Col K' }, { 'Val A' .. 'Val K' } } );",
+"",
+"	echo(\"Delete column H till end\");",
+"	count[] = table delete remaining columns(  table, Col H  );",
+"	echo(\"Number of columns deleted: \", count[] );",
+"	table list( table );",
+"",
+"	echo(\"Delete column E till end\");",
+"	count[] = table delete remaining columns(  table, '>Col D'  );",
+"",
+"	echo(\"Number of columns deleted: \", count[] );",
+"	table list( table );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete columns" ]
+}
+
+
+,
+
+"table delete blank/empty/unnamed columns" :
+{
+	"Function Names":	[ "table delete blank columns", "table delete all blank columns", "table delete empty columns", 
+						  "table delete all empty columns", "table delete unnamed columns", "table delete all unnamed columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		<b>table delete ... blank columns</b> deletes all columns where the selected columns are blank in all rows, <u>including</u> the header row.<br>",
+"		<b>table delete ... empty columns</b> deletes all columns where the selected columns are blank in all rows, <u>excluding</u> the header row.<br>",
+"		<b>table delete ... unnamed columns</b> deletes all columns with blank contents in the header row (no headers specified).<br>",
+"		The function names not containing <b>... all ...</b> will only consider the columns below the existing header row.<br>",
+"		The function names contaiing <b>... all ...</b> will cover the full table widht, i.e. also consider columns located beyond the header row.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		["Indirect parameter passing is enabled" ],
+	"Parameters":
+	[
+		{ "Number": "1., ...",
+		  "Name": "Names of existing tables",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		}
+	],
+	"Exceptions": [ "Table not found" ],
+
+"Examples" : [
+"	include ( Support Library );",
+"	table initialize ( table, { { First Name, \"\",    Last Name, \"\",            Phone No, \"   \", Age                  },",
+"					{ Jane,       \"E.\",  Archer,    \"1. Main St.\", \"\",       \"   \", 28, \"             \", Plays softball } } );",
+"",
+"	echo(\"Original table: \", table max width(table), \" columns. __________________ \");",
+"	table list( table );",
+"",
+"	table copy table (table, t1 );",
+"	table delete blank columns(t1);",
+"	echo(\"Blank columns deleted: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table delete all blank columns(t1);",
+"	echo(\"All blank columns deleted: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table delete empty columns(t1);",
+"	echo(\"Empty columns deleted: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table delete all empty columns(t1);",
+"	echo(\"All empty columns deleted: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table delete unnamed columns(t1);",
+"	echo(\"Unnamed deleted: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table delete all unnamed columns(t1);",
+"	echo(\"All unnamed deleted: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete columns" ]
+}
+
+
+,
+
+"table keep ... columns" :
+{
+	"Function Names":	[ "table keep columns", "table keep existing columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function keeps and rearranges the columns specified according to the order provided in the 2nd function parameter.",
+"		All remaining columns will be deleted.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* Appliable to <b>table keep existing columns</b>: No exceptions are asserted if header names are missing or column numbers are out of range.",
+"			* Repeating the same columns (e.g. with intention to duplicate them) is not allowed.",
+""
+ ]
+			
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( table, { { First Name, \"Middle Init.\",    Last Name, \"Street\",      \"Town\" },",
+"					{ Jane,       \"E.\",              Archer,    \"1. Main St.\", \"Miami\", \"Comments\" } } );",
+"",
+"	echo(\"Original table: \", table max width(table), \" columns. __________________ \");",
+"	table list( table );",
+"",
+"	table copy table (table, t1 );",
+"	table keep columns(t1, { 2, First Name, -1 }); // Last Name, First Name, Town",
+"	echo(\"Names only: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table keep existing columns(t1, { Phone, 2, First Name, -1 }); // Same outcome: \"Phone\" is ignored.",
+"	echo(\"Names only: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table rearrange columns" ]
+},
+
+"table rearrange ... columns" :
+{
+	"Function Names":	[ "table rearrange columns", "table rearrange existing columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function rearranges and rearranges the columns specified according to the order provided in the 2nd function parameter.",
+"		All remaining columns will be deleted.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Existing columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* Appliable to <b>table rearrange existing columns</b>: No exceptions are asserted if header names are missing or column numbers are out of range.",
+"			* Repeating the same columns (e.g. with intention to duplicate them) is not allowed.",
+""
+ ]
+			
+		}
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( table, { { First Name, \"Middle Init.\",    Last Name, \"Street\",      \"Town\" },",
+"					{ Jane,       \"E.\",              Archer,    \"1. Main St.\", \"Miami\", \"Comments\" } } );",
+"",
+"	echo(\"Original table: \", table max width(table), \" columns. __________________ \");",
+"	table list( table );",
+"",
+"	table copy table (table, t1 );",
+"	table rearrange columns(t1, { 2, First Name, -1 }); // Last Name, First Name, Town",
+"	echo(\"Names only: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );",
+"",
+"	table copy table (table, t1 );",
+"	table rearrange existing columns(t1, { 5, 2, First Name, Phone }); // Comments column, last name, first name, No phone Nr.",
+"	echo(\"Names only: \", table max width(t1), \" columns. __________________ \");",
+"	table list( t1 );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table keep columns", "table sort columns" ]
+}
+
+
+
+,
+
+"table sort columns" :
+{
+	"Function Names":	[ "table sort columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This functions sorts the columns in the table.  If not specified otherwise, the header row will serve as sorting base.",
+"		All table rows are included in the sorting process.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1-5",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "Opt. 2",
+		  "Name": "Column to mark begin of sorting range",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value" : "All columns will be sorted",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* One header name or column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Column to mark end of sorting range",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value" : "All remainign columns will be sorted",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* One header name or column numbers may be specified",
+"			No sorting takes place if the ending column lies before or over the starting column."
+ ]
+			
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "Sorting Option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "alphabetic",
+		  "Description": [ "See __sorting options__ for available values." ]
+		},
+		{ "Number": "Opt. 5",
+		  "Name": "Row number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0 (header row)",
+		  "Description": [ "Specify a different row number if the data in a specific row shall server as a base for sorting." ]
+		}
+
+	],
+	"Exceptions": [ "Table not found", "Header name not found" ],
+
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( t,",
+"	{ {  Name, Town, Street, Phone, Gender, Country, Province, Favorite Pet },",
+"	  {  Dan,  La Spezia,  Main St., None, M, Italy, Liguria, Toad },",
+"	  {  Jane, Miami, Hill St., None, F, USA,  Florida, Alligator } } );",
+"",
+"",
+"	echo(\"Original table: __________________\");",
+"	table list( t );",
+"",
+"",
+"	table copy table (t, t1 );",
+"",
+"	echo(\"Sort all columns by header name except 1st and last one __________\");",
+"	table sort columns( t, Town, -2 );",
+"	table list ( t );",
+"",
+"	echo(\"Sort all columns Z-A by Row 2 __________\");",
+"	table sort columns( t, Name, -1, alphabetic down, 2 );",
+"	table list ( t );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table rearrange columns" ]
+}
+
+
 
 ,
 
@@ -13779,9 +14518,6 @@
    },
 
 
-
-
-
   "Control Flow Functions" :
   {
     "Documentation":		"General Description", // Required value
@@ -14431,8 +15167,106 @@
 ""
  ]
 	
-  }
+  },
 
+
+// ________________________________________________________________________________________ "/
+
+
+"Cross-Functional Info":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Cross-functional info" ],
+"Description 01 Introduction" : [
+"",
+"	This section contains various information which apply to different functions across the function library,",
+"	for example applicable sorting and consolidating options.",
+""
+ ]
+	
+  },
+
+
+"Sorting and Ranking Options":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Sorting options", "Ranking options" ],
+"Description 01 Introduction" : [
+"",
+"	The sorting options are used (amongst others) by following functions:",
+"	* __table sort columns(__)",
+"	* __table sort rows(__)",
+"	* __table sort selected rows(__)",
+"	* __table rank rows(__)",
+"	* __table rank selected rows(__)",
+""
+ ]
+	,
+"Description 02 Overview of Available Options" : [
+"",
+"	=== 200, 800, bold_column_1",
+"	Sorting / Ranking Option 	| Description",
+"	alphabetic			| Alphabetic order by UNICODE character set.",
+"	alphabetic down			| Opposite direction of above",
+"	alphabetic ignore case		| Alphabetic order, but ignores case (e.g. 'the Hague' comes before 'Uruguay')",
+"	alphabetic down ignore case	| Opposite direction of above",
+"	alphabetic ignore blanks	| Same as alphabetic. Blanks (incl. new line, tabs, space) are ignored.  'St. Moritz' and 'St.Moritz' are equivalent.",
+"	alphabetic down ignore blanks	| Opposite direction of above",
+"	alphabetic ignore both		| Same as alphabetic, ignoring both case and blanks",
+"	alphabetic down ignore both	| Opposite direction of above",
+"	numeric				| Sorts by numbers.  Non-numeric contents are interpreted like zero.  Smallest number comes first.",
+"	numeric down			| Opposite direction of above",
+"	date				| Sorts by dates.  Fields containing no qualified dates are interpreted like blank dates.  See rules below the table.",
+"	===",
+"",
+"	Rules on literals:",
+"	* Blank literal '' comes first",
+"	* One space symbol ' ' (UNICODE 32) comes next.",
+"	* Sorting is done based on UNICODE character codes.",
+"	* Sorting takes no cultural implications into consideration (e.g. Spanish: LL follows L).",
+"	* Numbers are also treated as literals: 0100 comes before 10.",
+"",
+"	Rules on numerals:",
+"	* For contents beginning a number: The 1st number will be recognized.",
+"	* For contents beginning with non-numeric symbols: Interpreted as zero.",
+"",
+"	Rules on dates:",
+"	* Blank dates come first.",
+"	* If year is missing, current year is assumed.",
+"	* If day is missing, the 1st day of month is assumed.",
+"	* Month names in key languages like \"Jan\", \"feb\", \"März\", \"avril\", \"May\", \"juni\", etc. are recognized as months and sorted accordingly.",
+"	* Local settings are used as rules to resolve country dependent date formats like 01/02/2015 (day and month ordering: 2. Jan 2015 or 1. Feb 2015).  Local settings are in the system variables and can be changed.",
+"	* Time values in the date are ignored.  E.g. \"14.07.2016 10:00\" and \"14.07.2016 11:00\" are treated as identical values",
+"",
+"	Rules on dates and times:",
+"	* Blank dates come first.",
+"	* Date values without time come before date values with time (e.g. \"00:00:00\") if date are on the same day.",
+"	* Time values are not ignored",
+"",
+"	Rules on times:",
+"	* Blank dates come first.",
+"	* Date values are ignored.  \"14.07.2016 10:00” and “15.07.2016 10:00” are treated as identical values",
+"",
+"	Following example shows a ranking based on the different options applied."
+ ]
+	,
+
+"Examples 02" : [
+"	include( Support Library );",
+"	",
+"	table initialize ( t,",
+"	{ { Scheme, alphabetic, alphabetic down, alphabetic ignore case, alphabetic down ignore case, numeric, numeric down, date, date down, time, time down },",
+"	    \"02-Dec-2020 10:00\", \"02-Nov-2020 11:00\", \"05\", \"1\", \"Dec\", \"apr 15\", \"-1\", \"\", \"begin\" } );",
+"",
+"	for all parameters( [t:1..,0], option[] )  table rank rows( t, option[], Scheme, option[], 113 ); // 113 - Same ranking share same ranking position",
+"	table transpose (t);",
+"	table list (t);		"
+ ]
+	,
+
+    "Output 02": "automatic"
+
+  }
 
 
 
@@ -14511,7 +15345,7 @@
 "",
 "	Depending on the specific functions, they may acceept parameters with values of any type (e.g. numerals only), a combination of them, or",
 "	or any type.  Type checking of the function parameters happen before the actual function is executed.  Type mismatches will be report",
-"	as exceptions (error messages).  Various functions dealing with tables do also accept __table columns__ which is a flexible parameter",
+"	as exceptions (error messages).  Various functions dealing with tables do also accept __table columns as function parameters__ which is a flexible parameter",
 "	type and accepts one of the following: individual header names, individual column numbers or several of them provided in a __parameter set__ variable.",
 "",
 "",
@@ -14656,7 +15490,7 @@
 "	Date or literal		| In this case, literals will be converted to dates automatically, e.g. \"29.Feb. 20\" to 2020-02-29, or \"today\" to today's date",
 "	Parameter set		| Accepts parameter sets or expressiosn returning parameter sets",
 "	Combinations of above	| Various functions accept values of different types",
-"	__Table columns__	| Parameter to specify one or multiple table columns in a flexible way",
+"	Table columns		| Parameter to specify one or multiple table columns in a flexible way. See section on __table columns as function parameters__.",
 "	Parameter set or literal| Various functions accept either parameter sets or literals.  See section on __parameter set or literal__  for details",
 "	All types		| Accepts values of all types, including void",
 "	Valid types		| Accepts values of all types, except void",
@@ -14741,7 +15575,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
-    "Keywords":			[ "Table column" ],
+    "Keywords":			[ "table columns as function parameters", "Shifted Table Column Specifications" ],
 "Description 01 Introduction" : [
 "",
 "	Whenever a function expects a __function parameter__ for table columns, the following types are supported:",
@@ -14769,7 +15603,7 @@
 ""
  ]
 	,
-"Description 02 Shifted Table Table Column Specifications" : [
+"Description 02 Shifted Table Column Specifications" : [
 "",
 "	In some cases, you want to refer to neighboring columns to the left or to the right of a column for which the header name is presently",
 "	known. In this case, put the header name into <u>single</u> quotation marks so it will be regarded as a softquoted literal, and",

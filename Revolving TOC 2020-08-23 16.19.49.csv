@@ -37,7 +37,7 @@ OK;Body;2;B 4.1;Features_Function_Parameters.html;Function Parameters;Function P
 OK;Body;2;B 4.2;Features_Function_parameter_directions.html;Function Parameter Directions;Function parameter directions,parameter directions;;
 OK;Body;2;B 4.3;Features_Function_parameter_types.html;Function Parameter Types;Function parameter types;;
 OK;Body;3;B 4.3.1;Features_parameter_set_or_literal.html;Parameter Set or Literal (Func. Param. Type);parameter set or literal;parameter set or literal;
-OK;Body;3;B 4.3.2;Features_Table_columns.html;Table Columns (Func. Param. Type);Table columns;Table column;
+OK;Body;3;B 4.3.2;Features_Table_columns.html;Table Columns (Func. Param. Type);Table columns;table columns as function parameters,Shifted Table Column Specifications;
 OK;Body;3;B 4.3.3;Features_Code_Piece.html;Code Pieces (Func. Param. Type);Code Piece;code pieces;
 OK;Body;3;B 4.3.4;Features_Expressions_to_select_rows.html;Expressions to Select Rows;Expressions to select rows;;
 OK;Body;2;B 4.4;Features_Indirect_parameter_passing.html;Indirect Parameter Passing;Indirect parameter passing;;
@@ -225,6 +225,14 @@ OK;Body;4;B 5.7.6.4;Function_table_selected_columns.html;table selected columns/
 OK;Body;4;B 5.7.6.5;Function_table_search_header_row.html;table search header row;table search header row;;
 OK;Body;3;B 5.7.7;Features_Processing_table_columns.html;Processing Table Columns;Processing table columns;;
 OK;Body;4;B 5.7.7.1;Function_table_copy_columns.html;table copy columns ...;table copy columns,table copy columns selected rows;;
+OK;Body;4;B 5.7.7.2;Function_table_duplicate_columns.html;table duplicate columns ...;table duplicate columns;;
+OK;Body;4;B 5.7.7.3;Function_table_insert_columns.html;table insert (missing) columns;table insert columns,table insert missing columns;;
+OK;Body;4;B 5.7.7.4;Function_table_sort_columns.html;table sort columns;table sort columns;;
+OK;Body;4;B 5.7.7.5;Function_table_rearrange_columns.html;table rearrange ... columns;table rearrange columns,table rearrange existing columns;;
+OK;Body;4;B 5.7.7.6;Function_table_keep_columns.html;table keep ... columns;table keep columns,table keep existing columns;;
+OK;Body;4;B 5.7.7.7;Function_table_delete_columns.html;table delete columns;table delete columns;;
+OK;Body;4;B 5.7.7.8;Function_table_delete_remaining_columns.html;table delete remaining columns;table delete remaining columns;;
+OK;Body;4;B 5.7.7.9;Function_table_delete_blank_columns.html;table delete blank/empty/unnamed columns;table delete blank columns,table delete all blank columns,table delete empty columns,table delete all empty columns,table delete unnamed columns,table delete all unnamed columns;;
 OK;Body;2;B 5.8;Features_directory_and_file_system.html;Directory and File System Functions;directory and file system;short error messages on directories and files;
 OK;Body;3;B 5.8.1;Features_basic_directory_and_file_functions.html;Basic Directory and File Functions;basic directory and file functions;;
 OK;Body;4;B 5.8.1.1;Function_directory_existing.html;directory existing, file existing;directory existing,file existing;;
@@ -251,6 +259,8 @@ OK;Body;4;B 5.8.3.8;Function_file_copy.html;file copy ...;file copy,file copy al
 OK;Body;4;B 5.8.3.9;Function_file_copy_multiple.html;file copy mulitple/recursive ...;file copy multiple,file copy multiple all,file copy multiple overwrite,file copy multiple overwrite all,file copy recursive,file copy recursive all,file copy recursive overwrite,file copy recursive overwrite all;file copy multiple/recursive ... Functions;
 OK;Body;4;B 5.8.3.10;Function_file_create_link.html;file create link ...;file create link,file create link all,file create link silently;file create link ... Functions;
 OK;Body;4;B 5.8.3.11;Function_file_download.html;file download ...;file download,file download all,file download silently,file download overwrite,file download overwrite all,file download overwrite silently;file download ... Functions;
+OK;Body;2;B 5.9;Features_Cross-functional_info.html;Cross-Functional Info;Cross-functional info;;
+OK;Body;3;B 5.9.1;Features_Sorting_options.html;Sorting and Ranking Options;Sorting options,Ranking options;;
 OK, yet to integrate;;;;Function_print.html;Basic Text Output Functions;print,print line,echo,compose,compose line;output to screen,output to strings,text output;
 OK, yet to integrate;;;;Function_cls.html;Clear screen;cls;clear the screen;
 OK, yet to integrate;;;;Function_identify.html;Identify variable forms (if structure, array, or simple);identify;identify variables;
