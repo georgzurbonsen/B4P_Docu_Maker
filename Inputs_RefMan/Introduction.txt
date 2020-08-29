@@ -1,0 +1,87 @@
+//
+B4PDOCU.START
+
+  "Table of Contents" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table of Contents" ],
+    "Keywords":			[ "Reference Manual" ],
+    "Description 01 Table of Contents"::
+
+	See the navigator bar for full table of contents.
+
+	+++
+  },
+
+
+  "Introduction" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "introduction" ],
+    "Description 01 Introduction to B4P"::
+
+	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
+
+	<br><br>
+
+	<br/><img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
+
+
+	=== 250, 600, noframe_1stcolbold, noheader
+			| <b> data files </b>:  Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..
+			| <b> databases </b>:   Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)
+			| <b> web data </b>:    Any source of structured data on the web(Wikipedia, ...)
+			| <b> other data </b>:  PDF (via Tabula), Statistical data sets (R, SAS, SPPSS, Stata)
+	===
+
+	+++,
+
+	
+
+    "Description 02 Distinct Language Features"::
+
+	<b> B4P includes an <i>interpreted language</i> with powerful syntax, highly flexible data structures, and a large function library which enables immediate results with a minimum of code. </b>  Programs containing just a few statements can perform sophisticated operations such as merging two tables with very different data arrangements and formats.  The following key features makes the B4P language distinct from other popular programming languages:
+
+	<br><br>
+
+	=== 240, 760, noframe_1stcolbold, noheader
+	Interpreted	| The __run-time machine__ is designed to __echo(__) interpret and process the code with very high performance. One performance aspects includes checking and tokenizing the code before starting to run.
+	Fully portable across system platforms | B4P runs on WINDOWS, LINUX and MAC-OS.  You can develop your apps so they run on all platforms without changing the code. B4P provides harmonized functions for directory, file and system function calls, as well as system variables such as user names, key system directory names, etc.
+	Names with spaces and special characters | You are allowed to use spaces and special characters in function names, variable names, table names, column header names, etc.  <b>max value[]</b> and <b>'1%'[]</b> are valid variable names. This allows you to use typical column headers, e.g. "Total Costs", without modifying them or putting quotations around. A valid function call could be " table create (customer table, supplier table, … ); " Function names like "table process selected rows" is easier to read than "TableProcessSelectedRows"
+	Variables | All simple variables end with brackets <b>[]</b>  Example: <b>value[]</b>. If you forget them, then the name is just a text value.<br/>You can create child variables with any nesting, <br/>e.g. <b>animal[dog]=poodle; animal[cat]=tiger; animal[dog,leg count]=4;</b>.<br/>You can also define arrays, e.g. <b>matrix[2,3]</b>
+	Values | Numbers are values, text are values, too.  In the example <b>a[] = bull dog ;  b[] = ' bull   dog ';</b> a[] is assiged with <i>'bull dog'</i> containing one space between the two words, whare as b[] is assigned with <i>' bull   dog '</i> where all spaces are preserved.  Without quotation marks, outside spaces and repeated spaces betwen words are ignored.
+	Full UNICODE support | Every character counts as 1 character, regardless if ANSI (like 'e'), inside the Basic Multilingual Plane (like &eacute; and &euro;), or in one of the other UNICODE planes (e.g. &#x1F609;).
+	Basic variable types | They are <i>numeral</i>, <i>literal</i>, <i>boolean</i>, <i>date</i> (manages date, time and both), <i>parameter set</i>, and <i>void</i>.
+	Parameter sets | Very powerful type to combine any number of variables and nested parameter sets into one parameter set.<br>Example: <b>names[] = {Abel, Beata, Charly};</b>
+	Dynamic weak typing | B4P uses dynamic weak typing.  The type is set once a value is assigned. Example: <b>a[] = 1;</b> automatically declares a[] as a numeric variable. <br>The type will change if something non-numeric is assigned, eg. <b>a[] = Hello;</b>.
+	Tables | Tables are the heart of B4P.  Typically referenced as <b>[table name : row , column ]</b>.<br/>If a conext with table name and row number is given, e.g. inside a loop, then a simple reference like <b>[column]</b> is sufficient.<br>Example: <b>table process</b>( membership list, <b>echo</b>( [Family Name], ", ", [First Name] );
+	Accessing multiple values in tables | Powerful schems are available to access individual cells, entire rows or parts of them, entire columsn or parts of them, or combination of all.
+	Powerful table processing function library | A large number of procedures and functions is available to analyze, process and combine tables as you wish.  These functions deliver highest machine performance.
+	Transactions | Very smart assignments for variables and table rows. You can replicate variables including all child members, or combine two variables including their member variables.
+	Function parameters accept code pieces | Unlike in other languages, some functions accept pieces of code such as expressions and statements as input parameters.  These codes may be executed several time. <br/>Good example: <b>table process</b>( members, [full name] = [1st name] + ' ' + [last name] );
+	Variable count function parameters | Some functions accept a variable number of parameters, with minimum, maximum and incrementals given.
+	User definable procedures and functions | You can defined own procedures and functions.  Functions provide return values whereas procedures don't.  You can assign multiple function names to the same user-defined code. In this case, the pre-defined local variable <b>function name[]</b> allows to identify the function name used to call the code.
+	Indirect parameter passing | Some procedures and functions allow one <i>parameter set</i> variable to be used to provide all function parameters in one.<br/>Example: a[] = { 2,3,4 }; <b>echo</b>( <b>min</b>( 2,3,4 ), ' and ', <b>min</b>( a[] ) ); // Output in both cases is 2.
+	Deep unary and binary operators | Deep operators (supplemented with the circumflex '^' symbol) can be used to calculate with elements inside parameter sets. <br/>Example: { 1,2,3 } +^ { 4,5,6 } results in { 5,7,9 }.  However, { 1,2,3 } + { 4,5,6 } results in {1,2,3,4,5,6} instead.  Deep operations are analogous to vector and matrix operations.
+	Control flow | Unless in other programming languages, control flow features like __if(__), __for(__), __while(__), __return__, etc. are actually procedure and function calls.  Something as simple as <b>if</b> takes one boolean value as function parameter and decides whether to execute or skip the next statement or code block.  In fact, this is made possible because procedures and functions can accept code pieces as it is required for functions like <b>for</b>.
+	Portable directory paths | B4P accepts both '/' and '\' for path separators. They will be adjusted automatically to match with the operating system requirements.
+	===
+	
+	+++,
+
+    "Description 03 Think Big to be Successful"::
+
+	You can unleash the full power of B4P if you are thinking big.  Writing a complete end-to-end solution (with loops, variable assignments, comparisons
+	of individual values, etc.) is straighforward to learn with no special programming background.  Other languages like Python can do similar processing, but requires one to learn object-oriented programming, and does not scale for complexity.
+	
+
+	=== 60, 940, noframe_1stcolbold, noheader
+	Hint 1 | Use the rich B4P function library to process these tables and big data.  Large tables will be analyzed and processed at naked machine performance.<br/>
+	Hint 2 | Use deep operations (vector and matrix operations) to process large amount of data inside tables and parameter sets.<br/>
+	Hint 3 | Think how you can formulate your code in a very compact manner without compromising comprehensibility.  Doing great things with 5-20 lines of code is within reach.<br/>
+	===
+	+++
+  }
+
+
+B4PDOCU.STOP

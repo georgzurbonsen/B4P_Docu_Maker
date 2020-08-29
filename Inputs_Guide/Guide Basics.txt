@@ -1,0 +1,378 @@
+//
+B4PDOCU.START
+
+
+  "Overview" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "overview" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
+    "Keywords":			[ "general overview" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
+    "Description 01 Introduction ..."::
+
+	Start typing here.
+	The 3 plus signs mark the end of multi-line contents.
+
+	+++
+  },
+
+
+  "What is B4P?" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "what is B4P" ],
+    "Keywords":			[ "B4P anatomy" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
+    "Description 01 Introduction ..."::
+
+	Add text here
+
+
+	+++
+  },
+
+  "Benefits and Features":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "features and benefits" ],
+    "Keywords":			[ "B4P features", "B4P benefits" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
+    "Description 01 Beneftis"::
+
+	Add text here.
+	Consider table, or itemization like below
+
+
+
+	+++
+  },
+
+
+
+
+  "Use Cases" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "use cases" ],
+//  "Keywords":			[ "add unique keyowrds" ],
+    "Description 01 Use case 1: Merging two football clubs"::
+
+	Add text here
+
+	Consider table, or itemization like below
+	* Item 1
+	* Item 2
+
+	+++,
+    "Description 02 Features"::
+
+	Add text here.
+	Consider table, or itemization like below
+	* Item 1
+	* Item 2
+	+++,
+    "Description 03 Use case 2: Presidents from Wikipedia"::
+
+	Add text here
+
+	+++
+  },
+
+
+
+  "B4P Concepts" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P concepts" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Use case 1: Merging two football clubs"::
+
+	Add text here
+
+	+++
+  },
+
+
+
+// Rafael: I suggest you put "overview" into this page with "Overview" as first page chapter.
+
+  "Installation and Setup" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation and Setup" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++
+  },
+
+  "Windows" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on Windows" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++
+  },
+
+
+
+  "MacOS" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on MacOS" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++
+  },
+
+
+// Hint: Consider putting MacOS and LINUX into one page if they are very similar.
+
+  "Linux" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on Linux" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++
+  },
+
+
+  "Post-Installation Optimization" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Post Installation Optimization" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++
+  },
+
+
+
+
+  "Getting Started" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Getting started" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++
+  },
+
+
+
+
+  "Interactive Mode Workflow" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Interactive mode workflow" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	Note: Interactive commands, e.g. $ ls command, cannot be automated.
+	You need to formulate the output contents by hand.  Same applies if you provoke exceptions (error messages).
+
+    "Examples 01"::
+		$ ls
+	+++,
+    "Output 01"::
+	.config         b4p          setup          abc.pdf         def.xls
+        5 Files.
+	+++
+  },
+
+
+  "Programming Mode Workflow" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Programming mode workflow" ],
+//  "Keywords":			[ "add unique keywords" ],
+    "Description 01 Overview"::
+
+	Add text here
+	
+	+++,
+    "Examples 01"::
+	echo("Hello World");
+	+++,
+    "Output 01": "automatic",
+
+    "Description 02 Overview"::
+
+	Add text here
+
+	+++
+  },
+
+
+
+
+  "Getting Help" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Getting started" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+
+	+++,
+    "Description 02 Calling an Ambulance"::
+
+	Add text here
+	
+	+++,
+    "Description 03 Calling the Fire Dept."::
+
+	Add text here
+	
+	+++,
+    "Description 04 Calling the Cops"::
+
+	Add text here
+	
+	+++,
+    "Description 05 Calling the Pizza Restaurant"::
+
+	Add text here
+	
+	+++
+
+  },
+
+
+
+  "Interactive Mode - Help Options" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Interactive mode help options" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+
+	
+	+++
+
+  },
+
+
+  "Access web documentation" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "access web docs" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++
+
+  },
+
+
+  "Access PDF documentation" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "access pdf docs" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++
+
+  },
+
+
+
+  "Tutorials" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Tutorials" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++
+
+  },
+
+
+
+  "Introduction to Programming in B4P" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Introduction to programming in B4P" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++
+
+  },
+
+
+  "B4P Program Examples" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P Program Examples" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++
+
+  },
+
+
+
+  "Example - Analyzing data from web" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P example analzing data from web" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++,
+
+    "Description 02 Overview"::
+
+	+++
+
+  },
+
+
+  "Example - Consolidating data from mulitple spreadsheets" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P example consolidating data" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01 Overview"::
+	
+	+++,
+
+    "Description 02 Overview"::
+
+	+++
+
+  }
+
+
+
+
+B4PDOCU.STOP

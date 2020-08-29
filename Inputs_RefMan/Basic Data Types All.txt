@@ -1,0 +1,654 @@
+//
+B4PDOCU.START
+
+  "Basic Data Types" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types" ],
+    "Keywords":			[ "data types", "basic data types" ],
+    "Description 01 Basic Data Types"::
+
+	Beyond4P supports six basic data types as listed below.  These data types are supported by all __variables__ and expressions.
+	Regarding variables, Beyond4P uses the <i>dynamic weak typing</i>rule where the data type can be freely changed with any 
+	new assignment unless specific __variable protections__ have been applied.
+
+	=== 150, 500, 350, noframe_1stcolbold
+	Data Type | Description | Example
+	__Literals__ | Text (alphanumeric string) data in true UNICODE format | Hello World, ' Hello  World '
+	__Numerals__ | Numeric values (double precision floating point), stored with or without literal presentation of number received | 1.234
+	__Dates__    | Can be a full date, a full date combined with time of day (down to seconds), time of day only, or blank date | date("2020-07-14"), date(now)
+	__Booleans__ | Binary values | true, false
+	__Voids__    | Represenation of null or invalid information. Should be avoided. |
+	__Parameter sets__ | Combination of any number of elements of any data type described here (including parameter sets as subsets) into sets | { A, true, 1, {4, 5}, "Hi!" }
+	===
+
+	+++
+  },
+
+
+  "Literals" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types literals" ],
+    "Keywords":			[ "literal", "literals", "softquoted literal", "softquoted literals", "quoted literal", "quoted literals", "unquoted literal", "unquoted literals" ],
+    "Description 01 Literals"::
+
+	Literals are text representations (also known as strings) consisting of 0, 1 or any number of true UNICODE characters.
+	The number of characters per literal is only limited by the overall available free memory in the system.
+
+	Beyond4P distinguishes among three different sub-types of literals:
+
+	=== 20, 500, noframe_1stcolbold, noheader
+	1. | (Unquoted) literals
+	2. | Softquoted literals
+	3. | Quoted literals
+	===
+
+	In the Beyond4P code text, the entire literal must be located in one line.
+
+	+++,
+
+    "Description 02 (Unquoted) Literals"::
+
+	Unlike in most other common programming languages, all text expressions without use of quotation marks in the Beyond4P code are treated
+	as unquoted literals and not as variable and expression names. Every unquoted literal begins with the first non-blank symbol (i.e. all letters, non-ANSI
+	symbols such as foreign letters, numeric digits and special symbols not used by the Beyond4P language (e.g. @).  Unquoted literals may contain blanks
+	(spaces, tabs), but they intepreted as 1 space.  Literals containing numeric digits (with with or without decimal point) but no other symbols and blanks
+	are regarded as __numerals__.  Unqoted literals ignore leading and trailing blanks.
+	<br><br>
+	Literals may take any legitimate value, except for __reserved keywords__ which are interpreted differently (e.g. true, false, else).
+
+	+++,
+    "Examples 02"::
+	echo(Hello World);
+	echo(  Hello   World   ); // To include the blanks, use quotation marks.
+	echo(Hello World, new line, Hello Folks, new line); // 'new line' is a reserved keyword.
+	echo( 31.12.2021 );       // No automatic conversion to __date__ type.  Use: echo(date( 31.12.2021 ))
+	echo( 100 Flowers );
+	echo( mike@example.com ); // No need include quotation marks because the @-sign is not a Beyond4P symbol
+	echo( 1 2 3 );            // Is a literal because of spaces between teh digits
+	echo( type( 1 2 3 ));
+	+++,
+    "Output 02":		"automatic",
+
+    "Description 03 Softquoted Literals"::
+
+	Softquoted literals are literals placed in <u>single quotation marks</u> (example: '123', 'true', '  Hello World').  Any contents inside single quotation marks
+	are part of softquoted literals, including leading and trailing blanks.  __Entities__ (known in HTML, for exmaple &amp;euro;) will be decoded automatically
+	(example: &euro;).  When using softquoted literals on the right hand of comparisons, then __wildcard symbols__ are supported in order to do smart
+	string comparisons.
+
+	+++,
+    "Examples 03"::
+	echo('  Hello   World   ', new line, 'new line'); 
+	echo(Hello World = 'Hell*'); // Example with wildcard symbol meaning 'true if beginning with Hell'
+	echo('&euro;');
+	echo( length('&euro;') );
+	+++,
+    "Output 03":		"automatic",
+
+
+
+    "Description 04 Quoted Literals"::
+
+	Quoted literals are literals placed in <u>double quotation marks</u> (example: "123", "true", "  Hello World").  Any contents inside single quotation marks
+	are part of softquoted literals, including leading and trailing blanks.  Entities will not be decoded.  If you still need to decode entities, then use the
+	function __decode entitites(__).  In comparison operations, the contents are interpreted as given, i.e. wildcard symbol interpretation will not happen.
+
+	+++,
+    "Examples 04"::
+	echo("  Hello   World   ", new line, 'new line'); 
+	echo("&amp;");
+	echo(Hello World = "Hell*"); // 'Hello World' is not the same as 'Hell*'
+	+++,
+    "Output 04":		"automatic",
+
+
+    "Description 05 Summary"::
+
+	=== 400, 200, 200, 200, simple
+	Item | (Unquoted) literal | Softquoted literal | Quoted literal
+	Representation in Beyond4P code text		| Alphanumeric contents | Alphanumeric contents in single quotation marks	| Alphanumeric contents in double quotation marks
+	Resolving entities in Beyond4P code text	| No			| Yes							| No
+	Wildcard symbols used for comparisons		| No			| Yes							| No
+	Leading and trailing white spaces		| No			| Yes							| Yes
+	Multiple consecutive white spaces		| No			| Yes							| Yes
+	Line breaks in literal values			| No (use 'new line')	| No (use 'new line')					| No (use 'new line')
+	===
+
+	+++
+
+  },
+
+
+
+  "Literals - Indexing" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "literals indexing" ],
+    "Keywords":			[ "literals indexing", "length of literals" ],
+    "Description 01 Literals - Simple Indexing"::
+
+	<i>Simple indexing</i> is used to retrieve single characters from the literal.  Indexing begins with 0 which refers to the 1st
+	character.  The index value is specified in braces and shall not be confused with a parameter set as such.
+
+	<br><br>
+	Following rules apply to the indexing literals:
+	* The index must always be a numeric value.
+	* Specifying just braces {} without an index will retrieve the length (character count) of the literal.  Alternatively, use __length [string function]__.
+	* Indexing begins with 0 (zero).
+	* The value will be rounded in case it does not contain an integer value.  Example: <b>a[]{2.99}</b> accesses the same member as <b>a[3]</b>.
+	* __Negative indexing__ is supported. -1 refers to the last character in the literal. -2, -3, etc. refer to the previous ones, and so forth.
+	* Empty sets are returned when accessing with index values which lie out of bounds.  Example: <b>{a,b,c}{5}</b> returnss <b>{}</b> (empty set).
+	* Updating individual elements on the left hand side of assignments is not possible.  Wrong exmaple: <b>a[]{3} = 'E';</b>.
+
+
+    "Examples 01"::
+	echo( abcde {} );     // Returns 5 (character count)
+	echo( abcde, {0} );   // Access the 1st element
+	echo( abcde, {-2} );  // Access the 2nd last element
+	echo( abcde, {10} );  // Attempts to access characters outside the string returns blank literals.
+	echo( abcde, {-10} ); // Same case here.
+	+++,
+
+    "Output 01":		"automatic"
+
+  },
+
+
+
+  "Literals - Extracting Substrings" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types literals extracting substrings" ],
+    "Keywords":			[ "literals extracting substrings" ],
+
+
+    "Description 01 Literals - Extracting Substrings"::
+
+	Instead of specifying single index values to retrieve single characters, substrings can be retrieved by listing muliple values and/or ranges.
+	The range operator '..' is available to specify a range.  The result will always be a literal.
+
+    "Examples 01"::
+	echo( abcdefg { 0,2,4,2,0 } );    // Returns 'aceca'
+	echo( abcdefg { 3..5 } );         // Returns 'def'
+	echo( abcdefg { 5..3 } );         // Empty string.  Ranges cannot be listed in reverse direction
+	echo( abcdefg { -3..-1 } );       // Returns 'efg' - Last 3 characters
+	echo( abcdefg { 4..-1 } );        // Same result
+	echo( abcdefg { 3..99 } );        // Returns 'defg'
+	echo( abcdefg { -99..2 } );       // Returns 'abc'
+	echo( abcdefg { 0..2,5,1..3 } );  // Combinations
+	+++,
+
+    "Output 01":		"automatic"
+  },
+
+
+
+
+  "Numerals" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types numerals" ],
+    "Keywords":			[ "numeral", "numerals", "plain numeral", "plain numerals"  ],
+    "Description 01 Numerals"::
+
+	Numerals are numeric data representations which are internally handled as double precision floating point numbers.
+	The same type is used for typical integer use (for example a loop index counting upwards, referencing a row number to the table) and
+	advanced mathematical use.
+
+	Beyond4P distinguishes between two different sub-types of numerals:
+
+	=== 20, 500, noframe_1stcolbold, noheader
+	1. | (Regular) Numerals
+	2. | Plain Numerals
+	===
+
+	+++,
+
+    "Description 02 (Regular) Numerals"::
+
+	All numbers directly expressed in the Beyond4P program text or read in from files or tables as well as command line parameters are
+	considered (regular) numerals.  The original text representation describing the numeral will be preserved in addition to the numeric
+	value internally handled as double precision floating point values.  The text representation can be used later for output purposes as
+	long the numerals have not been manipulated.
+	<br><br>
+	Such manipulations include any form of arithmetics (e.g. additions, negations) or processing them with functions (e.g. __abs__() ) to
+	calculate the absolute value.  Even adding a 0 or multiplying a 1 to a value voids the text representation and the numeral turns into
+	a plain numeral.
+	<br><br>
+	Negative numbers must begin with minus signs.  Decimal points are assumed regardless of regional settings enabled.  Functions are available
+	to accept alternative symbols such as decimal commas when reading tables.  Thousand separators are supported.  Use functions like
+	__clean numeral__() and __smart numeral__() to precondition the numeric values in case they contain wrong decimal separators,
+	unnecessary thousand separators and commercial variants of negation such as parentheses. 
+
+	+++,
+
+    "Description 03 Plain Numerals"::
+
+	Numerals turn into plain numerals with original text representation voided.
+	+++,
+
+
+    "Examples 03"::
+	echo(012.340);		// Numeral
+	echo(type detailed(012.340), new line);
+	echo(012.340 + 0);	// Plain numeral - Original text representation is lost
+	echo(type detailed(012.340 + 0));
+	echo(numeral(012.340));	// Also plain numeral
+	+++,
+    "Output 03":		"automatic",
+
+
+
+    "Description 04 Scientific Notation"::
+
+	The Beyond4P code text does not support scientific notation, e.g. 1.2E+3 would assert a syntax error.  However, the function __numeral()__
+	supports scientific notation.  However, scientific notation is supporte in reading values from tables (provided the __system variable__ 
+	<b>table conversion[scientific]</b> is set to true, JSON files and user input.
+	+++,
+
+    "Examples 04"::
+	echo(numeral("1.2E+03"));
+	+++,
+
+    "Output 04":		"automatic"
+
+  },
+
+
+  "Dates" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types dates" ],
+    "Keywords":			[ "date", "dates", "plain date", "plain dates"  ],
+    "Description 01 Dates"::
+
+
+	This data type can store pure dates (beginning 1990-01-01), time of day (down to the second), combination of both date and time of day, or <i>no date</i> which 
+	is a blank value neither containing dates or times, referred to as 'blank date'.
+
+	Beyond4P distinguishes between two different sub-types of numerals:
+
+	=== 20, 500, noframe_1stcolbold, noheader
+	1. | (Regular) Dates
+	2. | Plain Dates
+	===
+
+	+++,
+
+
+    "Description 02 (Regular) Dates"::
+
+	Regular dates contain the digital date (and/or time of day) along the original text representation provided.  This sub-type applies only in a few cases
+	which includes accessing dates from tables (if enabled with the system variable table conversion[date] = true, otherwise the date is read in as a literal),
+        or the __date(__) function is used with a formatting parameter added.  The text representation can be used later for output purposes as
+	long the dates and times have not been manipulated.
+	<br><br>
+	Such manipulations include any form of arithmetics (e.g. adding a day (+1) or hour (+1/24) ) or processing them with functions such as __reschedule(__).
+	Even adding a 0 (0 days) to the date voids the text representation and the date turns into a plain date.
+	<br><br>
+	
+	+++,
+
+    "Description 03 Plain Dates"::
+
+	This is the simpler case.  Plain dates contain the digital date (and/or time of day) without any associateid text representation.
+	The easiest way to describe a date or time value is using one of the following functions:
+
+	=== 200, 800, noframe_1stcolbold
+	Function name 	| Description
+	__date(__)    	| Depending on the literal value provided, it returns a date, date and time, time only, or blank date.
+	__pure date(__) | Works like date, but ignores any time of day information.  Output is either a date or blank date.
+	__date time(__) | Works like date.  If input is not a blank, and if no time of day is provided, then 00:00:00 (midnight) is assumed as time of day.
+	__time(__)	| This function will only use the time information.  If the paramter contains a date only, then a blank date wil be returned.
+	===	
+
+	Dates turn into plain dates with original text representation voided.
+	+++,
+
+
+
+    "Examples 03"::
+	d1[] = "14. July 2021";
+	d2[] = "now";
+	d3[] = "20:15:00";
+	d4[] = ""; // Blank date
+	
+	echo("date     (): ", date(d1[]), ", ", date(d2[]), ", ",date(d3[]), ", ",date(d4[]), ", ", type detailed(date(d1[])) );
+	echo("time     (): ", time(d1[]), ", ", time(d2[]), ", ",time(d3[]), ", ",time(d4[]), ", ", type detailed(time(d1[])) );
+	echo("pure date(): ", pure date(d1[]), ", ", pure date(d2[]), ", ",pure date(d3[]), ", ",pure date(d4[]), ", ", 
+			type detailed(pure date(d1[])) );
+	echo("date time(): ", date time(d1[]), ", ", date time(d2[]), ", ",date time(d3[]), ", ",date time(d4[]), ", ", 
+			type detailed(date time(d1[])) );
+
+	echo;
+	echo(date("31. March 2021"), " / ", type detailed(date("31. Dezember 2021")) );
+	echo(date("2020 / 12 / 31 15:00")+1);		// Date and time
+	echo(date time("2020-12-31"));			// Add a time (default 00:00:00)
+	echo(time("2020-12-31 15:00"));			// Time
+	echo(time("2020-12-31 15:00")+1/24);		// Time, 1 hour later
+	echo(pure date("31. Dezember 2021")+1);		// Numeral
+	+++,
+    "Output 03":		"automatic"
+
+
+
+  },
+
+
+
+  "Booleans" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types booleans" ],
+    "Keywords":			[ "boolean", "booleans"  ],
+    "Description 01 Voids"::
+
+	The boolean data type takes two values: <i>true</i> and <i>false</i>.  Both values are reserved Beyond4P keywords. 
+	In Beyond4P, the values must be specified in lower case letters and without quotation marks. 
+
+
+    "Examples 01"::
+	echo(true, " / ", type(true));        // Boolean true
+	echo(True, " / ", type(True));        // This is a literal value (T is upper case.)
+	echo(5 > 6, " / ", type(5 > 6));      // Boolean false 
+	+++,
+
+    "Output 01":		"automatic"
+
+  },
+
+
+
+
+
+  "Voids" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types voids" ],
+    "Keywords":			[ "void", "voids"  ],
+    "Description 01 Voids"::
+
+	The void data type typically indicates an invalid value returned from a function or a variable with undefined values.
+	The following table lists few approaches how to obtain a void value intentionally.
+
+	=== 200, 800, noframe_1stcolbold
+	Method	 		| Description
+	__null(__)    		| Call the null function
+	Undefined array member	| Create an array implicity, e.g. by assigning a[1] = 1;  Read-accessing a[0] will return <i>void</i>
+	Reading JSON data	| Intermediate nodes carry no values and are <i>void</i>.  End nodes with value 'null' are also interpreted as <i>void</i>.
+	===	
+	+++,
+
+    "Examples 01"::
+	a[1] = 1;
+	echo( a[0] );
+	echo( null() );
+	echo( type(null()) );
+	+++,
+
+    "Output 01":		"automatic"
+
+  },
+
+
+
+  "Parameter sets" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types parameter sets" ],
+    "Keywords":			[ "parameter set", "parameter sets"  ],
+    "Description 01 Parameter Sets"::
+
+	Parameter sets is be considered as the sixth Basic Data Type which allows to hold 0, 1 or more elements.
+	Each element is again a value of any of the six Data Types, including nested parameter sets.
+
+	In the program code, sets can be defined with any number of values or expressions inside braces { } and separated with commas. 
+
+	=== 300, 700, noframe_1stcolbold, noheader
+	Number of elements	| At least zero (empty set)
+	Empty sets		| Empty parameter sets { }are not the same as blank or void values
+	Mixed data types	| A parameter set may contain data of different types, e.g. { 1, Abc, true, date(31.12.2020) }
+	Nesting			| Parameter sets support nesting, e.g. { { 1, 2 }, { 3, 4 }, 5 }
+	Nested empty sets	| Nested empty sets are allowed.  E.g. { {} } is not the same as { } or { { {} } }.
+	Sequence of elements	| The sequence of elements is preserved, i.e. {a,b,c,d} and {d,c,b,a} are different.<br>Comparing them with '=' returns true (ordering does not care), but with '==' returns false (elements must be in same order).
+	Mulitple identical elements | Parameter sets may contain multiple identical elements, e.g. { a, b, a, a, c, c }.  You can use the __trim(__) function to eliminate duplicates.
+	Protection		| In contrast to variable array members and structure members, parameter sets provide no dedicated protection rules.
+	Embedding		| A paramter set can be embedded into another parameter set, e.g. a[] = {1,2}; b[] = {a[]};
+	__Parameter Set Indexing__	| One element can be extracted by indexing.  1st element begins wtih 0. Example:  a[] = {a,b,c,d}{1}; Here, the 1st element is accessed, a[] gets value 'b'.
+	__Negative indexing__	| Negative indexing supported here. a[] = { a,b,c,d,e }{-2} assigns 'd' to a[].
+	__Extracting subsets__	| Specify multiple index values and ranges to extract subsets.
+	Arithmetics		| A broad range of arithmetic operators are available to manipulate parameter sets.
+	===	
+	+++,
+
+    "Examples 01"::
+	a[] = { 1, a, 2, {b,c}, true, date(today) };
+	echo( a[], " / ", type(a[]) );
+	echo( "First element: ", a[]{0}, " and last element: ", a[]{1} );
+	+++,
+
+    "Output 01":		"automatic"
+
+  },
+
+
+  "Parameter sets - Indexing" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types parameter sets indexing" ],
+    "Keywords":			[ "parameter set indexing", "length of parameter sets" ],
+    "Description 01 Parameter Sets - Simple Indexing"::
+
+	<i>Simple indexing</i> is used to retrieve single elements from the parameter set.  Indexing begins with 0 which refers to the 1st
+	parameter set element.  The index value is specified in braces and shall not be confused with a parameter set as such.
+	<i>Cascaded indexing</i> for retrieving elements from nested parameter sets is also supported. 
+
+	<br><br>
+	Following rules apply to the indexing parameter sets:
+	* The index must always be a numeric value.
+	* Specifying just braces {} without an index will retrieve number of elements (nested elements count 1) of the parameter set.
+	* Indexing begins with 0 (zero).
+	* The value will be rounded in case it does not contain an integer value.  Example: <b>a[]{2.99}</b> accesses the same member as <b>a[3]</b>.
+	* __Negative indexing__ is supported. -1 refers to the last element. -2, -3, etc. refer to the previous elements.
+	* Blanks are returned when accessing with index values which lie out of bounds.  Example: <b>Hello{5}</b> returns a blank value.
+	* Updating individual characters on the left hand side of assignments not possible.  Exmaple: <b>a[]{3} = 123;</b>
+
+
+    "Examples 01"::
+	echo( { a,b,c,d      } {0} );                     // Access the 1st element
+	a[] = { a,b,c, {d,e,f}, g };                      // Assign a parameter set to variable a[]
+	echo( "Last element            : ", a[]{-1} );    // Retrieve the last element
+	echo( "Next element to the left: ", a[]{-2} );    // Retrieve the 2nd last element
+	echo( "Cascaded indexing       : ", a[]{3}{2} );  // retrieve 3rd element, and inside the subset the 2nd element (cascaded indexing)
+	echo( "# elements in           : ", a[]{} );      // Number of elements
+	echo( "# elements in nested set: ", a[]{-2}{} );  // Number of elements in subset (cascaded indexing)
+	echo( "Out of bounds case      : ", a[]{99} );    // Empty is returned if index lies out of bounds
+	+++,
+
+    "Output 01":		"automatic",
+
+    "Description 02 Parameter Sets - Simple Indexing in Write Accesses"::
+
+	<i>Simple indexing</i> also works with write accesses in assignments.  The target variable must contain an existing parameter set.  Values of other types
+	are not allowed and will cause error messages.  Any data type may be assigned. For example, a numeric element can be replaced by a literal or parameter set
+	(a subset).  Using multiple indexes as allowed for read accesses is not possible (e.g. [a]{1,2} = {A,B};).
+
+    "Examples 02"::
+	a[] = { a,b,c, {d,e,f}, g };                      // Assign a parameter set to variable a[]
+	a[]{1} = B;
+	a[]{-1} = {G,H,I};
+	echo( "Modified value in a[] = ", a[] );
+	+++,
+
+    "Output 02":		"automatic"
+
+  },
+
+
+
+
+  "Parameter sets - Extracting Subsets" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types parameter sets extracting subsets" ],
+    "Keywords":			[ "parameter sets extracting subsets" ],
+
+
+    "Description 01 Parameter Sets - Extracting Subsets"::
+
+	Instead of specifying single index values to retrieve single elements, subsets can be retrieved by listing muliple values and/or ranges.
+	The range operator '..' is available to specify a range.  The result will always be returned in a parameter set, even if the subset
+	specified results in just one element.
+
+    "Examples 01"::
+	a[] = { a,b,c, {d,e,f}, g };                          // Assign a parameter set to variable a[]
+	echo( "4 elements              : ", a[]{3,1,2,1} );   // Retrieves 4 elements (2 of them repeating here)
+	echo( "2nd to 2nd last         : ", a[]{1..3} );      // Use a range
+	echo( "2nd to 2nd last         : ", a[]{1..-2} );     // Same output
+	echo( "2nd to 2nd last         : ", a[]{-4..3} );     // Same output (-4 = 4th last or 2nd element)
+	echo( "1st element             : ", a[]{0..0} );      // Return 1st element, but in a subset and not alone
+	echo( "Combinations            : ", a[]{2..4,1} );    // Combination of simple values and ranges
+	+++,
+
+    "Output 01":		"automatic"
+  },
+
+
+
+  "Parameter sets - Value Ranges" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types parameter sets value ranges" ],
+    "Keywords":			[ "parameter set value ranges"],
+    "Description 01 Parameter Sets - Simple Values"::
+
+	Simple parameter set values are 0, 1 or more values of any types, regardless if values, variables, expressions or subsets, embedded inside braces
+	and separated with commas. Example:  {} (empty set),  { 1, a, {} } (contains 2 values and nested a empty set), and { {1,2},{3,4} } describing a
+	nested parameter set which looks like a 2-dimensional matrix and can be used as such.
+	+++,
+
+
+    "Description 02 Parameter Sets - Value Ranges (Numerals)"::
+
+ 	Simple parameter sets become cumbersome when describing a sequence of incrementing values, e.g. { 1,2,3,4,5,6,7,8,9,10 }, especially much bigger
+	ones.  One way to do this is with a loop, but is cumbersome.  Alternatively, value ranges can be specified.  A range consists of a starting value
+	and an ending value with '..' inbetween, e.g. { 1..10 }.  The increment is 1, unless a <i>second value</i> in the middle is specified, e.g. { 2..4..10 }
+	to describe the 2nd value.  It may be bigger (for counting up), smaller (for counting down), but not equal to the 1st value (error message occurs).
+
+	<br><br>
+	A mixup of numerals and other types inside a range specification is invalid.
+	+++,
+
+    "Examples 02"::
+	print("Start with the classic way : ");
+	a[] = {};
+	for (i[]=1, i[]<=10, i[]++) a[] += {i[]};
+	echo(a[]);
+
+	echo("And the easy way           : ", {1 .. 10});
+	echo("Steps of 2.5               : ", {1 .. 3.5 .. 10});
+	echo("Steps of -1: Right way     : ", {10 .. 9 .. 1});
+	echo("Steps of -1: Wrong way     : ", {10 .. 1}); // Returns empty set
+	echo("Combination of 2 ranges    : ", {2..4..10, 20..40..100} );
+	echo("Build a 3x3 matrix         : ", {{11..13},{21..23},{31..33}} );
+	+++,
+
+    "Output 02":		"automatic",
+
+
+    "Description 03 Parameter Sets - Value Ranges (Literals)"::
+
+	Value ranges are also supported for literals.  The literal values may consist of one or more characters.  The intial value, optionally <i>second value</i>
+	and final values must contain literals with same number of characters and <u>only one character in the same position changing</u>.
+	An exception applies if the literal contains numeric digits.  Here, up to 8 digits are allowed.  This allows counting from smaller numbers (fewer digits)
+	to larger numbers (more digits).  Minus signs are not considered as part of numbers. A mixup of literals and other types inside a range specification is invalid.
+	
+	<br>
+	Following exampls are invalid: 
+	<br>{1 .. '5'}  (Type mixup)
+	<br>{Option A .. option C } (1st and last characters are different)
+	<br>{Option A .. Option   } (final value has fewer characters),
+	<br>{Option A .. Option AA} fails because final value has more characters, and
+	<br>{Point -3 .. Point 3  } fails because minus sign is an extra character.
+	<br>Valid examples: See below
+
+    "Examples 03"::
+	echo("Start simple               : ", {a..z});
+	echo("Every 2nd letter           : ", {a..c..z});
+	echo("1 letter in string         : ", {'Article A:' .. 'Article F:'} );
+	echo("Combination of 2 ranges    : ", {2..4..10, 'Article A:' .. 'Article F:'} );
+	echo("Numbers in literals        : ", {'Chapter 9:' .. 'Chapter 12:'} );
+	echo("Numbers in literals        : ", {'Chapter 09:' .. 'Chapter 12:'} );
+	+++,
+
+    "Output 03":		"automatic",
+
+
+    "Description 04 Parameter Sets - Value Ranges (Dates)"::
+
+	Unique to Beyodn4P, Value ranges are also supported for dates and times.  If the value consists of
+	both date and time value, then the range may only be applied either on the date (with time kept
+	unchanged) or time (with date kept unchanged).
+
+	<br><br>
+	For dates, the default increment is +1 day.  For times, the default increment is +1 hour.  Use the <second value>
+	to influence the interval.  Both positive and negative intervals are allowed.  Time counting must not pass
+	across midnights to cover additional days.
+
+
+    "Examples 04"::
+	echo("Dates                       : ", { date(30.03.2016) .. date(02.04.2016) });
+	echo("Dates, 3 day intervals      : ", { date(01.04.2016) .. date(04.04.2016) .. date(10.04.2016) });
+	echo("Today to yesterday - bad    : ", { date(today) .. date(today)-1 });
+	echo("Today to yesterday - OK     : ", { date(today) .. date(today)-1 .. date(today)-1 });
+	echo("Times, 1 hour intervals     : ", { time("12:15:00")..time("15:15:00") });
+	echo("Times, 5 minute intervals   : ", { time("12:15:00")..time("12:20:00")..time("12:30:00") });
+	echo("30 seconds back - bad       : ", { time(now) .. time(now)-30/(24*60*60) });
+	echo("30 seconds back, 10s interv.: ", { time(now) .. time(now)-10/(24*60*60) .. time(now)-30/(24*60*60) });
+	echo("Changing dates              : ", { date("05.06.2016 10:00:00")..date("08.06.2016 10:00:00") });
+	echo("Changing times, seconds     : ", { date("05.06.2016 10:00:00")..date("05.06.2016 10:00:01")..date("05.06.2016 10:00:03") });
+
+
+	+++,
+
+    "Output 04":		"automatic"
+
+  },
+
+
+  "Parameter sets - Value Repetitions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "data types parameter sets value repetitions" ],
+    "Keywords":			[ "parameter set value repetitions", "value repetition", "value repetitions"],
+    "Description 01 Parameter Sets - Value Repetitions"::
+
+	Large parameter sets with same values repeating can be built up with value repetitions.  Repetitiosn are specified by numeric values following
+	a colon symbol and following the paramter set element to repeat.  Multiple repetitions may be specified inside a parameter set value.
+
+    "Examples 01"::
+
+	echo({ 5:0 } );              // Generates { 0,0,0,0,0 }
+	echo({ 2:3,3:2 } );          // Generates { 3,3,2,2,2 }
+	echo({ 0.9:A } );            // Generates { A }  Rounded up
+	echo({ 0.1:A } );            // Generates { }  Rounded down
+	echo({ 2:Hello } );          // Generates { Hello,Hello}
+	echo({ 0:Hello } );          // Generates { }
+	echo({ -2:Hello } );         // Generates { }
+	echo({ 3:{a,b} } );          // Generates { {a,b},{a,b},{a,b} }
+	echo({ 2:{3:1} } );          // Generates { {1,1,1},{1,1,1} }
+	echo({ 2:{1..4} } );          // Generates { {1,2,3,4},{1,2,3,4} }
+	+++,
+
+    "Output 01":		"automatic"
+
+
+  }
+
+
+
+
+ 	
+B4PDOCU.STOP

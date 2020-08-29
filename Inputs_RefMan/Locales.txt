@@ -1,0 +1,83 @@
+//
+B4PDOCU.START
+
+  "Locales" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Locales" ],
+    "Keywords":			[ "list of Locales", "locale" ],
+    "Description 01 Introduction"::
+
+	Beyond4P is able to support different locales (regional and language specific settings) which are managed in 
+	a file called "List of locales.csv".  This file comes along with the installation package and will be referenced automatically
+	whenever locale information is needed to carry out a particular function, e.g. converting a __date__ to a __literal__.
+
+	<br><br>
+	The locale settings influence information processing such the following described below:
+
+	* Region-specific number formats (choice of decimal and thousand separator symbols)
+	* Date formats (e.g. MM/DD/YYYY or DD/MM/YYYY as default)
+	* Weekday and month names in different languages
+	* Using the right list separator for loading and saving CSV files for interaction with Excel (some countries-specific installations use comma, others use semicolon)
+	* Currency names and symbols
+
+	+++,
+    "Description 02 Specifying locales"::
+	Locales typical comprise of a combination of abbreviated language name followed by country name with an underscore symbol inbetween, e.g. "de_CH" for
+	<b>German language, Switzerland</b>.  You may also specifc country or language names only, however they create ambiguitiess with countries where more than
+	one language is spoken (or better: supported, e.g. Canada), and languages which are spoken in several countries (e.g. English).
+
+	<br><br>
+	For all functions asking for <i>locale</i> parameters, you can specify the locale, the language or the country.  No case sensitvity applies, meaning that
+	both "en_US" and "EN_us" are accepted, as well as "USA" and "usa".  If only the language or the country is chosen, then the first match applies.
+	Therefore, make it a habit to specify locales precisely using the pair of abbreviations.
+
+	<br><br>
+	Special values:
+	* none = Apply no locale specific context
+	* local = Apply presently appliable settings, either set during program installation, or modified with __set locale(__) function call.
+
+
+	+++,
+    "Description 03 Functions asking for locales"::
+
+	* __literal(__), __softquoted literal(__): 2nd function parameter
+	* __set locale(__): 1st function parameter (must be a locale value, not country or language name alone=)
+
+	+++,
+    "Description 04 Supported locales"::
+
+	=== 100, 100, 100, 700
+	Locale		| Language	| Country		| Explanation
+	none		| none		| none			| Suppresses thousand separator, date is in universally recognized YYYY-MM-DD format
+	en_US		| English	| USA			| Decimal point, 1000-comma, M/D/YYYY
+	en_GB		| English	| Great Britain		| Decimal point, 1000-comma, DD/MM/YYYY
+	en_CA		| English	| Canada		| Decimal point, 1000-comma, DD/MM/YYYY
+	en_DE		| English	| Germany		| Decimal comma, 1000-point, DD/MM/YYYY, weekday and month names are in English
+	en_CH		| English	| Switzerland		| Decimal comma, 1000-point, DD/MM/YYYY, weekday and month names are in English
+	en_AT		| English	| Austria		| Decimal comma, 1000-point, DD/MM/YYYY, weekday and month names are in English
+	en_FR		| English	| France		| Decimal comma, 1000-space, DD/MM/YYYY, weekday and month names are in English
+	en_SE		| English	| Sweden		| Decimal comma, 1000-space, YYYY-MM-DD, weekday and month names are in English
+	en_IN		| English	| India			| Decimal point, 1000-comma, D/M/YYYY, weekday and month names are in English, <br>Note: Different thousand-separation scheme applies in India: 12,34,567.89 
+	in_IN		| Indian	| India			| Decimal point, 1000-comma, D/M/YYYY, <br>Note: Different thousand-separation scheme applies in India: 12,34,567.89
+	de_CH		| German	| Switzerland		| Decimal point, 1000-apostrophe, DD.MM.YYYY
+	de_DE		| German	| Germany		| Decimal comma, 1000-point, YYYY-MM-DD
+	de_AT		| German	| Austria		| Decimal comma, 1000-space, DD.MM.YYYY
+	de_IT		| German	| Italy			| Decimal comma, 1000-point, DD.MM.YYYY, weekday and month names are in German
+	fr_CA		| French	| Canada		| Decimal point, 1000-space, YYYY-MM-DD, weekday and month names are in French
+	fr_FR		| French	| France		| Decimal comma, 1000-space, DD.MM.YYYY
+	fr_CH		| French	| Switzerland		| Decimal comma, 1000-space, DD.MM.YYYY, weekday and month names are in French
+	fr_BE		| French	| Belgium		| Decimal comma, 1000-space, D/MM/YYYY, weekday and month names are in French
+	it_IT		| Italian	| Italy			| Decimal comma, 1000-point, DD/MM/YYYY
+	it_CH		| Italian	| Switzerland		| Decimal point, 1000-apostrophe, DD.MM.YYYY, weekday and month names are in Italian
+	es_ES		| Spanish	| Spain			| Decimal point, 1000-comma, D/MM/YYYY
+	es_US		| Spanish	| USA			| Decimal point, 1000-comma, M/D/YYYY, weekday and month names are in Spanish
+	sv_SE		| Swedish	| Sweden		| Decimal comma, 1000-space, YYYY-MM-DD
+	===
+
+	+++
+
+  }
+
+
+B4PDOCU.STOP

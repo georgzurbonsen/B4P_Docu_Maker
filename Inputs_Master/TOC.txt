@@ -1,0 +1,31 @@
+//
+B4PDOCU.START
+
+  "Welcome to B4P" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table of Contents" ],
+
+    "Description 01 Overview"::
+
+
+	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
+
+	<br/><img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
+	+++,
+
+    "Description 02 Accessing the Documents"::
+
+	=== 300, 700, noheader, noframe column_1_bold
+	__Reference Manual__	| Overview of language syntax, features and function library
+	__User Guide__		| Getting started
+	Manual in PDF Format	| Comprehensive PDF document with introduction to B4P reference manual
+	===
+
+
+	+++
+  }
+
+
+
+B4PDOCU.STOP

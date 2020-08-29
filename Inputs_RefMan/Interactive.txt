@@ -1,0 +1,62 @@
+//
+B4PDOCU.START
+
+  "Interactive Mode" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "interactive" ],
+    "Keywords":			[ "interactive", "interactive mode" ],
+    "Description 01 Interactive Mode"::
+
+	Interactive mode allows you to run any Beyon4P command and expression interactively, start programs and inspect variables.  Additional commands, such as
+	executing system commands, are also supported.  Following cases will activate interactive mode:
+
+	=== 240, 760, noframe_1stcolbold, noheader
+	Command line option -i	| Starting Beyond4P with the command lien option <b>-i</b> will activate interactive mode immediately.
+	Exception asserted | Most exceptions (e.g. parsing syntax and run-time errors) will start interactive mode so you can inspect the actual circumstances of the error, e.g. by looking at variables and table contents.
+	Function 'interactive' called | Specify <b>interactive;</b> inside your program if execution should stop here so you can do some inspections or manipulations.  Type <b>return</b> to continue running that program.
+	===
+
+	In interactive mode, the default prompt <b>'&gt;&gt; '</b> will appear.  You are able to change the default prompt with the <b>prompt</b> function call.
+
+	=== 240, 360, 400, noframe_1stcolbold
+	Command type | Explanation | Examples
+	Beyond4P statements | All Beyond4P assignments, procedure and function calls and transactions | echo ( Hello World ) <br/>a[] = 5; echo(a[])<br/> for (i[ ] = 1, i[ ] <= 3, i[ ]++) echo (i[ ])<br/> start(My program.b4p);<br/> include(Zip Library);<br/>exit;
+	Beyond4P expressions | Start the command with an equal sign '=' followed by an expression to calculate.  The resulting value and type will be shown. | = 5+3 <br/>
+	Special Beyond4P commands | start <b/> return | Starts a Beyond4P program <br/> Continues running the Beyond4P program at the next statement after the 'interactive' call.
+	System commands | System commands as provided by the operating system must precede with a dollar sign '$' | $ dir (Windows) or $ ls (Linux) for directory listing<br/>cd subdirectory <br/>start excel.exe
+	===
+
+	<u>Note on changing drives and/or directories:</u> You can change the current directory of Beyond4P using the '$ cd' (or '$ chdir') command.  Since changing directory in a child process started with the system
+	command has no effect on the calling process like Beyond4P running, Beyond4P is smart enough to capture 'cd' (and 'chdir') commands and change to the specified directory
+	accordingly. Whenever Beyond4P captures a change drive or directory command, it will provide a response of success or failure.
+
+	<br/><br/>
+	Following restrictions apply where drive names and paths will not be captured:<br/>
+	- Window sonly: Commands like '$ D:\' are supported to change drives.<br/>
+	- If the command contains multiple commands and the change directory command is not the first one, then it will not be captured.  Example:  "$ dir ; cd ..".<br/>
+	- Input redirection are also not captured, e.g. "cd < directory_nam.txt"<br/>
+	- Change drive directory commands in started batch scripts (and Beyond4P scripts) will not be captured, too. e.g. "START change_dir.bat", or "Beyond4P change_dir.b4p".<br/>
+
+	+++,
+
+    "Description 02 Recommended Procedure and Function Calls for Interactive Mode"::
+
+	=== 240, 760, noframe_1stcolbold, noheader
+	prompt (...)	| Customize the prompt.  The settings will be memorized.  Specify an expression as a literal which returns a literal.  Example: prompt( "working directory() + '>> '" )
+	prompt ('')	| Reset customized propt to '>> '
+	list variables  | List all variables
+	list system variables | List all system variables
+	list global variables | List all global variables
+	list local variables | List all local variables
+	list functions | List available functions
+	explain functions | Explain avaialble functions
+	inspect | Inspect a variable, inclding all member variables (arrays, structures)
+	view | View a table in a browser or Excel.
+	===
+	+++
+
+  }
+
+
+B4PDOCU.STOP
