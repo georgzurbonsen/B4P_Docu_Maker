@@ -265,9 +265,10 @@
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""REF_Function_table_create.html""><div class=""navi"">4.7.1.1 table create ... </div></a></li>";4;REF_Function_table_create.html;table create ...
 "<li class=""navi""><a href=""REF_Function_table_initialize.html""><div class=""navi"">4.7.1.2 table initialize/append ... </div></a></li>";4;REF_Function_table_initialize.html;table initialize/append ...
-"<li class=""navi""><a href=""REF_Function_table_configure.html""><div class=""navi"">4.7.1.3 table configure </div></a></li>";4;REF_Function_table_configure.html;table configure
-"<li class=""navi""><a href=""REF_Function_table_clear.html""><div class=""navi"">4.7.1.4 table clear ... </div></a></li>";4;REF_Function_table_clear.html;table clear ...
-"<li class=""navi""><a href=""REF_Function_table_delete.html""><div class=""navi"">4.7.1.5 table delete ... </div></a></li>";4;REF_Function_table_delete.html;table delete ...
+"<li class=""navi""><a href=""REF_Function_table_append_blank_rows.html""><div class=""navi"">4.7.1.3 table append blank rows </div></a></li>";4;REF_Function_table_append_blank_rows.html;table append blank rows
+"<li class=""navi""><a href=""REF_Function_table_configure.html""><div class=""navi"">4.7.1.4 table configure </div></a></li>";4;REF_Function_table_configure.html;table configure
+"<li class=""navi""><a href=""REF_Function_table_clear.html""><div class=""navi"">4.7.1.5 table clear ... </div></a></li>";4;REF_Function_table_clear.html;table clear ...
+"<li class=""navi""><a href=""REF_Function_table_delete.html""><div class=""navi"">4.7.1.6 table delete ... </div></a></li>";4;REF_Function_table_delete.html;table delete ...
 </ul></li>;4
 "<li class=""navi""><a href=""REF_Features_accessing_table_info.html""><div class=""navi"">4.7.2 Accessing Table Information </div></a></li>";3;REF_Features_accessing_table_info.html;Accessing Table Information
 "<li class=""navi""><ul>";4
@@ -329,6 +330,11 @@
 "<li class=""navi""><a href=""REF_Function_table_delete_remaining_rows.html""><div class=""navi"">4.7.8.4 table delete remaining rows </div></a></li>";4;REF_Function_table_delete_remaining_rows.html;table delete remaining rows
 "<li class=""navi""><a href=""REF_Function_table_delete_selected_rows.html""><div class=""navi"">4.7.8.5 table delete selected rows </div></a></li>";4;REF_Function_table_delete_selected_rows.html;table delete selected rows
 "<li class=""navi""><a href=""REF_Function_table_keep_selected_rows.html""><div class=""navi"">4.7.8.6 table keep selected rows </div></a></li>";4;REF_Function_table_keep_selected_rows.html;table keep selected rows
+"<li class=""navi""><a href=""REF_Function_table_delete_blank_rows.html""><div class=""navi"">4.7.8.7 table delete blank rows </div></a></li>";4;REF_Function_table_delete_blank_rows.html;table delete blank rows
+"<li class=""navi""><a href=""REF_Function_table_check_row.html""><div class=""navi"">4.7.8.8 table check row </div></a></li>";4;REF_Function_table_check_row.html;table check row
+"<li class=""navi""><a href=""REF_Function_table_rearrange_selected_rows.html""><div class=""navi"">4.7.8.9 table rearrange selected rows </div></a></li>";4;REF_Function_table_rearrange_selected_rows.html;table rearrange selected rows
+"<li class=""navi""><a href=""REF_Function_table_sort_rows.html""><div class=""navi"">4.7.8.10 table sort (selected) rows </div></a></li>";4;REF_Function_table_sort_rows.html;table sort (selected) rows
+"<li class=""navi""><a href=""REF_Function_table_rank_rows.html""><div class=""navi"">4.7.8.11 table rank (selected) rows </div></a></li>";4;REF_Function_table_rank_rows.html;table rank (selected) rows
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_directory_and_file_system.html""><div class=""navi"">4.8 Directory and File System Functions </div></a></li>";2;REF_Features_directory_and_file_system.html;Directory and File System Functions

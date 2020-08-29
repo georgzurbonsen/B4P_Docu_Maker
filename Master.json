@@ -13642,7 +13642,60 @@
 "		table list( t1 );"
  ]
 		,
-	"Output": "automatic"
+	"Output": "automatic",
+	"See also": [ "table create", "table append blank rows" ]
+}
+
+
+,
+
+"table append blank rows" :
+{
+	"Function Names":	[ "table append blank rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function adds a specified number of blank rows to the end of the table"
+ ]
+		,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of new or existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "Table must be existing when using <b>table append...</b> functions.  Otherwise, it does not matter." ]
+		},
+		{ "Number": "2",
+		  "Name": "Number of rows to append",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"		    The rows added are entirely blank, i.e. 0 columns per row.."
+ ]
+			
+		}
+
+		],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( animals,",
+"		{ { Animal, size }, { ant, tiny }, { mouse, small } } );",
+"",
+"	table append blank rows( animals, 2 );",
+"",
+"	table append( animals,",
+"		{ { rat, not that small }, { horse, big } } );",
+"",
+"	table list ( animals );"
+ ]
+		,
+	"Output": "automatic",
+	"See also": "table append"
 }
 
 
@@ -14052,7 +14105,7 @@
 	"Documentation":	"Function Description",
 "Description" : [
 "",
-"	This function extracts a column from the table and places the values in the parameter set from the selected rows where teh calculated expression returns true.",
+"	This function extracts a column from the table and places the values in the parameter set from the selected rows where the calculated expression returns true.",
 "	All blank or non-existing entries will be translated to blank literals.  Automatic type conversion (e.g. numbers to numerals) can be adjusted with the",
 "	__table configure(__) function.",
 ""
@@ -16686,7 +16739,7 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "table rearrange columns" ]
+	"See also": [ "table rearrange columns", "table sort rows" ]
 }
 
 
@@ -17169,4 +17222,532 @@
 	"See also": [ "table delete selected rows" ]
 }
 
+,
+
+"table delete blank rows" :
+{
+	"Function Names":	[ "table delete blank rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function deletes all blank rows from all listed tables, or reduces the number of consecutive blank rows to a specified number.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"1 - 4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Number of consecutive rows to keep",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0",
+"Description" : [
+"			If 1 (or 2, 3, ...) is specifed, then number of consecutive blank rows will be reduced to  (or 2, 3, ...)."
+ ]
+			
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Blank criterion",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "blank fields",
+"Description" : [
+"",
+"			One of following:",
+"			=== 200, 600, noheader, noframe_1stcolbold",
+"			entirely empty row			| Delete if row contain 0 columns",
+"			empty row					| Delete if row contains 0 or 1 empty column",
+"			empty fields				| Delete if row contains any number of empty fields (nothing inside, not even a white space)",
+"			blank fields				| Delete if row contains any number of fields which are either empty or containing white spaces (no visible characters)",
+"			not blank begin				| Delete if not blank, but row above meets blank fields criteria",
+"			not blank middle			| Delete if not blank, rows above and below are not blank, too",
+"			not blank end				| Delete if not blank, but row below meets blank fields criteria",
+"			not blank lone				| Delete if row is not blank, but row above and below meet blank fields criteria.",
+"			not blank					| Delete if row is not blank (contains visible characters), regardless if at top, middle or end of block of non-blank rows",
+"			===",
+""
+ ]
+			
+		},
+		{ "Number": "Opt 4",
+		  "Name": "Columns to check",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "all columns",
+"Description" : [
+"			Specify the columns which shall be checked if they are blank and ignore the contents in the remaining columns.<br><br>",
+"		    See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows deleted",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"include ( Support Library );",
+"",
+"table initialize( t,",
+"	{ {  Last Name,    First Name,    Favorite Sports },",
+"	  {  Adams,        Andy,          American Football },",
+"	  {  \"  \",         \"\",            Baseball },",
+"	  { },",
+"	  {  \"\" },",
+"	  {  \" \" },",
+"	  {  Mayer,        Mick,          Tennis },",
+"	  {  Tanner,       Tina,          Wrestling } } );",
+"",
+"",
+"echo (\"Original table:\");",
+"table list(t);",
+"",
+"echo (\"Demonstrate deleting all rows:\");",
+"table copy table        ( t, u );",
+"table delete blank rows ( u );",
+"table list              ( u );",
+"",
+"echo (new line, \"Demonstrate deleting all rows without names\");",
+"table copy table        ( t, u );",
+"table delete blank rows ( u, 0, blank fields, {First Name, Last Name} );",
+"table list              ( u );",
+"",
+"echo (new line, \"Demonstrate deleting empty rows (0 columns) -> only 1 row removed\");",
+"table copy table        ( t, u );",
+"table delete blank rows ( u, 0, entirely empty row );",
+"table list              ( u );",
+"",
+"echo (new line, \"Reduce # blank rows to 1 ________\");",
+"table copy table        ( t, u );",
+"table delete blank rows ( u, 1 );",
+"table list              ( u );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete selected rows", "table check row" ]
+}
+
+
+,
+
+"table check row" :
+{
+	"Function Names":	[ "table check row" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function checks if this row is blank.  Some value-added critieria can be applied in the parameters.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"2 - 4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Row number",
+		  "Direction": "input",	
+		  "Types": [ "numeral" ],
+		  "Description": [ "The specified row will be checked." ]
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Blank criterion",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "blank fields",
+"Description" : [
+"			One of following:",
+"			=== 200, 600, noheader, noframe_1stcolbold",
+"			entirely empty row			| True if row contain 0 columns",
+"			empty row					| True if row contains 0 or 1 empty column",
+"			empty fields				| True if row contains any number of empty fields (nothing inside, not even a white space)",
+"			blank fields				| True if row contains any number of fields which are either empty or containing white spaces (no visible characters)",
+"			not blank begin				| True if not blank, but row above meets blank fields criteria, but not the rows below",
+"			not blank middle			| True if not blank, rows above and below are also not blank, too",
+"			not blank end				| True if not blank, but row below meets blank fields criteria, but not the rows above",
+"			not blank lone				| True if row is not blank, but row above and below meet blank fields criteria.",
+"			not blank					| True if row is not blank (contains visible characters), regardless if at top, middle or end of block of non-blank rows",
+"			===",
+"			Note: The 'not blank...' criteria listed at the bottom use the 'blank fields' criteria to distinguish whether the other rows are deemed blank or not.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt 4",
+		  "Name": "Columns to check",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "all columns",
+"Description" : [
+"			Specify the columns which shall be checked if they are blank and ignore the contents in the remaining columns.<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows deleted",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t,",
+"		{ {  Last Name,    First Name,    Favorite Sports },",
+"		  {  Adams,        Andy,          American Football },",
+"		  {  \"  \",         \"\",            Baseball },",
+"		  { },",
+"		  {  \"\" },",
+"		  {  \"\",           \"\" },",
+"		  {  Mayer,        Mick,          Tennis },",
+"		  {  \" \" },",
+"		  {  Gerber,       Greg,          Canooing },",
+"		  {  Unger,        Uta,           Rafting },",
+"		  {  Tanner,       Tina,          Wrestling } } );",
+"",
+"",
+"	table initialize( result, {Criteria, entirely empty row, empty row, empty fields, blank fields,",
+"	                           not blank begin, not blank middle, not blank end, not blank lone, not blank } );",
+"",
+"	echo (\"Original table:\");",
+"	table list(t);",
+"",
+"	table process ( result,",
+"		table process( t, [result:row(),0     ] = row();",
+"							  [result:row(),row(1)] = table check row( t, row(), [^Criteria] ) ) );",
+"",
+"	echo(\"The columns in the table below relate to the row numbers of the table checked.\");",
+"	table list ( result );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete blank rows" ]
+}
+
+
+,
+
+"table rearrange selected rows" :
+{
+	"Function Names":	[ "table rearrange selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function rearranges selected rows in the table in order to put them together into one block so they are no longer scattered across the table.",
+"	The ordering of the selected rows will not change, but you can change it (before or) afterwards with __table sort selected rows(__).",
+"",
+"	This function extracts a column from the table and places the values in the parameter set from the selected rows where the calculated expression returns true.",
+"	All blank or non-existing entries will be translated to blank literals.  Automatic type conversion (e.g. numbers to numerals) can be adjusted with the",
+"	__table configure(__) function.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Relocation destination",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			One of following:",
+"			=== 200, 600, noheader, noframe_1stcolbold",
+"			top					| All selected rows will be relocated to the top of the table, with 1st row just below the header row.",
+"			bottom				| All selected rows will be relocated to the top of the table",
+"			first match			| All selected rows will be relocated to the 1st row where the selection applies",
+"			last match			| All selected rows will be relocated to the last row where the selection applies",
+"			==="
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( animals,",
+"		{ { Animal, Leg Count },",
+"		  { ant, 6 }, { rat, 4 }, { octopus, 8 }, { centipede, 100 }, { parakeet, 2 },",
+"		  { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 }, { dog, 4 },",
+"		  { cat, 4 }, { kangaroo, 2 or 4 }, { fly, 6 }, { alien, 3 }, { worm, 0 }, { emu, 2 } }  );",
+"",
+"	table rearrange selected rows( animals, ([Leg Count] = '*4*'), top );",
+"	table rearrange selected rows( animals, ([Leg Count] = '8'), first match );",
+"	table rearrange selected rows( animals, ([Leg Count] = '6'), last match );",
+"	table rearrange selected rows( animals, [Animal] == centipede, bottom );",
+"	table list ( animals );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table sort rows", "table sort selected rows" ]
+}
+,
+
+"table sort (selected) rows" :
+{
+	"Function Names":	[ "table sort rows", "table sort selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function sorts the row according to sorting criteria defined, i.e. columns and applicable sorting options.",
+"	The function <b>table sort selected rows</b> will only sort the applicable rows, but leave all remaining rows untouched, i.e.",
+"	in their original locations.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table sort selected rows</b> only:",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "2 / 3.",
+		  "Name": "Columns considered for sorting order",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			If more than 1 column is specified, then the first column has the highest sorting priority, with additional columns considered",
+"			if the prior comparison resulted in equal contents, e.g. sorting by last name followed by first name.<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3 / 4",
+		  "Name": "Sorting option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "alphabetic",
+		  "Description": [ "See __sorting options__ for available values." ]
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( animals,",
+"		{ { Animal, Leg Count },",
+"		  { ant, 6 }, { mouse, 4 }, { spider, 4 }, { octopus, 8 }, { bird, 2 },",
+"		  { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 },",
+"		  { cat, 4 }, { kangaroo, 2 or 4 }, { spider, 6 }, { fly, 6 }, { worm, 0 } }  );",
+"",
+"	echo(\"Sort animals.  Spiders are sorted by leg count.\");",
+"	table copy table ( animals, a );",
+"	table sort rows( a, { Animal, Leg Count }, { alphabetic, numeric down } );",
+"	table list( a );",
+"",
+"	echo(\"Sort animals with 4 legs\");",
+"	table rearrange selected rows( animals, ([Leg Count]='*4*'), top );",
+"	table sort selected rows( animals, ([Leg Count]='*4*'), Animal );",
+"	table list ( animals );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table rank rows", "table rank selected rows", "table sort columns" ]
+}
+,
+
+"table rank (selected) rows" :
+{
+	"Function Names":	[ "table rank rows", "table rank selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function ranks the rows according to ransorting criteria defined, i.e. columns and applicable sorting options.",
+"	Ranking is a meaningful alternative to identify the ordering of the data without phyically rearranging the rows.",
+"	Specific rules are provided for ranking multiple entries which are equal.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table rank selected rows</b> only:",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "2 / 3.",
+		  "Name": "Destination column for rank numbers",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only one header name or column numbers may be specified",
+"			* If the specified header does not exist, then an additional column with that header will be created.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3 / 4.",
+		  "Name": "Columns considered for ranking order",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "alphabetic",
+"Description" : [
+"			If more than 1 column is specified, then the first column has the highest ranking  priority, with additional columns considered",
+"			if the prior comparison resulted in equal contents, e.g. ranking by last name followed by first name.<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4 / 5",
+		  "Name": "Ranking option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "alphabetic",
+		  "Description": [ "See __sorting options__ for available values." ]
+		},
+		{ "Number": "Opt. 5 / 6",
+		  "Name": "Ranking scheme for equal values",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "123",
+"Description" : [
+"		  One of following:",
+"			=== 50, 750, noheader, noframe_1stcolbold",
+"			123		| Unique ranking.  Same values are ranked by their row number location in the table (rows above are ranked higher)",
+"			213		| Unique ranking.  Same values are ranked by their row number location in the table (rows below are ranked higher)",
+"			112		| Same values get the same higher ranking (2 gold medals for same score followed by silver)",
+"			113		| Same values get the same higher ranking (2 gold medals for same score followed by bronze)",
+"			113		| Same values get the same higher ranking (2 sliver medals for same score followed by bronze)",
+"			===",
+""
+ ]
+		  
+		},
+		{ "Number": "Opt. 6 / 7",
+		  "Name": "Rank starting number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "1",
+"Description" : [
+"			Normally, ranking begins with 1.  In some cases, it is useful to apply cascaded rankings on different rows on the same table, and",
+"			you want to continue with the next lower ranking number in the 2nd or further ranking rounds.  See code example below."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Next further rank number",
+		  "Types": [ "numeral" ],
+		  "Description": "Useful for casecaded ranking (provide as last parameter in the next call)"
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( animals,",
+"		{ { Animal, Leg Count },",
+"		  { ant, 6  }, { mouse, 4 }, { spider, 8 }, { octopus, 8 }, { bird, 2  },",
+"		  { tick, 8 }, { human, 2 }, { ape, 4    }, { lobster, 8 }, { snake, 0 },",
+"		  { cat, 4  }, { ape, 2   }, { spider, 6 }, { fly, 6 } }  );",
+"",
+"	echo(\"Ranked all animals with more than 4 legs from Z-A, then those with 2 legs from A-Z (cascaded ranking)\");",
+"	a[] = table rank selected rows( animals, [Leg Count]>4 , Rank, Animal, alphabetic down, 112 );",
+"		  table rank selected rows( animals, [Leg Count]<=2, Rank, Animal, alphabetic, 112, a[] );",
+"	table list ( animals );",
+"",
+"",
+"	table initialize( names, { Name, Benita, Allen, Dominique, Andy, Benita, BENITA, Dominique, Michele } );",
+"",
+"	echo(\"Different ranking schemes on names using alphabetic ordering, ignoring case, start with rank 0:\");",
+"	table process ( names, for all parameters( { 123, 213, 112, 113, 223 }, scheme[] )",
+"		{",
+"			table rank rows( names, literal(scheme[]), Name, alphabetic ignore case, scheme[], 0 );",
+"		} );",
+"	table list ( names );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table sort rows", "table sort selected rows" ]
+}
 }

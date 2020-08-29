@@ -804,9 +804,11 @@ REF;substitute, substitute all;REF_Function_substitute.html;Function Description
 REF;switch, check;REF_Function_switch.html;Function Description;switch
 REF;switch, check;REF_Function_switch.html;Function Description;check
 REF;switch, check;REF_Function_switch.html;Function Description;;alternative execution of code blocks
+REF;table append blank rows;REF_Function_table_append_blank_rows.html;Function Description;table append blank rows
 REF;table check header;REF_Function_table_check_header.html;Function Description;table check header
 REF;table check headers ...;REF_Function_table_check_headers.html;Function Description;table check headers
 REF;table check headers ...;REF_Function_table_check_headers.html;Function Description;table check headers silently
+REF;table check row;REF_Function_table_check_row.html;Function Description;table check row
 REF;table clear ...;REF_Function_table_clear.html;Function Description;table clear
 REF;table column number;REF_Function_table_column_number.html;Function Description;table column number
 REF;table configure;REF_Function_table_configure.html;Function Description;table configure
@@ -818,6 +820,7 @@ REF;table create ...;REF_Function_table_create.html;Function Description;table c
 REF;table create ...;REF_Function_table_create.html;Function Description;table create if not existing
 REF;table delete ...;REF_Function_table_delete.html;Function Description;table delete
 REF;table delete ...;REF_Function_table_delete.html;Function Description;table delete silently
+REF;table delete blank rows;REF_Function_table_delete_blank_rows.html;Function Description;table delete blank rows
 REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_columns.html;Function Description;table delete blank columns
 REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_columns.html;Function Description;table delete all blank columns
 REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_columns.html;Function Description;table delete empty columns
@@ -851,9 +854,12 @@ REF;table load ...;REF_Function_table_load.html;Function Description;table load
 REF;table load ...;REF_Function_table_load.html;Function Description;table load unchanged
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table min width
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table max width
+REF;table rank (selected) rows;REF_Function_table_rank_rows.html;Function Description;table rank rows
+REF;table rank (selected) rows;REF_Function_table_rank_rows.html;Function Description;table rank selected rows
 REF;table read column selected rows;REF_Function_table_read_column_selected_rows.html;Function Description;table read column selected rows
 REF;table rearrange ... columns;REF_Function_table_rearrange_columns.html;Function Description;table rearrange columns
 REF;table rearrange ... columns;REF_Function_table_rearrange_columns.html;Function Description;table rearrange existing columns
+REF;table rearrange selected rows;REF_Function_table_rearrange_selected_rows.html;Function Description;table rearrange selected rows
 REF;table rename ... headers;REF_Function_table_rename_headers.html;Function Description;table rename headers
 REF;table rename ... headers;REF_Function_table_rename_headers.html;Function Description;table rename column headers
 REF;table rename ... headers;REF_Function_table_rename_headers.html;Function Description;table rename existing headers
@@ -870,6 +876,8 @@ REF;table selected columns/headers ...;REF_Function_table_selected_columns.html;
 REF;table selected columns/headers ...;REF_Function_table_selected_columns.html;Function Description;table selected column numbers
 REF;table selected columns/headers ...;REF_Function_table_selected_columns.html;Function Description;table selected headers
 REF;table selected rows;REF_Function_table_selected_rows.html;Function Description;table selected rows
+REF;table sort (selected) rows;REF_Function_table_sort_rows.html;Function Description;table sort rows
+REF;table sort (selected) rows;REF_Function_table_sort_rows.html;Function Description;table sort selected rows
 REF;table sort columns;REF_Function_table_sort_columns.html;Function Description;table sort columns
 REF;table write column selected rows;REF_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
 REF;time, pure time;REF_Function_time.html;Function Description;time
