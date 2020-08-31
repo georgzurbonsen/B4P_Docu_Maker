@@ -542,6 +542,42 @@ B4PDOCU.START
 
 
 
+"Processing Table Contents":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing table contents" ],
+    "Description 01 Introduction"::
+
+	The functions described next provide efficient means process table contents.
+
+	+++
+  },
+
+
+"Renaming, Copying and Splitting Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Copying and spitting tables" ],
+    "Description 01 Introduction"::
+
+	The functions described next provide efficient means to copy and split tables.
+
+	+++
+  },
+
+
+"Checking and Comparing Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Checking and comparing tables" ],
+    "Description 01 Introduction"::
+
+	The functions described next provide efficient means to check tables for consistency and duplications as well
+	as a simple-to-use function to compare tables and generate comparison reports.
+
+	+++
+  },
+
 
 "Directory and File System Functions":
   {

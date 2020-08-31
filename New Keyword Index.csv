@@ -1,6 +1,7 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
 REF;Accessing Table Contents;REF_Features_Accessing_table_contents.html;General Description;Accessing table contents
 REF;Accessing Table Information;REF_Features_accessing_table_info.html;General Description;accessing table info
+REF;Addt'l Info on fast rows processing;REF_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;add
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;sub
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;mul
@@ -66,6 +67,7 @@ REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;;cas
 REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;;upper case
 REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;;lower case
 REF;Character Encoding and Decoding;REF_Features_character_coding.html;General Description;character coding
+REF;Checking and Comparing Tables;REF_Features_Checking_and_comparing_tables.html;General Description;Checking and comparing tables
 REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General Description;Checking headers
 REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General Description;Processing headers
 REF;Clear screen;REF_Function_cls.html;Function Description;cls
@@ -332,7 +334,9 @@ REF;Path and File Names;REF_Features_path_names.html;General Description;;path n
 REF;Path and File Names;REF_Features_path_names.html;General Description;;file name
 REF;Path and File Names;REF_Features_path_names.html;General Description;;file names
 REF;Processing Table Columns;REF_Features_Processing_table_columns.html;General Description;Processing table columns
+REF;Processing Table Contents;REF_Features_Processing_table_contents.html;General Description;Processing table contents
 REF;Processing Table Rows;REF_Features_Processing_table_rows.html;General Description;Processing table rows
+REF;Renaming, Copying and Splitting Tables;REF_Features_Copying_and_spitting_tables.html;General Description;Copying and spitting tables
 REF;Reserved keywords;REF_Features_reserved_keywords.html;General Description;reserved keywords
 REF;Reserved keywords;REF_Features_reserved_keywords.html;General Description;;keywords
 REF;Saving JSON files;REF_Features_Saving_JSON_files.html;General Description;Saving JSON files
@@ -386,6 +390,7 @@ REF;Structures;REF_Features_structures.html;General Description;;structures
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;Table columns
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;;table columns as function parameters
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;;Shifted Table Column Specifications
+REF;Table Comparison Strategy;REF_Features_Table_comparison_strategy.html;General Description;Table comparison strategy
 REF;Table Functions;REF_Features_table_functions.html;General Description;table functions
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;Table of Contents
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;;Reference Manual
@@ -811,9 +816,18 @@ REF;table check headers ...;REF_Function_table_check_headers.html;Function Descr
 REF;table check row;REF_Function_table_check_row.html;Function Description;table check row
 REF;table clear ...;REF_Function_table_clear.html;Function Description;table clear
 REF;table column number;REF_Function_table_column_number.html;Function Description;table column number
+REF;table compare ...;REF_Function_table_compare.html;Function Description;table compare
+REF;table compare ...;REF_Function_table_compare.html;Function Description;table compare ignore case
+REF;table compare ...;REF_Function_table_compare.html;Function Description;table compare ignore blanks
+REF;table compare ...;REF_Function_table_compare.html;Function Description;table compare ignore both
 REF;table configure;REF_Function_table_configure.html;Function Description;table configure
 REF;table copy columns ...;REF_Function_table_copy_columns.html;Function Description;table copy columns
 REF;table copy columns ...;REF_Function_table_copy_columns.html;Function Description;table copy columns selected rows
+REF;table copy table;REF_Function_table_copy_table.html;Function Description;table copy table
+REF;table copy table columns ...;REF_Function_table_copy_table_columns.html;Function Description;table copy table columns
+REF;table copy table columns ...;REF_Function_table_copy_table_columns.html;Function Description;table copy table columns selected rows
+REF;table copy/split table selected rows;REF_Function_table_copy_table_selected_rows.html;Function Description;table copy table selected rows
+REF;table copy/split table selected rows;REF_Function_table_copy_table_selected_rows.html;Function Description;table split table selected rows
 REF;table correct headers ...;REF_Function_table_correct_headers.html;Function Description;table correct headers
 REF;table correct headers ...;REF_Function_table_correct_headers.html;Function Description;table correct headers ignore case
 REF;table create ...;REF_Function_table_create.html;Function Description;table create
@@ -827,6 +841,8 @@ REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_col
 REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_columns.html;Function Description;table delete all empty columns
 REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_columns.html;Function Description;table delete unnamed columns
 REF;table delete blank/empty/unnamed columns;REF_Function_table_delete_blank_columns.html;Function Description;table delete all unnamed columns
+REF;table delete cells selected columns;REF_Function_table_delete_cells_selected_columns.html;Function Description;table delete cells selected columns
+REF;table delete cells selected rows;REF_Function_table_delete_cells_selected_rows.html;Function Description;table delete cells selected rows
 REF;table delete columns;REF_Function_table_delete_columns.html;Function Description;table delete columns
 REF;table delete remaining columns;REF_Function_table_delete_remaining_columns.html;Function Description;table delete remaining columns
 REF;table delete remaining rows;REF_Function_table_delete_remaining_rows.html;Function Description;table delete remaining rows
@@ -834,6 +850,12 @@ REF;table delete rows;REF_Function_table_delete_rows.html;Function Description;t
 REF;table delete selected rows;REF_Function_table_delete_selected_rows.html;Function Description;table delete selected rows
 REF;table duplicate columns ...;REF_Function_table_duplicate_columns.html;Function Description;table duplicate columns
 REF;table existing;REF_Function_table_existing.html;Function Description;table existing
+REF;table fill horizontally ...;REF_Function_table_fill_horizontally.html;Function Description;table fill horizontally
+REF;table fill horizontally ...;REF_Function_table_fill_horizontally.html;Function Description;table fill horizontally selected rows
+REF;table fill vertically ...;REF_Function_table_fill_vertically.html;Function Description;table fill vertically
+REF;table fill vertically ...;REF_Function_table_fill_vertically.html;Function Description;table fill vertically selected rows
+REF;table fit;REF_Function_table_fit.html;Function Description;table fit
+REF;table format numbers;REF_Function_table_format_numbers.html;Function Description;table format numbers
 REF;table initialize/append ...;REF_Function_table_initialize.html;Function Description;table initialize
 REF;table initialize/append ...;REF_Function_table_initialize.html;Function Description;table append
 REF;table initialize/append ...;REF_Function_table_initialize.html;Function Description;table append on same row
@@ -852,14 +874,19 @@ REF;table lift ...;REF_Function_table_lift_header_row.html;Function Description;
 REF;table lift ...;REF_Function_table_lift_header_row.html;Function Description;table lift contents
 REF;table load ...;REF_Function_table_load.html;Function Description;table load
 REF;table load ...;REF_Function_table_load.html;Function Description;table load unchanged
+REF;table manipulate;REF_Function_table_manipulate.html;Function Description;table manipulate
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table min width
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table max width
+REF;table process ...;REF_Function_table_process.html;Function Description;table process
+REF;table process ...;REF_Function_table_process.html;Function Description;table process selected rows
+REF;table process selected rows fast;REF_Function_table_process_selected_rows_fast.html;Function Description;table process selected rows fast
 REF;table rank (selected) rows;REF_Function_table_rank_rows.html;Function Description;table rank rows
 REF;table rank (selected) rows;REF_Function_table_rank_rows.html;Function Description;table rank selected rows
 REF;table read column selected rows;REF_Function_table_read_column_selected_rows.html;Function Description;table read column selected rows
 REF;table rearrange ... columns;REF_Function_table_rearrange_columns.html;Function Description;table rearrange columns
 REF;table rearrange ... columns;REF_Function_table_rearrange_columns.html;Function Description;table rearrange existing columns
 REF;table rearrange selected rows;REF_Function_table_rearrange_selected_rows.html;Function Description;table rearrange selected rows
+REF;table rename;REF_Function_table_rename.html;Function Description;table rename
 REF;table rename ... headers;REF_Function_table_rename_headers.html;Function Description;table rename headers
 REF;table rename ... headers;REF_Function_table_rename_headers.html;Function Description;table rename column headers
 REF;table rename ... headers;REF_Function_table_rename_headers.html;Function Description;table rename existing headers
@@ -879,6 +906,11 @@ REF;table selected rows;REF_Function_table_selected_rows.html;Function Descripti
 REF;table sort (selected) rows;REF_Function_table_sort_rows.html;Function Description;table sort rows
 REF;table sort (selected) rows;REF_Function_table_sort_rows.html;Function Description;table sort selected rows
 REF;table sort columns;REF_Function_table_sort_columns.html;Function Description;table sort columns
+REF;table split table columns ...;REF_Function_table_split_table_columns.html;Function Description;table split table columns
+REF;table substitute horizontally ...;REF_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally
+REF;table substitute horizontally ...;REF_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally selected rows
+REF;table substitute vertically ...;REF_Function_table_substitute_vertically.html;Function Description;table substitute vertically
+REF;table substitute vertically ...;REF_Function_table_substitute_vertically.html;Function Description;table substitute vertically selected rows
 REF;table write column selected rows;REF_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
 REF;time, pure time;REF_Function_time.html;Function Description;time
 REF;time, pure time;REF_Function_time.html;Function Description;pure time

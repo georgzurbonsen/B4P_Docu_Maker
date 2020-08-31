@@ -1576,6 +1576,45 @@
 
 
 
+"Processing Table Contents":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing table contents" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described next provide efficient means process table contents.",
+""
+ ]
+	
+  },
+
+
+"Renaming, Copying and Splitting Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Copying and spitting tables" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described next provide efficient means to copy and split tables.",
+""
+ ]
+	
+  },
+
+
+"Checking and Comparing Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Checking and comparing tables" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described next provide efficient means to check tables for consistency and duplications as well",
+"	as a simple-to-use function to compare tables and generate comparison reports.",
+""
+ ]
+	
+  },
+
 
 "Directory and File System Functions":
   {
@@ -9801,7 +9840,7 @@
 "				appropriate function call.",
 "",
 "				<br><br>",
-"				Example: <b>literal ( 123.4, { { numeral, \"#,###.00\", en_US }, { date, \"YYYY-MM-DD\" }, { literal, \"### ### ### *\", align right } } );</b>",
+"				Example:<br> <b>literal ( 123.4, { { numeral, \"#,###.00\", en_US }, { date, \"YYYY-MM-DD\" }, { literal, \"### ### ### *\", align right } } );</b>",
 "",
 "				<br><br>See next section on __Smart Formatting Parameters__ for details.",
 ""
@@ -13983,7 +14022,7 @@
 "	table initialize ( table 1,",
 "	{ { Animal, leg count, hair color }, { Worm,  0}, { Bird, 2, white, brown, yellow }, { Dog, 4 }, { Fly }, {}, { Tick, 8 } } );",
 "",
-"	echo(\"table 1 ________________________\");",
+"	echo(\"table 1:\");",
 "	table list ( table 1 );",
 "",
 "	print( table row width( table 1, 1 ),\", \" );		// 2 (2nd row)",
@@ -14525,17 +14564,13 @@
 "	table load( t, \"Examples\\Example.xml\", TEXT );",
 "",
 "	echo(\"This is the XML file:\");",
-"	echo(\"____________________________________________________________\");",
 "	table list( t );",
-"	echo(\"____________________________________________________________\");",
 "",
 "	table load( t, \"Examples\\Example.xml\", XML );",
 "",
 "	echo; echo;",
 "	echo(\"This is the loaded table from the XML file:\");",
-"	echo(\"____________________________________________________________\");",
 "	table list( t );",
-"	echo(\"____________________________________________________________\");",
 ""
  ]
 	,
@@ -14571,17 +14606,13 @@
 "	table load( t, \"Examples\\Example1.json\", TEXT );",
 "",
 "	echo(\"This is the JSON file:\");",
-"	echo(\"____________________________________________________________\");",
 "	table list( t );",
-"	echo(\"____________________________________________________________\");",
 "",
 "	table load( t, \"Examples\\Example1.json\", JSON );",
 "",
 "	echo; echo;",
 "	echo(\"This is the loaded table from the JSON file:\");",
-"	echo(\"____________________________________________________________\");",
-"	table list( t );",
-"	echo(\"____________________________________________________________\");"
+"	table list( t );"
  ]
 	,
 	"Output 01":		"automatic",
@@ -14632,18 +14663,13 @@
 "",
 "	echo; echo;",
 "	echo(\"First tabe loaded:\");",
-"	echo(\"____________________________________________________________\");",
 "	table list( t );",
-"	echo(\"____________________________________________________________\");",
-"",
 "",
 "	table load( t, \"Examples\\Example1.json\", JSON TABLE, \"table_1\" );",
 "",
 "	echo; echo;",
 "	echo(\"This is the loaded table below table_1:\");",
-"	echo(\"____________________________________________________________\");",
-"	table list( t );",
-"	echo(\"____________________________________________________________\");"
+"	table list( t );"
  ]
 	,
 	"Output 02":		"automatic",
@@ -14831,17 +14857,17 @@
 "	table initialize( table 2, {{ Pet, Hair color},",
 "		{ Dog, Beige }, { Cat, '' }, { Mouse, Gray }} );",
 "",
-"	echo(\"table 1 ________________________________________\");",
+"	echo(\"table 1:\");",
 "	table list( table 1 );",
 "",
-"	echo(\"table 2 ________________________________________\");",
+"	echo(\"table 2:\");",
 "	table list( table 2 );",
 "",
 "	echo(new line, \"Save both tables as JSON arrays\" );",
 "	table save( { table 1, table 2} , \"Output.json\", JSON arrays );",
 "	table load( text, \"Output.json\", TEXT );",
 "",
-"	echo(\"table 1 & 2 as JSON arrays _____________________\");",
+"	echo(\"table 1 & 2 as JSON arrays:_\");",
 "	table list( text );",
 ""
  ]
@@ -14868,25 +14894,24 @@
 "	table initialize( table 2, {{ Pet, Hair color},",
 "		{ Dog, Beige }, { Cat, '' }, { Mouse, Gray }} );",
 "",
-"	echo(\"table 1 ________________________________________\");",
+"	echo(\"table 1:\");",
 "	table list( table 1 );",
 "",
-"	echo(\"table 2 ________________________________________\");",
+"	echo(\"table 2:\");",
 "	table list( table 2 );",
 "",
 "	echo(new line, \"Save both tables as JSON objects\" );",
 "	table save( { table 1, table 2} , \"Output.json\", JSON objects );",
 "	table load( text, \"Output.json\", TEXT );",
 "",
-"	echo(\"table 1 & 2 as JSON objects ____________________\");",
+"	echo(\"table 1 & 2 as JSON objects\");",
 "	table list( text );",
-"",
 "",
 "	echo(new line, \"Save both tables as JSON objects\" );",
 "	table save( { table 1, table 2} , \"Output.json\", JSON lean );",
 "	table load( text, \"Output.json\", TEXT );",
 "",
-"	echo(\"table 1 & 2 as JSON objects ____________________\");",
+"	echo(\"table 1 & 2 as JSON objects:\");",
 "	table list( text );",
 "",
 "	file delete silently( Output.json );",
@@ -15066,7 +15091,7 @@
 "Description" : [
 "			This option affects the header checking rules.  See table below for available values.  The value <i>n</i> used in the table below stands for number of columns in row 0.",
 "",
-"			=== 200, 550, noframe_1stcolbold, noheader",
+"			=== 200, 600, noframe_1stcolbold, noheader",
 "			must not exist				|	Specified header names <i>must not exist</i> in the table.<br>Specified column numbers must like outside range 0..<i>n</i>-1.<br>All negative numbers are rejected.",
 "			may exist					|	Specified headers names may exist, i.e. all header names are accepted.<br>All positive column numbers are accepted.<br>Negative numbers from -<i>n</i>..-1 are accepted.",
 "			create if missing			|	Create additional headers if the headers do not yet exist.  The rows below those new headers will not be initialized!<br>Positive column numbers from 0 to <i>n</i> are accepted.  If <i>n</i> is specified, then an additional blank column will be created.  <br>Negative numbers: -1 refers to next blank column beyond the last existing one.  Smaller numbers refer to existing columns further to the left.  Values smaller than -(<i>n</i>+1) will be rejected.",
@@ -15090,7 +15115,7 @@
 "Description" : [
 "			Additional checking options:",
 "",
-"			=== 200, 550, noframe_1stcolbold, noheader",
+"			=== 200, 600, noframe_1stcolbold, noheader",
 "			no repetition				|	Column specifications must not repeat (i.e. no repeated header names, no repeated column numbers)",
 "			no numbers					|	No column numbers allowed in the 2nd parameter. Only header names are allowed",
 "			no blanks					|	No blank headers allowed.",
@@ -15791,7 +15816,7 @@
 "			option \"full match\" expects that the header row contains all specified headers and not more in oder to consider them found.  Otherwise, searching continues",
 "			in the rows below until the criteria are met.",
 "",
-"			=== 200, 550, noframe_1stcolbold, noheader",
+"			=== 200, 600, noframe_1stcolbold, noheader",
 "			must exist					|	The specified header names must exist<br>Specifeid column numbers must be within 0..<i>n</i>-1 or -<i>n</i>..-1.",
 "			unique						|	Like <b>must exist</b>, but also checks that the specified column headers are unique in the table, i.e. they exist only once.",
 "			full match					|	Like <b>unique</b>, however the table must not contain more (or less) headers than those specified to check.  The ordering does not matter. It's like tolerating full number of white pins after a guess in the <i>Master Mind</i> game.",
@@ -15813,7 +15838,6 @@
 
 "Examples" : [
 "	include( Support Library );",
-"	line[]= \"______________________________________________________________________\";",
 "",
 "	table initialize( 2 tables,",
 "	{ {	Created by,  Nick, Miller, \"\", Last Update, \"31.12.2019\" },",
@@ -15827,9 +15851,7 @@
 "",
 "",
 "	echo(\"Original table:\");",
-"	echo(line[]);",
 "	table list( 2 tables );",
-"	echo(line[], new line);",
 "",
 "	a[] = table search header row( 2 tables, {First Name, Last Name, City} ); // 'must exist' is default",
 "	// Finds header row in the right table (headers are on row 2)",
@@ -15906,7 +15928,7 @@
 "			option \"full match\" expects that the header row contains all specified headers and not more in oder to consider them found.  Otherwise, searching continues",
 "			in the rows below until the criteria are met.",
 "",
-"			=== 200, 550, noframe_1stcolbold, noheader",
+"			=== 200, 600, noframe_1stcolbold, noheader",
 "			must exist					|	The specified header names must exist<br>Specifeid column numbers must be within 0..<i>n</i>-1 or -<i>n</i>..-1.",
 "			unique						|	Like <b>must exist</b>, but also checks that the specified column headers are unique in the table, i.e. they exist only once.",
 "			full match					|	Like <b>unique</b>, however the table must not contain more (or less) headers than those specified to check.  The ordering does not matter. It's like tolerating full number of white pins after a guess in the <i>Master Mind</i> game.",
@@ -15928,7 +15950,6 @@
 
 "Examples" : [
 "	include( Support Library );",
-"	line[]= \"______________________________________________________________________\";",
 "",
 "	table initialize( 2 tables,",
 "	{ {	Created by,  Nick, Miller, \"\", Last Update, \"31.12.2019\" },",
@@ -15942,9 +15963,7 @@
 "",
 "",
 "	echo(\"Original table:\");",
-"	echo(line[]);",
 "	table list( 2 tables );",
-"	echo(line[], new line);",
 "",
 "",
 "	table copy table( 2 tables, table );",
@@ -15953,9 +15972,7 @@
 "	echo(\"Note: Contents below headers are not moved up.\");",
 "",
 "	table lift headers( table, {First Name, Last Name, City} ); // 'must exist' is default",
-"	echo(line[]);",
 "	table list( table );",
-"	echo(line[], new line);",
 "",
 "",
 "	table copy table( 2 tables, table );",
@@ -15963,26 +15980,20 @@
 "	echo(\"Note: It will recognize the headers in the right table. Entire rows below move up.\");",
 "",
 "	table lift header row( table, {First Name, Last Name, City} ); // 'must exist' is default",
-"	echo(line[]);",
 "	table list( table );",
-"	echo(line[], new line);",
 "",
 "	table copy table( 2 tables, table );",
 "	echo(\"Show 'table lift header row(..., sequence)':\" );",
 "	echo(\"Note: It will recognize the headers in the left table because they have same sequence.\");",
 "",
 "	table lift header row( table, {First Name, Last Name, City}, sequence );",
-"	echo(line[]);",
 "	table list( table );",
-"	echo(line[], new line);",
 "",
 "	table copy table( 2 tables, table );",
 "	echo(\"Following code puts both tables with headers to 1st row\" );",
 "	table lift contents( table, {First Name, Last Name, City}, sequence );",
 "	table lift contents( table, {Last Name, First Name, City}, sequence );",
-"	echo(line[]);",
 "	table list( table );",
-"	echo(line[], new line);",
 ""
  ]
 	,
@@ -16211,7 +16222,7 @@
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,
 "Description" : [
-"				Applicable to function <b>table copy columns selected rows</b> only.",
+"				Applicable to function <b>table copy columns selected rows</b> only.<br>",
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
@@ -16722,17 +16733,17 @@
 "	  {  Jane, Miami, Hill St., None, F, USA,  Florida, Alligator } } );",
 "",
 "",
-"	echo(\"Original table: __________________\");",
+"	echo(\"Original table:\");",
 "	table list( t );",
 "",
 "",
 "	table copy table (t, t1 );",
 "",
-"	echo(\"Sort all columns by header name except 1st and last one __________\");",
+"	echo(\"Sort all columns by header name except 1st and last one:\");",
 "	table sort columns( t, Town, -2 );",
 "	table list ( t );",
 "",
-"	echo(\"Sort all columns Z-A by Row 2 __________\");",
+"	echo(\"Sort all columns Z-A by Row 2:\");",
 "	table sort columns( t, Name, -1, alphabetic down, 2 );",
 "	table list ( t );",
 ""
@@ -17106,16 +17117,16 @@
 "	{ { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );",
 "",
 "	table copy table( table 1, t1 );",
-"	echo(\"Delete 2 rows: Bird and Tick. __________________\");",
+"	echo(\"Delete 2 rows: Bird and Tick.\");",
 "	table delete selected rows( t1, ([Animal]='*i*') ); // Bird, Tick",
 "	table list( t1 ); // Only Dog and Fly are left",
 "",
-"	echo(\"Dog will also be deleted. __________________\");",
+"	echo(\"Dog will also be deleted:\");",
 "	table copy table( table 1, t1 );",
 "	table delete selected rows( t1, ([Animal]='*i*'), 2 ); // Bird, Tick, Dog deleted",
 "	table list( t1 ); // Only Dog and Fly are left",
 "",
-"	echo(\"Delete animal above Dog and Worm. __________________\");",
+"	echo(\"Delete animal above Dog and Worm:\");",
 "	table copy table( table 1, t1 );",
 "	table delete selected rows( t1, ([Animal]='*o*'), 1, -2 ); // Rows above Worm, Dog",
 "	table list( t1 ); // Only Dog and Fly are left",
@@ -17203,16 +17214,16 @@
 "	{ { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );",
 "",
 "	table copy table( table 1, t1 );",
-"	echo(\"Keep 2 rows: Bird and Tick. __________________\");",
+"	echo(\"Keep 2 rows: Bird and Tick:\");",
 "	table keep selected rows( t1, ([Animal]='*i*') ); // Bird, Tick kept",
 "	table list( t1 ); // Only Dog and Fly are left",
 "",
-"	echo(\"Dog will also be kept. __________________\");",
+"	echo(\"Dog will also be kept:\");",
 "	table copy table( table 1, t1 );",
 "	table keep selected rows( t1, ([Animal]='*i*'), 2 ); // Bird, Tick, Dog kept",
 "	table list( t1 ); // Only Dog and Fly are left",
 "",
-"	echo(\"Keep animal above Dog and Worm. __________________\");",
+"	echo(\"Keep animal above Dog and Worm:\");",
 "	table copy table( table 1, t1 );",
 "	table keep selected rows( t1, ([Animal]='*o*'), 1, -2 ); // Rows above Worm, Dog. Worm is header. Ignore.",
 "	table list( t1 ); // Only Dog and Fly are left"
@@ -17332,7 +17343,7 @@
 "table delete blank rows ( u, 0, entirely empty row );",
 "table list              ( u );",
 "",
-"echo (new line, \"Reduce # blank rows to 1 ________\");",
+"echo (new line, \"Reduce # blank rows to 1:\");",
 "table copy table        ( t, u );",
 "table delete blank rows ( u, 1 );",
 "table list              ( u );",
@@ -17499,7 +17510,7 @@
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 "Description" : [
-"			One of following:",
+"			Use one of the following values:",
 "			=== 200, 600, noheader, noframe_1stcolbold",
 "			top					| All selected rows will be relocated to the top of the table, with 1st row just below the header row.",
 "			bottom				| All selected rows will be relocated to the top of the table",
@@ -17514,16 +17525,20 @@
 "	include ( Support Library );",
 "",
 "	table initialize( animals,",
-"		{ { Animal, Leg Count },",
+"		{ { Animal, Leg Count, Comment },",
 "		  { ant, 6 }, { rat, 4 }, { octopus, 8 }, { centipede, 100 }, { parakeet, 2 },",
 "		  { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 }, { dog, 4 },",
 "		  { cat, 4 }, { kangaroo, 2 or 4 }, { fly, 6 }, { alien, 3 }, { worm, 0 }, { emu, 2 } }  );",
 "",
-"	table rearrange selected rows( animals, ([Leg Count] = '*4*'), top );",
-"	table rearrange selected rows( animals, ([Leg Count] = '8'), first match );",
-"	table rearrange selected rows( animals, ([Leg Count] = '6'), last match );",
-"	table rearrange selected rows( animals, [Animal] == centipede, bottom );",
-"	table list ( animals );"
+"	table initialize( lookup, {",
+"		  { Condition,                  Todo },",
+"		  { \"[Leg Count] = '*or*'\",     \"[Comment] = 'Leg count probably unclear'\" },",
+"		  { \"[Leg Count] > 6\",          \"[Comment] = 'Many legs'\" },",
+"		  { \"[Animal] = rat\",           \"[Animal] = 'mouse'; [Comment] += 'not a rat'\" },",
+"		  { \"true\",                     \"[Animal] = ![Animal]\" } } ); // Upper case O ALL",
+"",
+"	table manipulate( animals, lookup, Condition, Todo );",
+"	table list( animals );"
  ]
 	,
 	"Output": "automatic",
@@ -17559,7 +17574,8 @@
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,
 "Description" : [
-"				Applicable to <b>table sort selected rows</b> only:",
+"				Applicable to <b>table sort selected rows</b> only:<br>",
+"",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
 "				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
@@ -17642,7 +17658,8 @@
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,
 "Description" : [
-"				Applicable to <b>table rank selected rows</b> only:",
+"				Applicable to <b>table rank selected rows</b> only:<br>",
+"",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
 "				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
@@ -17750,4 +17767,1766 @@
 	"Output": "automatic",
 	"See also": [ "table sort rows", "table sort selected rows" ]
 }
+,
+
+"table process ..." :
+{
+	"Function Names":	[ "table process", "table process selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These are one of the most powerful functions in the B4P language: The ability to process the contents in tables row-by-row",
+"	without formulating loops or complex algorithms.  The statements for processing the data in each and every row are provided",
+"	as function parameters and will be executed for every single row selected.  Combiend wiht __partial table references__,",
+"	you can do powerful algorithms with minimum amount of simple code text.  See code examples further below.",
+"",
+"	<br><br>",
+"	The closest relative of this function is __for all table rows(__) which describes a loop using	loop index",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table process selected rows</b> only:<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+	  {
+		 "Number":		"2. / 3.",
+		 "Name":		"Statements (applicable where rows are selected)",
+		 "Direction":	"code",
+		 "Types":		["statements", ":literal"],
+"Description" : [
+"				<b>table process</b>: The statements provided will be executed for every row.<br>",
+"				<b>table process selected rows</b>: The statements provided will be executed for every row where the condition calculated before returned <b>true</b>.<br><br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Full Name] = [First Name] + ' ' + [Family Name];<br>",
+"				<br><br>",
+"				<u>Hint</u>: If you encounter an error message at the very end of the program after you worked on a statement, you may proabably have forgotton to add the closing parentheses to close the function call."
+ ]
+				
+	  },
+	  {
+		 "Number":		"4.",
+		 "Name":		"Statements (otherwise)",
+		 "Direction":	"code",
+		 "Types":		["statements", ":literal"],
+"Description" : [
+"				<b>table process</b>: Not applicable. This function accepts 3 parameters only.",
+"				<b>table process selected rows</b>: The statements provided will be executed for every row where the condition calculated before returned <b>false</b>.<br><br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Full Name] = [First Name] + ' ' + [Family Name];<br>",
+"				<br><br>",
+"				<u>Hint</u>: If you encounter an error message at the very end of the program after you worked on a statement, you may proabably have forgotton to add the closing parentheses to close the function call."
+ ]
+				
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows processed",
+		  "Types": [ "numeral" ],
+		  "Description": "With <b>table process selected rows</b>, the number of selected rows (and processed with statements from 3rd function parameter) are counted."
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"	table initialize ( animals, { {Animal, Group, Characteristics},",
+"		 { parakeet, bird },  { moose, mammal },  { ape, mammal },  { sparrow, bird } , { trout, fish }, { bass, fish },",
+"		 { canary, bird }, { penguin, bird }, { beluga, mammal} } );",
+"",
+"	table process			( animals, [Animal] = ![Animal] ); // Capitalize",
+"	table process selected rows	( animals, ([Group] = bird), [Characteristics] = \"Can fly\", [Characteristics] = \"Can't fly\" );",
+"	table process selected rows	( animals, ([Group] = fish) | ([Animal]=Penguin,Beluga), [Characteristics] = \"Can swim\" );",
+"",
+"	table list ( animals );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table process selected rows fast", "table manipulate" ]
+}
+,
+
+"table process selected rows fast" :
+{
+	"Function Names":	[ "table process selected rows fast" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	In contrast to __table process selected rows(__), you can achieve significant performance improvment if the targeted table is sorted and",
+"	and the Boolean expression tests at least on the sorting value.",
+"	It becomes useful when calling this function from a loop processing the same or different table, including calling out from code inside ",
+"	__table process(__) / __table process selected rows(__).",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"5",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Starting row number",
+		  "Direction": "io",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Specify the starting row number to checking and processing.  The range is between 1 and total number of rows minus 1.  0 will be corrected to 1.<br>",
+"		    It must be variable which will be updated with the row number to use next.  After function call is completed, the row number may have changed",
+"			to a bigger value.",
+"",
+"			<u>Attenetion</u>: This function does not support negative indexing (e.g. -1 = last row).  Processing will be done from top to bottom."
+ ]
+		  
+		},
+		{ "Number": "4.",
+		  "Name": "Processing option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Use one of the following values:",
+"			<b>continue</b>",
+"			* Begin checking at the row as specified in the 3rd function parameter.",
+"			* If expression does not yet match, then continue checking the following rows (until end of table has been reached).",
+"			* If expression matches, then execute statements and increment row number (to be returned).  Then continue checking the expression in the next row.",
+"			* If expression no longer matches, then stop checking.",
+"			* 3rd function parameter will either return next row after last row processed, or, if there was no match, the row number of last row + 1 (= table length value).",
+"			<b>stop</b>",
+"			* Begin checking at the row as specified in the 3rd function parameter.",
+"			* If expression does not yet match, then stop immediately and leave the row number provided in the 3rd function parameter unchanged.",
+"			* If expression matches, then execute statements and increment row number (to be returned).  Then continue checking the expression in the next row.",
+"			* If expression no longer matches, then stop checking.",
+"			* 3rd function parameter will either return next row after last row processed.",
+"			<b>repeat</b>",
+"			works similarly as <b>continue</b>, but following differences apply:",
+"			* If a match has been found, then the 1st matching row number is returned in the 3rd function parameter.",
+"			* If no match has been found, then the supplied row number will stay unchanged.",
+"			<b>repeat remaining</b>",
+"			works similarly as <b>repeat</b>, but following differences apply:",
+"			* It will check all matches till the end of the table.",
+"			<b>repeat revolving</b>",
+"			works similarly as <b>repeat</b>, but following differences apply:",
+"			* If no matches are found from specified row number till end of table, then it will start at row 1 to check the rows located above.",
+"			<u>Hint</u>: See also illustration in the next section, __Additional info on fast processing of rows__."
+ ]
+		  
+		},
+	  {
+		 "Number":		"5.",
+		 "Name":		"Statements (applicable where rows are selected)",
+		 "Direction":	"code",
+		 "Types":		["statements", ":literal"],
+"Description" : [
+"				<b>table process</b>: The statements provided will be executed for every row.<br>",
+"				<b>table process selected rows</b>: The statements provided will be executed for every row where the condition calculated before returned <b>true</b>.<br><br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Full Name] = [First Name] + ' ' + [Family Name];<br>",
+"				<br><br>",
+"				<u>Hint</u>: If you encounter an error message at the very end of the program after you worked on a statement, you may proabably have forgotton to add the closing parentheses to close the function call."
+ ]
+				
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows processed",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( t, { { Name, Game Score, Done},",
+"	  { Andy, 21 }, { Andy, 12 }, { Andy, 20 }, { Max,  50 }, { Max,  31 },",
+"	  { Tina, 32 }, { Andy, 44 }, { Andy, 16 }, { Max,  25 }, { Tina, 19 } } );",
+"",
+"",
+"	// table sort rows ( t, Name );",
+"	echo(\"Original table, sorted by name: \");",
+"	table list( t );",
+"",
+"	echo(\"Example 1: Demonstrate processing option 'continue':\");",
+"	table copy table ( t, t1 );",
+"	row[] = 1; counter[] = 1;",
+"	do",
+"	{",
+"		c[] = table process selected rows fast( t1, [Name]==Andy, row[], continue, [Done] = counter[]++  );",
+"		echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	}",
+"	while (c[] > 0);",
+"	table list( t1 );",
+"",
+"	echo(\"Example 2: Demonstrate processing option 'stop':\");",
+"	table copy table ( t, t1 );",
+"	row[] = 1; counter[] = 1;",
+"	do",
+"	{",
+"		c[] = table process selected rows fast( t1, [Name]==Andy, row[], stop, [Done] = counter[]++  );",
+"		echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	}",
+"	while (c[] > 0);",
+"	table list( t1 );",
+"",
+"	echo(\"Example 3: Demonstrate processing option 'repeat':\");",
+"	table copy table ( t, t1 );",
+"	row[] = 1; counter[] = 1;",
+"	c[] = table process selected rows fast( t1, [Name]==Max, row[], repeat, [Done] = counter[]++  ); // Stops",
+"	echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	row[] = 6;",
+"	c[] = table process selected rows fast( t1, [Name]==Max, row[], repeat, [Done] = counter[]++  ); // Processing",
+"	echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	row[]++; // Next row",
+"	c[] = table process selected rows fast( t1, [Name]==Max, row[], repeat, [Done] = counter[]++  ); // Processing",
+"	echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	table list( t1 );",
+"",
+"	echo(\"Example 4: Demonstrate processing option 'repeat remaining':\");",
+"	table copy table ( t, t1 );",
+"	row[] = 3; counter[] = 1;",
+"	c[] = table process selected rows fast( t1, [Name]==Andy, row[], repeat remaining, [Done] = counter[]++  ); // Stops",
+"	echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	table list( t1 );",
+"",
+"	echo(\"Example 5: Demonstrate processing option 'repeat revolving':\");",
+"	table copy table ( t, t1 );",
+"	row[] = 10; counter[] = 1;  // Will find nothing below row 10, so continue from beginning",
+"	c[] = table process selected rows fast( t1, [Name]==Andy, row[], repeat revolving, [Done] = counter[]++  ); // Stops",
+"	echo(\"Row number returned: \", row[], \",  Items processed: \", c[] );",
+"	table list( t1 );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table process selected rows" ]
+},
+
+ "Addt'l Info on fast rows processing":
+ {
+	"Documentation":		"General Description", // Required value
+	"Feature Names":		[ "Additional info on fast processing of rows" ],
+"Description 01 Introduction" : [
+"	    The following illustration summarizes the different processing options.",
+"",
+"			<br/><img src=\"Images/Function_table_process_rows_fast.jpg\" alt=\"Fast processing with different options\"><br/>",
+"",
+"		If this function is properly applied, then the processing performance can be increased significantly because checking unnecessary rows ",
+"		will no longer take place. Assuming you have two tables which are properly sorted by the full persons' names in alphabetic order.  ",
+"		(If they are not, then sort the tables with the function __table sort rows(__). Table A contains 5,000 names of customers with usual ",
+"		details such as delivery and billing addresses and phone numbers.  Table B contains all the purchases these people have made and contains roughly 20,000 rows.",
+"		Your goal: You want to identify the maximum purchase volume every person has done and add these values into a new column in table A (Field: Total Purchase Value)."
+ ]
+		,
+
+"Description 02 Conventional Appraoch but Slow" : [
+"		If you use the function table process selected rows (…) for table A to work off every name, and in a nested way on table B to gather all the purchases, ",
+"		the a total of 20,000 x 5,000 = one hundred million rows will be checked and this processor intensive process can take several minutes to complete."
+ ]
+		,
+
+"Examples 02" : [
+"		table insert columns( A, Total Purchase Value );",
+"		table process( A,",
+"		{",
+"			name[] = [Name];",
+"			sum[] = 0;",
+"			table process selected rows( B, [Name]==name[], sum[]+=[Purchase Value] );",
+"			[Total Purchase Value] = sum[];",
+"		}"
+ ]
+		,
+
+"Description 03 Much Faster" : [
+"",
+"		Let's assume that table A contains the details of all names which are also mentioned in table B, but some customers in table A may not have done ",
+"		purchases recently, so they are not listed in table B.  The function __table process selected rows fast(__) uses variable row[ ] as starting point ",
+"		and will be updated after every call."
+ ]
+		,
+
+"Examples 03" : [
+"		table sort rows( A, Name ); // Sort the table if not yet in alphabetic order",
+"		table sort rows( B, Name ); // \"",
+"		table insert columns( A, Total Purchase Value );",
+"		row[] = 1;",
+"		table process( A,",
+"		{",
+"			name[] = [Name];",
+"			sum[] = 0;",
+"			table process selected rows fast( B, [Name]==name[], row[], stop, sum[]+=[Purchase Value] );",
+"			[Total Purchase Value] = sum[];",
+"		} );",
+""
+ ]
+		,
+"Description 04 Choosing the right Processing option" : [
+"		The 'conventional' appraoch ",
+"",
+"		=== 400, 100, 100, 100, 100, 100, 100",
+"		Precondition for proper table processing										| stop		| continue	| repeat		| repeat remaining	| repeat revolving	| Convent. Approach",
+"		Table A must be sorted															| Yes		| Yes		| Yes			| 1st occurrence	| Don't care		| Don't care",
+"		Table B must be sorted															| Yes		| Yes		| Yes			| Yes				| Don't care		| Don't care",
+"		In Table B, all items with the same name must be in one block of adjacent rows.	| Yes		| Yes		| Yes			| Don't care		| Yes				| Don't care",
+"		All names in Table A must be unique												| Yes		| Yes		| Don't care	| Don't care		| Don't are			| Don't care",
+"		All names in Table B must also exist in Table A									| Yes		| Don't care| Don't care	| Don't care		| Don't are			| Don't care",
+"		All names in Table A must also exist in Table B									| Don't care| Don't care| Don't care	| Don't care		| Don't are			| Don't care",
+"	    Processing performance															| Very fast	| Fast		| Fast			| Moderate			| Slow				| Very slow",
+"		==="
+ ]
+		
+} // T
+
+,
+
+"table manipulate" :
+{
+	"Function Names":	[ "table manipulate" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Referring to __table process selected rows(__), the condition expressions and following statements to be executed on applicable rows",
+"	need to be coded directly in the B4P program.  Alternatively, one or more sets of expressions and statements can be provided in a table, and",
+"	that table will be applied to process a different table.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing target table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Name of existing lookup table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "This table must contain two columns: One for the expressions and one for the statements." ]
+		},
+		{ "Number": "3.",
+		  "Name": "One column in lookup table containing expressions",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified."
+ ]
+			
+		},
+		{ "Number": "4.",
+		  "Name": "One column in lookup table containing statements to execute",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified."
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( animals,",
+"		{ { Animal, Leg Count, Comment },",
+"		  { ant, 6 }, { rat, 4 }, { octopus, 8 }, { centipede, 100 }, { parakeet, 2 },",
+"		  { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 }, { dog, 4 },",
+"		  { cat, 4 }, { kangaroo, 2 or 4 }, { fly, 6 }, { alien, 3 }, { worm, 0 }, { emu, 2 } }  );",
+"",
+"	table copy table (animals, a2 );",
+"",
+"",
+"	table initialize( lookup, {",
+"		  { Condition,                  Todo },",
+"		  { \"[Leg Count] = '*or*'\",     \"[Comment] = 'Leg count probably unclear'\" },",
+"		  { \"[Leg Count] > 6\",          \"[Comment] = 'Many legs'\" },",
+"		  { \"[Animal] = rat\",           \"[Animal] = 'mouse'; [Comment] += 'not a rat'\" },",
+"		  { \"true\",                     \"[Animal] = ![Animal]\" } } ); // Upper case O ALL",
+"",
+"	table manipulate( animals, lookup, Condition, Todo );",
+"	table list( animals );",
+"",
+"	echo(\"Equivalent alternative appraoch intead of using 'table manipulate',but a bit more cryptic:\" );",
+"",
+"	table process( lookup, table process selected rows( a2, :[Condition], :[Todo] ) );",
+"	table list( a2 );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table process selected rows" ]
+}
+,
+
+"table fill vertically ..." :
+{
+	"Function Names":	[ "table fill vertically", "table fill vertically selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	In various tables, contents are mentioned in only one row and the rows below are kept blank even though the same contents are assumed.",
+"	This function will repeat the contents in accordingly.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2-5",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table fill vertically selected rows</b> only:<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "2. / 3.",
+		  "Name": "Columns to repeat",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			In these columns, blank rows will be overwritten by the exsiting contents above (or below if specified in the last function parameter.<br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3. / 4.",
+		  "Name": "Strings representing repetition",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "'' (blank)",
+"Description" : [
+"",
+"			If one literal is provided, then it will be used to compare with all columns.  If more literals are provided in a parameter set, then they will",
+"			correspond with the columns specified.  If the parameter set contains fewer elements than the number of columns provided, then the last element",
+"			will apply for the remaining columns.  Otherwise, if this parameter set is longer, then the excess values will be ignored.",
+"			Soft quoted literals allow use of __wildcard symbols__ in order to compare for different strings, e.g. 'see above*,' covers <i>begins with 'see above'</i>",
+"			and <i>equals to blanks</i> (note the comma at the end).",
+"			<br>",
+"			Good examples: '\"', '', \"(see above)\", \"ditto\", 'see above,look above',\"*...*\",'see*'<br>",
+"			<u>Note</u>: If the 1st (or last) item is already deemed as blank (e.g. 'same'), then it will not be overwritten because no non-blank value is available yet."
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Direction",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "down",
+		  "Description":
+			[ "Following values are supported: <b>up</b> and <b>down</b> for repeating contents in upward resp. downward direction." ]
+		}
+
+	],
+"Examples" : [
+"	include ( Support Library );",
+"	table initialize ( t, { {Name, Date, Tennis Scores},",
+"		 { Jim,   \"2020-06-20\", \"6:5 6:2 6:3\" },",
+"		 { \"\",    \"same day\"  , \"7:6 6:4 5:6\" },",
+"		 { \"\",    \"2020-06-21\", \"6:2 5:6 4:6\" },",
+"		 { Jane,  \"same day\",   \"5:4 6:5 7:6\" },",
+"		 { \"\",    \"\",           \"3:6 7:6 6:5\" } } );",
+"",
+"	table copy table ( t, u );",
+"",
+"	echo(\"Repeat blank entries\");",
+"	table fill vertically( t, { Name, Date }, { \"\", 'same day,' } );",
+"	table list ( t );",
+"",
+"	echo(\"Here: Ignore entries with blankn names. Jane played at the same date as Jim did.\");",
+"	table fill vertically selected rows ( u, [Name]!=\"\", { Name, Date }, { \"\", 'same day,' } );",
+"	table list ( u );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table fill horizontally", "table substitute vertically" ]
+}
+,
+
+"table substitute vertically ..." :
+{
+	"Function Names":	[ "table substitute vertically", "table substitute vertically selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These functions are the counterparts to __table fill horizontally(__) and __table fill horizontally selected rows(__).",
+"	Here, repetitions in rows will be replaced by blanks or substitute symbols of choice (e.g. \", see above, ditto, etc.)",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2-5",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table substitute vertically selected rows</b> only:<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "2. / 3.",
+		  "Name": "Columns to substitute",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			In these columns, rows with repeating contents will be substituted.<br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3. / 4.",
+		  "Name": "Substitution strings",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "'' (blank)",
+"Description" : [
+"",
+"			If one literal is provided, then it will be used to substitute fields in all specified columns.  If more literals are provided in a parameter set, then they will",
+"			correspond with the columns specified.  If the parameter set contains fewer elements than the number of columns provided, then the last element",
+"			will apply for the remaining columns.  Otherwise, if this parameter set is longer, then the excess values will be ignored.<br>",
+"			Good examples: '' (blank), '...', 'see above', etc.<br>"
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Direction",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "down",
+		  "Description":
+			[ "Following values are supported: <b>up</b> and <b>down</b> for repeating contents in upward resp. downward direction." ]
+		}
+
+	],
+"Examples" : [
+"	include ( Support Library );",
+"	table initialize ( t, { {Name, Date, Tennis Scores},",
+"		 { Jim,   \"2020-06-20\", \"6:5 6:2 6:3\" },",
+"		 { Jim,   \"2020-06-20\", \"7:6 6:4 5:6\" },",
+"		 { Jim,   \"2020-06-21\", \"6:2 5:6 4:6\" },",
+"		 { Jane,  \"2020-06-21\", \"5:4 6:5 7:6\" },",
+"		 { Jane,  \"2020-06-21\", \"3:6 7:6 6:5\" } } );",
+"",
+"	table copy table ( t, u );",
+"",
+"	echo(\"Original table: \");",
+"	table list( t );",
+"",
+"	echo(\"Substitution downward:\");",
+"	table substitute vertically( t, {Name, Date}, { '\"', '...' } );",
+"	table list( t );",
+"",
+"	echo(\"Substitution upward, Jim only:\");",
+"	table substitute vertically selected rows ( u, [Name]==Jim, {Name, Date}, { '\"', '...' }, up );",
+"	table list( u );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table fill vertically", "table substitute horizontally" ]
+}
+,
+
+"table fill horizontally ..." :
+{
+	"Function Names":	[ "table fill horizontally", "table fill horizontally selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	In various tables, contents are mentioned in only one column and the columns to the right (or left) are kept blank even though the same contents are assumed.",
+"	This function will repeat the contents accordingly.",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1-6",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table fill horizontally selected rows</b> only:<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "Opt 2. / 3.",
+		  "Name": "Starting column to repeat",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "0 (first column)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt 3. / 4.",
+		  "Name": "Ending column to repeat",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "(last column)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Strings representing repetition",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "'' (blank)",
+"Description" : [
+"",
+"			Provide one literal with matching pattern.  This one will apply to all rows and columns.",
+"			Soft quoted literals allow use of __wildcard symbols__ in order to compare for different strings, e.g. 'see above*,' covers <i>begins with 'see above'</i>",
+"			and <i>equals to blanks</i> (note the comma at the end).",
+"			<br>",
+"			Good examples: '\"', '', \"(see above)\", \"ditto\", 'see above,look above',\"*...*\",'see*'<br>",
+"			<u>Note</u>: If the 1st (or last) item is already deemed as blank (e.g. 'same'), then it will not be overwritten because no non-blank value is available yet.",
+"			"
+ ]
+			
+		},
+		{ "Number": "Opt. 5. / 6.",
+		  "Name": "Direction",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "right",
+		  "Description":
+			[ "Following values are supported: <b>left</b> and <b>right</b> for repeating contents in left resp. right direction." ]
+		}
+
+	],
+"Examples" : [
+"	include ( Support Library );",
+"	table initialize( a,",
+"			{ { Last Name,    Jan,    Feb,    Mar,    Apr,    May,    June },",
+"			  { Miller,       5,      '',     15,     '',     '',     25   },",
+"			  { Muller,       '',     '',      6,     '',     14,     ''   },",
+"			  { Tanner,       7,      same,    17,    same,   same,   ''   },",
+"			  { Gerber,       '',     same,    0,     10,     11,     12   } } );",
+"",
+"	echo(\"Original table:\");",
+"	table list(a);",
+"	table copy table ( a, b );",
+"",
+"	echo(\"Fill from left to right\");",
+"	table fill horizontally ( b, Jan, -1, 'same,'  );",
+"	table list(b);",
+"",
+"	echo(\"Fill from right to left \");",
+"	table fill horizontally ( a, Jan, -1, 'same,', left  );",
+"	table list(a);",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table fill vertically", "table substitute horizontally" ]
+}, 
+
+
+//	table substitute horizontally, table substitute horizontally selected rows
+//  ________________________________________________________________________________________________________________________
+
+
+"table substitute horizontally ..." :
+{
+	"Function Names":	[ "table substitute horizontally", "table substitute horizontally selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These functions are the counterparts to __table fill horizontally(__) and __table fill horizontally selected rows(__).",
+"	Here, repetitions in rows will be replaced by blanks or substitute symbols of choice (e.g. \", see above, ditto, etc.)",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1-6",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table substitute horizontally selected rows</b> only:<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "Opt 2. / 3.",
+		  "Name": "Starting column to repeat",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "0 (first column)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt 3. / 4.",
+		  "Name": "Ending column to repeat",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "(last column)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Substitution string",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "'' (blank)",
+"Description" : [
+"",
+"			The substitution string specified here will be used to replace repeated contents.  Good examples: '', '...', 'same'."
+ ]
+			
+		},
+		{ "Number": "Opt. 5. / 6.",
+		  "Name": "Direction",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "right",
+		  "Description":
+			[ "Following values are supported: <b>left</b> and <b>right</b> for repeating contents in left resp. right direction." ]
+		}
+
+	],
+"Examples" : [
+"	include( Support Library );",
+"	table initialize( a,",
+"			{ { Last Name,    Jan,    Feb,    Mar,    Apr,    May,    June },",
+"			  { Miller,       5,      6,      15,     15,     15,     25   },",
+"			  { Muller,       '',     6,      6,      6,      14,     14   },",
+"			  { Tanner,       7,      7,      17,     17,     17,     17   },",
+"			  { Gerber,       '',     9,      10,     11,     12,     12   } } );",
+"",
+"	echo(\"Original table:\");",
+"	table list(a);",
+"	table copy table ( a, b );",
+"",
+"	echo(\"Substitte from left to right\");",
+"	table substitute horizontally ( b, Jan, -1, '...'  );",
+"	table list(b);",
+"",
+"	echo(\"Substitute from right to left \");",
+"	table substitute horizontally ( a, Jan, -1, '...', left  );",
+"	table list(a);",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table fill horizontally", "table substitute vertically" ]
+}
+
+,
+
+"table delete cells selected rows" :
+{
+	"Function Names":	[ "table delete cells selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function extracts a column from the table and places the values in the parameter set from the selected rows where the calculated expression returns true.",
+"	All blank or non-existing entries will be translated to blank literals.  Automatic type conversion (e.g. numbers to numerals) can be adjusted with the",
+"	__table configure(__) function.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Existing column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4.",
+		  "Name": "Count",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "1",
+"Description" : [
+"		  Number of cells to delete (with contents to the right shifting to the left accordingly)<br>",
+"		  __Negative indexing__ is supported, i.e. -1 removes all cells till end of row, -2 removes all cells except last column (which will left-shift accordingly), etc.",
+"		  The position of the last column relates to the last column of the widest row in the table, and not the header row or current row alone."
+ ]
+		  
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows processed",
+		  "Types": [ "numeral" ],
+		  "Description": "Counts all rows selected where cells have been deleted."
+		}
+	],
+"Examples" : [
+"	include( Support Library );",
+"	table initialize ( t,",
+"	  { { Nr,  A,  B,  C,  D,  E  },",
+"			{  1,  A1, B1, C1, D1, E1, F1, G1 },",
+"			{  2,  A2, B2, C2, D2, E2, F2, G2 },",
+"			{  3,  A3, B3, C3, D3, E3 },",
+"			{  4,  A4, B4, C4, D4, E4, F4, G4 },",
+"			{  5,  A5, B5, C5, D5, E5, F5, G5 } } );",
+"",
+"	table copy table( t, u );",
+"",
+"	echo(\"2 cells removed in rows 2-4\");",
+"	a[] = table delete cells selected rows( t, ([Nr]=2..4), C, 2 );",
+"	table list ( t );",
+"	echo(\"Number of rows affected: \", a[]);",
+"",
+"	echo(\"All remaining cells removed\");",
+"	a[] = table delete cells selected rows( u, ([Nr]=2..4), C, -2 );",
+"	table list ( u );",
+"	echo(\"Number of rows affected: \", a[]);",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete cells selected columns" ]
+}
+,
+
+"table delete cells selected columns" :
+{
+	"Function Names":	[ "table delete cells selected columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		In a specified row, cells of specified columns will be deleted where the contents below will shift up."
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"3-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Header names and/or column numbers",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"		    Only the cells in the specified columns will be deleted</b>.",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Row number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description": [ "Starting row number where cells in specified columns (and below) will be deleted" ]
+		},
+		{ "Number": "Opt. 4.",
+		  "Name": "Count",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "1",
+"Description" : [
+"		  Number of cells to delete (with contents below shifting up accordingly)<br>",
+"		  __Negative indexing__ is supported, i.e. -1 removes all cells below, -2 removes all cells except the cell in the last row (which will move up accordingly), etc."
+ ]
+		  
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of columns processed",
+		  "Types": [ "numeral" ],
+		  "Description": "Counts all columns selected where cells have been deleted."
+		}
+	],
+"Examples" : [
+"	include( Support Library );",
+"	table initialize ( t,",
+"	  { { Nr,  A,  B,  C,  D,  E  },",
+"			{  1,  A1, B1, C1, D1, E1, F1, G1 },",
+"			{  2,  A2, B2, C2, D2, E2, F2, G2 },",
+"			{  3,  A3, B3, C3, D3, E3 },",
+"			{  4,  A4, B4, C4, D4, E4, F4, G4 },",
+"			{  5,  A5, B5, C5, D5, E5, F5, G5 } } );",
+"",
+"",
+"	echo(\"Original table:\");",
+"	table list ( t );",
+"",
+"	echo(\"2 cells removed in rows 2-4\");",
+"	a[] = table delete cells selected columns( t, {A..C,E,7}, 2, 2 );",
+"	table list ( t );",
+"	echo(\"Number of columns affected: \", a[]);"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table delete cells selected rows" ]
+}
+,
+
+"table format numbers" :
+{
+	"Function Names":	[ "table format numbers" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		All numbers in specified columns of the specified table will be identified and formatted according to specifications provided.",
+"		The mechanism is the same as in the function  __literal(__) where numbers are provided.  Non-numeric data, e.g. text, dates and blank fields, ",
+"		remain unchanged."
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"3-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2",
+		  "Name": "Header names and/or column numbers",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"		    The specified table columns will be considered for formatting.<br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Formatting template",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "Refer to section on __numeral to literal conversion and formatting__" ]
+		},
+		{ "Number": "Opt 4.",
+		  "Name": "Locale (formatting option)",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "Refer to section on __numeral to literal conversion and formatting__, to specify a valid __locale__," ]
+		},
+		{ "Number": "Opt 5.",
+		  "Name": "Placeholder symbol",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "Refer to section on __numeral to literal conversion and formatting__, to specify a placeholder symbol." ]
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize ( t, { { Product, Price per 100kg, Discount },",
+"		{ Apples,  45.5, 0.05 },",
+"		{ Oranges, 90.5, 0.10 },",
+"		{ Durian,  1240, none } } );",
+"",
+"	table format numbers( t, Price per 100kg, \"'EUR '?,??0.00\", de_DE, '*'  );",
+"	table format numbers( t, Discount, \"?0.00 %\" );",
+"",
+"	table list ( t );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "Literal conversion" ]
+}
+,
+
+"table fit" :
+{
+	"Function Names":	[ "table fit" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Various options are available to check the shape of the table (different row width across the table rows) and, ",
+"	if specified to do fitting work by padding too short rows or truncating too long rows.",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-3",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"		    Option, one of the following:",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			min table width				| See illustration below",
+"			min header width			| \"",
+"			max table width				| \"",
+"			equal header width			| \"",
+"			trim						| Trims the table by removing blank contents (or equaling to padding contents if specified)",
+"			check						| Check if table is rectangular (all rows have same width)",
+"			===",
+"",
+"			Effect of the options on the table:",
+"			<br/><img src=\"Images/Function_table_fit.jpg\" alt=\"Fast processing with different options\"><br/>",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Padding contents",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "'' (blank)",
+"Description" : [
+"",
+"			The contents will be used to pad up the short rows in order to align them as specified.",
+"			With the option <b>trim</b>, contents in every row are checked from right to left if they equal to the specified padding contents ",
+"			(or blank if not specified).  The extraneous cells will be deleted and the rows made shorter.",
+""
+ ]
+		  
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Table is rectangular",
+		  "Types": [ "boolean" ],
+		  "Description": "true if the entire table is rectangular, i.e. number of columns per row is the same everywhere."
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t,",
+"		{ { A,  B,  C,  D,  E,  F  },",
+"		  { A1, B1, C1, D1, E1, F1 },",
+"		  { A2, B2, C2, D2, E2, F2, G2, H2  },",
+"		  { A3, B3, C3, D3, '', '', '', ''  },",
+"		  { A4, B4, C4, D4, '', '', '', ''  },",
+"		  { A5, B5, C5, D5, '', '' },",
+"		  { A6, B6, C6, D6 },",
+"		  {  '', '' },",
+"		  { A9, B9 } } );",
+"",
+"	table insert columns( t, Width, \"\", 0 );",
+"	table process ( t, [Width] = table row width( t, row() )-1 );",
+"",
+"	echo(\"Original table:\" );",
+"	table list( t );",
+"",
+"	define procedure ( demonstrate table fit, {{ option, literal }} )",
+"	{",
+"		table copy table ( t, u );",
+"		padding[] = select if ( option[]!=trim, \"-\", \"\" );",
+"		rect[] = table fit ( u, option[],  padding[] );",
+"		echo( \"Fit table to '\", option[],\"' (rectangular = \", rect[],\"):\" );",
+"		table process ( u, [Width] = table row width( u, row() )-1 );",
+"		table list (u);",
+"	}",
+"",
+"	demonstrate table fit (check );",
+"	demonstrate table fit (min table width );",
+"	demonstrate table fit (min header width );",
+"	demonstrate table fit (max table width );",
+"	demonstrate table fit (equal header width );",
+"	demonstrate table fit (trim );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "Literal conversion" ]
+}
+,
+
+"table rename" :
+{
+	"Function Names":	[ "table rename" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function renames the table.  The contents remain untouched."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "New table name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t, {{ Name, Street }, { Miller, '3. Hill St.' }} );",
+"	table rename( t, u );",
+"",
+"	echo(\"Original table renamed:\");",
+"	table list( u );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table copy table", "table delete" ]
+},
+
+
+"table copy table" :
+{
+	"Function Names":	[ "table copy table" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function makes a copy of the table with all contents.",
+"		If the new table is already existing, then it will be initialized."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Name of new table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"	table initialize( t, {{ Name, Age }, { Ann, 45 }, { Dan, 35 }} );",
+"	table copy table ( t, u );",
+"	table list ( u );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table copy table selected rows", "table copy table columns" ]
+},
+
+
+"table copy/split table selected rows" :
+{
+	"Function Names":	[ "table copy table selected rows", "table split table selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function makes a copy of the table with selected rows only.",
+"		The function <b>table split table selected rows</b> removes the transferred rows from the original table.",
+"		If the new table is already existing, then it will be initialized."
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"3-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Name of new table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"3.",
+			"Name" :		"Expression to select rows to split",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table split table selected rows</b> only:",
+"				The selected rows will be <u>moved</u> into the new table.  If the same row is also mentioned in the 4th parameter, then the row will be copied and not moved.<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{   "Number":		"Opt. 3. / 4.",
+			"Name" :		"Expression to select rows to copy",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				The selected rows will be <u>copied</u> into the new table.  Rows specified for both splitting and copying will be considered for copying.<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t, {{ Name, Age }, { Ann, 45 }, { Dan, 35 }, { Eva, 40 }, { Nic, 10 } } );",
+"",
+"	echo(\"Original table:\");",
+"	table list( t );",
+"",
+"	table copy table selected rows ( t, u, [Age]>=40 );",
+"	echo(\"Copied table:\");",
+"	table list ( u );",
+"",
+"	table split table selected rows( t, v, [Age]>=40, [Name]=Eva );",
+"	echo(\"Source table after splitting: \");",
+"	table list (t );",
+"	echo(\"Destnation table after splitting: \");",
+"	table list (v );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table copy table", "table copy table columns", "table split table columns" ]
+},
+
+
+"table copy table columns ..." :
+{
+	"Function Names":	[ "table copy table columns", "table copy table columns selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function makes a copy of the table with all selected columns.<br>",
+"		The function <b>table copy table columns selected rows</b> copies only the selected rows instead of all rows.",
+"		If the new table is already existing, then it will be initialized."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Name of new table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "3.",
+		  "Name": "Header names and/or column numbers",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified"
+ ]
+			
+		},
+		{   "Number":		"4.",
+			"Name" :		"Expression to select rows to copy",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable for <b>table copy table columns selected rows</b> only: The selected rows will be <u>copied</u> into the new table.<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		}
+
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t, {{ Name, Age, Hobby },",
+"		{ Ann, 45, Skiing }, { Dan, 35, Skating }, { Eva, 40, Bee keeping }, { Nic, 10, Reading } } );",
+"",
+"	echo(\"Original table:\");",
+"	table list( t );",
+"",
+"	echo(\"Copy Hobby and Name:\");",
+"	table copy table columns ( t, u, {Hobby, Name} );",
+"	table list( u );",
+"",
+"	echo(\"Copy Name and Age of young people:\");",
+"	table copy table columns selected rows ( t, v, {Name, Age}, [Age]<40 );",
+"	table list( v );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table copy table selected rows", "table copy table" ]
+},
+
+
+"table split table columns ..." :
+{
+	"Function Names":	[ "table split table columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function moves selected columns from the existing to a new table..<br>",
+"		The function <b>table copy table columns selected rows</b> copies only the selected rows instead of all rows.",
+"		If the new table is already existing, then it will be initialized."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"3-4",
+	"Restrictions":		["Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Name of new table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "3.",
+		  "Name": "Columns to spit",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* Every column specified must be unique, i.e. no multiple references to the same column"
+ ]
+			
+		},
+		{ "Number": "Opt 4.",
+		  "Name": "Columns to copy",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* Columns also mentioned in the 3rd function parameter will be considered to be split, i.e. splitting overrules copying."
+ ]
+			
+		}
+
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t, {{ Name, Age, Hobby, Favorite Color },",
+"		{ Ann, 45, Skiing, Blue }, { Dan, 35, Skating, Orange },",
+"		{ Eva, 40, Bee keeping, Yellow }, { Nic, 10, Reading, Green } } );",
+"",
+"	echo(\"Original table:\");",
+"	table list( t );",
+"",
+"	echo(\"Split out Hobby, copy Name and Favorite Color:\");",
+"	table split table columns ( t, u, {Hobby, Favorite Color}, {Name, Favorite Color} );",
+"	table list( u );",
+"",
+"	echo(\"Original table contains Name and Age.\");",
+"	table list( t );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table split table selected rows", "table copy table" ]
+}
+
+
+
+,
+
+"table compare ..." :
+{
+	"Function Names":	[ "table compare", "table compare ignore case", "table compare ignore blanks", "table compare ignore both" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function compares two tables intelligently and generates a comparison report with a level of detail you can define.",
+"		The comparison can either take place using one or more columns for orientation (e.g. last name and first name) and compare",
+"		the other values accordingly, or do a fully automatic comparison wihtout orientation.  Comparison includes checking all",
+"		changes made, rows added and/or removed.",
+"",
+"		<br><br>",
+"		This function is able to deal with tables where the columns and data rows of the two tables are different.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3 - 8",
+	"Restrictions":		"Indirect parameter passing is enabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing newer table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "The table referred here is assumed to be the more recent table." ]
+		},
+		{ "Number": "2",
+		  "Name": "Name of existing older table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "The table referred here is assumed to be the baseline table." ]
+		},
+		{ "Number": "3",
+		  "Name": "Name of report table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "A new table will created.  If the table already exists, then it will be initialized." ]
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "Orientation identifier columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (none)",
+"Description" : [
+"		    If the table contains any for of unique identifiers or other columns suitable for identifying the entry and providing orientation, for example a combination of last and first name,",
+"			a social security number, a product serial number, company name, etc., then specify them in this function parameter.   It does not matter if",
+"			some non-unique orientation values (e.g. 2 persons sharing the same first and last names, or only first names are known) do exist.  ",
+"			Overall, use of orientation columns will accelerate the comparison process significantly.  A change of a value in an orientation column is interpreted as a new row added (and a different",
+"			row possibly deleted).  ",
+"			<br><br>",
+"			The same orientation headers or column numbers must exist in both tables.  Otherwise, exceptions will be asserted.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 5",
+		  "Name": "Reporting option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "differences",
+"Description" : [
+"			Choose one of the following values:",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			entire table		| The report has full table size: It contains all rows and all columns found in both tables, including the equal ones, and the differences are noted in their respective locations. ",
+"			entire rows			| The report contains all columns found in both tables, but lists only the rows where the contents differ.",
+"			differences			| Shows changes, otherwise blank fields",
+"			different columns	| Like above, but deletes all columns where no different data have been found in the rows below below.",
+"			different rows		| Like \"differences\", but deletes all rows where no	differences have been encountered.",
+"			condensed			| Combination of 'different columns' and 'different rows': Only the rows as well as columns where differences are identified will be shown.",
+"			journal				| Sequential change report: 1 difference documented per row with their locations in the old and new table as well as the old and new contents.",
+"			==="
+ ]
+			
+		},
+		{ "Number": "Opt. 6",
+		  "Name": "Change indication call-back function name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "'' (blank / no function provided)",
+"Description" : [
+"",
+"		    If needed, specify the name of a __user-defined function__ which shall be called every time a difference has been identified.",
+"			In the function, you can generate and return a custom-formulated way how to describe the difference.",
+"			This function is supported in conjunction with all reporting options except <b>journal</b>.",
+"",
+"			<br><br>",
+"			<u>Attention:</u> This function is not called for contents vanished by removal of columns.  Details are described below.",
+"			<br><br>",
+"			If no function is provided, following rule applies: Show new contents if available (if reporting options is entire table or entire rows), or different. ",
+"			Show old contents in brackets [ ] if removed."
+ ]
+			
+		},
+		{ "Number": "Opt. 7",
+		  "Name": "Call function only if different",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Default value": "??????????????????????????????????????",
+"Description" : [
+"			If true: Call change indication function only if the contents are different.<br>",
+"			If false: Call change indication function for every cell"
+ ]
+			
+
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of tables created or initialized",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Returns one of the following values:",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			identical			| Both tables are perfectly identical, including same order of rows and columns.",
+"			equal				| Both tables contain same contents, however the rows and/or columns may be in a different order (e.g. sorted and unsorted table compared)",
+"			less				| The newer table contains fewer rows and/or columns, but the remaining data is equal",
+"			more				| The newer table contains additional rows and/or columns, but the existing data is equal",
+"			different			| The newer table is different (contents have changed or both rows have been added and removed)",
+"			failed				| An error has occurred. No comparison made.",
+"			===",
+""
+ ]
+		  
+		}
+	],
+"Examples" : [
+"",
+"		echo(\" To be done \" );",
+""
+ ]
+		,
+	"Output": "automatic",
+	"See also": [ "table clear", "table initialize" ]
+},
+
+
+ "Table Comparison Strategy" :
+  {
+	"Documentation":		"General Description", // Required value
+	"Feature Names":		[ "Table comparison strategy" ],
+"Description 01 Introduction" : [
+"",
+"		The table comparison strategy consist of the following steps:",
+"",
+"		",
+"",
+"		<br><br><b>Step 1 - Check column headers</b><br>",
+"		The column headers of both old and new tables are checked for matches (commonalities).  ",
+"		New column headers seen in the newer table are considered as 'columns added'.",
+"		Column headers seen in the older table only are considered as 'columns removed'.",
+"		In addition, the columns are checked if they have been shifted or been rearranged.",
+"	",
+"		<br><br><b>Step 2 - Check orientation identifier columns</b><br>",
+"		Orientation columns can be supplied to declare specific columns as orientation or identifiers (such as names, serial numbers, etc.).  ",
+"		See __table compare(__), 4th function parameter for details.  Here, the algorithm checks that the orientation columns are existing",
+"		in both tables to be compared.",
+"",
+"		<br><br><b>Step 3 - Match rows with unique orientation identifier headers</b> (Appicable if orientation headers are provided)<br>",
+"		The function will match all rows in the new table with their corresponding rows in the old table which have the same contents under the orientation headers.",
+"		In case multiple rows are identified (non-unique orientation identifier contents), then the best fitting corresponding line in the old table will be identified.",
+"",
+"		<br><br><b>Step 4 - Match the remaining rows</b><br>",
+"		In case no orientation headers are supplied, or non-unique rows with same orientation identifier values are still existing, then ",
+"		these rows will be matched by comparing the remaining columns (or all columns if no orientation identifier has been provided).<br>",
+"		<b>1st round</b>: Zero tolerance is applied.  All identical rows are matched.  If matches exist, mate them and consider them as done.<br>",
+"		<b>2nd round</b>: Check for rows where all entries <u>except one</u> are equal.  If matches exist, mate them.<br>",
+"		<b>3rd round</b>: Check for rows where all entries <u>except two</u> are equal.  If matches exist, mate them.<br>",
+"		<b>4th round</b>: Continue like above, opening up the comparison tolerance.",
+"		<b>Finally</b>: If all contents in a row are different, then the row in the old table is considered 'removed' and the new row considered 'added'.",
+"",
+"		<br><br><b>Step 5 - Generate the report</b> according to the chosen reporting option<br>",
+"",
+"		<br><br><b>Step 6 - Add statistical summary</b><br>",
+"		The statistical summary will be added to the right hand side of the report.  In this case, two additionals columns called <b>Statistics Parameters</b>",
+"		and <b>Statistics Values</b> are introduced.",
+"		",
+"		=== 500, 300",
+"		Statistics Parameters							| Statistics Values",
+"		Columns added									| 0 or higher",
+"		Columns removed									| 0 or higher",
+"		Columns rearranged								| 0 or higher",
+"		Rows equal										| 0 or higher",
+"		Rows added										| 0 or higher",
+"		Rows removed									| 0 or higher",
+"		Rows rearranged									| 0 or higher",
+"		Values equal									| 0 or higher",
+"		Values added									| 0 or higher",
+"		Values removed									| 0 or higher",
+"		Values modified									| 0 or higher",
+"		Old table found orphan columns					| No or Yes",
+"		New table found orphan columns					| No or Yes",
+"		Old table non-unique orientation identifiers	| No or Yes",
+"		New table non-unique orientation identifiers	| No or Yes",
+"		===",
+"",
+""
+ ]
+	,
+"Examples 01" : [
+"	include( Support Library );",
+"",
+"",
+"",
+""
+ ]
+	,
+	"Output 01":		"automatic",
+	"See also": [ "table check" ]
+   }
+
+
 }
