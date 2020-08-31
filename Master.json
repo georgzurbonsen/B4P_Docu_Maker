@@ -4476,7 +4476,7 @@
   "define procedure / function" :
   {
 	"Function Names":	[ "define procedure", "define function", "define procedure and function" ],
-	"Keywords":			[ "defining user procedures and user functions" ],
+	"Keywords":			[ "defining user procedures and user functions", "user-defined function" ],
 	"Documentation":	"Function Description",
 	"Synopsis":			[ "define ... ( expression, parameters ... ) { statement(s); } " ],
 "Description" : [
@@ -18924,7 +18924,7 @@
 "			===",
 "",
 "			Effect of the options on the table:",
-"			<br/><img src=\"Images/Function_table_fit.jpg\" alt=\"Fast processing with different options\"><br/>",
+"			<br/><img src=\"Images/Function_table_fit.jpg\" alt=\"Different options for 'table fit'\"><br/>",
 ""
  ]
 			
@@ -19321,12 +19321,18 @@
 "		changes made, rows added and/or removed.",
 "",
 "		<br><br>",
+"		The function endings <b>...ignore case/blanks/both</b> make comparisons tolerant to upper/lower case and/or spaces between words.",
+"",
+"		<br><br>",
 "		This function is able to deal with tables where the columns and data rows of the two tables are different.",
+"",
+"		<br><br>",
+"		The report contains the the comparison results. See __Table Comparison Reports__ for details.",
 ""
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"3 - 8",
+	"Parameter count":	"4 - 7",
 	"Restrictions":		"Indirect parameter passing is enabled",
 	"Parameters":
 	[
@@ -19415,7 +19421,7 @@
 		  "Name": "Call function only if different",
 		  "Direction": "input",
 		  "Types": [ "boolean" ],
-		  "Default value": "??????????????????????????????????????",
+		  "Default value": "false",
 "Description" : [
 "			If true: Call change indication function only if the contents are different.<br>",
 "			If false: Call change indication function for every cell"
@@ -19444,13 +19450,45 @@
 		}
 	],
 "Examples" : [
+"	include ( Support Library );",
 "",
-"		echo(\" To be done \" );",
+"	table load( t1, \"Examples/Cities.csv\" );",
+"	table keep columns ( t1, {City, Country, Inhabitants, Famous attraction, Moving along } );",
+"	table keep selected rows ( t1, [Inhabitants]>=1000000 );",
+"",
+"	echo(\"Original table:\");",
+"	table list ( t1 );",
+"",
+"	echo(\"Create a modified table:\");",
+"	table copy table ( t1, t2 );",
+"	table sort rows ( t2, City );",
+"	table delete selected rows( t2, [City]==Los Angeles);",
+"	table delete columns( t2, Country );",
+"	table insert columns( t2, Time Zone, \"\", 3 );",
+"	table append( t2, {{ Shanghai, 23000000, \"Jing'an Temple\", \"UTC+8\", Bicycle, Bla }} );",
+"		// Last entry 'Bla' lies outside the colums with headers and is considered an orphan.",
+"	[t2:City,Paris,Famous attraction] = Moulin Rouge;",
+"	[t2:City,Paris,Time Zone] = \"UTC+1\";",
+"	[t2:City,New York City,Inhabitants] = 8323340;",
+"	table list ( t2 );",
+"",
+"	echo(\"Lets compare these tables:\");",
+"	rv[] = table compare( t2, t1, report, City, different rows );",
+"	echo(\"Return value from comparing: \", rv[] );",
+"",
+"	// Split statistics out in order to fit output onto the page.",
+"	table split table columns( report, statistics, {Statistics Parameters, Statistics Values} );",
+"	table delete blank rows( report );",
+"",
+"	echo(\"Comparison Report:\");",
+"	table list ( report );",
+"	echo(\"Statistics:\");",
+"	table list( statistics );",
 ""
  ]
-		,
-	"Output": "automatic",
-	"See also": [ "table clear", "table initialize" ]
+	,
+	"Output": "automatic"
+
 },
 
 
@@ -19461,8 +19499,7 @@
 "Description 01 Introduction" : [
 "",
 "		The table comparison strategy consist of the following steps:",
-"",
-"		",
+"	",
 "",
 "		<br><br><b>Step 1 - Check column headers</b><br>",
 "		The column headers of both old and new tables are checked for matches (commonalities).  ",
@@ -19485,14 +19522,14 @@
 "		<b>1st round</b>: Zero tolerance is applied.  All identical rows are matched.  If matches exist, mate them and consider them as done.<br>",
 "		<b>2nd round</b>: Check for rows where all entries <u>except one</u> are equal.  If matches exist, mate them.<br>",
 "		<b>3rd round</b>: Check for rows where all entries <u>except two</u> are equal.  If matches exist, mate them.<br>",
-"		<b>4th round</b>: Continue like above, opening up the comparison tolerance.",
+"		<b>4th round</b>: Continue like above, opening up the comparison tolerance.<br>",
 "		<b>Finally</b>: If all contents in a row are different, then the row in the old table is considered 'removed' and the new row considered 'added'.",
 "",
-"		<br><br><b>Step 5 - Generate the report</b> according to the chosen reporting option<br>",
+"		<br><br><b>Step 5 - Generate the report</b> according to the chosen reporting option",
 "",
 "		<br><br><b>Step 6 - Add statistical summary</b><br>",
 "		The statistical summary will be added to the right hand side of the report.  In this case, two additionals columns called <b>Statistics Parameters</b>",
-"		and <b>Statistics Values</b> are introduced.",
+"		and <b>Statistics Values</b> are introduced.<br>",
 "		",
 "		=== 500, 300",
 "		Statistics Parameters							| Statistics Values",
@@ -19507,26 +19544,519 @@
 "		Values added									| 0 or higher",
 "		Values removed									| 0 or higher",
 "		Values modified									| 0 or higher",
-"		Old table found orphan columns					| No or Yes",
-"		New table found orphan columns					| No or Yes",
+"		Old table found orphan columns					| No or Yes (Yes if data below blank headers exist)",
+"		New table found orphan columns					| No or Yes (Yes if data below blank headers exist)",
 "		Old table non-unique orientation identifiers	| No or Yes",
 "		New table non-unique orientation identifiers	| No or Yes",
+"		==="
+ ]
+		,
+	"See also": "Table Comparison Reports"
+   },
+
+ "Table Comparison Reports" :
+  {
+	"Documentation":		"General Description", // Required value
+	"Feature Names":		[ "Table comparison reports" ],
+"Description 01 Introduction" : [
+"	",
+"		Two report types are suported: tabular (generated with all reporting options except 'journal') and journal.",
+"		All reports also contain a statistics section with the headers 'Statistics Parameters' and 'Statistics Values'.",
+"",
+"		<br/><img src=\"Images/Function_table_compare.jpg\" alt=\"Schemes for different reporting options for 'table compare'\"><br/>",
+""
+ ]
+		,
+"Description 02 Tabular Reports" : [
+"",
+"		The report contains the columns (with header names) of the newer table plus one additional column called",
+"		'Change Remarks'. This column indicates the changes identfied, typically \"Data modified\", \"Row added\", and \"Row deleted\".<br>",
+"",
+"		<br<br>",
+"",
+"		Depending on the reporting option chosen, the report may contain fewer rows and/or columns, aiming not to",
+"		show unchanged contents considered not interesting.  Deleted contents are shown in brackets.",
+""
+ ]
+		,
+"Description 03 Journals" : [
+"		",
+"		Journals contain a sequential summary of all changes found.  One row is devoted for every change.  It contains the following columns:",
+"",
+"		=== 500, 500",
+"		Header Name										| Contents",
+"		Old Table Row Number							| 1 or higher",
+"		New Table Row Number							| 1 or higher",
+"		Old Table Column Number							| 0 or higher",
+"		New Table Columb Number							| 0 or higher",
+"		Orientation Identifier header names				| Corresponding data contents",
+"		Header Name										| Header name related to change reported",
+"		Old Value										| Old contents",
+"		New Value										| New contents",
+"		Change Remarks									| Row added, Row deleted, Column deleted, Column added, or blank if just contents have changed.",
+"		==="
+ ]
+		,
+"Examples 03" : [
+"	include ( Support Library );",
+"",
+"	table load( t1, \"Examples/Cities.csv\" );",
+"	table keep columns ( t1, {City, Country, Inhabitants, Famous attraction, Moving along } );",
+"	table keep selected rows ( t1, [Inhabitants]>=1000000 );",
+"",
+"	echo(\"Original table:\");",
+"	table list ( t1 );",
+"",
+"	echo(\"Create a modified table:\");",
+"	table copy table ( t1, t2 );",
+"	table sort rows ( t2, City );",
+"	table delete selected rows( t2, [City]==Los Angeles);",
+"	table delete columns( t2, Country );",
+"	table insert columns( t2, Time Zone, \"\", 3 );",
+"	table append( t2, {{ Shanghai, 23000000, \"Jing'an Temple\", \"UTC+8\", Bicycle, Bla }} );",
+"		// Last entry 'Bla' lies outside the colums with headers and is considered an orphan.",
+"	[t2:City,Paris,Famous attraction] = Moulin Rouge;",
+"	[t2:City,Paris,Time Zone] = \"UTC+1\";",
+"	[t2:City,New York City,Inhabitants] = 8323340;",
+"	table list ( t2 );",
+"",
+"	echo(\"Compare and create journal as output:\");",
+"	table compare( t2, t1, report, City, journal );",
+"	table delete columns( report, {Statistics Parameters, Statistics Values} ); // Ignore them for now",
+"	table delete blank rows( report );",
+"	echo(\"Comparison Report:\");",
+"",
+"	table rename headers( report, { Old Table Row Number, Old Table Column Number, New Table Row Number,",
+"		New Table Column Number }, { OR, OC, NR, NC } ); // Abreviate headers to fit on page",
+"",
+"	table list ( report );"
+ ]
+	,
+	"Output 03": "automatic"
+
+   },
+
+
+"Change Indication Function" :
+{
+	"Function Names":	[ "(This is a user-defined function you need to create)" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		You may define a change indication function which will be called whenever a ",
+"		difference during the comparison run has been found.  Parameters supplied include old and new value as well as location in the new table ",
+"		(column name and row number).  The return value will placed into the report table.  ",
+"		The function allows further flexibility, e.g. reporting changes differently under different columns differently ",
+"		(e.g. column \"delivery date\" could be reported as \"same\", \"earlier\", \"later\").",
+"",
+"		<br><br>",
+"		Depending on the last parameter in __table compare(__), this function can either be called for every value pair compared, or",
+"		just for value pairs which are different.",
+"",
+"		<br><br>",
+"		You need to create a __user-defined function__ complying with the parameter structure described below and must return a value of any type.",
+"		The returned value will be converted to strings automatically after the function calls.",
+"",
+"	\"Synopsis\": \"define function( my function, {{ old value, literal }, {new value, literal}, {header name, literal}, {row number, numeral}} ) { [statements} }\"",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"4",
+	"Restrictions":		"Indirect parameter passing is enabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Old value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "Value from the older table" ]
+		},
+		{ "Number": "2",
+		  "Name": "New value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "Value from the newer table" ]
+		},
+		{ "Number": "3",
+		  "Name": "Header name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "Name of header referring to the table column of the values" ]
+		},
+		{ "Number": "4",
+		  "Name": "Row number",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "Name of header referring to the table column of the values" ]
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Change remark",
+		  "Types": [ "valid types" ],
+"Description" : [
+"			Return the value or text you want to see in the comparison report if the values are different (or equal)."
+ ]
+		  
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	define function( foo, {{ old value, literal }, {new value, literal}, {header name, literal}, {row number, numeral}} )",
+"	{",
+"		if (numeral(new value[])<>0)",
+"		{",
+"			 return( select if ( new value[] > old value[], \"Older\", \"Younger\" ) );",
+"		}",
+"		return( old value[] + \" --> \" + new value[] );",
+"	}",
+"",
+"	table initialize( t1,",
+"	      { { Name, Age, Town },",
+"	        { Ann,  35,  Boston },      { Bea,  45,  Cambridge },",
+"	        { Beat, 46,  Chicago },     { Chuck,55,  New Heaven },",
+"			{ Emil, 21,  Albany }} );",
+"",
+"	table initialize( t2,",
+"	      { { Name, Age, Town },",
+"	        { Ann,  34,  Boston },      { Bea,  46,  Cambridge },",
+"	        { Beat, 46,  Chicago },     { Chuck,55,  New Haven },",
+"	        { Dale, 65,  Newport }} );",
+"",
+"	table compare ( t2, t1, report, Name, differences, foo, true );",
+"",
+"	table delete columns( report, {Statistics Parameters, Statistics Values} ); // Ignore for now",
+"	table delete blank rows( report );",
+"	echo(\"Comparison Report:\");",
+"	table list ( report );",
+""
+ ]
+	,
+	"Output": "automatic"
+}
+
+,
+
+"table check" :
+{
+	"Function Names":	[ "table check" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function checks the target table against a rules table which contains values, rules (__comparison expressions__) and optionally more advanced verification",
+"		expressions. This function can check for the following:",
+"		* Contents in selected columns comply with rules specified (e.g. is equal to, contains , etc. )",
+"		* Optionally, the number of rows in the target table is checked (for minimum required, maximum allowed, etc.)",
+"",
+"		This function requires at least 3 parameters: ",
+"		* The names of both tables (target and reference etables), and",
+"		* The columns to be checked (target data in target table, checking comparison expressions in the reference table).",
+"",
+"		In the target table, the following four columns will be added with header names as listed below if they are not yet existing.",
+"		If they exist, contents will be overwritten.",
+"",
+"		=== 300, 700, noframe bold_column_1, noheader",
+"		Row Result			| Comparison result statement related to particular row.  See __checking tables row results__.",
+"		Group Result		| Result related to entire group  See __checking tables group results__.",
+"		Explanations		| Details about mismatch. In case multiple mismatches, 	exist, only the first mismatch will be explained",
+"		Ref Table Row No	| Identified row in the reference table where the comparison has been made.",
 "		===",
 "",
+"		The reference table contains rows which are being used to check the contents in the target table.  ",
+"		For entries in the target table, 1 or more corresponding rows may be specified in the reference table.  ",
+"		As long all conditions in the columns are met in at least one of the rows, then the check result is OK.",
+"		",
+"		<br><br>",
+"",
+"		<u>Note</u>: The sequential order of the rows in the target table as well as in the reference table do not matter.  ",
+"		Grouped rows do not need to lie in blocks of adjacent rows and may be scattered throughout the entire table.",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"4 - 7",
+	"Restrictions":		"Indirect parameter passing is enabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of target table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "The table will be checked" ]
+		},
+		{ "Number": "2",
+		  "Name": "Name of reference table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "The table contains the rules to apply for checking" ]
+		},
+		{ "Number": "3",
+		  "Name": "Columns with data to be checked (both target and reference tables)",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* The header names and column numbers are applicable to both target and reference table.",
+"			The columns in the target table containing values to be checked will be checked against the corresponding columns in the ",
+"			reference table containing comparison expressions. The columns do not need to be in the same location or order if they ",
+"			are referenced by their header names.",
+"			<br><br>",
+"			In the target table, the columns where the data needs to be checked must be selected.  In the reference table, the checking rules ",
+"			(contains __comparison expressions__) are located in the corresponding columns.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "Columns with Row Match Identifiers (both target and reference tables)",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns specified)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* The header names and column numbers are applicable to both target and reference table.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+"			In the reference table, only the rows with the same row match header will be compared instead of the entire table."
+ ]
+			
+		},
+		{ "Number": "Opt. 5",
+		  "Name": "Columns with Group Identifiers (in the target table)",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns specified)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* The header names and column numbers are applicable to both target and reference table.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 6",
+		  "Name": "Columns with Group Match Identifiers (target and reference table)",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns specified)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* The header names and column numbers are applicable to both target and reference table.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+"			All rows with the same Group Identifiers are allocated to one group.",
+"			This parameter actually selects the rows in the reference table to be used for comparison.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 7",
+		  "Name": "Columns with Group Match Identifiers (in the reference table)",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "{} (no columns specified)",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At most one header name or column number may be specified",
+"			* The header names and column numbers are applicable to both target and reference table.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+"			The contents below this header contains B4P __expressions __ which must reurn boolean results.",
+"			These expressions allow more advanced checking and may reference to all columns in the target table using",
+"			__partial table references__.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 8",
+		  "Name": "Column with Comparison Directions (reference table) for checking of within a group",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "{} (no columns specified) - Value 'min 0' applies for all rows",
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At most one header name or column number may be specified",
+"			* The header names and column numbers are applicable to both target and reference table.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+"",
+"			In the reference table, the data below this header may contain the following values:",
+"",
+"			=== 100, 700, noframe_1stcolbold, noheader",
+"			min 0		| This row may be checked 0, 1 or multiple times. This option imposes no restrictions on how many time the comparison is made.  It is the default setting if this parameter is not supplied to this function.",
+"			equal 0		| This row must not be checked at all.  Error asserted if this row has been matched.  Useful to check for table entries which are not supposed to exist.",
+"			min 1		| This row must be checked at least once or more",
+"			equal 1		| This row must be checked precisely once",
+"			max 1		| This row may be checked 0 or 1 times",
+"			==="
+ ]
+			
+		},
+		{   "Number":		"Opt. 9",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Specify the conditions or rules to select the row.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Table is OK",
+		  "Types": [ "boolean" ],
+		  "Description": "true if no mismatches identified.  Otherwise false."
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+""
+ ]
+	,
+	"Output": "automatic"
+
+},
+
+ "Checking Tables - Row and Group Results" :
+  {
+	"Documentation":		"General Description", // Required value
+	"Feature Names":		[ "checking tables row results", "checking tables group results" ],
+"Description 01 Row Result" : [
+"		The following values may be written into the column named 'Row Result':",
+"		=== 200, 800, bold_column_1",
+"		Contents written	| Explanations",
+"		OK					| Was able to find (at least) one corresponding row in the reference table. All conditions in that row have been met.",
+"		Mismatch			| Was able to find (at least) one corresponding row in the reference table. However, no full match in the(se) row(s).",
+"		Not in ref list		| Was not able to find a corresponding row in the reference table.",
+"		Too many			| Excessive row: The row has been checked by the same row in the reference table where comparison directions imposed an upper limit: equal 0, max 1, equal 1.",
+"		==="
+ ]
+		,
+"Description 02 Group Result" : [
+"		The following values may be written into the column named 'Group Result':",
+"		=== 200, 800, bold_column_1",
+"		Contents written	| Explanations",
+"		OK					| All rows in the group are OK",
+"		No group found		| No corresponding group has been found in the reference table.  Comparisons have not been possible.",
+"		Incomplete			| The group in the target table is incomplete, i.e. rows missing as expected in the reference table.  This error message occurs only with comparisons directions imposing lower limits: e.g. min 1, equal 1.",
+"		Not OK				| At least one row inside the group contains a mismatch or is an excessive row",
+"		NO OK and incomplete| Conditions for both \"Incomplete\" and \"Not OK\" are met.",
+"		==="
+ ]
+		,
+	"See also": "table check"
+   },
+
+
+ "Checking Tables - Examples" :
+  {
+	"Documentation":		"General Description", // Required value
+	"Feature Names":		[ "checking tables examples" ],
+"Description 01 table check (...) with 3 Parameters" : [
+"",
+"		<br/><img src=\"Images/Function_table_check_1.jpg\" alt=\"Using 'table check' with 3 function parameters\"><br/>",
+"",
+"		",
+"		In the example below, the resulting 'target' table contains 4 additional columns (in case they have not yet existed before).<br>",
+"		The \"Group Result\" indicates \"Not OK\" because (at least) one row contains a mismatch.",
 ""
  ]
 	,
 "Examples 01" : [
-"	include( Support Library );",
 "",
+"		include ( Support Library );",
 "",
+"		table initialize( orig, {{ Name, Gender}, { Philippe, male }, { Pascale, emale }, { Michele, female }} );",
+"		echo(\"Target table:\");",
+"		table list ( orig );",
 "",
+"		table initialize( reference, { Gender, 'male,female' } );",
+"		echo(\"Reference table:\");",
+"		table list ( reference );",
+"",
+"		table copy table( orig, target );",
+"		table check( target, reference, Gender );",
+"",
+"		echo(\"Target table after checking:\");",
+"		table list ( target );",
+"",
+"		table initialize( reference, { Gender, male, female } );",
+"		echo(\"Reference table (male and female arranged vertically:\");",
+"		table list ( reference );",
+"",
+"		table copy table( orig, target );",
+"		table check( target, reference, Gender );",
+"",
+"		echo(\"Target table after checking:\");",
+"		table list ( target );	//",
 ""
  ]
 	,
-	"Output 01":		"automatic",
-	"See also": [ "table check" ]
-   }
+	"Output 01": "automatic",
+"Examples 02" : [
+"	include ( Support Library );",
+"",
+"	table initialize( athletes,",
+"	{",
+"		{ Name, 	Gender, Hcp,	NTRP Lvl,	Sport 	},",
+"		{ Mike, 	male,	36,	\"\",		Golf	}, 	// OK",
+"		{ Jan,		emale,	33,	\"\",		Golf	}, 	// Gender wrong",
+"		{ Tina,		female, 36,	\"\",		Golf	}, 	// Age wrong",
+"		{ Nico,		male,	99,	\"\",		Golf	}, 	// HCP wrong",
+"		{ \"\",		male,	44,	Lvl 1.0,	Golf	}, 	// Name missing",
+"		{ Lynn,		female,	\"\",	Lvl 4.5,	Tennis	},	// OK",
+"		{ Yves,		female,	\"\",	Lvl 2.0,	Squash	},	// Wrong sports",
+"		{ Zoë,		female, 18,	Lvl 1.5,	Tennis	},	// OK",
+"		{ Chris,	male,	\"\",	Lvl 3.0,	Tennis	},	// OK",
+"		{ Willy,	male,	\"\",	Lvl 6.1,	Tennis	},	// Wrong level",
+"		{ Andy,		male,	\"\",	\"\",		Tennis	}	// Level missing",
+"",
+"	} );	// OK again",
+"",
+"",
+"	table copy table ( athletes, target );",
+"",
+"	table keep columns( target, {Name, Sport, Hcp, NTRP Lvl} ); // Look how skilled they are",
+"	table initialize( ref,",
+"	{",
+"		{ Sport, 	Hcp, 		NTRP Lvl  		},",
+"		{ Tennis, 	'*',		'Lvl ?.0,Lvl ?.5'	},",
+"		{ Golf,		'0..54',	'' 		   	}",
+"	} );",
+"",
+"",
+"	table check( target, ref, {Hcp, NTRP Lvl} );",
+"	table list( target );",
+"",
+"",
+"	table copy table ( athletes, target );",
+"	table keep columns( target, {Name, Sport, Hcp, NTRP Lvl} ); // Look how skilled they are",
+"	table check( target, ref, {Hcp, NTRP Lvl}, Sport );",
+"	table list( target );",
+""
+ ]
+	,
+	"Output 02": "automatic"
 
+
+}
 
 }

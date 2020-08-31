@@ -66,7 +66,11 @@ REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;case
 REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;;case sensitivity
 REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;;upper case
 REF;Case Sensitivity;REF_Features_case_sensitivity.html;General Description;;lower case
+REF;Change Indication Function;REF_Function_(This_is_a_user-defined_function_you_need_to_create).html;Function Description;(This is a user-defined function you need to create)
 REF;Character Encoding and Decoding;REF_Features_character_coding.html;General Description;character coding
+REF;Checking Tables - Examples;REF_Features_checking_tables_examples.html;General Description;checking tables examples
+REF;Checking Tables - Row and Group Results;REF_Features_checking_tables_row_results.html;General Description;checking tables row results
+REF;Checking Tables - Row and Group Results;REF_Features_checking_tables_row_results.html;General Description;checking tables group results
 REF;Checking and Comparing Tables;REF_Features_Checking_and_comparing_tables.html;General Description;Checking and comparing tables
 REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General Description;Checking headers
 REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General Description;Processing headers
@@ -390,6 +394,7 @@ REF;Structures;REF_Features_structures.html;General Description;;structures
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;Table columns
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;;table columns as function parameters
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;;Shifted Table Column Specifications
+REF;Table Comparison Reports;REF_Features_Table_comparison_reports.html;General Description;Table comparison reports
 REF;Table Comparison Strategy;REF_Features_Table_comparison_strategy.html;General Description;Table comparison strategy
 REF;Table Functions;REF_Features_table_functions.html;General Description;table functions
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;Table of Contents
@@ -485,6 +490,7 @@ REF;define procedure / function;REF_Function_define_procedure.html;Function Desc
 REF;define procedure / function;REF_Function_define_procedure.html;Function Description;define function
 REF;define procedure / function;REF_Function_define_procedure.html;Function Description;define procedure and function
 REF;define procedure / function;REF_Function_define_procedure.html;Function Description;;defining user procedures and user functions
+REF;define procedure / function;REF_Function_define_procedure.html;Function Description;;user-defined function
 REF;delete user function;REF_Function_delete_user_function.html;Function Description;delete user function
 REF;delete user function;REF_Function_delete_user_function.html;Function Description;;delete user function
 REF;diagonal;REF_Function_diagonal.html;Function Description;diagonal
@@ -810,6 +816,7 @@ REF;switch, check;REF_Function_switch.html;Function Description;switch
 REF;switch, check;REF_Function_switch.html;Function Description;check
 REF;switch, check;REF_Function_switch.html;Function Description;;alternative execution of code blocks
 REF;table append blank rows;REF_Function_table_append_blank_rows.html;Function Description;table append blank rows
+REF;table check;REF_Function_table_check.html;Function Description;table check
 REF;table check header;REF_Function_table_check_header.html;Function Description;table check header
 REF;table check headers ...;REF_Function_table_check_headers.html;Function Description;table check headers
 REF;table check headers ...;REF_Function_table_check_headers.html;Function Description;table check headers silently
