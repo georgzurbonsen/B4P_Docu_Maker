@@ -19333,7 +19333,7 @@
 	,
 	"Call as":			"procedure or function",
 	"Parameter count":	"4 - 7",
-	"Restrictions":		"Indirect parameter passing is enabled",
+	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
 		{ "Number": "1",
@@ -19663,7 +19663,7 @@
 	,
 	"Call as":			"function",
 	"Parameter count":	"4",
-	"Restrictions":		"Indirect parameter passing is enabled",
+	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
 		{ "Number": "1",
@@ -19759,13 +19759,13 @@
 "		* The columns to be checked (target data in target table, checking comparison expressions in the reference table).",
 "",
 "		In the target table, the following four columns will be added with header names as listed below if they are not yet existing.",
-"		If they exist, contents will be overwritten.",
+"		If they exist, contents will overwritten, and \"Explanations\" appended.",
 "",
 "		=== 300, 700, noframe bold_column_1, noheader",
 "		Row Result			| Comparison result statement related to particular row.  See __checking tables row results__.",
 "		Group Result		| Result related to entire group  See __checking tables group results__.",
 "		Explanations		| Details about mismatch. In case multiple mismatches, 	exist, only the first mismatch will be explained",
-"		Ref Table Row No	| Identified row in the reference table where the comparison has been made.",
+"		Ref Row				| Identified row number in the reference table where the comparison has been made.",
 "		===",
 "",
 "		The reference table contains rows which are being used to check the contents in the target table.  ",
@@ -19777,12 +19777,13 @@
 "		<u>Note</u>: The sequential order of the rows in the target table as well as in the reference table do not matter.  ",
 "		Grouped rows do not need to lie in blocks of adjacent rows and may be scattered throughout the entire table.",
 "",
+"		",
 ""
  ]
 	,
 	"Call as":			"procedure or function",
 	"Parameter count":	"4 - 7",
-	"Restrictions":		"Indirect parameter passing is enabled",
+	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
 		{ "Number": "1",
@@ -19927,8 +19928,28 @@
 		}
 	],
 "Examples" : [
-"	include ( Support Library );",
-""
+"		include ( Support Library );",
+"",
+"		table initialize( target, {{ Name, Gender}, { Philippe, male }, { Pascale, female }, { Michele, female }} );",
+"		echo(\"Target table:\"); table list ( target );",
+"",
+"		table initialize( reference, { Gender, male, female }  );",
+"		echo(\"Reference table:\"); table list ( reference );",
+"",
+"		res[] = table check( target, reference, Gender );",
+"",
+"		echo(\"Target table after checking (result = \", res[], \"):\");",
+"		table list ( target );",
+"",
+"		echo(\"Add a mistake.\");",
+"		[target:Name,Philippe,Gender] = \"Male\"; // Upper case deviates",
+"",
+"		res[] = table check( target, reference, Gender );",
+"",
+"		echo(\"Target table after checking (result = \", res[], \"):\");",
+"		table list ( target );",
+"",
+"		// See following sub-sections for more sophisticated examples."
  ]
 	,
 	"Output": "automatic"
@@ -19975,88 +19996,322 @@
 "		<br/><img src=\"Images/Function_table_check_1.jpg\" alt=\"Using 'table check' with 3 function parameters\"><br/>",
 "",
 "		",
-"		In the example below, the resulting 'target' table contains 4 additional columns (in case they have not yet existed before).<br>",
-"		The \"Group Result\" indicates \"Not OK\" because (at least) one row contains a mismatch.",
+"		In the example below, the fuction call provides 3 parameters: Target and reference table, and checking for",
+"		the columns 'Hcp' and 'NTRP' (Golf handcap and tennis rating).  The table entries are OK in following cases:",
+"		* A valid tennis rating is provided, and golf handicap does not matter.",
+"		* A valid handicap value is provided, but the player shall nto have any tennis rating (blank)",
+"		",
 ""
  ]
 	,
 "Examples 01" : [
+"	include ( Support Library );",
 "",
-"		include ( Support Library );",
+"	table load( target, \"Examples/Tennis and Golf Players.csv\" );",
+"	table list( target );",
 "",
-"		table initialize( orig, {{ Name, Gender}, { Philippe, male }, { Pascale, emale }, { Michele, female }} );",
-"		echo(\"Target table:\");",
-"		table list ( orig );",
+"	table keep columns( target, {Name, Sport, Hcp, NTRP} ); // Look how skilled they are",
+"	table initialize( ref,",
+"	{",
+"		// Hcp = Golf Handicap, NTRP = National Tennis Rating Program",
+"		{ Sport,    Hcp,     NTRP 	 	        },",
+"		{ Tennis,   '*',	 'Lvl ?.0,Lvl ?.5'	},",
+"		{ Golf,     '0..54', ''                 }",
+"	} );",
 "",
-"		table initialize( reference, { Gender, 'male,female' } );",
-"		echo(\"Reference table:\");",
-"		table list ( reference );",
-"",
-"		table copy table( orig, target );",
-"		table check( target, reference, Gender );",
-"",
-"		echo(\"Target table after checking:\");",
-"		table list ( target );",
-"",
-"		table initialize( reference, { Gender, male, female } );",
-"		echo(\"Reference table (male and female arranged vertically:\");",
-"		table list ( reference );",
-"",
-"		table copy table( orig, target );",
-"		table check( target, reference, Gender );",
-"",
-"		echo(\"Target table after checking:\");",
-"		table list ( target );	//",
+"	table check( target, ref, {Hcp, NTRP} );",
+"	table list( target );",
 ""
  ]
 	,
 	"Output 01": "automatic",
+"Description 02 table check (...) with 4 Parameters" : [
+"",
+"		In the previous table, the same checks have been applied to both tennis and golf players, and indicate if the target table contains",
+"		sports not listed in the reference table.  This is done by specifying common row match identifiers for both tables.  ",
+"		In the discussed example it's the column \"Sport\".",
+"",
+"		<br/><img src=\"Images/Function_table_check_2.jpg\" alt=\"Using 'table check' with 4 function parameters\"><br/>",
+"",
+"		In the example below, the fuction call provides 4 parameters: Target and reference table, and checking for",
+"		the columns 'Hcp' and 'NTRP' (Golf handcap and tennis rating).  The table entries are OK in following cases:",
+"		* If the person favors Golf (column 'Sport' conains 'Golf'), then the handicap will be checked.",
+"		* If the person favors Tennis, then the NTRP rating will be checked.",
+"		* A valid handicap value is provided, but the player shall nto have any tennis rating (blank)",
+"",
+"		" ],
 "Examples 02" : [
 "	include ( Support Library );",
 "",
-"	table initialize( athletes,",
-"	{",
-"		{ Name, 	Gender, Hcp,	NTRP Lvl,	Sport 	},",
-"		{ Mike, 	male,	36,	\"\",		Golf	}, 	// OK",
-"		{ Jan,		emale,	33,	\"\",		Golf	}, 	// Gender wrong",
-"		{ Tina,		female, 36,	\"\",		Golf	}, 	// Age wrong",
-"		{ Nico,		male,	99,	\"\",		Golf	}, 	// HCP wrong",
-"		{ \"\",		male,	44,	Lvl 1.0,	Golf	}, 	// Name missing",
-"		{ Lynn,		female,	\"\",	Lvl 4.5,	Tennis	},	// OK",
-"		{ Yves,		female,	\"\",	Lvl 2.0,	Squash	},	// Wrong sports",
-"		{ Zoë,		female, 18,	Lvl 1.5,	Tennis	},	// OK",
-"		{ Chris,	male,	\"\",	Lvl 3.0,	Tennis	},	// OK",
-"		{ Willy,	male,	\"\",	Lvl 6.1,	Tennis	},	// Wrong level",
-"		{ Andy,		male,	\"\",	\"\",		Tennis	}	// Level missing",
+"	table load( target, \"Examples/Tennis and Golf Players.csv\" );",
+"	// table list( target ); // See previous section. It's the same table.",
 "",
-"	} );	// OK again",
-"",
-"",
-"	table copy table ( athletes, target );",
-"",
-"	table keep columns( target, {Name, Sport, Hcp, NTRP Lvl} ); // Look how skilled they are",
+"	table keep columns( target, {Name, Sport, Hcp, NTRP} ); // Look how skilled they are",
 "	table initialize( ref,",
 "	{",
-"		{ Sport, 	Hcp, 		NTRP Lvl  		},",
-"		{ Tennis, 	'*',		'Lvl ?.0,Lvl ?.5'	},",
-"		{ Golf,		'0..54',	'' 		   	}",
+"		// Hcp = Golf Handicap, NTRP = National Tennis Rating Program",
+"		{ Sport,    Hcp,     NTRP 	 	        },",
+"		{ Tennis,   '*',	 'Lvl ?.0,Lvl ?.5'	},",
+"		{ Golf,     '0..54', ''                 }",
 "	} );",
 "",
+"	table check( target, ref, {Hcp, NTRP}, Sport );",
+"	table list( target );"
+ ]
+	,
+	"Output 02": "automatic",
+
+"Description 03 table check (...) with 6 Parameters" : [
 "",
-"	table check( target, ref, {Hcp, NTRP Lvl} );",
-"	table list( target );",
+"		Advanced table checking is possible where different groups can be defined in order to apply different checking rules which can even be independent from each other.",
 "",
+"		<br/><img src=\"Images/Function_table_check_3.jpg\" alt=\"Using 'table check' with 6 function parameters\"><br/>",
 "",
-"	table copy table ( athletes, target );",
-"	table keep columns( target, {Name, Sport, Hcp, NTRP Lvl} ); // Look how skilled they are",
-"	table check( target, ref, {Hcp, NTRP Lvl}, Sport );",
-"	table list( target );",
+"	Let's check some sophisticated tables: A list of electrical equipment for different locomotives which need to be checked against different contents.",
+"	* Locomotives:	AC locomotive, Hybrid locomotive (runs on AC power and Diesel), and DE Loco (Diesel)",
+"	* 2 Groups: Different rules applicable to DE-Locos and the remaining locos",
+"	*  Every locomotive contains equipment like traction converter, motor, gear, etc.",
+"	*  Every equipment has different parameters (e.g.: Qty (numbers of units per locomotive), power, speed, weight).",
+"",
+"	Because the output file contains more columns than they fit in this screen, click on the following hyperlink to open the output as HTML file<br>",
+"	<a href=\"Images/Table Check Reference Output 03.html\" target=\"_blank\">Open output as HTML file in a separate tab</a>",
 ""
  ]
 	,
-	"Output 02": "automatic"
+"Examples 03" : [
+"		include ( Support Library );",
+"",
+"		table load( products, \"Examples/Table Check Target In.csv\" );",
+"		table load( ref,      \"Examples/Table Check Reference In.csv\" );",
+"",
+"		echo(\"Target table: Locomotives with technical data\");",
+"		table list( products );",
+"",
+"		table check ( products, ref, {Power,Speed,Qty}, Equipment, Vehicle Name, Vehicle Type );",
+"		",
+"		echo(\"Reference table\");",
+"		table list( ref );",
+"",
+"		table save( products, \"Images/Table Check Reference Output 03.html\", HTML );"
+ ]
+	,
+	"Output 03": "automatic",
+
+"Description 04 table check (...) with 7 Parameters" : [
+"",
+"	The	function expects an additional column in the reference table which may contain expressions which return Boolean values.  ",
+"	The row is considered OK if true is returned, otherwise it's Mismatch.  Blank rows will be ignored.  ",
+"	Exceptions will be asserted if the returned value is not Boolean.  ",
+"	Partial table specifications refer directly to the columns in the target table and not the reference table.",
+"",
+"		<br/><img src=\"Images/Function_table_check_4.jpg\" alt=\"Using 'table check' with 7 function parameters\"><br/>",
+"",
+"	In the reference table, the column [Comments] is checked if it contains 'Safe', provided this is in relation to",
+"	Vehicle Type being \"E-Locos\" and \"Equipment\" being \"Control\".  The resulting table now contains 1 additional message:",
+"	The \"Control\" for hybrid locomotives contains no remark such as \"Safe Electronics\" in the column \"Comments\".",
+"",
+"	Because the output file contains more columns than they fit in this screen, click on the following hyperlink to open the output as HTML file<br>",
+"	<a href=\"Images/Table Check Reference Output 04.html\" target=\"_blank\">Open output as HTML file in a separate tab</a>",
+""
+ ]
+	,
+"Examples 04" : [
+"		include ( Support Library );",
+"",
+"		table load( products, \"Examples/Table Check Target In.csv\" );		// Same tables as in previous example.  ",
+"		table load( ref,      \"Examples/Table Check Reference In.csv\" );	// They will not be listed here again",
+"",
+"		table check ( products, ref, {Power,Speed,Qty}, Equipment, Vehicle Name, Vehicle Type, Additional Check );",
+"",
+"		echo(\"Reference table\");",
+"		table list( ref );",
+"",
+"		table save( products, \"Images/Table Check Reference Output 04.html\", HTML );"
+ ]
+	,
+	"Output 04": "automatic",
 
 
+"Description 05 table check (...) with 8 Parameters" : [
+"",
+"	This last example also considers comparison directions as additional rules.  Before that, \"min 1\" has been the standard rule.",
+"",
+"		<br/><img src=\"Images/Function_table_check_5.jpg\" alt=\"Using 'table check' with 8 function parameters\"><br/>",
+"",
+"	Because the output file contains more columns than they fit in this screen, click on the following hyperlink to open the output as HTML file<br>",
+"	<a href=\"Images/Table Check Reference Output 05.html\" target=\"_blank\">Open output as HTML file in a separate tab</a>",
+""
+ ]
+	,
+"Examples 05" : [
+"		include ( Support Library );",
+"",
+"		table load( products, \"Examples/Table Check Target In.csv\" );		// Same tables as in previous example.",
+"		table load( ref,      \"Examples/Table Check Reference In.csv\" );	// They will not be listed here again",
+"",
+"		table check ( products, ref, {Power,Speed,Qty}, Equipment, Vehicle Name, Vehicle Type, Additional Check, Quantity Check);",
+"",
+"		echo(\"Reference table\");",
+"		table list( ref );",
+"",
+"		table save( products, \"Images/Table Check Reference Output 05.html\", HTML );"
+ ]
+	,
+	"Output 05": "automatic"
+
+
+}
+
+,
+
+"table check duplicates ..." :
+{
+	"Function Names":	[ "table check duplicates", "table check duplicates ignore case", "table check duplicates ignore blanks", "table check duplicates ingore both",
+						  "table check duplicates selected rows", "table check duplicates ignore case selected rows", "table check duplicates ignore blanks selected rows", "table check duplicates ingore both selected rows"],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		These functions checks the table for duplicate entries in the orientation identifier headers. ",
+"		Contents other than orientation headers will not be checked. Duplication info will be written into dedicated columns specified in the 3rd and 4th parameters.",
+"",
+"		The different function names distinguish between:",
+"		* <b>... ignore case</b>, e.g. \"Data\" and \"data\" are equivalent",
+"		* <b>... ignore blanks</b>, e.g. \"Last name\" and \"Lastname\" are equivalent",
+"		* <b>... ignore both</b>, e.g. \"Zip Code\" and \"zipcode\" are equivalent",
+"		* The function enging <b>selected rows</b> applies duplication check only on the rows where the row selection expression applies.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3-5 (4-6 with ...selected rows)",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"Opt. 2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Applicable to <b>table check duplicates ... selected rows</b> only:<br>",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "2. / 3.",
+		  "Name": "Orientation identifier columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			All rows with common contents in the specified columns will be checked for duplicates. Typical use: Unique identifier in a table to check for duplicates.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* 1 or more column number of header names and column numbers may be specified",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3. / 4.",
+		  "Name": "Duplicate identifer column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "{} (none)",
+"Description" : [
+"			Name of header to identify the matching duplicates. The first set of duplicates is given 0, further sets with 1, 2, etc.",
+"			The duplicate identifier count corresponds with the ascending alphabetic order of the orientation columns and longer the sequential top-down order of the table.",
+"			<br><br>",
+"",
+"		    See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At most one header name or column number may be specified",
+"			* The header will be created if it does ot yet exist.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Duplicate index column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "{} (none)",
+"Description" : [
+"			Number of header to note counting index of duplicates.  The first row among the duplicates get index = 0, the following ones 1, 2, etc.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At most one header name or column number may be specified",
+"			* The header will be created if it does ot yet exist.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Duplicate count column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "{} (none)",
+"Description" : [
+"			Name of header to note number of duplicates identified. If for example 3 duplicates have been identified, then the field in the corresponding rows will all be set to 3.",
+"",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At most one header name or column number may be specified",
+"			* The header will be created if it does ot yet exist.",
+"			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of duplications identified",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			0 = All rows are unique according to the specifications provided in the function parameters<br>",
+"			>0 = Number of duplications identified",
+"			-1 = Error identified."
+ ]
+		  
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( names,  // Gender neutral first names",
+"		{ { First Name, Last Name, Gender },",
+"		  { Pascale,   Baker,       Male   },",
+"		  { Philippe,  Tanner,      Female },",
+"		  { Philippe,  Tanner,      Male   },",
+"		  { Dominique, Miller,      Male   },",
+"		  { Gabriel,   Baker,       Female },",
+"		  { Nicola,    Nilsson,     Female },",
+"		  { Philippe,  Tanner,      Male   },",
+"		  { Gabriel,   Baker,       Male   },",
+"		  { Nicola,    Nilsson,     Male   } } );",
+"",
+"",
+"	table check duplicates ignore case( names, {Last Name, First Name}, Identifier, Index, Count );",
+"	table list ( names );",
+""
+ ]
+	,
+	"Output": "automatic"
 }
 
 }

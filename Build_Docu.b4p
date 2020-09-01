@@ -931,7 +931,7 @@ define procedure ( create all general and function descriptions in HTML )
 			{
 			    if ( [HTML File Name] != '')
 			    {
-				link text[] += '<a href="' + [HTML File Name] + '"><span>Prev</span></a> ';
+				link text[] += '<a accesskey="p" href="' + [HTML File Name] + '"><span>Prev</span></a> ';
 				break;
 			    }
 			}
@@ -941,7 +941,7 @@ define procedure ( create all general and function descriptions in HTML )
 			{
 			    if ( [HTML File Name] != '')
 			    {
-				link text[] += '<a href="' + [HTML File Name] + '"><span>Next</span></a> ';
+				link text[] += '<a accesskey="n" href="' + [HTML File Name] + '"><span>Next</span></a> ';
 				break;
 			    }
 			}
