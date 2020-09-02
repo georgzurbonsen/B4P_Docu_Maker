@@ -5,7 +5,8 @@ body
 
 span
 {
-  font-family: calibri,arial,sans-serif;
+	font-family: calibri,arial,sans-serif;
+	font-size: 16px;
 }
 
 
@@ -144,7 +145,7 @@ li li li li li.navi
 	background-color: #FFFFFF;
 	color: navy;
 	padding-left: 2px;
-	padding-top: 5px;
+	padding-top: 20px;
 	padding-bottom: 5px;
 	font-size: 24px
 }
@@ -241,14 +242,16 @@ p
 
 h3
 {
-  color: navy;
-  font-size: 175%;
+	color: navy;
+	font-size: 175%;
 }
 
 h4
 {
-  font-size: 125%;
-  color: navy;
+	font-size: 175%;
+	color: navy;
+	padding-top: 2px;
+	padding-bottom: 15px;
 }
 
 h5
