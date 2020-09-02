@@ -193,10 +193,6 @@ li li li li li.navi
 	/*  height: 300px; only for demonstration, should be removed */
 	background: white;
 	padding: 5px;
-
-
-  border-right: 1px solid #C0C0C0;
-  border-collapse: collapse;
 }
 
 /* Style the list inside the menu */
@@ -206,15 +202,14 @@ li li li li li.navi
 }
 
 .article {
-  float: left;
-  padding: 3px;
-  width: 1000px;
-  background: #FFFFFF;
-  max-height: 100%;
-
-  border-top: 2px solid #C0C0C0;
-  border-left: 1px solid #C0C0C0;
-  border-collapse: collapse;
+	float: left;
+	padding: 3px;
+	width: 1000px;
+	background: #FFFFFF;
+	max-height: 100%;
+	/* [disabled]border-top: 2px solid #C0C0C0; */
+	border-left: 1px solid #C0C0C0;
+	border-collapse: collapse;
 }
 
 /* Clear floats after the columns */
@@ -236,8 +231,8 @@ section:after {
 
 h1, h2, h3, h4, h5, h6
 {
-  margin-top:10px;
-  margin-bottom:3px;
+	margin-top: 5px;
+	margin-bottom: 3px;
 }
 
 p
@@ -256,10 +251,8 @@ h3
 
 h4
 {
-	font-size: 175%;
+	font-size: 125%;
 	color: navy;
-	padding-top: 2px;
-	padding-bottom: 15px;
 }
 
 h5
