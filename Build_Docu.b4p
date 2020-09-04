@@ -184,7 +184,7 @@ table initialize ( table of function descriptors,
 	  {	"Call as",			Yes,		simple,		"append","procedure,function,procedure or function" },
 	  {	"Restrictions",			No,		"simple,array",	"list,html,line break,link embedded keywords"},
 	  {	"OS differences",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Parameter count",		Yes,		simple,		"append"},
+	  {	"Parameter count",		Yes,		simple,		"append,html,link embedded keywords"},
 	  {	"Parameters",			No,		array,		"parameters"},
 	  {	"Return value",			No,		array,		"return values"},
 	  {	"Exceptions",			No,		"simple,array",	"list,html,line break"},
@@ -708,6 +708,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 	    case ( '*append*' )
 	    {
+		apply HTML links on embedded keywords( item[full name[]] );
 		table append( HTML out[], { "<h4> " + text name[] + ": " + '<span class="black_text">' + join( set( item[full name[]], 1 ),", ") + "</span></h4>" } );
 	    }
 

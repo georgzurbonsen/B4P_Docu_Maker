@@ -1,0 +1,26 @@
+﻿	include (Support Library);
+
+	table load( lookup, "Examples\Table Lookup Example 2.csv" );
+
+	table initialize( target, 
+	     { { Preference, Seats Needed, Location },
+	       { vegi pizza, 6, inside },
+	       { pizza tonno, 5, outside },
+	       { hamburger, 2, inside },
+	       { beer, 1, bar },
+	       { fries, 2, "self-service" },
+	       { pasta napoli, 8, inside },
+	       { steak, 10, inside },
+	       { steak, 3, outside } } );
+
+	count[] = table lookup smart once ignore case
+	          ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row }, 
+	            lookup,   {Table size,   Offering,  Ambience}, { Restaurant Name, Phone Number, '#row' }, true, Counter );
+
+	echo("Lookup table:");
+	table list( lookup );
+
+	// Note: Querying New York after Florence looks for next match afer Florence and is a beer.
+
+	echo("Target table after lookup (", count[], " items found):");
+	table list( target );

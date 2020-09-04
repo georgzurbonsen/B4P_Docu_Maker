@@ -1,0 +1,10 @@
+﻿Offering;Table size;Ambience;Restaurant Name;Phone Number
+*Chicken*;2,4,6;inside,bar;Rôtisserie de Paris;(212) 555-1234
+*Curry*;1..10;"""self-service""";Bharat take-away;(212) 555-2345
+*Pizza*,*Pasta*;4,6,8;inside,outside;Luigis;(212) 555-3456
+*Beer*,*Wine*;*;bar;Luigis;(212) 555-3456
+*Pizza*,*sea*food*;*;inside,outside;All-Italian Trattoria;(212) 555-4567
+*Fish*,*sea*food*;2..8;outside;Wharf Place;(212) 555-5678
+*Burger*,Fries;1..20;"=inside,""self-service""";Mr. Burgermeister;(212) 555-6789
+*;1..6;*;Mom cooks for you;Mom's number
+*;*;*;Not found;--

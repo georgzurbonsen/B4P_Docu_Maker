@@ -291,6 +291,7 @@ REF;Locales;REF_Features_Locales.html;General Description;;locale
 REF;Logarithmic Functions;REF_Function_ln.html;Function Description;ln
 REF;Logarithmic Functions;REF_Function_ln.html;Function Description;log
 REF;Logarithmic Functions;REF_Function_ln.html;Function Description;;logarithmic functions
+REF;Looking up Other Tables;REF_Features_Looking_up_Other_Tables.html;General Description;Looking up Other Tables
 REF;Loops;REF_Features_Loops.html;General Description;Loops
 REF;Loops;REF_Features_Loops.html;General Description;;Loops
 REF;Manipulating Directories and Files;REF_Features_deleting_directories_and_files.html;General Description;deleting directories and files
@@ -889,8 +890,18 @@ REF;table lift ...;REF_Function_table_lift_header_row.html;Function Description;
 REF;table lift ...;REF_Function_table_lift_header_row.html;Function Description;table lift contents
 REF;table load ...;REF_Function_table_load.html;Function Description;table load
 REF;table load ...;REF_Function_table_load.html;Function Description;table load unchanged
-REF;table lookup  ...;REF_Function_table_lookup.html;Function Description;table lookup
-REF;table lookup  ...;REF_Function_table_lookup.html;Function Description;table lookup ignore case
+REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup
+REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup ignore case
+REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup top down
+REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup top down ignore case
+REF;table lookup fast ...;REF_Function_table_lookup_fast.html;Function Description;table lookup fast
+REF;table lookup fast ...;REF_Function_table_lookup_fast.html;Function Description;table lookup fast ignore case
+REF;table lookup once ...;REF_Function_table_lookup_once.html;Function Description;table lookup once
+REF;table lookup once ...;REF_Function_table_lookup_once.html;Function Description;table lookup once ignore case
+REF;table lookup smart ...;REF_Function_table_lookup_smart.html;Function Description;table lookup smart
+REF;table lookup smart ...;REF_Function_table_lookup_smart.html;Function Description;table lookup smart ignore case
+REF;table lookup smart once ...;REF_Function_table_lookup_smart_once.html;Function Description;table lookup smart once
+REF;table lookup smart once ...;REF_Function_table_lookup_smart_once.html;Function Description;table lookup smart once ignore case
 REF;table manipulate;REF_Function_table_manipulate.html;Function Description;table manipulate
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table min width
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table max width

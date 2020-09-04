@@ -1616,6 +1616,19 @@
   },
 
 
+"Looking up Other Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Looking up Other Tables" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described next provide efficient lookup features to retrieve selected information from other",
+"	tables.",
+""
+ ]
+	
+  },
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -20316,33 +20329,39 @@
 
 ,
 
-"table lookup  ..." :
+"table lookup ..." :
 {
-	"Function Names":	[ "table lookup", "table lookup ignore case" ],
+	"Function Names":	[ "table lookup", "table lookup ignore case", "table lookup top down", "table lookup top down ignore case" ],
 	"Documentation":	"Function Description",
 "Description" : [
 "",
 "	This function uses data in specified <b>input columns</b> (2nd function paramameter) in the target table (1st param) ",
 "	to search for matching data in the <b>seach columns</b> (5th paam) in the lookup table (4th param).  Once a match has been encountered, then the",
 "	corresponding <b>output columns</b> (6th param) in the lookup table will be transferred to the <b>target columns</b> (3rd param) in ",
-"	the target table.  The function variant <b>table lookup ignore case</b> is self-explanatory.",
+"	the target table.  The function variant <b>table lookup ignore case</b> is self-explanatory.  In case the lookup table contains multiple",
+"	matching entries, the first match will always apply..",
 "",
-"	<br/><img src=\"Images/Function_table_lookup_1.jpg\" alt=\"Function 'table lookup'\"><br/>",
+"	<br/><br/><img src=\"Images/Function_table_lookup.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
 "",
-"	The lookup function contains powerful comparison algorithms which will index the lookup table and accelerate the lookup performance significantly,",
-"	especially for very large lookup tables such as phone directories.  For small lookup tables, indexing will be skipped in order to avoid the burden",
-"	that time overhead because a sipmle linear to-down search method is more efficient.  You don't need to worry about this because B4P takes care",
-"	of this ootimization automatically.",
+"	The lookup function contains powerful comparison algorithms which will index the lookup table and accelerate the lookup performance significantly",
+"	if it exceeds a size where the time overhead of creating an internal indexation does pay.  This scheme accelerates the lookup procedure.",
+"	Looking up a table containing ca 16,000 entries requires 14 comparisons only.  For small tables, indexing will be skipped in order to avoid the",
+"	initial overhead to do an indexation and the lookup takes place in a top-down approach starting from row 1.",
 "",
+"	<br><br>",
+"	If a large lookup table is considered, but you know that most items looked up lie in to rows (say: roughly first 30 rows), then you may",
+"	experience a performance improvement using the function name <b>table lookup top down ...</b> instead.  The output is the same in both cases.",
 "",
-"	This function provides the option to select rows (7th function parameter) and countig the lookup matches in the lookup table ",
+"	<br>",
+"",
+"	This functions described here provide the option to select rows (7th function parameter) and counting the lookup matches in the lookup table ",
 "	(8th function parameter).",
 "",
 ""
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"4 - 7",
+	"Parameter count":	"6 - 8",
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
@@ -20429,6 +20448,7 @@
 "			Specific rules apply for this function:",
 "			* Any number of header names or column numbers may be specified (0 columns means pick up nothing, in case you need to count the lookups only)",
 "			* The number of output columns in the lookup table must equal to the numer of destination columns in the target table",
+"			* Exception: Specify '#row' to retrieve the row number from the lookup table. <br><u>Note</u>: \"#row\" in double quotation marks (quoted literal)is excluded from this exception and treated as a header name.",
 ""
  ]
 			
@@ -20461,9 +20481,9 @@
 "			See __table columns as function parameters__ for general ruling for this parameter.<br>",
 "			Specific rules apply for this function:",
 "			* At most one header name or column number must be specified",
+"			* If the column is missing in the lookup table, then it will be created.",
 "			",
-"			<u>Hint:</u> If you need this function parameter, but not the 7th function parameter, then write <b>true</b> into the 7th parameter.",
-""
+"			<u>Hint:</u> If you need this function parameter, but not the 7th function parameter, then write <b>true</b> into the 7th parameter."
  ]
 			
 		}
@@ -20480,13 +20500,234 @@
 	],
 "Examples" : [
 "",
-"	echo( test );",
+"	include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 1.csv\" );",
+"	table initialize( target, { Town, Florence, Venice, Florence, Edinburgh, New York, Hamburg, Florence, Munich, New York } );",
+"",
+"	count[] = table lookup( target, Town, { Food or Beverage, Recommended, Row Number },",
+"							lookup, City, { Meal or Drink, Recommendation, '#row' }, true, Counter );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
 ""
  ]
 	,
 	"Output": "automatic"
+},
 
+
+"table lookup once ..." :
+{
+	"Function Names":	[ "table lookup once", "table lookup once ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function works very similarly like __table lookup(__), with the only difference that every item in the lookup table can be be retrieved",
+"	only once.  If the same lookup values are applied, then it will look for a 2nd match (and so forth).  Once all matching values are checked",
+"	off, then no lookup is made.",
+"",
+"	<br/><br/><img src=\"Images/Function_table_lookup_once.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"",
+"	include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 1.csv\" );",
+"	table initialize( target, { Town, Florence, Venice, Florence, Edinburgh, New York, Hamburg, Florence, Munich, New York } );",
+"",
+"	count[] = table lookup once( target, Town, { Food or Beverage, Recommended },",
+"								 lookup, City, { Meal or Drink, Recommendation }, true, Counter );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	// Note: Florence is looked up 3 times, but only 2 entries exist.  the 3rd lookup stays blank.",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
+""
+ ]
+	,
+	"Output": "automatic"
+},
+
+"table lookup fast ..." :
+{
+	"Function Names":	[ "table lookup fast", "table lookup fast ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function works very similarly like __table lookup top down(__), with the only difference that the row number, where the match has been found,",
+"	will be memorized.  Further lookups with the same lookup parameters will find the same matching row.  However, if there is no match, then",
+"	the lookup continues with the next row below.  Once it has reached the end of the table, it make a 2nd round to look at the rows above",
+"	the memorized row number.  You will see some deviating behavior as illustrated below:",
+"	",
+"	<br/><br/><img src=\"Images/Function_table_lookup_fast.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
+"",
+"	This feature provides signficant performance improvements if your target table and your lookup table are already sorted in alphabetic",
+"	order.  Example: You have one sorted list (e.g. last name, first name) containing empoloyees of a business.  The 2nd list contains a list",
+"	of employees deserving a promotion or pay rise.  Both lists are already sorted by names.  You want to look up for details like mailing addresses",
+"	from the 1st list.  In this case, the 1st list is the lookup table and the 2nd list is the target table.  With alphabetic ordering in place,",
+"	the lookup procedure will run very swiftly, practially with one single pass in the target table and one single pass in the lookup table.",
+"	"
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"",
+"	include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 1.csv\" );",
+"	table initialize( target, { Town, New York, New York, Florence, New York, New York, Munich, New York } );",
+"",
+"	count[] = table lookup fast( target, Town, { Food or Beverage, Recommended },",
+"								 lookup, City, { Meal or Drink, Recommendation }, true, Counter );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	// Note: Querying New York after Florence looks for next match afer Florence and is a beer.",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
+""
+ ]
+	,
+	"Output": "automatic"
+},
+
+"table lookup smart ..." :
+{
+	"Function Names":	[ "table lookup smart", "table lookup smart ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function works very similarly like __table lookup top down(__), with the only difference that lookup table contains",
+"	B4P __comparison expressions__ instead of hard values in the search pattern columns.  This feature provides a lot of flexibility because",
+"	you can make a much more flexible description of the look-up table using some rules (e.g. __comparison operators__, __value ranges__,",
+"	__value selections__).  A match is given for a particular row if the comparisons made in all search pattern patterns returned 'true'.<br>",
+"",
+"	Examples (Syntax is same as B4P comparison expressions):",
+"	=== 300, 700, noheader, noframe, column_1_bold",
+"	Building		| Equals to \"Building\"",
+"	=Building		| Equals to \"Building\"",
+"	<>Building		| Must not equal to \"Building\"",
+"	B*				| Example of __wildcard symbols__: Begins with B",
+"	1..10,20		| True if between 1 and 10, or equal to 20.",
+"	'3..5'			| Equals to \"3..5\"",
+"	&gt;10			| Greater than 10",
+"	Dog,*at,Fly		| Commas allow for flexible seletion OK for Dog, Cat, Rat, Bat, Fly, Gnat, ...",
+"	===",
+"",
+"	Examples: You have a product portfolio and provide some technical data in the reference table.  The table can be used to identify a suitable",
+"	product based on your specification.  Other example:  Describe a bunch of restaurants with table locations, recommended offerings, party",
+"	size (number of seats per table), price range for main course, etc., and you can search for a restaurant by preferences.",
+"",
+"	<br><br>",
+"	<u>Hint</u>: If you create the lookup table, start with the most specific selections.  Further down, open up more (using wildcard symbols).",
+"	Consider default information (in casse of no matches in the rows above) in the last row: Put '*' in all search pattern columns and write \"All others\" or \"Not found\" in the output column.  ",
+"	With this approach, you will capture all searches.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"",
+"	include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 2.csv\" );",
+"",
+"	table initialize( target,",
+"		 { { Preference, Seats Needed, Location },",
+"		   { vegi pizza, 6, inside },",
+"		   { pizza tonno, 5, outside },",
+"		   { hamburger, 2, inside },",
+"		   { beer, 1, bar },",
+"		   { fries, 2, \"self-service\" },",
+"		   { pasta napoli, 8, inside },",
+"		   { steak, 10, inside },",
+"		   { steak, 3, outside } } );",
+"",
+"	count[] = table lookup smart ignore case",
+"			  ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row },",
+"				lookup,   {Table size,   Offering,  Ambience}, { Restaurant Name, Phone Number, '#row' }, true, Counter );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	// Note: Querying New York after Florence looks for next match afer Florence and is a beer.",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
+""
+ ]
+	,
+	"Output": "automatic"
+},
+
+"table lookup smart once ..." :
+{
+	"Function Names":	[ "table lookup smart once", "table lookup smart once ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the benefits of __table lookup smart(__) and __table lookup once(__).  Every entry in the look-up table is",
+"	referenced only once, with one following exception: <u>The last row is exempted from that look-up-once rule</u>, so you can specify ",
+"	a default row to capture all searches which have not been successful in the rows above.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"",
+"	include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 2.csv\" );",
+"",
+"	table initialize( target,",
+"		 { { Preference, Seats Needed, Location },",
+"		   { vegi pizza, 6, inside },",
+"		   { pizza tonno, 5, outside },",
+"		   { hamburger, 2, inside },",
+"		   { beer, 1, bar },",
+"		   { fries, 2, \"self-service\" },",
+"		   { pasta napoli, 8, inside },",
+"		   { steak, 10, inside },",
+"		   { steak, 3, outside } } );",
+"",
+"	count[] = table lookup smart once ignore case",
+"			  ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row },",
+"				lookup,   {Table size,   Offering,  Ambience}, { Restaurant Name, Phone Number, '#row' }, true, Counter );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	// Note: Querying New York after Florence looks for next match afer Florence and is a beer.",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
+""
+ ]
+	,
+	"Output": "automatic"
 }
+
+
 
 
 }
