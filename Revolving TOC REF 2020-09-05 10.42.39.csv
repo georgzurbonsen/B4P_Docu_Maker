@@ -281,6 +281,16 @@ OK;Body;4;B 4.7.12.2;table lookup once ...;REF_Function_table_lookup_once.html;t
 OK;Body;4;B 4.7.12.3;table lookup fast ...;REF_Function_table_lookup_fast.html;table lookup fast,table lookup fast ignore case;table lookup fast,table lookup fast ignore case;
 OK;Body;4;B 4.7.12.4;table lookup smart ...;REF_Function_table_lookup_smart.html;table lookup smart,table lookup smart ignore case;table lookup smart,table lookup smart ignore case;
 OK;Body;4;B 4.7.12.5;table lookup smart once ...;REF_Function_table_lookup_smart_once.html;table lookup smart once,table lookup smart once ignore case;table lookup smart once,table lookup smart once ignore case;
+OK;Body;4;B 4.7.12.6;table integrate ...;REF_Function_table_integrate.html;table integrate,table integrate ignore case,table integrate top down,table integratetop down ignore case;table integrate,table integrate ignore case,table integrate top down,table integratetop down ignore case;
+OK;Body;4;B 4.7.12.7;table integrate once ...;REF_Function_table_integrate_once.html;table integrate once,table integrate once ignore case;table integrate once,table integrate once ignore case;
+OK;Body;4;B 4.7.12.8;table integrate fast ...;REF_Function_table_integrate_fast.html;table integrate fast,table integrate fast ignore case;table integrate fast,table integrate fast ignore case;
+OK;Body;4;B 4.7.12.9;table integrate smart ...;REF_Function_table_integrate_smart.html;table integrate smart,table lookup integrate ignore case;table integrate smart,table lookup integrate ignore case;
+OK;Body;4;B 4.7.12.10;table integrate smart once ...;REF_Function_table_integrate_smart_once.html;table integrate smart once,table integrate smart once ignore case;table integrate smart once,table integrate smart once ignore case;
+New, (Assign right Category);Body;4;;table expand ...;REF_Function_table_expand.html;table expand,table expand ignore case;table expand,table expand ignore case;
+New, (Assign right Category);Body;4;;table expand fast ...;REF_Function_table_expand_fast.html;table expand fast,table expand fast ignore case;table expand fast,table expand fast ignore case;
+New, (Assign right Category);Body;4;;table expand smart ...;REF_Function_table_expand_smart.html;table expand smart,table expand smart ignore case;table expand smart,table expand smart ignore case;
+New, (Assign right Category);Body;4;;table expand fast smart ...;REF_Function_table_expand_fast_smart.html;table expand fast smart,table expand fast smart ignore case;table expand fast smart,table expand fast smart ignore case;
+OK;Body;4;B 4.7.12.10.1;Table Integration Operation Identifiers;REF_Features_Table_integration_operation_identifiers.html;Table integration operation identifiers;Table integration operation identifiers;
 OK;Body;2;B 4.8;Directory and File System Functions;REF_Features_directory_and_file_system.html;directory and file system;directory and file system,short error messages on directories and files;
 OK;Body;3;B 4.8.1;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;basic directory and file functions;basic directory and file functions;
 OK;Body;4;B 4.8.1.1;directory existing, file existing;REF_Function_directory_existing.html;directory existing,file existing;directory existing,file existing;

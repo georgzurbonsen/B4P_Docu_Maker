@@ -398,6 +398,7 @@ REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General De
 REF;Table Comparison Reports;REF_Features_Table_comparison_reports.html;General Description;Table comparison reports
 REF;Table Comparison Strategy;REF_Features_Table_comparison_strategy.html;General Description;Table comparison strategy
 REF;Table Functions;REF_Features_table_functions.html;General Description;table functions
+REF;Table Integration Operation Identifiers;REF_Features_Table_integration_operation_identifiers.html;General Description;Table integration operation identifiers
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;Table of Contents
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;;Reference Manual
 REF;Time and Stopwatch Functions;REF_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
@@ -866,6 +867,14 @@ REF;table delete rows;REF_Function_table_delete_rows.html;Function Description;t
 REF;table delete selected rows;REF_Function_table_delete_selected_rows.html;Function Description;table delete selected rows
 REF;table duplicate columns ...;REF_Function_table_duplicate_columns.html;Function Description;table duplicate columns
 REF;table existing;REF_Function_table_existing.html;Function Description;table existing
+REF;table expand ...;REF_Function_table_expand.html;Function Description;table expand
+REF;table expand ...;REF_Function_table_expand.html;Function Description;table expand ignore case
+REF;table expand fast ...;REF_Function_table_expand_fast.html;Function Description;table expand fast
+REF;table expand fast ...;REF_Function_table_expand_fast.html;Function Description;table expand fast ignore case
+REF;table expand fast smart ...;REF_Function_table_expand_fast_smart.html;Function Description;table expand fast smart
+REF;table expand fast smart ...;REF_Function_table_expand_fast_smart.html;Function Description;table expand fast smart ignore case
+REF;table expand smart ...;REF_Function_table_expand_smart.html;Function Description;table expand smart
+REF;table expand smart ...;REF_Function_table_expand_smart.html;Function Description;table expand smart ignore case
 REF;table fill horizontally ...;REF_Function_table_fill_horizontally.html;Function Description;table fill horizontally
 REF;table fill horizontally ...;REF_Function_table_fill_horizontally.html;Function Description;table fill horizontally selected rows
 REF;table fill vertically ...;REF_Function_table_fill_vertically.html;Function Description;table fill vertically
@@ -881,6 +890,18 @@ REF;table insert (missing) columns;REF_Function_table_insert_columns.html;Functi
 REF;table insert ... selected rows;REF_Function_table_insert_selected_rows.html;Function Description;table insert selected rows
 REF;table insert ... selected rows;REF_Function_table_insert_selected_rows.html;Function Description;table insert above selected rows
 REF;table insert rows;REF_Function_table_insert_rows.html;Function Description;table insert rows
+REF;table integrate ...;REF_Function_table_integrate.html;Function Description;table integrate
+REF;table integrate ...;REF_Function_table_integrate.html;Function Description;table integrate ignore case
+REF;table integrate ...;REF_Function_table_integrate.html;Function Description;table integrate top down
+REF;table integrate ...;REF_Function_table_integrate.html;Function Description;table integratetop down ignore case
+REF;table integrate fast ...;REF_Function_table_integrate_fast.html;Function Description;table integrate fast
+REF;table integrate fast ...;REF_Function_table_integrate_fast.html;Function Description;table integrate fast ignore case
+REF;table integrate once ...;REF_Function_table_integrate_once.html;Function Description;table integrate once
+REF;table integrate once ...;REF_Function_table_integrate_once.html;Function Description;table integrate once ignore case
+REF;table integrate smart ...;REF_Function_table_integrate_smart.html;Function Description;table integrate smart
+REF;table integrate smart ...;REF_Function_table_integrate_smart.html;Function Description;table lookup integrate ignore case
+REF;table integrate smart once ...;REF_Function_table_integrate_smart_once.html;Function Description;table integrate smart once
+REF;table integrate smart once ...;REF_Function_table_integrate_smart_once.html;Function Description;table integrate smart once ignore case
 REF;table keep ... columns;REF_Function_table_keep_columns.html;Function Description;table keep columns
 REF;table keep ... columns;REF_Function_table_keep_columns.html;Function Description;table keep existing columns
 REF;table keep selected rows;REF_Function_table_keep_selected_rows.html;Function Description;table keep selected rows

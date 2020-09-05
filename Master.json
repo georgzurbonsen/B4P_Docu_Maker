@@ -20344,13 +20344,15 @@
 "	<br/><br/><img src=\"Images/Function_table_lookup.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
 "",
 "	The lookup function contains powerful comparison algorithms which will index the lookup table and accelerate the lookup performance significantly",
-"	if it exceeds a size where the time overhead of creating an internal indexation does pay.  This scheme accelerates the lookup procedure.",
+"	if it exceeds a size where the time overhead of creating an internal indexation does pay.  This scheme accelerates the lookup procedure",
+"	to a search time ratio versus table size (<i>n</i>)being <b><i>O</i></b> ( log(<i>n</i>)) ).",
 "	Looking up a table containing ca 16,000 entries requires 14 comparisons only.  For small tables, indexing will be skipped in order to avoid the",
 "	initial overhead to do an indexation and the lookup takes place in a top-down approach starting from row 1.",
 "",
 "	<br><br>",
 "	If a large lookup table is considered, but you know that most items looked up lie in to rows (say: roughly first 30 rows), then you may",
 "	experience a performance improvement using the function name <b>table lookup top down ...</b> instead.  The output is the same in both cases.",
+"",
 "",
 "	<br>",
 "",
@@ -20516,7 +20518,8 @@
 ""
  ]
 	,
-	"Output": "automatic"
+	"Output": "automatic",
+	"See also": [ "table lookup once", "table lookup fast", "table lookup smart", "table lookup smart once", "table integrate", "table expand" ]
 },
 
 
@@ -20528,14 +20531,14 @@
 "",
 "	This function works very similarly like __table lookup(__), with the only difference that every item in the lookup table can be be retrieved",
 "	only once.  If the same lookup values are applied, then it will look for a 2nd match (and so forth).  Once all matching values are checked",
-"	off, then no lookup is made.",
+"	off, then no lookup is made.  The search time ratio versus table size is (<i>n</i>)being <b><i>O</i></b> ( log(<i>n</i>)) ).",
 "",
 "	<br/><br/><img src=\"Images/Function_table_lookup_once.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
 ""
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__) )",
 	"Restrictions":		"Indirect parameter passing is disabled",
 "Examples" : [
 "",
@@ -20557,7 +20560,8 @@
 ""
  ]
 	,
-	"Output": "automatic"
+	"Output": "automatic",
+	"See also": [ "table lookup", "table lookup top down", "table lookup fast", "table lookup smart", "table lookup smart once", "table integrate", "table expand" ]
 },
 
 "table lookup fast ..." :
@@ -20582,7 +20586,7 @@
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__) )",
 	"Restrictions":		"Indirect parameter passing is disabled",
 "Examples" : [
 "",
@@ -20604,7 +20608,8 @@
 ""
  ]
 	,
-	"Output": "automatic"
+	"Output": "automatic",
+	"See also": [ "table lookup", "table lookup top down", "table lookup once", "table lookup smart", "table lookup smart once", "table integrate", "table expand" ]
 },
 
 "table lookup smart ..." :
@@ -20635,6 +20640,9 @@
 "	size (number of seats per table), price range for main course, etc., and you can search for a restaurant by preferences.",
 "",
 "	<br><br>",
+"	The search time ratio versus table size is (<i>n</i>)being <b><i>O</i></b> ( <i>n</i>) ) beacause every search is a top-down search.",
+"",
+"	<br><br>",
 "	<u>Hint</u>: If you create the lookup table, start with the most specific selections.  Further down, open up more (using wildcard symbols).",
 "	Consider default information (in casse of no matches in the rows above) in the last row: Put '*' in all search pattern columns and write \"All others\" or \"Not found\" in the output column.  ",
 "	With this approach, you will capture all searches.",
@@ -20642,7 +20650,7 @@
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__) )",
 	"Restrictions":		"Indirect parameter passing is disabled",
 "Examples" : [
 "",
@@ -20651,15 +20659,15 @@
 "	table load( lookup, \"Examples\\Table Lookup Example 2.csv\" );",
 "",
 "	table initialize( target,",
-"		 { { Preference, Seats Needed, Location },",
-"		   { vegi pizza, 6, inside },",
-"		   { pizza tonno, 5, outside },",
-"		   { hamburger, 2, inside },",
-"		   { beer, 1, bar },",
-"		   { fries, 2, \"self-service\" },",
+"		 { { Preference,  Seats Needed, Location },",
+"		   { vegi pizza,   6, inside },",
+"		   { pizza tonno,  5, outside },",
+"		   { hamburger,    2, inside },",
+"		   { beer,         1, bar },",
+"		   { fries,        2, \"self-service\" },",
 "		   { pasta napoli, 8, inside },",
-"		   { steak, 10, inside },",
-"		   { steak, 3, outside } } );",
+"		   { steak,       10, inside },",
+"		   { steak,        3, outside } } );",
 "",
 "	count[] = table lookup smart ignore case",
 "			  ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row },",
@@ -20675,7 +20683,8 @@
 ""
  ]
 	,
-	"Output": "automatic"
+	"Output": "automatic",
+	"See also": [ "table lookup smart once", "table lookup", "table lookup top down", "table lookup once", "table lookup fast", "table integrate", "table expand" ]
 },
 
 "table lookup smart once ..." :
@@ -20691,7 +20700,7 @@
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__)",
+	"Parameter count":	"6 - 8 (For parameter description and return values: see __table lookup(__) )",
 	"Restrictions":		"Indirect parameter passing is disabled",
 "Examples" : [
 "",
@@ -20700,15 +20709,15 @@
 "	table load( lookup, \"Examples\\Table Lookup Example 2.csv\" );",
 "",
 "	table initialize( target,",
-"		 { { Preference, Seats Needed, Location },",
-"		   { vegi pizza, 6, inside },",
-"		   { pizza tonno, 5, outside },",
-"		   { hamburger, 2, inside },",
-"		   { beer, 1, bar },",
-"		   { fries, 2, \"self-service\" },",
+"		 { { Preference,  Seats Needed, Location },",
+"		   { vegi pizza,   6, inside },",
+"		   { pizza tonno,  5, outside },",
+"		   { hamburger,    2, inside },",
+"		   { beer,         1, bar },",
+"		   { fries,        2, \"self-service\" },",
 "		   { pasta napoli, 8, inside },",
-"		   { steak, 10, inside },",
-"		   { steak, 3, outside } } );",
+"		   { steak,       10, inside },",
+"		   { steak,        3, outside } } );",
 "",
 "	count[] = table lookup smart once ignore case",
 "			  ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row },",
@@ -20724,8 +20733,569 @@
 ""
  ]
 	,
-	"Output": "automatic"
+	"Output": "automatic",
+	"See also": [ "table lookup smart once", "table lookup", "table lookup top down", "table lookup once", "table lookup fast", "table integrate", "table expand" ]
 }
+
+
+,
+
+"table integrate ..." :
+{
+	"Function Names":	[ "table integrate", "table integrate ignore case", "table integrate top down", "table integratetop down ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These functions work very similarly like __table lookup(__), with the exception that the data retrieved from the lookup table will not",
+"	be copied back to the target table, but an operation is performed with the data already existing in the target table with the retrieved data",
+"	and then written back.  Example: You look up data for some numbers and want to add them to the already existing values in the target table.",
+"",
+"	<br/><br/><img src=\"Images/Function_table_integrate.jpg\" alt=\"Function 'table integrate'\"><br/><br/>",
+"",
+"	This functions described here provide the option to select rows (8th function parameter) and counting the lookup matches in the lookup table",
+"	(9th function parameter).  Using only the first 6th parameters in this function call will behave in the same way as __table lookup(__).",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For description of 1st-6th parameters and return values: see __table lookup(__)",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 7",
+		  "Name": "Operation Identifier",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "{overwrite, ...} (overwrite applies to all parameters)",
+"Description" : [
+"				Specify one of the __table integration operation identifiers__<br>",
+"				The number of operation identifiers is less than the number of columns specified in the 3rd (output columns) and 6th parameter (destination columns), ",
+"				then the default value 'overwrite' is assumed for the remaining columns.  If this parameter contains more elements than columns retrieved, then the exess ones will be ignored.",
+"				* Use a literal to specify one value",
+"				* Use parameter set to specify multiple values",
+"				* Alternatively use a softquoted literal (using single quotation marks) to specify multiple values, separated by commas",
+"				* No values can be provided by using empty set {} or blank softquoted literal ''."
+ ]
+				
+		},
+		{   "Number":		"Opt. 8",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+			"Default value": "true (all rows selected)",
+"Description" : [
+"			Same as 7th function parameter in __table lookup(__).<br>",
+"			This function parameter allows you to select the rows in the target table in order to limit the lookups to those rows only.",
+"			<br><br>",
+"			Specify the conditions or rules to select the row.  See __expressions to select rows__.<br>",
+"			__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Age]>=21</b>.<br>",
+"			<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+ ]
+			
+		},
+		{ "Number": "Opt. 9",
+		  "Name": "Counter column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "{} (no column selected)",
+"Description" : [
+"			Same as 8th function parameter in __table lookup(__).<br>",
+"			Specify 1 column in the lookup table which shall be used to count the successful lookup made.  This function is useful in order to",
+"			get an idea of the data in the lookup table searched frequently, rarely or not at all.  If the column already contains numbers, then",
+"			the existing numbers will be incremented, i.e. no reset to zero.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At most one header name or column number must be specified",
+"			* If the column is missing in the lookup table, then it will be created.",
+"",
+"			<u>Hint:</u> If you need this function parameter, but not the 8th function parameter, then write <b>true</b> into the 8th parameter."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of lookups made",
+		  "Types": [ "numeral" ],
+"Description" : [
+"				Every successful lookup (input columns match with search columns are matching) will count 1."
+ ]
+				
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( lookup,",
+"	{  {  Names, Sports,      Scores },",
+"	   {  Abel,  tennis,      10 },          {  Bea,   squash, 14 },",
+"	   {  Chuck, racquetball, 13 },          {  Dan,   tennis, 8 },",
+"	   {  Eva,   squash,       9 },          {  Finn,  tennis, 12 },",
+"	   {  Gini,  racquetball, 12 },          {  Hugo,  squash, 11 } } );",
+"",
+"	table initialize( target, {{ Sport, Name, Score 1, Score 2, Score 3, Score 4 },",
+"		{ racquetball, \"\", 5, 100, 12  },",
+"		{ squash,      \"\", 5, 100, 12  },",
+"		{ racquetball, \"\", 5, 300, 10  },",
+"		{ tennis,      \"\", 5, 100, 12  } } );",
+"",
+"	// Picks the 1st match and integrates the results",
+"	table integrate( target, Sport,  { Name,  Score 1 .. Score 4 },",
+"					 lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );",
+"",
+"	table list ( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table integrate once", "table integrate fast", "table integrate smart", "table integrate smart once", "table lookup", "table expand" ]
+},
+
+
+"table integrate once ..." :
+{
+	"Function Names":	[ "table integrate once", "table integrate once ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the lookup strategy from __table lookup once(__) with the data integration features of __table integrate(__).",
+"",
+"	<br/><br/><img src=\"Images/Function_table_integrate_once.jpg\" alt=\"Function 'table integrate once'\"><br/><br/>",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table integrate(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( lookup,",
+"	{  {  Names, Sports,      Scores },",
+"	   {  Abel,  tennis,      10 },          {  Bea,   squash, 14 },",
+"	   {  Chuck, racquetball, 13 },          {  Dan,   tennis, 8 },",
+"	   {  Eva,   squash,       9 },          {  Finn,  tennis, 12 },",
+"	   {  Gini,  racquetball, 12 },          {  Hugo,  squash, 11 } } );",
+"",
+"	table initialize( target, {{ Sport, Name, Score 1, Score 2, Score 3, Score 4 },",
+"		{ racquetball, \"\", 5, 100, 12  },",
+"		{ squash,      \"\", 5, 100, 12  },",
+"		{ racquetball, \"\", 5, 300, 10  },  // Looks up Gini's score",
+"		{ racquetball, \"\", 5, 300, 10  },  // Nothing more to look up, orig values unchanged",
+"		{ tennis,      \"\", 5, 100, 12  } } );",
+"",
+"	// Picks the 1st match and integrates the results",
+"	table integrate once( target, Sport,  { Name,  Score 1 .. Score 4 },",
+"						  lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );",
+"",
+"	table list ( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table integrate", "table integrate top down", "table integrate fast", "table integrate smart", "table integrate smart once", "table lookup", "table expand" ]
+},
+
+
+"table integrate fast ..." :
+{
+	"Function Names":	[ "table integrate fast", "table integrate fast ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the lookup strategy from __table lookup fast(__) with the data integration features of __table integrate(__).",
+"",
+"	<br/><br/><img src=\"Images/Function_table_integrate_fast.jpg\" alt=\"Function 'table integrate fast'\"><br/><br/>",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table integrate(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( lookup,",
+"	{  {  Names, Sports,      Scores },",
+"	   {  Abel,  tennis,      10 },          {  Bea,   squash, 14 },",
+"	   {  Chuck, racquetball, 13 },          {  Dan,   tennis, 8 },",
+"	   {  Eva,   squash,       9 },          {  Finn,  tennis, 12 },",
+"	   {  Gini,  racquetball, 12 },          {  Hugo,  squash, 11 } } );",
+"",
+"	table initialize( target, {{ Sport, Name, Score 1, Score 2, Score 3, Score 4 },",
+"		{ racquetball, \"\", 5, 100, 12  },",
+"		{ squash,      \"\", 5, 100, 12  },  // Lookup table: Squash entry is below racquetball",
+"		{ racquetball, \"\", 5, 300, 10  },  // Looks up Gini's score",
+"		{ racquetball, \"\", 5, 300, 10  },  // And again.",
+"		{ tennis,      \"\", 5, 100, 12  } } );",
+"",
+"	// Picks the 1st match and integrates the results",
+"	table integrate fast( target, Sport,  { Name,  Score 1 .. Score 4 },",
+"						  lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );",
+"",
+"	table list ( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table integrate", "table integrate top down", "table integrate once", "table integrate smart", "table integrate smart once", "table lookup", "table expand" ]
+},
+
+
+"table integrate smart ..." :
+{
+	"Function Names":	[ "table integrate smart", "table lookup integrate ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the lookup strategy from __table lookup smart (__) with the data integration features of __table integrate(__).",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table integrate(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( lookup,",
+"	{  {  Names, Sports,      Scores },",
+"	   {  Abel,  't*',        10 },          {  Bea,   's*', 14 },",
+"	   {  Chuck, 'r*', 	      13 },          {  Dan,   't*', 8 },",
+"	   {  Eva,   '*sh',        9 },          {  Finn,  't*', 12 },",
+"	   {  Gini,  '*ball', 	  12 },          {  Hugo,  's*', 11 }, { All others, '*', 0 } } );",
+"",
+"	table initialize( target, {{ Sport, Name, Score 1, Score 2, Score 3, Score 4 },",
+"		{ racquetball, \"\", 5, 100, 12  },",
+"		{ squash,      \"\", 5, 100, 12  },  // Lookup table: Squash entry is below racquetball",
+"		{ racquetball, \"\", 5, 300, 10  },",
+"		{ tennis,      \"\", 5, 100, 12  } } );",
+"",
+"	// Picks the 1st match and integrates the results",
+"	table integrate smart ( target, Sport,  { Name,  Score 1 .. Score 4 },",
+"							lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );",
+"",
+"	table list ( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table integrate smart once", "table integrate", "table integrate top down", "table integrate once", "table integrate fast", "table lookup", "table expand" ]
+},
+
+
+"table integrate smart once ..." :
+{
+	"Function Names":	[ "table integrate smart once", "table integrate smart once ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the lookup strategy from __table lookup smart once(__) with the data integration features of __table integrate(__).",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table integrate(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( lookup,",
+"	{  {  Names, Sports,      Scores },",
+"	   {  Abel,  't*',        10 },          {  Bea,   's*', 14 },",
+"	   {  Chuck, 'r*', 	      13 },          {  Dan,   't*', 8 },",
+"	   {  Eva,   '*sh',        9 },          {  Finn,  't*', 12 },",
+"	   {  Gini,  '*ball', 	  12 },          {  Hugo,  's*', 11 }, { All others, '*', 0 } } );",
+"",
+"	table initialize( target, {{ Sport, Name, Score 1, Score 2, Score 3, Score 4 },",
+"		{ racquetball, \"\", 5, 100, 12  },",
+"		{ squash,      \"\", 5, 100, 12  },  // Lookup table: Squash entry is below racquetball",
+"		{ racquetball, \"\", 5, 300, 10  },  // Looks up Gini's score",
+"		{ racquetball, \"\", 5, 300, 10  },  // Reads bottom row (default)",
+"		{ racquetball, \"\", 5, 300, 10  },  // And again.",
+"		{ tennis,      \"\", 5, 100, 12  } } );",
+"",
+"	// Picks the 1st match and integrates the results",
+"	table integrate smart once( target, Sport,  { Name,  Score 1 .. Score 4 },",
+"								lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );",
+"",
+"	table list ( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table integrate smart", "table integrate", "table integrate top down", "table integrate once", "table integrate fast", "table lookup", "table expand" ]
+}
+
+
+,
+
+"table expand ..." :
+{
+	"Function Names":	[ "table expand", "table expand ignore case"],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These functions work very similarly like __table integrate(__). Instead of stopping at the first match in the lookup table, this function",
+"	family <u>looks up all entries in the lookup table</u>.  The search procedure through the lookup table will always be top-down.",
+"	In case 2 or more matching enties are found in the lookup table, then the following happens:",
+"	* The row in the target table will be duplicated in the next row below, where the remaining rows below shift down by 1 row.<br>",
+"	* The looked-up information from the output columns will be integrated into the corresponding destination columns using the operation defined by the __table integration operation identifiers__.",
+"	* Some operation identifiers make use of special rules for dealing with blank contents in the lookup table.",
+"	* In case of no matches, the row stays unchanged, i.e. the row in the target table will not be deleted.",
+"",
+"	<img src=\"Images/Function_table_expand.jpg\" alt=\"Function 'table expand'\"><br/><br/>",
+"",
+"	This functions described here provide the option to select rows (8th function parameter) and counting the lookup matches in the lookup table",
+"	(9th function parameter). ",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table integrate(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"",
+"	include ( Support Library );",
+"",
+"	table initialize( nute facts, // Nutritional facts, source: ndb.nal.usda.gov",
+"	{  {  Food, Ingredient, Portion  },",
+"	   {  potato chips,  fat,            0.34  },",
+"	   {  potato chips,  carbohydrates,  0.50  },",
+"	   {  potato chips,  sodium,         0.08  },",
+"	   {  potato chips,  proteins,       0.07  },",
+"	   {  potato chips,  others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')",
+"	   {  broccoli,      water,          0.90  },",
+"	   {  broccoli,      proteins,       0.03  },",
+"	   {  broccoli,      carbohydrates,  0.06  },",
+"	   {  broccoli,      others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')",
+"	   {  spring water,  water,          1.00  } } );",
+"",
+"	table initialize( target, { { Name, Favorite Food, Weight }, ",
+"	   { Rafael, Broccoli,    200 }, { Steve, Parmesan cheese, 100 }, ",
+"	   { George, Potato chips, 50 }, { Fred,  Spring water,   1000 } } );",
+"",
+"",
+"	echo(\"Target table before looking up with expanding contents:\");",
+"	table list ( target );",
+"",
+"	table expand ignore case( target, Favorite Food, { Ingredient, Weight }, nute facts, Food, ",
+"	              { Ingredient, Portion }, { overwrite, mul} );",
+"",
+"	// Note that food portions are multiplied with the weight of the food.",
+"",
+"	echo(\"After expanding (listing ingredients and calculating their weights):\");",
+"	table list ( target );",
+"	",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table expand fast", "table expand smart", "table expand fast smart", "table integrate", "table lookup" ]
+},
+
+
+
+"table expand fast ..." :
+{
+	"Function Names":	[ "table expand fast", "table expand fast ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function works similarly to __table expand(__), with the only exception that the additional roes resulting from multiple lookups",
+"	are appended at the bottom of the table rather than inserting them below the original row.  For very large target tables, this approach",
+"	saves significant becuase no rows will be shifted repeatedly.  Consider sorting the table, e.g. using __table sort rows(__) afterwards, if needed.",
+"",
+"	<br/><br/><img src=\"Images/Function_table_expand_fast.jpg\" alt=\"Function 'table expand fast'\"><br/><br/>",
+"",
+"	<u>Attention</u>: Do not confuse with the functions __table lookup fast(__) and __table integrate fast(__) where the 'fast' in the",
+"	function name refers to an optimized searching scheme suitable for pre-sorted tables.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table integrate(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( nute facts, // Nutritional facts, source: ndb.nal.usda.gov",
+"	{  {  Food, Ingredient, Portion  },",
+"	   {  potato chips,  fat,            0.34  },",
+"	   {  potato chips,  carbohydrates,  0.50  },",
+"	   {  potato chips,  sodium,         0.08  },",
+"	   {  potato chips,  proteins,       0.07  },",
+"	   {  potato chips,  others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')",
+"	   {  broccoli,      water,          0.90  },",
+"	   {  broccoli,      proteins,       0.03  },",
+"	   {  broccoli,      carbohydrates,  0.06  },",
+"	   {  broccoli,      others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')",
+"	   {  spring water,  water,          1.00  } } );",
+"",
+"	table initialize( target, { { Name, Favorite Food, Weight },",
+"	   { Rafael, Broccoli,    200 }, { Steve, Parmesan cheese, 100 },",
+"	   { George, Potato chips, 50 }, { Fred,  Spring water,   1000 } } );",
+"",
+"",
+"	echo(\"Target table before looking up with expanding contents:\");",
+"	table list ( target );",
+"",
+"	table expand fast ignore case( target, Favorite Food, { Ingredient, Weight }, nute facts, Food, { Ingredient, Portion }, { overwrite, mul} );",
+"",
+"	// Note that food portions are multiplied with the weight of the food.",
+"	// Additional rows are put to the end of the table.",
+"",
+"	echo(\"After expanding (listing ingredients and calculating their weights):\");",
+"	table list ( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table expand", "table expand smart", "table expand fast smart", "table integrate", "table lookup" ]
+},
+
+
+"table expand smart ..." :
+{
+	"Function Names":	[ "table expand smart", "table expand smart ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the lookup strategy from __table lookup smart (__) with the data integration features of __table expand(__).",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table expand(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"",
+"		include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 2.csv\" );",
+"	table delete remaining rows ( lookup, -2 ); // Remove last 2 rows (the mom's place and 'not found' row)",
+"",
+"	table initialize( target, { Seating, inside, balcony, outside, bar } );",
+"",
+"	count[] = table expand smart ignore case",
+"			 ( target,   Seating, {Place to go, Table size}, lookup, Ambience, {Restaurant Name, Table size} );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
+"",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table expand", "table expand fast", "table expand fast smart", "table integrate", "table lookup" ]
+},
+
+
+
+
+"table expand fast smart ..." :
+{
+	"Function Names":	[ "table expand fast smart", "table expand fast smart ignore case" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function combines the lookup strategy from __table lookup smart (__) with the data integration features of __table expand(__).",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"7 - 9 (For parameter description and return values: see __table expand(__) )",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	include (Support Library);",
+"",
+"	table load( lookup, \"Examples\\Table Lookup Example 2.csv\" );",
+"	table delete remaining rows ( lookup, -2 ); // Remove last 2 rows (the mom's place and 'not found' row)",
+"",
+"	table initialize( target, { Seating, inside, balcony, outside, bar } );",
+"",
+"	count[] = table expand fast smart ignore case",
+"			 ( target,   Seating, {Place to go, Table size}, lookup, Ambience, {Restaurant Name, Table size} );",
+"",
+"	echo(\"Lookup table:\");",
+"	table list( lookup );",
+"",
+"	// Additional rows have been added to the end of the table.",
+"",
+"	echo(\"Target table after lookup (\", count[], \" items found):\");",
+"	table list( target );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table expand", "table expand fast", "table expand fast smart", "table integrate", "table lookup" ]
+},
+
+
+ "Table Integration Operation Identifiers" :
+  {
+	"Documentation":		"General Description", // Required value
+	"Feature Names":		[ "Table integration operation identifiers" ],
+"Description 01 Introduction" : [
+"",
+"		The following table lists all valid operation identifiers which can be used in the 7th function parameter of the",
+"		__table integrate(__) and __table expand(__)  function families.",
+"",
+"		<br><br>",
+"",
+"		The operation identifier rules how the value or data retrieved from the output column in the lookup table shall be combined",
+"		with the existing data in the destination column in the target table.",
+"",
+"		=== 300, 700",
+"		Operation identifier		| Description",
+"		overwrite					| Output data overwrites destination data (same behavior like in the __table lookup(__) function family)",
+"		none						| Output data does not overwrite destination data (it may be meaningless, but useful if the operation identifiers provided in variables)",
+"		overwrite if blank			| Output data overwrites destination data if existing destination data is blank",
+"		overwrite except blank		| Output data overwrites destination data if output data is not blank",
+"		append						| Output data is appended to the destination data",
+"		append with space			| Output data is appended to the destination data with one space character ' ' inbetween",
+"		min abc						| Chooses the first one by alphabetic sorting order.  Note: blank literal has highest order.",
+"		min abc ignore blanks		| Chooses the first one by alphabetic sorting order.  Blank values are not preferenced.",
+"		max abc						| Chooses the last one by alphabetic sorting order.",
+"		min							| Chooses the smaller (numeric) value. Blanks and non-numeric data are treated as 0",
+"		min ignore blanks			| Chooses the smaller (numeric) value. Non-numeric data are treated as 0. Blanks are not chosen.",
+"		min ignore zero				| Chooses the smaller (numeric) value. Both non-numeric data and 0 are not chosen.",
+"		max							| Chooses the bigger (numeric) value.  Blanks and non-numerals are treated as 0",
+"		max ignore blanks			| Chooses the bigger (numeric) value.  Non-numeric data are treated as 0. Blanks are not chosen.",
+"		max ignore zero				| Chooses the bigger (numeric) value. Both non-numeric data and 0 are not chosen.",
+"		add							| Output value is added to destination value.  Blanks and non-numerals are treated as 0",
+"		sub							| Output value is subtracted from destination value.  Blanks and non-numerals are treated as 0",
+"		mul							| Destination value is multiplicated with the output value. Non-numeral entries are treated as 0.<br><u>Attention</u>: See <sup>1</sup>.",
+"		mul ignore blanks			| Destination value is multiplicated with the output value if not blank.  Non-numeric ata are treated as 0.",
+"		mul ignore zero				| Destination value is multiplicated with the output value as long the output data is neither blank nor 0.",
+"		div							| Destination value is divided by the output value. Result will be 0 if entry is 0 or a non-numeral.<u>Attention</u>: See <sup>1</sup>.",
+"		inc							| Destination value is incremented by specified value in lookup table.<br>In the next entry, this next higher entry is used for further increase.  Negative values decrease.<br>Blank entries in look-up table retrieves the residual value (original value in target table added  by all previous calculations belonging together).",
+"		dec							| Destination value is decremented by specified value in lookup table.<br>In the next entry, this next higher entry is used for further increase.  Negative values increase.",
+"		average						| Calculates the average of both destination and lookup table value.  Blanks and non-numerals are treated as 0, resulting in dividing the other value by 2.",
+"		index						| Inserts the index into destination value, i.e. the current count of inserted rows.  The index starts with 0.  For example, if 3 matches are found in the lookup table, then the index for the 3 rows (2 of them are new) will be 0, 1 and 2.",
+"		===",
+"",
+"		<sup>1</sup>: Blank entries in the look-up table retrieves the residual value (original value in target table subtracted by all previous calculations belonging together).",
+"		The residual value will be set to 0 afterwards, so a 2nd consecutive lookup returns 0. This is particularly useful when scaling some figures down",
+"		(using factors between 0 and 1) and assigning the residual value in the last entry in the lookup table.",
+"",
+"		<br><br>",
+"",
+"		<sup>2</sup>: Blank entries in the look-up table retrieves the residual value (original value in target table subtracted by all previous calculations belonging together).",
+"		This is particularly useful when scaling some figures down (using positive divisors) and assigning the residual value in the last entry in the lookup table.",
+""
+ ]
+		,
+	"See also": ["table integrate", "table integrate fast", "table integrate smart", "table integrate smart once" ]
+   }
+
 
 
 
