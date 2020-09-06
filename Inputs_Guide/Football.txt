@@ -1,0 +1,57 @@
+//
+B4PDOCU.START
+
+  "Football" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "merging two football clubs" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
+    "Description 01 Starting B4P"::
+
+	Start B4P by double-clicking on the icon or typing <b>b4p</b> on command line
+	+++,
+
+    "Description 02 Start B4P": "Change directory to data directory",
+    "Examples 02"::
+	>> $ cd  path/to/data/directory
+	+++,
+    "Description 03 Load the Files": "A CSV and an Excel file will be loaded",
+    "Examples 03"::
+	>> table load excel file ( football club, Football Membership List.xlsx );
+	>> table list (football club);  
+
+	>> table load ( soccer club, Soccer Membership List.csv );  // Beginners are Novices here
+	>> table list (soccer club); 
+ 	+++,
+    "Description 04 Rename column headers to reconcile naming conventions between datasets": "",
+    "Examples 04"::
+	>> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+	>> table list (football club);  
+	+++,
+    "Description 05 Complete code": "Code below with output generated from code execution",
+    "Examples 05"::
+	include( Support Library );
+	include( Office Library );
+	runtime settings[verbose]=quiet;
+	{
+	    table load excel file       ( football club, Examples\Football Membership List.xlsx ); 
+	    table load                  ( soccer club,   Examples\Soccer Membership List.csv ); // Beginners are Novices here
+	    echo("Football club:");       table list( football club );
+	    echo("Soccer club:");         table list( soccer club );
+
+	    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+	    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
+	    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+	    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
+	    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
+	    table save                  ( soccer club, New Soccer Club Membership List.xls, EXCEL );
+
+	    echo ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
+	    table list( soccer club );
+	}
+	+++,
+    "Output 05": "automatic"
+
+  }
+
+
+B4PDOCU.STOP
