@@ -197,6 +197,7 @@ REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Descript
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;;conditional combination functions
 REF;Console Input / Output;REF_Features_console.html;General Description;console
 REF;Console Input / Output;REF_Features_console.html;General Description;;console
+REF;Consolidation Actions;REF_Features_consolidation_actions.html;General Description;consolidation actions
 REF;Control Flow Functions;REF_Features_Control_Flow_Functions.html;General Description;Control Flow Functions
 REF;Control Flow Functions;REF_Features_Control_Flow_Functions.html;General Description;;Control Flow Functions
 REF;Creating and Deleting Tables;REF_Features_table_creating_deleting.html;General Description;table creating deleting
@@ -338,6 +339,7 @@ REF;Path and File Names;REF_Features_path_names.html;General Description;;path n
 REF;Path and File Names;REF_Features_path_names.html;General Description;;path names
 REF;Path and File Names;REF_Features_path_names.html;General Description;;file name
 REF;Path and File Names;REF_Features_path_names.html;General Description;;file names
+REF;Pivoting and Conosolidating Tables;REF_Features_Pivoting_and_consolidating_tables.html;General Description;Pivoting and consolidating tables
 REF;Processing Table Columns;REF_Features_Processing_table_columns.html;General Description;Processing table columns
 REF;Processing Table Contents;REF_Features_Processing_table_contents.html;General Description;Processing table contents
 REF;Processing Table Rows;REF_Features_Processing_table_rows.html;General Description;Processing table rows
@@ -838,6 +840,8 @@ REF;table compare ...;REF_Function_table_compare.html;Function Description;table
 REF;table compare ...;REF_Function_table_compare.html;Function Description;table compare ignore blanks
 REF;table compare ...;REF_Function_table_compare.html;Function Description;table compare ignore both
 REF;table configure;REF_Function_table_configure.html;Function Description;table configure
+REF;table consolidate ...;REF_Function_table_consolidate.html;Function Description;table consolidate
+REF;table consolidate ...;REF_Function_table_consolidate.html;Function Description;table consolidate selected rows
 REF;table copy columns ...;REF_Function_table_copy_columns.html;Function Description;table copy columns
 REF;table copy columns ...;REF_Function_table_copy_columns.html;Function Description;table copy columns selected rows
 REF;table copy table;REF_Function_table_copy_table.html;Function Description;table copy table
@@ -952,14 +956,22 @@ REF;table selected columns/headers ...;REF_Function_table_selected_columns.html;
 REF;table selected columns/headers ...;REF_Function_table_selected_columns.html;Function Description;table selected column numbers
 REF;table selected columns/headers ...;REF_Function_table_selected_columns.html;Function Description;table selected headers
 REF;table selected rows;REF_Function_table_selected_rows.html;Function Description;table selected rows
+REF;table serialize ...;REF_Function_table_serialize.html;Function Description;table serialize
+REF;table serialize ...;REF_Function_table_serialize.html;Function Description;table serialize all
+REF;table serialize ...;REF_Function_table_serialize.html;Function Description;table serialize ignore zero
 REF;table sort (selected) rows;REF_Function_table_sort_rows.html;Function Description;table sort rows
 REF;table sort (selected) rows;REF_Function_table_sort_rows.html;Function Description;table sort selected rows
 REF;table sort columns;REF_Function_table_sort_columns.html;Function Description;table sort columns
 REF;table split table columns ...;REF_Function_table_split_table_columns.html;Function Description;table split table columns
+REF;table spread ...;REF_Function_table_spread.html;Function Description;table spread
+REF;table spread ...;REF_Function_table_spread.html;Function Description;table spread accumulating
+REF;table spread given headers ...;REF_Function_table_spread_given_headers.html;Function Description;table spread given headers
+REF;table spread given headers ...;REF_Function_table_spread_given_headers.html;Function Description;table spread given headers accumulating
 REF;table substitute horizontally ...;REF_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally
 REF;table substitute horizontally ...;REF_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally selected rows
 REF;table substitute vertically ...;REF_Function_table_substitute_vertically.html;Function Description;table substitute vertically
 REF;table substitute vertically ...;REF_Function_table_substitute_vertically.html;Function Description;table substitute vertically selected rows
+REF;table transpose;REF_Function_table_transpose.html;Function Description;table transpose
 REF;table write column selected rows;REF_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
 REF;time, pure time;REF_Function_time.html;Function Description;time
 REF;time, pure time;REF_Function_time.html;Function Description;pure time

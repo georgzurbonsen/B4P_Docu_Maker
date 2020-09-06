@@ -591,6 +591,26 @@ B4PDOCU.START
 	+++
   },
 
+"Pivoting and Conosolidating Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Pivoting and consolidating tables" ],
+    "Description 01 Introduction"::
+
+	The functions described in this sections are building blocks to do powerful pivoting and consolidating tables.
+	All functions have been optimized to deliver maximum performance, even with very large tables.  The functions
+	described in the following sections cover follwing aspects:
+
+	* Transposing contents (i.e. contents in 1st column become row headers)
+	* Serializing horizontally laid out data
+	* Spreading serialized data out horizontally (opposite of above), and
+	* Consolidating tables (boiling tables down to fewer rows with specific consolidation actions serving as ingredients)
+
+	+++
+  },
+
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -783,7 +803,72 @@ B4PDOCU.START
 
     "Output 02": "automatic"
 
+  },
+
+
+
+"Consolidation Actions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "consolidation actions" ],
+    "Description 01 Introduction"::
+
+	The sorting options are used (amongst others) by following functions:
+	* __table consolidate(__)
+	* __table merge(__) function family
+
+	+++,
+    "Description 02 Overview of Available Consolidation Actions"::
+
+	The consolidation actions does only take place if a matching row further down in the table (or source table if 2 tables are combined) needs
+	to be consolidated to the target fields.  No actions are applied if only one row exists with same identifer contents. 
+
+	=== 200, 800, bold_column_1
+	Consolidation Action		| Description
+	none				| No consolidation: The destination fields will not be overwritten.<br>At the end of the consolidation run, the destination field contains the data from the first row belonging to the group.
+	overwrite			| Source field overwrites destination field. <br>At the end of the consolidation run, the destination field contains the data from the last row belonging to the group.
+	overwrite if blank		| Source field overwrites destination field if the destination field is still blank. See <sup>1</sup>
+	overwrite except blank		| Source field overwrites destination field if the soruce field is not blank. See <sup>1</sup>
+	blank				| Destination field will be blanked.  Useful to void contents no longer needed after consolidation.
+	zero				| Destination field will be set to 0. Useful to void contents no longer needed after consolidation.
+	delete				| This column will be deleted after the consolidation run.  Useful to get rid of contents no longer needed.
+	append				| Append string contents from source fields to destination fields.  A separator string will be inserted if available.
+	append once			| Like above, but contents are only appended if not yet found in the destination string.
+	must match			| Checks source and destination fields.  If they differ, then <b>(Inconsistent)</b> will be written.
+	blank if different		| Checks source and destination fields.  If they differ, then the destination fields will be blanked.
+	min abc				| Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have highest priority. 
+	min abc ignore blanks		| Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have lowest priority. See <sup>1</sup>
+	max abc				| Choose the entry in the higher alphabetc sorting order (e.g. def preferred over abc). Blanks have lowest priority.
+	min				| Choose the entry with the smaller value. Blanks and non-numeric contents are treated as zero.
+	min ignore blanks		| Choose the entry with the smaller value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup>
+	min ignore zero			| Choose the entry with the smaller value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup>
+	max				| Choose the entry with the greater value. Blanks and non-numeric contents are treated as zero.
+	max ignore blanks		| Choose the entry with the greater value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup>
+	max ignore zero			| Choose the entry with the greater value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup>
+	sum				| Calculates the sum: Adds source fields to destination fields.
+	sum blank if zero		| Calculates the sum: Adds source fields to destination fields. If destination field is 0, it will be set to blank.
+	product				| Calculates the product: Multiplies source fields to destination fields.  Blanks and non-numeric contents are treated as zero.
+	product ignore blanks		| Calculates the product: Multiplies source fields to destination fields.  Blanks are ignore, but non-numeric contents are treated as zero. See <sup>1,2</sup>
+	product ignore zero		| Calculates the product: Multiplies source fields to destination fields.    Blanks and non-numeric contents and zero are ignored.  See <sup>2</sup>
+	average				| Calculates the average (sum divided by number of rows consolidated). Blanks and non-numeric contents are treated as zero.
+	average ignore blanks		| Calculates the average (sum divided by number of rows consolidated). Non-numeric contents are treated as zero. See <sup>1,2</sup>
+	average ignore zero		| Calculates the average (sum divided by number of rows consolidated).  Blanks and non-numeric contents and zero are ignored. See <sup>2</sup>
+	count				| Count all fields.  Is always 1 or bigger.
+	count ignore blanks		| Count non-blank fields only. See <sup>1</sup>
+	count ignore zero		| Count non-zero fields. 0, blanks and non-numerals are ignored.
+	count positive			| Count if value is > 0. 0, blanks and non-numerals are ignored.
+	count positive or zero		| Count if value is >= 0.  Blanks and non-numerals are treated as 0 and will be counted.
+	count negative			| Count if value is < 0. 0, blanks and non-numerals are ignored.
+	count negative or zero		| Count if value is <= 0.  Blanks and non-numerals are treated as 0 and will be counted.
+	===
+
+	<sup>1</sup> Fields are considered blank if they are absolutely blank, i.e. containing zero characters.  Fields containing white spaces (spaces, tabs, new lines, etc.) are not considered blank.<br>
+	<sup>2</sup> If none of the fields qualify for calculation (e.g. min ignore blanks where all fields are blank), then the result will be zero.
+
+	+++
+
   }
+
 
 
 

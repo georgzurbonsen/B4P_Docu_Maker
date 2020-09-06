@@ -1629,6 +1629,27 @@
 	
   },
 
+"Pivoting and Conosolidating Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Pivoting and consolidating tables" ],
+"Description 01 Introduction" : [
+"",
+"	The functions described in this sections are building blocks to do powerful pivoting and consolidating tables.",
+"	All functions have been optimized to deliver maximum performance, even with very large tables.  The functions",
+"	described in the following sections cover follwing aspects:",
+"",
+"	* Transposing contents (i.e. contents in 1st column become row headers)",
+"	* Serializing horizontally laid out data",
+"	* Spreading serialized data out horizontally (opposite of above), and",
+"	* Consolidating tables (boiling tables down to fewer rows with specific consolidation actions serving as ingredients)",
+""
+ ]
+	
+  },
+
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -1831,7 +1852,74 @@
 
     "Output 02": "automatic"
 
+  },
+
+
+
+"Consolidation Actions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "consolidation actions" ],
+"Description 01 Introduction" : [
+"",
+"	The sorting options are used (amongst others) by following functions:",
+"	* __table consolidate(__)",
+"	* __table merge(__) function family",
+""
+ ]
+	,
+"Description 02 Overview of Available Consolidation Actions" : [
+"",
+"	The consolidation actions does only take place if a matching row further down in the table (or source table if 2 tables are combined) needs",
+"	to be consolidated to the target fields.  No actions are applied if only one row exists with same identifer contents. ",
+"",
+"	=== 200, 800, bold_column_1",
+"	Consolidation Action		| Description",
+"	none				| No consolidation: The destination fields will not be overwritten.<br>At the end of the consolidation run, the destination field contains the data from the first row belonging to the group.",
+"	overwrite			| Source field overwrites destination field. <br>At the end of the consolidation run, the destination field contains the data from the last row belonging to the group.",
+"	overwrite if blank		| Source field overwrites destination field if the destination field is still blank. See <sup>1</sup>",
+"	overwrite except blank		| Source field overwrites destination field if the soruce field is not blank. See <sup>1</sup>",
+"	blank				| Destination field will be blanked.  Useful to void contents no longer needed after consolidation.",
+"	zero				| Destination field will be set to 0. Useful to void contents no longer needed after consolidation.",
+"	delete				| This column will be deleted after the consolidation run.  Useful to get rid of contents no longer needed.",
+"	append				| Append string contents from source fields to destination fields.  A separator string will be inserted if available.",
+"	append once			| Like above, but contents are only appended if not yet found in the destination string.",
+"	must match			| Checks source and destination fields.  If they differ, then <b>(Inconsistent)</b> will be written.",
+"	blank if different		| Checks source and destination fields.  If they differ, then the destination fields will be blanked.",
+"	min abc				| Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have highest priority. ",
+"	min abc ignore blanks		| Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have lowest priority. See <sup>1</sup>",
+"	max abc				| Choose the entry in the higher alphabetc sorting order (e.g. def preferred over abc). Blanks have lowest priority.",
+"	min				| Choose the entry with the smaller value. Blanks and non-numeric contents are treated as zero.",
+"	min ignore blanks		| Choose the entry with the smaller value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup>",
+"	min ignore zero			| Choose the entry with the smaller value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup>",
+"	max				| Choose the entry with the greater value. Blanks and non-numeric contents are treated as zero.",
+"	max ignore blanks		| Choose the entry with the greater value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup>",
+"	max ignore zero			| Choose the entry with the greater value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup>",
+"	sum				| Calculates the sum: Adds source fields to destination fields.",
+"	sum blank if zero		| Calculates the sum: Adds source fields to destination fields. If destination field is 0, it will be set to blank.",
+"	product				| Calculates the product: Multiplies source fields to destination fields.  Blanks and non-numeric contents are treated as zero.",
+"	product ignore blanks		| Calculates the product: Multiplies source fields to destination fields.  Blanks are ignore, but non-numeric contents are treated as zero. See <sup>1,2</sup>",
+"	product ignore zero		| Calculates the product: Multiplies source fields to destination fields.    Blanks and non-numeric contents and zero are ignored.  See <sup>2</sup>",
+"	average				| Calculates the average (sum divided by number of rows consolidated). Blanks and non-numeric contents are treated as zero.",
+"	average ignore blanks		| Calculates the average (sum divided by number of rows consolidated). Non-numeric contents are treated as zero. See <sup>1,2</sup>",
+"	average ignore zero		| Calculates the average (sum divided by number of rows consolidated).  Blanks and non-numeric contents and zero are ignored. See <sup>2</sup>",
+"	count				| Count all fields.  Is always 1 or bigger.",
+"	count ignore blanks		| Count non-blank fields only. See <sup>1</sup>",
+"	count ignore zero		| Count non-zero fields. 0, blanks and non-numerals are ignored.",
+"	count positive			| Count if value is > 0. 0, blanks and non-numerals are ignored.",
+"	count positive or zero		| Count if value is >= 0.  Blanks and non-numerals are treated as 0 and will be counted.",
+"	count negative			| Count if value is < 0. 0, blanks and non-numerals are ignored.",
+"	count negative or zero		| Count if value is <= 0.  Blanks and non-numerals are treated as 0 and will be counted.",
+"	===",
+"",
+"	<sup>1</sup> Fields are considered blank if they are absolutely blank, i.e. containing zero characters.  Fields containing white spaces (spaces, tabs, new lines, etc.) are not considered blank.<br>",
+"	<sup>2</sup> If none of the fields qualify for calculation (e.g. min ignore blanks where all fields are blank), then the result will be zero.",
+""
+ ]
+	
+
   }
+
 
 
 
@@ -4288,7 +4376,7 @@
 "",
 "				Specify the conditions or rules to selecte the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -14194,7 +14282,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		}
@@ -14270,7 +14358,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -15591,7 +15679,7 @@
 "",
 "				Specify the conditions or rules to select the row.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -15662,7 +15750,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		}
@@ -16239,7 +16327,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -16975,7 +17063,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 		  
 		},
@@ -17082,7 +17170,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 		  
 		},
@@ -17179,7 +17267,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 		  
 		},
@@ -17514,7 +17602,7 @@
 "Description" : [
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -17591,7 +17679,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -17675,7 +17763,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -17818,7 +17906,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -17907,7 +17995,7 @@
 "Description" : [
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -18239,7 +18327,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -18341,7 +18429,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -18443,7 +18531,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -18564,7 +18652,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -18675,7 +18763,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -19125,7 +19213,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -19138,7 +19226,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		}
@@ -19214,7 +19302,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		}
@@ -19349,34 +19437,34 @@
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
-		{ "Number": "1",
+		{ "Number": "1.",
 		  "Name": "Name of existing newer table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "The table referred here is assumed to be the more recent table." ]
 		},
-		{ "Number": "2",
+		{ "Number": "2.",
 		  "Name": "Name of existing older table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "The table referred here is assumed to be the baseline table." ]
 		},
-		{ "Number": "3",
+		{ "Number": "3.",
 		  "Name": "Name of report table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "A new table will created.  If the table already exists, then it will be initialized." ]
 		},
-		{ "Number": "Opt. 4",
+		{ "Number": "Opt. 4.",
 		  "Name": "Orientation identifier columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
 		  "Default value": "{} (none)",
 "Description" : [
-"		    If the table contains any for of unique identifiers or other columns suitable for identifying the entry and providing orientation, for example a combination of last and first name,",
+"		    If the table contains unique identifiers or other columns suitable for identifying the entry and providing orientation, for example a combination of last and first name,",
 "			a social security number, a product serial number, company name, etc., then specify them in this function parameter.   It does not matter if",
 "			some non-unique orientation values (e.g. 2 persons sharing the same first and last names, or only first names are known) do exist.  ",
 "			Overall, use of orientation columns will accelerate the comparison process significantly.  A change of a value in an orientation column is interpreted as a new row added (and a different",
@@ -19411,7 +19499,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 6",
+		{ "Number": "Opt. 6.",
 		  "Name": "Change indication call-back function name",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -19430,7 +19518,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 7",
+		{ "Number": "Opt. 7.",
 		  "Name": "Call function only if different",
 		  "Direction": "input",
 		  "Types": [ "boolean" ],
@@ -19576,7 +19664,7 @@
 "		Two report types are suported: tabular (generated with all reporting options except 'journal') and journal.",
 "		All reports also contain a statistics section with the headers 'Statistics Parameters' and 'Statistics Values'.",
 "",
-"		<br/><img src=\"Images/Function_table_compare.jpg\" alt=\"Schemes for different reporting options for 'table compare'\"><br/>",
+"		<br/><img src=\"Images/Function_table_compare.jpg\" alt=\"Function 'table compare'\"><br/>",
 ""
  ]
 		,
@@ -19679,28 +19767,28 @@
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
-		{ "Number": "1",
+		{ "Number": "1.",
 		  "Name": "Old value",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "Value from the older table" ]
 		},
-		{ "Number": "2",
+		{ "Number": "2.",
 		  "Name": "New value",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "Value from the newer table" ]
 		},
-		{ "Number": "3",
+		{ "Number": "3.",
 		  "Name": "Header name",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "Name of header referring to the table column of the values" ]
 		},
-		{ "Number": "4",
+		{ "Number": "4.",
 		  "Name": "Row number",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -19799,21 +19887,21 @@
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
-		{ "Number": "1",
+		{ "Number": "1.",
 		  "Name": "Name of target table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "The table will be checked" ]
 		},
-		{ "Number": "2",
+		{ "Number": "2.",
 		  "Name": "Name of reference table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "The table contains the rules to apply for checking" ]
 		},
-		{ "Number": "3",
+		{ "Number": "3.",
 		  "Name": "Columns with data to be checked (both target and reference tables)",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -19832,7 +19920,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 4",
+		{ "Number": "Opt. 4.",
 		  "Name": "Columns with Row Match Identifiers (both target and reference tables)",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -19847,7 +19935,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 5",
+		{ "Number": "Opt. 5.",
 		  "Name": "Columns with Group Identifiers (in the target table)",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -19862,7 +19950,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 6",
+		{ "Number": "Opt. 6.",
 		  "Name": "Columns with Group Match Identifiers (target and reference table)",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -19879,7 +19967,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 7",
+		{ "Number": "Opt. 7.",
 		  "Name": "Columns with Group Match Identifiers (in the reference table)",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
@@ -19897,7 +19985,7 @@
  ]
 			
 		},
-		{ "Number": "Opt. 8",
+		{ "Number": "Opt. 8.",
 		  "Name": "Column with Comparison Directions (reference table) for checking of within a group",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
@@ -19921,14 +20009,14 @@
  ]
 			
 		},
-		{   "Number":		"Opt. 9",
+		{   "Number":		"Opt. 9.",
 			"Name" :		"Expression to select rows",
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,
 "Description" : [
 "				Specify the conditions or rules to select the row.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side, then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		}
@@ -20006,7 +20094,7 @@
 	"Feature Names":		[ "checking tables examples" ],
 "Description 01 table check (...) with 3 Parameters" : [
 "",
-"		<br/><img src=\"Images/Function_table_check_1.jpg\" alt=\"Using 'table check' with 3 function parameters\"><br/>",
+"		<br/><img src=\"Images/Function_table_check_1.jpg\" alt=\"'table check' with 3 function parameters\"><br/>",
 "",
 "		",
 "		In the example below, the fuction call provides 3 parameters: Target and reference table, and checking for",
@@ -20044,7 +20132,7 @@
 "		sports not listed in the reference table.  This is done by specifying common row match identifiers for both tables.  ",
 "		In the discussed example it's the column \"Sport\".",
 "",
-"		<br/><img src=\"Images/Function_table_check_2.jpg\" alt=\"Using 'table check' with 4 function parameters\"><br/>",
+"		<br/><img src=\"Images/Function_table_check_2.jpg\" alt=\"'table check' with 4 function parameters\"><br/>",
 "",
 "		In the example below, the fuction call provides 4 parameters: Target and reference table, and checking for",
 "		the columns 'Hcp' and 'NTRP' (Golf handcap and tennis rating).  The table entries are OK in following cases:",
@@ -20078,7 +20166,7 @@
 "",
 "		Advanced table checking is possible where different groups can be defined in order to apply different checking rules which can even be independent from each other.",
 "",
-"		<br/><img src=\"Images/Function_table_check_3.jpg\" alt=\"Using 'table check' with 6 function parameters\"><br/>",
+"		<br/><img src=\"Images/Function_table_check_3.jpg\" alt=\"'table check' with 6 function parameters\"><br/>",
 "",
 "	Let's check some sophisticated tables: A list of electrical equipment for different locomotives which need to be checked against different contents.",
 "	* Locomotives:	AC locomotive, Hybrid locomotive (runs on AC power and Diesel), and DE Loco (Diesel)",
@@ -20117,7 +20205,7 @@
 "	Exceptions will be asserted if the returned value is not Boolean.  ",
 "	Partial table specifications refer directly to the columns in the target table and not the reference table.",
 "",
-"		<br/><img src=\"Images/Function_table_check_4.jpg\" alt=\"Using 'table check' with 7 function parameters\"><br/>",
+"		<br/><img src=\"Images/Function_table_check_4.jpg\" alt=\"'table check' with 7 function parameters\"><br/>",
 "",
 "	In the reference table, the column [Comments] is checked if it contains 'Safe', provided this is in relation to",
 "	Vehicle Type being \"E-Locos\" and \"Equipment\" being \"Control\".  The resulting table now contains 1 additional message:",
@@ -20149,7 +20237,7 @@
 "",
 "	This last example also considers comparison directions as additional rules.  Before that, \"min 1\" has been the standard rule.",
 "",
-"		<br/><img src=\"Images/Function_table_check_5.jpg\" alt=\"Using 'table check' with 8 function parameters\"><br/>",
+"		<br/><img src=\"Images/Function_table_check_5.jpg\" alt=\"'table check' with 8 function parameters\"><br/>",
 "",
 "	Because the output file contains more columns than they fit in this screen, click on the following hyperlink to open the output as HTML file<br>",
 "	<a href=\"Images/Table Check Reference Output 05.html\" target=\"_blank\">Open output as HTML file in a separate tab</a>",
@@ -20200,7 +20288,7 @@
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
-		{ "Number": "1",
+		{ "Number": "1.",
 		  "Name": "Name of existing table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -20215,7 +20303,7 @@
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side, then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
@@ -20297,7 +20385,7 @@
 		  "Types": [ "numeral" ],
 "Description" : [
 "			0 = All rows are unique according to the specifications provided in the function parameters<br>",
-"			>0 = Number of duplications identified",
+"			>0 = Number of duplications identified<br>",
 "			-1 = Error identified."
  ]
 		  
@@ -20367,14 +20455,14 @@
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
-		{ "Number": "1",
+		{ "Number": "1.",
 		  "Name": "Name of target table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description":
 			[ "The table referred here is assumed to be the more recent table." ]
 		},
-		{ "Number": "2",
+		{ "Number": "2.",
 		  "Name": "Input columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -20391,7 +20479,7 @@
  ]
 			
 		},
-		{ "Number": "3",
+		{ "Number": "3.",
 		  "Name": "Destination columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -20410,7 +20498,7 @@
  ]
 			
 		},
-		{ "Number": "4",
+		{ "Number": "4.",
 		  "Name": "Name of lookup table",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -20418,7 +20506,7 @@
 			[ "The table referred here is assumed to be the more recent table." ]
 		},
 
-		{ "Number": "5",
+		{ "Number": "5.",
 		  "Name": "Search columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -20436,7 +20524,7 @@
  ]
 			
 		},
-		{ "Number": "6",
+		{ "Number": "6.",
 		  "Name": "Output columns",
 		  "Direction": "input",
 		  "Types": [ "table columns" ],
@@ -20455,7 +20543,7 @@
  ]
 			
 		},
-		{   "Number":		"Opt. 7",
+		{   "Number":		"Opt. 7.",
 			"Name" :		"Expression to select rows",
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,
@@ -20465,11 +20553,11 @@
 "				<br><br>",
 "				Specify the conditions or rules to select the row.  See __expressions to select rows__.<br>",
 "				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Age]>=21</b>.<br>",
-"				<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
-		{ "Number": "Opt. 8",
+		{ "Number": "Opt. 8.",
 		  "Name": "Counter column",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
@@ -20533,7 +20621,7 @@
 "	only once.  If the same lookup values are applied, then it will look for a 2nd match (and so forth).  Once all matching values are checked",
 "	off, then no lookup is made.  The search time ratio versus table size is (<i>n</i>)being <b><i>O</i></b> ( log(<i>n</i>)) ).",
 "",
-"	<br/><br/><img src=\"Images/Function_table_lookup_once.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
+"	<br/><br/><img src=\"Images/Function_table_lookup_once.jpg\" alt=\"Function 'table lookup once'\"><br/><br/>",
 ""
  ]
 	,
@@ -20575,7 +20663,7 @@
 "	the lookup continues with the next row below.  Once it has reached the end of the table, it make a 2nd round to look at the rows above",
 "	the memorized row number.  You will see some deviating behavior as illustrated below:",
 "	",
-"	<br/><br/><img src=\"Images/Function_table_lookup_fast.jpg\" alt=\"Function 'table lookup'\"><br/><br/>",
+"	<br/><br/><img src=\"Images/Function_table_lookup_fast.jpg\" alt=\"Function 'table lookup fast'\"><br/><br/>",
 "",
 "	This feature provides signficant performance improvements if your target table and your lookup table are already sorted in alphabetic",
 "	order.  Example: You have one sorted list (e.g. last name, first name) containing empoloyees of a business.  The 2nd list contains a list",
@@ -20763,7 +20851,7 @@
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
-		{ "Number": "Opt. 7",
+		{ "Number": "Opt. 7.",
 		  "Name": "Operation Identifier",
 		  "Direction": "input",
 		  "Types": [ "parameter set or literal" ],
@@ -20779,7 +20867,7 @@
  ]
 				
 		},
-		{   "Number":		"Opt. 8",
+		{   "Number":		"Opt. 8.",
 			"Name" :		"Expression to select rows",
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,
@@ -20790,11 +20878,11 @@
 "			<br><br>",
 "			Specify the conditions or rules to select the row.  See __expressions to select rows__.<br>",
 "			__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Age]>=21</b>.<br>",
-"			<u>Attention: </u> Put the condition into parentheses if you use the more flexible operators '=' and '<>' instead of '==' and '!='."
+"			<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
 			
 		},
-		{ "Number": "Opt. 9",
+		{ "Number": "Opt. 9.",
 		  "Name": "Counter column",
 		  "Direction": "input",
 		  "Types": [ "table column" ],
@@ -21253,7 +21341,7 @@
 "		The operation identifier rules how the value or data retrieved from the output column in the lookup table shall be combined",
 "		with the existing data in the destination column in the target table.",
 "",
-"		=== 300, 700",
+"		=== 300, 700, bold_column_1",
 "		Operation identifier		| Description",
 "		overwrite					| Output data overwrites destination data (same behavior like in the __table lookup(__) function family)",
 "		none						| Output data does not overwrite destination data (it may be meaningless, but useful if the operation identifiers provided in variables)",
@@ -21275,29 +21363,764 @@
 "		mul							| Destination value is multiplicated with the output value. Non-numeral entries are treated as 0.<br><u>Attention</u>: See <sup>1</sup>.",
 "		mul ignore blanks			| Destination value is multiplicated with the output value if not blank.  Non-numeric ata are treated as 0.",
 "		mul ignore zero				| Destination value is multiplicated with the output value as long the output data is neither blank nor 0.",
-"		div							| Destination value is divided by the output value. Result will be 0 if entry is 0 or a non-numeral.<u>Attention</u>: See <sup>1</sup>.",
-"		inc							| Destination value is incremented by specified value in lookup table.<br>In the next entry, this next higher entry is used for further increase.  Negative values decrease.<br>Blank entries in look-up table retrieves the residual value (original value in target table added  by all previous calculations belonging together).",
-"		dec							| Destination value is decremented by specified value in lookup table.<br>In the next entry, this next higher entry is used for further increase.  Negative values increase.",
+"		div							| Destination value is divided by the output value. Result will be 0 if entry is 0 or a non-numeral.<br><u>Attention</u>: See <sup>1</sup>.",
+"		inc							| Destination value is incremented by specified value in lookup table.<br>In the next entry, this next higher entry is used for further increase.  Negative values decrease accordingly. <br><u>Attention</u>: See <sup>2</sup>.",
+"		dec							| Destination value is decremented by specified value in lookup table.<br>In the next entry, this next higher entry is used for further increase.  Negative values increase accordingly.   <br><u>Attention</u>: See <sup>2</sup>.",
 "		average						| Calculates the average of both destination and lookup table value.  Blanks and non-numerals are treated as 0, resulting in dividing the other value by 2.",
-"		index						| Inserts the index into destination value, i.e. the current count of inserted rows.  The index starts with 0.  For example, if 3 matches are found in the lookup table, then the index for the 3 rows (2 of them are new) will be 0, 1 and 2.",
+"		index						| Inserts the index into destination value, i.e. the current count of inserted rows.  The index starts with 0.  For example, if 3 matches are found in the lookup table, then the index for the 3 rows (2 of them are new) will be 0, 1 and 2.  The related value from the lookup table is ignored here, but you must specify one in order to match the column count.",
 "		===",
 "",
-"		<sup>1</sup>: Blank entries in the look-up table retrieves the residual value (original value in target table subtracted by all previous calculations belonging together).",
-"		The residual value will be set to 0 afterwards, so a 2nd consecutive lookup returns 0. This is particularly useful when scaling some figures down",
-"		(using factors between 0 and 1) and assigning the residual value in the last entry in the lookup table.",
+"		<sup>1</sup> Applicable to  __table expand(__) function family: The identifiers <b>mul</b> and <b>div</b> apply a special algorithm:",
+"		The residual value, which is the value in the destination table before the call, is subtracted by the the calculated (i.e. multiplied resp. divided) values",
+"		in the previous matches.  Very useful if the lookup table contains a few items with percentages (values 0..1) related to ingredients and the target table",
+"		contains the total weight of the food.",
 "",
-"		<br><br>",
+"		<sup>2</sup> Applicable to  __table expand(__) function family: The identifiers <b>inc</b> and <b>dec</b> apply a special algorithm:",
+"		Blank entries in look-up table retrieves the residual value (original value in target table added (for <b>inc</b>) or subtracted (for <b>dec</b>) by all previous calculations belonging together).",
 "",
-"		<sup>2</sup>: Blank entries in the look-up table retrieves the residual value (original value in target table subtracted by all previous calculations belonging together).",
-"		This is particularly useful when scaling some figures down (using positive divisors) and assigning the residual value in the last entry in the lookup table.",
 ""
  ]
 		,
-	"See also": ["table integrate", "table integrate fast", "table integrate smart", "table integrate smart once" ]
+	"See also": ["table integrate", "table expand" ]
    }
 
+,
 
+"table transpose" :
+{
+	"Function Names":	[ "table transpose" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This functions rarranges table contents from horizontal orientation to vertical orientatio.  All prior row headers will move to the 1st column. ",
+"		On the other hand, all data in the 1st column become headers.",
+"		<u>Attention:</u> Configuration settings applied wtih __table configure(__) prior to this call will be discarded because the transposed table",
+"		is actually a new table.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1-2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing  table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "If only the 1st function parameter is provided, then this table will be transposed.  If another table is named in the 2nd function parameter, then this table remains unchanged." ]
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Name of new table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		}
+	],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	table initialize( t,",
+"		 { { Food,     color,          taste,     best with },",
+"		   { Fries,    golden yellow,  salty,     hamburger },",
+"		   { Pizza,    colorful,       tasteful },",
+"		   { Chianti,  rubin red,      bitter,    pasta, worth enjoying },",
+"		   { Tirami sù,crème and brown,sweet } } );",
+"",
+"	table transpose ( t );",
+"	table list ( t );"
+ ]
+	,
+	"Output": "automatic"
+}
 
+,
 
+"table serialize ..." :
+{
+	"Function Names":	[ "table serialize", "table serialize all", "table serialize ignore zero" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This is a pivot function which moves horizontally spread data (typically looking like schedules across timelines, or other tables with horizontally spread categories)",
+"		to a sequential listing with one affected data item per row.",
+"		<br><br>",
+"",
+"		<b>table serialize all</b> will do a full serialization of the table, including all blank fields",
+"		<b>table serialize</b> only serialize non-blank fields in order to avoid generating unnecessary rows.",
+"		<b>serialize ignore zero</b> will also skip serializing fiels representing zero.  Values such as 0, -0, ., 0.0, .00 are also considered 0, but '0 EUR' is not (text inside).",
+"",
+"		<br/><img src=\"Images/Function_table_serialize.jpg\" alt=\"Function 'table serialize'\"><br/>",
+"",
+"		<u>Hint</u>:The opposite action of <b>table serialize</b> is to use __table spread(__) to spread the data horizontally",
+"		and then apply __table consolidate(__) to reduce the nubmer of rows to the minimum necessary.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"5-6",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing  table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Identifier columns to repeat",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"",
+"			Specifies all columns which data shall be replicated downwards for all corresponding data being serialized.",
+"			This is useful for identifiers and descriptions related to the serialized values so meanings are given to every row.",
+"			It is not recommended to include columns containing numbers which need to be added up (or used in a similar way) at a later time because the serialization would affect the final result.  ",
+"			Even if you want an easily readable table (e.g. describe once, keep following rows blank), then do not include this header.",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified"
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Column for sequence names",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+"Description" : [
+"			Assign a meaningful sequence name.  Naming examples:",
+"			* <b>Months</b> for horizontal headers containing Jan, Feb, Mar, ... Dec",
+"			* <b>Years</b> for horizontal headers containing year numbers",
+"			* <b>Countries</b> for a set of countries listed horizontally",
+""
+ ]
+			
+		},
+		{ "Number": "4.",
+		  "Name": "Sequence names",
+		  "Direction": "input",
+		  "Types": [ "parameter set containing literals" ],
+"Description" : [
+"			These values will be applied as data entries under the column which header name is specified in the 2nd parameter. Examples:",
+"			* { Jan, Feb, March, April } for 'Months'",
+"			* { '2018', '2019', '2020', '2021' } for 'Years' (Quotation marks required because literals are expected)",
+"			* { AT, BE, CH, DE, ES, FR, GB, HU, IT, JP } for 'Countries'",
+""
+ ]
+			
+		},
+		{ "Number": "5.",
+		  "Name": "Category names",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			Categories related to the data in the original table",
+"			Examples",
+"			* Orders",
+"			* Revenues",
+"			* Gross Margin",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* At leaset one header name may be specified",
+"			* Column numbers are not allowed",
+"			* If the columns are not yet existing, then they will be created"
+ ]
+			
+		},
+		{ "Number": "Opt 6.",
+		  "Name": "Original header template",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"",
+"			This literal depicts the first example how the original header looks like where it must contain the word \"[Sequence]\" and (optionally if only 1 category",
+"			name provided, otherwise mandatory), the word \"[Category]\".  \"Sequence\" and \"Category\" are case sensitive.",
+"",
+"			<br>The following table shows a few template examples and examples of the corresponding headers expected in the table",
+"			=== 100, 300, 400",
+"			Sequence Name		| Original header template	| Example of a valid header in the original table",
+"			Years				| \"[Category]/[Sequence]\"	| \"Orders/2018\"",
+"			Quarters			| \"[Sequence] [Category]\"	| \"Q1 Orders\"",
+"			Countries			| \"[Category] in [Sequence]\"| \"Orders in AT\"",
+"			(1 category name)	| \"Year [Sequence]			| \"Year 2018\"",
+"			===",
+"",
+"			The function will actually look for these headers and expects that each of them sequence names and Category names will be mentioned at least once.",
+"			Sufficient example for quarters / 3 Category names:",
+"			* Q1 Orders, Q2 Revenues, Q3 Earnings, Q4 Orders",
+"			Not sufficient example:",
+"			* Q1 Orders, Q2 Revenues, Q3 Revenues, Q4 Orders	(\"Earnings\" missing)",
+"			* Q1 Orders, Q2 Revenues, Q3 Revenues, Q1 Earnings	(\"Q4\" missing)",
+"",
+"			The 6th parameter is not required if only 1 category name is specified.  In this case, the function looks for column names equaling to the sequence names, ",
+"			e.g. \"2018\", \"2019\", \"Q1\", \"Q2\", \"AT\", \"BE\" related to the various examples above.",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Column count",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Number of columns found with header names comprised of values in 4th, 5th and 6th parameters."
+ ]
+		  
+		}
+	],
+	"Exceptions": [ "0 Sequence and/ or 0 category names provided", "No columns with data to spread have been found." ],
+"Examples" : [
+"	include ( Support Library );",
+"",
+"	// An easy one",
+"",
+"	table initialize( bils, // Swedisch for 'cars', aka 'automo-bils'",
+"		{ { Product, \"2020-Q1\"..\"2020-Q4\" },",
+"		  { Sedans,   24, 34, 44, 14 },",
+"		  { Pickpus,  11, 21, 31, 21 },",
+"		  { Cabrios,  '',  5, 10, '' },",
+"		  { SUVs,     35, 25, 45, 55 } } );",
+"",
+"	echo(\"Car sales in sequential order (including blanks here):\");",
+"	table serialize all( bils, Product, Quarter, { \"2020-Q1\"..\"2020-Q4\" }, Cars sold );",
+"	table list ( bils );",
+"",
+"	// Serializing order intake (OI) and revenues (Rev) over quarters",
+"",
+"	table initialize( kpi, // Key Performance Indicators",
+"		{ { Region,   \"OI 2018\", \"Rev 2018\", \"OI 2019\", \"Rev 2019\", \"OI 2020\", \"Rev 2020\"  },",
+"		  { Americas, 1000,      950,        1100,      1050,       1200,      1150        },",
+"		  { Europe,    800,      700,         900,       950,       1100,      1050        },",
+"		  { Antarctica, '',       '',           0,         0,         20,        15        } } );",
+"",
+"	echo;",
+"",
+"	echo(\"Key performance indicator values (excluding blanks and zero:\");",
+"	table serialize ignore zero( kpi, Region, Year, { \"2018\"..\"2020\" },",
+"								 { OI, Rev }, \"[Category] [Sequence]\" );",
+"	table list ( kpi );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table spread", "table spread given headers" ]
+
+}
+
+,
+
+"table spread ..." :
+{
+	"Function Names":	[ "table spread", "table spread accumulating" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This is a pivot function which spreads vertically listed data horizontally across multiple columns using a key derived from",
+"		information in other columns, (e.g. sequence info like dates, quarters, years, states, countries and/or category info like revenues,earnings, etc.).",
+"		The columns created in horizontal order will be arranged in case sensitive alphabetic order.  Values to be spreaded must not necessarily be numeric,",
+"		unless you use <b>table spread accumulating</b>.",
+"",
+"		<br/><img src=\"Images/Function_table_spread.jpg\" alt=\"Function 'table spread'\"><br/>",
+"",
+"		This function creates new headers only if they are not yet existing.  If headers are existing, then data below will be preserved unless overwritten by values being spread.",
+"		The function <b>table spread accumulating</b> will add the new values to the existing value instead of overwriting it. You can do multiple calls of this function on the same table.",
+"",
+"		<u>Hint</u>:To finalize a pivot from vertical horizontal, call __table consolidate(__) as the net function to reduce the number of rows",
+"		to the minimum necessary.",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"3-7",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing  table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Column with values to spread",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			   Specify the column which contains the values or any other conetns you want to spread horizontally.",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Exactly 1 header name and column numbers may be specified"
+ ]
+			
+		},
+		{   "Number":		"3.",
+			"Name" :		"Spreading key expression",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				In order to spread the data horizontally across columns to be created, you need to specify how the new column headers names shall be",
+"				formulated for the horizontal data.  This parameter is an expression which is calculated for every table row and should preferably",
+"				generate an output value of literal type (string).  Other types, such as numerals (e.g. years) will be converted to strings automatically.",
+"				During the horizontal spreading, the applicable value (column specified in 2nd parameter) will be copied to the new columns with these",
+"				header names.",
+"",
+"				<br><br>",
+"				__Partial table specification__ is supported here to reference table columns easily.",
+"				<br><br>",
+"",
+"				Simple example if spreading by one column, e.g. year: Specify <b>[year]</b>.<br>",
+"				Multiple columns, e.g. quarter and year in separate columns: Specify <b>Q+[Quarter]+' '+literal([year])</b> for values like 'Q1 2022'.<br>",
+"				To spread values by 1st letter, consider , which picks the 1st leter and capitalizes it (+ operator on strings).",
+"",
+"				* For a simple distribution across years, quarters, countries, states, and the actual data is available one column, then specify the corresponding column name in brackets, e.g. <b>[Year]</b>.",
+"				* For a distribution of values across years where the full data is available, something like <b>year([Delivery Dates])</b> is proposed.",
+"				* For an alphabetical distribution, use something like <br>+[Name]{0}</br> which picks the 1st letter and capitalizes it (unary '+' operator at the beginning).",
+"				* For a combination of multiple columns, e.g. category and sequence info, combine two columns, e.g. <b>[KPI]+'/'+literal([Year])</b> or <b>[Quarter]+\"-\"+literal([Yeaer])</b>.",
+"",
+"				<u>Attention</u>: New columns will only be created if they are not yet existing.  This scheme allows running multiple calls of <b>table spread</b> and <b>table spread accumulating</b>",
+"				with different data.  This function does not delete any existing values.  Values already existing will only be overwritten or added up.",
+""
+ ]
+			
+		},
+		{   "Number":		"Opt. 4.",
+			"Name" :		"Pivot limitation expression",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+			"Default value" :	"true",
+"Description" : [
+"				This is an expression which will be calculated for every table rowo and shall return a boolean value.",
+"				If the value is true, then the value will be spread into a dedicated column.  This feature lets you limit the creation of too many columns.",
+"				All values excluded will appear in the column for all other values, if defined using the 6th function parameter.",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Year]>=5</b>.<br>",
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands.",
+"",
+"				<br><br>",
+"",
+"				Examples: Your data contains a column containing years, but want to limit the spreading to 5 years, then specify something like",
+"				<b>([Year]=2020..2024)</b>.  Note the required parentheses as explained above so the expression does not hijack following function parameters.",
+""
+ ]
+			
+		},
+		{   "Number":		"Opt. 5.",
+			"Name" :		"Maximum number of columns to add",
+			"Direction" :	"code",
+			"Types" :		[ "numeral" ] ,
+			"Default value" : "(not limited)" ,
+"Description" : [
+"				You can limit the number of columns to be created in order to prevent overruns.  In this case, only the first n columns (in alphabetic order) will be shown."
+ ]
+			
+		},
+		{ "Number": "Opt. 6.",
+		  "Name": "Column for all other values",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "(not applicable)",
+"Description" : [
+"		    This column will be used to allocate all values which cannot be allocate into the specified columns due to limitations",
+"			defined by the 4th and/or 5th function parameters.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Max. 1 header name may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 7.",
+		  "Name": "Destination column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "to the end of the table",
+"Description" : [
+"			Specify a header name or column number where to insert the new columns added. The specified column and further ones to the right will shift to the",
+"			right accordingly.<br>",
+"			Negative number are supported for indexing from right to left, however -1 refers to the end of the table, -2 to left of last column, etc.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Column count",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Number of new columns added.  The 'column for other values' specified in the 6th function parameter is not included in the counting."
+ ]
+		  
+		}
+	],
+"Examples" : [
+"",
+"	include ( Support Library );",
+"",
+"	// Remember the motor vehicles serialized ...",
+"	table initialize( bils, // Swedisch for 'cars', aka 'automo-bils'",
+"		{ { Product, \"2020-Q1\"..\"2020-Q4\" },",
+"		  { Sedans,   24, 34, 44, 14 },  { Pickpus,  11, 21, 31, 21 },",
+"		  { Cabrios,  '',  5, 10, '' },  { SUVs,     35, 25, 45, 55 } } );",
+"",
+"	echo(\"Car sales in sequential order (including blanks here):\");",
+"	table serialize all( bils, Product, Quarter, { \"2020-Q1\"..\"2020-Q4\" }, Cars sold );",
+"	table list ( bils );",
+"",
+"	echo(\"Let's shift to reverse gear: Spread the data\");",
+"",
+"	count[] = table spread( bils, Cars sold, [Quarter] );",
+"	table list ( bils );",
+"",
+"	echo(\"Number of new columns created. \", count[]);",
+"	echo(\"And do a final consolidation and you get the original list.\");",
+"	table consolidate( bils, Product, { Quarter, Cars sold, \"2020-Q1\"..\"2020-Q4\" }, { 2:delete, overwrite if blank }  );",
+"	table list ( bils );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table spread given headers", "table consolidate", "table serialize" ]
+
+}
+
+,
+
+"table spread given headers ..." :
+{
+	"Function Names":	[ "table spread given headers", "table spread given headers accumulating" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		These two functions are very similar to __table spread(__) and __table spread accumulating(__) with the only difference that",
+"		you specify the column header names directly which shall be included, and not more.  This approach provides full control of the new",
+"		columns created, regardless of the data being spread horizontally.",
+"",
+"		<br/><img src=\"Images/Function_table_spread.jpg\" alt=\"Function 'table spread'\"><br/>",
+"",
+"		If the destination colums are already existing, then the will be used.  Otherwise, the new columns will be created.",
+"		The function <b>table spread accumulating</b> will add the new values to the existing value instead of overwriting it. ",
+"		You can do multiple calls of this function on the same table.",
+"",
+"		<u>Hint</u>:To finalize a pivot from vertical horizontal, call __table consolidate(__) as the net function to reduce the number of rows",
+"		to the minimum necessary.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"4-6",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing  table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Column with values to spread",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			   Specify the column which contains the values or any other conetns you want to spread horizontally.",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Exactly 1 header name and column numbers may be specified"
+ ]
+			
+		},
+		{   "Number":		"3.",
+			"Name" :		"Spreading key expression",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"				Details: See __table spread(__), 3rd function parameter for details.<br>",
+"				During the spreading process, the calculated keys will be compared with the columns specified in the 4th parameter.",
+"				Only if the columns exist, then the horiontal spreading takes place.",
+""
+ ]
+			
+		},
+		{ "Number": "4.",
+		  "Name": "Destination Columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			   Specify all column header names for the data being spread.  If it is years, then specify something like  { '2020' .. '2025' },",
+"			   noting that all values must be literal.  No additional columns will be created automatically if certain values do not fit into the",
+"			   given header names.  However, they can be spread into the 'column for all other values' specified in the 5th function parameter.",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names may be specified",
+"			* Column numbers are not allowed",
+"			* Header names need to be unique"
+ ]
+			
+		},
+		{ "Number": "Opt. 5.",
+		  "Name": "Column for all other values",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "(not applicable)",
+"Description" : [
+"			This column will be used to allocate all values which cannot be allocate into the specified columns listed in the 4th function parameter.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Max. 1 header name may be specified.",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 6.",
+		  "Name": "Destination column",
+		  "Direction": "input",
+		  "Types": [ "table column" ],
+		  "Default value": "to the end of the table",
+"Description" : [
+"			Specify a header name or column number where to insert the new columns added. The specified column and further ones to the right will shift to the",
+"			right accordingly.<br>",
+"			Negative number are supported for indexing from right to left, however -1 refers to the end of the table, -2 to left of last column, etc.",
+"			<br><br>",
+"",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Only 1 header name or column number may be specified.",
+""
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Column count",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Number of new columns added.  The 'column for other values' specified in the 6th function parameter is not included in the counting."
+ ]
+		  
+		}
+	],
+"Examples" : [
+"",
+"	include ( Support Library );",
+"",
+"	// Remember the motor vehicles serialized ...",
+"	table initialize( bils, // Swedisch for 'cars', aka 'automo-bils'",
+"		{ { Product, \"2020-Q1\"..\"2020-Q4\" },",
+"		  { Sedans,   24, 34, 44, 14 },  { Pickpus,  11, 21, 31, 21 },",
+"		  { Cabrios,  '',  5, 10, '' },  { SUVs,     35, 25, 45, 55 } } );",
+"",
+"	echo(\"Car sales in sequential order (including blanks here):\");",
+"	table serialize all( bils, Product, Quarter, { \"2020-Q1\"..\"2020-Q4\" }, Cars sold );",
+"	table list ( bils );",
+"",
+"	echo(\"Let's add more values: One reservation, to demonstrate ...accumulating\");",
+"	table insert columns( bils, Cars reserved );",
+"	[bils:Product,Sedans,Cars reserved] = 20;",
+"",
+"	// Specify 2 columns, and the 'Others' column to put all remaining data.",
+"	cols[] = {\"2020-Q1\", \"2020-Q2\"};",
+"	table spread given headers ( bils, Cars sold, [Quarter], cols[], Others );",
+"	table spread given headers accumulating( bils, Cars reserved, [Quarter], cols[], Others );",
+"",
+"	echo(\"Note the 44 sedans in 2020-Q1 (24 sold, 20 reserved)\");",
+"	table list ( bils );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table spread", "table consolidate", "table serialize" ]
+}
+
+,
+
+"table consolidate ..." :
+{
+	"Function Names":	[ "table consolidate", "table consolidate selected rows" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function condenses the the table by reducing the rows and performing operations in order to aggregate the data so they continue to be",
+"		plausible for further use.  More precisely, one or more identifier columns need to be defined. The aim is to reduce the number of rows with",
+"		the same data in the identifier columns to 1.  The 2nd and further rows with the same identifier data will be merged into the first applciable",
+"		row.  Specific consolidation actions will be applied on selected columns (e.g. overwriting, adding up, etc.).",
+"",
+"		<br/><img src=\"Images/Function_table_consolidate.jpg\" alt=\"Function 'table consolidate'\"><br/>",
+"",
+"		<u>Hint</u>:A vertical-to-horizontal pivot operation can be finalized by using this funciton after calling __table spread(__) or __table spread given headers(__).",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1-6",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing  table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{   "Number":		"2.",
+			"Name" :		"Expression to select rows",
+			"Direction" :	"code",
+			"Types" :		[ "expression", ":literal" ] ,
+"Description" : [
+"",
+"				Applicable to function <b>table consolidate selected rows</b> only.",
+"",
+"				Specify the conditions or rules to select the rows.  See __expressions to select rows__.<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Score]>=5</b>.<br>",
+"				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
+ ]
+			
+		},
+		{ "Number": "Opt. 2. / 3.",
+		  "Name": "Identifier Columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns selected)",
+"Description" : [
+"			   The identifier columns guide the consolidation process.  All rows containing the same data in the identifier columns will be reduced to 1 row accordingly.",
+"			   If the 1st function parameter refers to no columns, then all rows in the entire table will be consolidated to 1 row.  If <b>table consolidate</b> is called",
+"			   with onyly 1 function parameter, then the consolidation process takes place without consolidating the remaining columns (i.e. consolidation action 'none' is assumed).",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* Specifying no headers (i.e. softquoted empty string '' or empty set {}) will consolidate all table rows to 1 single row.",
+"			* Do not repeat the same column",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 3. / 4.",
+		  "Name": "Columns to consolidate",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns consolidated)",
+"Description" : [
+"				Specify the columns where the data shall be consolidated automatically.  The remaining columns in the table will not be consolidated, i.e. the consolidation",
+"				action is assumed 'none'.  In this case, the contents in the first row will be preserved.<br>",
+"				<u>Note</u>: If all columns (except the identifier columns) need to be consolidated, then specify an asterisk in a softquoted literal using single quotation marks, e.g. '*'. (\"*\" looks for header name = \"*\").",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified",
+"			* Specifying no headers (i.e. softquoted empty string '' or empty set {}) will exclude all columns from active consolidation.  Contents in top row will apply.",
+"			* Do not specify any columns already referenced in the previous function parameter (identifier columns)",
+"			* Do not repeat the same column",
+"			* Softquoted literal '*' in single quotation marks: Consolidate all columns in the table except the identifier columns",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 4. / 5.",
+		  "Name": "Consolidation actions",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "'overwrite' if preious parameter is specified, otherwise 'none'",
+"Description" : [
+"",
+"				Specify one of the various __consolidation actions__.<br>",
+"				The operation is applied with the data from the next lower applicable row and the destination data in the first applicable row (= target row).",
+"				For example, <b>add</b> adds the value from the lower row to the target row.",
+"",
+"				The number of operation identifiers is less than the number of columns specified in the 3rd (output columns) and 6th parameter (destination columns),",
+"				then the default value 'overwrite' is assumed for the remaining columns.  If this parameter contains more elements than columns retrieved, then the exess ones will be ignored.",
+"				* Use a literal to specify one value",
+"				* Use parameter set to specify multiple values",
+"				* Alternatively use a softquoted literal (using single quotation marks) to specify multiple values, separated by commas",
+"				* No values can be provided by using empty set {} or blank softquoted literal ''.  'none' is assumed for all consolidating columns here.",
+"				* Ideally, the number of consolidation actions shall equal to the number of columns to consolidate (previous function parameter).",
+"				* If fewer consolidation actions are listed than number of columns to consolidate, then the last action will apply to all remaining columns.",
+"				* If more consolidation actions are listed, then the excessive numbr of actions will be ignored."
+ ]
+				
+		},
+		{ "Number": "Opt. 5. / 6.",
+		  "Name": "Separator string",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "'' (empty string)",
+"Description" : [
+"				For some __consolidation actions__ (e.g. <b>append, append once</b>), a separator string can be specified to separate the consolidated strings",
+"				in a more visible way, for example using a comma or new line."
+ ]
+				
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows removed",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			>=0 = Number of rows removed<br>",
+"			-1 = Error identified."
+ ]
+		  
+		}
+	],
+"Examples" : [
+"",
+"	include( Support Library );",
+"",
+"	table initialize( t,",
+"	{ { Highest Score, Name,      Location, Game 1, Game 2, Remarks, Count },",
+"	  { 210,           Taylor,    Rome,     32,     20                      },",
+"	  { 190,           Tailor,    Prague,   41,     13,     Exceptional win },",
+"	  { 190,           Snyder,    Berne,    41,     12,                     },",
+"	  { 200,           Tailor,    Miami,    51,     10,     great job       },",
+"	  { 230,           Taylor,    Jakarta,  14,     21                      },",
+"	  { 230,           Taylor,    Boston,   15,     22                      },",
+"	  { 190,           Tailor,    Oslo,     41,     13      great job       } } );",
+"",
+"",
+"	table copy table( t, u );",
+"",
+"	// '*' in 3rd function parameter selects all columns except 'Name'.",
+"	// In this case, the 6 consolidation actions apply to the 6 columns from left to right.",
+"",
+"	c[] = table consolidate              ( t, Name,'*', {max, append, sum, average, append once, count}, \", \" );",
+"	echo(\"All rows consolidated (\", c[], \" rows removed):\");",
+"	table list ( t );",
+"",
+"	c[] = table consolidate selected rows( u, [Name]==Taylor, Name,'*', {max, append, sum, average, append once, count}, \", \" );",
+"	echo(\"Only Taylor's rows consolidated (\", c[], \" rows removed):\");",
+"	table list ( u );",
+"",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table spread", "table spread given headers", "table serialize" ]
+}
 
 }

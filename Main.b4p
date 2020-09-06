@@ -1,26 +1,26 @@
-﻿	include (Support Library);
+﻿
+	include( Support Library );
 
-	table load( lookup, "Examples\Table Lookup Example 2.csv" );
+	table initialize( t,
+	{ { Highest Score, Name,      Location, Game 1, Game 2, Remarks, Count },
+	  { 210,           Taylor,    Rome,     32,     20                      },
+	  { 190,           Tailor,    Prague,   41,     13,     Exceptional win },
+	  { 190,           Snyder,    Berne,    41,     12,                     },
+	  { 200,           Tailor,    Miami,    51,     10,     great job       },
+	  { 230,           Taylor,    Jakarta,  14,     21                      },
+	  { 230,           Taylor,    Boston,   15,     22                      },
+	  { 190,           Tailor,    Oslo,     41,     13      great job       } } );
 
-	table initialize( target, 
-	     { { Preference, Seats Needed, Location },
-	       { vegi pizza, 6, inside },
-	       { pizza tonno, 5, outside },
-	       { hamburger, 2, inside },
-	       { beer, 1, bar },
-	       { fries, 2, "self-service" },
-	       { pasta napoli, 8, inside },
-	       { steak, 10, inside },
-	       { steak, 3, outside } } );
 
-	count[] = table lookup smart once ignore case
-	          ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row }, 
-	            lookup,   {Table size,   Offering,  Ambience}, { Restaurant Name, Phone Number, '#row' }, true, Counter );
+	table copy table( t, u );
 
-	echo("Lookup table:");
-	table list( lookup );
+	// '*' in 3rd function parameter selects all columns except 'Name'.
+	// In this case, the 6 consolidation actions apply to the 6 columns from left to right.
 
-	// Note: Querying New York after Florence looks for next match afer Florence and is a beer.
+	c[] = table consolidate              ( t, Name,'*', {max, append, sum, average, append once, count}, ", " );
+	echo("All rows consolidated (", c[], " rows removed):");
+	table list ( t );
 
-	echo("Target table after lookup (", count[], " items found):");
-	table list( target );
+	c[] = table consolidate selected rows( u, [Name]==Taylor, Name,'*', {max, append, sum, average, append once, count}, ", " );
+	echo("Only Taylor's rows consolidated (", c[], " rows removed):");
+	table list ( u );
