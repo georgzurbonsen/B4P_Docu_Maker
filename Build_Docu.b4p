@@ -133,43 +133,20 @@ table initialize ( table of general descriptors,
 // Hidden {	"Keywords",			No,		"simple,array",	"list,comma break"},
 	  {	"Keywords",			No,		"simple,array",	""},
 	  {	"Library",			No,		simple,		"list,comma break"},
-	  {	"Version",			No,		simple,		"append"},
-	  {	"Description 01",		Yes,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 01",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 01",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 02",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 02",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 02",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 03",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 03",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 03",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 04",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 04",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 04",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 05",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 05",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 05",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 06",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 06",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 06",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 07",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 07",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 07",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 08",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 08",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 08",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 09",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 09",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 09",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Description 10",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Examples 10",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output 10",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"Restrictions",			No,		"simple,array",	"list,line break,html"},
+	  {	"Version",			No,		simple,		"append"} } );
+for all parameters( { '01'..'50' }, i[] )
+{
+    table append ( table of general descriptors,
+	{ {	"Description " + i[], 		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples " + i[],		No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output " + i[],		No,		"simple,array",	"list,line break,monospace,output"} } );
+}
+table append ( table of general descriptors,
+	{ {	"Restrictions",			No,		"simple,array",	"list,line break,html"},
 	  {	"OS differences",		No,		"simple,array",	"text,html"},
 	  {	"Exceptions",			No,		"simple,array",	"text,line break,html"},
 	  {	"See also",			No,		"simple,array",	"list,line break,link keywords"},
 	  {	"Notes",			No,		"simple,array",	"text,html"} } );
-
 
 table initialize ( table of function descriptors,
 	{ {	"Name",				"Required",	"Variable",	"Todo",		"Values"		},	
@@ -245,47 +222,43 @@ define procedure( check descriptions, { {name, literal}, { item, all, reference 
 {
     echo("Check: ", name[] );
     descriptors[] = set names( item[], 1, all );
-    for all parameters( descriptors[], value[], index[])
-    {
-	if (value[] = 'Description ## *')
-	{
-	    descriptors[]{index[]} = left( value[], 14 ); // Keep 'Description ##' only
-	    echo("Truncated: ", descriptors[]{index[]} );
-	}
-    }
+
+    for all parameters( descriptors[], descriptor[], index[]) descriptors[]{index[]} = left( descriptor[], ':' ); // Keep main descriptor only
+
+    // Check for redundant invalid descriptors and missing descriptors
 
     redundant descriptors[] = descriptors[] - [descriptor table[]:Name,..];
     if (redundant descriptors[] <> {} ) 
-	throw( "Entry '" + name[] + "'" + new line + "has following redundant descriptors:" + new line + join( redundant descriptors[], "," ) );
+	throw( "Entry '" + name[] + "'" + new line + "has following invalid (redundant) descriptors:" + new line + join( redundant descriptors[], "," ) );
 
-    required descriptors[] 	= [descriptor table[]:Required,:Yes,Name];
-    missing descriptors[]	= required descriptors[] - descriptors[];
+    missing descriptors[] = [descriptor table[]:Required,:Yes,Name] - descriptors[];
     if (missing descriptors[] <> {})
 	throw( "Entry '" + name[] + "'" + new line + "has missing following required descriptors:" + new line + join( missing descriptors[], "," ) );
 
-   for all variables( item[], value[], counter[], var_name[] )
+
+   for all variables( item[], value[], counter[], full descriptor[] )
    {
-//	echo( var_name[] );
+	// full descriptor[] contains full descriptor name, e.g. "Description 01:Some Text".  
+	//      descriptor[] contains "Description 01" only.
+
+	echo( "   ",full descriptor[] );
+	descriptor[] = left( full descriptor[], ':' );
+
 	id[] = identify( item[counter[]] );
 
-        var_name_short[] = select if((var_name[] = 'Description ## *'),  left( var_name[], 14 ), var_name[] ); // Keep 'Description ##' only
+	if ( id[] <> softquoted literal([descriptor table[]: Name, descriptor[], Variable ]) )
+	    throw( "Entry '" + name[] + "'" + new line + "Descriptor '" + full descriptor[] 
+		+ "'" + new line + "is of type '" + id[] + "' while expecting one of: " + [descriptor table[]: Name, descriptor[], Variable ] );
 
-
-	if ( id[] <> softquoted literal([descriptor table[]: Name, var_name_short[], Variable ]) )
-	    throw( "Entry '" + name[] + "'" + new line + "Descriptor '" + var_name[] 
-		+ "'" + new line + "is of type '" + id[] + "' while expecting one of: " + [descriptor table[]: Name, var_name_short[], Variable ] );
-
-	valid values[] = softquoted literal([descriptor table[]: Name, var_name_short[], Values ]);
+	valid values[] = softquoted literal([descriptor table[]: Name, descriptor[], Values ]);
 	if (valid values[] = '') valid values[] = '*';
-	begin of message[] = "Entry '" + name[] + "'" + new line + "Descriptor '" + var_name[] + "'" + new line;
+	begin of message[] = "Entry '" + name[] + "'" + new line + "Descriptor '" + descriptor[] + "'" + new line;
 
-	if (var_name[] <> Parameters,Return value)
+	if (descriptor[] <> Parameters,Return value)
 	{
-
 	    if (id[] == simple) // Check that simple values are literals
 	    {
-		if (type(item[counter[]]) = void )	
-		   throw( begin of message[] + "contains no data.");
+		if (type(item[counter[]]) = void ) throw( begin of message[] + "contains no data.");
 
 		item[counter[],Text] = item[counter[]]; // Move simple contents to member variables so all contents are in member variables
 		item[counter[]] = 0;
@@ -298,7 +271,7 @@ define procedure( check descriptions, { {name, literal}, { item, all, reference 
 		    throw( begin of message[] + literal(index[]+1) + ". Value: '"  + literal(subitem[]) + "' is of data type '" + type(subitem[]) + "' while expecting 'literal'.");
 
 		if (subitem[] <> valid values[])
-		    throw( begin of message[] + literal(index[]+1) + ". Value: '" + subitem[]          + "' is not one of:  " + [descriptor table[]: Name, var_name[], Values]);
+		    throw( begin of message[] + literal(index[]+1) + ". Value: '" + subitem[]          + "' is not one of:  " + [descriptor table[]: Name, descriptor[], Values]);
 
 	    }
 	}
@@ -683,39 +656,30 @@ define procedure ( create function description in HTML, { { item, all, reference
     table name[] = select if ( content type[] == "Function Names", table of function descriptors, table of general descriptors );
     table create( example program ); // Make sure this table is empty
 
+    all full descriptors[]	= set names( item[], 1, all );				// e.g. {"Descriptor 01:Intro", ...}
+    all descriptors[]		= deep( left, { all full descriptors[], ':' } ); 	// e.g. {"Descriptor 01", ...}
 
-    for all table rows(  table name[], Name, name[] )
+    for all table rows(  table name[], Name, descriptor[] )
     {
-	description title[] = '';
-	full name[] = name[];	// Standard name + text name
-	text name[] = name[];	// Text only
+	description title[] 	= '';
+	pos[] 			= find( all descriptors[], descriptor[] );
+	if (pos[]<0) 		continue loop; // Skip items not needed for output like "HTML File Name".
 
-	if ( name[] = 'Description ##')
-	{
-	    full name[] = filter( set names( item[], 1, all ), softquoted literal(name[]+' *') );
-	    if (full name[] == {})  continue loop;
-	    full name[] = full name[]{0};
-	    text name[] = full name[] - name[] - ' ';
-	}
-	else
-	{
-	    if (!existing( item[name[]] )) continue loop;
-	}
+	full descriptor[]	= all full descriptors[]{pos[]};
+	descriptor to show[] 	= right( full descriptor[], ':'  ); 			// Right side of colon if colon available, otherwise full text
 
-	echo("  ", full name[] );
 	check( [Todo] )
 	{
-
 	    case ( '*append*' )
 	    {
-		apply HTML links on embedded keywords( item[full name[]] );
-		table append( HTML out[], { "<h4> " + text name[] + ": " + '<span class="black_text">' + join( set( item[full name[]], 1 ),", ") + "</span></h4>" } );
+		apply HTML links on embedded keywords( item[full descriptor[]] );
+		table append( HTML out[], { "<h4> " + descriptor to show[] + ": " + '<span class="black_text">' + join( set( item[full descriptor[]], 1 ),", ") + "</span></h4>" } );
 	    }
 
 	    case ( '*list*,*text*,*parameters*,*return values*' )
 	    {
-		if (name[]='Examples ##','Output ##')	table append( HTML out[], { "<h5> " + left(text name[],' ') + ":</h5>" } );
-		else:					table append( HTML out[], { "<h4> " + text name[] + "</h4>" } );
+		if (full descriptor[]='Examples ##:*','Output ##:*')	table append( HTML out[], { "<h5> " + descriptor to show[] + "</h5>" } );
+		else:							table append( HTML out[], { "<h4> " + descriptor to show[] + "</h4>" } );
 	    }
 
 	    case ( '*parameter*' )
@@ -761,18 +725,18 @@ define procedure ( create function description in HTML, { { item, all, reference
 		table create( example program );
 	    }
 
-	    case ( '*link keywords*' )		apply HTML links on keywords( item[full name[]] );
+	    case ( '*link keywords*' )		apply HTML links on keywords( item[full descriptor[]] );
 
 	    case ( '*link embedded keywords*' )
 	    {
-		apply HTML links on embedded keywords( item[full name[]] );
+		apply HTML links on embedded keywords( item[full descriptor[]] );
 	    }
 
 	    case ( '*list*' )
 	    {
 		if ([Todo]='*monospace*')
 		{
-		    payloads[] <== item[full name[]]; // Pick up all values into variable payloads;
+		    payloads[] <== item[full descriptor[]]; // Pick up all values into variable payloads;
 		    for all variables( payloads[], value[], index[] )
 		    {
 		        if ([Todo]='*code*') table append( example program, { payloads[index[]] } ); // Record the example program in case of running it
@@ -797,21 +761,20 @@ define procedure ( create function description in HTML, { { item, all, reference
 		}
 		else
 		{
-		    table append( HTML out[], { join ( set (item[full name[]] , 1), "<p>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</p>" ) } );
+		    table append( HTML out[], { join ( set (item[full descriptor[]] , 1), "<p>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</p>" ) } );
 		}
 	    }
 
 	    case( '*html*' )
 	    {
-		convert manuscript itemizations into HTML( item[full name[]] );
-		convert manuscript tables into HTML( item[full name[]] );
+		convert manuscript itemizations into HTML( item[full descriptor[]] );
+		convert manuscript tables into HTML( item[full descriptor[]] );
 	    }
 
 	    case ( '*text*' )
 	    {
-		table append( HTML out[], { join ( set (item[full name[]] , 1), "<p>", new line, "</p>" ) } );
+		table append( HTML out[], { join ( set (item[full descriptor[]] , 1), "<p>", new line, "</p>" ) } );
 	    }
-
 
 	}
     }
@@ -952,9 +915,7 @@ define procedure ( create all general and function descriptions in HTML )
 
 		} );
 
-
 	    table save( HTML template, file name[], new line );
-
 	}
 
 }
@@ -968,6 +929,7 @@ define procedure ( create all general and function descriptions in HTML )
 	variable load( docu[], file[ collected contents json ], JSON ); // Load the JSON code into one variable (docu[])
 
 	check all descriptions;
+
 	collect keywords;
 	load revolving TOC;
 	sequence revolving TOC;
@@ -992,7 +954,6 @@ define procedure ( create all general and function descriptions in HTML )
 	}
 
 }
-
 
 
 catch ( msg[] ) // Exception handling

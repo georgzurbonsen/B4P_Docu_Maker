@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "comments" ],
     "Keywords":			[ "comments" ],
-    "Description 01 Introduction to Comments"::
+    "Description 01:Introduction to Comments"::
 	Documenting comments is very similar as in C/C++. The language supports following comment symbols:
 
 
@@ -19,20 +19,20 @@ B4PDOCU.START
 	You may wonder why obvious names such as 'if', 'while' and 'for' are not considered as similar reserved keywords.  In Beyond4P, the control flow statements
 	are actually procedure names which then influence executing further statements or blocks.  Therefore, you can actually use 'if' as the given function.
 	+++,
-    "Examples 01"::
+    "Examples 01:"::
 	// This is a commment
 	// Bla Bla /* Bla Bla
 	echo( This statement is outside a comment block );
 	// Bla Bla */ Bla Bla
 	+++,
-    "Output 01":		"automatic",
+    "Output 01:":		"automatic",
 
-    "Description 02 Github Markdown files"::
+    "Description 02:Github Markdown files"::
 	Beyond4P <i>understands</i> markdown files (with filenames ending '.md') where it only executes code lines which inside the code blocks.  All other contents
 	outside the code blocks are treated like comments.  Code blocks must be delimited with three accent-grave symbols ```. Multiple such code blocks in one
 	markdown file are supported.  Presently, Beyond4P does not check for possible text such as language names after these symbols, e.g  <b>```beyond4p</b>.
 
-    "Examples 02"::
+    "Examples 02:"::
 	# This is a markdown header
 	And some text to describe it
 	```program code
@@ -41,7 +41,7 @@ B4PDOCU.START
 	# This is the next header
 
 	+++,
-    "Output 02":		"This statement is inside a block"
+    "Output 02:":		"This statement is inside a block"
 
 
   }

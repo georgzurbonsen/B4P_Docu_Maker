@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types" ],
     "Keywords":			[ "data types", "basic data types" ],
-    "Description 01 Basic Data Types"::
+    "Description 01:Basic Data Types"::
 
 	Beyond4P supports six basic data types as listed below.  These data types are supported by all __variables__ and expressions.
 	Regarding variables, Beyond4P uses the <i>dynamic weak typing</i>rule where the data type can be freely changed with any 
@@ -31,7 +31,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types literals" ],
     "Keywords":			[ "literal", "literals", "softquoted literal", "softquoted literals", "quoted literal", "quoted literals", "unquoted literal", "unquoted literals" ],
-    "Description 01 Literals"::
+    "Description 01:Literals"::
 
 	Literals are text representations (also known as strings) consisting of 0, 1 or any number of true UNICODE characters.
 	The number of characters per literal is only limited by the overall available free memory in the system.
@@ -48,7 +48,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 02 (Unquoted) Literals"::
+    "Description 02:(Unquoted) Literals"::
 
 	Unlike in most other common programming languages, all text expressions without use of quotation marks in the Beyond4P code are treated
 	as unquoted literals and not as variable and expression names. Every unquoted literal begins with the first non-blank symbol (i.e. all letters, non-ANSI
@@ -59,7 +59,7 @@ B4PDOCU.START
 	Literals may take any legitimate value, except for __reserved keywords__ which are interpreted differently (e.g. true, false, else).
 
 	+++,
-    "Examples 02"::
+    "Examples 02:"::
 	echo(Hello World);
 	echo(  Hello   World   ); // To include the blanks, use quotation marks.
 	echo(Hello World, new line, Hello Folks, new line); // 'new line' is a reserved keyword.
@@ -69,9 +69,9 @@ B4PDOCU.START
 	echo( 1 2 3 );            // Is a literal because of spaces between teh digits
 	echo( type( 1 2 3 ));
 	+++,
-    "Output 02":		"automatic",
+    "Output 02:This is the output":		"automatic",
 
-    "Description 03 Softquoted Literals"::
+    "Description 03:Softquoted Literals"::
 
 	Softquoted literals are literals placed in <u>single quotation marks</u> (example: '123', 'true', '  Hello World').  Any contents inside single quotation marks
 	are part of softquoted literals, including leading and trailing blanks.  __Entities__ (known in HTML, for exmaple &amp;euro;) will be decoded automatically
@@ -79,32 +79,32 @@ B4PDOCU.START
 	string comparisons.
 
 	+++,
-    "Examples 03"::
+    "Examples 03:"::
 	echo('  Hello   World   ', new line, 'new line'); 
 	echo(Hello World = 'Hell*'); // Example with wildcard symbol meaning 'true if beginning with Hell'
 	echo('&euro;');
 	echo( length('&euro;') );
 	+++,
-    "Output 03":		"automatic",
+    "Output 03:":		"automatic",
 
 
 
-    "Description 04 Quoted Literals"::
+    "Description 04:Quoted Literals"::
 
 	Quoted literals are literals placed in <u>double quotation marks</u> (example: "123", "true", "  Hello World").  Any contents inside single quotation marks
 	are part of softquoted literals, including leading and trailing blanks.  Entities will not be decoded.  If you still need to decode entities, then use the
 	function __decode entitites(__).  In comparison operations, the contents are interpreted as given, i.e. wildcard symbol interpretation will not happen.
 
 	+++,
-    "Examples 04"::
+    "Examples 04:"::
 	echo("  Hello   World   ", new line, 'new line'); 
 	echo("&amp;");
 	echo(Hello World = "Hell*"); // 'Hello World' is not the same as 'Hell*'
 	+++,
-    "Output 04":		"automatic",
+    "Output 04:":		"automatic",
 
 
-    "Description 05 Summary"::
+    "Description 05:Summary"::
 
 	=== 400, 200, 200, 200, simple
 	Item | (Unquoted) literal | Softquoted literal | Quoted literal
@@ -127,7 +127,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "literals indexing" ],
     "Keywords":			[ "literals indexing", "length of literals" ],
-    "Description 01 Literals - Simple Indexing"::
+    "Description 01:Literals - Simple Indexing"::
 
 	<i>Simple indexing</i> is used to retrieve single characters from the literal.  Indexing begins with 0 which refers to the 1st
 	character.  The index value is specified in braces and shall not be confused with a parameter set as such.
@@ -143,7 +143,7 @@ B4PDOCU.START
 	* Updating individual elements on the left hand side of assignments is not possible.  Wrong exmaple: <b>a[]{3} = 'E';</b>.
 
 
-    "Examples 01"::
+    "Examples 01:"::
 	echo( abcde {} );     // Returns 5 (character count)
 	echo( abcde, {0} );   // Access the 1st element
 	echo( abcde, {-2} );  // Access the 2nd last element
@@ -151,7 +151,7 @@ B4PDOCU.START
 	echo( abcde, {-10} ); // Same case here.
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:Output:":		"automatic"
 
   },
 
@@ -164,12 +164,12 @@ B4PDOCU.START
     "Keywords":			[ "literals extracting substrings" ],
 
 
-    "Description 01 Literals - Extracting Substrings"::
+    "Description 01:Literals - Extracting Substrings"::
 
 	Instead of specifying single index values to retrieve single characters, substrings can be retrieved by listing muliple values and/or ranges.
 	The range operator '..' is available to specify a range.  The result will always be a literal.
 
-    "Examples 01"::
+    "Examples 01:"::
 	echo( abcdefg { 0,2,4,2,0 } );    // Returns 'aceca'
 	echo( abcdefg { 3..5 } );         // Returns 'def'
 	echo( abcdefg { 5..3 } );         // Empty string.  Ranges cannot be listed in reverse direction
@@ -180,7 +180,7 @@ B4PDOCU.START
 	echo( abcdefg { 0..2,5,1..3 } );  // Combinations
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
   },
 
 
@@ -191,7 +191,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types numerals" ],
     "Keywords":			[ "numeral", "numerals", "plain numeral", "plain numerals"  ],
-    "Description 01 Numerals"::
+    "Description 01:Numerals"::
 
 	Numerals are numeric data representations which are internally handled as double precision floating point numbers.
 	The same type is used for typical integer use (for example a loop index counting upwards, referencing a row number to the table) and
@@ -206,7 +206,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 02 (Regular) Numerals"::
+    "Description 02:(Regular) Numerals"::
 
 	All numbers directly expressed in the Beyond4P program text or read in from files or tables as well as command line parameters are
 	considered (regular) numerals.  The original text representation describing the numeral will be preserved in addition to the numeric
@@ -224,35 +224,35 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 03 Plain Numerals"::
+    "Description 03:Plain Numerals"::
 
 	Numerals turn into plain numerals with original text representation voided.
 	+++,
 
 
-    "Examples 03"::
+    "Examples 03:"::
 	echo(012.340);		// Numeral
 	echo(type detailed(012.340), new line);
 	echo(012.340 + 0);	// Plain numeral - Original text representation is lost
 	echo(type detailed(012.340 + 0));
 	echo(numeral(012.340));	// Also plain numeral
 	+++,
-    "Output 03":		"automatic",
+    "Output 03:":		"automatic",
 
 
 
-    "Description 04 Scientific Notation"::
+    "Description 04:Scientific Notation"::
 
 	The Beyond4P code text does not support scientific notation, e.g. 1.2E+3 would assert a syntax error.  However, the function __numeral()__
 	supports scientific notation.  However, scientific notation is supporte in reading values from tables (provided the __system variable__ 
 	<b>table conversion[scientific]</b> is set to true, JSON files and user input.
 	+++,
 
-    "Examples 04"::
+    "Examples 04:"::
 	echo(numeral("1.2E+03"));
 	+++,
 
-    "Output 04":		"automatic"
+    "Output 04:":		"automatic"
 
   },
 
@@ -262,7 +262,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types dates" ],
     "Keywords":			[ "date", "dates", "plain date", "plain dates"  ],
-    "Description 01 Dates"::
+    "Description 01:Dates"::
 
 
 	This data type can store pure dates (beginning 1990-01-01), time of day (down to the second), combination of both date and time of day, or <i>no date</i> which 
@@ -278,7 +278,7 @@ B4PDOCU.START
 	+++,
 
 
-    "Description 02 (Regular) Dates"::
+    "Description 02:(Regular) Dates"::
 
 	Regular dates contain the digital date (and/or time of day) along the original text representation provided.  This sub-type applies only in a few cases
 	which includes accessing dates from tables (if enabled with the system variable table conversion[date] = true, otherwise the date is read in as a literal),
@@ -291,7 +291,7 @@ B4PDOCU.START
 	
 	+++,
 
-    "Description 03 Plain Dates"::
+    "Description 03:Plain Dates"::
 
 	This is the simpler case.  Plain dates contain the digital date (and/or time of day) without any associateid text representation.
 	The easiest way to describe a date or time value is using one of the following functions:
@@ -309,7 +309,7 @@ B4PDOCU.START
 
 
 
-    "Examples 03"::
+    "Examples 03:"::
 	d1[] = "14. July 2021";
 	d2[] = "now";
 	d3[] = "20:15:00";
@@ -330,7 +330,7 @@ B4PDOCU.START
 	echo(time("2020-12-31 15:00")+1/24);		// Time, 1 hour later
 	echo(pure date("31. Dezember 2021")+1);		// Numeral
 	+++,
-    "Output 03":		"automatic"
+    "Output 03:":		"automatic"
 
 
 
@@ -343,19 +343,19 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types booleans" ],
     "Keywords":			[ "boolean", "booleans"  ],
-    "Description 01 Voids"::
+    "Description 01:Voids"::
 
 	The boolean data type takes two values: <i>true</i> and <i>false</i>.  Both values are reserved Beyond4P keywords. 
 	In Beyond4P, the values must be specified in lower case letters and without quotation marks. 
 
 
-    "Examples 01"::
+    "Examples 01:"::
 	echo(true, " / ", type(true));        // Boolean true
 	echo(True, " / ", type(True));        // This is a literal value (T is upper case.)
 	echo(5 > 6, " / ", type(5 > 6));      // Boolean false 
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
 
   },
 
@@ -368,7 +368,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types voids" ],
     "Keywords":			[ "void", "voids"  ],
-    "Description 01 Voids"::
+    "Description 01:Voids"::
 
 	The void data type typically indicates an invalid value returned from a function or a variable with undefined values.
 	The following table lists few approaches how to obtain a void value intentionally.
@@ -381,14 +381,14 @@ B4PDOCU.START
 	===	
 	+++,
 
-    "Examples 01"::
+    "Examples 01:"::
 	a[1] = 1;
 	echo( a[0] );
 	echo( null() );
 	echo( type(null()) );
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
 
   },
 
@@ -399,7 +399,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets" ],
     "Keywords":			[ "parameter set", "parameter sets"  ],
-    "Description 01 Parameter Sets"::
+    "Description 01:Parameter Sets"::
 
 	Parameter sets is be considered as the sixth Basic Data Type which allows to hold 0, 1 or more elements.
 	Each element is again a value of any of the six Data Types, including nested parameter sets.
@@ -423,13 +423,13 @@ B4PDOCU.START
 	===	
 	+++,
 
-    "Examples 01"::
+    "Examples 01:"::
 	a[] = { 1, a, 2, {b,c}, true, date(today) };
 	echo( a[], " / ", type(a[]) );
 	echo( "First element: ", a[]{0}, " and last element: ", a[]{1} );
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
 
   },
 
@@ -439,7 +439,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets indexing" ],
     "Keywords":			[ "parameter set indexing", "length of parameter sets" ],
-    "Description 01 Parameter Sets - Simple Indexing"::
+    "Description 01:Parameter Sets - Simple Indexing"::
 
 	<i>Simple indexing</i> is used to retrieve single elements from the parameter set.  Indexing begins with 0 which refers to the 1st
 	parameter set element.  The index value is specified in braces and shall not be confused with a parameter set as such.
@@ -456,7 +456,7 @@ B4PDOCU.START
 	* Updating individual characters on the left hand side of assignments not possible.  Exmaple: <b>a[]{3} = 123;</b>
 
 
-    "Examples 01"::
+    "Examples 01:"::
 	echo( { a,b,c,d      } {0} );                     // Access the 1st element
 	a[] = { a,b,c, {d,e,f}, g };                      // Assign a parameter set to variable a[]
 	echo( "Last element            : ", a[]{-1} );    // Retrieve the last element
@@ -467,22 +467,22 @@ B4PDOCU.START
 	echo( "Out of bounds case      : ", a[]{99} );    // Empty is returned if index lies out of bounds
 	+++,
 
-    "Output 01":		"automatic",
+    "Output 01:":		"automatic",
 
-    "Description 02 Parameter Sets - Simple Indexing in Write Accesses"::
+    "Description 02:Parameter Sets - Simple Indexing in Write Accesses"::
 
 	<i>Simple indexing</i> also works with write accesses in assignments.  The target variable must contain an existing parameter set.  Values of other types
 	are not allowed and will cause error messages.  Any data type may be assigned. For example, a numeric element can be replaced by a literal or parameter set
 	(a subset).  Using multiple indexes as allowed for read accesses is not possible (e.g. [a]{1,2} = {A,B};).
 
-    "Examples 02"::
+    "Examples 02:"::
 	a[] = { a,b,c, {d,e,f}, g };                      // Assign a parameter set to variable a[]
 	a[]{1} = B;
 	a[]{-1} = {G,H,I};
 	echo( "Modified value in a[] = ", a[] );
 	+++,
 
-    "Output 02":		"automatic"
+    "Output 02:":		"automatic"
 
   },
 
@@ -496,13 +496,13 @@ B4PDOCU.START
     "Keywords":			[ "parameter sets extracting subsets" ],
 
 
-    "Description 01 Parameter Sets - Extracting Subsets"::
+    "Description 01:Parameter Sets - Extracting Subsets"::
 
 	Instead of specifying single index values to retrieve single elements, subsets can be retrieved by listing muliple values and/or ranges.
 	The range operator '..' is available to specify a range.  The result will always be returned in a parameter set, even if the subset
 	specified results in just one element.
 
-    "Examples 01"::
+    "Examples 01:"::
 	a[] = { a,b,c, {d,e,f}, g };                          // Assign a parameter set to variable a[]
 	echo( "4 elements              : ", a[]{3,1,2,1} );   // Retrieves 4 elements (2 of them repeating here)
 	echo( "2nd to 2nd last         : ", a[]{1..3} );      // Use a range
@@ -512,7 +512,7 @@ B4PDOCU.START
 	echo( "Combinations            : ", a[]{2..4,1} );    // Combination of simple values and ranges
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
   },
 
 
@@ -522,7 +522,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets value ranges" ],
     "Keywords":			[ "parameter set value ranges"],
-    "Description 01 Parameter Sets - Simple Values"::
+    "Description 01:Parameter Sets - Simple Values"::
 
 	Simple parameter set values are 0, 1 or more values of any types, regardless if values, variables, expressions or subsets, embedded inside braces
 	and separated with commas. Example:  {} (empty set),  { 1, a, {} } (contains 2 values and nested a empty set), and { {1,2},{3,4} } describing a
@@ -530,7 +530,7 @@ B4PDOCU.START
 	+++,
 
 
-    "Description 02 Parameter Sets - Value Ranges (Numerals)"::
+    "Description 02:Parameter Sets - Value Ranges (Numerals)"::
 
  	Simple parameter sets become cumbersome when describing a sequence of incrementing values, e.g. { 1,2,3,4,5,6,7,8,9,10 }, especially much bigger
 	ones.  One way to do this is with a loop, but is cumbersome.  Alternatively, value ranges can be specified.  A range consists of a starting value
@@ -541,7 +541,7 @@ B4PDOCU.START
 	A mixup of numerals and other types inside a range specification is invalid.
 	+++,
 
-    "Examples 02"::
+    "Examples 02:"::
 	print("Start with the classic way : ");
 	a[] = {};
 	for (i[]=1, i[]<=10, i[]++) a[] += {i[]};
@@ -555,10 +555,10 @@ B4PDOCU.START
 	echo("Build a 3x3 matrix         : ", {{11..13},{21..23},{31..33}} );
 	+++,
 
-    "Output 02":		"automatic",
+    "Output 02:":		"automatic",
 
 
-    "Description 03 Parameter Sets - Value Ranges (Literals)"::
+    "Description 03:Parameter Sets - Value Ranges (Literals)"::
 
 	Value ranges are also supported for literals.  The literal values may consist of one or more characters.  The intial value, optionally <i>second value</i>
 	and final values must contain literals with same number of characters and <u>only one character in the same position changing</u>.
@@ -574,7 +574,7 @@ B4PDOCU.START
 	<br>{Point -3 .. Point 3  } fails because minus sign is an extra character.
 	<br>Valid examples: See below
 
-    "Examples 03"::
+    "Examples 03:"::
 	echo("Start simple               : ", {a..z});
 	echo("Every 2nd letter           : ", {a..c..z});
 	echo("1 letter in string         : ", {'Article A:' .. 'Article F:'} );
@@ -583,10 +583,10 @@ B4PDOCU.START
 	echo("Numbers in literals        : ", {'Chapter 09:' .. 'Chapter 12:'} );
 	+++,
 
-    "Output 03":		"automatic",
+    "Output 03:":		"automatic",
 
 
-    "Description 04 Parameter Sets - Value Ranges (Dates)"::
+    "Description 04:Parameter Sets - Value Ranges (Dates)"::
 
 	Unique to Beyodn4P, Value ranges are also supported for dates and times.  If the value consists of
 	both date and time value, then the range may only be applied either on the date (with time kept
@@ -598,7 +598,7 @@ B4PDOCU.START
 	across midnights to cover additional days.
 
 
-    "Examples 04"::
+    "Examples 04:"::
 	echo("Dates                       : ", { date(30.03.2016) .. date(02.04.2016) });
 	echo("Dates, 3 day intervals      : ", { date(01.04.2016) .. date(04.04.2016) .. date(10.04.2016) });
 	echo("Today to yesterday - bad    : ", { date(today) .. date(today)-1 });
@@ -613,7 +613,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Output 04":		"automatic"
+    "Output 04:":		"automatic"
 
   },
 
@@ -623,12 +623,12 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets value repetitions" ],
     "Keywords":			[ "parameter set value repetitions", "value repetition", "value repetitions"],
-    "Description 01 Parameter Sets - Value Repetitions"::
+    "Description 01:Parameter Sets - Value Repetitions"::
 
 	Large parameter sets with same values repeating can be built up with value repetitions.  Repetitiosn are specified by numeric values following
 	a colon symbol and following the paramter set element to repeat.  Multiple repetitions may be specified inside a parameter set value.
 
-    "Examples 01"::
+    "Examples 01:"::
 
 	echo({ 5:0 } );              // Generates { 0,0,0,0,0 }
 	echo({ 2:3,3:2 } );          // Generates { 3,3,2,2,2 }
@@ -642,7 +642,7 @@ B4PDOCU.START
 	echo({ 2:{1..4} } );          // Generates { {1,2,3,4},{1,2,3,4} }
 	+++,
 
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
 
 
   }

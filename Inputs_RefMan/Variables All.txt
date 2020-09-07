@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "variables" ],
     "Keywords":			[ "variables", "base variables", "base variable", "member variable", "member variables" ],
-    "Description 01 Introdction to Variables"::
+    "Description 01:Introdction to Variables"::
 
 	Beyond4P provides a unique model to manage variables. 
 
@@ -27,7 +27,7 @@ B4PDOCU.START
 	* Any expression returning a literal is allowed, e.g. <b>("Hel" + "lo")[]</b> references the variable <b>Hello[]</b>.
 	* Indirect variable referencing is allowed, e.g. <b>a[][]</b> access variable using the name as specified in variable <b>a[]</b>. 
 
-    "Description 02 Scoping - Global and Local Variables"::
+    "Description 02:Scoping - Global and Local Variables"::
 
 	Beyond4P variables are created (also known as <i>declared</i>) at their first assignments.  For example, <b>a[] = 1;</b> creates the variable
 	<b>a</b> and assigns the numeric value 1 to it.  
@@ -42,7 +42,7 @@ B4PDOCU.START
 	procedures and functions or called programs.
 
 
-    "Description 03 Variable Attributes"::
+    "Description 03:Variable Attributes"::
 
 	In Beyond4P, every variable stored contains following information:
 
@@ -58,7 +58,7 @@ B4PDOCU.START
 	Locked          | Variables may be temporarily locked during the time while an assignment on that variable is executed or a __reference__ is pointing on this variable.  Locked variables cannot be deleted.
 	===
 
-    "Description 04 Building Variable Trees with Arrays and Structures"::
+    "Description 04:Building Variable Trees with Arrays and Structures"::
 
 	With Beyond4P, you can create simple variables as well as arrays (containing numbered member variables) and structures (containing named member
 	variables).  Full nesting flexibility is supported: Arrays and structures may contain further structures and/or arrays as you wish.
@@ -82,7 +82,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "simple variables" ],
     "Keywords":			[ "simple variables", "simple variable" ],
-    "Description 01 Simple Variables"::
+    "Description 01:Simple Variables"::
 
 	Simple variables contain only one value and posesses no further member variables in form of structures or arrays.
 
@@ -92,7 +92,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Examples 01"::
+    "Examples 01:"::
 	a[] = Hello;
 	(a[])[] = Hi; // Parentheses required on left hand side, 
 	              // otherwise seen as "right hand" expression and not "left hand" expression
@@ -113,7 +113,7 @@ B4PDOCU.START
 	'me  too'[] = Mee too;
 	echo( me too[], ", ", me  too[], ", ", 'me  too'[] );
 	+++,
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
 
 
   },
@@ -123,7 +123,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "arrays" ],
     "Keywords":			[ "array", "arrays" ],
-    "Description 01 Arrays"::
+    "Description 01:Arrays"::
 
 	Arrays are variables with members which are only referenced numerically using an index value.  Arrays support negative indexing, meaning that -1, -2, etc. references
 	the last, 2nd last and further array elements.  A variable cannot be an array and a structure at the same time, i.e referencing an array with a member name
@@ -156,7 +156,7 @@ B4PDOCU.START
 
 
 	+++,
-    "Examples 01"::
+    "Examples 01:"::
 	
 	echo("Initialize variable with dim function:");
 	dim( a[], 5, '.' );
@@ -167,9 +167,9 @@ B4PDOCU.START
 	inspect( a[] );
 
 	+++,
-    "Output 01":		"automatic",
+    "Output 01:":		"automatic",
 
-    "Description 02 Nesting"::
+    "Description 02:Nesting"::
 	Nesting is supported: Every array element may be a simple variable, a further array of any size or a structure.
 	A (m x n) multi-dimensional array is a nested array with <i>m</i> members and each member containing <i>n</i> sub-members.
 	Since Beyond4P variable structure is a tree with values possible in both root, intermediate and end nodes, the base variables as well as
@@ -184,7 +184,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Examples 02"::
+    "Examples 02:"::
 
 	echo("Initialize a 2-dimensional array:");
 	dim( a[], {2,3}, '0' );
@@ -196,7 +196,7 @@ B4PDOCU.START
 	inspect( b[] );
 
 	+++,
-    "Output 02":		"automatic"
+    "Output 02:":		"automatic"
 
   },
 
@@ -205,7 +205,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "structures" ],
     "Keywords":			[ "structure", "structures" ],
-    "Description 01 Structures"::
+    "Description 01:Structures"::
 
 	Structures are variables with members which are referenced by <i>member names</i>.  Structures are useful for following pruposes: 1) managing
 	your variables in a structured manner, and 2) providing a form of associative storage.  Beyond4P maintains the members in alphabetical order automaatically
@@ -231,7 +231,7 @@ B4PDOCU.START
 	Direct referencing | Assigning a simple variable with a member name will initialize it with a structure.  This will not be possible if the variable is already an array.
 	===
 	+++,
-    "Examples 01"::
+    "Examples 01:"::
 	
 	echo("Initialize a structure directly");
 	a[dog] = Hund;
@@ -245,9 +245,9 @@ B4PDOCU.START
 	inspect( leg count[] );
 
 	+++,
-    "Output 01":		"automatic",
+    "Output 01:":		"automatic",
 
-    "Description 02 Nesting"::
+    "Description 02:Nesting"::
 	Nesting is supported: Every structure element may be a simple variable, a further structure or array of any size.^
 	Since Beyond4P variable structure is a tree with values possible in both root, intermediate and end nodes, the base variables as well as
 	member variables of those containing sub-members are preserved.
@@ -259,7 +259,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Examples 02"::
+    "Examples 02:"::
 	
 	echo("Initialize a nested structure containing structure and array");
 
@@ -271,16 +271,16 @@ B4PDOCU.START
 
 	inspect( city[] );
 	+++,
-    "Output 02":		"automatic",
+    "Output 02:":		"automatic",
 
-    "Description 03 Default Members"::
+    "Description 03:Default Members"::
 
 	Normally, attempting to access a structure with a non-existing element name will cause an error.  Beyond4P supports default members
 	which will be returned in case of no matches.  Assign the default value using a blank literal ('') as member name and that's it.
 
 	+++,
 
-    "Examples 03"::
+    "Examples 03:"::
 	
 	echo("Demonstrate default values");
 
@@ -289,7 +289,7 @@ B4PDOCU.START
 	echo( "goat: ", a[goat] );
 
 	+++,
-    "Output 03":		"automatic"
+    "Output 03:":		"automatic"
 
   },
 
@@ -299,7 +299,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "zero members" ],
     "Keywords":			[ "zero members" ],
-    "Description 01 Zero Members"::
+    "Description 01:Zero Members"::
 
 
 	Zero members avariables are very closely related to simple variables.
@@ -309,7 +309,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Examples 01"::
+    "Examples 01:"::
 	
 	echo("Distinguish between simple and zero members variables");
 	a[] = Hi;
@@ -327,7 +327,7 @@ B4PDOCU.START
 
 
 	+++,
-    "Output 01":		"automatic"
+    "Output 01:":		"automatic"
 
   }
 

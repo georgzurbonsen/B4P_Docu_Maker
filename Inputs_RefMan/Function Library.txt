@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Library" ],
     "Keywords":			[ "function library" ],
-    "Description 01 Introduction to Function Library"::
+    "Description 01:Introduction to Function Library"::
 
 	Beyond4P provides a large and comprehenisve library of different functions.¨
 	Use the navigator bar to deep-dive into them.
@@ -21,7 +21,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Control Flow Functions" ],
     "Keywords":			[ "Control Flow Functions" ],
-    "Description 01 Introduction to Control Flow Functions"::
+    "Description 01:Introduction to Control Flow Functions"::
 
 	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.
 	In contrast to other programming languages, trivial features such as the __if(__) statement is actually
@@ -40,7 +40,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Loops" ],
     "Keywords":			[ "Loops" ],
-    "Description 01 Introduction into Loops"::
+    "Description 01:Introduction into Loops"::
 
 	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all
 	common programming languages.  In addition, various <b>for all...</b> loops are available to work through
@@ -55,7 +55,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Branches" ],
     "Keywords":			[ "Branches" ],
-    "Description 01 Introduction into Branches"::
+    "Description 01:Introduction into Branches"::
 
 	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.
 
@@ -69,7 +69,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Other Control Flow Functions" ],
     "Keywords":			[ "Other Control Flow Functions" ],
-    "Description 01 Other Control Flow Functions"::
+    "Description 01:Other Control Flow Functions"::
 
 	Inclcudes: __with table(__) to provide a context allowing partial table references.
 
@@ -83,7 +83,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "User Defined Procedures and Functiions" ],
     "Keywords":			[ "User-defined procedures and functions", "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
-    "Description 01 User-Defined Procedures and Functions"::
+    "Description 01:User-Defined Procedures and Functions"::
 
 	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
 	Procedures are defined as functions which do not provide a return value and must be called as a procedure.
@@ -115,7 +115,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Start or include Beyond4P Programs" ],
     "Keywords":			[ "start programs", "include programs" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides __start(__) to start other Beyond4P programs.  Execution of this calling program continues when the Beyond4P program has ended.
 	The __include(__) behaves similarly like __start(__), but memorizes the loaded program including the defined functions.  This features is useful
@@ -131,7 +131,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Type Conversion Functions" ],
     "Keywords":			[ "type conversion" ],
-    "Description 01 Type Conversion Functions and Formatting Functions"::
+    "Description 01:Type Conversion Functions and Formatting Functions"::
 
 	A set of functions are available to convert data in one type (e.g. __literals__) into other types (e.g. __dates__ and __numerals__).
 	Converting values to __literal__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
@@ -148,7 +148,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Mathematics and Statistics" ],
     "Keywords":			[ "mathematics and statistics" ],
-    "Description 01 Mathematics and Statistics Functions"::
+    "Description 01:Mathematics and Statistics Functions"::
 
 	Beyond4P provides a broad range of advanced mathematics and statistics functions.
 
@@ -162,7 +162,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "basic math functions" ],
     "Keywords":			[ "basic math functions" ],
-    "Description 01 Basic Math Functions"::
+    "Description 01:Basic Math Functions"::
 
 	Beyond4P provides various functions to check numeric values and carry out basic mathematis functions.
 
@@ -175,7 +175,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "transcendental functions" ],
     "Keywords":			[ "transcendental functions" ],
-    "Description 01 Transcendental Functions"::
+    "Description 01:Transcendental Functions"::
 
 	Transcendental functions include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions.
 
@@ -189,7 +189,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "series functions" ],
     "Keywords":			[ "series functions" ],
-    "Description 01 Series Functions"::
+    "Description 01:Series Functions"::
 
 	This section covers all functions which can process value series of variable sizes.
 
@@ -201,7 +201,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix functions" ],
     "Keywords":			[ "matrix functions" ],
-    "Description 01 Matrix Functions"::
+    "Description 01:Matrix Functions"::
 
 	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
 	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
@@ -230,7 +230,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "statistics functions" ],
     "Keywords":			[ "statistics functions" ],
-    "Description 01 Statistics Functions"::
+    "Description 01:Statistics Functions"::
 
 	This section covers all statistics functions.
 
@@ -244,7 +244,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "finance functions" ],
     "Keywords":			[ "finance functions", "business functions" ],
-    "Description 01 Number Introduction to Finance and Business Functions"::
+    "Description 01:Number Introduction to Finance and Business Functions"::
 
 	This section various functions needed for financial calculations, business and capacity planning.
 
@@ -259,7 +259,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set functions" ],
     "Keywords":			[ "parameter set functions" ],
-    "Description 01 Parameter Set Functions"::
+    "Description 01:Parameter Set Functions"::
 
 	This section describes various functions used to process or check parameter sets.
 	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, 
@@ -275,7 +275,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set search and extraction" ],
     "Keywords":			[ "parameter set search functions", "parameter set extraction functions" ],
-    "Description 01 Introduction to Parameter Set Search and Extraction Functions"::
+    "Description 01:Introduction to Parameter Set Search and Extraction Functions"::
 
 	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.
 
@@ -289,7 +289,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix manipulation functions" ],
     "Keywords":			[ "matrix manipulation functions", "matrix manipulations" ],
-    "Description 01 Introduction to Matrix Manipulation Functions"::
+    "Description 01:Introduction to Matrix Manipulation Functions"::
 
 	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
 	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
@@ -313,7 +313,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "date and time functions" ],
-    "Description 01 Introduction to Date Functions"::
+    "Description 01:Introduction to Date Functions"::
 
 
 	Beyond4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.
@@ -337,7 +337,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "date functions" ],
-    "Description 01 Introduction to Date, Time and Stopwatch Functions"::
+    "Description 01:Introduction to Date, Time and Stopwatch Functions"::
 
 
 	Beyond4P provides some powerful functions to process date .
@@ -359,7 +359,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "time and stopwatch functions" ],
-    "Description 01 Introduction to Time and Stopwatch Functions"::
+    "Description 01:Introduction to Time and Stopwatch Functions"::
 
 	Beyond4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
 	as well as stopwatch functions to measure the performance of your applications.
@@ -372,7 +372,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "sleep and wait functions" ],
-    "Description 01 Introduction Sleep and Wait Functions"::
+    "Description 01:Introduction Sleep and Wait Functions"::
 
 	The following functions suspend program execution for a specified time or until a specific time has been reached.
 	The delay will pause Beyond4P's process and lets other application run at full speed.
@@ -386,7 +386,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string functions" ],
     "Keywords":			[ "literal functions", "string functions" ],
-    "Description 01 Introduction to String Functions"::
+    "Description 01:Introduction to String Functions"::
 
 	This section describes procedures and functions for character and string manipulations.
 
@@ -399,7 +399,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string search and extraction" ],
     "Keywords":			[ "string search functions", "string extraction functions" ],
-    "Description 01 Introduction to String Search and Extraction Functions"::
+    "Description 01:Introduction to String Search and Extraction Functions"::
 
 	This subsection describes various functions to search for string patterns and extract substrings from stings.
 
@@ -411,7 +411,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "character coding" ],
-    "Description 01 Introduction to String Search and Extraction Functions"::
+    "Description 01:Introduction to String Search and Extraction Functions"::
 
 	This subsection describes various functions to search for string patterns and extract substrings from stings.
 
@@ -424,7 +424,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions" ],
-    "Description 01 Introduction to Table Function"::
+    "Description 01:Introduction to Table Function"::
 
 	This section summarizes all table functions.
 
@@ -437,7 +437,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table creating deleting" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	This subsection contains basic functions to create and delete tables.
 
@@ -449,7 +449,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "accessing table info" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	This subsection contains basic table functions to access following information
 
@@ -464,7 +464,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Accessing table contents" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	This subsection contains basic table functions to access contents.
 
@@ -476,7 +476,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Loading and saving tables" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.
 
@@ -488,7 +488,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Checking headers", "Processing headers" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	This subsection various functions which check table headers.
 	It is highly advisable to check the input data to ensure that the corresponding headers and structures
@@ -502,7 +502,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Searching tables" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient means to search for data inside tables.
 
@@ -517,7 +517,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Processing table columns" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient means to process table columns, i.e. 
 	inserting, deleting, rearranging, processing, etc.
@@ -532,7 +532,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Processing table rows" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient means process table rows, i.e.
 	inserting, deleting, rearranging, manipulating, etc.
@@ -546,7 +546,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Processing table contents" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient means process table contents.
 
@@ -558,7 +558,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Copying and spitting tables" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient means to copy and split tables.
 
@@ -570,7 +570,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Checking and comparing tables" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient means to check tables for consistency and duplications as well
 	as a simple-to-use function to compare tables and generate comparison reports.
@@ -583,7 +583,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Looking up Other Tables" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described next provide efficient lookup features to retrieve selected information from other
 	tables.
@@ -595,7 +595,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Pivoting and consolidating tables" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The functions described in this sections are building blocks to do powerful pivoting and consolidating tables.
 	All functions have been optimized to deliver maximum performance, even with very large tables.  The functions
@@ -616,7 +616,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "directory and file system" ],
     "Keywords": 		[ "short error messages on directories and files"],
-    "Description 01 Introduction to Directory and File System Functions"::
+    "Description 01:Introduction to Directory and File System Functions"::
 
 	This subsection describes various functions to access and process files and directories.  Following key features 
 	are included.
@@ -628,7 +628,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 02 Path and File Names"::
+    "Description 02:Path and File Names"::
 
 	Under Windows, the path names are a chain of directory and subdirectory names separated with backslash '\' symbols.  Under LINUX and MACOS,
 	the forward slash '/' is used.  Unless specified otherwise do add quotation marks to (sub-) directory and file names if they contain spaces.
@@ -649,7 +649,7 @@ B4PDOCU.START
 	<u>Attention:</u> Directory and file names are case sensitive in LINUX and MACOS systems, but not in Windows.
 
 	+++,
-    "Description 03 Exception Handling"::
+    "Description 03:Exception Handling"::
 
 	Various procedures and functions contain <b>... silently</b> as ending part of their names.  This suffix
 	lets Beyond4P to issue return values which are either "OK" or contain a short error message.  Without the
@@ -680,7 +680,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "basic directory and file functions" ],
-    "Description 01 Introduction to Basic Directory and File Functions"::
+    "Description 01:Introduction to Basic Directory and File Functions"::
 
 	This subsection describes various functions to search to accesss directories and files.
 
@@ -692,7 +692,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "listing directories and files" ],
-    "Description 01 Introduction to Listing Directories and Files"::
+    "Description 01:Introduction to Listing Directories and Files"::
 
 	This subsection describes various functions to obtain list of existing filse and directories, as well as searching for files and directories.
 
@@ -703,7 +703,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "deleting directories and files" ],
-    "Description 01 Introduction to Manipulating Directories and Files"::
+    "Description 01:Introduction to Manipulating Directories and Files"::
 
 	This subsection describes various functions to create, copy, rename and delete files and directories
 
@@ -718,7 +718,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Cross-functional info" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	This section contains various information which apply to different functions across the function library,
 	for example applicable sorting and consolidating options.
@@ -731,7 +731,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Sorting options", "Ranking options" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The sorting options are used (amongst others) by following functions:
 	* __table sort columns(__)
@@ -741,7 +741,7 @@ B4PDOCU.START
 	* __table rank selected rows(__)
 
 	+++,
-    "Description 02 Overview of Available Options"::
+    "Description 02:Overview of Available Options"::
 
 	=== 200, 800, bold_column_1
 	Sorting / Ranking Option 	| Description
@@ -789,7 +789,7 @@ B4PDOCU.START
 	Following example shows a ranking based on the different options applied.
 	+++,
 
-    "Examples 02"::
+    "Examples 02:"::
 	include( Support Library );
 	
 	table initialize ( t,
@@ -801,7 +801,7 @@ B4PDOCU.START
 	table list (t);		
 	+++,
 
-    "Output 02": "automatic"
+    "Output 02:": "automatic"
 
   },
 
@@ -811,14 +811,14 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "consolidation actions" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	The sorting options are used (amongst others) by following functions:
 	* __table consolidate(__)
 	* __table merge(__) function family
 
 	+++,
-    "Description 02 Overview of Available Consolidation Actions"::
+    "Description 02:Overview of Available Consolidation Actions"::
 
 	The consolidation actions does only take place if a matching row further down in the table (or source table if 2 tables are combined) needs
 	to be consolidated to the target fields.  No actions are applied if only one row exists with same identifer contents. 

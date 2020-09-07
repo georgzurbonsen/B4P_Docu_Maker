@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table of Contents" ],
     "Keywords":			[ "Reference Manual" ],
-    "Description 01 Table of Contents"::
+    "Description 01:Table of Contents"::
 
 	See the navigator bar for full table of contents.
 
@@ -18,7 +18,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "introduction" ],
-    "Description 01 Introduction to B4P"::
+    "Description 01:Introduction to B4P"::
 
 	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
 
@@ -38,7 +38,7 @@ B4PDOCU.START
 
 	
 
-    "Description 02 Distinct Language Features"::
+    "Description 02:Distinct Language Features"::
 
 	<b> B4P includes an <i>interpreted language</i> with powerful syntax, highly flexible data structures, and a large function library which enables immediate results with a minimum of code. </b>  Programs containing just a few statements can perform sophisticated operations such as merging two tables with very different data arrangements and formats.  The following key features makes the B4P language distinct from other popular programming languages:
 
@@ -69,7 +69,7 @@ B4PDOCU.START
 	
 	+++,
 
-    "Description 03 Think Big to be Successful"::
+    "Description 03:Think Big to be Successful"::
 
 	You can unleash the full power of B4P if you are thinking big.  Writing a complete end-to-end solution (with loops, variable assignments, comparisons
 	of individual values, etc.) is straighforward to learn with no special programming background.  Other languages like Python can do similar processing, but requires one to learn object-oriented programming, and does not scale for complexity.

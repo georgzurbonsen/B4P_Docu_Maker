@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "UNICODE character set" ],
     "Keywords":			[ "UNICODE", "character set" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Beyond4P supports the full UNICODE character set which includes
 
@@ -25,17 +25,17 @@ B4PDOCU.START
 
 	+++,
 
-    "Examples 01"::
+    "Examples 01:"::
 	inhabitants [ Zürich ] = 402000;
 	Пётр Чайкoвский [ famous concert ] = Nutcracker; // Piotr Tschaikowski
 	echo( inhabitants [ Zürich ] );
 	echo( Пётр Чайкoвский [ famous concert ] );
 	+++,
-    "Output 01":		"automatic",
+    "Output 01:":		"automatic",
 
 
 
-    "Description 02 Line Separator Symbols"::
+    "Description 02:Line Separator Symbols"::
 
 	Beyond4P is able to load text files containing both "carriage return + line feed" (CR+LF) characters common in Windows systems
 	and "line feed only" (LF) common in UNIX/LINUX/MACOS systems.  Internally, Beyond4P considers <i>new line</i> as
@@ -56,7 +56,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "loading files" ],
     "Keywords":			[ "loading files" ],
-    "Description 01 Loading Files"::
+    "Description 01:Loading Files"::
 
 	Beyond4P checks all files (programs and data) opened for <i>Byte Order Marks</i> (BOM) at the beginning of the file.  The BOM is a UNICODE character and used to differentiate between
 	UTF-16 big endian, UTF-16 little endian and UTF-8 file formats.  All formats are supported, whereas UTF-8 is by far the most common UNICODE data storage format
@@ -109,7 +109,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 02 Saving Files"::
+    "Description 02:Saving Files"::
 
 	The chosen file format either depends on the format specified in a parameter in the __table save(__) function call, 
 	or it refers to the default setting stored in the __system variable__ <b>local settings [ output file character set ]</b>. If not modified by the user, 
@@ -131,7 +131,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "CSV" ],
     "Keywords":			[ "CSV" ],
-    "Description 01 CSV File Format"::
+    "Description 01:CSV File Format"::
 
 	The CSV (Comma Separated Values) is a simple structured text file format existing since the nostalgic 1970's along with the introduction of FORTRAN 77 and is supported by
 	Beyond4P, along with HTML/MHTML, XML and JSON.
@@ -172,7 +172,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "console" ],
     "Keywords":			[ "console" ],
-    "Description 01 Console Output"::
+    "Description 01:Console Output"::
 
 	Even in Windows 7, 8 and 10, the good old console (started with "cmd" or "msdos" or "powershell") contains archaeological software artefacts dating back to 1981
 	when the IBM PC has been launched.  Luckily, the recent Windows releases support UTF-8 output to the console.  However, the supported character sets
@@ -189,7 +189,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 02 Console Input"::
+    "Description 02:Console Input"::
 
 	Another relict from 1981: Unfortunately, Microsoft has not done its homework regarding UNICODE input from the keyboard and we need to accept the facts established
 	in the year when Ronald Reagan was elected as the President, surely a better choice than since 2016, and foreign characters appeared more foreign at that time than today, too.
@@ -206,7 +206,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "case sensitivity" ],
     "Keywords":			[ "case sensitivity", "upper case", "lower case" ],
-    "Description 01 Case Sensitvity and Conversion"::
+    "Description 01:Case Sensitvity and Conversion"::
 
 	Beyond4P is a case sensitive language.  Case conversions support the important UNICODE character blocks where
 	upper/lower case conversion is meaningful.  Accents, Umlauts and other diacrytics will be preserved in case conversions.
@@ -232,7 +232,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "entities" ],
     "Keywords":			[ "entities", "html entities" ],
-    "Description 01 Entities"::
+    "Description 01:Entities"::
 
 	Tables in supported HTML / MHTML, as well as softquoted literals (referenced in program code with single quotation marks) support entity references.  Examples:
 	=== 100, 100, 600

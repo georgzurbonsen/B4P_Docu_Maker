@@ -5,51 +5,78 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "merging two football clubs" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
-    "Description 01 Starting B4P"::
+    "Description 01:Starting B4P"::
 
-	Start B4P by double-clicking on the icon or typing <b>b4p</b> on command line
+	A simple example
+	+++,
+    "Examples 01:Start B4P by double-clicking the icon or entering 'b4p' on a command shell"::
+	>b4p
+	+++,
+    "Output 01:B4P starts with a welcome text"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 8.00 Candidate (2020-08-08) 'Wilhelm Tell'
+Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
+Licensed (local machine) with standard privileges for Rafael Richards.
+...
+
+Included: Support Library  2.01
+Included: Utility Library  2.00
+Included: Office Libarary  2.00
+Included: Zip Library  2.20    Path to 7z.exe already memorized (OK): C:\Program Files\7-Zip\7z.exe
+
+Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
 	+++,
 
-    "Description 02 Start B4P": "Change directory to data directory",
-    "Examples 02"::
-	>> $ cd  path/to/data/directory
+    "Examples 02:Change to the directory where the soccer and footbal member data are located"::
+>> $ cd "C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\Examples"
 	+++,
-    "Description 03 Load the Files": "A CSV and an Excel file will be loaded",
-    "Examples 03"::
-	>> table load excel file ( football club, Football Membership List.xlsx );
-	>> table list (football club);  
 
-	>> table load ( soccer club, Soccer Membership List.csv );  // Beginners are Novices here
-	>> table list (soccer club); 
- 	+++,
-    "Description 04 Rename column headers to reconcile naming conventions between datasets": "",
-    "Examples 04"::
-	>> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
-	>> table list (football club);  
+    "Output 02:B4P executes the 'cd' but also changes working directory of B4P itself"::
+B4P: Verify and resolve path '"C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\Examples"' ...
+     OK. Current directory changed to 'C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\Examples\'
 	+++,
-    "Description 05 Complete code": "Code below with output generated from code execution",
-    "Examples 05"::
-	include( Support Library );
-	include( Office Library );
-	runtime settings[verbose]=quiet;
-	{
-	    table load excel file       ( football club, Examples\Football Membership List.xlsx ); 
-	    table load                  ( soccer club,   Examples\Soccer Membership List.csv ); // Beginners are Novices here
-	    echo("Football club:");       table list( football club );
-	    echo("Soccer club:");         table list( soccer club );
 
-	    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
-	    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
-	    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
-	    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
-	    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
-	    table save                  ( soccer club, New Soccer Club Membership List.xls, EXCEL );
-
-	    echo ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
-	    table list( soccer club );
-	}
+    "Examples 03:Load the two files": ">> table load excel file ( football club, Football Membership List.xlsx );",
+    "Output 03:"::
+Load Excel file 'Football Membership List.xlsx'.
+...
+Done. Table contains 12 rows and up to 4 columns.	
 	+++,
-    "Output 05": "automatic"
+
+	// Note: Next header 'Examples 04' is not shown because empty string after colon
+    "Examples 04:": ">> table load excel file ( football club, Football Membership List.xlsx );",
+    "Output 04:": "Text file 'Soccer Membership List.csv' loaded (13 rows, 4..4 columns)",
+
+    // Note: The following description header has a colon at the end without text.  In this case, the header will not show up, but the text contained will.	
+    "Description 05:"::
+	You have successfully loaded both membership files.<br>
+	<b>Congratulations</b>!!!
+
+    "Description 06:Running the whole program": "",
+    "Examples 06: Code example"::
+    runtime settings[verbose] = quiet;
+    include ( Support Library );
+    include ( Office Library );
+    working directory ( Examples );
+
+    table load excel file       ( football club, Football Membership List.xlsx ); 
+    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
+    table list                  ( football club );
+    table list                  ( soccer club );
+
+    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
+    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
+    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
+    table save                  ( soccer club,   New Soccer Club Membership List.xls, EXCEL );
+    table list                  ( soccer club );
+    echo                        ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
+	+++,
+    "Output 06:Successful program execution": "automatic"
+
 
   }
 

@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table of Contents" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 
 	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
@@ -21,7 +21,7 @@ B4PDOCU.START
 
 
 	
-    "Description 02 Getting Started"::
+    "Description 02:Getting Started"::
 
 	=== 300, 700, noheader, noframe column_1_bold
 	__User Guide__			| Overview and getting started

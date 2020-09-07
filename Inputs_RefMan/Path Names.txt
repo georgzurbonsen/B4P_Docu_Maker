@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "path names" ],
     "Keywords":			[ "path name", "path names", "file name", "file names" ],
-    "Description 01 Introduction to portable Path Names"::
+    "Description 01:Introduction to portable Path Names"::
 
 	The different operating systems (Windows, LINUX, MACOS) use different conventions to specify drives, directory path names
 	and file names.  Directory separators (slash or backslash) is one example.  FUll case sensitivity of path and file names in LINUX and MACOS

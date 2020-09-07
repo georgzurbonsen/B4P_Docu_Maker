@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Locales" ],
     "Keywords":			[ "list of Locales", "locale" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Beyond4P is able to support different locales (regional and language specific settings) which are managed in 
 	a file called "List of locales.csv".  This file comes along with the installation package and will be referenced automatically
@@ -22,7 +22,7 @@ B4PDOCU.START
 	* Currency names and symbols
 
 	+++,
-    "Description 02 Specifying locales"::
+    "Description 02:Specifying locales"::
 	Locales typical comprise of a combination of abbreviated language name followed by country name with an underscore symbol inbetween, e.g. "de_CH" for
 	<b>German language, Switzerland</b>.  You may also specifc country or language names only, however they create ambiguitiess with countries where more than
 	one language is spoken (or better: supported, e.g. Canada), and languages which are spoken in several countries (e.g. English).
@@ -39,13 +39,13 @@ B4PDOCU.START
 
 
 	+++,
-    "Description 03 Functions asking for locales"::
+    "Description 03:Functions asking for locales"::
 
 	* __literal(__), __softquoted literal(__): 2nd function parameter
 	* __set locale(__): 1st function parameter (must be a locale value, not country or language name alone=)
 
 	+++,
-    "Description 04 Supported locales"::
+    "Description 04:Supported locales"::
 
 	=== 100, 100, 100, 700
 	Locale		| Language	| Country		| Explanation

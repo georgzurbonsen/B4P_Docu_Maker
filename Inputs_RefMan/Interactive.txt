@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "interactive" ],
     "Keywords":			[ "interactive", "interactive mode" ],
-    "Description 01 Interactive Mode"::
+    "Description 01:Interactive Mode"::
 
 	Interactive mode allows you to run any Beyon4P command and expression interactively, start programs and inspect variables.  Additional commands, such as
 	executing system commands, are also supported.  Following cases will activate interactive mode:
@@ -40,7 +40,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Description 02 Recommended Procedure and Function Calls for Interactive Mode"::
+    "Description 02:Recommended Procedure and Function Calls for Interactive Mode"::
 
 	=== 240, 760, noframe_1stcolbold, noheader
 	prompt (...)	| Customize the prompt.  The settings will be memorized.  Specify an expression as a literal which returns a literal.  Example: prompt( "working directory() + '>> '" )

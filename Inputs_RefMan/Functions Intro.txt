@@ -5,7 +5,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Functions and Procedures" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Functions and procedures are subroutines which can be called using their name.  For simplicity, all such subroutines will be referred to as
 	<i>functions</i> throughout the B4P documentation, regardless if they are called up as procedures (without using the return value provided)
@@ -52,7 +52,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Parameters" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Depending on their specifications, B4P functions can take a fixed or variable number of parameters.  For variable number of parameters,
 	the minimum required, maximum allowed (or no limitation), and increments (e.g. min 2, max 11, increments of 3 means allowing 
@@ -91,7 +91,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function parameter directions", "parameter directions" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	B4P distinguishes among following function parameter directions which are described next.
 
@@ -105,51 +105,51 @@ B4PDOCU.START
 	===
 
 	+++,
-    "Description 02 Input Parameters"::
+    "Description 02:Input Parameters"::
 
 	The parameters supplied to the function are values.  They can be constants, existing __variables__, __table references__,
 	and any form of right-hand expressions containing calculations and/or other function calls.  Variables passed as paramters
 	must be defined (i.e. values assigned) prior to calling the function.
 
 	+++,
-    "Examples 02"::
+    "Examples 02:"::
 	a[] = World;
 	echo( "Hello ", a[], ' ', abs(-1)+2+3 );
 	+++,
 
-    "Output 02": "automatic",
+    "Output 02:": "automatic",
 
-    "Description 03 Output Parameters"::
+    "Description 03:Output Parameters"::
 
 	The parameters must either be a __variable__ or __table reference__, similar to left-hand side of assignment statements.
 	Constants and calculated expressions are not allowed.  Before the function is called, variables which are not yet existing,
 	will be defined automatically. After the function call has been completed, the value will be written back to the variable or table.
 
 	+++,
-    "Examples 03"::
+    "Examples 03:"::
 	a[] = find( 'Say Hi!', { Ha, Hä, He, Hi, Ho }, 0, which[] );
 	echo( which[] ); // 3, because Hi is in position 3 in the parameter set
 	+++,
 
-    "Output 03": "automatic",
+    "Output 03:": "automatic",
 
-    "Description 04 Input / Output Parameters"::
+    "Description 04:Input / Output Parameters"::
 
 	The parameters must either be an existing __variable__ or __table reference__, similar to left-hand side of assignment statements.
 	Constants and calculated expressions are not allowed.
 	Before the function is called, the value will be retrieved from the variable or table.  After the function call has been completed,
 	the value will be written back to the table.
 
-    "Examples 04"::
+    "Examples 04:"::
 	table initialize( t, {{ Hi, He }} );
 	a[] = Ho;
 	exchange( [t:0,0], a[] );
 	echo( [t:..,0], " and ", a[] );
 	+++,
 
-    "Output 04": "automatic",
+    "Output 04:": "automatic",
 
-    "Description 05 References"::
+    "Description 05:References"::
 
 	Some functions take over the reference to the variables provided in the function parameters.  References provide following benefits:
 	* Higher performance (no payload data, e.g. big parameter sets, are copied in before the call and copied back after the call)
@@ -161,7 +161,7 @@ B4PDOCU.START
 	member variable.
 
 	+++,
-    "Examples 05"::
+    "Examples 05:"::
 	define procedure( my func, { { a, all, reference } } )
 	{
 	    echo(a[one]);
@@ -173,8 +173,8 @@ B4PDOCU.START
 	echo(b[two]);
 	+++,
 
-    "Output 05": "automatic",
-    "Description 06 Code Pieces"::
+    "Output 05:": "automatic",
+    "Description 06:Code Pieces"::
 
 	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a literal string.
 	When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
@@ -193,7 +193,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function parameter types" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	B4P supports different parameter types (e.g. literal, etc.) as well as more specialized parameter types.
 
@@ -228,7 +228,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set or literal" ],
     "Keywords":			[ "parameter set or literal" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Various functions accept either parameter sets or literals when expecting one or multiple strings, for example file names
 	as supported by various file functions. The rules are described below
@@ -252,7 +252,7 @@ B4PDOCU.START
 
 	+++,
 
-    "Examples 01"::
+    "Examples 01:"::
 	define procedure( demonstrate, { { parameter 1, to parameters } }, 1, unlimited )
 	{
 	    for (i[] = 1, i[] <= parameter count[], i[]++)
@@ -280,7 +280,7 @@ B4PDOCU.START
 	demonstrate 2 ( { 1, 2, '3' } ); // Note: All numbers are converted to literals
 
 	+++,
-    "Output 01": "automatic"
+    "Output 01:": "automatic"
    },
 
 
@@ -290,7 +290,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
     "Keywords":			[ "table columns as function parameters", "Shifted Table Column Specifications" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Whenever a function expects a __function parameter__ for table columns, the following types are supported:
 
@@ -316,7 +316,7 @@ B4PDOCU.START
 	<u>Note</u>: If Table headers contain numbers, the put the numbers into quotation marks.
 
 	+++,
-    "Description 02 Shifted Table Column Specifications"::
+    "Description 02:Shifted Table Column Specifications"::
 
 	In some cases, you want to refer to neighboring columns to the left or to the right of a column for which the header name is presently
 	known. In this case, put the header name into <u>single</u> quotation marks so it will be regarded as a softquoted literal, and
@@ -338,7 +338,7 @@ B4PDOCU.START
 	the function allows it.  Otherwise exceptions will be asserted, too.
 
 	+++,
-    "Examples 02"::
+    "Examples 02:"::
 	table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },
 	                        { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );
 
@@ -349,7 +349,7 @@ B4PDOCU.START
 	echo( table read column selected rows ( t, '>Col E', true ) ); // Val F
 	echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G
 	+++,
-    "Output 02": "automatic"
+    "Output 02:": "automatic"
    },
 
 
@@ -359,7 +359,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Code Piece" ],
     "Keywords":			[ "code pieces" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a literal string.
 	When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
@@ -381,7 +381,7 @@ B4PDOCU.START
 	===
 
 	+++,
-    "Description 02 Comparison Expressions"::
+    "Description 02:Comparison Expressions"::
 
 	A comparison expression is part of an expression where one left-hand value is compared with one or more other right-hand values.  While the a regular
 	expression contains left-hand value, comparison operator and right values, the comparison expression leaves out the left-hand value out.
@@ -397,7 +397,7 @@ B4PDOCU.START
 	No extra parentheses are required if the comparison expression is provided in a string value.
 
 	+++,
-    "Examples 02"::
+    "Examples 02:"::
 	p[] = { 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello };
 
 	for all parameters( p[], var[] )
@@ -429,9 +429,9 @@ B4PDOCU.START
 
 
 	+++,
-    "Output 02": "automatic",
+    "Output 02:": "automatic",
 
-    "Description 03 Expressions"::
+    "Description 03:Expressions"::
 
 	A expression is a a value, a fuction call or a calculation which returns a value.
 	The individual functions may impose additional requirements, for exmplae that the expression must return boolean
@@ -453,7 +453,7 @@ B4PDOCU.START
 	No extra parentheses are required if the expression is provided in a string value.
 
 	+++,
-    "Examples 03"::
+    "Examples 03:"::
 	table initialize( primes, 
 	  { Number, 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello } );
 
@@ -470,9 +470,9 @@ B4PDOCU.START
 	c[] = "[Number] = 'H*'";
 	table process selected rows( primes, :c[], echo( [Number],": ", "Begins with H" ) );
 	+++,
-    "Output 03": "automatic",
+    "Output 03:": "automatic",
 
-    "Description 04 Variables"::
+    "Description 04:Variables"::
 
 	Variable are expressions which must refer directly to a variable.  Any other forms of expressions such as constants, calculations,
 	function calls, table references, etc, are forbidden and assert exceptions.  However, variable members (in __structures__ and __arrays_
@@ -481,7 +481,7 @@ B4PDOCU.START
 	__dim(__), __structure(__), __array(__) and __protect(__) are common functions which utilize this variant of code pieces.
 
 	+++,
-    "Examples 04"::
+    "Examples 04:"::
 	var 1[] = my array;
 	var 2[] = 'my array[]';
 
@@ -492,9 +492,9 @@ B4PDOCU.START
 	echo( var 0[1] ); // bat
 	echo( my array[1] ); // cat
 	+++,
-    "Output 04": "automatic",
+    "Output 04:": "automatic",
 
-    "Description 05 Statements"::
+    "Description 05:Statements"::
 
 	Statements may consist of one single statement, multiple statements separated with semicolons, and blocks.  Blocks are one or more
 	statements encapsulated with { ... } braces.
@@ -505,7 +505,7 @@ B4PDOCU.START
 
 	<u>Attention: </u>Don't confuse with C/C++: The three parameters inside the for-function must be separated with commas, not semicolons.  And use semicolons instead of commas to separate statements.<br>
 	+++,	
-    "Examples 05"::
+    "Examples 05:"::
 	// Demonstrates direct use of code and code in string using colon
 
 	next[] = "a[]++; print( Next )";
@@ -514,7 +514,7 @@ B4PDOCU.START
 	    echo( " ", a[] );
 	}
 	+++,
-    "Output 05": "automatic"
+    "Output 05:": "automatic"
 
 
   },
@@ -524,7 +524,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Expressions to select rows" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions
 	are typically used in funtions with names containing <b>... selected rows ... </b> where expressions are applied to chosses specifc rows to
@@ -544,7 +544,7 @@ B4PDOCU.START
 	<u>Note:</u>The expression will be calculated only once and not for every row if it has returned a numeral or parameter set.
 
 	+++,
-    "Examples 01"::
+    "Examples 01:"::
 	table initialize ( table,
 	{ { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
 
@@ -562,7 +562,7 @@ B4PDOCU.START
 		table, {1,3,-2},  // -2 -> Row 4 (Negative indexing)
 		echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
 	+++,
-    "Output 01": "automatic"
+    "Output 01:": "automatic"
 
   },
 
@@ -570,7 +570,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Indirect parameter passing" ],
-    "Description 01 Introduction"::
+    "Description 01:Introduction"::
 
 	Some functions which only use input parameters support <i>indirect parameter passing</i> where instead of providing
 	the function parameters directly, the function parameters are put into a __parameter set__ and then pass as one
@@ -585,7 +585,7 @@ B4PDOCU.START
 	input/output parameters, references and/or code pieces.  Indirect parameter passing is also not allowed for
 	__control flow functions__ and __user-defined functions__.
 
-    "Examples 01"::
+    "Examples 01:"::
 	table create( table1, table 2 ); // The direct way
 
 	indirect[]= { table 1, table 2 }; // The indirect way
@@ -593,7 +593,7 @@ B4PDOCU.START
 	echo("Created two tables in both cases" );
 
 	+++,
-    "Output 01": "automatic"
+    "Output 01:": "automatic"
 
   }
 

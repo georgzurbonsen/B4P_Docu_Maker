@@ -7,7 +7,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "overview" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
     "Keywords":			[ "general overview" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
-    "Description 01 Introduction ..."::
+    "Description 01:Introduction ..."::
 
 	Start typing here.
 	The 3 plus signs mark the end of multi-line contents.
@@ -21,7 +21,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "what is B4P" ],
     "Keywords":			[ "B4P anatomy" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
-    "Description 01 Introduction ..."::
+    "Description 01:Introduction ..."::
 
 	Add text here
 
@@ -34,7 +34,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "features and benefits" ],
     "Keywords":			[ "B4P features", "B4P benefits" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
-    "Description 01 Beneftis"::
+    "Description 01:Beneftis"::
 
 	Add text here.
 	Consider table, or itemization like below
@@ -52,7 +52,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "use cases" ],
 //  "Keywords":			[ "add unique keyowrds" ],
-    "Description 01 Use case 1: Merging two football clubs"::
+    "Description 01:Use case 1: Merging two football clubs"::
 
 	Add text here
 
@@ -61,14 +61,15 @@ B4PDOCU.START
 	* Item 2
 
 	+++,
-    "Description 02 Features"::
+    "Description 02:Features"::
 
 	Add text here.
 	Consider table, or itemization like below
 	* Item 1
 	* Item 2
+
 	+++,
-    "Description 03 Use case 2: Presidents from Wikipedia"::
+    "Description 03:Use case 2: Presidents from Wikipedia"::
 
 	Add text here
 
@@ -82,7 +83,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "B4P concepts" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Use case 1: Merging two football clubs"::
+    "Description 01:Use case 1: Merging two football clubs"::
 
 	Add text here
 
@@ -98,7 +99,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation and Setup" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -110,7 +111,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation on Windows" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -124,7 +125,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation on MacOS" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -139,7 +140,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation on Linux" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -152,7 +153,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Post Installation Optimization" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -167,7 +168,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Getting started" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -182,16 +183,16 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Interactive mode workflow" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	Note: Interactive commands, e.g. $ ls command, cannot be automated.
 	You need to formulate the output contents by hand.  Same applies if you provoke exceptions (error messages).
 
-    "Examples 01"::
+    "Examples 01:Directory listing command"::
 		$ ls
 	+++,
-    "Output 01"::
+    "Output 01:Output is shown manually"::
 	.config         b4p          setup          abc.pdf         def.xls
         5 Files.
 	+++
@@ -203,7 +204,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Programming mode workflow" ],
 //  "Keywords":			[ "add unique keywords" ],
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	Add text here
 	
@@ -211,9 +212,9 @@ B4PDOCU.START
     "Examples 01"::
 	echo("Hello World");
 	+++,
-    "Output 01": "automatic",
+    "Output 01:This output is generated automatically.": "automatic",
 
-    "Description 02 Overview"::
+    "Description 02:Overview"::
 
 	Add text here
 
@@ -229,25 +230,25 @@ B4PDOCU.START
     "Feature Names":		[ "Getting started" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	+++,
-    "Description 02 Calling an Ambulance"::
-
-	Add text here
-	
-	+++,
-    "Description 03 Calling the Fire Dept."::
+    "Description 02:Calling an Ambulance"::
 
 	Add text here
 	
 	+++,
-    "Description 04 Calling the Cops"::
+    "Description 03:Calling the Fire Dept."::
 
 	Add text here
 	
 	+++,
-    "Description 05 Calling the Pizza Restaurant"::
+    "Description 04:Calling the Cops"::
+
+	Add text here
+	
+	+++,
+    "Description 05:Calling the Pizza Restaurant"::
 
 	Add text here
 	
@@ -263,7 +264,7 @@ B4PDOCU.START
     "Feature Names":		[ "Interactive mode help options" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 
 	
 	+++
@@ -277,7 +278,7 @@ B4PDOCU.START
     "Feature Names":		[ "access web docs" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++
 
@@ -290,7 +291,7 @@ B4PDOCU.START
     "Feature Names":		[ "access pdf docs" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++
 
@@ -304,7 +305,7 @@ B4PDOCU.START
     "Feature Names":		[ "Tutorials" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++
 
@@ -318,7 +319,7 @@ B4PDOCU.START
     "Feature Names":		[ "Introduction to programming in B4P" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++
 
@@ -331,7 +332,7 @@ B4PDOCU.START
     "Feature Names":		[ "B4P Program Examples" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++
 
@@ -345,11 +346,11 @@ B4PDOCU.START
     "Feature Names":		[ "B4P example analzing data from web" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++,
 
-    "Description 02 Overview"::
+    "Description 02:Overview"::
 
 	+++
 
@@ -362,11 +363,11 @@ B4PDOCU.START
     "Feature Names":		[ "B4P example consolidating data" ],
 //  "Keywords":			[ "add unique keywords" ],
 
-    "Description 01 Overview"::
+    "Description 01:Overview"::
 	
 	+++,
 
-    "Description 02 Overview"::
+    "Description 02:Overview"::
 
 	+++
 
