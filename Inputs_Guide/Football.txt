@@ -80,7 +80,7 @@ Done. Table contains 12 rows and up to 4 columns."
 // Note: Next header 'Examples 04' is not shown because empty string after colon
 "Examples 04:": ">> table list( football club )",
 
-"Output 04:": "
+"Output 04:"::
     0 : First Name | Family Name | City         | Level
     1 : Abel       | Amberstone  | Amsterdam    | Beginner
     2 : Beata      | Berghill    | Barcelona    | Experienced
@@ -93,7 +93,7 @@ Done. Table contains 12 rows and up to 4 columns."
     9 : Ida        | Ingelberg   | Ingolstadt   | Beginner
    10 : John       | Janssen     | Johannesburg | Beginner
    11 : Karl       | Karlsson    | Kansas City  | Experienced
-",
++++,
 
 
 
