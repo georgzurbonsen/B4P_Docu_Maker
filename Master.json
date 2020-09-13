@@ -1650,6 +1650,62 @@
 
 
 
+"Combining Multiple Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Combining Multiple Tables" ],
+"Description 01:Introduction" : [
+"",
+"	The functions described next cover the art of combining two (or more) tables using the fine arts of <a href=\"https://en.wikipedia.org/wiki/Relational_algebra\" target=\"_blank\">relational algebra</a>",
+"	where different algebraic rules can be applied to rows and columns.",
+"",
+"	<br><br>",
+"",
+"	In a simple example, two tables with members of two clubs (e.g. tennis and squash) need to be merged into one where the last and first names of the",
+"	members shall act as matching identifiers.  In case no person has a membership in both clubs, no overlap applies, and the list will simply be",
+"	appended where the data are aligned to the right columns, using header names as orientation.  The columns in both tables do not need to be aligned",
+"	before the merger.  If one or more persons possess memberships in both clubs, then the information will be consolidated where the same ",
+"	__ consolidation actions__ rules are available as used by __table consolidate__.  As an example, the account receivable (e.g.",
+"	indoor court reservation fees to be balanced) can be added up whereas the preferences at the club bar can be consolidated with <b>append once</b>",
+"	so the preference for tonic water at one club and beer at the other club will appended into \"tonic water, beer\".",
+"",
+"	<br><br>",
+"",
+"	If no identifier columns are defined in the functions described next, then every row will be considered unique.  Merging the table is treated appending two tables,",
+"	with aligning the data into the right columns.	 ",
+"",
+"	<br><br>",
+"",
+"	The following table summarizes the 25 functions in a 5 x 5 matrix with specifc rules to be applied on rows as wll as columns.",
+"	The table contains illustrations on how the rows are combined (shades of red / orange / yellow) and how columns are combined (shades of",
+"	gray and light blue).  The syntax of the function name does first describe the operation on the rows (e.g. __table merge__) followed by",
+"	the operation on the columns (e.g. __table merge extend columns(__)).  If no extension like <b>... extend columns</b> is specified, then",
+"	no additional columns are added in the target table and the data in the source table not fitting in the target table structure will not be taken over.",
+"",
+"	",
+"		<br/><img src=\"Images/Description_Combining_Multiple_Tables.jpg\" alt=\"Combining Multiple Tables\"><br/><br/>",
+"",
+"	The term <i>exclusivity</i> is also known as <i>symmetric difference</i> and <i>disjunctive union</i>.",
+"",
+"" ],
+"Description 02:Additional Functions" : [
+"",
+"	Following table operations are also described in this section:",
+"	* Multiplying tables",
+"	* Dividing tables (binary division in relational algebra)",
+"	* Arranging tables sideways.",
+"",
+""
+ ]
+	
+  },
+
+
+
+
+
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -2733,7 +2789,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "starting" ],
-    "Keywords":			[ "installing","installation", "starting","launching" ],
+    "Keywords":			[ "installing","installation", "starting","launching", "command line options" ],
 "Description 01:Installation" : [
 "	A separate presentation is available which guides through the installation of B4P under Windows and Linux."
  ]
@@ -2797,6 +2853,7 @@
 "	-i	| Start B4P and enter interactive mode immediately. You can execute any B4P statement as a command. In addition, you can inspect variables and execute operating system commands. You can start B4P apps by typing <b>start (filename.b4p)</b>.",
 "	-w	| Suppress B4P welcome text. <br><u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br><u>Attention 2:</u> Important B4P library files (e.g. \"Support Library\") will not be loaded automatically.<br>The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.",
 "	-x	| Skip the \"<i>Press [Enter] to end the program</i>\" before B4P is exiting.  Useful for running B4P apps from batch scripts.",
+"	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.",
 "	-I	| MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for normal applicaction use.",
 "	===",
 "",
@@ -3330,6 +3387,45 @@
 
 
  	
+,
+
+  "Verbose Levels" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "verbose" ],
+"Description 01:Verbose Level Settings" : [
+"",
+"	The __system variable__ <b>runtime settings[verbose]</b> rules the amount of additional console output messages to be generated which",
+"	could be helpful for developing the code.  The default verbose setting is <b>low</b>.  This setting can be changed anytime.",
+"	In addition, if the B4P program is called from command line, the command line switches <b>-q</b> and <b>-w</b> will set this setting to <b>quiet</b>.",
+"",
+"	Following verbose settings are supported:",
+"",
+"	<b>quiet</b><br>",
+"	* No additional output is generated other than explicitly instructed in the B4P programs, e.g. using __echo(__) or __print(__).",
+"	* However, error messages and important warning messages will definitely appear.",
+"",
+"	<b>low</b>: in addition to 'quiet' (default setting):",
+"",
+"	* Outputs progress info (percentage figures shown) if selected functions are processing big amount of data (e.g. large tables, large variable trees)",
+"	* Short feedback messages on tables and variables loaded and saved (name of file, number of rows, etc.)",
+"	* Info about standard B4P library files loaded (e.g. Support Library)",
+"	* Some warnings, e.g. obsolete character sets found in input files",
+"",
+"	<b>medium</b>: in addition to 'low':",
+"",
+"	* Outputs the function names for the more sophisticated functions (e.g. __table consolidate(__) is included, but __abs(__) is not in order to avoid excessive messages) with first few paramters",
+"	* Informs about the intermediate processing steps inside selected functions, e.g. __table load excel file(__)",
+"",
+"	<b>high</b>: in addition to 'medium':",
+"",
+"	* In addition to the function names printed out, all parameters provided will also be shown.",
+"	* Further information on intermediate processing steps inside selected functions, e.g. __table merge (__)",
+""
+ ]
+	
+  }
+
 ,
 
   "Basic Text Output Functions" :
@@ -20668,7 +20764,7 @@
 "	This feature provides signficant performance improvements if your target table and your lookup table are already sorted in alphabetic",
 "	order.  Example: You have one sorted list (e.g. last name, first name) containing empoloyees of a business.  The 2nd list contains a list",
 "	of employees deserving a promotion or pay rise.  Both lists are already sorted by names.  You want to look up for details like mailing addresses",
-"	from the 1st list.  In this case, the 1st list is the lookup table and the 2nd list is the target table.  With alphabetic ordering in place,",
+"	from the 1st list.  In this case, the 1st list is the lookup table and the 2nd list is the target table.  with alphabetic ordering in place,",
 "	the lookup procedure will run very swiftly, practially with one single pass in the target table and one single pass in the lookup table.",
 "	"
  ]
@@ -20733,7 +20829,7 @@
 "	<br><br>",
 "	<u>Hint</u>: If you create the lookup table, start with the most specific selections.  Further down, open up more (using wildcard symbols).",
 "	Consider default information (in casse of no matches in the rows above) in the last row: Put '*' in all search pattern columns and write \"All others\" or \"Not found\" in the output column.  ",
-"	With this approach, you will capture all searches.",
+"	with this approach, you will capture all searches.",
 ""
  ]
 	,
@@ -22121,6 +22217,962 @@
 	,
 	"Output": "automatic",
 	"See also": [ "table spread", "table spread given headers", "table serialize" ]
+}
+
+,
+
+"table merge ..." :
+{
+	"Function Names":	[ "table merge", "table merge extend columns", "table merge intersect columns", "table merge subtract columns", "table merge exclusive columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		The functions described here merge the contents of the source table into the destination table.  Identifier columns can be defined for both tables in order to",
+"		identify the overlapping table rows (e.g. same first and last names).",
+"",
+"		<br><br>",
+"",
+"		For the merging process, the principle of <i>union set</i> is applied.  All rows in the source tables which do not share the same identifier data as in the",
+"		destination table will be added to the end of the table.  This does also apply  if no identifier columns are specified (e.g. 3rd function parameter not used or {} or '' provided).",
+"		In the other case, where rows in the source table share the same identifier data as in the destination table and are considered <i>overlapping</i>, ",
+"		the data from the source table row will be consolidated into the destination table row using available __consolidation actions__.  The consolidation actions",
+"		work similarly like in the function __table consolidate(__) where exactly two rows are consolidated into one row.",
+"",
+"		<br><br>",
+"",
+"		In case the two tables contain multiple equal values in the identifier columns (for example if only the first name has been referred), then every affecting row in the",
+"		source table will be consolidated in one row in the destination table and then checked off as 'done'.  If another row in the source table has the same value, then",
+"		the next match further below in the destination table will be seeked.  If the source table contains more repeated contents in the identifier column than in the ",
+"		destination table, then the remaining rows will be added to the end of the destination table.",
+"",
+"		<br><br>",
+"		The following functions use different approaches to combine the data columns:",
+"		=== 250, 750, noframe_1stcolbold, noheader",
+"		table merge						| No further columns are added to the destination table",
+"		table merge extend columns		| Columns in the source table but not found in the destinationtable will be added to the target table (union set)",
+"		table merge intersect columns	| Removes columns from the destination table if they do not exist in the source table (intersection)",
+"		table merge subtract columns	| removes columns from destination table if they are found in the source table, but keeps the identifier columns.",
+"		table merge exclusive columns	| Removes columns found in both source and destination table, but keeps the identifier columns (exclusive OR).",
+"		===",
+"",
+"		<br/><img src=\"Images/Function_table_merge.jpg\" alt=\"Function 'table merge'\"><br/><br/>",
+"",
+"		Typical applications:",
+"		* Gathering information collected from different sources",
+"		* Merger and acquisitions",
+"",
+"",
+"		<u>Note</u>: If the destination table does not yet exist, or if the table is entirely empty (i.e. no header inside), then the data in the source table will be copied into the destination table.",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-6 (Max 3 for function names 'table merge subtract/exclusive columns')",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing source table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2.",
+		  "Name": "Name of destionation table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Identifier Columns",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns specified)",
+"Description" : [
+"			   The identifier columns are used to match common data in both tables.",
+"			   Rows with same identifier data in both source and destination tables",
+"			   are considered as <i>overlapping</i> rows.  The data in overlapping rows will be consolidated.",
+"			   If no columns are specified, then no commonalities are assumed and no rows will be consolidated.",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified.  This applies to both tables (i.e. they must have same header names)",
+"			* Use column numbers only if the data in both tables are physically located in the same columns.",
+"			* Specifying no headers (i.e. softquoted empty string '' or empty set {}) will consolidate all table rows to 1 single row.",
+"			* Do not repeat the same column",
+""
+ ]
+			
+		},
+		{ "Number": "4.",
+		  "Name": "Columns to consolidate",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Default value": "{} (no columns consolidated)",
+"Description" : [
+"				Specify the columns where the data from the source table shall be consolidated into the destination table.  ",
+"				The remaining columns in the table will not be consolidated, i.e. the values in the destination table remain unchanged.",
+"				<u>Note</u>: If all columns (except the identifier columns) need to be consolidated, then specify an asterisk in a softquoted literal using single quotation marks, e.g. '*'. (\"*\" looks for header name = \"*\").<br>",
+"				<u>Note</u>: This parameter is not applicable for function names ending wiht <b>... subtract columns</b> and <b>... exclusive columns columns</b>.",
+"",
+"			<br><br>",
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified.  This applies to both tables (i.e. they must have same header names)",
+"			* Specifying no headers (i.e. softquoted empty string '' or empty set {}) will exclude all columns from active consolidation.  Contents in top row will apply.",
+"			* Do not specify any columns already referenced in the previous function parameter (identifier columns)",
+"			* Do not repeat the same column",
+"			* Softquoted literal '*' in single quotation marks: Consolidate all columns in the table except the identifier columns",
+""
+ ]
+			
+		},
+		{ "Number": "Opt. 5.",
+		  "Name": "Consolidation actions",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "'overwrite' if preious parameter is specified, otherwise 'none'",
+"Description" : [
+"",
+"				Specify one of the various __consolidation actions__.<br>",
+"				The operation is applied with the data from the next lower applicable row and the destination data in the first applicable row (= target row).",
+"				For example, <b>add</b> adds the value from the lower row to the target row.<br>",
+"				<u>Note</u>: This parameter is not applicable for function names ending wiht <b>... subtract columns</b> and <b>... exclusive columns columns</b>.",
+"",
+"",
+"				The number of operation identifiers is less than the number of columns specified in the 3rd (output columns) and 6th parameter (destination columns),",
+"				then the default value 'overwrite' is assumed for the remaining columns.  If this parameter contains more elements than columns retrieved, then the exess ones will be ignored.",
+"				* Use a literal to specify one value",
+"				* Use parameter set to specify multiple values",
+"				* Alternatively use a softquoted literal (using single quotation marks) to specify multiple values, separated by commas",
+"				* No values can be provided by using empty set {} or blank softquoted literal ''.  'none' is assumed for all consolidating columns here.",
+"				* Ideally, the number of consolidation actions shall equal to the number of columns to consolidate (previous function parameter).",
+"				* If fewer consolidation actions are listed than number of columns to consolidate, then the last action will apply to all remaining columns.",
+"				* If more consolidation actions are listed, then the excessive numbr of actions will be ignored.",
+"				* If '*' (consolidate all columns) is specified in the 4th parameter, the the consolidation actions apply to the table columns from left to right, <u>skipping</u> the identifier columns and columns to be removed if using <b>table merge intersect columns</b>. "
+ ]
+				
+		},
+		{ "Number": "Opt. 6.",
+		  "Name": "Separator string",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Default value": "'' (empty string)",
+"Description" : [
+"				For some __consolidation actions__ (e.g. <b>append, append once</b>), a separator string can be specified to separate the consolidated strings",
+"				in a more visible way, for example using a comma or new line.<br>",
+"				<u>Note</u>: This parameter is not applicable for function names ending wiht <b>... subtract columns</b> and <b>... exclusive columns columns</b>."
+ ]
+				
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows removed by combining the tables and consolidating the overlapping rows",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			>=0 = Number of rows removed<br>",
+"			-1 = Error identified."
+ ]
+		  
+		}
+	],
+	"Details 01:Program Examples with 'table merge ...'": "",
+"Examples 01:Merging tables into one without identifier columns specified" : [
+"		include( Support Library );",
+"",
+"		echo(\"Loading farms in Hillboro and Hillville\");",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		echo(\"Farms in Hillboro:\");",
+"		table list( hb );",
+"",
+"		echo(\"Farms in Hillville:\");",
+"		table list( hv );",
+"",
+"		count[] = table merge( hv, hb );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 01:Output: Zero rows consolidated": "automatic",
+
+"Examples 02:Declare 'Farmer' as unique identifier" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table merge( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 02:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 03:Merge data in smart way and add 2 columns from source table:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table merge extend columns( hv, hb, Farmer, '*', { must match, append, 5:sum, append }, \", \" ); ",
+"		// '*' corresponds to {Organic, Place, Wheat, Oat, Sheeps, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 03:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 04:Merge data in smart way and keep intersected columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table merge intersect columns( hv, hb, Farmer, '*', { must match, append, 3:sum, append }, \", \" );",
+"		// '*' corresponds to {Organic, Place, Wheat, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 04:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+
+"Examples 05:Merge data in smart way and subtract the columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table merge subtract columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 05:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 06:Merge data in smart way and show all columns except comomon ones:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table merge exclusive columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 06:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Details 07:Tables with multiple non-unique identifiers being merged:" : [
+"		In case you plan to merge two tables with a one or a selection of column identifiers which cannot guarantee uniqueness, ",
+"		e.g. a list of names identified by first name only, then this function will match first name pairs first, ",
+"		then the next ones below, and so forth.  As a result, every row is considered only once.  Long story short:",
+"		Every row in the destination table will be consolidated only once.",
+"		The following code example demonstrates this:"
+ ]
+		,
+"Examples 07:One Jill and tow Micheles will be consolidated:" : [
+"		include( Support Library );",
+"",
+"		table load( h1, \"Examples/Table Merge Examples Hobbies 1.csv\");",
+"		table load( h2, \"Examples/Table Merge Examples Hobbies 2.csv\");",
+"",
+"		echo(\"Hoobies 1:\");      table list( h1 );",
+"		echo(\"Hoobies 2:\");      table list( h2 );",
+"",
+"		count[] = table merge( h2, h1, Name, '*', append, ', ' );",
+"",
+"		echo(\"Combined list of hobbies (\", count[], \" rows consolidated):\");",
+"		table list( h1 );"
+ ]
+		,
+
+	"Output 07:The outcome": "automatic",
+
+	"See also": [ "table overlay", "table intersect", "table subtract", "table exclude", "table consolidate" ]
+}
+
+,
+
+"table overlay/subtract ..." :
+{
+	"Function Names":	[ "table overlay", "table overlay extend columns", "table overlay intersect columns", "table overlay columns", "table overlay exclusive columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		The functions described here overlay the contents of the source table into the destination table.  Identifier columns can be defined for both tables in order to",
+"		identify the overlapping table rows (e.g. same first and last names).",
+"",
+"		<br><br>",
+"",
+"		For the merging process, the principle of <i>union set</i> is applied.  Different from the __table merge(__) function family, all rows in the source tables which do not",
+"		share the same identifier data as in the destination table will <u>not be added</u> to the end of the table.  This does also apply if no identifier columns ",
+"		are specified (e.g. 3rd function parameter not used or {} or '' provided).",
+"		In the other case, where rows in the source table share the same identifier data as in the destination table and are considered <i>overlapping</i>,",
+"		the data from the source table row will be consolidated into the destination table row using available __consolidation actions__.  The consolidation actions",
+"		work similarly like in the function __table consolidate(__) where exactly two rows are consolidated into one row.",
+"",
+"		<br><br>",
+"",
+"		In case the two tables contain multiple equal values in the identifier columns (for example if only the first name has been referred), then every affecting row in the",
+"		source table will be consolidated in one row in the destination table and then checked off as 'done'.  If another row in the source table has the same value, then",
+"		the next match further below in the destination table will be seeked.  If the source table contains more repeated contents in the identifier column than in the",
+"		destination table, then the remaining rows will be added to the end of the destination table.",
+"",
+"		<br><br>",
+"		The following functions use different approaches to combine the data columns:",
+"		=== 250, 750, noframe_1stcolbold, noheader",
+"		table overlay						| No further columns are added to the destination table",
+"		table overlay extend columns		| Columns in the source table but not found in the destinationtable will be added to the target table (union set)",
+"		table overlay intersect columns		| Removes columns from the destination table if they do not exist in the source table (intersection)",
+"		table subtract columns				| removes columns from destination table if they are found in the source table, but keeps the identifier columns.<br><u>Note</u>: The function name does not contain the word <b>overlay</b> because it is meaningless here.",
+"		table overlay exclusive columns		| Removes columns found in both source and destination table, but keeps the identifier columns (exclusive OR).",
+"		===",
+"",
+"		<br/><img src=\"Images/Function_table_overlay.jpg\" alt=\"Function 'table overlay'\"><br/><br/>",
+"",
+"		<u>Note</u>: If the destination table does not yet exist, or if the table is entirely empty (i.e. no header inside), then the data in the source table will be copied into the destination table.",
+"",
+"		Typical applications:",
+"		* Enriching tables with additional information from other sources",
+"		* Keeping key performance figures (KPI's) in tables up-to-date",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-6 (Max 3 for function names 'table overlay exclusive columns' and 'table subtract columns'). <br>See __table merge(__) for parameter and return value description",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Details 01:Program Examples with 'table overlay ...'": "",
+"Examples 01:Merging tables into one without identifier columns specified" : [
+"		include( Support Library );",
+"",
+"		echo(\"Loading farms in Hillboro and Hillville\");",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		echo(\"Farms in Hillboro:\");",
+"		table list( hb );",
+"",
+"		echo(\"Farms in Hillville:\");",
+"		table list( hv );",
+"",
+"		count[] = table overlay( hv, hb );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 01:Output: Zero rows consolidated": "automatic",
+
+"Examples 02:Declare 'Farmer' as unique identifier" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table overlay( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 02:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 03:Merge data in smart way and add 2 columns from source table:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table overlay extend columns( hv, hb, Farmer, '*', { must match, append, 5:sum, append }, \", \" );",
+"		// '*' corresponds to {Organic, Place, Wheat, Oat, Sheeps, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 03:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 04:Merge data in smart way and keep intersected columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table overlay intersect columns( hv, hb, Farmer, '*', { must match, append, 3:sum, append }, \", \" );",
+"		// '*' corresponds to {Organic, Place, Wheat, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 04:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 05:Merge data in smart way and subtract the columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table subtract columns( hv, hb, Farmer ); // Note: 'overlay' is not part of function name.",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 05:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 06:Merge data in smart way and show all columns except comomon ones:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table overlay exclusive columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 06:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Details 07:Tables with multiple non-unique identifiers being merged:" : [
+"		In case you plan to merge two tables with a one or a selection of column identifiers which cannot guarantee uniqueness,",
+"		e.g. a list of names identified by first name only, then this function will match first name pairs first,",
+"		then the next ones below, and so forth.  As a result, every row is considered only once.  Long story short:",
+"		Every row in the destination table will be consolidated only once.",
+"		The following code example demonstrates this:"
+ ]
+		,
+"Examples 07:One Jill and tow Micheles will be consolidated:" : [
+"		include( Support Library );",
+"",
+"		table load( h1, \"Examples/Table Merge Examples Hobbies 1.csv\");",
+"		table load( h2, \"Examples/Table Merge Examples Hobbies 2.csv\");",
+"",
+"		echo(\"Hoobies 1:\");      table list( h1 );",
+"		echo(\"Hoobies 2:\");      table list( h2 );",
+"",
+"		count[] = table overlay( h2, h1, Name, '*', append, ', ' );",
+"",
+"		echo(\"Combined list of hobbies (\", count[], \" rows consolidated):\");",
+"		table list( h1 );"
+ ]
+		,
+
+	"Output 07:The outcome": "automatic",
+
+	"See also": [ "table merge", "table intersect", "table subtract", "table exclude", "table consolidate" ]
+}
+
+,
+
+"table intersect ..." :
+{
+	"Function Names":	[ "table intersect", "table intersect extend columns", "table intersect intersect columns", "table intersect columns", "table intersect exclusive columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		The functions described here intersect the contents of the source table into the destination table.  Identifier columns can be defined for both tables in order to",
+"		identify the overlapping table rows (e.g. same first and last names).",
+"",
+"		<br><br>",
+"",
+"		For the merging process, the principle of <i>intersection</i> is applied.  After the function call, the destination table will only contain those rows which",
+"		share the same data in the identifier columns in both source and destination tables, where the data in the rows from the source table has been consolidated into",
+"		the corresponding rows in the destination table using available __consolidation actions__.  The consolidation actions",
+"		work similarly like in the function __table consolidate(__) where exactly two rows are consolidated into one row.",
+"",
+"		<br><br>",
+"",
+"		In case the two tables contain multiple equal values in the identifier columns (for example if only the first name has been referred), then every affecting row in the",
+"		source table will be consolidated in one row in the destination table and then checked off as 'done'.  If another row in the source table has the same value, then",
+"		the next match further below in the destination table will be seeked.  If the source table contains more repeated contents in the identifier column than in the",
+"		destination table, then the remaining rows will be added to the end of the destination table.",
+"",
+"		<br><br>",
+"		The following functions use different approaches to combine the data columns:",
+"		=== 250, 750, noframe_1stcolbold, noheader",
+"		table intersect						| No further columns are added to the destination table",
+"		table intersect extend columns		| Columns in the source table but not found in the destinationtable will be added to the target table (union set)",
+"		table intersect intersect columns	| Removes columns from the destination table if they do not exist in the source table (intersection)",
+"		table intersect subtract columns	| removes columns from destination table if they are found in the source table, but keeps the identifier columns.",
+"		table intersect exclusive columns	| Removes columns found in both source and destination table, but keeps the identifier columns (exclusive OR).",
+"		===",
+"",
+"		<br/><img src=\"Images/Function_table_intersect.jpg\" alt=\"Function 'table intersect'\"><br/><br/>",
+"",
+"		<u>Note</u>: If the destination table does not yet exist, or if the table is entirely empty (i.e. no header inside), then the data in the source table will be copied into the destination table.",
+"",
+"		Typical applications:",
+"		* Finding commonalities in mulitple tables",
+"		* Helful to identify the degree of standardization of items (e.g. re-use of components listed in bills of materials)",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-6 (Max 3 for function names 'table intersect subtract/exclusive columns').  <br>See __table merge(__) for parameter and return value description",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Details 01:Program Examples with 'table intersect ...'": "",
+"Examples 01:Merging tables into one without identifier columns specified" : [
+"		include( Support Library );",
+"",
+"		echo(\"Loading farms in Hillboro and Hillville\");",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		echo(\"Farms in Hillboro:\");",
+"		table list( hb );",
+"",
+"		echo(\"Farms in Hillville:\");",
+"		table list( hv );",
+"",
+"		count[] = table intersect( hv, hb );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 01:Output: Table will be empty because no identifier column is specified, so every column is unique": "automatic",
+
+"Examples 02:Declare 'Farmer' as unique identifier" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table intersect( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 02:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 03:Merge data in smart way and add 2 columns from source table:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table intersect extend columns( hv, hb, Farmer, '*', { must match, append, 5:sum, append }, \", \" );",
+"		// '*' corresponds to {Organic, Place, Wheat, Oat, Sheeps, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 03:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 04:Merge data in smart way and keep intersected columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table intersect intersect columns( hv, hb, Farmer, '*', { must match, append, 3:sum, append }, \", \" );",
+"		// '*' corresponds to {Organic, Place, Wheat, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 04:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 05:Merge data in smart way and subtract the columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table intersect subtract columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 05:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 06:Merge data in smart way and show all columns except comomon ones:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table intersect exclusive columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 06:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Details 07:Tables with multiple non-unique identifiers being merged:" : [
+"		In case you plan to merge two tables with a one or a selection of column identifiers which cannot guarantee uniqueness,",
+"		e.g. a list of names identified by first name only, then this function will match first name pairs first,",
+"		then the next ones below, and so forth.  As a result, every row is considered only once.  Long story short:",
+"		Every row in the destination table will be consolidated only once.",
+"		The following code example demonstrates this:"
+ ]
+		,
+"Examples 07:One Jill and tow Micheles will be consolidated:" : [
+"		include( Support Library );",
+"",
+"		table load( h1, \"Examples/Table Merge Examples Hobbies 1.csv\");",
+"		table load( h2, \"Examples/Table Merge Examples Hobbies 2.csv\");",
+"",
+"		echo(\"Hoobies 1:\");      table list( h1 );",
+"		echo(\"Hoobies 2:\");      table list( h2 );",
+"",
+"		count[] = table intersect( h2, h1, Name, '*', append, ', ' );",
+"",
+"		echo(\"Combined list of hobbies (\", count[], \" rows consolidated):\");",
+"		table list( h1 );"
+ ]
+		,
+
+	"Output 07:The outcome": "automatic",
+
+	"See also": [ "table merge", "table overlay", "table subtract", "table exclude", "table consolidate" ]
+}
+
+,
+
+"table subtract ..." :
+{
+	"Function Names":	[ "table subtract", "table subtract extend columns", "table subtract subtract columns", "table subtract columns", "table subtract exclusive columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		The functions described here subtract the contents of the source table from the destination table.  Identifier columns can be defined for both tables in order to",
+"		identify the overlapping table rows (e.g. same first and last names).",
+"",
+"		<br><br>",
+"",
+"		For all rows which share the same information in the identifier columns in both source and target tables, the correponding row in the destination table will be",
+"		deleted.  The destination table remains unchanged if there are no rows with common identifer data or if no identifer columns have been specified so every row is",
+"		considered unique.  The principle of data consolidation does not apply for these functions and this explains the that tehse functions take max. 3 parameters, ",
+"		excluding the remaining parameters otherwise needed for data consolidation.",
+"",
+"		<br><br>",
+"",
+"		In case the two tables contain multiple equal values in the identifier columns (for example if only the first name has been referred), then every affecting row in the",
+"		source table will be consolidated in one row in the destination table and then checked off as 'done'.  If another row in the source table has the same value, then",
+"		the next match further below in the destination table will be seeked.  If the source table contains more repeated contents in the identifier column than in the",
+"		destination table, then the remaining rows will be added to the end of the destination table.",
+"",
+"		<br><br>",
+"		The following functions use different approaches to combine the data columns:",
+"		=== 250, 750, noframe_1stcolbold, noheader",
+"		table subtract						| No further columns are added to the destination table",
+"		table subtract extend columns		| Columns in the source table but not found in the destinationtable will be added to the target table (union set)",
+"		table subtract intersect columns	| Removes columns from the destination table if they do not exist in the source table (intersection)",
+"		table subtract subtract columns		| removes columns from destination table if they are found in the source table, but keeps the identifier columns.",
+"		table subtract exclusive columns	| Removes columns found in both source and destination table, but keeps the identifier columns (exclusive OR).",
+"		===",
+"",
+"		<br/><img src=\"Images/Function_table_subtract.jpg\" alt=\"Function 'table subtract'\"><br/><br/>",
+"",
+"		<u>Note</u>: In contrast to other functions like __table merge(__), the destination table must exist with header information inside.<br>",
+"",
+"		Typical applications:",
+"		* Eliminating duplications",
+"",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-3 (Note: Max 3 parameters for this function family, not 6).<br>See __table merge(__) for parameter and return value description",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Details 01:Program Examples with 'table subtract ...'": "",
+"Examples 01:Merging tables into one without identifier columns specified" : [
+"		include( Support Library );",
+"",
+"		echo(\"Loading farms in Hillboro and Hillville\");",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		echo(\"Farms in Hillboro:\");",
+"		table list( hb );",
+"",
+"		echo(\"Farms in Hillville:\");",
+"		table list( hv );",
+"",
+"		count[] = table subtract( hv, hb );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 01:Output: Table will be empty because no identifier column is specified, so every column is unique": "automatic",
+
+"Examples 02:Declare 'Farmer' as unique identifier" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table subtract( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 02:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 03:Merge data in smart way and add 2 columns from source table:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table subtract extend columns( hv, hb, Farmer );",
+"		// '*' corresponds to {Organic, Place, Wheat, Oat, Sheeps, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 03:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 04:Merge data in smart way and keep subtracted columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table subtract intersect columns( hv, hb, Farmer );",
+"		// '*' corresponds to {Organic, Place, Wheat, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 04:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 05:Merge data in smart way and subtract the columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table subtract subtract columns( hv, hb, Farmer ); ",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 05:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 06:Merge data in smart way and show all columns except comomon ones:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table subtract exclusive columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 06:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Details 07:Tables with multiple non-unique identifiers being merged:" : [
+"		In case you plan to merge two tables with a one or a selection of column identifiers which cannot guarantee uniqueness,",
+"		e.g. a list of names identified by first name only, then this function will match first name pairs first,",
+"		then the next ones below, and so forth.  As a result, every row is considered only once.  Long story short:",
+"		Every row in the destination table will be consolidated only once.",
+"		The following code example demonstrates this:"
+ ]
+		,
+"Examples 07:One Jill and tow Micheles will be consolidated:" : [
+"		include( Support Library );",
+"",
+"		table load( h1, \"Examples/Table Merge Examples Hobbies 1.csv\");",
+"		table load( h2, \"Examples/Table Merge Examples Hobbies 2.csv\");",
+"",
+"		echo(\"Hoobies 1:\");      table list( h1 );",
+"		echo(\"Hoobies 2:\");      table list( h2 );",
+"",
+"		count[] = table subtract( h2, h1, Name );",
+"",
+"		echo(\"Combined list of hobbies (\", count[], \" rows consolidated):\");",
+"		table list( h1 );"
+ ]
+		,
+
+	"Output 07:The outcome": "automatic",
+
+	"See also": [ "table merge", "table overlay", "table intersect", "table exclude", "table consolidate" ]
+}
+
+,
+
+"table exclude ..." :
+{
+	"Function Names":	[ "table exclude", "table exclude extend columns", "table exclude exclude columns", "table exclude columns", "table exclude exclusive columns" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		In the destination table, the functions described here will remove all rows which share the same contents in the identifier columns and include the rows from the",
+"		source table whic do also not share the same identifier columns.  Briefly said, the principle of <i>exclusive or</i> or <i>disjoint union</i> is applied on the rows.",
+"		If if no identifier columns have been specified, then all rows are considered unique and will be integrated into the target table.",
+"",
+"		<br><br>",
+"	",
+"		The principle of data consolidation does not apply for these functions and this explains the that tehse functions take max. 3 parameters,",
+"		excluding the remaining parameters otherwise needed for data consolidation.",
+"",
+"		<br><br>",
+"",
+"		In case the two tables contain multiple equal values in the identifier columns (for example if only the first name has been referred), then every affecting row in the",
+"		source table will be consolidated in one row in the destination table and then checked off as 'done'.  If another row in the source table has the same value, then",
+"		the next match further below in the destination table will be seeked.  If the source table contains more repeated contents in the identifier column than in the",
+"		destination table, then the remaining rows will be added to the end of the destination table.",
+"",
+"		<br><br>",
+"		The following functions use different approaches to combine the data columns:",
+"		=== 250, 750, noframe_1stcolbold, noheader",
+"		table exclude						| No further columns are added to the destination table",
+"		table exclude extend columns		| Columns in the source table but not found in the destinationtable will be added to the target table (union set)",
+"		table exclude intersect columns	| Removes columns from the destination table if they do not exist in the source table (intersection)",
+"		table exclude subtract columns	| removes columns from destination table if they are found in the source table, but keeps the identifier columns.",
+"		table exclude exclusive columns	| Removes columns found in both source and destination table, but keeps the identifier columns (exclusive OR).",
+"		===",
+"",
+"		<br/><img src=\"Images/Function_table_exclude.jpg\" alt=\"Function 'table exclude'\"><br/><br/>",
+"",
+"		<u>Note</u>: If the destination table does not yet exist, or if the table is entirely empty (i.e. no header inside), then the data in the source table will be copied into the destination table.",
+"",
+"		Typical applications:",
+"		* Eliminating commonalities",
+""
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"2-3 (Note: Max 3 parameters for this function family, not 6).<br>See __table merge(__) for parameter and return value description",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Details 01:Program Examples with 'table exclude ...'": "",
+"Examples 01:Merging tables into one without identifier columns specified" : [
+"		include( Support Library );",
+"",
+"		echo(\"Loading farms in Hillboro and Hillville\");",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		echo(\"Farms in Hillboro:\");",
+"		table list( hb );",
+"",
+"		echo(\"Farms in Hillville:\");",
+"		table list( hv );",
+"",
+"		count[] = table exclude( hv, hb );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 01:Output: Table will be empty because no identifier column is specified, so every column is unique": "automatic",
+
+"Examples 02:Declare 'Farmer' as unique identifier" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table exclude( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 02:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 03:Merge data in smart way and add 2 columns from source table:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table exclude extend columns( hv, hb, Farmer );",
+"		// '*' corresponds to {Organic, Place, Wheat, Oat, Sheeps, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 03:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 04:Merge data in smart way and keep excludeed columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table exclude intersect columns( hv, hb, Farmer );",
+"		// '*' corresponds to {Organic, Place, Wheat, Cows, Acres, Speciality}",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 04:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Examples 05:Merge data in smart way and exclude the columns:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table exclude subtract columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 05:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+
+"Examples 06:Merge data in smart way and show all columns except comomon ones:" : [
+"		include( Support Library );",
+"		table load( hb, \"Examples/Table Merge Examples Hillboro.csv\");",
+"		table load( hv, \"Examples/Table Merge Examples Hillville.csv\");",
+"",
+"		count[] = table exclude exclusive columns( hv, hb, Farmer );",
+"",
+"		echo(\"Hilltown is a merger of Hillboro and Hillville (\", count[], \" rows consolidated):\");",
+"		table list( hb );"
+ ]
+		,
+	"Output 06:Output: 3 farmers with land in both towns have been consolidated.": "automatic",
+
+"Details 07:Tables with multiple non-unique identifiers being merged:" : [
+"		In case you plan to merge two tables with a one or a selection of column identifiers which cannot guarantee uniqueness,",
+"		e.g. a list of names identified by first name only, then this function will match first name pairs first,",
+"		then the next ones below, and so forth.  As a result, every row is considered only once.  Long story short:",
+"		Every row in the destination table will be consolidated only once.",
+"		The following code example demonstrates this:"
+ ]
+		,
+"Examples 07:One Jill and tow Micheles will be consolidated:" : [
+"		include( Support Library );",
+"",
+"		table load( h1, \"Examples/Table Merge Examples Hobbies 1.csv\");",
+"		table load( h2, \"Examples/Table Merge Examples Hobbies 2.csv\");",
+"",
+"		echo(\"Hoobies 1:\");      table list( h1 );",
+"		echo(\"Hoobies 2:\");      table list( h2 );",
+"",
+"		count[] = table exclude( h2, h1, Name  );",
+"",
+"		echo(\"Combined list of hobbies (\", count[], \" rows consolidated):\");",
+"		table list( h1 );"
+ ]
+		,
+
+	"Output 07:The outcome": "automatic",
+
+	"See also": [ "table merge", "table overlay", "table intersect", "table subtract", "table consolidate" ]
 }
 
 }

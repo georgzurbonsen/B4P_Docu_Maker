@@ -161,13 +161,23 @@ table initialize ( table of function descriptors,
 	  {	"Call as",			Yes,		simple,		"append","procedure,function,procedure or function" },
 	  {	"Restrictions",			No,		"simple,array",	"list,html,line break,link embedded keywords"},
 	  {	"OS differences",		No,		"simple,array",	"text,html,link embedded keywords"},
-	  {	"Parameter count",		Yes,		simple,		"append,html,link embedded keywords"},
+	  {	"Parameter count",		Yes,		simple,		"text,html,link embedded keywords"},
 	  {	"Parameters",			No,		array,		"parameters"},
 	  {	"Return value",			No,		array,		"return values"},
 	  {	"Exceptions",			No,		"simple,array",	"list,html,line break"},
 	  {	"Examples",			No,		"simple,array",	"list,line break,monospace,code"},
-	  {	"Output",			No,		"simple,array",	"list,line break,monospace,output"},
-	  {	"See also",			No,		"simple,array",	"list,line break,link keywords"},
+	  {	"Output",			No,		"simple,array",	"list,line break,monospace,output"}} );
+
+for all parameters( { '01'..'20' }, i[] )
+{
+    table append ( table of function descriptors,
+	{ {	"Details " + i[], 		No,		"simple,array",	"text,html,link embedded keywords"},
+	  {	"Examples " + i[],		No,		"simple,array",	"list,line break,monospace,code"},
+	  {	"Output " + i[],		No,		"simple,array",	"list,line break,monospace,output"} } );
+}
+
+table append ( table of function descriptors,
+	{ {	"See also",			No,		"simple,array",	"list,line break,link keywords"},
 	  {	"Notes",			No,		"simple,array",	"text,html"} } );
 
 

@@ -1,7 +1,7 @@
 ﻿Status;Category;Level;Section Nr;Section Name;HTML File Name;Feature Names;Keywords;Remarks
 Missing, (Assign right Category);Link;;;"&#8594; User Guide";GUI_Features_Table_of_Contents.html;;;
 OK, (Assign right Category);TOC;1;;Table of Contents;REF_Features_Table_of_Contents.html;Table of Contents;Table of Contents,Reference Manual;
-OK;Body;1;B 1;Starting B4P;REF_Features_starting.html;starting;starting,installing,installation,launching;
+OK;Body;1;B 1;Starting B4P;REF_Features_starting.html;starting;starting,installing,installation,launching,command line options;
 OK;Body;2;B 1.1;Interactive Mode;REF_Features_interactive.html;interactive;interactive,interactive mode;
 OK;Body;2;B 1.2;Licensing;REF_Features_licensing.html;licensing;licensing,unlock;
 OK;Body;1;B 2;Introduction;REF_Features_introduction.html;introduction;introduction;
@@ -297,6 +297,12 @@ OK;Body;4;B 4.7.13.2;table serialize ...;REF_Function_table_serialize.html;table
 OK;Body;4;B 4.7.13.3;table spread ...;REF_Function_table_spread.html;table spread,table spread accumulating;table spread,table spread accumulating;
 OK;Body;4;B 4.7.13.4;table spread given headers ...;REF_Function_table_spread_given_headers.html;table spread given headers,table spread given headers accumulating;table spread given headers,table spread given headers accumulating;
 OK;Body;4;B 4.7.13.5;table consolidate ...;REF_Function_table_consolidate.html;table consolidate,table consolidate selected rows;table consolidate,table consolidate selected rows;
+OK;Body;3;B 4.7.14;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;Combining Multiple Tables;Combining Multiple Tables;
+OK;Body;4;B 4.7.14.1;table merge ...;REF_Function_table_merge.html;table merge,table merge extend columns,table merge intersect columns,table merge subtract columns,table merge exclusive columns;table merge,table merge extend columns,table merge intersect columns,table merge subtract columns,table merge exclusive columns;
+OK;Body;4;B 4.7.14.2;table overlay/subtract ...;REF_Function_table_overlay.html;table overlay,table overlay extend columns,table overlay intersect columns,table overlay columns,table overlay exclusive columns;table overlay,table overlay extend columns,table overlay intersect columns,table overlay columns,table overlay exclusive columns;
+OK;Body;4;B 4.7.14.3;table intersect ...;REF_Function_table_intersect.html;table intersect,table intersect extend columns,table intersect intersect columns,table intersect columns,table intersect exclusive columns;table intersect,table intersect extend columns,table intersect intersect columns,table intersect columns,table intersect exclusive columns;
+OK;Body;4;B 4.7.14.4;table subtract ...;REF_Function_table_subtract.html;table subtract,table subtract extend columns,table subtract subtract columns,table subtract columns,table subtract exclusive columns;table subtract,table subtract extend columns,table subtract subtract columns,table subtract columns,table subtract exclusive columns;
+OK;Body;4;B 4.7.14.5;table exclude ...;REF_Function_table_exclude.html;table exclude,table exclude extend columns,table exclude exclude columns,table exclude columns,table exclude exclusive columns;table exclude,table exclude extend columns,table exclude exclude columns,table exclude columns,table exclude exclusive columns;
 OK;Body;2;B 4.8;Directory and File System Functions;REF_Features_directory_and_file_system.html;directory and file system;directory and file system,short error messages on directories and files;
 OK;Body;3;B 4.8.1;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;basic directory and file functions;basic directory and file functions;
 OK;Body;4;B 4.8.1.1;directory existing, file existing;REF_Function_directory_existing.html;directory existing,file existing;directory existing,file existing;
@@ -331,3 +337,4 @@ OK, (Assign right Category);Ignore;;;Clear screen;REF_Function_cls.html;cls;cls,
 OK, (Assign right Category);Ignore;;;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;identify;identify,identify variables;
 OK, (Assign right Category);Ignore;;;Set cursor positions;REF_Function_cursor.html;cursor;cursor,cursor position,move cursor;
 OK, (Assign right Category);Ignore;;;Set console text and background colors;REF_Function_text_color.html;text color,background colors;text color,background colors,font color,foreground color,screen color;
+Pending, (Assign right Category);;;;Verbose Levels;REF_Features_verbose.html;verbose;verbose;

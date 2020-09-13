@@ -611,6 +611,61 @@ B4PDOCU.START
 
 
 
+"Combining Multiple Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Combining Multiple Tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next cover the art of combining two (or more) tables using the fine arts of <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank">relational algebra</a>
+	where different algebraic rules can be applied to rows and columns.
+
+	<br><br>
+
+	In a simple example, two tables with members of two clubs (e.g. tennis and squash) need to be merged into one where the last and first names of the
+	members shall act as matching identifiers.  In case no person has a membership in both clubs, no overlap applies, and the list will simply be
+	appended where the data are aligned to the right columns, using header names as orientation.  The columns in both tables do not need to be aligned
+	before the merger.  If one or more persons possess memberships in both clubs, then the information will be consolidated where the same 
+	__ consolidation actions__ rules are available as used by __table consolidate__.  As an example, the account receivable (e.g.
+	indoor court reservation fees to be balanced) can be added up whereas the preferences at the club bar can be consolidated with <b>append once</b>
+	so the preference for tonic water at one club and beer at the other club will appended into "tonic water, beer".
+
+	<br><br>
+
+	If no identifier columns are defined in the functions described next, then every row will be considered unique.  Merging the table is treated appending two tables,
+	with aligning the data into the right columns.	 
+
+	<br><br>
+
+	The following table summarizes the 25 functions in a 5 x 5 matrix with specifc rules to be applied on rows as wll as columns.
+	The table contains illustrations on how the rows are combined (shades of red / orange / yellow) and how columns are combined (shades of
+	gray and light blue).  The syntax of the function name does first describe the operation on the rows (e.g. __table merge__) followed by
+	the operation on the columns (e.g. __table merge extend columns(__)).  If no extension like <b>... extend columns</b> is specified, then
+	no additional columns are added in the target table and the data in the source table not fitting in the target table structure will not be taken over.
+
+	
+		<br/><img src="Images/Description_Combining_Multiple_Tables.jpg" alt="Combining Multiple Tables"><br/><br/>
+
+	The term <i>exclusivity</i> is also known as <i>symmetric difference</i> and <i>disjunctive union</i>.
+
+
+    "Description 02:Additional Functions"::
+
+	Following table operations are also described in this section:
+	* Multiplying tables
+	* Dividing tables (binary division in relational algebra)
+	* Arranging tables sideways.
+
+
+	+++
+  },
+
+
+
+
+
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value

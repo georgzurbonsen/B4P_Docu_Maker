@@ -78,6 +78,7 @@ REF;Clear screen;REF_Function_cls.html;Function Description;cls
 REF;Clear screen;REF_Function_cls.html;Function Description;;clear the screen
 REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Description;Code Piece
 REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Description;;code pieces
+REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
 REF;Comments;REF_Features_comments.html;General Description;comments
 REF;Comments;REF_Features_comments.html;General Description;;comments
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if
@@ -378,6 +379,7 @@ REF;Starting B4P;REF_Features_starting.html;General Description;;installing
 REF;Starting B4P;REF_Features_starting.html;General Description;;installation
 REF;Starting B4P;REF_Features_starting.html;General Description;;starting
 REF;Starting B4P;REF_Features_starting.html;General Description;;launching
+REF;Starting B4P;REF_Features_starting.html;General Description;;command line options
 REF;Statistics Functions;REF_Features_statistics_functions.html;General Description;statistics functions
 REF;Statistics Functions;REF_Features_statistics_functions.html;General Description;;statistics functions
 REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description;watch start
@@ -436,6 +438,7 @@ REF;Variables;REF_Features_variables.html;General Description;;base variables
 REF;Variables;REF_Features_variables.html;General Description;;base variable
 REF;Variables;REF_Features_variables.html;General Description;;member variable
 REF;Variables;REF_Features_variables.html;General Description;;member variables
+REF;Verbose Levels;REF_Features_verbose.html;General Description;verbose
 REF;Void to Literal Formatting;REF_Features_void_to_literal_conversion_and_formatting.html;General Description;void to literal conversion and formatting
 REF;Void to Literal Formatting;REF_Features_void_to_literal_conversion_and_formatting.html;General Description;;Void to Literal Formatting Parameters
 REF;Voids;REF_Features_data_types_voids.html;General Description;data types voids
@@ -870,6 +873,11 @@ REF;table delete remaining rows;REF_Function_table_delete_remaining_rows.html;Fu
 REF;table delete rows;REF_Function_table_delete_rows.html;Function Description;table delete rows
 REF;table delete selected rows;REF_Function_table_delete_selected_rows.html;Function Description;table delete selected rows
 REF;table duplicate columns ...;REF_Function_table_duplicate_columns.html;Function Description;table duplicate columns
+REF;table exclude ...;REF_Function_table_exclude.html;Function Description;table exclude
+REF;table exclude ...;REF_Function_table_exclude.html;Function Description;table exclude extend columns
+REF;table exclude ...;REF_Function_table_exclude.html;Function Description;table exclude exclude columns
+REF;table exclude ...;REF_Function_table_exclude.html;Function Description;table exclude columns
+REF;table exclude ...;REF_Function_table_exclude.html;Function Description;table exclude exclusive columns
 REF;table existing;REF_Function_table_existing.html;Function Description;table existing
 REF;table expand ...;REF_Function_table_expand.html;Function Description;table expand
 REF;table expand ...;REF_Function_table_expand.html;Function Description;table expand ignore case
@@ -906,6 +914,11 @@ REF;table integrate smart ...;REF_Function_table_integrate_smart.html;Function D
 REF;table integrate smart ...;REF_Function_table_integrate_smart.html;Function Description;table lookup integrate ignore case
 REF;table integrate smart once ...;REF_Function_table_integrate_smart_once.html;Function Description;table integrate smart once
 REF;table integrate smart once ...;REF_Function_table_integrate_smart_once.html;Function Description;table integrate smart once ignore case
+REF;table intersect ...;REF_Function_table_intersect.html;Function Description;table intersect
+REF;table intersect ...;REF_Function_table_intersect.html;Function Description;table intersect extend columns
+REF;table intersect ...;REF_Function_table_intersect.html;Function Description;table intersect intersect columns
+REF;table intersect ...;REF_Function_table_intersect.html;Function Description;table intersect columns
+REF;table intersect ...;REF_Function_table_intersect.html;Function Description;table intersect exclusive columns
 REF;table keep ... columns;REF_Function_table_keep_columns.html;Function Description;table keep columns
 REF;table keep ... columns;REF_Function_table_keep_columns.html;Function Description;table keep existing columns
 REF;table keep selected rows;REF_Function_table_keep_selected_rows.html;Function Description;table keep selected rows
@@ -928,8 +941,18 @@ REF;table lookup smart ...;REF_Function_table_lookup_smart.html;Function Descrip
 REF;table lookup smart once ...;REF_Function_table_lookup_smart_once.html;Function Description;table lookup smart once
 REF;table lookup smart once ...;REF_Function_table_lookup_smart_once.html;Function Description;table lookup smart once ignore case
 REF;table manipulate;REF_Function_table_manipulate.html;Function Description;table manipulate
+REF;table merge ...;REF_Function_table_merge.html;Function Description;table merge
+REF;table merge ...;REF_Function_table_merge.html;Function Description;table merge extend columns
+REF;table merge ...;REF_Function_table_merge.html;Function Description;table merge intersect columns
+REF;table merge ...;REF_Function_table_merge.html;Function Description;table merge subtract columns
+REF;table merge ...;REF_Function_table_merge.html;Function Description;table merge exclusive columns
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table min width
 REF;table min/max width;REF_Function_table_min_width.html;Function Description;table max width
+REF;table overlay/subtract ...;REF_Function_table_overlay.html;Function Description;table overlay
+REF;table overlay/subtract ...;REF_Function_table_overlay.html;Function Description;table overlay extend columns
+REF;table overlay/subtract ...;REF_Function_table_overlay.html;Function Description;table overlay intersect columns
+REF;table overlay/subtract ...;REF_Function_table_overlay.html;Function Description;table overlay columns
+REF;table overlay/subtract ...;REF_Function_table_overlay.html;Function Description;table overlay exclusive columns
 REF;table process ...;REF_Function_table_process.html;Function Description;table process
 REF;table process ...;REF_Function_table_process.html;Function Description;table process selected rows
 REF;table process selected rows fast;REF_Function_table_process_selected_rows_fast.html;Function Description;table process selected rows fast
@@ -971,6 +994,11 @@ REF;table substitute horizontally ...;REF_Function_table_substitute_horizontally
 REF;table substitute horizontally ...;REF_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally selected rows
 REF;table substitute vertically ...;REF_Function_table_substitute_vertically.html;Function Description;table substitute vertically
 REF;table substitute vertically ...;REF_Function_table_substitute_vertically.html;Function Description;table substitute vertically selected rows
+REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract
+REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract extend columns
+REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract subtract columns
+REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract columns
+REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract exclusive columns
 REF;table transpose;REF_Function_table_transpose.html;Function Description;table transpose
 REF;table write column selected rows;REF_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
 REF;time, pure time;REF_Function_time.html;Function Description;time

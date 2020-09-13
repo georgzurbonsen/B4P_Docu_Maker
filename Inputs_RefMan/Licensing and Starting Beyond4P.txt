@@ -28,7 +28,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "starting" ],
-    "Keywords":			[ "installing","installation", "starting","launching" ],
+    "Keywords":			[ "installing","installation", "starting","launching", "command line options" ],
     "Description 01:Installation"::
 	A separate presentation is available which guides through the installation of B4P under Windows and Linux.
 	+++,
@@ -87,6 +87,7 @@ B4PDOCU.START
 	-i	| Start B4P and enter interactive mode immediately. You can execute any B4P statement as a command. In addition, you can inspect variables and execute operating system commands. You can start B4P apps by typing <b>start (filename.b4p)</b>.
 	-w	| Suppress B4P welcome text. <br><u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br><u>Attention 2:</u> Important B4P library files (e.g. "Support Library") will not be loaded automatically.<br>The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.
 	-x	| Skip the "<i>Press [Enter] to end the program</i>" before B4P is exiting.  Useful for running B4P apps from batch scripts.
+	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.
 	-I	| MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for normal applicaction use.
 	===
 
