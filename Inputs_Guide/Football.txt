@@ -12,7 +12,7 @@ B4PDOCU.START
 An example of merging and consolidating two sources of data describing football teams.
 +++,
 
-"Examples 01:Start B4P in quiet mode on the command shell"::
+"Examples 01:Start B4P in the command shell to use interactively"::
 > b4p -q
 +++,
 
@@ -26,15 +26,16 @@ Licensed (current user) with standard privileges for Rafael Richards.
 
 Entering interactive mode.
 
-Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
+Type 'help' for help, 'docs' for pdf manual,  'web docs' for online manual.
 >>
+
 +++,
 
 
 
 
 
-"Examples 02:Change working directory of B4P to where the data files are, and list the files"::
+"Examples 02: Set the working directory to the data file directory, and list the files"::
 >> $ cd /Users/rafael/b4p/B4P_Docu_Maker/Examples
 >> $ ls
 +++,
@@ -42,10 +43,15 @@ Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
 "Output 02:"::
 OK. Current directory changed to '/Users/rafael/b4p/B4P_Docu_Maker/Examples/'
 
-Example.xml				        
-Example1.json				   
-Football Membership List.xlsx	
-Soccer Membership List.csv	
+---
+Football Membership List.xlsx		
+Soccer Membership List.csv		
+Example.xml				  
+Example1.json
+Tennis and Golf Players.csv
+test.csv
+...
+
 
 +++,
 
@@ -54,6 +60,7 @@ Soccer Membership List.csv
 
 "Examples 03:Load Football Membership List (Excel file), and list contents"::
 >> table load excel file ( football club, Football Membership List.xlsx )
+>> echo ("Football club has ", table length( football club ) -1 , " members.");
 >> table list( football club )
 +++,
 
@@ -61,6 +68,8 @@ Soccer Membership List.csv
 "Output 03:"::
     Load Excel file 'Football Membership List.xlsx'.
     Done. Table contains 12 rows and up to 4 columns.
+
+   Football club has 11 members.
 
     0 : First Name | Family Name | City         | Level
     1 : Abel       | Amberstone  | Amsterdam    | Beginner
@@ -74,19 +83,24 @@ Soccer Membership List.csv
     9 : Ida        | Ingelberg   | Ingolstadt   | Beginner
    10 : John       | Janssen     | Johannesburg | Beginner
    11 : Karl       | Karlsson    | Kansas City  | Experienced
+
 +++,
 
 
 
 "Examples 04:Load Soccer Membership List (CSV file), and list contents"::
 >> table load ( soccer club,   Soccer Membership List.csv );
+>> echo ("Soccer club has ", table length( soccer club ) -1 , " members.");
 >> table list( soccer club )
+
 +++,
 
 
 "Output 04:"::
     Loaded CSV/TSV file 'Soccer Membership List.csv':
     13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;
+
+    Soccer club has 12 members.
 
     0 : Level        | Town        | Last Name  | First Name
     1 : Questionable | Kyoto       | Karlsson   | Karl
@@ -101,13 +115,14 @@ Soccer Membership List.csv
    10 : Experienced  | Tahoma      | Turner     | Tim
    11 : Questionable | Ulm         | Ufford     | Uwe
    12 : Novice       | Venice      | Viking     | Victor
+   
 +++,
 
 
 
 
 
-"Examples 05:Rename column labels (Family name -> Last name; City -> Town), and list contents"::
+"Examples 05:Rename column headers to use the same terms, and list contents"::
 >> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
 >> table list( football club )
 +++,
@@ -131,7 +146,7 @@ Soccer Membership List.csv
 
 
 
-"Examples 06:Change all rows within the Level column from Novice to Beginner"::
+"Examples 06:Change Level designation to the same terms"::
 >> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
 >> table list( soccer club )
 +++,
@@ -156,41 +171,167 @@ Soccer Membership List.csv
 
 
 
-
-
-
-  
-
-
-
-
+"Examples 07: Merge the club data by appending the football club data to the soccer club data "::
+>> table merge ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+>> echo  ("Merged soccer club has ", table length( soccer club ) -1, " members.");
+>> table list( soccer club )
++++,
 
 
 
 
-"Description 09:Running the whole program": "",
-"Examples 09: Code example"::
-    runtime settings[verbose] = quiet;
+
+"Output 07:"::
+
+Merged soccer club has 22 members.
+
+
+    0 : Level                       | Town                 | Last Name  | First Name
+    1 : Questionable or Experienced | Kyoto or Kansas City | Karlsson   | Karl
+    2 : Beginner                    | London               | Lee        | Linda
+    3 : Experienced                 | Morristown           | Miller     | Mike
+    4 : Experienced                 | New York             | Nguyen     | Nathali
+    5 : Experienced                 | Oslo                 | Oliveiro   | Oscar
+    6 : Beginner                    | Phoenix              | Paulsson   | Petra
+    7 : Beginner                    | Quebec City          | Quarles    | Quincy
+    8 : Experienced                 | Riga                 | Richardson | Richard
+    9 : Experienced                 | San Diego            | Stewart    | Sandra
+   10 : Experienced                 | Tahoma               | Turner     | Tim
+   11 : Questionable                | Ulm                  | Ufford     | Uwe
+   12 : Beginner                    | Venice               | Viking     | Victor
+   13 : Beginner                    | Amsterdam            | Amberstone | Abel
+   14 : Experienced                 | Barcelona            | Berghill   | Beata
+   15 : Beginner                    | Copenhagen           | Carlson    | Corinne
+   16 : Beginner                    | Dublin               | Davis      | Dietmar
+   17 : Beginner                    | Essen                | Evans      | Ellen
+   18 : Experienced                 | Frankfurt            | Fisher     | Fred
+   19 : Experienced                 | Gaza City            | Green      | Gregory
+   20 : Experienced                 | Hamburg              | Hansson    | Henry
+   21 : Beginner                    | Ingolstadt           | Ingelberg  | Ida
+   22 : Beginner                    | Johannesburg         | Janssen    | John
+
++++,
+
+
+
+
+"Examples 08: Sort the rows based on Level and Name"::
+>> table sort rows ( soccer club,   { Level, Last Name,  First Name });
+>> table list( soccer club )
++++,
+
+
+
+"Output 08:"::
+    0 : Level                       | Town                 | Last Name  | First Name
+    1 : Beginner                    | Amsterdam            | Amberstone | Abel
+    2 : Beginner                    | Copenhagen           | Carlson    | Corinne
+    3 : Beginner                    | Dublin               | Davis      | Dietmar
+    4 : Beginner                    | Essen                | Evans      | Ellen
+    5 : Beginner                    | Ingolstadt           | Ingelberg  | Ida
+    6 : Beginner                    | Johannesburg         | Janssen    | John
+    7 : Beginner                    | London               | Lee        | Linda
+    8 : Beginner                    | Phoenix              | Paulsson   | Petra
+    9 : Beginner                    | Quebec City          | Quarles    | Quincy
+   10 : Beginner                    | Venice               | Viking     | Victor
+   11 : Experienced                 | Barcelona            | Berghill   | Beata
+   12 : Experienced                 | Frankfurt            | Fisher     | Fred
+   13 : Experienced                 | Gaza City            | Green      | Gregory
+   14 : Experienced                 | Hamburg              | Hansson    | Henry
+   15 : Experienced                 | Morristown           | Miller     | Mike
+   16 : Experienced                 | New York             | Nguyen     | Nathali
+   17 : Experienced                 | Oslo                 | Oliveiro   | Oscar
+   18 : Experienced                 | Riga                 | Richardson | Richard
+   19 : Experienced                 | San Diego            | Stewart    | Sandra
+   20 : Experienced                 | Tahoma               | Turner     | Tim
+   21 : Questionable                | Ulm                  | Ufford     | Uwe
+   22 : Questionable or Experienced | Kyoto or Kansas City | Karlsson   | Karl
++++,
+
+
+
+
+
+
+
+"Examples 09: Rearrange column order"::
+>> table rearrange columns ( soccer club, { Level, First Name, Last Name, Town } );
+>> table list( soccer club )
++++,
+
+
+"Output 09:"::
+    0 : Level                       | First Name | Last Name  | Town
+    1 : Beginner                    | Abel       | Amberstone | Amsterdam
+    2 : Beginner                    | Corinne    | Carlson    | Copenhagen
+    3 : Beginner                    | Dietmar    | Davis      | Dublin
+    4 : Beginner                    | Ellen      | Evans      | Essen
+    5 : Beginner                    | Ida        | Ingelberg  | Ingolstadt
+    6 : Beginner                    | John       | Janssen    | Johannesburg
+    7 : Beginner                    | Linda      | Lee        | London
+    8 : Beginner                    | Petra      | Paulsson   | Phoenix
+    9 : Beginner                    | Quincy     | Quarles    | Quebec City
+   10 : Beginner                    | Victor     | Viking     | Venice
+   11 : Experienced                 | Beata      | Berghill   | Barcelona
+   12 : Experienced                 | Fred       | Fisher     | Frankfurt
+   13 : Experienced                 | Gregory    | Green      | Gaza City
+   14 : Experienced                 | Henry      | Hansson    | Hamburg
+   15 : Experienced                 | Mike       | Miller     | Morristown
+   16 : Experienced                 | Nathali    | Nguyen     | New York
+   17 : Experienced                 | Oscar      | Oliveiro   | Oslo
+   18 : Experienced                 | Richard    | Richardson | Riga
+   19 : Experienced                 | Sandra     | Stewart    | San Diego
+   20 : Experienced                 | Tim        | Turner     | Tahoma
+   21 : Questionable                | Uwe        | Ufford     | Ulm
+   22 : Questionable or Experienced | Karl       | Karlsson   | Kyoto or Kansas City
++++,
+
+
+
+"Examples 10: Save table as Excel file"::
+>> table save ( soccer club,   New Soccer Club Membership List.xls, EXCEL );
++++,
+
+
+"Output 10:"::
+Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' containing 1 sheets.
++++,
+
+
+
+
+
+"Description 15: B4P program": "",
+"Examples 15: Interactive code combined as single B4P program"::
+    runtime settings[verbose] = low;
     include ( Support Library );
     include ( Office Library );
     working directory ( Examples );
 
     table load excel file       ( football club, Football Membership List.xlsx ); 
-    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
+    echo                        ("Football club has ", table length( football club ), " members.");
     table list                  ( football club );
+
+    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
+    echo                        ("Soccer club has ", table length( soccer club ), " members.");
     table list                  ( soccer club );
 
     table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
     table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
     table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+    echo                        ("Merged soccer club has ", table length( soccer club )-1, " members.");
+
     table sort rows             ( soccer club,   { Level, Last Name,  First Name });
     table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
-    table save                  ( soccer club,   New Soccer Club Membership List.xls, EXCEL );
     table list                  ( soccer club );
-    echo                        ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
+    table save                  ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );
 	+++,
 
-"Output 09:Successful program execution": "automatic"
+"Output 15:B4P Program execution": "automatic"
+
+
+
+
 
 
   }
