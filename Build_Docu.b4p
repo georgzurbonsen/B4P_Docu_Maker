@@ -498,9 +498,9 @@ define procedure ( create navigator from revolving TOC )
 define function( run example program, { { program table, literal } } )
 {
 	table save	( program table[], "Example_Program.b4p", new line );
-	echo		( "    Run an example program.  If no reaction, then look at Example_Program.b4p", new line, "    and run on its own.  Here: Type 'exit' to contineue");
+	echo		( "    Run example program.  If dead, then look at Example_Program.b4p and run it. Here: Type 'exit' to continue");
 	system		( quote path(system info[bin directory] + system info[directory separator] + B4P) + " -wx Example_Program.b4p > Example_Out.txt" );
-	echo		( "    Done running.");
+//	echo		( "    Done running.");
 	table load	( example output, Example_Out.txt, TEXT );
 	return 		( join([example output:0,], new line) ); // Return output as one string.
 }
