@@ -1,86 +1,67 @@
 //
 B4PDOCU.START
 
-  "Football" :
+  "Football team merger" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "merging two football clubs" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
-    "Description 01:Starting B4P"::
 
-	A simple example
-	+++,
-    "Examples 01:Start B4P by double-clicking the icon or entering 'b4p' on a command shell"::
-	>b4p
-	+++,
-    "Output 01:B4P starts with a welcome text"::
+
+
+"Description 01:Merging two footbal teams"::
+An example of merging and consolidating two sources of data describing football teams.
++++,
+
+"Examples 01:Start B4P in quiet mode on the command shell"::
+> b4p -q
++++,
+
+
+"Output 01:"::
 B4P - Beyond Former Performance
 _______________________________________________________________________________
-
 Version 8.00 Candidate (2020-08-08) 'Wilhelm Tell'
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
-Licensed (local machine) with standard privileges for Rafael Richards.
-...
+Licensed (current user) with standard privileges for Rafael Richards.
 
-Included: Support Library  2.01
-Included: Utility Library  2.00
-Included: Office Libarary  2.00
-Included: Zip Library  2.20    Path to 7z.exe already memorized (OK): C:\Program Files\7-Zip\7z.exe
+Entering interactive mode.
 
 Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
-	+++,
+>>
++++,
 
 
 
-"Examples 02:Change to the directory where the soccer and footbal member data are located"::
+
+
+"Examples 02:Change working directory of B4P to where the data files are, and list the files"::
 >> $ cd /Users/rafael/b4p/B4P_Docu_Maker/Examples
-	+++,
+>> $ ls
++++,
 
-"Output 02:B4P executes the 'cd' but also changes working directory of B4P itself"::
-    B4P: Verify and resolve path '/Users/rafael/b4p/B4P_Docu_Maker/Examples' ...
-     OK. Current directory changed to '/Users/rafael/b4p/B4P_Docu_Maker/Examples/'
+"Output 02:"::
+OK. Current directory changed to '/Users/rafael/b4p/B4P_Docu_Maker/Examples/'
 
-     Note that the change in active working directory is only active for the current B4P session. 
-     If you exit from B4P, the active working paths will revert to the default paths.
-	+++,
+Example.xml				        
+Example1.json				   
+Football Membership List.xlsx	
+Soccer Membership List.csv	
+
++++,
 
 
 
 
-"Examples 03:Load the first file and display contents": 
-    ">> table load excel file ( football club, Football Membership List.xlsx )",
+"Examples 03:Load Football Membership List (Excel file), and list contents"::
+>> table load excel file ( football club, Football Membership List.xlsx )
+>> table list( football club )
++++,
+
 
 "Output 03:"::
-"Load Excel file 'Football Membership List.xlsx'.
-    Step 1:    Preparing ...
-    Step 2:    Extract list of sheets, shared strings and styles ...
-    Step 3:    Identify available Excel sheets ...
-    HTML file '/tmp/B4P_Office_53YU\workbook.xml' loaded:
-    28 rows, 38 columns in 1st row, 0 fields, widest row has 0 entries.
+    Load Excel file 'Football Membership List.xlsx'.
+    Done. Table contains 12 rows and up to 4 columns.
 
-    Step 4:    Load shared strings ...
-    HTML file '/tmp/B4P_Office_53YU\sharedStrings.xml' loaded:
-    159 rows, 8 columns in 1st row, 0 fields, widest row has 0 entries.
-
-    Step 5:    Load styles sheet ...
-    HTML file '/tmp/B4P_Office_53YU\styles.xml' loaded:
-    48 rows, 30 columns in 1st row, 0 fields, widest row has 0 entries.
-
-    Step 6:    Load selected Excel sheet number '1' ...
-    HTML file '/tmp/B4P_Office_53YU\sheet1.xml' loaded:
-    227 rows, 7 columns in 1st row, 0 fields, widest row has 0 entries.
-
-    Step 7:    File loaded.  Remove unnecessary contents ...
-    Step 8:    Work through the sheet and create the final table ...
-    Step 9:    Cleaning up ...
-Done. Table contains 12 rows and up to 4 columns."
-	+++,
-
-
-
-// Note: Next header 'Examples 04' is not shown because empty string after colon
-"Examples 04:": ">> table list( football club )",
-
-"Output 04:"::
     0 : First Name | Family Name | City         | Level
     1 : Abel       | Amberstone  | Amsterdam    | Beginner
     2 : Beata      | Berghill    | Barcelona    | Experienced
@@ -97,14 +78,98 @@ Done. Table contains 12 rows and up to 4 columns."
 
 
 
-// Note: The following description header has a colon at the end without text.  In this case, the header will not show up, but the text contained will.	
-    "Description 05:"::
-	You have successfully loaded both membership files.<br>
-	<b>Congratulations</b>!!!
+"Examples 04:Load Soccer Membership List (CSV file), and list contents"::
+>> table load ( soccer club,   Soccer Membership List.csv );
+>> table list( soccer club )
++++,
 
 
-"Description 06:Running the whole program": "",
-"Examples 06: Code example"::
+"Output 04:"::
+    Loaded CSV/TSV file 'Soccer Membership List.csv':
+    13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;
+
+    0 : Level        | Town        | Last Name  | First Name
+    1 : Questionable | Kyoto       | Karlsson   | Karl
+    2 : Novice       | London      | Lee        | Linda
+    3 : Experienced  | Morristown  | Miller     | Mike
+    4 : Experienced  | New York    | Nguyen     | Nathali
+    5 : Experienced  | Oslo        | Oliveiro   | Oscar
+    6 : Novice       | Phoenix     | Paulsson   | Petra
+    7 : Novice       | Quebec City | Quarles    | Quincy
+    8 : Experienced  | Riga        | Richardson | Richard
+    9 : Experienced  | San Diego   | Stewart    | Sandra
+   10 : Experienced  | Tahoma      | Turner     | Tim
+   11 : Questionable | Ulm         | Ufford     | Uwe
+   12 : Novice       | Venice      | Viking     | Victor
++++,
+
+
+
+
+
+"Examples 05:Rename column labels (Family name -> Last name; City -> Town), and list contents"::
+>> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+>> table list( football club )
++++,
+
+
+"Output 05:"::
+    0 : First Name | Last Name  | Town         | Level
+    1 : Abel       | Amberstone | Amsterdam    | Beginner
+    2 : Beata      | Berghill   | Barcelona    | Experienced
+    3 : Corinne    | Carlson    | Copenhagen   | Beginner
+    4 : Dietmar    | Davis      | Dublin       | Beginner
+    5 : Ellen      | Evans      | Essen        | Beginner
+    6 : Fred       | Fisher     | Frankfurt    | Experienced
+    7 : Gregory    | Green      | Gaza City    | Experienced
+    8 : Henry      | Hansson    | Hamburg      | Experienced
+    9 : Ida        | Ingelberg  | Ingolstadt   | Beginner
+   10 : John       | Janssen    | Johannesburg | Beginner
+   11 : Karl       | Karlsson   | Kansas City  | Experienced
++++,
+
+
+
+
+"Examples 06:Change all rows within the Level column from Novice to Beginner"::
+>> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
+>> table list( soccer club )
++++,
+
+
+"Output 06:"::
+    0 : Level        | Town        | Last Name  | First Name
+    1 : Questionable | Kyoto       | Karlsson   | Karl
+    2 : Beginner     | London      | Lee        | Linda
+    3 : Experienced  | Morristown  | Miller     | Mike
+    4 : Experienced  | New York    | Nguyen     | Nathali
+    5 : Experienced  | Oslo        | Oliveiro   | Oscar
+    6 : Beginner     | Phoenix     | Paulsson   | Petra
+    7 : Beginner     | Quebec City | Quarles    | Quincy
+    8 : Experienced  | Riga        | Richardson | Richard
+    9 : Experienced  | San Diego   | Stewart    | Sandra
+   10 : Experienced  | Tahoma      | Turner     | Tim
+   11 : Questionable | Ulm         | Ufford     | Uwe
+   12 : Beginner     | Venice      | Viking     | Victor
++++,
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+"Description 09:Running the whole program": "",
+"Examples 09: Code example"::
     runtime settings[verbose] = quiet;
     include ( Support Library );
     include ( Office Library );
@@ -124,7 +189,8 @@ Done. Table contains 12 rows and up to 4 columns."
     table list                  ( soccer club );
     echo                        ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
 	+++,
-    "Output 06:Successful program execution": "automatic"
+
+"Output 09:Successful program execution": "automatic"
 
 
   }
