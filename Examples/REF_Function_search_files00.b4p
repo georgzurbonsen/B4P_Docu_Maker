@@ -1,0 +1,9 @@
+﻿      echo("All files in a directory        : ", search files( "C:\Program Files\B4P\" ), new line );
+
+      echo("All files : ", search files( ".\", "*.b4p"      ) );
+      echo("1st file only (as literal)      : ", search files( ".\", "*.b4p", 0   ) );
+      echo("1st file only (in parameter set): ", search files( ".\", "*.b4p", 1   ) );
+      echo("1st file only (as literal)      : ", search files( "..\", "*", 0   ), new line ); // One directory up
+      echo("All subdirectories              : ", search files( "C:\Program Files\B4P", "*", -1, directories   ) );
+      echo("All .b4p/.txt recursively       : ",
+          search files recursive( "C:\Program Files\B4P", "*.txt,*.b4p", -1, files  ) );

@@ -1,0 +1,4 @@
+﻿      echo( length( {a,b,1} ) );  // 3 elements
+      echo( length( {a,{b,2,3}} ) );  // 2 elements (nested ones are not counted)
+      echo( length( {} ) );       // 0 elements (empty set)
+      echo( length( {{}} ) );     // 1 elements (contains 1 element which is a nested empty set)

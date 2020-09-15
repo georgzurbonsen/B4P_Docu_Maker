@@ -1,0 +1,7 @@
+﻿      table load( hb, "Table Merge Examples Hillboro.csv");
+      table load( hv, "Table Merge Examples Hillville.csv");
+
+      count[] = table subtract columns( hv, hb, Farmer ); // Note: 'overlay' is not part of function name.
+
+      echo("Hilltown is a merger of Hillboro and Hillville (", count[], " rows consolidated):");
+      table list( hb );

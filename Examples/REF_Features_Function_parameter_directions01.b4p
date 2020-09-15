@@ -1,0 +1,2 @@
+﻿  a[] = find( 'Say Hi!', { Ha, Hä, He, Hi, Ho }, 0, which[] );
+  echo( which[] ); // 3, because Hi is in position 3 in the parameter set

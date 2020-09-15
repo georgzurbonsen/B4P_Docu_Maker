@@ -1,0 +1,7 @@
+﻿      directory create( My Folder 1, My Folder 2 );
+
+      file copy( Example_Program.b4p, "My Folder 1/Test123.txt" );
+      file rename( My Folder 1\test123.txt, My Folder 2\test456.txt ); // Move and rename
+      system( 'dir /A-D /W "My Folder 2"' ); // Show directory listing
+
+      directory delete recursive( "", "My Folder ?" ); // Delete "My Folder 1" and "... 2".

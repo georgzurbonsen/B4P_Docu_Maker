@@ -1,0 +1,19 @@
+﻿  d1[] = "14. July 2021";
+  d2[] = "now";
+  d3[] = "20:15:00";
+  d4[] = ""; // Blank date
+  
+  echo("date     (): ", date(d1[]), ", ", date(d2[]), ", ",date(d3[]), ", ",date(d4[]), ", ", type detailed(date(d1[])) );
+  echo("time     (): ", time(d1[]), ", ", time(d2[]), ", ",time(d3[]), ", ",time(d4[]), ", ", type detailed(time(d1[])) );
+  echo("pure date(): ", pure date(d1[]), ", ", pure date(d2[]), ", ",pure date(d3[]), ", ",pure date(d4[]), ", ", 
+          type detailed(pure date(d1[])) );
+  echo("date time(): ", date time(d1[]), ", ", date time(d2[]), ", ",date time(d3[]), ", ",date time(d4[]), ", ", 
+          type detailed(date time(d1[])) );
+
+  echo;
+  echo(date("31. March 2021"), " / ", type detailed(date("31. Dezember 2021")) );
+  echo(date("2020 / 12 / 31 15:00")+1);     // Date and time
+  echo(date time("2020-12-31"));            // Add a time (default 00:00:00)
+  echo(time("2020-12-31 15:00"));           // Time
+  echo(time("2020-12-31 15:00")+1/24);      // Time, 1 hour later
+  echo(pure date("31. Dezember 2021")+1);       // Numeral

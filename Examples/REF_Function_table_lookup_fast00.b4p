@@ -1,0 +1,16 @@
+﻿
+
+  table load( lookup, "Table Lookup Example 1.csv" );
+  table initialize( target, { Town, New York, New York, Florence, New York, New York, Munich, New York } );
+
+  count[] = table lookup fast( target, Town, { Food or Beverage, Recommended },
+                               lookup, City, { Meal or Drink, Recommendation }, true, Counter );
+
+  echo("Lookup table:");
+  table list( lookup );
+
+  // Note: Querying New York after Florence looks for next match afer Florence and is a beer.
+
+  echo("Target table after lookup (", count[], " items found):");
+  table list( target );
+

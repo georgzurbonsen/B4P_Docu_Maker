@@ -1,0 +1,10 @@
+﻿  table load( t, "Example1.json", TEXT );
+
+  echo("This is the JSON file:");
+  table list( t );
+
+  table load( t, "Example1.json", JSON );
+
+  echo; echo;
+  echo("This is the loaded table from the JSON file:");
+  table list( t );

@@ -1,0 +1,8 @@
+﻿      include ( Support Library ); // for 'table list'. Will be included automatically when using B4P normally, i.e. not needed.
+
+      table initialize( t1, { { Name, Street, Nr }, { Alex, Main St., 231 }} );
+      echo("Initialized table:");
+      table list( t1 );
+      table clear( t1 );
+      echo("Cleared table:");
+      table list ( t1 ); // Nothing to list

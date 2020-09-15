@@ -1,0 +1,9 @@
+﻿      table initialize( animals,
+          {{ Name, Class, Number of Legs},
+           { Dog, Mammal, 4 }, { Snake, Reptile, 0 }, { Human, Mammal, 2 }} );
+
+      for all table columns( animals, 2, value[], i[] )
+      {
+          echo( i[],". ", [i[],0], ": ", value[] );
+      }
+

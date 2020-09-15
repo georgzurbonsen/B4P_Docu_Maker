@@ -1,0 +1,8 @@
+﻿  echo( { a,b,c,d      } {0} );                     // Access the 1st element
+  a[] = { a,b,c, {d,e,f}, g };                      // Assign a parameter set to variable a[]
+  echo( "Last element            : ", a[]{-1} );    // Retrieve the last element
+  echo( "Next element to the left: ", a[]{-2} );    // Retrieve the 2nd last element
+  echo( "Cascaded indexing       : ", a[]{3}{2} );  // retrieve 3rd element, and inside the subset the 2nd element (cascaded indexing)
+  echo( "# elements in           : ", a[]{} );      // Number of elements
+  echo( "# elements in nested set: ", a[]{-2}{} );  // Number of elements in subset (cascaded indexing)
+  echo( "Out of bounds case      : ", a[]{99} );    // Empty is returned if index lies out of bounds

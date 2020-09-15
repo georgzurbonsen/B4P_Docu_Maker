@@ -1,0 +1,25 @@
+﻿  table initialize( table 1,
+      { { A,  B,  C,  D,  E,  A,  G },
+        { E,  C,  D,  B,  A,  H,  X },
+        { T,  E,  B,  C,  A,  E,  A  } } );
+
+  row[] = 0; col[] = 0;
+  echo("Search entire table");
+  while ( table search( table 1, (A), row[], col[] ) = true)
+  {
+      echo("Row: ", row[], "  Col: ", col[]++ );
+  }
+
+  row[] = 0; col[] = 0;
+  echo("Search entire table vertically (Attention: begins at row 1 at next column");
+  while ( table search vertically( table 1, (A), row[], col[] ) = true)
+  {
+      echo("Row: ", row[]++, "  Col: ", col[] );
+  }
+
+  row[] = 0; col[] = 0;
+  echo("Limit search to column 1 - 4:");
+  while ( table search( table 1, (A), row[], col[], B, E ) = true)
+  {
+      echo("Row: ", row[], "  Col: ", col[]++ );
+  }

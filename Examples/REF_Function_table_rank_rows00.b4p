@@ -1,0 +1,21 @@
+﻿
+  table initialize( animals,
+      { { Animal, Leg Count },
+        { ant, 6  }, { mouse, 4 }, { spider, 8 }, { octopus, 8 }, { bird, 2  },
+        { tick, 8 }, { human, 2 }, { ape, 4    }, { lobster, 8 }, { snake, 0 },
+        { cat, 4  }, { ape, 2   }, { spider, 6 }, { fly, 6 } }  );
+
+  echo("Ranked all animals with more than 4 legs from Z-A, then those with 2 legs from A-Z (cascaded ranking)");
+  a[] = table rank selected rows( animals, [Leg Count]>4 , Rank, Animal, alphabetic down, 112 );
+        table rank selected rows( animals, [Leg Count]<=2, Rank, Animal, alphabetic, 112, a[] );
+  table list ( animals );
+
+
+  table initialize( names, { Name, Benita, Allen, Dominique, Andy, Benita, BENITA, Dominique, Michele } );
+
+  echo("Different ranking schemes on names using alphabetic ordering, ignoring case, start with rank 0:");
+  table process ( names, for all parameters( { 123, 213, 112, 113, 223 }, scheme[] )
+      {
+          table rank rows( names, literal(scheme[]), Name, alphabetic ignore case, scheme[], 0 );
+      } );
+  table list ( names );

@@ -1,0 +1,5 @@
+﻿  echo(012.340);      // Numeral
+  echo(type detailed(012.340), new line);
+  echo(012.340 + 0);  // Plain numeral - Original text representation is lost
+  echo(type detailed(012.340 + 0));
+  echo(numeral(012.340)); // Also plain numeral

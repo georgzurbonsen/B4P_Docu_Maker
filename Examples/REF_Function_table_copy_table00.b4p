@@ -1,0 +1,3 @@
+﻿  table initialize( t, {{ Name, Age }, { Ann, 45 }, { Dan, 35 }} );
+  table copy table ( t, u );
+  table list ( u );

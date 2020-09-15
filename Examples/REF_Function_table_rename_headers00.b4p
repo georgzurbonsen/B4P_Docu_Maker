@@ -1,0 +1,15 @@
+﻿
+  table initialize ( table, { { First Name, Last Name, Phone No, Age }, { Archer, Jim, "1-212-555-1212", 28 } } );
+
+  count[] = table rename existing headers( table, ' Last Name, First Name, Family Name ', ' First Name, Last Name, Other Name ' );
+  //        table rename existing headers( table, { Last Name, First Name, Family Name }, {First Name, Last Name, Other Name} );
+  //        Both formulations are valid (see 2+3. parameter: Either softquoted literal with comma separated items or parameters)
+
+  table list ( table );
+  echo;
+  echo("Number of headers renamed: ", count[]);
+
+  echo( new line, "This example demonstrates that each "First Name" column is touched only once.", new line );
+  table initialize ( table,   { { First Name, First Name, Phone No, Age }, { Tanner, Lisa, "1-212-555-1212", 28 } } );
+  table rename headers( table,  { First Name, First Name }, { Last Name, Given Name } );
+  table list ( table );

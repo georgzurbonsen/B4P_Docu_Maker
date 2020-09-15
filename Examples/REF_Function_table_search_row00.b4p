@@ -1,0 +1,13 @@
+﻿  table initialize ( table 1,
+  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  r[1] = table search row( table 1, [Animal]='*i*' );
+  r[2] = table search row( table 1, ([Animal]='*i*'), r[1]+1 );
+  r[3] = table search row( table 1, ([Animal]='*i*'), r[2]+1 );
+
+  // Note that comparison is in parentheses, so the next function parameter is not regarded
+  // as part of a comparison expression.
+
+  echo( "1st match: ", r[1] );
+  echo( "2nd match: ", r[2] );
+  echo( "3rd match: ", r[3] ); // -1 because only 2 words containing 'i' exist.

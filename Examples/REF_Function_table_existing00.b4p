@@ -1,0 +1,3 @@
+﻿      table create( my table );
+      echo( table existing ( my table ) );
+      echo( table existing ( my other table ) );

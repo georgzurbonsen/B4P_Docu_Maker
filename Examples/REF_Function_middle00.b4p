@@ -1,0 +1,14 @@
+﻿      st[] = "The taste of the coffee!";
+
+      echo( middle( st[], 4, 8 ), " / ",  middle until ( st[], 4, 8 ) );
+      echo( middle( st[], -6, 3 ), " / ", middle until( st[], -7, -2 ) ); // "off", "coffee"
+      echo;
+      echo( middle( st[],  99, 8 ), " / ",  middle until ( st[],  99, 8 ) ); // empty strings
+      echo( middle( st[], -99, 8 ), " / ",  middle until ( st[], -99, 8 ) );
+      echo;
+      echo( middle( st[], 'taste ', 13 ), " / ", middle include( st[], 'taste ', 13 ) ); // "of the coffee", "tast of the coffee"
+      echo;
+      echo( middle until( st[], 'taste ', -2 ), " / ", middle until include( st[], 'taste ', -2 ) ); // "of the coffee", "tast of the coffee"
+      echo( middle until include( st[], 'taste ', 3 ), " / ", middle until include( st[], 'taste ', 6 ) ); // "", "tas"
+      echo;
+      echo( middle ( st[], 'taste ', ' coffee' ), " / ", middle include( st[], 'taste ', ' coffee' ) ); // "of the", "tast of the coffee"

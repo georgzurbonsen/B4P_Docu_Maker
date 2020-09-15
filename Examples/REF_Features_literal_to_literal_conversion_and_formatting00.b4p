@@ -1,0 +1,12 @@
+﻿      echo ( "(", literal( "Dog","######", align left  ), ")");
+      echo ( "(", literal( "Dog","######", align middle ), ")" );
+      echo ( "(", literal( "Dog","######", {align middle, align right} ), ")" ); // Last align option applies
+      echo ( literal( "Hello World","Result: [####-####]" ) );
+      echo ( literal( "Hello World","Result: [4#-4#]" ) );
+      echo ( literal( "Hello World","Result: [####-####]", truncate left ) );
+      echo ( literal( "Hello World","[###XXXxxx]") );
+      echo ( literal( "News", "##########", {}, "+" ) ); // '' also allowed, but not ""
+      echo ( literal( "News", "##########", align right, "+" ) );
+      echo ( literal( "Daily Newspapers", "###### # # # #" ) );
+      echo ( literal( "Daily Newspapers", "###### # # # # *" ) );
+      echo ( literal( "Daily Newspapers", "###### # # # # ****" ) );

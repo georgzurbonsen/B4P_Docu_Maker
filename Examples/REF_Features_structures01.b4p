@@ -1,0 +1,10 @@
+﻿  
+  echo("Initialize a nested structure containing structure and array");
+
+  city[] = Paris;
+  array( city[district], {ignoe 0, Louvre, Bourse, Temple, Hotel de Ville, etc. } );
+  city[district,2,area] = 99; // 99 hectars
+  city[district,2,inhabitants] = 19500;
+  echo("1st  district = ", city[district,1], "   last district = ", city[district,-1] );
+
+  inspect( city[] );

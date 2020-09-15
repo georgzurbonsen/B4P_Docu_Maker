@@ -1,0 +1,4 @@
+﻿      pi[] = asin(1)*2;
+      echo( cos( pi[] / 4 ) ); // 45 deg.
+      echo( sin deg( 30 ) );   // 30 deg.
+      echo( asin deg( 1 ) );   // 90 deg.

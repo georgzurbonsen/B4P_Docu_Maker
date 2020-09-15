@@ -1,0 +1,5 @@
+﻿      x[] = {-1 .. 12 };
+      y[] = linear interpolation( x[], {0, 4, 8, 10}, {0, 8, 5, 0}, flat, continue );
+      // Note: Extrapolation is done for for x[] = -1, 11 and 12.
+
+      echo(y[]);

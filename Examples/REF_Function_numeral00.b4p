@@ -1,0 +1,4 @@
+﻿      echo( numeral( '1.2E+03' ) );
+      echo( numeral( true ) );
+      echo( numeral( 0123 ) );
+      echo( numeral( date ( "05. Nov 2019 12:00" ) ) );

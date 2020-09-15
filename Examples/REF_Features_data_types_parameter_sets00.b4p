@@ -1,0 +1,3 @@
+﻿  a[] = { 1, a, 2, {b,c}, true, date(today) };
+  echo( a[], " / ", type(a[]) );
+  echo( "First element: ", a[]{0}, " and last element: ", a[]{1} );

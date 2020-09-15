@@ -26,7 +26,8 @@ code
 }
 
 .red_text {
-  color: red;
+    color: red;
+    font-weight: bold;
 }
 
 .bold_text 

@@ -1,0 +1,12 @@
+﻿  
+  echo("Initialize a structure directly");
+  a[dog] = Hund;
+  a[cat] = Katze;
+  a[gnu] = Gnu;
+  echo(a[cat]);
+  inspect( a[] );
+
+  echo(new line, "Initialize with the structure function");
+  structure( leg count[], { snake, bird, dog, fly, tick }, { 0, 2, 4, 6, 8 } );
+  inspect( leg count[] );
+

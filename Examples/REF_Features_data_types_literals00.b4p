@@ -1,0 +1,8 @@
+﻿  echo(Hello World);
+  echo(  Hello   World   ); // To include the blanks, use quotation marks.
+  echo(Hello World, new line, Hello Folks, new line); // 'new line' is a reserved keyword.
+  echo( 31.12.2021 );       // No automatic conversion to __date__ type.  Use: echo(date( 31.12.2021 ))
+  echo( 100 Flowers );
+  echo( mike@example.com ); // No need include quotation marks because the @-sign is not a Beyond4P symbol
+  echo( 1 2 3 );            // Is a literal because of spaces between teh digits
+  echo( type( 1 2 3 ));

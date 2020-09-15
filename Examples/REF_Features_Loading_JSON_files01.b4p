@@ -1,0 +1,13 @@
+﻿
+  echo("The same JSON file is loaded as shown in the 1st code example.", new line);
+  table load( t, "Example1.json", JSON TABLE );
+
+  echo; echo;
+  echo("First tabe loaded:");
+  table list( t );
+
+  table load( t, "Example1.json", JSON TABLE, "table_1" );
+
+  echo; echo;
+  echo("This is the loaded table below table_1:");
+  table list( t );

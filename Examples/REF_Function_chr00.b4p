@@ -1,0 +1,5 @@
+﻿      echo( "'", chr( 0 ), "'" );      // Empty string
+      echo( "'", chr( 65 ), "'" );     // A
+      echo( "'", chr( 223 ), "'" );    // Sharp S
+      echo( "'", chr( 8364 ), "'" );   // EURO sign
+      echo( "'", chr( 119070 ), "'" ); // Violin clef

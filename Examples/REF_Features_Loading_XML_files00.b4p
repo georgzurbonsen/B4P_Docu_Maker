@@ -1,0 +1,11 @@
+﻿  table load( t, "Example.xml", TEXT );
+
+  echo("This is the XML file:");
+  table list( t );
+
+  table load( t, "Example.xml", XML );
+
+  echo; echo;
+  echo("This is the loaded table from the XML file:");
+  table list( t );
+

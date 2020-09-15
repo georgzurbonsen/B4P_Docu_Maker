@@ -1,0 +1,15 @@
+﻿
+  table initialize ( table 1,
+  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  table insert selected rows( table 1, ([Animal]=Bird,Dog), [leg count], Animal, Index );
+
+  table list( table 1 ); // Only Dog and Fly are left
+
+  echo(" and above: ");
+  table initialize ( table 1,
+   { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  table insert above selected rows( table 1, ([Animal]=Bird,Dog), [leg count], Animal, Index );
+
+  table list( table 1 ); // Only Dog and Fly are left

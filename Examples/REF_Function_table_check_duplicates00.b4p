@@ -1,0 +1,17 @@
+﻿
+  table initialize( names,  // Gender neutral first names
+      { { First Name, Last Name, Gender },
+        { Pascale,   Baker,       Male   },
+        { Philippe,  Tanner,      Female },
+        { Philippe,  Tanner,      Male   },
+        { Dominique, Miller,      Male   },
+        { Gabriel,   Baker,       Female },
+        { Nicola,    Nilsson,     Female },
+        { Philippe,  Tanner,      Male   },
+        { Gabriel,   Baker,       Male   },
+        { Nicola,    Nilsson,     Male   } } );
+
+
+  table check duplicates ignore case( names, {Last Name, First Name}, Identifier, Index, Count );
+  table list ( names );
+

@@ -1,0 +1,20 @@
+﻿      table initialize( a,
+      { { Name, Answer, Date,         Time,       Blank, Number, Scientific },
+        { Nic,  TRUE,   '2020-01-03', '15:30:00', '', '123', '1.2E+3' } } );
+
+      for all table columns( a, 0, col[], x[] ) echo( [a:x[],1] , "  (", type( [a:x[],1] ), ")" );
+
+      table configure( a, read dates, yes, read booleans, yes, blank to zero, yes, scientific notation, yes );
+      echo;
+      for all table columns( a, 0, col[], x[] ) echo( [a:x[],1] , "  (", type( [a:x[],1] ), ")" );
+
+      table append ( a,  { Jim } );
+
+      echo( [a:Name,John] );   // Returns -1 as row number.  When refering to other columsn; Exception
+      table configure( a, row not found, header row );
+      echo( [a:Name,John] ); // Header row
+
+      table configure( a, column not found, new column );
+      [a:Color,1] = green; // Creates an additional header called "Color" instead of asserting an exception
+      echo( "Header names: ", [a:..,0]);
+      echo( [a:Color,1] );

@@ -1,0 +1,17 @@
+﻿      set[] = { the, taste, of, the, 12, coffees, '!' };
+
+      echo( left( set[], 0 ), ", ", left( set[], 1 ), ", ", left( set[], -2 ), ", ", left( set[], -1 ) );
+      echo( left( set[],99 ), ", ", left( set[], -99) );
+      echo;
+      echo( left( set[], { 12, of } ), " / ", left include( set[], { 12, of } ) ); // Recognized 'of' as 1st match
+      echo( left last match ( set[], {the} ), ", ", left last match include( set[], {the} ) );
+      echo( left( set[], {tea } ) ); // Returns full set because element not found
+
+      echo( new line, "Demonstrate the follower feature: ");
+
+      set2[] = { A, fragrance, coming, from, 120, espressos, '!' };
+      set3[] = { Der, Geschmack, kommt, von, 120, Tassen Kaffee, '!' };
+
+      echo( "Extraction 1: ", left( set[], {of}, set2[], set3[] ) );
+      echo( "Extraction 2: ", set2[] );
+      echo( "Extraction 3: ", set3[] );

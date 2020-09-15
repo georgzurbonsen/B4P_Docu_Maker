@@ -1,0 +1,4 @@
+﻿  table initialize( t, {{ Hi, He }} );
+  a[] = Ho;
+  exchange( [t:0,0], a[] );
+  echo( [t:..,0], " and ", a[] );

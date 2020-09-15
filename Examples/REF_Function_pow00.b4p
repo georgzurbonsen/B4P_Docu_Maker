@@ -1,0 +1,4 @@
+﻿      echo( pow( 7, 2 ) );
+      echo( pow( 3, 3 ) );
+      echo( pow( 81, 0.5 ) );
+      echo( pow( 27, 1/3 ) );

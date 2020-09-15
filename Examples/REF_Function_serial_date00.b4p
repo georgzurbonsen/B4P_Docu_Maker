@@ -1,0 +1,1 @@
+﻿      echo( serial date( 18.06.2020 ), ", ", serial date( "18.06.2020 18:00" ), ", ", serial date( 01.01.1990 ), ", ", serial date( "" ) );

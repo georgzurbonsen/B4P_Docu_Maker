@@ -1,0 +1,2 @@
+﻿      dates[] = { "2020-01-01", today, "2020-01-01 13:00:00", now, "13:00:00", time(now), "", date("") };
+      for all parameters( dates[], date[] ) echo( date inside(date[]), " / ", time inside(date[]) );

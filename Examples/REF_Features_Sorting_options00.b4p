@@ -1,0 +1,8 @@
+﻿  
+  table initialize ( t,
+  { { Scheme, alphabetic, alphabetic down, alphabetic ignore case, alphabetic down ignore case, numeric, numeric down, date, date down, time, time down },
+      "02-Dec-2020 10:00", "02-Nov-2020 11:00", "05", "1", "Dec", "apr 15", "-1", "", "begin" } );
+
+  for all parameters( [t:1..,0], option[] )  table rank rows( t, option[], Scheme, option[], 113 ); // 113 - Same ranking share same ranking position
+  table transpose (t);
+  table list (t);     

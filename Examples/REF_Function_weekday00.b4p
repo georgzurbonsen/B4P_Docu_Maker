@@ -1,0 +1,5 @@
+﻿      for all parameters( { date(today) .. date(today)+10, date("15:00:00") }, date[] )
+      {
+          echo( literal( date[], "Ttt, DD.Mmm.YYYY: " ), weekday(date[], 1), " ",
+                weekday(date[], 2), " ", weekday(date[], 3) );
+      }

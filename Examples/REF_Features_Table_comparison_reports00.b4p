@@ -1,0 +1,31 @@
+﻿
+  table load( t1, "Cities.csv" );
+  table keep columns ( t1, {City, Country, Inhabitants, Famous attraction, Moving along } );
+  table keep selected rows ( t1, [Inhabitants]>=1000000 );
+
+  echo("Original table:");
+  table list ( t1 );
+
+  echo("Create a modified table:");
+  table copy table ( t1, t2 );
+  table sort rows ( t2, City );
+  table delete selected rows( t2, [City]==Los Angeles);
+  table delete columns( t2, Country );
+  table insert columns( t2, Time Zone, "", 3 );
+  table append( t2, {{ Shanghai, 23000000, "Jing'an Temple", "UTC+8", Bicycle, Bla }} );
+      // Last entry 'Bla' lies outside the colums with headers and is considered an orphan.
+  [t2:City,Paris,Famous attraction] = Moulin Rouge;
+  [t2:City,Paris,Time Zone] = "UTC+1";
+  [t2:City,New York City,Inhabitants] = 8323340;
+  table list ( t2 );
+
+  echo("Compare and create journal as output:");
+  table compare( t2, t1, report, City, journal );
+  table delete columns( report, {Statistics Parameters, Statistics Values} ); // Ignore them for now
+  table delete blank rows( report );
+  echo("Comparison Report:");
+
+  table rename headers( report, { Old Table Row Number, Old Table Column Number, New Table Row Number,
+      New Table Column Number }, { OR, OC, NR, NC } ); // Abreviate headers to fit on page
+
+  table list ( report );

@@ -1,0 +1,8 @@
+﻿      print('Hello '); // Without line break
+      echo(World); // With line break
+      echo("My name is ", system info[user name] );
+      echo( { This, is, a, parameter, set } ); // Output a parameter set
+      
+      // While echo(...) suppresses indirect parameter passing, the print... functions
+      // treat the parameter set provided as 1st parameter as actual list of function parameters.
+      print line( { This, is, a, parameter, set } );

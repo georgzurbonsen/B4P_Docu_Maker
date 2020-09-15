@@ -1,0 +1,4 @@
+﻿  a[1] = 1;
+  echo( a[0] );
+  echo( null() );
+  echo( type(null()) );

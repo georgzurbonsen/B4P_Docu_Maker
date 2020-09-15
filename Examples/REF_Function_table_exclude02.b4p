@@ -1,0 +1,8 @@
+﻿      table load( hb, "Table Merge Examples Hillboro.csv");
+      table load( hv, "Table Merge Examples Hillville.csv");
+
+      count[] = table exclude extend columns( hv, hb, Farmer );
+      // '*' corresponds to {Organic, Place, Wheat, Oat, Sheeps, Cows, Acres, Speciality}
+
+      echo("Hilltown is a merger of Hillboro and Hillville (", count[], " rows consolidated):");
+      table list( hb );

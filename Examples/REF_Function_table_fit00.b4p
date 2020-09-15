@@ -1,0 +1,34 @@
+﻿
+  table initialize( t,
+      { { A,  B,  C,  D,  E,  F  },
+        { A1, B1, C1, D1, E1, F1 },
+        { A2, B2, C2, D2, E2, F2, G2, H2  },
+        { A3, B3, C3, D3, '', '', '', ''  },
+        { A4, B4, C4, D4, '', '', '', ''  },
+        { A5, B5, C5, D5, '', '' },
+        { A6, B6, C6, D6 },
+        {  '', '' },
+        { A9, B9 } } );
+
+  table insert columns( t, Width, "", 0 );
+  table process ( t, [Width] = table row width( t, row() )-1 );
+
+  echo("Original table:" );
+  table list( t );
+
+  define procedure ( demonstrate table fit, {{ option, literal }} )
+  {
+      table copy table ( t, u );
+      padding[] = select if ( option[]!=trim, "-", "" );
+      rect[] = table fit ( u, option[],  padding[] );
+      echo( "Fit table to '", option[],"' (rectangular = ", rect[],"):" );
+      table process ( u, [Width] = table row width( u, row() )-1 );
+      table list (u);
+  }
+
+  demonstrate table fit (check );
+  demonstrate table fit (min table width );
+  demonstrate table fit (min header width );
+  demonstrate table fit (max table width );
+  demonstrate table fit (equal header width );
+  demonstrate table fit (trim );

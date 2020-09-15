@@ -1,0 +1,13 @@
+﻿  define procedure ( hi )
+  {
+      once()
+          echo(Hey folks);
+      else: 
+          echo(Good bye);
+  }
+
+  // Main program part: Call 'hi' three times:
+
+  hi;
+  hi;
+  hi;

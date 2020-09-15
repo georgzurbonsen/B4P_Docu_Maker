@@ -1,0 +1,13 @@
+﻿      date 1[] = date("2020-07-04"); // Some national holidays
+      date 2[] = date("2020-08-01 22:30:00");
+
+      echo( literal ( date 1[], "Tttt DD.Mmmm.YY", EN_us ));
+      echo( literal ( date 2[], "Ttt DD.mm.YYYY ' Zeit: ' HH:ii:ss", DE_de ));
+      echo( literal ( date 2[], "Ttt DD.mm.YYYY ' Zeit: ' HH:ii:ss", DE_de ));
+      echo( literal ( date 2[], "Ttt MM/DD/YY ' Time: ' hh:ii:ss aaa", en_US ));
+      echo( literal ( date 1[], "Tttt DD.Mmmm.YY", Hindi ));
+
+      echo( new line, "Show difference between ISO and adjusted week and year numbers: ");
+      echo( literal( date( "2019-12-31"), "'Week: 'ZZZZ-WW 'and' YYYY-XX") ); // Different
+      echo( literal( date( "2020-06-30"), "'Week: 'ZZZZ-WW 'and' YYYY-XX") ); // Same
+      echo( literal( date( "2021-01-01"), "'Week: 'ZZZZ-WW 'and' YYYY-XX") ); // Different

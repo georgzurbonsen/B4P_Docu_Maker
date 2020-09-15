@@ -1,0 +1,31 @@
+﻿      echo("Try 'switch:'");
+      for (a[] = 1, a[] <= 6, a[]++)
+      {
+          print ( "  ",a[], ": " );
+          switch( a [] )
+          {
+              case (>1)   print("Greater than 1;   ");
+              case (<>3)  print("Not equal to 3;   ");
+              case (4,6)  print("Equals to 4 and 6;   ");
+              else:       print ("Not matching;  ");    // else will also enable another case round
+              case (>2)   print ("Greater than 2;  ");
+              else:       print ("Else: at most 2;  ");
+              else: echo ("Done");
+          }
+      }
+
+      echo("Try 'check':");
+      for (a[] = 1, a[] <= 6, a[]++)
+      {
+          print ( "  ",a[], ": " );
+          check( a [] )
+          {
+              case (>1)   print("Greater than 1;   ");
+              case (<>3)  print("Not equal to 3;   ");
+              case (4,6)  print("Equals to 4 and 6;   ");
+              else:       print ("Not matching;  ");    // else will also enable another case round
+              case (>2)   print ("Greater than 2;  ");
+              else:       print ("Else: at most 2;  ");
+              else: echo ("Done");
+          }
+      }

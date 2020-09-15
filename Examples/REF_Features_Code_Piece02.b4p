@@ -1,0 +1,9 @@
+﻿  var 1[] = my array;
+  var 2[] = 'my array[]';
+
+     array(  var 0[],   {hog, bat, pig} );
+  // array(  var 1[][], {dog, cat, rat} );   // This one is wrong
+     array( :var 2[],   {dog, cat, rat} );   // This one is OK
+  
+  echo( var 0[1] ); // bat
+  echo( my array[1] ); // cat

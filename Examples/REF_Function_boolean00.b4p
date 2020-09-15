@@ -1,0 +1,5 @@
+﻿      echo( boolean (TRUE), " ", boolean(Falsch) ); // true, false
+      echo( boolean ("Ja"), " ", boolean("No") );       // true, false
+      echo( boolean ("1"), " ",  boolean(0) );        // true, false
+      echo( boolean ({{}}), " ", boolean ({}) );        // true, false
+      echo( boolean ( date( '10:30:00' )), " ", boolean( date("") ) );    // true, fasle

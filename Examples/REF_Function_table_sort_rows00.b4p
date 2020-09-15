@@ -1,0 +1,16 @@
+﻿
+  table initialize( animals,
+      { { Animal, Leg Count },
+        { ant, 6 }, { mouse, 4 }, { spider, 4 }, { octopus, 8 }, { bird, 2 },
+        { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 },
+        { cat, 4 }, { kangaroo, 2 or 4 }, { spider, 6 }, { fly, 6 }, { worm, 0 } }  );
+
+  echo("Sort animals.  Spiders are sorted by leg count.");
+  table copy table ( animals, a );
+  table sort rows( a, { Animal, Leg Count }, { alphabetic, numeric down } );
+  table list( a );
+
+  echo("Sort animals with 4 legs");
+  table rearrange selected rows( animals, ([Leg Count]='*4*'), top );
+  table sort selected rows( animals, ([Leg Count]='*4*'), Animal );
+  table list ( animals );

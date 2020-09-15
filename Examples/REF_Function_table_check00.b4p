@@ -1,0 +1,21 @@
+﻿
+      table initialize( target, {{ Name, Gender}, { Philippe, male }, { Pascale, female }, { Michele, female }} );
+      echo("Target table:"); table list ( target );
+
+      table initialize( reference, { Gender, male, female }  );
+      echo("Reference table:"); table list ( reference );
+
+      res[] = table check( target, reference, Gender );
+
+      echo("Target table after checking (result = ", res[], "):");
+      table list ( target );
+
+      echo("Add a mistake.");
+      [target:Name,Philippe,Gender] = "Male"; // Upper case deviates
+
+      res[] = table check( target, reference, Gender );
+
+      echo("Target table after checking (result = ", res[], "):");
+      table list ( target );
+
+      // See following sub-sections for more sophisticated examples.

@@ -495,12 +495,19 @@ define procedure ( create navigator from revolving TOC )
 
 
 
-define function( run example program, { { program table, literal } } )
+define function( run example program, { { program table, literal }, { b4p file name, literal } } )
 {
 	table save	( program table[], "Example_Program.b4p", new line );
 	echo		( "    Run example program.  If dead, then look at Example_Program.b4p and run it. Here: Type 'exit' to continue");
 	system		( quote path(system info[bin directory] + system info[directory separator] + B4P) + " -wx Example_Program.b4p > Example_Out.txt" );
 //	echo		( "    Done running.");
+
+	table insert rows ( program table[], 0, 1 ); // Insert row 0 as it needs to be processed, too.
+	table delete selected rows( program table[], [0]=~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes
+	table process( program table[], [0] = [0] - "Examples/" - "examples/" - "Examples\" - "examples\" ); // Remove subdirectories
+	table delete rows ( program table[], 0, 1 );
+	table save ( program table[], "Examples/" + b4p file name[], TEXT );
+
 	table load	( example output, Example_Out.txt, TEXT );
 	return 		( join([example output:0,], new line) ); // Return output as one string.
 }
@@ -514,7 +521,7 @@ define procedure( apply HTML links on keywords, { { text, all, reference } } )
 		row[] = table search row ( keyword index, [Keywords]=+literal(line[]) );
 		if (row[] >= 0) 
 		{
-		    text[i[]] = '<a href="' + [keyword index:HTML File Name,row[]] + '">' + line[] + '</a>';
+		    text[i[]] = '<a class = "bold_text" href="' + [keyword index:HTML File Name,row[]] + '">' + line[] + '</a>';
 		}
 		else
 		{
@@ -546,7 +553,8 @@ define procedure( apply HTML links on embedded keywords, { { text, all, referenc
 
 		    if (row[] >= 0)
 		    {
-			new item[] = '<a ' + select if( is function[], 'class="bold_text"','')  + ' href="' + [keyword index:HTML File Name,row[]] + '">' + pure item[] + '</a>';
+//			new item[] = '<a ' + select if( is function[], 'class="bold_text"','')  + ' href="' + [keyword index:HTML File Name,row[]] + '">' + pure item[] + '</a>';
+			new item[] = '<a class="bold_text" href="' + [keyword index:HTML File Name,row[]] + '">' + pure item[] + '</a>';
 		    }
 		    else
 		    {
@@ -665,6 +673,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 {
     table name[] = select if ( content type[] == "Function Names", table of function descriptors, table of general descriptors );
     table create( example program ); // Make sure this table is empty
+    example program counter[] = 0;
 
     all full descriptors[]	= set names( item[], 1, all );				// e.g. {"Descriptor 01:Intro", ...}
     all descriptors[]		= deep( left, { all full descriptors[], ':' } ); 	// e.g. {"Descriptor 01", ...}
@@ -746,10 +755,15 @@ define procedure ( create function description in HTML, { { item, all, reference
 	    {
 		if ([Todo]='*monospace*')
 		{
+		    example program file name[] = '';
 		    payloads[] <== item[full descriptor[]]; // Pick up all values into variable payloads;
 		    for all variables( payloads[], value[], index[] )
 		    {
-		        if ([Todo]='*code*') table append( example program, { payloads[index[]] } ); // Record the example program in case of running it
+		        if ([Todo]='*code*') 
+			{
+			 	table append( example program, { payloads[index[]] } ); // Record the example program in case of running it
+			}
+		
 
 		        if ([Todo]='*code*','*output*') // Output example
 		        {
@@ -760,7 +774,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 			if ( ([Todo]='*output*') & (trim(value[])=automatic) )
 			{
-				payloads[index[]] = run example program( example program );
+				example program file name[] = item[HTML File Name]-".html"+literal(example program counter[]++, "00" ) + ".b4p";
+				payloads[index[]] = run example program( example program, example program file name[] );
 			        substitute all( payloads[index[]], {"&","<",">","\","  ",new line}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;","<br/>" + new line } );
 			}
 		    }	
@@ -771,6 +786,10 @@ define procedure ( create function description in HTML, { { item, all, reference
 		    payloads as set[] = filter( set (payloads[] , 1), <>'$SKIP$' );
 
 		    payload[] = join ( payloads as set[], "<div " + class[] + " ><code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code></div>" );
+		    if (example program file name[]<>'')
+		    {
+		        payload[] += "<br><u>Try it yourself:</u> Open <b>" + example program file name[] + "</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.";
+		    }
 		    table append( HTML out[], { payload[] } );
 		}
 		else
@@ -956,7 +975,7 @@ define procedure ( create all general and function descriptions in HTML )
 	if (chosen book[abbr]=REF) table save( RTOC, destination path[] + "TOC.csv" ); // Applicable for reference manual only
 
 	directory delete recursive all( destination path[] + Images );
-	sleep(0.3);
+	sleep(0.3); // OS works in background, need to wait a bit
 	file copy recursive( ".\Images", destination path[]+"Images", "*.*" );
 	file copy overwrite ( styles.css, destination path[] + styles.css ); // Style sheet
 
@@ -966,6 +985,13 @@ define procedure ( create all general and function descriptions in HTML )
 		echo("Following HTML file name is duplicated to 'index.html': ", index html file name[] );
 		file copy overwrite ( destination path[] + index html file name [], destination path[] + index.html );
 	}
+
+	// Put all the code examples into a ZIP file and stage it on the website, too.
+
+	echo(new lne, "Compress all code examples into B4P_Examples.zip" );
+	working directory ( Examples );
+	file delete silently( destination path[] + "B4P_Examples.zip" ); sleep( 0.3 ); // OS works in background, need to wait a bit
+	zip compress( "*.*", destination path[] + "B4P_Examples.zip" );
 
 }
 

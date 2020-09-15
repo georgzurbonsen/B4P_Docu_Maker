@@ -1,0 +1,13 @@
+﻿  table initialize ( table 1,
+  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  table initialize ( table 2, { Color, Red, Blue, Green } );
+
+  table process( table 1, echo("Row number: ", row(), " ", [Animal], " has ", [leg count], " legs." ) );
+
+  with table( table 1, 2 )
+  {
+      table process( table 2,
+      echo ("Row # in table 1: ", row(1), " (", [^Animal], ") and table 2: ", row(0), " (", [Color], ")" ) );
+      // Note the accent circumflex in [^Animal]: This symbol refers to next upper context, like row(1).
+  }

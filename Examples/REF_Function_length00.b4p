@@ -1,0 +1,5 @@
+﻿      echo( length( 007.0 ) );    // 5 characters (literal context preserved)
+      echo( length( 007.0 + 0 ) );    // 1 character (7) after a calculation
+      echo( length( 1=1 ) );      // 4 characters (true)
+      echo( length( Hello ) );    // 5 chracters
+      echo( length( date(today)) );   // 10 characters: YYYY-MM-DD

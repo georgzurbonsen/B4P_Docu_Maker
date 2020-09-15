@@ -1,0 +1,10 @@
+﻿      structure( a[], { Animal, Plant, Alien }, { Ape, Tulip, Chewbacca } );
+      for all variables( a[], value[], i[] , name[])
+      {
+          echo( i[],": ", name[]," = ", value[] );
+      }
+      array( a[], { Charles, Dave, Abel, Birgit, } );
+      for all variables( a[], value[], i[] , name[])
+      {
+          echo( i[],": ", name[]," = ", value[] );
+      }
