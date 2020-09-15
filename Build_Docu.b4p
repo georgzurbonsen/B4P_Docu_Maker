@@ -754,6 +754,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 		        if ([Todo]='*code*','*output*') // Output example
 		        {
 			    substitute all( payloads[index[]], {"&","<",">","\","  "}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;" } );
+			    if (value[] =~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;')
+				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }
 
 			if ( ([Todo]='*output*') & (trim(value[])=automatic) )
@@ -766,7 +768,9 @@ define procedure ( create function description in HTML, { { item, all, reference
 		    class[] = compare select( [Todo], white_background_color, ('*code*'), code_background_color, ('*output*'), output_background_color );
 		    class[] = 'class="' + class[] + '"';
 
-		    payload[] = join ( set (payloads[] , 1), "<div " + class[] + " ><code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code></div>" );
+		    payloads as set[] = filter( set (payloads[] , 1), <>'$SKIP$' );
+
+		    payload[] = join ( payloads as set[], "<div " + class[] + " ><code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code></div>" );
 		    table append( HTML out[], { payload[] } );
 		}
 		else

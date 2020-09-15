@@ -1,11 +1,2 @@
-﻿  include ( Support Library );
-
-  table initialize( t,
-       { { Food,     color,          taste,     best with },
-         { Fries,    golden yellow,  salty,     hamburger },
-         { Pizza,    colorful,       tasteful },
-         { Chianti,  rubin red,      bitter,    pasta, worth enjoying },
-         { Tirami sù,crème and brown,sweet } } );
-
-  table transpose ( t );
-  table list ( t );
+﻿      a[] = "14. July 2020, 15:30:40";
+      echo( year( a[] ), ", ", quarter( a[] ), ", ", month( a[] ), ", ", day( a[] ) );
