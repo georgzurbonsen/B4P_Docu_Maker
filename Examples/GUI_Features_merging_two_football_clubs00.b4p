@@ -2,11 +2,8 @@
     working directory ( Examples );
 
     table load excel file       ( football club, Football Membership List.xlsx ); 
-    echo                        ("Football club has ", table length( football club ), " members.");
     table list                  ( football club );
-
     table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
-    echo                        ("Soccer club has ", table length( soccer club ), " members.");
     table list                  ( soccer club );
 
     table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );

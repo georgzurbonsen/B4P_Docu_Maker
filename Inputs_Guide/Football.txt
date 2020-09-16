@@ -16,7 +16,7 @@ An example of merging and consolidating two sources of data describing football 
 +++,
 
 "Examples 01: 1.Start B4P in the command shell to use interactively"::
-> b4p -q
+> b4p
 +++,
 
 
@@ -36,15 +36,13 @@ Type 'help' for help, 'docs' for pdf manual,  'web docs' for online manual.
 
 
 
-
-
 "Examples 02: Set the working directory to the data file directory, and list the files"::
->> $ cd /Users/rafael/b4p/B4P_Docu_Maker/Examples
+>> $ cd /b4p/Examples
 >> $ ls
 +++,
 
 "Output 02:"::
-OK. Current directory changed to '/Users/rafael/b4p/B4P_Docu_Maker/Examples/'
+Current directory changed to '/b4p/Examples/'
 
 ---
 Football Membership List.xlsx		
@@ -118,6 +116,13 @@ test.csv
 
 
 
+"Description 05: "::
+Note that the football club table and soccer club table use different header names for the same thing 
+(Family Name and Last Name; City and Town). 
+In preparation to merge the football club table with the soccer club table, replace Family Name with Last Name,  and City with Town.
++++,
+
+
 
 "Examples 05: 3. Rename column headers to common naming conventions (Family name => Last name and City => Town)"::
 >> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
@@ -143,7 +148,15 @@ test.csv
 
 
 
-"Examples 06: 4. Rename Level to common naming convention (Novice => Beginner)"::
+
+"Description 06: "::
+Note that the football club table and soccer club table use different names for the same basic skill Level (Beginner and Novice). 
+In preparation for merging the soccer club table with the football club table,  find all instances of Level that is Novice, and replace with Beginner  
++++,
+
+
+
+"Examples 06: 4. Rename Level to shared name (Novice => Beginner)"::
 >> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
 >> table list( soccer club )
 +++,
@@ -170,11 +183,8 @@ test.csv
 
 "Examples 07: 5. Merge the football club table to the soccer club table (via appending) "::
 >> table merge ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
->> echo  ("Merged soccer club has ", table length( soccer club ) -1, " members.");
 >> table list( soccer club )
 +++,
-
-
 
 
 
@@ -283,7 +293,7 @@ Merged soccer club has 22 members.
 
 
 
-"Examples 10: 6. Save table as Excel file"::
+"Examples 10: 6. Save table as a new, merged club list in an Excel file"::
 >> table save ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );
 +++,
 
@@ -304,11 +314,8 @@ Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' conta
     working directory ( Examples );
 
     table load excel file       ( football club, Football Membership List.xlsx ); 
-    echo                        ("Football club has ", table length( football club ) -1, " members.");
     table list                  ( football club );
-
     table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
-    echo                        ("Soccer club has ", table length( soccer club ) -1, " members.");
     table list                  ( soccer club );
 
     table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
