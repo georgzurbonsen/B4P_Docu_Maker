@@ -458,13 +458,16 @@
 "Output 02:" : [
 "Current directory changed to '/b4p/Examples/'",
 "",
-"---",
+"Directory Listing:",
 "Football Membership List.xlsx		",
 "Soccer Membership List.csv		",
 "Example.xml				  ",
 "Example1.json",
 "Tennis and Golf Players.csv",
 "test.csv",
+".",
+".",
+".",
 "...",
 "",
 ""
@@ -536,7 +539,7 @@
 
 
 "Description 05: " : [
-"Note that the football club table and soccer club table use different header names for the same thing ",
+"Note that the football club and soccer club use different header names for the same thing ",
 "(Family Name and Last Name; City and Town). ",
 "In preparation to merge the football club table with the soccer club table, replace Family Name with Last Name,  and City with Town."
  ]
@@ -544,7 +547,7 @@
 
 
 
-"Examples 05: 3. Rename column headers to common naming conventions (Family name => Last name and City => Town)" : [
+"Examples 05: 3. Rename column headers to the same names for Last Name and Town" : [
 ">> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );",
 ">> table list( football club )"
  ]
@@ -579,7 +582,7 @@
 
 
 
-"Examples 06: 4. Rename Level to shared name (Novice => Beginner)" : [
+"Examples 06: 4. Rename Level to Beginner wherever it appears as Novice" : [
 ">> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );",
 ">> table list( soccer club )"
  ]

@@ -87,13 +87,16 @@ Type 'help' for help, 'docs' for pdf manual, &nbsp;'web docs' for online manual.
 <h5> </h5>
 <div class="output_background_color" ><code>Current directory changed to '/b4p/Examples/'<br/>
 <br/>
----<br/>
+Directory Listing:<br/>
 Football Membership List.xlsx &nbsp; &nbsp; <br/>
 Soccer Membership List.csv &nbsp; &nbsp; &nbsp; &nbsp;<br/>
 Example.xml &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
 Example1.json<br/>
 Tennis and Golf Players.csv<br/>
 test.csv<br/>
+.<br/>
+.<br/>
+.<br/>
 ...<br/>
 <br/>
 </code></div>
@@ -140,10 +143,10 @@ test.csv<br/>
  &nbsp; 12 : Novice &nbsp; &nbsp; &nbsp; | Venice &nbsp; &nbsp; &nbsp;| Viking &nbsp; &nbsp; | Victor<br/>
  &nbsp; </code></div>
 <h4>  </h4>
-<p>Note that the football club table and soccer club table use different header names for the same thing
+<p>Note that the football club and soccer club use different header names for the same thing
 (Family Name and Last Name; City and Town).
 In preparation to merge the football club table with the soccer club table, replace Family Name with Last Name,  and City with Town.</p>
-<h5>  3. Rename column headers to common naming conventions (Family name => Last name and City => Town)</h5>
+<h5>  3. Rename column headers to the same names for Last Name and Town</h5>
 <div class="code_background_color" ><code>&gt;&gt; table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );<br/>
 &gt;&gt; table list( football club )</code></div>
 <h5> </h5>
@@ -162,7 +165,7 @@ In preparation to merge the football club table with the soccer club table, repl
 <h4>  </h4>
 <p>Note that the football club table and soccer club table use different names for the same basic skill Level (Beginner and Novice).
 In preparation for merging the soccer club table with the football club table,  find all instances of Level that is Novice, and replace with Beginner</p>
-<h5>  4. Rename Level to shared name (Novice => Beginner)</h5>
+<h5>  4. Rename Level to Beginner wherever it appears as Novice</h5>
 <div class="code_background_color" ><code>&gt;&gt; table process selected rows ( soccer club, &nbsp; [Level]==Novice, [Level]=Beginner );<br/>
 &gt;&gt; table list( soccer club )</code></div>
 <h5> </h5>
