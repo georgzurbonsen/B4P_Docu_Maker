@@ -10,9 +10,12 @@ B4PDOCU.START
 
 "Description 01:Merging two footbal teams"::
 An example of merging and consolidating two sources of data describing football teams.
+
+<br/><img src="Images/GUI_workflow-soccer-merger.png" alt="Guide-Tutorial-Merging Football teams"><br/>
+
 +++,
 
-"Examples 01:Start B4P in the command shell to use interactively"::
+"Examples 01: 1.Start B4P in the command shell to use interactively"::
 > b4p -q
 +++,
 
@@ -58,9 +61,8 @@ test.csv
 
 
 
-"Examples 03:Load Football Membership List (Excel file), and list contents"::
+"Examples 03: 2. Load Football Membership List (Excel file), and list contents"::
 >> table load excel file ( football club, Football Membership List.xlsx )
->> echo ("Football club has ", table length( football club ) -1 , " members.");
 >> table list( football club )
 +++,
 
@@ -68,8 +70,6 @@ test.csv
 "Output 03:"::
     Load Excel file 'Football Membership List.xlsx'.
     Done. Table contains 12 rows and up to 4 columns.
-
-   Football club has 11 members.
 
     0 : First Name | Family Name | City         | Level
     1 : Abel       | Amberstone  | Amsterdam    | Beginner
@@ -88,9 +88,8 @@ test.csv
 
 
 
-"Examples 04:Load Soccer Membership List (CSV file), and list contents"::
+"Examples 04: Load Soccer Membership List (CSV file), and list contents"::
 >> table load ( soccer club,   Soccer Membership List.csv );
->> echo ("Soccer club has ", table length( soccer club ) -1 , " members.");
 >> table list( soccer club )
 
 +++,
@@ -99,8 +98,6 @@ test.csv
 "Output 04:"::
     Loaded CSV/TSV file 'Soccer Membership List.csv':
     13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;
-
-    Soccer club has 12 members.
 
     0 : Level        | Town        | Last Name  | First Name
     1 : Questionable | Kyoto       | Karlsson   | Karl
@@ -122,7 +119,7 @@ test.csv
 
 
 
-"Examples 05:Rename column headers to use the same terms, and list contents"::
+"Examples 05: 3. Rename column headers to common naming conventions (Family name => Last name and City => Town)"::
 >> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
 >> table list( football club )
 +++,
@@ -146,7 +143,7 @@ test.csv
 
 
 
-"Examples 06:Change Level designation to the same terms"::
+"Examples 06: 4. Rename Level to common naming convention (Novice => Beginner)"::
 >> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
 >> table list( soccer club )
 +++,
@@ -171,7 +168,7 @@ test.csv
 
 
 
-"Examples 07: Merge the club data by appending the football club data to the soccer club data "::
+"Examples 07: 5. Merge the football club table to the soccer club table (via appending) "::
 >> table merge ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
 >> echo  ("Merged soccer club has ", table length( soccer club ) -1, " members.");
 >> table list( soccer club )
@@ -252,8 +249,6 @@ Merged soccer club has 22 members.
 
 
 
-
-
 "Examples 09: Rearrange column order"::
 >> table rearrange columns ( soccer club, { Level, First Name, Last Name, Town } );
 >> table list( soccer club )
@@ -288,8 +283,8 @@ Merged soccer club has 22 members.
 
 
 
-"Examples 10: Save table as Excel file"::
->> table save ( soccer club,   New Soccer Club Membership List.xls, EXCEL );
+"Examples 10: 6. Save table as Excel file"::
+>> table save ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );
 +++,
 
 
@@ -309,11 +304,11 @@ Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' conta
     working directory ( Examples );
 
     table load excel file       ( football club, Football Membership List.xlsx ); 
-    echo                        ("Football club has ", table length( football club ), " members.");
+    echo                        ("Football club has ", table length( football club ) -1, " members.");
     table list                  ( football club );
 
     table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
-    echo                        ("Soccer club has ", table length( soccer club ), " members.");
+    echo                        ("Soccer club has ", table length( soccer club ) -1, " members.");
     table list                  ( soccer club );
 
     table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
@@ -328,10 +323,6 @@ Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' conta
 	+++,
 
 "Output 15:B4P Program execution": "automatic"
-
-
-
-
 
 
   }
