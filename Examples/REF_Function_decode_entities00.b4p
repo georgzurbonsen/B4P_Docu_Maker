@@ -1,4 +1,0 @@
-﻿      echo( decode entities( "4.50 &euro; / 4.50 &#8364; / 4.50 &#x20ac; / 4.50 &#X20AC;" ) );
-      echo( "4.50 &euro;" ); // Quoted literal are not decoded.
-      echo( '4.50 &euro;' ); // Softquoted literal is already decoded implicitly.
-      echo( '4.50 &eur' + 'o;' ); // This one is not because full entity is not in one softquoted literal value

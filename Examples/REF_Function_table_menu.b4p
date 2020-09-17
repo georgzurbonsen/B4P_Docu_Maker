@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( menu,
+      { { Choice, Description, Selection, Wine },
+        { A,      Smoked salmon with cherry tomatoes,  Fish,  Chablais },
+        { B,      300g sirloin with baked potatoes, Beef, Cabernet Sauvignon },
+        { C,      Chicken brest with red curry, Riesling },
+        { D,      Tirami sù, Dessert, Vin Santo } });
+
+  chosen[] = table menu quick( menu, Choice, Description, Selection );
+
+  echo("You have chosen ", chosen[] );
+  echo("We recommend the following wine: ", [menu:Selection,chosen[],Wine] );
+

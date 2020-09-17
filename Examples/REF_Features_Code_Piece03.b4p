@@ -1,7 +1,0 @@
-﻿  // Demonstrates direct use of code and code in string using colon
-
-  next[] = "a[]++; print( Next )";
-  for ( a[] = 1; print( Start ), a[] < 5, :next[] )
-  {
-      echo( " ", a[] );
-  }

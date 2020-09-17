@@ -1,9 +1,0 @@
-﻿  define procedure( my func, { { a, all, reference } } )
-  {
-      echo(a[one]);
-      a[two] = TWO;
-  }
-  
-  b[one] = ONE;
-  my func( b[] );
-  echo(b[two]);

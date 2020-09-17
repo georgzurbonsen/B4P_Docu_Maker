@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+      echo( flat( {1,2,3} ) );        // Returns {1,2,3}
+      echo( flat( {{1,2,3}} ) );      // Same
+      echo( flat( {{1},{2},{3}} ) );  // Same
+      echo( flat( {{{1,2}}, {3}} ) ); // Returns {{1,2},3} (Only 2-level flattening(

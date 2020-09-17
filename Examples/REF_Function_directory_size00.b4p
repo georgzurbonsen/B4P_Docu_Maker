@@ -1,3 +1,0 @@
-﻿      // Function 'literal' adds thousand separators to make numbers readable
-      echo( literal( directory size( "C:\Program Files\B4P" ), "#,000", local ) );
-      echo( literal( directory size( "Images" ), "#,000", local ) );

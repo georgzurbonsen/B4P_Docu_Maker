@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+      file create link( My Link.lnk, Images  );   // Link to existing directory
+      file create link( My Link 2.lnk, Example_Program.b4p ); // Link to file
+      system( 'dir /W "My Link*"' ); // Show directory listing
+
+      // Attention: LINUX / MacOS only supports links to directories.
+
+      file delete multiple ( ".", "My Link*.lnk" );
+

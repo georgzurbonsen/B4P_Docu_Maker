@@ -1,5 +1,0 @@
-﻿      for all parameters( { en_us, de_de, fr_fr }, locale[] )
-      {
-          print( literal(true, "Tt Yy # ", locale[]),"   " );
-          echo( literal(false, "TT y # ", locale[]) );
-      }

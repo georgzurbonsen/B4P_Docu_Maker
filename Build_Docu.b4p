@@ -495,18 +495,24 @@ define procedure ( create navigator from revolving TOC )
 
 
 
+
+define procedure( save example program, { { program table, literal }, { b4p file name, literal } } )
+{
+	table insert rows ( program table[], 0, 1 ); // Insert row 0 as it needs to be processed, too.
+	table delete selected rows( program table[], [0]=~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes
+	table process( program table[], [0] = [0] - "Examples/" - "examples/" - "Examples\" - "examples\" ); // Remove subdirectories
+	[ program table[]: 0, 0 ] = "#!/usr/local/bin/b4p"; // Shebang for UNIX/LINUX/MacOS systems
+	table save ( program table[], "Examples/" + b4p file name[], TEXT );
+}
+
+
 define function( run example program, { { program table, literal }, { b4p file name, literal } } )
 {
 	table save	( program table[], "Example_Program.b4p", new line );
 	echo		( "    Run example program.  If dead, then look at Example_Program.b4p and run it. Here: Type 'exit' to continue");
 	system		( quote path(system info[bin directory] + system info[directory separator] + B4P) + " -wx Example_Program.b4p > Example_Out.txt" );
-//	echo		( "    Done running.");
 
-	table insert rows ( program table[], 0, 1 ); // Insert row 0 as it needs to be processed, too.
-	table delete selected rows( program table[], [0]=~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes
-	table process( program table[], [0] = [0] - "Examples/" - "examples/" - "Examples\" - "examples\" ); // Remove subdirectories
-	table delete rows ( program table[], 0, 1 );
-	table save ( program table[], "Examples/" + b4p file name[], TEXT );
+	save example program( program table[], b4p file name[] );
 
 	table load	( example output, Example_Out.txt, TEXT );
 	return 		( join([example output:0,], new line) ); // Return output as one string.
@@ -772,10 +778,26 @@ define procedure ( create function description in HTML, { { item, all, reference
 				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }
 
-			if ( ([Todo]='*output*') & (trim(value[])=automatic) )
+			if ( ([Todo]='*output*') & (trim(value[])=automatic,savecode) )
 			{
-				example program file name[] = item[HTML File Name]-".html"+literal(example program counter[]++, "00" ) + ".b4p";
-				payloads[index[]] = run example program( example program, example program file name[] );
+				if (example program counter[] == 0)
+				{
+				    example program file name[] = item[HTML File Name]-".html" + ".b4p";
+				}
+				else
+				{
+				    example program file name[] = item[HTML File Name]-".html"+"_"+literal(example program counter[], "00" ) + ".b4p";
+				}
+				example program counter[]++;
+				if (trim(value[])=automatic)
+				{
+				    payloads[index[]] = run example program( example program, example program file name[] );
+				}
+				else
+				{
+				    save example program( example program, example program file name[] );
+				    payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
+				}
 			        substitute all( payloads[index[]], {"&","<",">","\","  ",new line}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;","<br/>" + new line } );
 			}
 		    }	
@@ -788,7 +810,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		    payload[] = join ( payloads as set[], "<div " + class[] + " ><code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code></div>" );
 		    if (example program file name[]<>'')
 		    {
-		        payload[] += "<br><u>Try it yourself:</u> Open <b>" + example program file name[] + "</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.";
+		        payload[] += "<u>Try it yourself:</u> Open <b>" + example program file name[] + "</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.";
 		    }
 		    table append( HTML out[], { payload[] } );
 		}

@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+      watch start;
+      sleep (0.05); // 50 ms
+      echo( "Started: ", watch read(), " ms" );
+      sleep (0.05);
+      echo( "Before resetting: ", watch reset() );
+      sleep (0.05);
+      echo( "Before stopping: ", watch stop() );
+      sleep (0.05);
+      echo( "Before continuing: ", watch continue() );
+      sleep (0.05);
+      echo( watch stop(),", ", watch reset(), " and now back at zero: ", watch reset() ); 

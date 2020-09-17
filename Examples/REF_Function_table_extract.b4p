@@ -1,0 +1,14 @@
+﻿#!/usr/local/bin/b4p
+  table load( test, "Table Explore Demo.csv" );
+  table list ( test );
+
+  coords[] = table explore ( test );
+
+  coords 1[] = table filter( test, coords[], 'Profession' );
+  table extract( test, out, coords 1[], 0 );
+
+  coords 2[] = table filter( test, coords[], 'Cities' );
+  table extract( test, out, coords 2[], 0, 0, table row width(out) );
+
+  echo("Extracted table containing 'Profession' and 'Cities' in headers");
+  table list( out );

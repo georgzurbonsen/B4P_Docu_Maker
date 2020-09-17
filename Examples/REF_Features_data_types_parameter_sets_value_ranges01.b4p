@@ -1,6 +1,0 @@
-﻿  echo("Start simple               : ", {a..z});
-  echo("Every 2nd letter           : ", {a..c..z});
-  echo("1 letter in string         : ", {'Article A:' .. 'Article F:'} );
-  echo("Combination of 2 ranges    : ", {2..4..10, 'Article A:' .. 'Article F:'} );
-  echo("Numbers in literals        : ", {'Chapter 9:' .. 'Chapter 12:'} );
-  echo("Numbers in literals        : ", {'Chapter 09:' .. 'Chapter 12:'} );

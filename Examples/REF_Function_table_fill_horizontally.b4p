@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( a,
+          { { Last Name,    Jan,    Feb,    Mar,    Apr,    May,    June },
+            { Miller,       5,      '',     15,     '',     '',     25   },
+            { Muller,       '',     '',      6,     '',     14,     ''   },
+            { Tanner,       7,      same,    17,    same,   same,   ''   },
+            { Gerber,       '',     same,    0,     10,     11,     12   } } );
+
+  echo("Original table:");
+  table list(a);
+  table copy table ( a, b );
+
+  echo("Fill from left to right");
+  table fill horizontally ( b, Jan, -1, 'same,'  );
+  table list(b);
+
+  echo("Fill from right to left ");
+  table fill horizontally ( a, Jan, -1, 'same,', left  );
+  table list(a);
+

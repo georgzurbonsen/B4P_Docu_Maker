@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( table 1, {{ Last Name, 1st Name, Age},
+      { Miller, Michelle, 30 }, { Johnson, Jane, 40 }, { '', Nick, 50 }} );
+
+  table initialize( table 2, {{ Pet, Hair color},
+      { Dog, Beige }, { Cat, '' }, { Mouse, Gray }} );
+
+  echo("table 1:");
+  table list( table 1 );
+
+  echo("table 2:");
+  table list( table 2 );
+
+  echo(new line, "Save both tables as JSON arrays" );
+  table save( { table 1, table 2} , "Output.json", JSON arrays );
+  table load( text, "Output.json", TEXT );
+
+  echo("table 1 & 2 as JSON arrays:_");
+  table list( text );
+

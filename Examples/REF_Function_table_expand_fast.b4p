@@ -1,0 +1,30 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( nute facts, // Nutritional facts, source: ndb.nal.usda.gov
+  {  {  Food, Ingredient, Portion  },
+     {  potato chips,  fat,            0.34  },
+     {  potato chips,  carbohydrates,  0.50  },
+     {  potato chips,  sodium,         0.08  },
+     {  potato chips,  proteins,       0.07  },
+     {  potato chips,  others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
+     {  broccoli,      water,          0.90  },
+     {  broccoli,      proteins,       0.03  },
+     {  broccoli,      carbohydrates,  0.06  },
+     {  broccoli,      others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
+     {  spring water,  water,          1.00  } } );
+
+  table initialize( target, { { Name, Favorite Food, Weight },
+     { Rafael, Broccoli,    200 }, { Steve, Parmesan cheese, 100 },
+     { George, Potato chips, 50 }, { Fred,  Spring water,   1000 } } );
+
+
+  echo("Target table before looking up with expanding contents:");
+  table list ( target );
+
+  table expand fast ignore case( target, Favorite Food, { Ingredient, Weight }, nute facts, Food, { Ingredient, Portion }, { overwrite, mul} );
+
+  // Note that food portions are multiplied with the weight of the food.
+  // Additional rows are put to the end of the table.
+
+  echo("After expanding (listing ingredients and calculating their weights):");
+  table list ( target );
+

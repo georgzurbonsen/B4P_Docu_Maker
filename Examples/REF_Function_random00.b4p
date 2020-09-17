@@ -1,5 +1,0 @@
-﻿      for (i[]=1, i[]<=10, i[]++) print( random(1000),        " " ); echo;
-      for (i[]=1, i[]<=10, i[]++) print( random( 1000,  950), " " ); echo;
-      for (i[]=1, i[]<=10, i[]++) print( random(-1000, -950), " " ); echo;
-      for (i[]=1, i[]<=10, i[]++) print( random(   -5,    3), " " ); echo;
-      for (i[]=1, i[]<=10, i[]++) print( random(   -1,    1), " " ); echo;

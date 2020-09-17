@@ -1,7 +1,0 @@
-﻿  
-  echo("Demonstrate default values");
-
-  structure( a[], { cow, horse, pig, sheep, '' }, { Kuh, Pferd, Schwein, Schaf, No translation } );
-  echo( "cow : ", a[horse] );
-  echo( "goat: ", a[goat] );
-

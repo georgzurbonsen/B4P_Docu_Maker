@@ -1,7 +1,0 @@
-﻿
-  echo(new line, "Look up some Roman emperors:" );
-  file download overwrite( "en.wikipedia.org/wiki/List_of_Roman_emperors", Emperors.html );
-  table load( emperors, Emperors.html, HTML, 'id="The_Principate"' );
-  table keep columns ( emperors, Name ); // Otherwise the table is too wide
-  table list( emperors );
-  file delete silently( Emperors.html );

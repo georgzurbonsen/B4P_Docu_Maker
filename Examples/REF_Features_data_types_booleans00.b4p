@@ -1,3 +1,0 @@
-﻿  echo(true, " / ", type(true));        // Boolean true
-  echo(True, " / ", type(True));        // This is a literal value (T is upper case.)
-  echo(5 > 6, " / ", type(5 > 6));      // Boolean false 

@@ -1,7 +1,0 @@
-﻿
-  table initialize ( table 1,
-  { { Last Name, First Name, Phone No, Age }, { Larsson, Lara, "1-212-555-1212", 28 } } );
-
-  echo( table column number ( table 1, Phone No ) );
-  echo( table column number ( table 1, Gender ) ); // Returns -1
-

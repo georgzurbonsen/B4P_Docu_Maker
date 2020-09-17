@@ -1,8 +1,0 @@
-﻿      echo( date ( now ) );       // Date and time
-      echo( date ( today ) );     // Date only
-      echo( pure date ( now ) );      // Date only
-      a[] = { 2020, 07, 14 };
-      echo( date ( a[] ));        // Quatorze Juillet
-      a[] += { 22, 33, 44 };      // Add time
-      echo( date ( a[] ));        // 2020-07-04 22:33:44
-      echo( date("03. Oktober 1990 21 Uhr") ); // 1990-10-03 21:00:00

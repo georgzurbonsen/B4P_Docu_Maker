@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+
+  echo("Initialize a 2-dimensional array:");
+  dim( a[], {2,3}, '0' );
+  inspect( a[] );
+
+  echo(new line, "Initialize two arrays (2nd one is nested) implicitly:");
+  b[2] = true;
+  b[1,2] = 123;
+  inspect( b[] );
+

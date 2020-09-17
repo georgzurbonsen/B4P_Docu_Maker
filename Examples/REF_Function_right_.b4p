@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+      set[] = { the, taste, of, the, 12, coffees, '!' };
+
+      echo( right( set[], 0 ), ", ", right( set[], 1 ), ", ", right( set[], -2 ), ", ", right( set[], -1 ) );
+      echo( right( set[],99 ), ", ", right( set[], -99) );
+      echo;
+      echo( right( set[], { 12, of } ), " / ", right include( set[], { 12, of } ) ); // Recognized 'of' as 1st match
+      echo( right last match ( set[], {the} ), ", ", right last match include( set[], {the} ) );
+      echo( right( set[], {tea } ) ); // Returns full set because pattern not found
+
+      echo( new line, "Demonstrate the follower feature: ");
+
+      set2[] = { A, fragrance, coming, from, 120, espressos, '!' };
+      set3[] = { Der, Geschmack, kommt, von, 120, Tassen Kaffee, '!' };
+
+      echo( "Extraction 1: ", right include ( set[], {the}, set2[], set3[] ) );
+      echo( "Extraction 2: ", set2[] );
+      echo( "Extraction 3: ", set3[] ); 

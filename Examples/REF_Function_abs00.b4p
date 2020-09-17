@@ -1,6 +1,0 @@
-﻿      echo( abs(-1) );
-      echo( abs(true) );
-      echo( abs(Hello World) );
-      echo( abs(date(today)) );
-      echo( abs(date(now)) );
-      echo( abs(time(now)) );

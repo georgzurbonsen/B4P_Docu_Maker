@@ -1,0 +1,4 @@
+﻿#!/usr/local/bin/b4p
+      echo( max 123( 1, 3, 5 ) ); // 5
+      echo( min 123( "0002", "1", "3" ) ); // 1
+      echo( max 123 ignore zero( -4, -2, 0, -1 ) ); // -1

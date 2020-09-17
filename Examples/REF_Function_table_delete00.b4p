@@ -1,3 +1,0 @@
-﻿      echo("Create and delete tables");
-      table create( a );
-      table delete silently ( a, b ); // 'b' does not exist, but done silently.

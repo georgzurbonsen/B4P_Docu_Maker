@@ -1,2 +1,0 @@
-﻿      echo( literal( disk space( "C:\" ), "#,000", local ) );
-      echo( literal( disk space free( "C:\" ), "#,000", local ) );

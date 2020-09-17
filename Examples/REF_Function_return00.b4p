@@ -1,2 +1,0 @@
-﻿      define function ( current time ) { return( time(now) ); }
-      echo( "Now, it's ", current time() );

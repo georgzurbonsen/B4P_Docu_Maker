@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( table,
+      { { First Name, Last Name, Given Name, Birth Year },
+        { Abel,       Adams,     A.,         1990 },
+        { Betty,      Beavers,   B.,         1995 },
+        { Charlie,    Collins,   C.,         2000 },
+        { Daniela,    Douglas,   D.,         2005 } } );
+
+  table copy columns selected rows( table, [Birth Year]<1998, {First Name, Last Name}, { Given Name, Family Name } );
+  // The specified columns in the first two rows will be copied
+
+  table list( table );
+

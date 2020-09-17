@@ -1,9 +1,0 @@
-﻿      echo( count              ( 1, 2, 3, a, '', ' ',0 )  ); // 7
-      echo( count ignore zero  ( 1, 2, 3, a, '', ' ',0 )  ); // 6
-      echo( count ignore blanks( 1, 2, 3, a, '', ' ',0 )  ); // 5 (only pure blank ignored)
-      echo( count ignore both  ( 1, 2, 3, a, '', ' ',0 )  ); // 4 (both 0 and blank ignored)
-
-      echo( count              ( date(today), date(""), true, false )  ); // 4
-      echo( count ignore zero  ( date(today), date(""), true, false )  ); // 2 (blank date, false)
-      echo( count ignore blanks( date(today), date(""), true, false )  ); // 3 (blank date)
-      echo( count ignore both  ( date(today), date(""), true, false )  ); // 2 (both)

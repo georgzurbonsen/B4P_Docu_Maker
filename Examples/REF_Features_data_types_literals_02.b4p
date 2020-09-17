@@ -1,0 +1,4 @@
+﻿#!/usr/local/bin/b4p
+  echo("  Hello   World   ", new line, 'new line'); 
+  echo("&amp;");
+  echo(Hello World = "Hell*"); // 'Hello World' is not the same as 'Hell*'

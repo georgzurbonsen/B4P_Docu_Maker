@@ -1,9 +1,0 @@
-﻿      for all parameters( { He, Hi, Ho }, greetings[] ) print( "   Say: ",greetings[]);
-      echo;
-      for all parameters( 'He,Hi,Ho', greetings[] )     print( "   Say: ",greetings[]);
-      echo;
-      for all parameters( "He,Hi,Ho", greetings[] )     print( "   Say: ",greetings[]);
-      echo;
-      a[] = {A..C};
-      for all parameters( a[], greetings[], i[] )     print( "   Say: ", i[], ":", greetings[]);
-

@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( table, { { First Name, "Middle Init.",    Last Name, "Street",      "Town" },
+                  { Jane,       "E.",              Archer,    "1. Main St.", "Miami", "Comments" } } );
+
+  echo("Original table: ", table max width(table), " columns. __________________ ");
+  table list( table );
+
+  table copy table (table, t1 );
+  table rearrange columns(t1, { 2, First Name, -1 }); // Last Name, First Name, Town
+  echo("Names only: ", table max width(t1), " columns. __________________ ");
+  table list( t1 );
+
+  table copy table (table, t1 );
+  table rearrange existing columns(t1, { 5, 2, First Name, Phone }); // Comments column, last name, first name, No phone Nr.
+  echo("Names only: ", table max width(t1), " columns. __________________ ");
+  table list( t1 );

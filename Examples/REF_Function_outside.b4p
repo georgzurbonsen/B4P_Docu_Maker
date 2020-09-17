@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+      st[] = "The taste of the coffee!";
+
+      echo( outside( st[], 13, 4 ), " / ",  outside until ( st[], 4, -8 ) );
+      echo( outside( st[], 99, 1 ), " / ",  outside until ( st[],  99, 8 ) ); // full strings
+      echo( outside( st[], -99, 8 ), " / ", outside until ( st[], -99, 8 ) ); // Begins at 0
+
+      echo;
+      echo( outside( st[], ' taste', 7 ), " / ", outside exclude( st[], 'taste ', 7 ) ); // "of the coffee", "tast of the coffee"
+      echo( outside( st[], ' taste', 0 ), " / ", outside exclude( st[], 'taste ', 0 ) ); // full string, and without taste
+      echo;
+      echo( outside ( st[], 'taste', ' the' ), " / ", outside exclude( st[], 'taste ', 'the ' ) ); //

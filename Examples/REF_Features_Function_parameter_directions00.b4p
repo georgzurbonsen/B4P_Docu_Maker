@@ -1,2 +1,0 @@
-﻿  a[] = World;
-  echo( "Hello ", a[], ' ', abs(-1)+2+3 );

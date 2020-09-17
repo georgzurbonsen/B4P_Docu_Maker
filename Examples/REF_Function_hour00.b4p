@@ -1,2 +1,0 @@
-﻿      a[] = "14. July 2020, 15:30:40";
-      echo( hour( a[] ), ", ", minute( a[] ), ", ", second( a[] ) );

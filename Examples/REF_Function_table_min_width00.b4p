@@ -1,9 +1,0 @@
-﻿  table initialize ( table 1,
-  { { Animal, leg count, hair color }, { Worm,  0}, { Bird, 2, colorful }, { Dog, 4 }, { Fly }, { Tick, 8 } } );
-
-  echo( table min width ( table 1 ), " and ", table max width ( table 1 ) );
-
-  table create ( table 2 );
-  [ table 2: 5, 10 ] = Hi; // column position 5 also counts the ones on the left: 0..4
-
-  echo( table min width ( table 2 ), " and ", table max width ( table 2 ) );

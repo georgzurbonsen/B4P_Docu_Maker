@@ -1,0 +1,14 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( t, { { Object, Height in meters }, { dog, 0.5 }, { horse, 1.8 }, { elephant, 2.5 }} );
+
+  table list ( t ); echo;
+  table save( t, animals.csv, CSV );
+
+  table load( t, animals.csv, ";" );
+  table list ( t ); echo;
+
+  table load( t, animals.csv, "," );
+  echo("Table loaded with wrong separator symbol.  Outcome looks like this:");
+  table list ( t ); echo;
+
+  file delete silently( animals.csv );

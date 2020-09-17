@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+    runtime settings[verbose] = low;
+    working directory ( Examples );
+
+    table load excel file       ( football club, Football Membership List.xlsx ); 
+    table list                  ( football club );
+    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
+    table list                  ( soccer club );
+
+    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
+    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+    echo                        ("Merged soccer club has ", table length( soccer club )-1, " members.");
+
+    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
+    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
+    table list                  ( soccer club );
+    table save                  ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );

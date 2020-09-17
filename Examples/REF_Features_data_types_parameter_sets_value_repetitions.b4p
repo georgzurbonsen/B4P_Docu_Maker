@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+
+  echo({ 5:0 } );              // Generates { 0,0,0,0,0 }
+  echo({ 2:3,3:2 } );          // Generates { 3,3,2,2,2 }
+  echo({ 0.9:A } );            // Generates { A }  Rounded up
+  echo({ 0.1:A } );            // Generates { }  Rounded down
+  echo({ 2:Hello } );          // Generates { Hello,Hello}
+  echo({ 0:Hello } );          // Generates { }
+  echo({ -2:Hello } );         // Generates { }
+  echo({ 3:{a,b} } );          // Generates { {a,b},{a,b},{a,b} }
+  echo({ 2:{3:1} } );          // Generates { {1,1,1},{1,1,1} }
+  echo({ 2:{1..4} } );          // Generates { {1,2,3,4},{1,2,3,4} }

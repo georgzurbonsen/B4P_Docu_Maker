@@ -1,0 +1,14 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( t, {{ Name, Age, Hobby, Favorite Color },
+      { Ann, 45, Skiing, Blue }, { Dan, 35, Skating, Orange },
+      { Eva, 40, Bee keeping, Yellow }, { Nic, 10, Reading, Green } } );
+
+  echo("Original table:");
+  table list( t );
+
+  echo("Split out Hobby, copy Name and Favorite Color:");
+  table split table columns ( t, u, {Hobby, Favorite Color}, {Name, Favorite Color} );
+  table list( u );
+
+  echo("Original table contains Name and Age.");
+  table list( t );

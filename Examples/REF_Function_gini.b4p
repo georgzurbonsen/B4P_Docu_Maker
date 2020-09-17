@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+      echo( gini( { 1,1,1,1,1 } ) ); // Everyone is equal, returns 1
+      echo( gini( { 1, 1.2, 1.3, 1, 1.4, 1.2 } ) ); // ca 0.93, some dispartiy
+      echo( gini( { 1, 1, 1, 1, 16 }, lorenz[] ) ); // 0.4, big disparity
+      echo( "Lorenz curve: ", lorenz[] );

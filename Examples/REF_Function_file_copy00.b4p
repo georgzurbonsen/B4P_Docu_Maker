@@ -1,7 +1,0 @@
-﻿      directory create( My Folder 1, My Folder 2 );
-
-      file copy( {2 : Example_Program.b4p } , { "My Folder 1/Test123.txt", "My folder 2/Test 456.txt"} );
-      system( 'dir /A-D /W "My Folder 1"' ); // Show directory listing
-      system( 'dir /A-D /W "My Folder 2"' ); // Show directory listing
-
-      directory delete recursive( "", "My Folder ?" ); // Delete "My Folder 1" and "... 2".     

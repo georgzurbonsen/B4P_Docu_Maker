@@ -1,2 +1,0 @@
-﻿      echo( diagonal( { 5:1 } ) ); // 5x5 identity matrix
-      echo( diagonal( { a, 1, true, 2 } ) );

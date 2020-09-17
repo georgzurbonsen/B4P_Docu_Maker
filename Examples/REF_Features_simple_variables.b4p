@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  a[] = Hello;
+  (a[])[] = Hi; // Parentheses required on left hand side, 
+                // otherwise seen as "right hand" expression and not "left hand" expression
+  (a[] + ' World')[] = Ahoi;
+  echo("a[]     = ", a[] );
+  echo("a[][]   = ", a[][] ); // Here it's OK
+  echo("Hello[] = ", Hello[] );
+  echo("Hello World[] = ", Hello World[], new line );
+
+  '1'[] = One; // Even these variable names are valid !
+  ' '[] = Space;
+  ''[] = Blank;
+  'a[]'[] = aaaah;
+  echo('1'[], " ", ' '[], " ", ''[], " ", 'a[]'[], new line );
+
+  me too[] = Hmm;
+  me  too[] = Me;   // Unquoted literal ignores redundant spaces, same as 'me too'
+  'me  too'[] = Mee too;
+  echo( me too[], ", ", me  too[], ", ", 'me  too'[] );

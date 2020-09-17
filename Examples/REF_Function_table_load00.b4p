@@ -1,6 +1,0 @@
-﻿  runtime settings[verbose]= quiet; // Supress blabla
-
-  echo("Load the Cities file:");
-  table load( cities, "Cities.csv" );
-  echo("Cities: ", join( [cities:City,..], ", " ) );
-

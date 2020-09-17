@@ -1,5 +1,0 @@
-﻿  echo( literal( Abc ), ", ", literal( 123.45 ), ", ", literal(true) );
-  echo( literal(date('14.juillet.2020')), ", ", literal( date('1. Aug 20 22:30')), ", ", literal( time( '10:15' ) ) );
-  echo( null() ); // void
-  echo( {a,1,date(today),false} ); // void
-

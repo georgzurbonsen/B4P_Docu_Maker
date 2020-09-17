@@ -1,0 +1,37 @@
+﻿#!/usr/local/bin/b4p
+      a[] = {A,1,2,3,4,E,5,2,6 };
+
+      print( filter      ( a[], >= 3 ), ", " );    // {3,4,5,6}
+      echo ( filter      ( a[], (2,3) ) );         // {2,3,2}
+
+      print( filter 1    ( a[], >= 3 ), ", " );    // {3}
+      echo ( filter n    ( a[], >= 3, 3  ) );      // {3,4,5}
+
+      print( filter stop ( a[], >= 3 ), ", " );    // { A,1,2}
+      echo ( filter stop include ( a[], >= 3 ) );  // { A,1,2,3}
+
+      print( filter start    ( a[], 4 ), ", " );   // {E,5,2,6}
+      echo ( filter start n  ( a[], (4), 3 ) );    // {E,5,2}
+
+      // Why is (4) in parentheses?  This is a comparison and
+      // should only be compared with 4, and not with both 4 and 3.
+      // In the 2nd row, ( a[], (2,3) ) is same as ( a[], 2, 3 ) !
+      // (4) is same as (=4). (2,3) is same as (=2,3).
+
+      print( filter start include   ( a[], 4 ), ", " ); // {4,E,5,2,6}
+      echo ( filter start n include ( a[], (4), 3 ) );  // {4,E,5}
+
+      // The follower feature:
+
+      b[] = {a,b,c,d,e,f,g,h,i};
+      c[] = {A,B,C,D,E,F,G,H,I};
+
+      filter      ( a[], (=2), b[], c[] ); // Attn: (=2) in parentheses
+      echo( b[], " / ", c[] ); // Outputs {c,h}, {C,H}
+
+      b[] = {a,b,c,d,e,f,g,h,i};
+      c[] = {A,B,C,D,E,F,G,H,I};
+
+      filter start n ( a[], (=2), 3, b[], c[] ); // Attn: (=2) in parentheses
+      echo( b[], " / ", c[] ); // Outputs {d,e,f}, {D,E,F}
+

@@ -1,0 +1,28 @@
+﻿#!/usr/local/bin/b4p
+      define procedure ( listing, {{ description, literal }, {count, numeral}} )
+      {
+          echo( new line, description[], "    (Containing ", count[], " entries)" );
+          table process( list, echo( [Date Created]," ", [Path], [Name] ) );
+      }
+
+      // Both listings are equivalent.
+
+      rv[] = directory listing( list, "C:\Program Files\B4P\" );
+      listing( "All files in specified subdirectory", rv[]);
+
+      rv[] = directory listing( list, "C:\Program Files\B4P\L*,B*" );
+      listing( "All directories and files brginning with L or B", rv[]);
+      echo;
+
+      rv[] = directory listing( list, "C:\Program Files\B4P", "*", directories );
+      listing( "All subdirectores. Note: Use '*', not '*.*'.", rv[]);
+      echo;
+
+      rv[] = directory listing( list, "C:\Program Files\B4P\lib", "*.txt" );
+      listing( "All files with type '.txt'", rv[]);
+
+      rv[] = directory listing recursive( list, "C:\Program Files\B4P", "*.b4p,*.txt" );
+      listing( "All .b4p and .txt files in current and subdirectories", rv[]);
+
+      rv[] = directory listing recursive( list, "C:\dk3@ç%45*\" );
+      listing( "Empty table, -1 returned due to invalid path name", rv[]);

@@ -1,4 +1,0 @@
-﻿      echo( resolve path name( "C:\Program*\*\*4P.exe" ) ); // Look for B4p Program
-      echo( resolve path name( "~/" ) );    // Your home directory
-      echo( resolve path name( "~/.." ) );  // Parent directory of home directory
-

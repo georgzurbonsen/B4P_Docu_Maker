@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+      original[] = "the house, the mouse, and the spouse";
+
+      st1[] = original[];
+      st2[] = original[];
+      substitute     ( st1[], the, a );
+      substitute all ( st2[], the, a );
+      echo(st1[]);
+      echo(st2[]);
+
+      st1[] = original[];
+      st2[] = original[];
+      substitute     ( st1[], { the, spouse, mouse, house }, { THE, SPOUSE, MOUSE, HOUSE } );
+      substitute all ( st2[], { the, spouse, mouse, house }, { THE, SPOUSE, MOUSE, HOUSE } );
+      echo(st1[]);
+      echo(st2[]);

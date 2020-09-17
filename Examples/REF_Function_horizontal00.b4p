@@ -1,4 +1,0 @@
-﻿      echo( horizontal ( {1,2,abc } ) );     // returns {{1,2,abc}}
-      echo( horizontal( {{1},{2},{abc}} ) ); // Same (vertical to horizontal matrix)
-      echo( horizontal( {{1,2,abc}} ) );     // Same (is already a horizontal matrix)
-      echo( horizontal( { } ) );             // returns { }  (empty set)

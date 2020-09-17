@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },
+                          { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );
+
+  echo( table read column selected rows ( t, Col B, true ) ); // Val B
+  echo( table read column selected rows ( t, '<Col B', true ) ); // Val A
+  // echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception
+  echo( table read column selected rows ( t, '<>Col B', true ) ); // Val B
+  echo( table read column selected rows ( t, '>Col E', true ) ); // Val F
+  echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G

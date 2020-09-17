@@ -1,5 +1,0 @@
-﻿      table initialize ( colors, { { EN, FR }, { red, rouge }, { blue, blue }, { green, vert }, { yellow, jaune } } );
-      for all table rows( colors, EN, value[], index[] )
-      {
-          echo( index, ": ", value[], " / ", [FR] );
-      }

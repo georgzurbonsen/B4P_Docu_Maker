@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+      table load( products, "Table Check Target In.csv" );     // Same tables as in previous example.
+      table load( ref,      "Table Check Reference In.csv" );  // They will not be listed here again
+
+      table check ( products, ref, {Power,Speed,Qty}, Equipment, Vehicle Name, Vehicle Type, Additional Check, Quantity Check);
+
+      echo("Reference table");
+      table list( ref );
+
+      table save( products, "Images/Table Check Reference Output 05.html", HTML );

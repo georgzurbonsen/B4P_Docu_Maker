@@ -1,4 +1,0 @@
-﻿      echo( directory existing( "C:\Program Files" ) );
-      echo( directory existing( "C:\Program Files\B4P\B4P.exe" ) );
-      echo( file existing( "C:\Program Files" ) );
-      echo( file existing( "C:\Program Files\B4P\B4P.exe" ) );

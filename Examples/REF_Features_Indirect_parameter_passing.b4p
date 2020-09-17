@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+  table create( table1, table 2 ); // The direct way
+
+  indirect[]= { table 1, table 2 }; // The indirect way
+  table create( indirect[] );
+  echo("Created two tables in both cases" );
+

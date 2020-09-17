@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+      null;               // No effect
+      null (a, 1, true);      // No effect
+      echo( null( ) );        // Outputs '# void value #'
+      echo( null( a, 1, true ) ); // Outputs '# void value #'

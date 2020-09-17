@@ -1,5 +1,0 @@
-﻿      echo( "dates, 0 ignored  : ", min ignore zero( date(""), date("2020-03-23"), date("2020-03-20") ) );
-      echo( "dates compared    : ", min ( date(""), date("2020-03-23"), date("2020-03-20") ) );
-      echo( "numbers w/o blanks: ", min ignore blanks( 5, 8, "", 1 ) );
-      echo( "literals          : ", max( "He", "he", "hi", "Hi" ) ); // Max = last in alphabetic order
-//        echo( "causes exception  : ", max ( 1, a, 2, b ) ); // Commented out because it's wrong.

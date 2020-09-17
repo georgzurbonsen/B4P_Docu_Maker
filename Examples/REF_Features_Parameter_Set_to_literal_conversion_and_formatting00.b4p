@@ -1,1 +1,0 @@
-﻿  echo( literal( { 1, true, 'true', {b1, b2, { b2a, b2b }, b3 } } ) );

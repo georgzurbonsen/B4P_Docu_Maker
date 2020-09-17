@@ -1,8 +1,0 @@
-﻿      table initialize ( colors, { { EN, FR }, { red, rouge }, { blue, blue }, { green, vert }, { yellow, jaune } } );
-
-      with table ( colors, 2 )
-      {
-          echo( row(), ": ", [EN]," / ", [FR] );
-      }
-      // Without the context, the full table specification is requierd, see below
-      echo( "2: ", [colors:EN,2]," / ", [colors:FR,2] );

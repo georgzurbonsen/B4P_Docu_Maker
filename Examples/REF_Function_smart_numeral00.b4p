@@ -1,7 +1,0 @@
-﻿      echo( smart numeral( "5.0 MUSD" )); // 5,000,000
-      echo( smart numeral( "EUR 1.2mn" )); // 1,200,000
-      echo( smart numeral( "INR 0.5 lk" )); // 50,000
-      echo( smart numeral( '50%' )); // 0.5
-      echo( smart numeral( 'Alc. 0.5 &permil;' )); // 0.0005
-      echo( smart numeral( "1.23cr" ));  // 12,300,000
-      echo( smart numeral( 1.23m, ".", { m, M }, {0.000001, 1000000} ));

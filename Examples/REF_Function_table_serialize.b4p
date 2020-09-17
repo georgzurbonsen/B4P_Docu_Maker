@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+  // An easy one
+
+  table initialize( bils, // Swedisch for 'cars', aka 'automo-bils'
+      { { Product, "2020-Q1".."2020-Q4" },
+        { Sedans,   24, 34, 44, 14 },
+        { Pickpus,  11, 21, 31, 21 },
+        { Cabrios,  '',  5, 10, '' },
+        { SUVs,     35, 25, 45, 55 } } );
+
+  echo("Car sales in sequential order (including blanks here):");
+  table serialize all( bils, Product, Quarter, { "2020-Q1".."2020-Q4" }, Cars sold );
+  table list ( bils );
+
+  // Serializing order intake (OI) and revenues (Rev) over quarters
+
+  table initialize( kpi, // Key Performance Indicators
+      { { Region,   "OI 2018", "Rev 2018", "OI 2019", "Rev 2019", "OI 2020", "Rev 2020"  },
+        { Americas, 1000,      950,        1100,      1050,       1200,      1150        },
+        { Europe,    800,      700,         900,       950,       1100,      1050        },
+        { Antarctica, '',       '',           0,         0,         20,        15        } } );
+
+  echo;
+
+  echo("Key performance indicator values (excluding blanks and zero:");
+  table serialize ignore zero( kpi, Region, Year, { "2018".."2020" },
+                               { OI, Rev }, "[Category] [Sequence]" );
+  table list ( kpi );
+

@@ -1,0 +1,21 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( t,
+  { {  Name, Town, Street, Phone, Gender, Country, Province, Favorite Pet },
+    {  Dan,  La Spezia,  Main St., None, M, Italy, Liguria, Toad },
+    {  Jane, Miami, Hill St., None, F, USA,  Florida, Alligator } } );
+
+
+  echo("Original table:");
+  table list( t );
+
+
+  table copy table (t, t1 );
+
+  echo("Sort all columns by header name except 1st and last one:");
+  table sort columns( t, Town, -2 );
+  table list ( t );
+
+  echo("Sort all columns Z-A by Row 2:");
+  table sort columns( t, Name, -1, alphabetic down, 2 );
+  table list ( t );
+

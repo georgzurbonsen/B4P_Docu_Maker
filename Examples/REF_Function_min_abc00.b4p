@@ -1,6 +1,0 @@
-﻿      echo( min abc ( 13, 100 ) ); // It's 100
-      echo( max abc ( AH, ah, aH, Ah ) ); // Picks ah
-      echo( max abc ignore case ( AH, ah, aH, Ah ) ); // Picks 1st parameter
-      echo( min abc ( Abel, '', '', Beat, '' ) ); // Unpleasant outcome
-      echo( min literal ignore blanks ( Abel, '', '', Beat, '' ) ); // This one is better 
-      echo( min literal ignore both( Beat, Abel, ABEL, '' ) ); // Picks Abel (cases ignored)

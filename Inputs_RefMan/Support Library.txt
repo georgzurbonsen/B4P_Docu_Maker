@@ -1,0 +1,72 @@
+
+
+This text file contains all relevant function descriptions in the "Support Library".
+
+
+B4PDOCU.START
+
+"table list" :
+{
+	"Function Names":	[ "table list" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function lists the entire table or selected rows and columns of a table
+		on standard output (for example the console).  Since this function does not make use of any
+		fancy I/O features, listing tables can also be integerated in B4P programs running in batch mode
+		in order to provide some more visibility.
+
+		<br><br>
+		<u>Hint</u>: This function is suitable for interactive use in order to inspect tables conveniently.
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1, 3, 5, ...",
+	"Restrictions":		["Indirect parameter passing is disabled",
+				 "Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed." ],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "" ]
+		},
+		{ "Number": "2., 4., ...",
+		  "Name": "Option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Following options are supported:<br>
+			=== 100, 700, noframe_1stcolbold, noheader
+			1st row   | Specify first row number to list (e.g. 2 = begin with row 2).  The header row (row 0) will always be displayed.
+			last row  | Specify last  row number to list
+			1st col   | Specify first column number to list. Column numbering begins with 0, not 1.
+			last col  | Specify last column number to list.
+			briefly   | Specify top <i>n</i> and bottom <i>n</i> rows to list, skipping the ones in the middle (if any left).
+			===
+			+++
+		},
+		{ "Number": "3., 5., ...",
+		  "Name": "Value",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			This is the value associated to the option in the previous function parameter.<br>
+			__Negative indexing__ is supported for specifying rows (-1 = last row) and columns (-1 = last column acc. to widest row in the whole table).
+			+++
+		}
+	],
+	"Examples"::
+	include ( Support Library );
+	table load ( t, "Examples\Cities.csv" );
+
+	// Begin with row 2, skip last 3 columns, and for the rows to list, list only the first and last 3 of them.
+	table list ( t, 1st row, 2, briefly, 3, last col, -3 );
+	+++,
+	"Output": "automatic",
+	"See also": [ "list" ]
+}
+
+
+B4PDOCU.STOP

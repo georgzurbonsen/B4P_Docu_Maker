@@ -1,9 +1,0 @@
-﻿
-  table initialize ( table, { { first  name, Lastname, Phone No, Age }, { Jim, Archer, "1-212-555-1212", 28 } } );
-
-  count[] = table correct headers ignore case( table, {'Last*name', 'First*name', 'Family*' },
-      { Last Name, First Name, Last Name } );
-
-  table list ( table );
-  echo;
-  echo("Number of headers corrected: ", count[]);

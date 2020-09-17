@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+  table load( target, "Tennis and Golf Players.csv" );
+  table list( target );
+
+  table keep columns( target, {Name, Sport, Hcp, NTRP} ); // Look how skilled they are
+  table initialize( ref,
+  {
+      // Hcp = Golf Handicap, NTRP = National Tennis Rating Program
+      { Sport,    Hcp,     NTRP               },
+      { Tennis,   '*',     'Lvl ?.0,Lvl ?.5'  },
+      { Golf,     '0..54', ''                 }
+  } );
+
+  table check( target, ref, {Hcp, NTRP} );
+  table list( target );
+
