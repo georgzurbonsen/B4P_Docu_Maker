@@ -1,34 +1,4 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
-MAS;Welcome to B4P;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;Access PDF documentation;GUI_Features_access_pdf_docs.html;General Description;access pdf docs
-GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
-GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts
-GUI;B4P Program Examples;GUI_Features_B4P_Program_Examples.html;General Description;B4P Program Examples
-GUI;Benefits and Features;GUI_Features_features_and_benefits.html;General Description;features and benefits
-GUI;Benefits and Features;GUI_Features_features_and_benefits.html;General Description;;B4P features
-GUI;Benefits and Features;GUI_Features_features_and_benefits.html;General Description;;B4P benefits
-GUI;Example - Analyzing data from web;GUI_Features_B4P_example_analzing_data_from_web.html;General Description;B4P example analzing data from web
-GUI;Example - Consolidating data from mulitple spreadsheets;GUI_Features_B4P_example_consolidating_data.html;General Description;B4P example consolidating data
-GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
-GUI;Getting Help;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;Interactive Mode - Help Options;GUI_Features_Interactive_mode_help_options.html;General Description;Interactive mode help options
-GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
-GUI;Introduction to Programming in B4P;GUI_Features_Introduction_to_programming_in_B4P.html;General Description;Introduction to programming in B4P
-GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;MacOS;GUI_Features_Installation_on_MacOS.html;General Description;Installation on MacOS
-GUI;Overview;GUI_Features_overview.html;General Description;overview
-GUI;Overview;GUI_Features_overview.html;General Description;;general overview
-GUI;Post-Installation Optimization;GUI_Features_Post_Installation_Optimization.html;General Description;Post Installation Optimization
-GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
-GUI;Tutorials;GUI_Features_Tutorials.html;General Description;Tutorials
-GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
-GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;what is B4P
-GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;;B4P anatomy
-GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
 REF;Accessing Table Contents;REF_Features_Accessing_table_contents.html;General Description;Accessing table contents
 REF;Accessing Table Information;REF_Features_accessing_table_info.html;General Description;accessing table info
 REF;Addt'l Info on fast rows processing;REF_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
@@ -274,6 +244,7 @@ REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;;hyperbolic
 REF;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;Function Description;identify
 REF;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;Function Description;;identify variables
 REF;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
+REF;Information about Variables;REF_Features_variables_functions.html;General Description;variables functions
 REF;Input/Output with Tables;REF_Features_Input_output_wtih_tables.html;General Description;Input output wtih tables
 REF;Interactive Mode;REF_Features_interactive.html;General Description;interactive
 REF;Interactive Mode;REF_Features_interactive.html;General Description;;interactive
@@ -470,6 +441,7 @@ REF;Variables;REF_Features_variables.html;General Description;;base variables
 REF;Variables;REF_Features_variables.html;General Description;;base variable
 REF;Variables;REF_Features_variables.html;General Description;;member variable
 REF;Variables;REF_Features_variables.html;General Description;;member variables
+REF;Variables Functions;REF_Features_variables_functions.html;General Description;variables functions
 REF;Verbose Levels;REF_Features_verbose.html;General Description;verbose
 REF;Void to Literal Formatting;REF_Features_void_to_literal_conversion_and_formatting.html;General Description;void to literal conversion and formatting
 REF;Void to Literal Formatting;REF_Features_void_to_literal_conversion_and_formatting.html;General Description;;Void to Literal Formatting Parameters
@@ -573,6 +545,7 @@ REF;even, odd, whole;REF_Function_even.html;Function Description;whole
 REF;even, odd, whole;REF_Function_even.html;Function Description;;even numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;odd numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;whole numbers
+REF;existing;REF_Function_existing.html;Function Description;existing
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy all
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy silently
@@ -674,6 +647,7 @@ REF;hour, minute, second;REF_Function_hour.html;Function Description;hour
 REF;hour, minute, second;REF_Function_hour.html;Function Description;minute
 REF;hour, minute, second;REF_Function_hour.html;Function Description;second
 REF;hour, minute, second;REF_Function_hour.html;Function Description;;Time Info Functions
+REF;identify;REF_Function_identify.html;Function Description;identify
 REF;if, unless;REF_Function_if.html;Function Description;if
 REF;if, unless;REF_Function_if.html;Function Description;unless
 REF;if, unless;REF_Function_if.html;Function Description;;conditional branches
@@ -773,6 +747,7 @@ REF;mmul, mmdiv - Multiplication and Division;REF_Function_mmul.html;Function De
 REF;mmul, mmdiv - Multiplication and Division;REF_Function_mmul.html;Function Description;;matrix division
 REF;mod - Modulo function;REF_Function_mod.html;Function Description;mod
 REF;mod - Modulo function;REF_Function_mod.html;Function Description;;modulo
+REF;name;REF_Function_name.html;Function Description;name
 REF;null - Function;REF_Function_null.html;Function Description;null
 REF;null - Function;REF_Function_null.html;Function Description;;null function
 REF;numeral;REF_Function_numeral.html;Function Description;numeral
@@ -825,6 +800,7 @@ REF;round, round up / down;REF_Function_round.html;Function Description;round up
 REF;round, round up / down;REF_Function_round.html;Function Description;round down
 REF;round, round up / down;REF_Function_round.html;Function Description;;rounding functions
 REF;row;REF_Function_row.html;Function Description;row
+REF;scope;REF_Function_scope.html;Function Description;scope
 REF;search files ...;REF_Function_search_files.html;Function Description;search files
 REF;search files ...;REF_Function_search_files.html;Function Description;search files recursive
 REF;serial date;REF_Function_serial_date.html;Function Description;serial date
@@ -1088,3 +1064,33 @@ REF;year, quarter, month, day;REF_Function_year.html;Function Description;quarte
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;month
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;day
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;;Date info functions
+MAS;Welcome to B4P;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;Access PDF documentation;GUI_Features_access_pdf_docs.html;General Description;access pdf docs
+GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
+GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts
+GUI;B4P Program Examples;GUI_Features_B4P_Program_Examples.html;General Description;B4P Program Examples
+GUI;Benefits and Features;GUI_Features_features_and_benefits.html;General Description;features and benefits
+GUI;Benefits and Features;GUI_Features_features_and_benefits.html;General Description;;B4P features
+GUI;Benefits and Features;GUI_Features_features_and_benefits.html;General Description;;B4P benefits
+GUI;Example - Analyzing data from web;GUI_Features_B4P_example_analzing_data_from_web.html;General Description;B4P example analzing data from web
+GUI;Example - Consolidating data from mulitple spreadsheets;GUI_Features_B4P_example_consolidating_data.html;General Description;B4P example consolidating data
+GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
+GUI;Getting Help;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;Interactive Mode - Help Options;GUI_Features_Interactive_mode_help_options.html;General Description;Interactive mode help options
+GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
+GUI;Introduction to Programming in B4P;GUI_Features_Introduction_to_programming_in_B4P.html;General Description;Introduction to programming in B4P
+GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;MacOS;GUI_Features_Installation_on_MacOS.html;General Description;Installation on MacOS
+GUI;Overview;GUI_Features_overview.html;General Description;overview
+GUI;Overview;GUI_Features_overview.html;General Description;;general overview
+GUI;Post-Installation Optimization;GUI_Features_Post_Installation_Optimization.html;General Description;Post Installation Optimization
+GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
+GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
+GUI;Tutorials;GUI_Features_Tutorials.html;General Description;Tutorials
+GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;what is B4P
+GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;;B4P anatomy
+GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows

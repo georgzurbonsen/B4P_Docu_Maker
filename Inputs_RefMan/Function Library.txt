@@ -710,6 +710,31 @@ B4PDOCU.START
 
 
 
+"Variables Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "variables functions" ],
+    "Description 01:Introduction to Variables Function"::
+
+	This section summarizes all functions processing variables.  The functions are categorized into the following:
+	* Obtaining information about the variables
+
+
+	+++
+  },
+
+
+"Information about Variables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "variables functions" ],
+    "Description 01:Introduction to Variables Function"::
+
+	This section summarizes all functions which provide information about the variables
+
+	+++
+	  },
+
 
 
 "Directory and File System Functions":
