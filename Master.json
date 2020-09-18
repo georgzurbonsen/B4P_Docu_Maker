@@ -1771,13 +1771,27 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "variables functions" ],
-"Description 01:Introduction to Variables Function" : [
+"Description 01:Introduction" : [
 "",
 "	This section summarizes all functions which provide information about the variables",
 ""
  ]
 	
-	  },
+  },
+
+
+"Arrays and Structures":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Arrays and Structures" ],
+"Description 01:Introduction" : [
+"",
+"	This section provides an overview of functions defining and working with __arrays__ and __structures__.",
+""
+ ]
+	
+  },
+
 
 
 
@@ -24561,6 +24575,325 @@
  ]
 	,
 	"Output": "automatic"
+  }
+
+
+,
+
+  "dim / redim" :
+  {
+	"Function Names":	[ "dim", "redim" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		<b>dim</b> defines one or more arrays with specified dimensions and initial values.  If the variable is already existing as an array or a structure,",
+"		then all member variables will be eliminated and initialized accordingly.",
+"",
+"		<br><br>",
+"		<b>redim</b> will preserve the the existing array contents as long the size is increased.  In this case, only the added members will be initialized.",
+"		The arrays can also be downsized where the excessive members will be eliminated.",
+"",
+"		<br><br>",
+"		Impact on base variables:  The base variable values remain unaffected.  These functions affect the members only.",
+"",
+"		<br><br>",
+"		<u>Note</u>: B4P supports __spontaneous array creation__ and extension by simply write-accessing a member which does not yet exist. However, only this",
+"		designated member will be assigned where the additional members to be initialized contain void values.  Example: a[10] = 1; Here, a[0]..a[9] are ",
+"		initialized with void values.",
+"",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"3, 6, 9, etc.",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, 4, 7, ...",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The array will be built on the specified variable.  Member variables of existing arrays and structures are allowed so you can build more complex data structures."
+	  },
+	  {
+		 "Number":		"2, 5, 8, ...",
+		 "Name":		"Dimension",
+		 "Direction":	"input",
+		 "Types":		["numeral", "parameter set of numerals"],
+		 "Default value": "text",
+"Description" : [
+"			Following types are supported:",
+"",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			numeral						| A one-dimensional array will be created.",
+"			parameters set of numerals	| A multi-dimensional array will be created, depending on number of elements specified.  No array will be defined if an empty set is provided.",
+"			===",
+""
+ ]
+		 
+	  },
+	  {
+		 "Number":		"3, 6, 9, ...",
+		 "Name":		"Initial value",
+		 "Direction":	"input",
+		 "Types":		["valid types"],
+		 "Description": "The initial value will be applied for every variable member."
+	  }
+
+	],
+"Examples" : [
+"	a[] = 123; // Will be preserved",
+"",
+"	dim( a[], 5, Hi, b[], {}, 1, a[2], {2,2}, 0 );",
+"	redim( a[], 8, Ho );",
+"",
+"	inspect( a[] ); // Nested arrays",
+"	inspect( b[] ); // Void",
+"",
+"	dim( c[], { 2, 2 }, 1 );	// 2x2 array",
+"	redim( c[], { 3, 3}, 3 );	// Extend to 3x3 array",
+"",
+"	inspect( c[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "dim protect", "redim protect", "array" ]
+  },
+
+  "dim / redim protect" :
+  {
+	"Function Names":	[ "dim protect", "redim protect" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		These two functions work similarly like __dim(__) and __redim(__), but will also apply protection settings on all member variables.",
+"		It may be useful to choose protection setting <u>limited access</u> in order to avoid accidental type changes on the array members.  ",
+"		No impact on protection settings on already existing array members with the redim protect function.  Here only the new members will be applied with the new protection setting.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"4, 7, 10, etc.",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Protection setting",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Description": "The supported protection settings are defined in the description for the function __protect(__)."
+	  },
+	  {
+		 "Number":		"2, 5, 8, ...",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The array will be built on the specified variable.  Member variables of existing arrays and structures are allowed so you can build more complex data structures."
+	  },
+	  {
+		 "Number":		"3, 6, 9, ...",
+		 "Name":		"Dimension",
+		 "Direction":	"input",
+		 "Types":		["numeral", "parameter set of numerals"],
+		 "Default value": "text",
+"Description" : [
+"			Following types are supported:",
+"",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			numeral						| A one-dimensional array will be created.",
+"			parameters set of numerals	| A multi-dimensional array will be created, depending on number of elements specified.  No array will be defined if an empty set is provided.",
+"			===",
+""
+ ]
+		 
+	  },
+	  {
+		 "Number":		"4, 7, 10, ...",
+		 "Name":		"Initial value",
+		 "Direction":	"input",
+		 "Types":		["valid types"],
+		 "Description": "The initial value will be applied for every variable member."
+	  }
+
+	],
+"Examples" : [
+"	dim protect( limited access, a[], 5, 123 );",
+"	a[0] = 1;",
+"",
+"	a[1] = Hi; // Will issue an exception",
+"	echo(\"Test\");"
+ ]
+	,
+"Output" : [
+"	savecode",
+"Row #: Code Text _______________________________________________________",
+"	1:     dim protect( limited access, a[], 5, 123 );",
+"	2:    a[0] = 1;",
+"	3:",
+"	4:    a[1] = Hi; // Will issue an exception",
+"			   ^",
+"Inside the started program code:",
+"Assignment on variable with limited access and type numeral",
+"with value of type literal is not allowed",
+"Failed to access variable, protections apply.",
+"Code execution will stop.  Going to interactive mode",
+"________________________________________________________________________",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">>"
+ ]
+	,
+	"See also": [ "dim", "redim", "array protect" ]
+  }
+
+
+
+,
+
+  "array, array protect" :
+  {
+	"Function Names":	[ "array", "array protect" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		<b>array</b> defines one or more arrays with all intial values provided directly.  Already existing variable members will be eliminated.",
+"		The function <b>array project</b> will also apply the protection settings on all member variables created.  See description for function __protect(__) for details.",
+"		It may be useful to choose protection setting <b>limited access</b> in order to avoid accidental type changes on the array members.",
+"",
+"		<br><br>",
+"		Impact on base variables:  The base variable values remain unaffected.  These functions affect the members only.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"array: 2, 4, 6, etc.; array protect: 3, 5, 7, etc.",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Protection setting",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Description": "Applicable to <b>array protect</b> only. The supported protection settings are defined in the description for the function __protect(__)."
+	  },
+	  {
+		 "Number":		"1, 3, ... or 2, 4, ...",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The array will be built on the specified variable.  Member variables of existing arrays and structures are allowed so you can build more complex data structures."
+	  },
+	  {
+		 "Number":		"2, 4, ... or 3, 5, ...",
+		 "Name":		"Initial values",
+		 "Direction":	"input",
+		 "Types":		["parameter set"],
+		 "Default value": "text",
+"Description" : [
+"			If a simple parameter set is provided (no nested elements), then a one-dimensional array will be built.",
+"			Nested paramter sets will create nested arrays."
+ ]
+		 
+	  }
+
+	],
+"Examples" : [
+"	array( a[], { 1,2,3,{4,5},6 } );",
+"",
+"	// Builds a[0] ... a[3] = { 1,2,3,6 }",
+"	// Builds a[3,0] and a[3,2] with 4 and 5",
+"",
+"	inspect ( a[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "dim", "dim protect", "structure", "structure protect" ]
+  }
+
+
+,
+
+  "structure, structure protect" :
+  {
+	"Function Names":	[ "strcture", "structure protect" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		The function <b>structure</b> defines a structure with members and their initial values provided directly. Already existing variable members will be eliminated.",
+"		The function <b>structure project</b> will also apply the protection settings on all member variables created.  See description for function __protect(__) for details.",
+"		It may be useful to choose protection setting <b>limited access</b> in order to avoid accidental type changes on the array members.",
+"",
+"		<br><br>",
+"		Impact on base variables:  The base variable values remain unaffected.  These functions affect the members only."
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"structure: 3, 6, 9, etc.; structure protect: 4, 7, 10, etc.",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Protection setting",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Description": "Applicable to <b>structure protect</b> only. The supported protection settings are defined in the description for the function __protect(__)."
+	  },
+	  {
+		 "Number":		"1, 4, ... or 2, 5, ...",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The array will be built on the specified variable.  Member variables of existing arrays and structures are allowed so you can build more complex data structures."
+	  },
+	  {
+		 "Number":		"2, 5, ... or 3, 6, ...",
+		 "Name":		"Member names",
+		 "Direction":	"input",
+		 "Types":		["parameter set"],
+		 "Default value": "text",
+"Description" : [
+"			If a simple parameter set is provided (no nested elements), then a one-dimensional structure will be built.",
+"			Nested paramter sets will create nested structures."
+ ]
+		 
+	  },
+	  {
+		 "Number":		"2, 5, ... or 3, 6, ...",
+		 "Name":		"Initial values",
+		 "Direction":	"input",
+		 "Types":		["parameter set"],
+		 "Default value": "text",
+"Description" : [
+"			If a simple parameter set is provided (no nested elements), then a one-dimensional array will be built.",
+"			Nested paramter sets will create nested arrays.",
+"			The parameter set must have the same structure (attention to nesting) as in the previous function parameter for the corresponding paramter names."
+ ]
+		 
+	  }
+
+	],
+"Examples" : [
+"	structure( sizes[], { Cat, Mouse, Ant }, {medium, small, tiny} );",
+"	echo( sizes[Cat ]);",
+"	echo( sizes[Mouse]);",
+"	echo( sizes[Ant]);",
+"	echo;",
+"	structure( a[], { a,b,c,{d,e},f}, { 1,2,3,{4,5},6 }  );",
+"",
+"	// Builds a[a,b,c,f]  = { 1,2,3,6 }",
+"	// Builds a[c,d] and a[c,e] with 4 and 5",
+"",
+"	inspect ( a[] );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "array", "array protect" ]
   }
 
 

@@ -15,6 +15,7 @@ REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Descr
 REF;Arrays;REF_Features_arrays.html;General Description;arrays
 REF;Arrays;REF_Features_arrays.html;General Description;;array
 REF;Arrays;REF_Features_arrays.html;General Description;;arrays
+REF;Arrays and Structures;REF_Features_Arrays_and_Structures.html;General Description;Arrays and Structures
 REF;Basic Data Types;REF_Features_data_types.html;General Description;data types
 REF;Basic Data Types;REF_Features_data_types.html;General Description;;data types
 REF;Basic Data Types;REF_Features_data_types.html;General Description;;basic data types
@@ -452,6 +453,8 @@ REF;Zero Members Variables;REF_Features_zero_members.html;General Description;ze
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;;zero members
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;abs
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;;absolute value
+REF;array, array protect;REF_Function_array.html;Function Description;array
+REF;array, array protect;REF_Function_array.html;Function Description;array protect
 REF;boolean;REF_Function_boolean.html;Function Description;boolean
 REF;boolean;REF_Function_boolean.html;Function Description;;boolean conversion function
 REF;break, continue;REF_Function_break_case.html;Function Description;break case
@@ -506,6 +509,10 @@ REF;delete user function;REF_Function_delete_user_function.html;Function Descrip
 REF;delete user function;REF_Function_delete_user_function.html;Function Description;;delete user function
 REF;diagonal;REF_Function_diagonal.html;Function Description;diagonal
 REF;diagonal;REF_Function_diagonal.html;Function Description;;diagonal
+REF;dim / redim;REF_Function_dim.html;Function Description;dim
+REF;dim / redim;REF_Function_dim.html;Function Description;redim
+REF;dim / redim protect;REF_Function_dim_protect.html;Function Description;dim protect
+REF;dim / redim protect;REF_Function_dim_protect.html;Function Description;redim protect
 REF;directory create ...;REF_Function_directory_create.html;Function Description;directory create
 REF;directory create ...;REF_Function_directory_create.html;Function Description;directory create all
 REF;directory create ...;REF_Function_directory_create.html;Function Description;directory create silently
@@ -817,6 +824,8 @@ REF;sqrt - Square Root;REF_Function_sqrt.html;Function Description;;Square Root
 REF;start - Function;REF_Function_start.html;Function Description;start
 REF;start - Function;REF_Function_start.html;Function Description;;start B4P program
 REF;starting directory;REF_Function_starting_directory.html;Function Description;starting directory
+REF;structure, structure protect;REF_Function_strcture.html;Function Description;strcture
+REF;structure, structure protect;REF_Function_strcture.html;Function Description;structure protect
 REF;subset ...;REF_Function_subset.html;Function Description;subset
 REF;subset ...;REF_Function_subset.html;Function Description;subset ignore case
 REF;subset ...;REF_Function_subset.html;Function Description;subset ignore blanks
@@ -1064,7 +1073,6 @@ REF;year, quarter, month, day;REF_Function_year.html;Function Description;quarte
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;month
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;day
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;;Date info functions
-MAS;Welcome to B4P;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 GUI;Access PDF documentation;GUI_Features_access_pdf_docs.html;General Description;access pdf docs
 GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
 GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts
@@ -1094,3 +1102,4 @@ GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
 GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;what is B4P
 GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;;B4P anatomy
 GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+MAS;Welcome to B4P;MAS_Features_Table_of_Contents.html;General Description;Table of Contents

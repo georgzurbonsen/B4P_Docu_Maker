@@ -319,7 +319,11 @@ OK;Body;3;B 4.8.1;Information about Variables;REF_Features_variables_functions.h
 OK;Body;4;B 4.8.1.1;existing;REF_Function_existing.html;existing;existing;
 OK;Body;4;B 4.8.1.2;identify;REF_Function_identify.html;identify;identify;
 OK;Body;4;B 4.8.1.3;scope;REF_Function_scope.html;scope;scope;
-New, (Assign right Category);Body;4;;name;REF_Function_name.html;name;name;
+OK;Body;4;B 4.8.1.4;name;REF_Function_name.html;name;name;
+OK;Body;3;B 4.8.2;Arrays and Structures;REF_Features_Arrays_and_Structures.html;Arrays and Structures;Arrays and Structures;
+OK;Body;4;B 4.8.2.1;dim / redim;REF_Function_dim.html;dim,redim;dim,redim;
+OK;Body;4;B 4.8.2.2;dim / redim protect;REF_Function_dim_protect.html;dim protect,redim protect;dim protect,redim protect;
+New, (Assign right Category);Body;4;;array, array protect;REF_Function_array.html;array,array protect;array,array protect;
 OK;Body;2;B 4.9;Directory and File System Functions;REF_Features_directory_and_file_system.html;directory and file system;directory and file system,short error messages on directories and files;
 OK;Body;3;B 4.9.1;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;basic directory and file functions;basic directory and file functions;
 OK;Body;4;B 4.9.1.1;directory existing, file existing;REF_Function_directory_existing.html;directory existing,file existing;directory existing,file existing;

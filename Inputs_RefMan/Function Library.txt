@@ -728,12 +728,25 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "variables functions" ],
-    "Description 01:Introduction to Variables Function"::
+    "Description 01:Introduction"::
 
 	This section summarizes all functions which provide information about the variables
 
 	+++
-	  },
+  },
+
+
+"Arrays and Structures":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Arrays and Structures" ],
+    "Description 01:Introduction"::
+
+	This section provides an overview of functions defining and working with __arrays__ and __structures__.
+
+	+++
+  },
+
 
 
 
