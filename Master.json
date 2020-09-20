@@ -1798,6 +1798,77 @@
   },
 
 
+"Loading and Saving Variables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loading and saving variables" ],
+"Description 01:Introduction" : [
+"",
+"	The following functions provide convenient methods to save variables (including all the structure and array members and sub-members) into files or $",
+"	text strings (literals) and vice versa in JavaScriopt Object Notation (JSON).  Focus is given on full data preservation in round trip cases, ",
+"	i.e. data is saved as JSON and covered again, and vice versa.",
+"",
+"	<br><br>",
+"",
+"	Following rules will be applied when saving variables into JSON text. ",
+"	These rules are insofar important because the Beyond4P can consist of both base variables, array and structure members and sub-members, ",
+"	and the simple JSON representation focuses on leaf data, meaning the final members and sub-members without the intermediate one.  ",
+"	In addition, special rules are applied to save Beyond4P specific formats such as dates (and times) and parameter sets.",
+"",
+"	Following special rules apply",
+"	=== 200, 800, noframe_1stcolbold, noheader",
+"	General			| The base variable as well as all members and sub-members, regardless if array or structures, will be saved.",
+"	__Simple Variables__	| If the variable is a simple variable, then it will be saved as a JSON plain array containing 1 element.  Using 'JSON B4P' option in the loading process will recover the variable properly.",
+"	__Arrays__		| B4P arrays are stored as JSON arrays",
+"	__Structures__		| B4P structures are stored as JSON objects",
+"	Literals		| Literal string contents are stored as text in double quotation marks",
+"	Numerals		| Numerals are written as numbers without quotation marks.  When saving, scientific notation is not used.  However, JSON files containing scientific notation will be loaded correctly.",
+"	Booleans		| Will be written as <b>true</b> and <b>false</b>.  B4P will recognize boolean values and convert them to Boolean type",
+"	Void values		| Are written as <b>null</b> in JSON output.",
+"	Dates			| Dates (and times) are written as text in following formats: \"YYYY-MM-DD\", \"hh:mm:ss\", \"YYYY-MM-DD hh:mm:ss\", and \"0000-00-00\".  The last value refers to a blank date and will be recognized as such. When reading JSON data, dates and times must adhere strictly with the given formats, otherwise they will be loaded as text (e.g. \"01 April 2020\").",
+"	Parameter Sets		| Parameter sets will be converted to string format (similarly implemented as in the __literal(__) function) and stored as text.  Literals are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: \"{1,true,'Abc'}\".  Nested parameter sets are supported.",
+"	Loading literals	| All loaded literals are declared as <b>quoted literals</b>",
+"	Special characters	| Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside literals, etc. ",
+"	==="
+ ]
+	,
+"Description 02:Intermediate Nodes" : [
+"	The JSON model describes a tree containing data at the end nodes only (leaves) whereas B4P variable model also supports data in intermediate",
+"	nodes as well.  In these case, intermediate arrays containing 2 elements are introduced to describe the intermediate node followed by the ",
+"	remaining data up the data tree.  See the program example below:" ],
+"Examples 02:JSON code without and with intermediate nodes" : [
+"	b[Red] = Rot;",
+"	b[Green,light] = Hellgrün;",
+"	b[Green,dark] = Dunkelgrün;",
+"	b[Blue,light] = Hellblau;",
+"	b[Blue,dark] = Dunkelblau;",
+"",
+"	inspect(b[]);",
+"",
+"	j[] = variable to json( b[], JSON);",
+"",
+"	echo(\"JSON code:\", new line, j[], new line, \"_______\" );",
+"",
+"	json to variable( c[], j[], JSON B4P );",
+"	inspect( c[] );",
+"",
+"	echo(new line, \"Add data to intermediate nodes\");",
+"",
+"	b[] = Colors;",
+"	b[Green] = Shades of green;",
+"",
+"	j[] = variable to json( b[], JSON);",
+"",
+"	echo(\"JSON code:\", new line, j[], new line, \"_______\" );",
+"",
+"	json to variable( c[], j[], JSON B4P );",
+"	inspect( c[] ); // Same as before."
+ ]
+	,
+	"Output 02": "automatic"
+
+  },
+
 
 
 "Directory and File System Functions":
@@ -24713,10 +24784,156 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "dim protect", "redim protect", "array" ]
+	"See also": [ "release" ]
   }
 
 
+
+,
+
+  "protect ..." :
+  {
+	"Function Names":	[ "protect", "protect recursive" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function applies a protection setting on the variables.  Protection can only be applied on local variables only if running in a local variable context (e.g.",
+"	inside a user-function or running a B4P file started from another B4P file using __start(__) or __include(__).  Exceptions can be enabled using __global(__).",
+"	Changing protection on a system variable is not possible at all and any time.",
+"	<br><br>",
+"	<u>Attention</u>: If protecting a member variable, do not forget to protect the parents, too (If parents are in danger, then the members are, too, even if they are protected).",
+"",
+"	<br><br>",
+"",
+"	The \"protect recursive\" call will apply the protection setting to all member variables.  <br>",
+"	<u>Note</u> that \"protect recursive (check)\" only checks protection settings in the base variable.",
+"	<br><br>",
+"",
+"	<u>Note:</u> Member variables created after protection settings made do not inherit any protection settings from their parents. <b>full access</b> is assumed initially.",
+"",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"Min 2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Protection setting",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+"Description" : [
+"		    Following protection settings are available:",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			tightly locked		| Entire variable incl. members locked: Reading writing and deleting is forbidden",
+"			locked				| Reading, writing and deleting is forbidden",
+"			read only			| Writing and deleting is forbidden",
+"			limited access		| Values can be modified, but not the type (e.g. writing a literal to a variable containing a numeral).  For some system variables, only specific values are allowed.  No members can be created.",
+"			prevent deleting	| Reading and writing is allowed, but not deleting.  Members may be introduced.",
+"			full access			| Unrestricted access",
+"			check				| Poll the current protection setting of the variable specified in the 2nd function parameter.  This call even works if the variable is locked. ",
+"			===",
+""
+ ]
+		 
+	  },
+	  {
+		 "Number":		"2, etc.",
+		 "Name":		"Variable to protect",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": ""
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Polled protection setting",
+		  "Types": [ "literal" ],
+		  "Description": "The protection setting of the 1st variable is returned."
+		}
+	],
+"Examples" : [
+"	b[] = 2;",
+"	b[Hi] = 3;",
+"	b[Ho] = 4;",
+"",
+"	protect( read only, b[] ) ;",
+"",
+"	echo( \"Base variable protection setting: \", protect( check, b[] ) );",
+"	inspect( b[] );",
+"",
+"	protect recursive( prevent deleting, b[] ) ;",
+"",
+"	echo( \"Base variable protection setting: \", protect( check, b[] ) );",
+"	inspect( b[] );",
+"	b[] = 2;",
+"	b[Hi] = 3;",
+"	b[Ho] = 4;",
+"",
+"	protect( read only, b[] ) ;",
+"",
+"	echo( \"Base variable protection setting: \", protect( check, b[] ) );",
+"	inspect( b[] );",
+"",
+"	protect recursive( prevent deleting, b[] ) ;",
+"",
+"	echo( \"Base variable protection setting: \", protect( check, b[] ) );",
+"	inspect( b[] );"
+ ]
+	,
+	"Output": "automatic"
+  }
+
+
+,
+
+"global" :
+{
+	"Function Names":		"global",
+	"Documentation":		"Function Description",
+	"Keywords":				"one-time execution",
+	"Synopsis": 			[ "global { statements; }", "global () statement;", "global () { statements; }" ],
+
+"Description" : [
+"",
+"		This function defines a code block where all new variables defined will become global variables.  This ruling is only in effect in that code block,",
+"		but not in further procedures and functions called, as well as program files started or included.",
+"		The global variables are obviously retained if this function is called out from other user defined functions or program files.",
+""
+ ]
+		 ,
+
+	"Call as":				"procedure",
+	"Restrictions":			"No indirect parameter passing",
+	"Parameter count":		"0",
+"Examples"  : [
+"	d[] = 10; // Global variable defined outside the function",
+"",
+"	define procedure ( foo )",
+"	{",
+"		a[] = 1;",
+"		global",
+"		{",
+"		b[] = 2;",
+"		a[c] = 3; // This one stays a local variable",
+"",
+"			delete( d[] ); // If not in the global block, then exception happens.",
+"		}",
+"		echo( \"Scope of b[] : \", scope( b[] ) ); // globa",
+"		echo( \"Scope of a[] : \", scope( a[] ) ); // local",
+"		echo( \"Scope of a[c]: \", scope( a[c]) ); // local",
+"		echo( \"Scope of d[] : \", scope( d[] ) ); // Not found.",
+"	}",
+"",
+"	foo;",
+"	echo( \"Global variable b[] = \", b[] );"
+ ]
+	 ,
+	"Output" : "automatic"
+}
 
 ,
 
@@ -25331,6 +25548,341 @@
 	,
 	"Output": "automatic",
 	"See also": [ "structure to array" ]
+  }
+
+
+,
+
+  "variable load ...":
+  {
+	"Function Names":	[ "variable load" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function loads a JSON file with structured data into a variable.<br>",
+"		<br><br>",
+"		If the specified variable is existing then all contents will be deleted before the loading procedure starts.  The members (and sub-members) ",
+"		will be built up while loading / reading in is in progress.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2, 3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Destination variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The contents will be loaded into this variable."
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"File name",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+"Description" : [
+"			The file must refer to an existing JSON file.  The JSON file may optionally contain a plain array with the starting symbol '[' instead of '{'."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 3",
+		 "Name":		"JSON Format",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Default value": "JSON",
+"Description" : [
+"			Following values are supported:",
+"			<b>JSON</b>: Load JSON files normally.  Since JSON does not support data in intermediate nodes (vs. B4P variable model which does), the",
+"			the beginning and intermediate base veriables will be void.<br>",
+"			<b>JSON B4P</b>: Load JSON files wich has previously been saved with __variable save(__) where the data is organized in the JSON format in order",
+"			to include the data in intermediate nodes."
+ ]
+			
+	  }
+	],
+"Examples" : [
+"	include( Support Library );",
+"",
+"	pets[] = \"All my pets\";",
+"	structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },",
+"			   { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );",
+"	array( pets[Cat], { Hauskatze, Puma, Tiger } );",
+"",
+"	inspect( pets[] );",
+"",
+"	variable save( pets[], \"Outputs\\pets.json\" );",
+"",
+"	// With 'All my pets' defined in the base variable, the JSON code will be a 'plain array'",
+"	// beginning with '[' and not with '{^'.",
+"",
+"	table load( t, \"Outputs\\pets.json\", TEXT ); // Show the JSON file",
+"	table list( t );",
+"",
+"	echo(\"Load the JSON file, assuming it originated from B4P output\");",
+"	variable load( animals[], \"Outputs\\pets.json\", JSON B4P );",
+"",
+"	inspect( animals[] ); // You will see that all contents are preserved.",
+"",
+"	echo(\"Now load the JSON file as if the file originated from somewhere else ...\");",
+"",
+"	// B4P saves intermediate nodes in intermediate arrays containing 2 elements:",
+"	// Element 0:  The base variable at that level",
+"	// Element 1:  Further structured data",
+"",
+"	variable load( animals[], \"Outputs\\pets.json\", JSON );",
+"	inspect( animals[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "variable save", "json to variable" ]
+  },
+
+  "json to variable ...":
+  {
+	"Function Names":	[ "json to variable" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function loads JSON contents from a text string into a variable.  This approach is useful if JSON text has been obtained",
+"		from other sources, for example a table.",
+"",
+"		<br><br>",
+"		If the specified variable is existing then all contents will be deleted before the loading procedure starts.  The members (and sub-members)",
+"		will be built up while loading / reading in is in progress.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2, 3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Destination variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The contents will be loaded into this variable."
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"JSON text",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+"Description" : [
+"			The complete JSON code is in this string.  The JSON text may optionally contain a plain array with the starting symbol '[' instead of '{'."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 3",
+		 "Name":		"JSON Format",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Default value": "JSON",
+"Description" : [
+"			Following values are supported:",
+"			<b>JSON</b>: Load JSON text normally.  Since JSON does not support data in intermediate nodes (vs. B4P variable model which does), the",
+"			the beginning and intermediate base veriables will be void.<br>",
+"			<b>JSON B4P</b>: Load JSON text wich has previously been saved with __variable to json(__) where the data is organized in the JSON format in order",
+"			to include the data in intermediate nodes."
+ ]
+			
+	  }
+	],
+"Examples" : [
+"	include( Support Library );",
+"",
+"	pets[] = \"All my pets\";",
+"	structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },",
+"			   { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );",
+"	array( pets[Cat], { Hauskatze, Puma, Tiger } );",
+"",
+"	inspect( pets[] );",
+"",
+"	variable save( pets[], \"Outputs\\pets.json\" );",
+"",
+"	// With 'All my pets' defined in the base variable, the JSON code will be a 'plain array'",
+"	// beginning with '[' and not with '{'.",
+"",
+"	table load( t, \"Outputs\\pets.json\", TEXT ); // Show the JSON file",
+"	table list( t );",
+"",
+"	echo(\"Load the JSON file, assuming it originated from B4P output\");",
+"	variable load( animals[], \"Outputs\\pets.json\", JSON B4P );",
+"",
+"	inspect( animals[] ); // You will see that all contents are preserved.",
+"",
+"	echo(\"Now load the JSON file as if the file originated from somewhere else ...\");",
+"",
+"	// B4P saves intermediate nodes in intermediate arrays containing 2 elements:",
+"	// Element 0:  The base variable at that level",
+"	// Element 1:  Further structured data",
+"",
+"	variable load( animals[], \"Outputs\\pets.json\", JSON );",
+"	inspect( animals[] );"
+ ]
+	,
+	"Output": "automatic",
+"Details 01:Loading different data types" : [
+"		The following code example demonstrates how the different B4P data types are loaded.",
+"		An automatic recognition of numbers, dates, booleans, etc. is supported."
+ ]
+		,
+"Examples 01:Code example" : [
+"	include( Support Library );",
+"",
+"	misc[boolan] = true;",
+"	misc[numeral] = 123.45;",
+"	misc[date] = date( \"2020-07-14 17:00\" );",
+"	misc[set] = { a, 1, { b, 2 }, c, true, date( \"2020-08-01 21:00\" ) };",
+"",
+"	j[] = variable to json( misc[], JSON );",
+"",
+"	// With 'All my pets' defined in the base variable, the JSON code will be a 'plain array'",
+"	// beginning with '[' and not with '{'.",
+"",
+"	echo(\"This is the JSON code:\", new line, j[], new line, \"_End of JSON text ___________\");",
+"",
+"	echo(\"Load the JSON text, assuming it originated from B4P output\");",
+"	json to variable( diverse[], j[], JSON B4P );",
+"",
+"	inspect( diverse[] ); // You will see that all contents are preserved."
+ ]
+	,
+	"Output 01": "automatic",
+	"See also": [ "variable load", "variable to json" ]
+	  }
+
+
+,
+
+  "variable save ...":
+  {
+	"Function Names":	[ "variable save" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function saves the contents of a variable into a JSON file.  If the file is already existin, then the contents will be replaced (and not appended).",
+"		<br><br>",
+"		Since JSON does not support intermediate nodes in the data trees, but B4P variables do, the base variables at all levels will be put into",
+"		intermediate arrays containing 2 elements.  Element 0 contains the value of the base variable, and Element 1 contains further data up the data tree.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"2, 3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Source variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The contents will be loaded into this variable."
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"File name",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+"Description" : [
+"			This file will be created."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 3",
+		 "Name":		"JSON Format",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Default value": "JSON",
+"Description" : [
+"			Following values are supported:",
+"			<b>JSON</b>: Save JSON in nice format with every item in a separate line and text indentation used<br>",
+"			<b>JSON compact</b>: Save JSON in condensed format without indentation and line breaks in order reduce overall size but without loosing any data"
+ ]
+			
+	  }
+	],
+"Examples" : [
+"	b[Green] = Grün;",
+"	b[Blue] = Blau;",
+"	b[Blue,light] = Hellblau;",
+"	b[Blue,dark] = Dunkelblau;",
+"",
+"	variable save( b[], \"Outputs/colors.json\");",
+"",
+"	variable load( c[], \"Outputs/colors.json\", JSON B4P );",
+"",
+"	inspect( c[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "variable load", "variable to json" ]
+  },
+
+  "variable to json ...":
+  {
+	"Function Names":	[ "variable to json" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function loads JSON contents from a text string into a variable.  This approach is useful if JSON text has been obtained",
+"		from other sources, for example a table.",
+"",
+"		<br><br>",
+"		If the specified variable is existing then all contents will be deleted before the loading procedure starts.  The members (and sub-members)",
+"		will be built up while loading / reading in is in progress.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1, 3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Source variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The contents will be loaded into this variable."
+	  },
+	  {
+		 "Number":		"Opt. 2",
+		 "Name":		"JSON Format",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Default value": "JSON",
+"Description" : [
+"			Following values are supported:",
+"			<b>JSON</b>: Save JSON in nice format with every item in a separate line and text indentation used<br>",
+"			<b>JSON compact</b>: Save JSON in condensed format without indentation and line breaks in order reduce overall size but without loosing any data"
+ ]
+			
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "JSON contents",
+		  "Types": [ "literal" ],
+		  "Description": "Contains JSON text of saved variable"
+		}
+	],
+"Examples" : [
+"	a[] = Hello World;",
+"	j[] = variable to json( a[] );",
+"	echo(\"Simple variable in JSON: \", j[] );",
+"	json to variable( b[], j[], JSON B4P );",
+"	inspect(b[]);"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "variable save", "json to variable" ]
   }
 
 

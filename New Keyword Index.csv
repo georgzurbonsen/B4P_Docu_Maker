@@ -291,6 +291,7 @@ REF;Loading XML files;REF_Features_Loading_XML_files.html;General Description;;l
 REF;Loading and Saving Files;REF_Features_loading_files.html;General Description;loading files
 REF;Loading and Saving Files;REF_Features_loading_files.html;General Description;;loading files
 REF;Loading and Saving Tables;REF_Features_Loading_and_saving_tables.html;General Description;Loading and saving tables
+REF;Loading and Saving Variables;REF_Features_Loading_and_saving_variables.html;General Description;Loading and saving variables
 REF;Locales;REF_Features_Locales.html;General Description;Locales
 REF;Locales;REF_Features_Locales.html;General Description;;list of Locales
 REF;Locales;REF_Features_Locales.html;General Description;;locale
@@ -653,6 +654,8 @@ REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;gini 
 REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;gini ignore zero
 REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;;gini coefficient
 REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;;income disparity
+REF;global;REF_Function_global.html;Function Description;global
+REF;global;REF_Function_global.html;Function Description;;one-time execution
 REF;horizontal;REF_Function_horizontal.html;Function Description;horizontal
 REF;horizontal;REF_Function_horizontal.html;Function Description;;horizontal
 REF;hour, minute, second;REF_Function_hour.html;Function Description;hour
@@ -682,6 +685,7 @@ REF;join ...;REF_Function_join.html;Function Description;join
 REF;join ...;REF_Function_join.html;Function Description;join ignore blanks
 REF;join ...;REF_Function_join.html;Function Description;join unique
 REF;join ...;REF_Function_join.html;Function Description;join unique ignore blanks
+REF;json to variable ...;REF_Function_json_to_variable.html;Function Description;json to variable
 REF;left ... (parameter set function);REF_Function_left_.html;Function Description;left 
 REF;left ... (parameter set function);REF_Function_left_.html;Function Description;left include 
 REF;left ... (parameter set function);REF_Function_left_.html;Function Description;left last match 
@@ -783,6 +787,8 @@ REF;parameter set;REF_Function_parameter_set.html;Function Description;parameter
 REF;parameter set;REF_Function_parameter_set.html;Function Description;;parameter set conversion function
 REF;pow - Power Function;REF_Function_pow.html;Function Description;pow
 REF;pow - Power Function;REF_Function_pow.html;Function Description;;power function
+REF;protect ...;REF_Function_protect.html;Function Description;protect
+REF;protect ...;REF_Function_protect.html;Function Description;protect recursive
 REF;random - Random Integers;REF_Function_random.html;Function Description;random
 REF;random - Random Integers;REF_Function_random.html;Function Description;;random
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;read access
@@ -1063,6 +1069,9 @@ REF;tv - Terminal Value;REF_Function_tv.html;Function Description;;tv
 REF;type, type detailed;REF_Function_type.html;Function Description;type
 REF;type, type detailed;REF_Function_type.html;Function Description;typd detailed
 REF;type, type detailed;REF_Function_type.html;Function Description;;Identify variable types
+REF;variable load ...;REF_Function_variable_load.html;Function Description;variable load
+REF;variable save ...;REF_Function_variable_save.html;Function Description;variable save
+REF;variable to json ...;REF_Function_variable_to_json.html;Function Description;variable to json
 REF;vertical;REF_Function_vertical.html;Function Description;vertical
 REF;vertical;REF_Function_vertical.html;Function Description;;vertical
 REF;wait until, wait until countdown;REF_Function_wait_until.html;Function Description;wait until

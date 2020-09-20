@@ -1,21 +1,21 @@
 ﻿
- 	structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },
-			   { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );
-	array( pets[Cat], { Hauskatze, Puma, Tiger } );
-	pets[] = Favored Animals;
+	d[] = 10; // Global variable defined outside the function
 
-	echo("Variable created:");
-	inspect(pets[]);
+	define procedure ( foo )
+	{
+	    a[] = 1;
+	    global
+	    {
+		b[] = 2;
+		a[c] = 3; // This one stays a local variable
 
-	delete( pets[Bird] );
-	delete members( pets[Cat] );
+	    	delete( d[] ); // If not in the global block, then exception happens.
+	    }
+	    echo( "Scope of b[] : ", scope( b[] ) );
+	    echo( "Scope of a[] : ", scope( a[] ) );
+	    echo( "Scope of a[c]: ", scope( a[c]) );
+	    echo( "Scope of d[] : ", scope( d[] ) ); // Not found.
+	}
 
-	echo("All birds removed, array in Cat removed");
-	inspect(pets[]);
-	echo( "pets[Cat] is identified as '", identify(pets[Cat]), "' variable" );
-
-	echo("Delete all pets");
-	delete( pets[] );
-	echo( "pets[] is identified as '", identify(pets[]), "'." );
-
-	
+	foo;
+	echo( "Global variable b[] = ", b[] );

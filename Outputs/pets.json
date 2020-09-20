@@ -1,0 +1,23 @@
+﻿
+[ "All my pets",{
+    "Bird" : 
+    [ "Vogel",{
+        "Parakeet" : "Sittich",
+        "Parrot" : "Papagei"
+      }
+      ],
+    "Cat" : 
+    [ "Katze",[
+        "Hauskatze",
+        "Puma",
+        "Tiger"
+      ]
+      ],
+    "Dog" : 
+    [ "Hund",{
+        "Dachshund" : "Dackel",
+        "Shepard" : "Schäfer"
+      }
+      ]
+  }
+  ]

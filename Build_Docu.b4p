@@ -1010,7 +1010,7 @@ define procedure ( create all general and function descriptions in HTML )
 
 	// Put all the code examples into a ZIP file and stage it on the website, too.
 
-	echo(new lne, "Compress all code examples into B4P_Examples.zip" );
+	echo(new line, "Compress all code examples into B4P_Examples.zip" );
 	working directory ( Examples );
 	file delete silently( destination path[] + "B4P_Examples.zip" ); sleep( 0.3 ); // OS works in background, need to wait a bit
 	zip compress( "*.*", destination path[] + "B4P_Examples.zip" );

@@ -753,6 +753,75 @@ B4PDOCU.START
   },
 
 
+"Loading and Saving Variables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loading and saving variables" ],
+    "Description 01:Introduction"::
+
+	The following functions provide convenient methods to save variables (including all the structure and array members and sub-members) into files or $
+	text strings (literals) and vice versa in JavaScriopt Object Notation (JSON).  Focus is given on full data preservation in round trip cases, 
+	i.e. data is saved as JSON and covered again, and vice versa.
+
+	<br><br>
+
+	Following rules will be applied when saving variables into JSON text. 
+	These rules are insofar important because the Beyond4P can consist of both base variables, array and structure members and sub-members, 
+	and the simple JSON representation focuses on leaf data, meaning the final members and sub-members without the intermediate one.  
+	In addition, special rules are applied to save Beyond4P specific formats such as dates (and times) and parameter sets.
+
+	Following special rules apply
+	=== 200, 800, noframe_1stcolbold, noheader
+	General			| The base variable as well as all members and sub-members, regardless if array or structures, will be saved.
+	__Simple Variables__	| If the variable is a simple variable, then it will be saved as a JSON plain array containing 1 element.  Using 'JSON B4P' option in the loading process will recover the variable properly.
+	__Arrays__		| B4P arrays are stored as JSON arrays
+	__Structures__		| B4P structures are stored as JSON objects
+	Literals		| Literal string contents are stored as text in double quotation marks
+	Numerals		| Numerals are written as numbers without quotation marks.  When saving, scientific notation is not used.  However, JSON files containing scientific notation will be loaded correctly.
+	Booleans		| Will be written as <b>true</b> and <b>false</b>.  B4P will recognize boolean values and convert them to Boolean type
+	Void values		| Are written as <b>null</b> in JSON output.
+	Dates			| Dates (and times) are written as text in following formats: "YYYY-MM-DD", "hh:mm:ss", "YYYY-MM-DD hh:mm:ss", and "0000-00-00".  The last value refers to a blank date and will be recognized as such. When reading JSON data, dates and times must adhere strictly with the given formats, otherwise they will be loaded as text (e.g. "01 April 2020").
+	Parameter Sets		| Parameter sets will be converted to string format (similarly implemented as in the __literal(__) function) and stored as text.  Literals are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested parameter sets are supported.
+	Loading literals	| All loaded literals are declared as <b>quoted literals</b>
+	Special characters	| Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside literals, etc. 
+	===
+	+++,
+    "Description 02:Intermediate Nodes"::
+	The JSON model describes a tree containing data at the end nodes only (leaves) whereas B4P variable model also supports data in intermediate
+	nodes as well.  In these case, intermediate arrays containing 2 elements are introduced to describe the intermediate node followed by the 
+	remaining data up the data tree.  See the program example below:
+    "Examples 02:JSON code without and with intermediate nodes"::
+	b[Red] = Rot;
+	b[Green,light] = Hellgrün;
+	b[Green,dark] = Dunkelgrün;
+	b[Blue,light] = Hellblau;
+	b[Blue,dark] = Dunkelblau;
+
+	inspect(b[]);
+
+	j[] = variable to json( b[], JSON);
+
+	echo("JSON code:", new line, j[], new line, "_______" );
+
+	json to variable( c[], j[], JSON B4P );
+	inspect( c[] );
+
+	echo(new line, "Add data to intermediate nodes");
+
+	b[] = Colors;
+	b[Green] = Shades of green;
+
+	j[] = variable to json( b[], JSON);
+
+	echo("JSON code:", new line, j[], new line, "_______" );
+
+	json to variable( c[], j[], JSON B4P );
+	inspect( c[] ); // Same as before.
+	+++,
+	"Output 02": "automatic"
+
+  },
+
 
 
 "Directory and File System Functions":
