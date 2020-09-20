@@ -24824,7 +24824,7 @@
 "Description" : [
 "		The function <b>structure</b> defines a structure with members and their initial values provided directly. Already existing variable members will be eliminated.",
 "		The function <b>structure project</b> will also apply the protection settings on all member variables created.  See description for function __protect(__) for details.",
-"		It may be useful to choose protection setting <b>limited access</b> in order to avoid accidental type changes on the array members.",
+"		It may be useful to choose protection setting <b>limited access</b> in order to avoid accidental type changes on the structure members.",
 "",
 "		<br><br>",
 "		Impact on base variables:  The base variable values remain unaffected.  These functions affect the members only."
@@ -24848,7 +24848,7 @@
 		 "Name":		"Variable name",
 		 "Direction":	"code",
 		 "Types":		["variable", ":literal"],
-		 "Description": "The array will be built on the specified variable.  Member variables of existing arrays and structures are allowed so you can build more complex data structures."
+		 "Description": "The structure will be built on the specified variable.  Member variables of existing arrays and structures are allowed so you can build more complex data structures."
 	  },
 	  {
 		 "Number":		"2, 5, ... or 3, 6, ...",
@@ -24894,6 +24894,140 @@
 	,
 	"Output": "automatic",
 	"See also": [ "array", "array protect" ]
+  }
+
+
+,
+
+  "member count" :
+  {
+	"Function Names":	[ "member count" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function returns the number of members in __arrays__ and __structures__.  Nested members will not be counted."
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": ""
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Member count",
+		  "Types": [ "numeral" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	dim( a[], 10, Hey );	// An array with 10 elements",
+"	dim( a[3], 3, Hi );	// 3 sub-members in a[3]",
+"	b[Name]= Jim;		// A structure with 2 members",
+"	b[Age] = 38;",
+"",
+"	c[] = 1;		// A simple variable, 0 members",
+"",
+"	echo( member count( a[] ), \", \", member count( a[3]), \", \",",
+"		  member count( b[] ), \", \", member count( c[] ) );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "dim", "array", "structure" ]
+  }
+
+
+,
+
+  "set ..." :
+  {
+	"Function Names":	[ "set", "set names" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		The function <b>set</b> lists all member values of the __array__ or __structure__ in a parameter set.<br>",
+"		The function <b>set names</b> lists all member names of the __structure__ in a parameter set.  For obvious reasons, this function will not work with arrays.",
+"		<br><br>",
+"		<u>Hint</u>: Use the function __flat(__) to remove any nesting in generated parameter sets.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1-3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": ""
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"Level",
+		 "Direction":	"input",
+		 "Types":		["numeral"],
+		 "Default value": "0",
+"Description" : [
+"		 <b>0</b>: All valid contents (except voids) of members and sub-members will be returned.  Sub-members will be packaged in nested paramter sets.<br>",
+"		 <b>1</b>: Direct members only (children)<br>",
+"		 <b>2</b>: All sub-members only (grandchildren)<br>",
+"		 <b>3, 4, ...</b>: All deeper sub-members according to the level specified."
+ ]
+		
+	  },
+	  {
+		 "Number":		"3",
+		 "Name":		"Option",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Default value": "(nothing specified)",
+"Description" : [
+"			Only supported value: <b>all</b>.<br>It forces all data, including voids to be included. If not specified, void data will be skipped.",
+"			This applies to both <b>set</b> and <b>set names</b>."
+ ]
+			
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Extracted values or names",
+		  "Types": [ "parameter set" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	Hi[ German ] = Hallo; Hi[ German, in Switzerland ] = Grüezi;",
+"	Hi[ German, in Bavaria ] = Grüss Gott;",
+"	Hi[ French ] = Allô; Hi [ English ] = Hello;",
+"	Hi[ Spanish, on the Phone ] = Diga;",
+"",
+"	v[] = set( Hi[ ] ); n[] = set names( Hi[ ] );",
+"	echo(\"Names: \", n[]);",
+"	echo(\"Values: \", v[]);",
+"",
+"	// Include 'invalid value' in Hi[Spanish].",
+"	v[] = set( Hi[ ], 0, all ); n[] = set names( Hi[ ], 0, all );",
+"	echo(\"Names: \", n[]);",
+"	echo(\"Values: \", v[]);",
+"",
+"	// Only 2nd level (like in Bavria ...)",
+"	v[] = set( Hi[ ], 2 ); n[] = set names( Hi[ ], 2 );",
+"	echo(\"Names: \", n[]);",
+"	echo(\"Values: \", v[]);",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "dim", "array", "structure", "member count" ]
   }
 
 
