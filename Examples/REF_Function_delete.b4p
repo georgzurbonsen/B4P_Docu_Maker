@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },
+             { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );
+  array( pets[Cat], { Hauskatze, Puma, Tiger } );
+  pets[] = Favored Animals;
+
+  echo("Variable created:");
+  inspect(pets[]);
+
+  delete( pets[Bird] );
+  delete members( pets[Cat] );
+
+  echo("All birds removed, array in Cat removed");
+  inspect(pets[]);
+  echo( "pets[Cat] is identified as '", identify(pets[Cat]), "' variable" );
+
+  echo("Delete all pets");
+  delete( pets[] );
+  echo( "pets[] is identified as '", identify(pets[]), "'." );
+

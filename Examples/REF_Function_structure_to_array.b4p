@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+  country[] = "Somewhere in Italy ...";
+  structure( country[],  { Name,       Climate,       { Winter, Summer }, Language },
+                         { San Marino, Mediterranean, { cool,   hot    }, Italian  } );
+  temperatures[] = "And the temperatures ...";
+  array( temperatures[], { 10, 30 } );
+
+  copy[] <== country[]; // Transaction: Make copy of variable including members
+
+  structure to array( copy[], temperatures[] );
+
+  echo(new line, "Calling 'structure to array':");
+  inspect( copy[] );
+  inspect( temperatures[] ); // Is already an array
+
+  echo(new line, "Calling 'structure to array recursive':");
+  structure to array recursive( country[] );
+  inspect( country[] );
+

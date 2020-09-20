@@ -724,13 +724,18 @@ B4PDOCU.START
   },
 
 
-"Information about Variables":
+"Basic Variables Functions":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "variables functions" ],
+    "Feature Names":		[ "basic variables functions" ],
     "Description 01:Introduction"::
 
-	This section summarizes all functions which provide information about the variables
+	This section summarizes all basic functions aroun variables
+	* Information about variables
+	* Simple data movements
+	* Deleting variables
+
+	__Arrays and structures__ will be addressed in the following section.
 
 	+++
   },

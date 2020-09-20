@@ -1767,13 +1767,18 @@
   },
 
 
-"Information about Variables":
+"Basic Variables Functions":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "variables functions" ],
+    "Feature Names":		[ "basic variables functions" ],
 "Description 01:Introduction" : [
 "",
-"	This section summarizes all functions which provide information about the variables",
+"	This section summarizes all basic functions aroun variables",
+"	* Information about variables",
+"	* Simple data movements",
+"	* Deleting variables",
+"",
+"	__Arrays and structures__ will be addressed in the following section.",
 ""
  ]
 	
@@ -24580,6 +24585,141 @@
 
 ,
 
+  "exchange" :
+  {
+	"Function Names":	[ "exchange" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"	This function exchanges the contents betweeen two variables, one variable and one entry in the table,",
+"	or between two table entries.",
+"",
+"	<u>Note</u>: Regarding variables, only the value in the base variable will be exchanged.  Member variables will not be touched	"
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Variable or table entry 1",
+		 "Direction":	"io",
+		 "Types":		["all types"],
+		 "Description": ""
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"Variable or table entry 2",
+		 "Direction":	"io",
+		 "Types":		["all types"],
+		 "Description": ""
+	  }
+	],
+"Examples" : [
+"	a[] = Abel; a[Age] = 30;",
+"	b[] = Beata; b[Age] = 31;",
+"",
+"	exchange( a[], b[] );",
+"",
+"	echo( \"Using exchange(...): Only base variables are exchanged.\");",
+"	echo( \"  a[]: \", a[], \", \", a[Age] );",
+"	echo( \"  b[]: \", b[], \", \", b[Age] );",
+"",
+"	table initialize( t, { { Name, Age}, {Corinne, 32} } );",
+"",
+"	exchange( a[],    [t:Name,1] );",
+"	exchange( a[Age], [t:Age,1] );",
+"",
+"	echo( new line, \"Exchanged with table entry: \");",
+"	echo( \"table: \", [t:Name,1] );",
+"	echo( \"  a[]: \", a[], \", \", a[Age] );",
+"",
+"	// In case you want to exchange base variables with their members, use transactions.",
+"",
+"	a[] = Abel; a[Age] = 30;",
+"	b[] = Beata; b[Age] = 31;",
+"",
+"	a[] <=> b[];",
+"",
+"	echo( new line, \"Using transactions: Members are also exchanged\");",
+"	echo( \"  a[]: \", a[], \", \", a[Age] );",
+"	echo( \"  b[]: \", b[], \", \", b[Age] );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "Transactions", "<=>" ]
+  }
+
+
+,
+
+  "delete ..." :
+  {
+	"Function Names":	[ "delete", "delete members" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function deletes the specified variable including all members if available.",
+"		If an array member is deleted, (e.g. <b>delete( a[2] );</b>), then the remaining array members further down close up.  Obviously, members of structures",
+"		can also be deleted.",
+"",
+"		<br><br>",
+"		The function <b>delete members</b> will remove all member variables, but leave the base variable untouched.",
+"",
+"		<br><br>",
+"			<u>Attention</u>: If the function call is executed in a local varaible contect (e.g inside a user-defined fuction or a B4P program called by another B4P",
+"			program using __start(__) or __include(__), then attempting to delete a non-local variable asserts an exception.",
+"			You can circumvent this by deleting the global variable in a global context provided with the __global(__) function.<br>",
+"			example: <b>global ( ) delete ( a global variable [ ] );</b><br>",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, ...",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The affected variable will be deleted resp. their members deleted."
+	  }
+	],
+	"Exceptions": [ "Variable is protected", "Attempting to delete global variable in local context", "Attempting to delete system variables" ],
+"Examples" : [
+"	structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },",
+"			   { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );",
+"	array( pets[Cat], { Hauskatze, Puma, Tiger } );",
+"	pets[] = Favored Animals;",
+"",
+"	echo(\"Variable created:\");",
+"	inspect(pets[]);",
+"",
+"	delete( pets[Bird] );",
+"	delete members( pets[Cat] );",
+"",
+"	echo(\"All birds removed, array in Cat removed\");",
+"	inspect(pets[]);",
+"	echo( \"pets[Cat] is identified as '\", identify(pets[Cat]), \"' variable\" );",
+"",
+"	echo(\"Delete all pets\");",
+"	delete( pets[] );",
+"	echo( \"pets[] is identified as '\", identify(pets[]), \"'.\" );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "dim protect", "redim protect", "array" ]
+  }
+
+
+
+,
+
   "dim / redim" :
   {
 	"Function Names":	[ "dim", "redim" ],
@@ -24946,7 +25086,7 @@
 
 ,
 
-  "set ..." :
+  "set, set names":
   {
 	"Function Names":	[ "set", "set names" ],
 	"Documentation":	"Function Description",
@@ -25028,6 +25168,169 @@
 	,
 	"Output": "automatic",
 	"See also": [ "dim", "array", "structure", "member count" ]
+  }
+
+
+,
+
+  "structure to array ...":
+  {
+	"Function Names":	[ "structure to array", "structure to array recursive" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function converts a structure to an array. This is done by eliminating the member names. ",
+"		While <b>structure to array</b> affects the direct variable members only, <b>structure to array recursive</b> will also convert all nested members (grandchildren, etc).",
+"		Numbering is based on the alphabetic order of the member names.  Multiple variables can be converted with one single function call by providing all of them as function parameters.",
+"		No actions are taken if the variable provided is a __simple variable__ or contains arrays only.<br><br>",
+"		<u>Note</u>: No protection may be applied on the variable, incl. <b>prevent deleting</b>, otherwise exceptions are asserted."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"Min 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The structure members of this variable will be converted to to array members."
+	  }
+	],
+"Examples" : [
+"	country[] = \"Somewhere in Italy ...\";",
+"	structure( country[],  { Name,       Climate,       { Winter, Summer }, Language },",
+"						   { San Marino, Mediterranean, { cool,   hot    }, Italian  } );",
+"	temperatures[] = \"And the temperatures ...\";",
+"	array( temperatures[], { 10, 30 } );",
+"",
+"	copy[] <== country[]; // Transaction: Make copy of variable including members",
+"",
+"	structure to array( copy[], temperatures[] );",
+"",
+"	echo(new line, \"Calling 'structure to array':\");",
+"	inspect( copy[] );",
+"	inspect( temperatures[] ); // Is already an array",
+"",
+"	echo(new line, \"Calling 'structure to array recursive':\");",
+"	structure to array recursive( country[] );",
+"	inspect( country[] );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "array to structure" ]
+  }
+
+
+,
+
+  "array to structure ...":
+  {
+	"Function Names":	[ "array to structure", "array to array structure" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function converts an array to a structure. This is done by adding the member names.",
+"		While <b>array to structure</b> affects the direct variable members only, <b>array to structure recursive</b> will also convert all nested members (grandchildren, etc).",
+"		Multiple variables can be converted with one single function call by providing all of them as function parameters.",
+"		No actions are taken if the variable provided is a __simple variable__ or contains arrays only.",
+"		<br><br>",
+"		<u>Note</u>: No protection may be applied on the variable, incl. <b>prevent deleting</b>, otherwise exceptions are asserted.",
+"",
+"		<br><br>",
+"		If only the 1st parameter is specified, then the member names are ascending numbers (beginning with 0) with 8 digits and leading zeros.  This ensures that",
+"		the members being converted are still retained in alphabetic order (\"00000000\", \"00000001\", \"00000002\", etc.) as long the number of members is less than 1 billion.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1, 2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The structure members of this variable will be converted to to array members."
+	  },
+	  {
+		 "Number":		"Opt. 2",
+		 "Name":		"number of digits",
+		 "Direction":	"input",
+		 "Types":		["numeral"],
+		 "Default value": "8",
+		 "Description": "The number of digits can be changed to a different value other than 8.  Values below 1 are considered as 1 digit."
+	  },
+	  {
+		 "Number":		"Alt. 2",
+		 "Name":		"Member name prefix",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+"Description" : [
+"			The member name will be placed before the number. Example: \"Nr. \" -> \"Nr. 0\", \"Nr. 1\", etc."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Alt. 2",
+		 "Name":		"Member names",
+		 "Direction":	"input",
+		 "Types":		["parameter set"],
+"Description" : [
+"			Alternatively, a parameter set can be provided with member names to be applied sequentially.  The contents of every parameter set element will be converted to",
+"			literals first.  Nested parameter elements will be treated as literals, i.e. 2nd element in member name in {a,{b,c},...} will literally be called \"{'b','c'}\".",
+"			If the parameter set contains more elements than members to be named, then the excessive elements will be ignored.  If fewer elements are provided, then the",
+"			remaining members will be numbered with 8-digit numbers (with leading zeros) as if no parameter would be provided.",
+"",
+"			<br><br>",
+"",
+"			Example: <b>{true, a, date(\"31.12.2015\"), 123 }</b> applied on an array with 6 members will convert to <b>\"true\", \"a\", \"2015-12-31\", \"123\"}</b>",
+"			and then sorted to <b>\"123\", \"2015-12-31\", \"a\", \"true\"</b>.",
+"			Duplicate member names will be resolved with automatic addition of numbers,  E.g. { a, a, a } would result in names like { a, a_1, a_2 } using underscore symbols.",
+""
+ ]
+			
+	  }
+	],
+"Examples" : [
+"	array( a[], { a, b, c, { d, e }, f, g, h } );",
+"	inspect( a[] );",
+"",
+"	b[] <== a[];",
+"	array to structure( b[] );",
+"	echo(\"Conversion with 1 paramemter only:\");",
+"	inspect( b[] );",
+"",
+"",
+"	b[] <== a[];",
+"	array to structure recursive( b[], 3);",
+"	echo(\"Conversion with number in 2nd parameter: 3 digits \");",
+"	inspect( b[] );",
+"",
+"	b[] <== a[];",
+"	array to structure recursive( b[], \"No. \" );",
+"	echo(\"Conversion with literal in 2nd parameter:\");",
+"	inspect( b[] );",
+"",
+"	b[] <== a[];",
+"	array to structure recursive( b[], {A,B,C,F} );",
+"	echo(\"Conversion with parameter set in 2nd parameter:\");",
+"	inspect( b[] );",
+"",
+"	b[] <== a[];",
+"	array to structure ( b[], {true, a, date(\"31.12.2015\"), 123 } );",
+"	echo(\"Conversion with diverse contents in parameter set in 2nd parameter:\");",
+"	inspect( b[] );",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "structure to array" ]
   }
 
 

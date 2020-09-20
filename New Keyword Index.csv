@@ -54,6 +54,7 @@ REF;Basic Text Output Functions;REF_Function_print.html;Function Description;com
 REF;Basic Text Output Functions;REF_Function_print.html;Function Description;;output to screen
 REF;Basic Text Output Functions;REF_Function_print.html;Function Description;;output to strings
 REF;Basic Text Output Functions;REF_Function_print.html;Function Description;;text output
+REF;Basic Variables Functions;REF_Features_basic_variables_functions.html;General Description;basic variables functions
 REF;Boolean to Literal Formatting;REF_Features_boolean_to_literal_conversion_and_formatting.html;General Description;boolean to literal conversion and formatting
 REF;Boolean to Literal Formatting;REF_Features_boolean_to_literal_conversion_and_formatting.html;General Description;;Boolean to Literal Formatting Parameters
 REF;Booleans;REF_Features_data_types_booleans.html;General Description;data types booleans
@@ -245,7 +246,6 @@ REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;;hyperbolic
 REF;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;Function Description;identify
 REF;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;Function Description;;identify variables
 REF;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
-REF;Information about Variables;REF_Features_variables_functions.html;General Description;variables functions
 REF;Input/Output with Tables;REF_Features_Input_output_wtih_tables.html;General Description;Input output wtih tables
 REF;Interactive Mode;REF_Features_interactive.html;General Description;interactive
 REF;Interactive Mode;REF_Features_interactive.html;General Description;;interactive
@@ -453,6 +453,8 @@ REF;Zero Members Variables;REF_Features_zero_members.html;General Description;ze
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;;zero members
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;abs
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;;absolute value
+REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to structure
+REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to array structure
 REF;array, array protect;REF_Function_array.html;Function Description;array
 REF;array, array protect;REF_Function_array.html;Function Description;array protect
 REF;boolean;REF_Function_boolean.html;Function Description;boolean
@@ -505,6 +507,8 @@ REF;define procedure / function;REF_Function_define_procedure.html;Function Desc
 REF;define procedure / function;REF_Function_define_procedure.html;Function Description;define procedure and function
 REF;define procedure / function;REF_Function_define_procedure.html;Function Description;;defining user procedures and user functions
 REF;define procedure / function;REF_Function_define_procedure.html;Function Description;;user-defined function
+REF;delete ...;REF_Function_delete.html;Function Description;delete
+REF;delete ...;REF_Function_delete.html;Function Description;delete members
 REF;delete user function;REF_Function_delete_user_function.html;Function Description;delete user function
 REF;delete user function;REF_Function_delete_user_function.html;Function Description;;delete user function
 REF;diagonal;REF_Function_diagonal.html;Function Description;diagonal
@@ -552,6 +556,7 @@ REF;even, odd, whole;REF_Function_even.html;Function Description;whole
 REF;even, odd, whole;REF_Function_even.html;Function Description;;even numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;odd numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;whole numbers
+REF;exchange;REF_Function_exchange.html;Function Description;exchange
 REF;existing;REF_Function_existing.html;Function Description;existing
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy all
@@ -813,8 +818,8 @@ REF;search files ...;REF_Function_search_files.html;Function Description;search 
 REF;search files ...;REF_Function_search_files.html;Function Description;search files recursive
 REF;serial date;REF_Function_serial_date.html;Function Description;serial date
 REF;serial date;REF_Function_serial_date.html;Function Description;;date info functions
-REF;set ...;REF_Function_set.html;Function Description;set
-REF;set ...;REF_Function_set.html;Function Description;set names
+REF;set, set names;REF_Function_set.html;Function Description;set
+REF;set, set names;REF_Function_set.html;Function Description;set names
 REF;sleep until, sleep until countdown;REF_Function_sleep_until.html;Function Description;sleep until
 REF;sleep until, sleep until countdown;REF_Function_sleep_until.html;Function Description;sleep until countdown
 REF;sleep, sleep countdown;REF_Function_sleep.html;Function Description;sleep
@@ -827,6 +832,8 @@ REF;sqrt - Square Root;REF_Function_sqrt.html;Function Description;;Square Root
 REF;start - Function;REF_Function_start.html;Function Description;start
 REF;start - Function;REF_Function_start.html;Function Description;;start B4P program
 REF;starting directory;REF_Function_starting_directory.html;Function Description;starting directory
+REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array
+REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array recursive
 REF;structure, structure protect;REF_Function_strcture.html;Function Description;strcture
 REF;structure, structure protect;REF_Function_strcture.html;Function Description;structure protect
 REF;subset ...;REF_Function_subset.html;Function Description;subset

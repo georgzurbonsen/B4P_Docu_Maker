@@ -1,0 +1,30 @@
+﻿#!/usr/local/bin/b4p
+  a[] = Abel; a[Age] = 30;
+  b[] = Beata; b[Age] = 31;
+
+  exchange( a[], b[] );
+
+  echo( "Using exchange(...): Only base variables are exchanged.");
+  echo( "  a[]: ", a[], ", ", a[Age] );
+  echo( "  b[]: ", b[], ", ", b[Age] );
+
+  table initialize( t, { { Name, Age}, {Corinne, 32} } );
+
+  exchange( a[],    [t:Name,1] );
+  exchange( a[Age], [t:Age,1] );
+
+  echo( new line, "Exchanged with table entry: ");
+  echo( "table: ", [t:Name,1] );
+  echo( "  a[]: ", a[], ", ", a[Age] );
+
+  // In case you want to exchange base variables with their members, use transactions.
+
+  a[] = Abel; a[Age] = 30;
+  b[] = Beata; b[Age] = 31;
+
+  a[] <=> b[];
+
+  echo( new line, "Using transactions: Members are also exchanged");
+  echo( "  a[]: ", a[], ", ", a[Age] );
+  echo( "  b[]: ", b[], ", ", b[Age] );
+

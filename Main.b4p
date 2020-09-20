@@ -1,12 +1,21 @@
-﻿	structure( sizes[], { Cat, Mouse, Ant }, {medium, small, tiny} );
-	echo( sizes[Cat ]);
-	echo( sizes[Mouse]);
-	echo( sizes[Ant]);
-	echo;
-	structure( a[], { a,b,c,{d,e},f}, { 1,2,3,{4,5},6 }  );
+﻿
+ 	structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },
+			   { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );
+	array( pets[Cat], { Hauskatze, Puma, Tiger } );
+	pets[] = Favored Animals;
 
-	// Builds a[a,b,c,f]  = { 1,2,3,6 }
-	// Builds a[c,d] and a[c,e] with 4 and 5
+	echo("Variable created:");
+	inspect(pets[]);
 
-	inspect ( a[] );
+	delete( pets[Bird] );
+	delete members( pets[Cat] );
 
+	echo("All birds removed, array in Cat removed");
+	inspect(pets[]);
+	echo( "pets[Cat] is identified as '", identify(pets[Cat]), "' variable" );
+
+	echo("Delete all pets");
+	delete( pets[] );
+	echo( "pets[] is identified as '", identify(pets[]), "'." );
+
+	
