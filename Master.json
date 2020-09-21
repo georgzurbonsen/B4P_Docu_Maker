@@ -1871,6 +1871,43 @@
 
 
 
+"Variable References Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable references functions" ],
+"Description 01:Introduction" : [
+"",
+"	This section describes functions related to __variable references__.",
+""
+ ]
+	
+  },
+
+
+"Resident Attributes Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Resident attributes functions" ],
+"Description 01:Introduction" : [
+"",
+"	Resident attributes are values which can be stored in dedicated files.  In contrast to loading and saving variables, attributes are tuples",
+"	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, literal, date, Boolean and parameter set.",
+"	Attribute names can be either flat (just one name) or hierarchical (parameter set containing multiple names representng a sort of path name).",
+"",
+"	<br><br>",
+"	In contrast to Microsoft Windows registry, the B4P resident attributes is an operating-system independent solution to store small amounts of data",
+"	or settings conveniently.  One file may contain one or more settings.  Thd data format used is JavaScript Object Notation (JSON).",
+"",
+"	<br><br>",
+"	If a nested sub-attribute is created, then the values associated to the attributes are blank literals \"\", and not void.",
+"	Example:  attribute write ( path[ ], file[ ], {local machine, local settings, date format}, \"YYYY-MM-DD\" ) will automatically assign \"\" to attribute name local machine, ",
+"	and local settings if not yet existing.",
+""
+ ]
+	
+  },
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -25542,8 +25579,7 @@
 "	b[] <== a[];",
 "	array to structure ( b[], {true, a, date(\"31.12.2015\"), 123 } );",
 "	echo(\"Conversion with diverse contents in parameter set in 2nd parameter:\");",
-"	inspect( b[] );",
-""
+"	inspect( b[] );"
  ]
 	,
 	"Output": "automatic",
@@ -25883,6 +25919,248 @@
 	,
 	"Output": "automatic",
 	"See also": [ "variable save", "json to variable" ]
+  }
+
+
+,
+
+  "release":
+  {
+	"Function Names":	[ "release" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function is applied on varible names which are __variable references__ in order to release the reference (linkage) to the target variable.",
+"	Given no other lockups (other references linked to that variable, ongoing assignments calculated, ongoing transactions or in use by I/O function parameters) apply,",
+"	then the target variable may be deleted.",
+"",
+"	<br><br>",
+"	All released references to variables turn into regular simple variables containing void values and no members.  The same variable may be used as a reference again",
+"	as long no array or structure members have been added to them.",
+"",
+"	<br><br>",
+"	References defined in local variables will be released automatically when execution of user-defined functions or B4P programs called with __start(__) or __include(__) have been completed.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The specified variable(s) must reference another variable."
+	  }
+	],
+	"Exceptions": [ "Variable is not a reference", "Variable is protected", "Variable is a function parameter which cannot be released" ],
+"Examples" : [
+"	Country[] = USA;",
+"	Country[State] = Pennsylvania;",
+"	Country[State,Town] = Wilkes Barre;",
+"",
+"	wb[] =^ Country[State,Town];",
+"	echo(wb[]);",
+"",
+"	release( wb[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "release all" ]
+  }
+
+
+,
+
+  "release all":
+  {
+	"Function Names":	[ "release all" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function releases all reference variable either in the specified variable or in one of its members or sub-members.",
+"	If no parameter is specified, then all locally defined references to variables (for example in a user-defined functions) will be released.",
+"	All released references to variables turn into regular variables containing void values.  See __release(__) for further details.",
+"",
+"	<br><br>",
+"	In contrast to __release(__), no exception is asserted if the specified variable is neiter a reference to a variable nor containing references.",
+"	This setup allows to release all references in variables which contain a mix of direct contents and references and carries out an effective clean-up.",
+"	Protected variables as well as function parameters containing references will not be released.",
+"",
+"",
+"	<br><br>",
+"	References defined in local variables will be released automatically when execution of user-defined functions or B4P programs called with __start(__) or __include(__) have been completed.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"Min. 0",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1, etc.",
+		 "Name":		"Variable name",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The specified variable(s) may (but must not necessarily) contain __variable references__.  No actions if the variable contains no references at all."
+	  }
+	],
+"Examples" : [
+"	Country[] = USA;",
+"	Country[State] = Pennsylvania;",
+"	Country[State,Town] = Wilkes Barre;",
+"",
+"	a[wb] = ^Country[State,Town];",
+"	a[pa] = ^Country[State];",
+"	a[us] = The United States;",
+"",
+"	b[] = '';",
+"	echo(a[wb],\", \", a[pa],\", \", a[us]);",
+"",
+"	release all( a[] ); // Also try: release all;",
+"	echo(a[wb],\", \", a[pa],\", \", a[us]);"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "release" ]
+  }
+
+
+,
+
+  "attribute ...":
+  {
+	"Function Names":	[ "attribute read", "attribute write", "attribute modify", "attribute delete", "attribute remove", "attribute listing" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		The functions perform the following:",
+"",
+"		=== 200, 800, noframe_1stcolbold, noheader",
+"		attribute read		| Reads a resident attribute from a file",
+"		attribute write		| Writes attribute.  If file is missing, then new file (incl. directory path) is created. If attribute is missing, then new attribute name will be added.",
+"		attribute modify	| Updates attribute if file is existing and attribute name available.  Returns false otherwise.",
+"		attribute delete	| Deletes the attribute entry.  Will refuse if sub-attributes still exist.",
+"		attribute remove	| Deletes the attribute entry as well as sub-attributes.",
+"		attribute listing	| Lists all attribute names",
+"		===",
+"",
+"		<u>Note</u>: No exceptions are assert in following cases: Directory not found, file not found, attribute name not found, cannot delete attribute name because nested attributes exist and must be deleted first.<br>"
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"attribute delete: 3; all other functions: 4",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Path name",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Description": "Directory path to file where the attributes are stored."
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"File name",
+		 "Direction":	"input",
+		 "Types":		["literal"],
+		 "Description": "File name where the attributes are stored."
+	  },
+	  {
+		 "Number":		"3",
+		 "Name":		"Attribute name(s)",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+"Description" : [
+"			A hierarchical structure of attribute names is supported by putting the subsequent names into one parameter set.  Empty parameter set is not allowed.",
+"			Except for <b>attribute listing</b>, at least one attribute name must be provided.",
+"				* Use a literal to specify one value",
+"				* Use parameter set to specify multiple values",
+"				* Alternatively use a softquoted literal (using single quotation marks) to specify multiple values, separated by commas",
+"				* No values can be provided by using empty set {} or blank softquoted literal ''."
+ ]
+				
+	  },
+	  {
+		 "Number":		"4",
+		 "Name":		"Attribute value",
+		 "Direction":	"output",
+		 "Types":		["valid types"],
+		 "Description": "Applicable to <b>attribute read</b> and <b>attribute listing</b>: Attribute value is written into specified destination (variable or table entry)."
+	  },
+	  {
+		 "Number":		"Alt. 4",
+		 "Name":		"Attribute value",
+		 "Direction":	"input",
+		 "Types":		["valid types"],
+		 "Description": "Applicable to <b>attribute write</b> and <b>attribute modify</b>: Input parameter providing the value to be written."
+	  }
+
+	],
+	"Return value":
+	[
+		{ "Name": "Result",
+		  "Types": [ "boolean" ],
+		  "Description": "true if successful, otherwise false."
+		}
+	],
+	"Exceptions": [ "Invalid path and/or file name (e.g. invalid symbols inside)", "File locked" ],
+"Examples" : [
+"	include( Support Library );",
+"",
+"	my file[] = \"My attributes.json\";",
+"	attribute write ( \"\", my file[], { Name, First Name }, Nic );  // Use 'write' in 1st call so it creates the JSON file",
+"	attribute modify( \"\", my file[], { Name, Middle Initial }, N. );",
+"	attribute modify( \"\", my file[], { Name, Last Name },  Nicholas );",
+"	attribute modify( \"\", my file[], { Name, Graduated at MIT }, true  );",
+"	attribute write( \"\", my file[], { Name, Birth Date },  date( \"2000-02-03\")  );",
+"",
+"	attribute listing( \"\", my file[], Name, listing[] );",
+"	echo(\"List all attribute names behind 'Name': \", listing[] );",
+"",
+"	for all parameters( listing[], attribute name[] )",
+"	{",
+"		attribute read( \"\", my file[], {Name, attribute name[]}, attribute value[] );",
+"		echo(\"    \", attribute name[], \": \", attribute value[] );",
+"	}",
+"",
+"	echo(new line, \"Take a quick look at the JSON file:\" );",
+"	table load( t, my file[], TEXT );",
+"	table list (t);",
+"",
+"	echo(\"Try deleting some items\");",
+"",
+"	res[1] = attribute delete( \"\", my file[], {Name, Birth Date });",
+"	res[2] = attribute delete( \"\", my file[], {Name, Graduated at Harvard } );",
+"	res[3] = attribute delete( \"\", my file[],  Name );",
+"",
+"	echo(\"Success: Delete birth date: \", res[1],\";  Harvard U.: \", res[2], \";  Name: \", res[3] );",
+"",
+"	for all parameters( listing[], attribute name[] )",
+"	{",
+"		attribute read( \"\", my file[], {Name, attribute name[]}, attribute value[] );",
+"		echo(\"    \", attribute name[], \": \", attribute value[] );",
+"	}",
+"",
+"	echo(\"Try removing the Name\");",
+"",
+"	attribute remove( \"\", my file[], Name );",
+"",
+"	echo(new line, \"Take a quick look at the empty JSON file:\" );",
+"	table load( t, my file[], TEXT );",
+"	table list (t);",
+"	file delete( my file[] );",
+"",
+""
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "release" ]
   }
 
 

@@ -352,6 +352,7 @@ REF;Processing Table Rows;REF_Features_Processing_table_rows.html;General Descri
 REF;Renaming, Copying and Splitting Tables;REF_Features_Copying_and_spitting_tables.html;General Description;Copying and spitting tables
 REF;Reserved keywords;REF_Features_reserved_keywords.html;General Description;reserved keywords
 REF;Reserved keywords;REF_Features_reserved_keywords.html;General Description;;keywords
+REF;Resident Attributes Functions;REF_Features_Resident_attributes_functions.html;General Description;Resident attributes functions
 REF;Saving JSON files;REF_Features_Saving_JSON_files.html;General Description;Saving JSON files
 REF;Searching Tables;REF_Features_Searching_tables.html;General Description;Searching tables
 REF;Series Functions;REF_Features_series_functions.html;General Description;series functions
@@ -437,6 +438,7 @@ REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_a
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user-defined functions
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user procedures
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user functions
+REF;Variable References Functions;REF_Features_Variable_references_functions.html;General Description;Variable references functions
 REF;Variables;REF_Features_variables.html;General Description;variables
 REF;Variables;REF_Features_variables.html;General Description;;variables
 REF;Variables;REF_Features_variables.html;General Description;;base variables
@@ -458,6 +460,12 @@ REF;array to structure ...;REF_Function_array_to_structure.html;Function Descrip
 REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to array structure
 REF;array, array protect;REF_Function_array.html;Function Description;array
 REF;array, array protect;REF_Function_array.html;Function Description;array protect
+REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute read
+REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute write
+REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute modify
+REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute delete
+REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute remove
+REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute listing
 REF;boolean;REF_Function_boolean.html;Function Description;boolean
 REF;boolean;REF_Function_boolean.html;Function Description;;boolean conversion function
 REF;break, continue;REF_Function_break_case.html;Function Description;break case
@@ -795,6 +803,8 @@ REF;read access ..., write access ...;REF_Function_read_access.html;Function Des
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;read access repeat if locked
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;write access
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;write access repeat if locked
+REF;release;REF_Function_release.html;Function Description;release
+REF;release all;REF_Function_release_all.html;Function Description;release all
 REF;replace, replace all;REF_Function_replace.html;Function Description;replace
 REF;replace, replace all;REF_Function_replace.html;Function Description;replace all
 REF;reschedule;REF_Function_reschedule.html;Function Description;reschedule

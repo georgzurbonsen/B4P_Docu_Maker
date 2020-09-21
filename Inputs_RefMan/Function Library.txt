@@ -824,6 +824,41 @@ B4PDOCU.START
 
 
 
+"Variable References Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable references functions" ],
+    "Description 01:Introduction"::
+
+	This section describes functions related to __variable references__.
+
+	+++
+  },
+
+
+"Resident Attributes Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Resident attributes functions" ],
+    "Description 01:Introduction"::
+
+	Resident attributes are values which can be stored in dedicated files.  In contrast to loading and saving variables, attributes are tuples
+	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, literal, date, Boolean and parameter set.
+	Attribute names can be either flat (just one name) or hierarchical (parameter set containing multiple names representng a sort of path name).
+
+	<br><br>
+	In contrast to Microsoft Windows registry, the B4P resident attributes is an operating-system independent solution to store small amounts of data
+	or settings conveniently.  One file may contain one or more settings.  Thd data format used is JavaScript Object Notation (JSON).
+
+	<br><br>
+	If a nested sub-attribute is created, then the values associated to the attributes are blank literals "", and not void.
+	Example:  attribute write ( path[ ], file[ ], {local machine, local settings, date format}, "YYYY-MM-DD" ) will automatically assign "" to attribute name local machine, 
+	and local settings if not yet existing.
+
+	+++
+  },
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value

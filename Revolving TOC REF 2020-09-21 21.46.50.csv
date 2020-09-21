@@ -338,6 +338,11 @@ OK;Body;4;B 4.8.3.1;variable load ...;REF_Function_variable_load.html;variable l
 OK;Body;4;B 4.8.3.2;json to variable ...;REF_Function_json_to_variable.html;json to variable;json to variable;
 OK;Body;4;B 4.8.3.3;variable save ...;REF_Function_variable_save.html;variable save;variable save;
 OK;Body;4;B 4.8.3.4;variable to json ...;REF_Function_variable_to_json.html;variable to json;variable to json;
+OK;Body;3;B 4.8.4;Variable References Functions;REF_Features_Variable_references_functions.html;Variable references functions;Variable references functions;
+OK;Body;4;B 4.8.4.1;release;REF_Function_release.html;release;release;
+OK;Body;4;B 4.8.4.2;release all;REF_Function_release_all.html;release all;release all;
+OK;Body;3;B 4.8.5;Resident Attributes Functions;REF_Features_Resident_attributes_functions.html;Resident attributes functions;Resident attributes functions;
+OK;Body;4;B 4.8.5.1;attribute ...;REF_Function_attribute_read.html;attribute read,attribute write,attribute modify,attribute delete,attribute remove,attribute listing;attribute read,attribute write,attribute modify,attribute delete,attribute remove,attribute listing;
 OK;Body;2;B 4.9;Directory and File System Functions;REF_Features_directory_and_file_system.html;directory and file system;directory and file system,short error messages on directories and files;
 OK;Body;3;B 4.9.1;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;basic directory and file functions;basic directory and file functions;
 OK;Body;4;B 4.9.1.1;directory existing, file existing;REF_Function_directory_existing.html;directory existing,file existing;directory existing,file existing;

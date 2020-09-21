@@ -27,4 +27,3 @@
   array to structure ( b[], {true, a, date("31.12.2015"), 123 } );
   echo("Conversion with diverse contents in parameter set in 2nd parameter:");
   inspect( b[] );
-
