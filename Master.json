@@ -1908,6 +1908,48 @@
   },
 
 
+
+"Comparison and Selection Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison and selection functions" ],
+"Description 01:Introduction" : [
+"",
+"	Common programming languages use standard constructs like <b>if ... else</b> or condensed statements",
+"	such as <i>[condition]</i> <b>?</b> <i>[expression if true]</i> <b>?</b> <i>[expression if false]</i>,",
+"	Aiming to allow for more dense and efficient coding, B4P provides a set of effective comparison and",
+"	selection functions.  The functions come in two fragrances:",
+""
+ ]
+	,
+"Description 02:select ... ()" : [
+"	In these functions all parameters are fully calculated regardless of the condition and/or if the values are finally selected or discarded.",
+"	This approach is most efficient if the values are constants or simple expression (e.g. a constant, referring to variable, a table entry,",
+"	a simple calculation, etc.) or if manipulations must be made in any case, e.g. doing a function call or incrementing/decrementing variables."
+ ]
+	,
+"Examples 02:Program example - all expressions are calculated:" : [
+"	a[] = select if( true, echo(yes), echo(no) ); // Note. Both 'yes' and 'no' are printed here",
+"	echo(\"Result is \", a[] );"
+ ]
+	,
+    "Output 02:Result:": "automatic",
+"Description 03:pick ... ()" : [
+"	In these functions, the expressions for the values to select are only calculated if the results are needed.  Otherwise, these expressions",
+"	will be skipped.  This approach saves a lot of computation effort if more sophisticated expressions are contained.  In addition, if a variable",
+"	in an expression not selected is not defined, this does not matter because that expression is skipped."
+ ]
+	,
+"Examples 03:Program example - 'echo(no)' is not executed:" : [
+"	a[] = pick if( true, echo(yes), echo(no) ); // Note: Only 'yes' if printed",
+"	echo(\"Result is \", a[] );"
+ ]
+	,
+    "Output 03:Output": "automatic"
+},
+
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -5351,7 +5393,7 @@
 
 ,
  
-  "start - Function" :
+  "start" :
   {
 	"Function Names":	[ "start" ],
 	"Keywords":			[ "start B4P program" ],
@@ -5427,7 +5469,7 @@
 },
 
 
-  "include - Function" :
+  "include" :
   {
 	"Function Names":	[ "include" ],
 	"Keywords":			[ "include B4P program", "include library", "include libraries" ],
@@ -5492,6 +5534,196 @@
  ]
 		,
 	"See also" :	[ "start" ]
+}
+
+
+,
+
+  "select, pick" :
+  {
+	"Function Names":	[ "select", "pick" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function selects a following parameter depending on the value of the first parameter.",
+"	Positive numbers count from left to right, where 0 refers to the 2nd function parameter.  Negative numbers count from right to left, where -1 refers to the last parameter.",
+"",
+"	<br><br>",
+"	<b>select</b> will calculate the expressions in all parameters.<br>",
+"	<b>pick</b> will calculate the expression of the applicable parameter and skip calculating the other ones.  This approach saves processing time,",
+"		especially if the expressions contain heavy calculations or large contents (e.g. parameter sets retrieved from tables).",
+"	",
+"	<br><br>",
+"",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"Min. 2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Number als selector",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description":  "0, 1, 2, etc. select 2nd, 3rd, 4th, etc. function parameter.  -1, -2, etc. selects the last function parameter."
+		},
+		{ "Number": "2, etc.",
+		  "Name": "Selected value",
+		  "Direction": "input",
+		  "Types": [ "all types" ],
+"Description" : [
+"			Applicable to <b>select</b>: The values of all function parameters will be calculated. The selected value will be returned."
+ ]
+		  
+		},
+	   {
+		  "Number":		"Alt. 2, etc.",
+		  "Name":		"Selected expression",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+"Description" : [
+"			Applicable to <b>pick</b>: Only the expression of the selected parameter will be calculated.  The other expressions will be skipped."
+ ]
+		  
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Selected value",
+		  "Types": [ "all types" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Value is out of bounds" ],
+"Examples" : [
+"	a[] = 1; b[] = 2; c[] = 3; d[] = 4;",
+"",
+"	echo(\"Function 'select':\");",
+"	for (i[] = 0, i[] <= 3, i[]++ )",
+"	{",
+"		print( select( i[], a[]++, b[]++, c[]++, d[]++ ), \"  \" );",
+"	}",
+"	// Note: All 4 variables have been incremented 4 times.",
+"	echo(new line, \" a[]..d[] = \", a[], \" \", b[], \" \", c[], \" \", d[], \" \" );",
+"	echo;",
+"",
+"	a[] = 1; b[] = 2; c[] = 3; d[] = 4;",
+"",
+"	echo(\"Function 'pick':\");",
+"	for (i[] = 0, i[] <= 3, i[]++ )",
+"	{",
+"		print( pick( i[], a[]++, b[]++, c[]++, d[]++, e[]++ ), \"  \" );",
+"		// Note: e[] added, but will never be executed, so no error message occurs (variable not existing)",
+"	}",
+"	// Note: All 4 variables have been once only",
+"	echo(new line, \" a[]..d[] = \", a[], \" \", b[], \" \", c[], \" \", d[], \" \" );"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "select if", "pick if" ]
+}
+
+
+,
+
+  "select if, pick if" :
+  {
+	"Function Names":	[ "select if", "pick if" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function selects and returns the 2nd function parameter if the 1st parameter is 'true', otherwise the 3rd function parameter is returned.",
+"	",
+"	<br><br>",
+"	<b>select</b> will calculate all function parameters.<br>",
+"	<b>pick</b> will calculate the 1st parameter and then either the 2nd (if true) or 3rd function parameter (if false).  In C/C++, the function works similar to",
+"	the following trinary operator: <b>?</b> ... <b>?</b> ... .",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Boolean value",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  ""
+		},
+		{ "Number": "2",
+		  "Name": "Selected value if true",
+		  "Direction": "input",
+		  "Types": [ "all types" ],
+"Description" : [
+"			This expression will be always calculated.  It will be returned if 'true' is provided in the 1st function parameter."
+ ]
+		  
+		},
+	    {
+		  "Number":		"Alt. 2",
+		  "Name":		"Selected expression if true",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+"Description" : [
+"			Applicable to <b>pick if</b>: This expression will be calculated and the value returned if 'true' is provided in the 1st function parameter.",
+"			Otherwise, calculating this parameter will be skipped."
+ ]
+		  
+	    },
+		{ "Number": "3",
+		  "Name": "Selected value if true",
+		  "Direction": "input",
+		  "Types": [ "all types" ],
+"Description" : [
+"			This expression will be always calculated.  It will be returned if 'false' is provided in the 1st function parameter."
+ ]
+		  
+		},
+		{
+		  "Number":		"Alt. 3",
+		  "Name":		"Selected expression if true",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+"Description" : [
+"			Applicable to <b>pick if</b>: This expression will be calculated and the value returned if 'false' is provided in the 1st function parameter.",
+"			Otherwise, calculating this parameter will be skipped."
+ ]
+		  
+	   }
+
+	],
+	"Return value":
+	[
+		{ "Name": "Selected value",
+		  "Types": [ "all types" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": [ "Value is out of bounds" ],
+"Examples" : [
+"	a[] = 1; b[] = 2;",
+"",
+"	echo(\"Function 'select if':\");",
+"	print( select if( true, a[]++, b[]++ ) ); // Both a[] and b[] are incremented",
+"	echo( \"   a[] = \", a[], \" b[] = \", b[] );",
+"",
+"	echo;",
+"",
+"	a[] = 1; b[] = 2;",
+"",
+"	echo(\"Function 'pick if':\");",
+"	print( pick if( false, a[]++, b[]++ ) ); // Only b[] is incremented",
+"	echo( \"   a[] = \", a[], \" b[] = \", b[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "select if", "pick if" ]
 }
 
 
@@ -26043,7 +26275,7 @@
 "		=== 200, 800, noframe_1stcolbold, noheader",
 "		attribute read		| Reads a resident attribute from a file",
 "		attribute write		| Writes attribute.  If file is missing, then new file (incl. directory path) is created. If attribute is missing, then new attribute name will be added.",
-"		attribute modify	| Updates attribute if file is existing and attribute name available.  Returns false otherwise.",
+"		attribute modify	| Updates attribute if file is existing and the attribute name is also available.  Returns false otherwise.",
 "		attribute delete	| Deletes the attribute entry.  Will refuse if sub-attributes still exist.",
 "		attribute remove	| Deletes the attribute entry as well as sub-attributes.",
 "		attribute listing	| Lists all attribute names",
@@ -26115,10 +26347,11 @@
 "",
 "	my file[] = \"My attributes.json\";",
 "	attribute write ( \"\", my file[], { Name, First Name }, Nic );  // Use 'write' in 1st call so it creates the JSON file",
+"	attribute write ( \"\", my file[], { Name, Middle Initial }, M. );",
 "	attribute modify( \"\", my file[], { Name, Middle Initial }, N. );",
-"	attribute modify( \"\", my file[], { Name, Last Name },  Nicholas );",
-"	attribute modify( \"\", my file[], { Name, Graduated at MIT }, true  );",
-"	attribute write( \"\", my file[], { Name, Birth Date },  date( \"2000-02-03\")  );",
+"	attribute write ( \"\", my file[], { Name, Last Name },  Nicholas );",
+"	attribute write ( \"\", my file[], { Name, Graduated at MIT }, true  );",
+"	attribute write ( \"\", my file[], { Name, Birth Date },  date( \"2000-02-03\")  );",
 "",
 "	attribute listing( \"\", my file[], Name, listing[] );",
 "	echo(\"List all attribute names behind 'Name': \", listing[] );",
@@ -26160,7 +26393,7 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "release" ]
+	"See also": [ "variable load", "variable save" ]
   }
 
 

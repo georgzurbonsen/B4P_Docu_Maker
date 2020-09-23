@@ -1,1 +1,15 @@
-﻿	a[-1] = 1;  // Kills B4P
+﻿	a[] = 1; b[] = 2;
+
+	echo("Function 'select if':");
+	print( select if( true, a[]++, b[]++ ) ); // Both a[] and b[] are incremented
+	echo( "   a[] = ", a[], " b[] = ", b[] );
+
+	echo;
+	
+	a[] = 1; b[] = 2;
+
+	echo("Function 'pick if':");
+	print( pick if( false, a[]++, b[]++ ) ); // Only b[] is incremented
+	echo( "   a[] = ", a[], " b[] = ", b[] );
+	
+

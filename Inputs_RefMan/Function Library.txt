@@ -859,6 +859,43 @@ B4PDOCU.START
   },
 
 
+
+"Comparison and Selection Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison and selection functions" ],
+    "Description 01:Introduction"::
+
+	Common programming languages use standard constructs like <b>if ... else</b> or condensed statements
+	such as <i>[condition]</i> <b>?</b> <i>[expression if true]</i> <b>?</b> <i>[expression if false]</i>,
+	Aiming to allow for more dense and efficient coding, B4P provides a set of effective comparison and
+	selection functions.  The functions come in two fragrances:
+
+	+++,
+    "Description 02:select ... ()"::
+	In these functions all parameters are fully calculated regardless of the condition and/or if the values are finally selected or discarded.
+	This approach is most efficient if the values are constants or simple expression (e.g. a constant, referring to variable, a table entry,
+	a simple calculation, etc.) or if manipulations must be made in any case, e.g. doing a function call or incrementing/decrementing variables.
+	+++,
+    "Examples 02:Program example - all expressions are calculated:"::
+	a[] = select if( true, echo(yes), echo(no) ); // Note. Both 'yes' and 'no' are printed here
+	echo("Result is ", a[] );
+	+++,
+    "Output 02:Result:": "automatic",
+    "Description 03:pick ... ()"::
+	In these functions, the expressions for the values to select are only calculated if the results are needed.  Otherwise, these expressions
+	will be skipped.  This approach saves a lot of computation effort if more sophisticated expressions are contained.  In addition, if a variable
+	in an expression not selected is not defined, this does not matter because that expression is skipped.
+	+++,
+    "Examples 03:Program example - 'echo(no)' is not executed:"::
+	a[] = pick if( true, echo(yes), echo(no) ); // Note: Only 'yes' if printed
+	echo("Result is ", a[] );
+	+++,
+    "Output 03:Output": "automatic"
+},
+
+
+
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value

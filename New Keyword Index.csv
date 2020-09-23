@@ -83,6 +83,7 @@ REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Descrip
 REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
 REF;Comments;REF_Features_comments.html;General Description;comments
 REF;Comments;REF_Features_comments.html;General Description;;comments
+REF;Comparison and Selection Functions;REF_Features_Comparison_and_selection_functions.html;General Description;Comparison and selection functions
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if any
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;product if
@@ -674,10 +675,10 @@ REF;identify;REF_Function_identify.html;Function Description;identify
 REF;if, unless;REF_Function_if.html;Function Description;if
 REF;if, unless;REF_Function_if.html;Function Description;unless
 REF;if, unless;REF_Function_if.html;Function Description;;conditional branches
-REF;include - Function;REF_Function_include.html;Function Description;include
-REF;include - Function;REF_Function_include.html;Function Description;;include B4P program
-REF;include - Function;REF_Function_include.html;Function Description;;include library
-REF;include - Function;REF_Function_include.html;Function Description;;include libraries
+REF;include;REF_Function_include.html;Function Description;include
+REF;include;REF_Function_include.html;Function Description;;include B4P program
+REF;include;REF_Function_include.html;Function Description;;include library
+REF;include;REF_Function_include.html;Function Description;;include libraries
 REF;irr - Internal Rate of Return;REF_Function_irr.html;Function Description;irr
 REF;irr - Internal Rate of Return;REF_Function_irr.html;Function Description;;irr
 REF;is numeric / integer - Functions;REF_Function_is_numeric.html;Function Description;is numeric
@@ -832,6 +833,10 @@ REF;row;REF_Function_row.html;Function Description;row
 REF;scope;REF_Function_scope.html;Function Description;scope
 REF;search files ...;REF_Function_search_files.html;Function Description;search files
 REF;search files ...;REF_Function_search_files.html;Function Description;search files recursive
+REF;select if, pick if;REF_Function_select_if.html;Function Description;select if
+REF;select if, pick if;REF_Function_select_if.html;Function Description;pick if
+REF;select, pick;REF_Function_select.html;Function Description;select
+REF;select, pick;REF_Function_select.html;Function Description;pick
 REF;serial date;REF_Function_serial_date.html;Function Description;serial date
 REF;serial date;REF_Function_serial_date.html;Function Description;;date info functions
 REF;set, set names;REF_Function_set.html;Function Description;set
@@ -845,8 +850,8 @@ REF;smart (if) numeral;REF_Function_smart_numeral.html;Function Description;smar
 REF;smart (if) numeral;REF_Function_smart_numeral.html;Function Description;;smart numerals
 REF;sqrt - Square Root;REF_Function_sqrt.html;Function Description;sqrt
 REF;sqrt - Square Root;REF_Function_sqrt.html;Function Description;;Square Root
-REF;start - Function;REF_Function_start.html;Function Description;start
-REF;start - Function;REF_Function_start.html;Function Description;;start B4P program
+REF;start;REF_Function_start.html;Function Description;start
+REF;start;REF_Function_start.html;Function Description;;start B4P program
 REF;starting directory;REF_Function_starting_directory.html;Function Description;starting directory
 REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array
 REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array recursive

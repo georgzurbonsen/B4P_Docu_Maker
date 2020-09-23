@@ -2,10 +2,11 @@
 
   my file[] = "My attributes.json";
   attribute write ( "", my file[], { Name, First Name }, Nic );  // Use 'write' in 1st call so it creates the JSON file
+  attribute write ( "", my file[], { Name, Middle Initial }, M. );
   attribute modify( "", my file[], { Name, Middle Initial }, N. );
-  attribute modify( "", my file[], { Name, Last Name },  Nicholas );
-  attribute modify( "", my file[], { Name, Graduated at MIT }, true  );
-  attribute write( "", my file[], { Name, Birth Date },  date( "2000-02-03")  );
+  attribute write ( "", my file[], { Name, Last Name },  Nicholas );
+  attribute write ( "", my file[], { Name, Graduated at MIT }, true  );
+  attribute write ( "", my file[], { Name, Birth Date },  date( "2000-02-03")  );
 
   attribute listing( "", my file[], Name, listing[] );
   echo("List all attribute names behind 'Name': ", listing[] );
