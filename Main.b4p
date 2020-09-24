@@ -1,15 +1,13 @@
-﻿	a[] = 1; b[] = 2;
+﻿
 
-	echo("Function 'select if':");
-	print( select if( true, a[]++, b[]++ ) ); // Both a[] and b[] are incremented
-	echo( "   a[] = ", a[], " b[] = ", b[] );
 
-	echo;
-	
-	a[] = 1; b[] = 2;
+	a[] = Hund;
 
-	echo("Function 'pick if':");
-	print( pick if( false, a[]++, b[]++ ) ); // Only b[] is incremented
-	echo( "   a[] = ", a[], " b[] = ", b[] );
-	
+	echo("Demonstrate 'select by value':");
+	x[] = select by value( a[], print(Katze), print(Cat), print(Hund), print(Dog), print(Maus), print(Mouse) );
+	echo(new line, "Result is ", x[] );
 
+
+	echo("Demonstrate 'pick by value':");
+	x[] = pick by value( a[], print(Katze), print(Cat), print(Hund), print(Dog), print(Maus), print(Mouse) );
+	echo(new line, "Result is ", x[] );

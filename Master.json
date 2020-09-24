@@ -5677,7 +5677,7 @@
 		  
 	    },
 		{ "Number": "3",
-		  "Name": "Selected value if true",
+		  "Name": "Selected value if false",
 		  "Direction": "input",
 		  "Types": [ "all types" ],
 "Description" : [
@@ -5687,7 +5687,7 @@
 		},
 		{
 		  "Number":		"Alt. 3",
-		  "Name":		"Selected expression if true",
+		  "Name":		"Selected expression if false",
 		  "Direction":	"code",
 		  "Types":		["expression", ":literal"],
 "Description" : [
@@ -5705,7 +5705,6 @@
 		  "Description": ""
 		}
 	],
-	"Exceptions": [ "Value is out of bounds" ],
 "Examples" : [
 "	a[] = 1; b[] = 2;",
 "",
@@ -5723,7 +5722,201 @@
  ]
 	,
 	"Output": "automatic",
-	"See also" :	[ "select if", "pick if" ]
+	"See also" :	[ "select ifs", "pick ifs", "select", "pick" ]
+}
+
+
+,
+
+  "select ifs, pick ifs" :
+  {
+	"Function Names":	[ "select ifs", "pick ifs" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These two functions act like a cascaded arrangement of multiple <b>select if</b> resp. <b>pick if</b> function calls.",
+"	The first parameter contains the default value.  Following this, the even-numbered parameters take boolean expressions, for example from",
+"	comparisons.  If the outcome is true, then the value specified in the parameter is taken over, otherwise the next boolean expression wil be checked.",
+"	If all boolean expressions were false, then the defalt value will be returned.",
+"",
+"	<br><br>",
+"	<b>select</b> will calculate all function parameters<br>",
+"	<b>pick</b> will calculate the 2nd function parameter followed by the 3rd parameter if true, otherwise it will calculate the 4th parameter, and so forth.",
+"	Long story short, only the parameter values needed will be calculated and this save a lot of processing time especialy for <i>heavy</i> expressions.",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"3, 5, 7, etc.",
+	"Restrictions":		"Indirect parameter passing is enabled for 'select ifs'.",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Default value",
+		  "Direction": "input",
+		  "Types": [ "all types" ],
+		  "Description": "Applicable to <b>select ifs</b>: This value will be returned if all boolean values provided in the even-numbered function paramters are false."
+		},
+		{
+		  "Number":		"Alt. 1",
+		  "Name":		"Default expression",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>pick ifs</b>: This expression will be calculated and the value returned if all boolean values provided in the even-numbered function paramters are false."
+		},
+		{ "Number": "2, 4, ...",
+		  "Name": "Boolean value",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  "Applicable to <b>select ifs</b>: This value is true, then the value in the next function parameter will be returned."
+		},
+		{
+		  "Number":		"Alt. 2, 4, ...",
+		  "Name":		"Boolean expression",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>pick if</b>: If this expression calculated returns true, then the expression in the next function parameter will be calculated and the value returned."
+		},
+		{ "Number": "3, 5, ...",
+		  "Name": "Selected value if true",
+		  "Direction": "input",
+		  "Types": [ "all types" ],
+		  "Description": "Applicable to <b>select ifs</b>: This value will be returned if true is provided in the previous function parameter."
+		},
+		{
+		  "Number":		"Alt. 3, 5, ...",
+		  "Name":		"Selected expression if true",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>pick if</b>: This expression will be calculated and returned if true is provided in the previous function parameter."
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Selected value",
+		  "Types": [ "all types" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	echo(\"Demonstrate 'select ifs':\");",
+"	a[] = 1; b[] = 2; c[] = 3;",
+"	x[] = select ifs( echo(\"Others \"), (a[]++=0), echo(\"1st \"), (b[]++ = 2), echo(\"2nd \"), (c[]++ = 3), echo(\"3rd \") );",
+"	// All parameter will be calculated.",
+"",
+"	echo(\"a..c[] = \", a[], \" \", b[], \" \", c[],\".  Result is \", x[] );",
+"",
+"	echo(new line, \"Demonstrate 'pick ifs':\");",
+"	a[] = 1; b[] = 2; c[] = 3;",
+"	x[] = pick ifs( echo(\"Others \"), (a[]++=0), echo(\"1st \"), (b[]++ = 2), echo(\"2nd \"), (c[]++ = 3), echo(\"3rd \") );",
+"	// The first two conditions will be calculated as well as 'echo(\"2nd \")'.",
+"",
+"	echo(\"a..c[] = \", a[], \" \", b[], \" \", c[],\".  Result is \", x[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "select if", "pick if", "select by value", "pick by value" ]
+}
+
+
+,
+
+  "select / pick by value" :
+  {
+	"Function Names":	[ "select by value", "pick by value" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These two functions compare the value provided in the 1st function parameter with the 2nd function parameter.  If the value in both function parameters",
+"	are equal, then the value provided in the 3rd funtion parameter will be returned.  If this is not the case, the 4th fuction parameter will be checked,",
+"	and so on.  If none of the values are matching, and the number of function parameters is even, then the last value is considered as default value and",
+"	will be returned.  In case the number of parameters is odd and no matches have been identified, then void value is returned.",
+"",
+"	<br><br>",
+"",
+"	<u>Note</u>: Special cases with incomplete number of function parameters<br>",
+"	If only 1 function parameter is provided, then void value will be returned all times.<br>",
+"	If only 2 function parameters are provided, then the last parameter will be returned all times.",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		"Indirect parameter passing is enabled for 'select by value'.",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Selector value",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+		  "Description": "The value provided in the 1st function parameter will be compared with the values in the even-numbered parameters."
+		},
+		{ "Number": "2, 4, ...",
+		  "Name": "Value to match",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  "Applicable to <b>select ifs</b>: This value will be compared with the 1st function parameter."
+		},
+		{
+		  "Number":		"Alt. 2, 4, ...",
+		  "Name":		"Expression to match",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>pick if</b>: This expression will be calculated (as long no match has been found yet) and the value will be compared with the 1st function parameter."
+		},
+		{ "Number": "3, 5, ...",
+		  "Name": "Value to select",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  "Applicable to <b>select ifs</b>: This value will be returned if a match with the previous parameter applies."
+		},
+		{
+		  "Number":		"Alt. 3, 5, ...",
+		  "Name":		"Expression to select",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>pick if</b>: This expression will be calculated and the value returned if a match with the previous parameter applies.  Otherwise, the expression will not be calculated."
+		},
+		{ "Number": "last (even number)",
+		  "Name": "Value to select",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  "Applicable to <b>select ifs</b>: This is the default value to be returned if no matches have been identified."
+		},
+		{
+		  "Number":		"Alt. last (even number)",
+		  "Name":		"Expression to select",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>pick if</b>: This is the default expression to be calculated and the value returned if no matches have been identified."
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Selected value",
+		  "Types": [ "all types" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"",
+"	a[] = Hund;",
+"",
+"	echo(\"Demonstrate 'select by value':\");",
+"	// Note: All parameters are executed, i.e. printed out",
+"	x[] = select by value( a[], print(Katze), print(Cat), print(Hund), print(Dog), print(Maus), print(Mouse) );",
+"	echo(new line, \"Result is \", x[] );",
+"",
+"	echo(\"Demonstrate 'pick by value':\");",
+"	// Note: The calculated expressions will be printed out: Katze, Hund and Dog. No need to execute the other ones",
+"	x[] = pick by value( a[], print(Katze), print(Cat), print(Hund), print(Dog), print(Maus), print(Mouse) );",
+"	echo(new line, \"Result is \", x[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "select ifs", "pick ifs" ]
 }
 
 

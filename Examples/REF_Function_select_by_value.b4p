@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+
+  a[] = Hund;
+
+  echo("Demonstrate 'select by value':");
+  // Note: All parameters are executed, i.e. printed out
+  x[] = select by value( a[], print(Katze), print(Cat), print(Hund), print(Dog), print(Maus), print(Mouse) );
+  echo(new line, "Result is ", x[] );
+
+  echo("Demonstrate 'pick by value':");
+  // Note: The calculated expressions will be printed out: Katze, Hund and Dog. No need to execute the other ones
+  x[] = pick by value( a[], print(Katze), print(Cat), print(Hund), print(Dog), print(Maus), print(Mouse) );
+  echo(new line, "Result is ", x[] );
