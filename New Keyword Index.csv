@@ -83,6 +83,8 @@ REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Descrip
 REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
 REF;Comments;REF_Features_comments.html;General Description;comments
 REF;Comments;REF_Features_comments.html;General Description;;comments
+REF;Comparison Expressions (func. params);REF_Features_Comparison_Expression_(func._params).html;General Description;Comparison Expression (func. params)
+REF;Comparison Expressions (func. params);REF_Features_Comparison_Expression_(func._params).html;General Description;;Comparison Expressions
 REF;Comparison and Selection Functions;REF_Features_Comparison_and_selection_functions.html;General Description;Comparison and selection functions
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if any
@@ -223,6 +225,7 @@ REF;Exploring and Extracting Tables;REF_Features_Exploring_and_Extracting_Tables
 REF;Exponential Functions;REF_Function_exp.html;Function Description;exp
 REF;Exponential Functions;REF_Function_exp.html;Function Description;10p
 REF;Exponential Functions;REF_Function_exp.html;Function Description;;exponential functions
+REF;Expressions (func. params);REF_Features_Expressions_(func_params).html;General Description;Expressions (func params)
 REF;Expressions to Select Rows;REF_Features_Expressions_to_select_rows.html;General Description;Expressions to select rows
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;finance functions
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;;finance functions
@@ -387,6 +390,7 @@ REF;Starting B4P;REF_Features_starting.html;General Description;;installation
 REF;Starting B4P;REF_Features_starting.html;General Description;;starting
 REF;Starting B4P;REF_Features_starting.html;General Description;;launching
 REF;Starting B4P;REF_Features_starting.html;General Description;;command line options
+REF;Statements (func. params);REF_Features_Statements_(func_params).html;General Description;Statements (func params)
 REF;Statistics Functions;REF_Features_statistics_functions.html;General Description;statistics functions
 REF;Statistics Functions;REF_Features_statistics_functions.html;General Description;;statistics functions
 REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description;watch start
@@ -446,6 +450,7 @@ REF;Variables;REF_Features_variables.html;General Description;;base variables
 REF;Variables;REF_Features_variables.html;General Description;;base variable
 REF;Variables;REF_Features_variables.html;General Description;;member variable
 REF;Variables;REF_Features_variables.html;General Description;;member variables
+REF;Variables (func. params);REF_Features_Variables_(func_params).html;General Description;Variables (func params)
 REF;Variables Functions;REF_Features_variables_functions.html;General Description;variables functions
 REF;Verbose Levels;REF_Features_verbose.html;General Description;verbose
 REF;Void to Literal Formatting;REF_Features_void_to_literal_conversion_and_formatting.html;General Description;void to literal conversion and formatting
@@ -486,6 +491,8 @@ REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;clea
 REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;;clean numerals
 REF;code;REF_Function_code.html;Function Description;code
 REF;code;REF_Function_code.html;Function Description;;character decoding
+REF;compare select / pick;REF_Function_compare_select.html;Function Description;compare select
+REF;compare select / pick;REF_Function_compare_select.html;Function Description;compare pick
 REF;count Functions;REF_Function_count.html;Function Description;count
 REF;count Functions;REF_Function_count.html;Function Description;count ignore zero
 REF;count Functions;REF_Function_count.html;Function Description;count ignore blanks

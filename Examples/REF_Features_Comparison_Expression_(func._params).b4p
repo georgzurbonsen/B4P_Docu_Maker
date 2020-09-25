@@ -1,0 +1,31 @@
+﻿#!/usr/local/bin/b4p
+  p[] = { 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello };
+
+  for all parameters( p[], var[] )
+  {   
+      result[] = compare select( var[], other, 
+              (11,37),      is 11 or 37, // Parentheses required if no operator put in front
+              ==13,         thirteen,     
+              (=+a),        1st letter in alphabet, // Parentheses required with = and <>
+              ('H*'),       Begins with H,
+              >15,          greater than 15,
+              (3..5,10),    "is one of 3..5, 10" );
+      print(var[],": ", result[],"  / ");
+
+      // Demonstrate the same with comparison expressions in strings.  Note the colons used in front.
+
+      c[] = '(3..5,10)';
+      result[] = compare select( var[], other, 
+              :literal(11)+",37", is 11 or 37,    // Expression returning a string
+              :'==13',      thirteen,     // Softquoted string: No difference to quoted string
+              :'=+a',       1st letter in alphabet, 
+              :"'H*'",      Begins with H, // See note below !
+              :">15",       greater than 15,
+              :c[],         "is one of 3..5, 10" ); // Referring to a variable
+      echo(result[]);
+  }
+
+  // Note :"'H*'" with nested quotation marks:  Expression inside requires a single quotation mark to
+  // let the comparison expression support wildcard symbols.
+
+

@@ -2623,8 +2623,15 @@
 "	===",
 ""
  ]
-	,
-"Description 02:Comparison Expressions" : [
+	
+  },
+
+  "Comparison Expressions (func. params)" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison Expression (func. params)" ],
+    "Keywords":			[ "Comparison Expressions" ],
+"Description 01:Introduction" : [
 "",
 "	A comparison expression is part of an expression where one left-hand value is compared with one or more other right-hand values.  While the a regular",
 "	expression contains left-hand value, comparison operator and right values, the comparison expression leaves out the left-hand value out.",
@@ -2641,7 +2648,7 @@
 ""
  ]
 	,
-"Examples 02:" : [
+"Examples 01:" : [
 "	p[] = { 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello };",
 "",
 "	for all parameters( p[], var[] )",
@@ -2674,9 +2681,14 @@
 ""
  ]
 	,
-    "Output 02:": "automatic",
+    "Output 01:": "automatic"
+  },
 
-"Description 03:Expressions" : [
+  "Expressions (func. params)" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions (func params)" ],
+"Description 01:Introduction" : [
 "",
 "	A expression is a a value, a fuction call or a calculation which returns a value.",
 "	The individual functions may impose additional requirements, for exmplae that the expression must return boolean",
@@ -2699,7 +2711,7 @@
 ""
  ]
 	,
-"Examples 03:" : [
+"Examples 01:" : [
 "	table initialize( primes, ",
 "	  { Number, 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello } );",
 "",
@@ -2717,9 +2729,16 @@
 "	table process selected rows( primes, :c[], echo( [Number],\": \", \"Begins with H\" ) );"
  ]
 	,
-    "Output 03:": "automatic",
+    "Output 01:": "automatic"
+  },
 
-"Description 04:Variables" : [
+
+
+  "Variables (func. params)":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variables (func params)" ],
+"Description 01:Introduction" : [
 "",
 "	Variable are expressions which must refer directly to a variable.  Any other forms of expressions such as constants, calculations,",
 "	function calls, table references, etc, are forbidden and assert exceptions.  However, variable members (in __structures__ and __arrays_",
@@ -2729,7 +2748,7 @@
 ""
  ]
 	,
-"Examples 04:" : [
+"Examples 01:" : [
 "	var 1[] = my array;",
 "	var 2[] = 'my array[]';",
 "",
@@ -2741,9 +2760,14 @@
 "	echo( my array[1] ); // cat"
  ]
 	,
-    "Output 04:": "automatic",
+    "Output 01:": "automatic"
+  },
 
-"Description 05:Statements" : [
+  "Statements (func. params)":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Statements (func params)" ],
+"Description 01:Introduction" : [
 "",
 "	Statements may consist of one single statement, multiple statements separated with semicolons, and blocks.  Blocks are one or more",
 "	statements encapsulated with { ... } braces.",
@@ -2755,7 +2779,7 @@
 "	<u>Attention: </u>Don't confuse with C/C++: The three parameters inside the for-function must be separated with commas, not semicolons.  And use semicolons instead of commas to separate statements.<br>"
  ]
 	,	
-"Examples 05:" : [
+"Examples 01:" : [
 "	// Demonstrates direct use of code and code in string using colon",
 "",
 "	next[] = \"a[]++; print( Next )\";",
@@ -2765,9 +2789,7 @@
 "	}"
  ]
 	,
-    "Output 05:": "automatic"
-
-
+    "Output 01:": "automatic"
   },
 
 
@@ -3990,9 +4012,12 @@
 		 "Direction":	"code",
 		 "Types":		["comparison expression", ":literal"],
 "Description" : [
-"			This parameter is a piece of code typically found on the right-hand side of a comparison wiht '=' or '<>'.  Single values,",
+"			This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '<>'.  Single values,",
 "			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
-"			literal is of type __softquoted literal__."
+"			literal is of type __softquoted literal__.",
+"			<br><br>",
+"			<u>Attention</u>: To avoid hijacking further function parameters as additional values to be compared, put the expression into parentheses",
+"			if no operators, = or <> have been used.  Not an issue if <, >, == or != operators are used."
  ]
 		  
 	  }
@@ -4461,7 +4486,7 @@
 "		The loops works through all columns in the table and row number provided in the current context and executes the following statements specified.<br/><br/>",
 "",
 "		Inside the loop, the iterator value (table cell read) and the index will be provided.",
-"		The number of columns to process is determined by teh 2nd function parameter (reference row number).",
+"		The number of columns to process is determined by the 2nd function parameter (reference row number).",
 "	"
  ]
 	 ,
@@ -4546,7 +4571,9 @@
 "			The checking is done once before the loop starts.  The loop behavior will not be affected if the header names are changed afterwards,",
 "			for example renamed.  Attention to inserting and deleting columns: The loop has memorized the actual column numbers ",
 "			(which will not change) and not the header names.",
-""
+"			<br><br>",
+"			<u>Attention</u>: To avoid hijacking further function parameters as additional values to be compared, put the expression into parentheses",
+"			if no operators, = or <> have been used.  Not an issue if <, >, == or != operators are used."
  ]
 		 
 	  },
@@ -4618,7 +4645,7 @@
 "		The loops works through selected columns (where comparisons do match) in the table and row number provided in the current context and executes the following statements specified.<br/><br/>",
 "",
 "		Inside the loop, the iterator value (table cell read) and the index will be provided.",
-"		The number of columns to process is determined by teh 2nd function parameter (reference row number).",
+"		The number of columns to process is determined by the 2nd function parameter (reference row number).",
 "",
 ""
  ]
@@ -4639,7 +4666,10 @@
 "			The checking is done once before the loop starts.  The loop behavior will not be affected if the header names are changed afterwards,",
 "			for example renamed.  Attention to inserting and deleting columns: The loop has memorized the actual column numbers",
 "			(which will not change) and not the header names.",
-""
+"",
+"			<br><br>",
+"			<u>Attention</u>: To avoid hijacking further function parameters as additional values to be compared, put the expression into parentheses",
+"			if no operators, = or <> have been used.  Not an issue if <, >, == or != operators are used."
  ]
 		 
 	  },
@@ -4695,7 +4725,7 @@
     "Synopsis": 			[ "for all table rows ( table name, reference column, iterator value, iterator counter  ) statement; ",
 							      "for all table rows ( table name, reference column, iterator value, iterator counter  ) {statements; } "],
 "Description"  : [
-"		This loop works through all rows (except the header row) in the table and executes teh subsequent statements accordingly.",
+"		This loop works through all rows (except the header row) in the table and executes the subsequent statements accordingly.",
 "	"
  ]
 		 ,
@@ -4756,7 +4786,7 @@
 	"Synopsis": 			[ "for all table selected rows ( table name, reference column, iterator value, iterator counter  ) statement; ",
 							  "for all table selected rows ( table name, reference column, iterator value, iterator counter  ) {statements; } "],
 "Description"  : [
-"		This loop works through all selected rows (except the header row) in the table and executes teh subsequent statements accordingly.<br/><br/>",
+"		This loop works through all selected rows (except the header row) in the table and executes the subsequent statements accordingly.<br/><br/>",
 "",
 "		The selecction is done with the expression provided in the 2nd function parameter.  This expression is executed for every row in order",
 "		to decide whether to run the following statements inside the loop or not.<br/><br/>.",
@@ -5131,7 +5161,7 @@
 "		This function defined here expects no subsequent code because the code is provided in the primary function definition.",
 "		Deleting and redefining the first user-defined function will not have an impact on the additional functions defined.<br/><br/>",
 "		The three procedure names (e.g. <b>define additional function</b> defined here are closely related to their counterparts",
-"		<b>define function</b>, with following exception: The original procedure or function name must be provided in teh 2nd parameter, and",
+"		<b>define function</b>, with following exception: The original procedure or function name must be provided in the 2nd parameter, and",
 "		no additional code related to this definition follows afterwards."
  ]
 		 ,
@@ -5864,7 +5894,7 @@
 		  "Name":		"Expression to match",
 		  "Direction":	"code",
 		  "Types":		["expression", ":literal"],
-		  "Description": "Applicable to <b>pick if</b>: This expression will be calculated (as long no match has been found yet) and the value will be compared with the 1st function parameter."
+		  "Description": "Applicable to <b>pick ifx</b>: This expression will be calculated (as long no match has been found yet) and the value will be compared with the 1st function parameter."
 		},
 		{ "Number": "3, 5, ...",
 		  "Name": "Value to select",
@@ -5877,7 +5907,7 @@
 		  "Name":		"Expression to select",
 		  "Direction":	"code",
 		  "Types":		["expression", ":literal"],
-		  "Description": "Applicable to <b>pick if</b>: This expression will be calculated and the value returned if a match with the previous parameter applies.  Otherwise, the expression will not be calculated."
+		  "Description": "Applicable to <b>pick ifx</b>: This expression will be calculated and the value returned if a match with the previous parameter applies.  Otherwise, the expression will not be calculated."
 		},
 		{ "Number": "last (even number)",
 		  "Name": "Value to select",
@@ -5890,7 +5920,7 @@
 		  "Name":		"Expression to select",
 		  "Direction":	"code",
 		  "Types":		["expression", ":literal"],
-		  "Description": "Applicable to <b>pick if</b>: This is the default expression to be calculated and the value returned if no matches have been identified."
+		  "Description": "Applicable to <b>pick ifx</b>: This is the default expression to be calculated and the value returned if no matches have been identified."
 		}
 	],
 	"Return value":
@@ -5917,6 +5947,107 @@
 	,
 	"Output": "automatic",
 	"See also" :	[ "select ifs", "pick ifs" ]
+}
+
+
+,
+
+  "compare select / pick" :
+  {
+	"Function Names":	[ "compare select", "compare pick" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	These two functions carry out a sequence of comparisons with __comparison expressions__ provided and then return the corresponding value in the ",
+"	following parameter.",
+"",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"4, 6, 8, etc.",
+	"Restrictions":		"Indirect parameter passing is enabled for 'select by value'.",
+	"Parameters":
+	[
+	  { "Number": "1",
+		  "Name": "Value to compare",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+		  "Description": "The value provided in the 1st function parameter will be compared with the comparison expresssions in the following odd-numbered parameters."
+	  },
+	  { "Number": "2",
+		  "Name": "Value to select",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  "Applicable to <b>compare select</b>: This is the default value to be returned if all comparisons resulted in false."
+	  },
+	  {
+		  "Number":		"Alt. 2",
+		  "Name":		"Expression to select",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>compare pick</b>: This is the default expression to be calculated and the value returned if all comparisons resulted in false.."
+	  },
+	  {
+		 "Number":		"3, 5, ...",
+		 "Name":		"Values to compare with",
+		 "Direction":	"code",
+		 "Types":		["comparison expression", ":literal"],
+"Description" : [
+"		    The value provided in the 1st function parameter will be compared with the comparison expressions provided in these odd-numbered",
+"			function parameters.  Once a positive match (comparison returns true) has been found, then comparison will stop and the value from the next",
+"			function aparameter will be returned.",
+"		 ",
+"		    This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '<>'.  Single values,",
+"			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
+"			literal is of type __softquoted literal__.  ",
+"			",
+"			<br><br>",
+"			<u>Attention</u>: To avoid hijacking further function parameters as additional values to be compared, put the expression into parentheses",
+"			if no operators, = or <> have been used.  Not an issue if <, >, == or != operators are used."
+ ]
+		  
+	  },
+	  { "Number": "4, 6, ...",
+		  "Name": "Value to select",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Description":  "Applicable to <b>compare select</b>: This value will be returned if a match with the previous parameter applies."
+	  },
+	  {
+		  "Number":		"Alt. 4, 6, ...",
+		  "Name":		"Expression to select",
+		  "Direction":	"code",
+		  "Types":		["expression", ":literal"],
+		  "Description": "Applicable to <b>compare pick</b>: This expression will be calculated and the value returned if a match with the previous parameter applies.  Otherwise, the expression will not be calculated."
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Selected value",
+		  "Types": [ "all types" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	echo( \"Demonstrate 'compare pick': 'Greater than 5' is only printed out when the value is needed\");",
+"	for (i[] = 1, i[] <= 10, i[]++)",
+"	{",
+"		a[] = compare select( i[], Others, (2,5,7), \"Is 2 or 3\", >5, print(\"Greater than 5  \") );",
+"		echo( i[], \": \", a[] );",
+"	}",
+"",
+"	echo( new line, \"Demonstrate 'compare pick': 'Greater than 5' is only printed out when the value is needed\");",
+"	for (i[] = 1, i[] <= 10, i[]++)",
+"	{",
+"		a[] = compare pick ( i[], Others, (2,5,7), \"Is 2 or 3\", >5, print(\"Greater than 5  \") );",
+"		echo( i[], \": \", a[] );",
+"	}	"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "select ifs", "pick ifs", "select by value", "pick by value" ]
 }
 
 

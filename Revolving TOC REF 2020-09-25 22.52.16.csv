@@ -40,6 +40,10 @@ OK;Body;2;B 3.3;Function Parameter Types;REF_Features_Function_parameter_types.h
 OK;Body;3;B 3.3.1;Parameter Set or Literal (Func. Param. Type);REF_Features_parameter_set_or_literal.html;parameter set or literal;parameter set or literal;
 OK;Body;3;B 3.3.2;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;Table columns;Table columns,table columns as function parameters,Shifted Table Column Specifications;
 OK;Body;3;B 3.3.3;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;Code Piece;Code Piece,code pieces;
+OK;Body;4;B 3.3.3.1;Comparison Expressions (func. params);REF_Features_Comparison_Expression_(func._params).html;Comparison Expression (func. params);Comparison Expression (func. params),Comparison Expressions;
+OK;Body;4;B 3.3.3.2;Expressions (func. params);REF_Features_Expressions_(func_params).html;Expressions (func params);Expressions (func params);
+Missing;Body;4;B 3.3.3.3;Variables (func. params);;;;
+Missing;Body;4;B 3.3.3.4;Statements (func. params);;;;
 OK;Body;3;B 3.3.4;Expressions to Select Rows;REF_Features_Expressions_to_select_rows.html;Expressions to select rows;Expressions to select rows;
 OK;Body;2;B 3.4;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;Indirect parameter passing;Indirect parameter passing;
 OK;Body;1;B 4;Function Library;REF_Features_Function_Library.html;Function Library;Function Library,function library;
@@ -77,6 +81,7 @@ OK;Body;4;B 4.1.5.1;select, pick;REF_Function_select.html;select,pick;select,pic
 OK;Body;4;B 4.1.5.2;select if, pick if;REF_Function_select_if.html;select if,pick if;select if,pick if;
 OK;Body;4;B 4.1.5.3;select ifs, pick ifs;REF_Function_select_ifs.html;select ifs,pick ifs;select ifs,pick ifs;
 OK;Body;4;B 4.1.5.4;select / pick by value;REF_Function_select_by_value.html;select by value,pick by value;select by value,pick by value;
+OK;Body;4;B 4.1.5.5;compare select / pick;REF_Function_compare_select.html;compare select,compare pick;compare select,compare pick;
 OK;Body;3;B 4.1.6;Other Control Flow Functions;REF_Features_Other_Control_Flow_Functions.html;Other Control Flow Functions;Other Control Flow Functions;
 OK;Body;4;B 4.1.6.1;null - Function;REF_Function_null.html;null;null,null function;
 OK;Body;4;B 4.1.6.2;with table;REF_Function_with_table.html;with table;with table,partial table specification;
@@ -383,3 +388,5 @@ OK, (Assign right Category);Ignore;;;Identify variable forms (if structure, arra
 OK, (Assign right Category);Ignore;;;Set cursor positions;REF_Function_cursor.html;cursor;cursor,cursor position,move cursor;
 OK, (Assign right Category);Ignore;;;Set console text and background colors;REF_Function_text_color.html;text color,background colors;text color,background colors,font color,foreground color,screen color;
 Pending, (Assign right Category);;;;Verbose Levels;REF_Features_verbose.html;verbose;verbose;
+New, (Assign right Category);;;;Description 04:Statements (func. params);REF_Features_Statements_(func_params).html;Statements (func params);Statements (func params)
+New, (Assign right Category);;;;Description 04:Variables (func. params);REF_Features_Variables_(func_params).html;Variables (func params);Variables (func params)

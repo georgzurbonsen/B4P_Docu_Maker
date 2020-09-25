@@ -380,8 +380,15 @@ B4PDOCU.START
 	Statements			| 1 or more statements, separated with semicolons. Braces are allowed.<br>The __for(__) function expects two such statements.			| a[]=b[]+2;<br>{ echo(test); c[]=1 }
 	===
 
-	+++,
-    "Description 02:Comparison Expressions"::
+	+++
+  },
+
+  "Comparison Expressions (func. params)" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison Expression (func. params)" ],
+    "Keywords":			[ "Comparison Expressions" ],
+    "Description 01:Introduction"::
 
 	A comparison expression is part of an expression where one left-hand value is compared with one or more other right-hand values.  While the a regular
 	expression contains left-hand value, comparison operator and right values, the comparison expression leaves out the left-hand value out.
@@ -397,7 +404,7 @@ B4PDOCU.START
 	No extra parentheses are required if the comparison expression is provided in a string value.
 
 	+++,
-    "Examples 02:"::
+    "Examples 01:"::
 	p[] = { 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello };
 
 	for all parameters( p[], var[] )
@@ -429,9 +436,14 @@ B4PDOCU.START
 
 
 	+++,
-    "Output 02:": "automatic",
+    "Output 01:": "automatic"
+  },
 
-    "Description 03:Expressions"::
+  "Expressions (func. params)" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions (func params)" ],
+    "Description 01:Introduction"::
 
 	A expression is a a value, a fuction call or a calculation which returns a value.
 	The individual functions may impose additional requirements, for exmplae that the expression must return boolean
@@ -453,7 +465,7 @@ B4PDOCU.START
 	No extra parentheses are required if the expression is provided in a string value.
 
 	+++,
-    "Examples 03:"::
+    "Examples 01:"::
 	table initialize( primes, 
 	  { Number, 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello } );
 
@@ -470,9 +482,16 @@ B4PDOCU.START
 	c[] = "[Number] = 'H*'";
 	table process selected rows( primes, :c[], echo( [Number],": ", "Begins with H" ) );
 	+++,
-    "Output 03:": "automatic",
+    "Output 01:": "automatic"
+  },
 
-    "Description 04:Variables"::
+
+
+  "Variables (func. params)":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variables (func params)" ],
+    "Description 01:Introduction"::
 
 	Variable are expressions which must refer directly to a variable.  Any other forms of expressions such as constants, calculations,
 	function calls, table references, etc, are forbidden and assert exceptions.  However, variable members (in __structures__ and __arrays_
@@ -481,7 +500,7 @@ B4PDOCU.START
 	__dim(__), __structure(__), __array(__) and __protect(__) are common functions which utilize this variant of code pieces.
 
 	+++,
-    "Examples 04:"::
+    "Examples 01:"::
 	var 1[] = my array;
 	var 2[] = 'my array[]';
 
@@ -492,9 +511,14 @@ B4PDOCU.START
 	echo( var 0[1] ); // bat
 	echo( my array[1] ); // cat
 	+++,
-    "Output 04:": "automatic",
+    "Output 01:": "automatic"
+  },
 
-    "Description 05:Statements"::
+  "Statements (func. params)":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Statements (func params)" ],
+    "Description 01:Introduction"::
 
 	Statements may consist of one single statement, multiple statements separated with semicolons, and blocks.  Blocks are one or more
 	statements encapsulated with { ... } braces.
@@ -505,7 +529,7 @@ B4PDOCU.START
 
 	<u>Attention: </u>Don't confuse with C/C++: The three parameters inside the for-function must be separated with commas, not semicolons.  And use semicolons instead of commas to separate statements.<br>
 	+++,	
-    "Examples 05:"::
+    "Examples 01:"::
 	// Demonstrates direct use of code and code in string using colon
 
 	next[] = "a[]++; print( Next )";
@@ -514,9 +538,7 @@ B4PDOCU.START
 	    echo( " ", a[] );
 	}
 	+++,
-    "Output 05:": "automatic"
-
-
+    "Output 01:": "automatic"
   },
 
 
