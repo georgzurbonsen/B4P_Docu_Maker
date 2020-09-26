@@ -221,6 +221,7 @@ REF;Dates;REF_Features_data_types_dates.html;General Description;;plain date
 REF;Dates;REF_Features_data_types_dates.html;General Description;;plain dates
 REF;Directory and File System Functions;REF_Features_directory_and_file_system.html;General Description;directory and file system
 REF;Directory and File System Functions;REF_Features_directory_and_file_system.html;General Description;;short error messages on directories and files
+REF;Exception Functions;REF_Features_Exception_Functions.html;General Description;Exception Functions
 REF;Exploring and Extracting Tables;REF_Features_Exploring_and_Extracting_Tables.html;General Description;Exploring and Extracting Tables
 REF;Exponential Functions;REF_Function_exp.html;Function Description;exp
 REF;Exponential Functions;REF_Function_exp.html;Function Description;10p
@@ -460,6 +461,7 @@ REF;Voids;REF_Features_data_types_voids.html;General Description;;void
 REF;Voids;REF_Features_data_types_voids.html;General Description;;voids
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;zero members
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;;zero members
+REF;abort;REF_Function_abort.html;Function Description;abort
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;abs
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;;absolute value
 REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to structure
@@ -484,6 +486,8 @@ REF;break, continue;REF_Function_break_case.html;Function Description;continue
 REF;cagr - Compond Annual Growth Rate;REF_Function_cagr.html;Function Description;cagr
 REF;cagr - Compond Annual Growth Rate;REF_Function_cagr.html;Function Description;;compound annual growth rate
 REF;case;REF_Function_case.html;Function Description;case
+REF;catch, catch if;REF_Function_catch.html;Function Description;catch
+REF;catch, catch if;REF_Function_catch.html;Function Description;catch if
 REF;chr;REF_Function_chr.html;Function Description;chr
 REF;chr;REF_Function_chr.html;Function Description;;character encoding
 REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;clean numeral
@@ -567,14 +571,17 @@ REF;distribute - Value Distribution over Timeline;REF_Function_distribute.html;F
 REF;do;REF_Function_do.html;Function Description;do
 REF;do;REF_Function_do.html;Function Description;;do-loop
 REF;encode entities;REF_Function_encode_entities.html;Function Description;encode entities
+REF;end;REF_Function_end.html;Function Description;end
 REF;even, odd, whole;REF_Function_even.html;Function Description;even
 REF;even, odd, whole;REF_Function_even.html;Function Description;odd
 REF;even, odd, whole;REF_Function_even.html;Function Description;whole
 REF;even, odd, whole;REF_Function_even.html;Function Description;;even numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;odd numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;whole numbers
+REF;exception;REF_Function_exception.html;Function Description;exception
 REF;exchange;REF_Function_exchange.html;Function Description;exchange
 REF;existing;REF_Function_existing.html;Function Description;existing
+REF;exit;REF_Function_exit.html;Function Description;exit
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy all
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy silently
@@ -686,6 +693,7 @@ REF;include;REF_Function_include.html;Function Description;include
 REF;include;REF_Function_include.html;Function Description;;include B4P program
 REF;include;REF_Function_include.html;Function Description;;include library
 REF;include;REF_Function_include.html;Function Description;;include libraries
+REF;interactive;REF_Function_interactive.html;Function Description;interactive
 REF;irr - Internal Rate of Return;REF_Function_irr.html;Function Description;irr
 REF;irr - Internal Rate of Return;REF_Function_irr.html;Function Description;;irr
 REF;is numeric / integer - Functions;REF_Function_is_numeric.html;Function Description;is numeric
@@ -801,6 +809,7 @@ REF;outside ... (string function);REF_Function_outside.html;Function Description
 REF;outside ... (string function);REF_Function_outside.html;Function Description;;outside [string function]
 REF;parameter set;REF_Function_parameter_set.html;Function Description;parameter set
 REF;parameter set;REF_Function_parameter_set.html;Function Description;;parameter set conversion function
+REF;pause;REF_Function_pause.html;Function Description;pause
 REF;pow - Power Function;REF_Function_pow.html;Function Description;pow
 REF;pow - Power Function;REF_Function_pow.html;Function Description;;power function
 REF;protect ...;REF_Function_protect.html;Function Description;protect
@@ -864,6 +873,7 @@ REF;sqrt - Square Root;REF_Function_sqrt.html;Function Description;;Square Root
 REF;start;REF_Function_start.html;Function Description;start
 REF;start;REF_Function_start.html;Function Description;;start B4P program
 REF;starting directory;REF_Function_starting_directory.html;Function Description;starting directory
+REF;stop;REF_Function_stop.html;Function Description;stop
 REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array
 REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array recursive
 REF;structure, structure protect;REF_Function_strcture.html;Function Description;strcture
@@ -1077,6 +1087,7 @@ REF;table subtract ...;REF_Function_table_subtract.html;Function Description;tab
 REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract exclusive columns
 REF;table transpose;REF_Function_table_transpose.html;Function Description;table transpose
 REF;table write column selected rows;REF_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
+REF;throw;REF_Function_throw.html;Function Description;throw
 REF;time, pure time;REF_Function_time.html;Function Description;time
 REF;time, pure time;REF_Function_time.html;Function Description;pure time
 REF;time, pure time;REF_Function_time.html;Function Description;;time conversion functions

@@ -1067,6 +1067,18 @@
    },
 
 
+  "Exception Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Exception Functions" ],
+"Description 01:Introduction into Branches" : [
+"",
+"	Exception functions include the following: __pause__, __stop__, __end__, __exit__, __abort__, __throw__, __catch__ / __catch if__ and __interactive__.",
+""
+ ]
+	
+   },
+
 
   "Other Control Flow Functions" :
   {
@@ -4412,7 +4424,7 @@
 	 ,
 	"Call as":		"procedure",
 		"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> referring to current table name and row number is enabled for the subsequent statement(s)."] ,
+							  "__Partial table specifications__ referring to current table name and row number is enabled for the subsequent statement(s)."] ,
 	"Parameter count":	"3-4",
 	"Parameters": [
 	  {
@@ -4492,7 +4504,7 @@
 	 ,
 	"Call as":		"procedure",
 	"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> must be enabled by a previously invoked procedure or function."] ,
+							  "__Partial table specifications__ must be enabled by a previously invoked procedure or function."] ,
 	"Parameter count":	"1-2",
 	"Parameters": [
 	  {
@@ -4550,7 +4562,7 @@
 	 ,
 	"Call as":		"procedure",
 		"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> referring to current table name and row number is enabled for the subsequent statement(s)."] ,
+							  "__Partial table specifications__ referring to current table name and row number is enabled for the subsequent statement(s)."] ,
 	"Parameter count":	"4-6",
 	"Parameters": [
 	  {
@@ -4652,7 +4664,7 @@
 	 ,
 	"Call as":		"procedure",
 	"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> must be enabled by a previously invoked procedure or function."] ,
+							  "__Partial table specifications__ must be enabled by a previously invoked procedure or function."] ,
 	"Parameter count":	"2-4",
 	"Parameters": [
 	  {
@@ -4731,7 +4743,7 @@
 		 ,
 		"Call as"			: "procedure",
 		"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> referring to current table name and row number is enabled for the subsequent statement(s)."] ,
+							  "__Partial table specifications__ referring to current table name and row number is enabled for the subsequent statement(s)."] ,
 		"Parameter count"	: "3-4",
 		"Parameters" : [
 		{   "Number":		"1.",
@@ -4795,7 +4807,7 @@
 		 ,
 		"Call as"			: "procedure",
 		"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> referring to current table name and row number is enabled for the subsequent statement(s)."] ,
+							  "__Partial table specifications__ referring to current table name and row number is enabled for the subsequent statement(s)."] ,
 		"Parameter count"	: "4-5",
 		"Parameters" : [
 		{   "Number":		"1.",
@@ -4865,14 +4877,14 @@
 	"Synopsis": 			[ "with table ( table name, row number ) statement; ",
 						      "with table ( table name, row number ) {statements; } "],
 "Description"  : [
-"		This procedure enables <i>partial table specification</i> in the subsequent code using the table name and current row number provide",
+"		This procedure enables __partial table specification__ in the subsequent code using the table name and current row number provide",
 "		through the procedure parameters. ",
 ""
  ]
 		 ,
 		"Call as"			: "procedure",
 		"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> referring to current table name and row number is enabled for the subsequent statement(s)."] ,
+							  "__Partial table specifications__ referring to current table name and row number is enabled for the subsequent statement(s)."] ,
 		"Parameter count"	: "2",
 		"Parameters" : [
 		{   "Number":		"1.",
@@ -4930,7 +4942,7 @@
 		 ,
 	"Call as"			: "procedure",
 	"Restrictions"		: ["No indirect parameter passing",
-							  "<i>Partial table specifications</i> referring to current table name and row number is enabled for the subsequent statement(s)."] ,
+							  "__Partial table specifications__ referring to current table name and row number is enabled for the subsequent statement(s)."] ,
 	"Parameter count"	: "0",
 
 "Examples"  : [
@@ -5569,6 +5581,551 @@
 
 ,
 
+  "pause" :
+  {
+	"Function Names":	[ "pause" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Program execution will be paused.  The user can decide whether to continue or to stop.",
+"	If function parameters are provided, then they will be printed out like in __echo(__).",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1, ...",
+		  "Name": "Contents to print out",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":  "The values in these parameters will be printed out."
+		}
+	],
+"Examples" : [
+"	pause(\"Lunch break\");",
+"	echo(\"Left the restaurant\");",
+"	pause;",
+"	echo(Back at home.)"
+ ]
+	,
+"Output" : [
+"Lunch break",
+"Press [ENTER] to continue or [CTRL+C] or [ESCAPE] to exit.",
+"",
+"Left the restaurant",
+"pause (); called",
+"",
+"Press [ENTER] to continue or [CTRL+C] or [ESCAPE] to exit.",
+"",
+"Back at home."
+ ]
+	,
+	"See also" :	[ "interactive" ]
+  },
+
+
+"stop" :
+{
+	"Function Names":	[ "stop" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Program execution will stop and enters interactive mode.  This exception is actually applied for most program errors.",
+"	In the interactive mode, you can inspect the global and local variables and table contents.  Typing \"return\" will move",
+"	you one level up if 'stop' was called in a user-defined function or B4P program called with __start(__) or __include(__).",
+"	Otherwise the (last) return command will exit B4P.",
+"",
+"	<br><br>",
+"	This function call is recommended for __program debugging__.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"0",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	define procedure( foo )",
+"	{",
+"		a[] = 123;",
+"		stop;",
+"		echo(\"Continuing\");",
+"	}",
+"",
+"	echo(\"Started.\");",
+"	foo;",
+"	echo(\"Finished.\");	"
+ ]
+	,
+"Output" : [
+"Started.",
+"stop (); called",
+"Code execution will stop.  Going to interactive mode",
+"________________________________________________________________________",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> echo( a[] )",
+"123",
+">> return",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> echo( a[] )",
+"",
+"Row #: Code Text _______________________________________________________",
+"	1: echo( a[] )",
+"			 ^",
+"Inside the program code entered interactively:",
+"Attempting to read variable 'a[...]'.",
+"Failed to access variable: Variable name not found.",
+"Code execution will stop.  Going to interactive mode",
+"________________________________________________________________________",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> return",
+"Done - Press ENTER key"
+ ]
+	,
+	"See also" :	[ "interactive" ]
+},
+
+
+
+
+ "interactive" :
+{
+	"Function Names":	[ "interactive" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Program execution will stop and enters interactive mode.  Typing \"return\" will continue executing the next statements.",
+"",
+"	<br><br>",
+"	This function call is recommended for __program debugging__.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"0",
+	"Restrictions":		"Indirect parameter passing is disabled",
+"Examples" : [
+"	define procedure( foo )",
+"	{",
+"		a[] = 123;",
+"		interactive;",
+"		echo(\"Continuing\");",
+"	}",
+"",
+"	echo(\"Started.\");",
+"	foo;",
+"	echo(\"Finished.\");"
+ ]
+	,
+"Output" : [
+"Started.",
+"interactive (); called",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> =a[]",
+"123 [numeral]",
+">> return",
+"Continung",
+"Finished.",
+"Done - Press ENTER key"
+ ]
+	,
+	"See also" :	[ "stop" ]
+},
+
+
+
+"exit" :
+{
+	"Function Names":	[ "exit" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Program execution will stop.  If a numeric parameter is provided, then it will be passed as exit code back",
+"	to the operating system or calling process.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"0 - 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Exit code",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0",
+		  "Description":  ""
+		}
+	],
+"Examples" : [
+"	savecode",
+"	if (member count(command line arguments[]) == 2)",
+"	{",
+"		echo( command line arguments[1] );",
+"		echo( \"Returning 5\" );",
+"		exit(5);",
+"	}",
+"",
+"	echo(\"Start this program recursively\");",
+"	rv[] = system( \"b4p REF_Function_exit.b4p -wx Nesting\" );",
+"	echo(\"Exit code received = \", rv[] );"
+ ]
+	,
+"Output" : [
+"Start this program recursively",
+"Nesting",
+"Returning 5",
+"exit (); called",
+"Code execution will stop.  Exiting program.",
+"________________________________________________________________________",
+"Exit code received = 5",
+"Done - Press ENTER key"
+ ]
+	,
+	"See also" :	[ "end", "abort" ]
+},
+
+
+
+
+"end" :
+{
+	"Function Names":	[ "end" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Program execution will stop.  If a numeric parameter is provided, then it will be passed as exit code back",
+"	to the operating system or calling process or superior B4P program which has started this program",
+"	using __start(__) or __include(__) functions.  The key difference to __exit(__): Exit will stop B4P in",
+"	all cases, even if called by a superior B4P program.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"0 - 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Exit code",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0",
+		  "Description":  ""
+		}
+	],
+"Examples" : [
+"	savecode",
+"	if ( member count(command line arguments[]) == 2 ) // Define function only once",
+"	{",
+"		define procedure( foo )",
+"		{",
+"		echo(\"Demonstrate ending from here with code 5\");",
+"		end(5);",
+"		}",
+"	}",
+"",
+"	if (member count(command line arguments[]) == 2)",
+"	{",
+"		echo( command line arguments[1] );",
+"		echo(\"Calling foo ...\");",
+"		foo;",
+"		echo(\"This text will not appear\");",
+"	}",
+"",
+"	echo(\"Start this program recursively\");",
+"	rv[] = start( \"./REF_Function_end.b4p\", \"Nesting\" );",
+"	echo(\"Exit code received = \", rv[] );"
+ ]
+	,
+"Output" : [
+"	savecode",
+"Start this program recursively",
+"Nesting",
+"Calling foo ...",
+"Demonstrate ending from here with code 5",
+"end (); called",
+"Code execution will end.  Leave or go to superior code.",
+"________________________________________________________________________",
+"Exit code received = 5",
+"Done - Press ENTER key"
+ ]
+	,
+	"See also" :	[ "exit" ]
+},
+
+
+
+"abort" :
+{
+	"Function Names":	[ "abort" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	Program will do an immediate exit with exit code -1",
+"	No user interaction will happen, e.g. asking to press [ENTER] to leave.",
+""
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"0",
+"Examples" : [
+"	abort;"
+ ]
+	,
+	"See also" :	[ "exit" ]
+},
+
+
+
+
+"throw" :
+{
+	"Function Names":	[ "throw" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function discontinues executing and skips executing all further code until the __catch(__) or __catch if(__) function calls or the",
+"		end program have been encountered.  One variable of any valid type (including bigger payloads packed in parameter sets) may be thrown",
+"		like a frisbee and caught and returned by the corresponding catch functions.",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"0 - 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Frisbee value",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+		  "Default value": "0",
+		  "Description":  "This value will be returned by the next __catch(__) or __catch if(__) function."
+		}
+	],
+"Examples" : [
+"	define procedure( foo )",
+"	{",
+"		echo(\"Test throw\");",
+"		throw( \"my Frisbee\");",
+"		echo(\"This text does not appear\");",
+"	}",
+"",
+"	foo;",
+"	echo(\"This text does not appear, too\");",
+"	catch( c[] )",
+"	{",
+"		echo(\"Caught: \", c[] );",
+"	}",
+"	else: echo(\"Nothing thrown\");"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "catch", "catch if" ]
+}
+
+
+,
+
+"catch, catch if" :
+{
+	"Function Names":	[ "catch", "catch if" ],
+	"Documentation":	"Function Description",
+	"Synopsis":			[ "catch/catch if (expression, condition expression) { statements } [ else { statements } ]" ],
+"Description" : [
+"		In case __throw(__) has been called, all furhter code statements will be skipped until one of these functions are encountered.<br>",
+"		<b>catch</b> will always give recover \"frisbee\" value issued with the __throw(__) function, whereas <br>",
+"		<b>catch if</b> will only catch the value if the \"frisbee\" value compared wiht the comparison expression returns true.  Otherwise, the frisbee",
+"		continues flying, i.e. the code further below will be skipped, including the 'else' block if added."
+ ]
+	,
+	"Call as":			"procedure",
+	"Restrictions":		"No indirect parameter passing",
+	"OS differences":	"None",
+	"Parameter count":	"1 (catch), 2 (catch if)",
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"frisbee value caught",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": "The frisbee value issued with the __throw(__) function call will be recovered here."
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"Values to compare with",
+		 "Direction":	"code",
+		 "Types":		["comparison expression", ":literal"],
+"Description" : [
+"			Applicable to <b>catch if</b>: Catching the value and continuing normal execution will only happen if the thrown \"frisbee\"",
+"			value matches with the comparison expression.",
+"",
+"			This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '<>'.  Single values,",
+"			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
+"			literal is of type __softquoted literal__.",
+"			<br><br>"
+ ]
+		  
+	  }
+	],
+"Examples" : [
+"	define procedure( foo, {{ value, numeral }} )",
+"	{",
+"		if (value[]== 1) return; // No throw with value 1",
+"		echo(\"Throw: \", value[] );",
+"		throw( value[] );",
+"		echo(\"This text does not appear\");",
+"	}",
+"",
+"	for (i[] = 1, i[] <= 3, i[]++)",
+"	{",
+"		echo(new line, \"Round \", i[],\":\");",
+"		foo( i[] );",
+"",
+"		catch if( x[], <>2 )",
+"		{",
+"			echo(\"'catch if': Successful catch: \", x[] );",
+"		}",
+"		else",
+"		{",
+"			echo(\"'catch if': Nothing thrown\" );",
+"		}",
+"",
+"		catch ( x[]  )",
+"		{",
+"			echo(\"'catch'   : Successful catch: \", x[] );",
+"		}",
+"		else",
+"		{",
+"			echo(\"'catch'   : Nothing thrown\" );",
+"		}",
+"	}"
+ ]
+	 ,
+	"Output": "automatic"
+}
+
+
+,
+
+  "exception" :
+  {
+	"Function Names":	[ "exception" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function asserts an exception in a similar way as programming errors are handled",
+"	This feature is very useful if you want to assert an error message associated plausible info (including listing a few lines of code above",
+"	the place where the exception is happening). The exception shows up like any other exception you typically encounter, ",
+"	for example divisions by zero or unable to find table columns.",
+"",
+""
+ ]
+	,
+
+	"Call as":			"procedure",
+	"Parameter count":	"2-3",
+	"Restrictions":		"Indirect parameter passing is enabled for 'select by value'.",
+	"Parameters":
+	[
+	  { "Number": "1",
+		  "Name": "Action",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Supported values: <b>pause, interactive, throw, stop, end, exit, abort</b><br>",
+"			See the corresponding function names desribed in the previous section which correspond to the values above to learn more about the consequential behavior."
+ ]
+		  
+	  },
+	  { "Number": "2",
+		  "Name": "Message",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Provide the error message.  If you need to compose multiple values like in an __echo(__) call, then use the __compose(__) funtion to put all values into them."
+ ]
+		  
+	  },
+	  { "Number": "Opt. 3",
+		  "Name": "Calling hierarchy",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0",
+"Description" : [
+"			The calling hierarchy determines the hierarchical calling level of the code where to eventually display the lines of code along with the exception message.",
+"			The level increases by 1 with every call to user functions, and starting B4P programs with start or include.",
+"",
+"			=== 50, 750, noframe_1stcolbold, noheader",
+"			0		| The code where this exception call is made will be shown.",
+"			1		| One level up, e.g. the code where the function call to this code with the exception call is made will be shown.",
+"			2, 3, ... | urther levels up",
+"			&lt; 0	| Suppress showing code lines",
+"			===",
+""
+ ]
+		  
+	  }
+	],
+"Examples" : [
+"	define function ( square root, { { n, numeral } } )",
+"	{",
+"		// If the last parameter is 0, then the code up here will be shown and not at the function call.",
+"		if (n[] < 0) exception( stop, \"1st parameter: Negative values are not allowed for square roots\", 1 );",
+"		return( sqrt(n[]) );",
+"	}",
+"",
+"	// Main Program",
+"",
+"	{",
+"		echo(\"Try a negative square root.\");",
+"		a[] = square root( -1 );",
+"	}"
+ ]
+	,
+"Output" : [
+"	savecode",
+"Try a negative square root.",
+"",
+"Row #: Code Text _______________________________________________________",
+"	7:    }",
+"	8:",
+"	9:    // Main Program",
+"   10:",
+"   11:    {",
+"   12:        echo(\"Try a negative square root.\");",
+"   13:        a[] = square root( -1 );",
+"									 ^",
+"1st parameter: Negative values are not allowed for square roots",
+"",
+"Code execution will stop.  Going to interactive mode",
+"________________________________________________________________________",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">>"
+ ]
+	,
+	"See also" :	[ "select ifs", "pick ifs", "select by value", "pick by value" ]
+}
+
+
+,
+
   "select, pick" :
   {
 	"Function Names":	[ "select", "pick" ],
@@ -5580,7 +6137,7 @@
 "",
 "	<br><br>",
 "	<b>select</b> will calculate the expressions in all parameters.<br>",
-"	<b>pick</b> will calculate the expression of the applicable parameter and skip calculating the other ones.  This approach saves processing time,",
+"	<b>pick</b> will calculate the expression of the applicle parameter and skip calculating the other ones.  This approach saves processing time,",
 "		especially if the expressions contain heavy calculations or large contents (e.g. parameter sets retrieved from tables).",
 "	",
 "	<br><br>",

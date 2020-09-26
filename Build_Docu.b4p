@@ -70,6 +70,7 @@ define procedure( gather input docu )
 	{
 	    echo		( "  Scan ", file name[] );
 	    table load		( code, file name[], TEXT );
+	    table configure	( code, read numerals, no );
 	    table process	( code, 
 		if ( [0]='*B4PDOCU.STOP*' )
 		{

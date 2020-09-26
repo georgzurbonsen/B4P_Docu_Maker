@@ -107,18 +107,30 @@
 "<li class=""navi""><a href=""REF_Function_start.html""><div class=""navi"">4.1.4.1 start </div></a></li>";4;REF_Function_start.html;start
 "<li class=""navi""><a href=""REF_Function_include.html""><div class=""navi"">4.1.4.2 include </div></a></li>";4;REF_Function_include.html;include
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Comparison_and_selection_functions.html""><div class=""navi"">4.1.5 Comparison and Selection Functions </div></a></li>";3;REF_Features_Comparison_and_selection_functions.html;Comparison and Selection Functions
+"<li class=""navi""><a href=""REF_Features_Exception_Functions.html""><div class=""navi"">4.1.5 Exception Functions </div></a></li>";3;REF_Features_Exception_Functions.html;Exception Functions
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_select.html""><div class=""navi"">4.1.5.1 select, pick </div></a></li>";4;REF_Function_select.html;select, pick
-"<li class=""navi""><a href=""REF_Function_select_if.html""><div class=""navi"">4.1.5.2 select if, pick if </div></a></li>";4;REF_Function_select_if.html;select if, pick if
-"<li class=""navi""><a href=""REF_Function_select_ifs.html""><div class=""navi"">4.1.5.3 select ifs, pick ifs </div></a></li>";4;REF_Function_select_ifs.html;select ifs, pick ifs
-"<li class=""navi""><a href=""REF_Function_select_by_value.html""><div class=""navi"">4.1.5.4 select / pick by value </div></a></li>";4;REF_Function_select_by_value.html;select / pick by value
-"<li class=""navi""><a href=""REF_Function_compare_select.html""><div class=""navi"">4.1.5.5 compare select / pick </div></a></li>";4;REF_Function_compare_select.html;compare select / pick
+"<li class=""navi""><a href=""REF_Function_pause.html""><div class=""navi"">4.1.5.1 pause </div></a></li>";4;REF_Function_pause.html;pause
+"<li class=""navi""><a href=""REF_Function_stop.html""><div class=""navi"">4.1.5.2 stop </div></a></li>";4;REF_Function_stop.html;stop
+"<li class=""navi""><a href=""REF_Function_interactive.html""><div class=""navi"">4.1.5.3 interactive </div></a></li>";4;REF_Function_interactive.html;interactive
+"<li class=""navi""><a href=""REF_Function_exit.html""><div class=""navi"">4.1.5.4 exit </div></a></li>";4;REF_Function_exit.html;exit
+"<li class=""navi""><a href=""REF_Function_end.html""><div class=""navi"">4.1.5.5 end </div></a></li>";4;REF_Function_end.html;end
+"<li class=""navi""><a href=""REF_Function_abort.html""><div class=""navi"">4.1.5.6 abort </div></a></li>";4;REF_Function_abort.html;abort
+"<li class=""navi""><a href=""REF_Function_throw.html""><div class=""navi"">4.1.5.7 throw </div></a></li>";4;REF_Function_throw.html;throw
+"<li class=""navi""><a href=""REF_Function_catch.html""><div class=""navi"">4.1.5.8 catch, catch if </div></a></li>";4;REF_Function_catch.html;catch, catch if
+"<li class=""navi""><a href=""REF_Function_exception.html""><div class=""navi"">4.1.5.9 exception </div></a></li>";4;REF_Function_exception.html;exception
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Other_Control_Flow_Functions.html""><div class=""navi"">4.1.6 Other Control Flow Functions </div></a></li>";3;REF_Features_Other_Control_Flow_Functions.html;Other Control Flow Functions
+"<li class=""navi""><a href=""REF_Features_Comparison_and_selection_functions.html""><div class=""navi"">4.1.6 Comparison and Selection Functions </div></a></li>";3;REF_Features_Comparison_and_selection_functions.html;Comparison and Selection Functions
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_null.html""><div class=""navi"">4.1.6.1 null - Function </div></a></li>";4;REF_Function_null.html;null - Function
-"<li class=""navi""><a href=""REF_Function_with_table.html""><div class=""navi"">4.1.6.2 with table </div></a></li>";4;REF_Function_with_table.html;with table
+"<li class=""navi""><a href=""REF_Function_select.html""><div class=""navi"">4.1.6.1 select, pick </div></a></li>";4;REF_Function_select.html;select, pick
+"<li class=""navi""><a href=""REF_Function_select_if.html""><div class=""navi"">4.1.6.2 select if, pick if </div></a></li>";4;REF_Function_select_if.html;select if, pick if
+"<li class=""navi""><a href=""REF_Function_select_ifs.html""><div class=""navi"">4.1.6.3 select ifs, pick ifs </div></a></li>";4;REF_Function_select_ifs.html;select ifs, pick ifs
+"<li class=""navi""><a href=""REF_Function_select_by_value.html""><div class=""navi"">4.1.6.4 select / pick by value </div></a></li>";4;REF_Function_select_by_value.html;select / pick by value
+"<li class=""navi""><a href=""REF_Function_compare_select.html""><div class=""navi"">4.1.6.5 compare select / pick </div></a></li>";4;REF_Function_compare_select.html;compare select / pick
+</ul></li>;4
+"<li class=""navi""><a href=""REF_Features_Other_Control_Flow_Functions.html""><div class=""navi"">4.1.7 Other Control Flow Functions </div></a></li>";3;REF_Features_Other_Control_Flow_Functions.html;Other Control Flow Functions
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""REF_Function_null.html""><div class=""navi"">4.1.7.1 null - Function </div></a></li>";4;REF_Function_null.html;null - Function
+"<li class=""navi""><a href=""REF_Function_with_table.html""><div class=""navi"">4.1.7.2 with table </div></a></li>";4;REF_Function_with_table.html;with table
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_Type_Conversion_Functions.html""><div class=""navi"">4.2 Type Conversion and Formatting Functions </div></a></li>";2;REF_Features_Type_Conversion_Functions.html;Type Conversion and Formatting Functions
@@ -522,6 +534,4 @@
 </ul></li>;3
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_verbose.html""><div class=""navi""> Verbose Levels </div></a></li>";1;REF_Features_verbose.html;Verbose Levels
-"<li class=""navi""><div> Description 04:Statements (func. params) </div></li>";1
-"<li class=""navi""><div> Description 04:Variables (func. params) </div></li>";1
 </ul>

@@ -63,6 +63,17 @@ B4PDOCU.START
    },
 
 
+  "Exception Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Exception Functions" ],
+    "Description 01:Introduction into Branches"::
+
+	Exception functions include the following: __pause__, __stop__, __end__, __exit__, __abort__, __throw__, __catch__ / __catch if__ and __interactive__.
+
+	+++
+   },
+
 
   "Other Control Flow Functions" :
   {

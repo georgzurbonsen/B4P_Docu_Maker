@@ -37,7 +37,7 @@ B4PDOCU.START
 	functions can also be called as procedures.
 
 	=== 200, 600, 200, bold_column_1 bold_column_3
-	Function Nature		| Description					| Exmaples
+	Function Nature		| Description					| Examples
 	Function		| The function will always provide a return value and can only be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );
 	Procedure		| The function will not provide return values and must be called as procedures.  If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);
 	Procedure or function	| The function can be called as procedrues or functions. Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);
