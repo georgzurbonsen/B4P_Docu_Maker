@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+    a[] = input quick ignore case("Enter N/Y/1/0 ", ny10 );
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input quick ("Enter äbcdé (lower case only, note the accents): ", äbcdé );
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );

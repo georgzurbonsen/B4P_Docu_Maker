@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+  st[] = "for (a[] = 1, a[] <= 3, a[]++) echo(a[]);";
+
+  statements( for (a[] = 1, a[] <= 3, a[]++) echo(a[]) ) ;
+  statements( :st[] );
+
+  // Note the required colon.  Otherwise st[] is seen as an incomplete statement.

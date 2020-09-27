@@ -21,7 +21,6 @@ REF;Basic Data Types;REF_Features_data_types.html;General Description;;data type
 REF;Basic Data Types;REF_Features_data_types.html;General Description;;basic data types
 REF;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;General Description;basic directory and file functions
 REF;Basic Math Functions;REF_Features_basic_math_functions.html;General Description;basic math functions
-REF;Basic Math Functions;REF_Features_basic_math_functions.html;General Description;;basic math functions
 REF;Basic Statistics Functions;REF_Function_average.html;Function Description;average
 REF;Basic Statistics Functions;REF_Function_average.html;Function Description;average ignore zero
 REF;Basic Statistics Functions;REF_Function_average.html;Function Description;average ignore blanks
@@ -46,14 +45,6 @@ REF;Basic Statistics Functions;REF_Function_average.html;Function Description;su
 REF;Basic Statistics Functions;REF_Function_average.html;Function Description;parallel
 REF;Basic Statistics Functions;REF_Function_average.html;Function Description;harmonic mean
 REF;Basic Statistics Functions;REF_Function_average.html;Function Description;;basic statistics functions
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;print
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;print line
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;echo
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;compose
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;compose line
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;;output to screen
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;;output to strings
-REF;Basic Text Output Functions;REF_Function_print.html;Function Description;;text output
 REF;Basic Variables Functions;REF_Features_basic_variables_functions.html;General Description;basic variables functions
 REF;Boolean to Literal Formatting;REF_Features_boolean_to_literal_conversion_and_formatting.html;General Description;boolean to literal conversion and formatting
 REF;Boolean to Literal Formatting;REF_Features_boolean_to_literal_conversion_and_formatting.html;General Description;;Boolean to Literal Formatting Parameters
@@ -76,8 +67,7 @@ REF;Checking Tables - Row and Group Results;REF_Features_checking_tables_row_res
 REF;Checking and Comparing Tables;REF_Features_Checking_and_comparing_tables.html;General Description;Checking and comparing tables
 REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General Description;Checking headers
 REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General Description;Processing headers
-REF;Clear screen;REF_Function_cls.html;Function Description;cls
-REF;Clear screen;REF_Function_cls.html;Function Description;;clear the screen
+REF;Code Execution Functions;REF_Features_Code_Execution_Functions.html;General Description;Code Execution Functions
 REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Description;Code Piece
 REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Description;;code pieces
 REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
@@ -203,6 +193,7 @@ REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Descript
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;;conditional combination functions
 REF;Console Input / Output;REF_Features_console.html;General Description;console
 REF;Console Input / Output;REF_Features_console.html;General Description;;console
+REF;Console Special Effects;REF_Features_Console_special_effects.html;General Description;Console special effects
 REF;Consolidation Actions;REF_Features_consolidation_actions.html;General Description;consolidation actions
 REF;Control Flow Functions;REF_Features_Control_Flow_Functions.html;General Description;Control Flow Functions
 REF;Control Flow Functions;REF_Features_Control_Flow_Functions.html;General Description;;Control Flow Functions
@@ -248,9 +239,8 @@ REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;asinh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;acosh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;atanh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;;hyperbolic functions
-REF;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;Function Description;identify
-REF;Identify variable forms (if structure, array, or simple);REF_Function_identify.html;Function Description;;identify variables
 REF;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
+REF;Input / Output Functions;REF_Features_input_output_functions.html;General Description;input output functions
 REF;Input/Output with Tables;REF_Features_Input_output_wtih_tables.html;General Description;Input output wtih tables
 REF;Interactive Mode;REF_Features_interactive.html;General Description;interactive
 REF;Interactive Mode;REF_Features_interactive.html;General Description;;interactive
@@ -314,6 +304,7 @@ REF;Matrix Functions;REF_Features_matrix_functions.html;General Description;;mat
 REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.html;General Description;matrix manipulation functions
 REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.html;General Description;;matrix manipulation functions
 REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.html;General Description;;matrix manipulations
+REF;Miscellaneous String Functions;REF_Features_Other_string_functions.html;General Description;Other string functions
 REF;Numeral to Literal Formatting;REF_Features_numeral_to_literal_conversion_and_formatting.html;General Description;numeral to literal conversion and formatting
 REF;Numeral to Literal Formatting;REF_Features_numeral_to_literal_conversion_and_formatting.html;General Description;;Numeral to Literal Formatting Parameters
 REF;Numerals;REF_Features_data_types_numerals.html;General Description;data types numerals
@@ -322,7 +313,6 @@ REF;Numerals;REF_Features_data_types_numerals.html;General Description;;numerals
 REF;Numerals;REF_Features_data_types_numerals.html;General Description;;plain numeral
 REF;Numerals;REF_Features_data_types_numerals.html;General Description;;plain numerals
 REF;Other Control Flow Functions;REF_Features_Other_Control_Flow_Functions.html;General Description;Other Control Flow Functions
-REF;Other Control Flow Functions;REF_Features_Other_Control_Flow_Functions.html;General Description;;Other Control Flow Functions
 REF;Parameter Set Functions;REF_Features_parameter_set_functions.html;General Description;parameter set functions
 REF;Parameter Set Functions;REF_Features_parameter_set_functions.html;General Description;;parameter set functions
 REF;Parameter Set or Literal (Func. Param. Type);REF_Features_parameter_set_or_literal.html;General Description;parameter set or literal
@@ -361,18 +351,9 @@ REF;Resident Attributes Functions;REF_Features_Resident_attributes_functions.htm
 REF;Saving JSON files;REF_Features_Saving_JSON_files.html;General Description;Saving JSON files
 REF;Searching Tables;REF_Features_Searching_tables.html;General Description;Searching tables
 REF;Series Functions;REF_Features_series_functions.html;General Description;series functions
-REF;Series Functions;REF_Features_series_functions.html;General Description;;series functions
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;parameter set search and extraction
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;;parameter set search functions
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;;parameter set extraction functions
-REF;Set console text and background colors;REF_Function_text_color.html;Function Description;text color
-REF;Set console text and background colors;REF_Function_text_color.html;Function Description;background colors
-REF;Set console text and background colors;REF_Function_text_color.html;Function Description;;font color
-REF;Set console text and background colors;REF_Function_text_color.html;Function Description;;foreground color
-REF;Set console text and background colors;REF_Function_text_color.html;Function Description;;screen color
-REF;Set cursor positions;REF_Function_cursor.html;Function Description;cursor
-REF;Set cursor positions;REF_Function_cursor.html;Function Description;;cursor position
-REF;Set cursor positions;REF_Function_cursor.html;Function Description;;move cursor
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;simple variables
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;;simple variables
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;;simple variable
@@ -417,9 +398,9 @@ REF;Table Functions;REF_Features_table_functions.html;General Description;table 
 REF;Table Integration Operation Identifiers;REF_Features_Table_integration_operation_identifiers.html;General Description;Table integration operation identifiers
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;Table of Contents
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;;Reference Manual
+REF;Text Input / Output;REF_Features_text_input_output.html;General Description;text input output
 REF;Time and Stopwatch Functions;REF_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
 REF;Transcendental Functions;REF_Features_transcendental_functions.html;General Description;transcendental functions
-REF;Transcendental Functions;REF_Features_transcendental_functions.html;General Description;;transcendental functions
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin deg
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;cos
@@ -468,6 +449,8 @@ REF;array to structure ...;REF_Function_array_to_structure.html;Function Descrip
 REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to array structure
 REF;array, array protect;REF_Function_array.html;Function Description;array
 REF;array, array protect;REF_Function_array.html;Function Description;array protect
+REF;assign;REF_Function_assign.html;Function Description;assign
+REF;assign;REF_Function_assign.html;Function Description;;assign (function)
 REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute read
 REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute write
 REF;attribute ...;REF_Function_attribute_read.html;Function Description;attribute modify
@@ -485,6 +468,7 @@ REF;break, continue;REF_Function_break_case.html;Function Description;break
 REF;break, continue;REF_Function_break_case.html;Function Description;continue
 REF;cagr - Compond Annual Growth Rate;REF_Function_cagr.html;Function Description;cagr
 REF;cagr - Compond Annual Growth Rate;REF_Function_cagr.html;Function Description;;compound annual growth rate
+REF;call;REF_Function_call.html;Function Description;call
 REF;case;REF_Function_case.html;Function Description;case
 REF;catch, catch if;REF_Function_catch.html;Function Description;catch
 REF;catch, catch if;REF_Function_catch.html;Function Description;catch if
@@ -493,10 +477,16 @@ REF;chr;REF_Function_chr.html;Function Description;;character encoding
 REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;clean numeral
 REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;clean if numeral
 REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;;clean numerals
+REF;cls;REF_Function_cls.html;Function Description;cls
+REF;cls;REF_Function_cls.html;Function Description;;clear the screen
 REF;code;REF_Function_code.html;Function Description;code
 REF;code;REF_Function_code.html;Function Description;;character decoding
+REF;compare;REF_Function_compare.html;Function Description;compare
+REF;compare;REF_Function_compare.html;Function Description;;compare (function)
 REF;compare select / pick;REF_Function_compare_select.html;Function Description;compare select
 REF;compare select / pick;REF_Function_compare_select.html;Function Description;compare pick
+REF;compose ...;REF_Function_compose.html;Function Description;compose
+REF;compose ...;REF_Function_compose.html;Function Description;compose line
 REF;count Functions;REF_Function_count.html;Function Description;count
 REF;count Functions;REF_Function_count.html;Function Description;count ignore zero
 REF;count Functions;REF_Function_count.html;Function Description;count ignore blanks
@@ -511,6 +501,9 @@ REF;count files ...;REF_Function_count_files.html;Function Description;count fil
 REF;covariance, correlation;REF_Function_covariance.html;Function Description;covariance
 REF;covariance, correlation;REF_Function_covariance.html;Function Description;correlation
 REF;covariance, correlation;REF_Function_covariance.html;Function Description;;covariance and correlation
+REF;cursor;REF_Function_cursor.html;Function Description;cursor
+REF;cursor;REF_Function_cursor.html;Function Description;;cursor position
+REF;cursor;REF_Function_cursor.html;Function Description;;move cursor
 REF;date inside, time inside;REF_Function_date_inside.html;Function Description;date inside
 REF;date inside, time inside;REF_Function_date_inside.html;Function Description;time inside
 REF;date, pure date, date time;REF_Function_date.html;Function Description;date
@@ -519,6 +512,8 @@ REF;date, pure date, date time;REF_Function_date.html;Function Description;date 
 REF;date, pure date, date time;REF_Function_date.html;Function Description;;date conversion functions
 REF;day of year;REF_Function_day_of_year.html;Function Description;day of year
 REF;decode entities;REF_Function_decode_entities.html;Function Description;decode entities
+REF;deep, deepr;REF_Function_deep.html;Function Description;deep
+REF;deep, deepr;REF_Function_deep.html;Function Description;deepr
 REF;define additional procedure / function;REF_Function_define_additional_procedure.html;Function Description;define additional procedure
 REF;define additional procedure / function;REF_Function_define_additional_procedure.html;Function Description;define additional function
 REF;define additional procedure / function;REF_Function_define_additional_procedure.html;Function Description;define additional procedure and function
@@ -570,6 +565,9 @@ REF;distribute - Value Distribution over Timeline;REF_Function_distribute.html;F
 REF;distribute - Value Distribution over Timeline;REF_Function_distribute.html;Function Description;;distribution over timeline
 REF;do;REF_Function_do.html;Function Description;do
 REF;do;REF_Function_do.html;Function Description;;do-loop
+REF;echo, print ...;REF_Function_echo.html;Function Description;echo
+REF;echo, print ...;REF_Function_echo.html;Function Description;print
+REF;echo, print ...;REF_Function_echo.html;Function Description;print line
 REF;encode entities;REF_Function_encode_entities.html;Function Description;encode entities
 REF;end;REF_Function_end.html;Function Description;end
 REF;even, odd, whole;REF_Function_even.html;Function Description;even
@@ -582,6 +580,8 @@ REF;exception;REF_Function_exception.html;Function Description;exception
 REF;exchange;REF_Function_exchange.html;Function Description;exchange
 REF;existing;REF_Function_existing.html;Function Description;existing
 REF;exit;REF_Function_exit.html;Function Description;exit
+REF;expression;REF_Function_expression.html;Function Description;expression
+REF;expression;REF_Function_expression.html;Function Description;;expression (function)
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy all
 REF;file copy ...;REF_Function_file_copy.html;Function Description;file copy silently
@@ -672,6 +672,8 @@ REF;function / user function existing;REF_Function_function_existing.html;Functi
 REF;function / user function existing;REF_Function_function_existing.html;Function Description;user function existing
 REF;function / user function existing;REF_Function_function_existing.html;Function Description;;function existing
 REF;get differences;REF_Function_get_differences.html;Function Description;get differences
+REF;getch ...;REF_Function_getch.html;Function Description;getch
+REF;getch ...;REF_Function_getch.html;Function Description;getch ignore case
 REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;gini
 REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;gini ignore blanks
 REF;gini Coefficient Functions;REF_Function_gini.html;Function Description;gini ignore zero
@@ -693,6 +695,9 @@ REF;include;REF_Function_include.html;Function Description;include
 REF;include;REF_Function_include.html;Function Description;;include B4P program
 REF;include;REF_Function_include.html;Function Description;;include library
 REF;include;REF_Function_include.html;Function Description;;include libraries
+REF;input;REF_Function_input.html;Function Description;input
+REF;input quick ...;REF_Function_input_quick.html;Function Description;input quick
+REF;input quick ...;REF_Function_input_quick.html;Function Description;input quick ignore case
 REF;interactive;REF_Function_interactive.html;Function Description;interactive
 REF;irr - Internal Rate of Return;REF_Function_irr.html;Function Description;irr
 REF;irr - Internal Rate of Return;REF_Function_irr.html;Function Description;;irr
@@ -816,6 +821,8 @@ REF;protect ...;REF_Function_protect.html;Function Description;protect
 REF;protect ...;REF_Function_protect.html;Function Description;protect recursive
 REF;random - Random Integers;REF_Function_random.html;Function Description;random
 REF;random - Random Integers;REF_Function_random.html;Function Description;;random
+REF;random string, random letters;REF_Function_random_string.html;Function Description;random string
+REF;random string, random letters;REF_Function_random_string.html;Function Description;random letters
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;read access
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;read access repeat if locked
 REF;read access ..., write access ...;REF_Function_read_access.html;Function Description;write access
@@ -873,6 +880,8 @@ REF;sqrt - Square Root;REF_Function_sqrt.html;Function Description;;Square Root
 REF;start;REF_Function_start.html;Function Description;start
 REF;start;REF_Function_start.html;Function Description;;start B4P program
 REF;starting directory;REF_Function_starting_directory.html;Function Description;starting directory
+REF;statements;REF_Function_statements.html;Function Description;statements
+REF;statements;REF_Function_statements.html;Function Description;;statements (function)
 REF;stop;REF_Function_stop.html;Function Description;stop
 REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array
 REF;structure to array ...;REF_Function_structure_to_array.html;Function Description;structure to array recursive
@@ -1087,10 +1096,16 @@ REF;table subtract ...;REF_Function_table_subtract.html;Function Description;tab
 REF;table subtract ...;REF_Function_table_subtract.html;Function Description;table subtract exclusive columns
 REF;table transpose;REF_Function_table_transpose.html;Function Description;table transpose
 REF;table write column selected rows;REF_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
+REF;text / background color;REF_Function_text_color.html;Function Description;text color
+REF;text / background color;REF_Function_text_color.html;Function Description;background color
+REF;text / background color;REF_Function_text_color.html;Function Description;;font color
+REF;text / background color;REF_Function_text_color.html;Function Description;;foreground color
+REF;text / background color;REF_Function_text_color.html;Function Description;;screen color
 REF;throw;REF_Function_throw.html;Function Description;throw
 REF;time, pure time;REF_Function_time.html;Function Description;time
 REF;time, pure time;REF_Function_time.html;Function Description;pure time
 REF;time, pure time;REF_Function_time.html;Function Description;;time conversion functions
+REF;tokenize;REF_Function_tokenize.html;Function Description;tokenize
 REF;transpose;REF_Function_transpose.html;Function Description;transpose
 REF;transpose;REF_Function_transpose.html;Function Description;;transpose matrix
 REF;transpose;REF_Function_transpose.html;Function Description;;transpose matrices

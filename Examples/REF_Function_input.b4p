@@ -1,0 +1,21 @@
+﻿#!/usr/local/bin/b4p
+    a[] = input("Enter both date and time: ", date and time  );
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input("Enter any value: ");
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input("Enter any integer greater than or equal to 3: ", integer, >=3);
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input("Enter one lower-case latin character: ", character, 'a'..'z');
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input("Enter a boolean value (true, false, y, n, ... ): ", boolean);
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input("Enter a date in 2020: ", date, date(01.01.2020)..date(31.12.2020) );
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
+
+    a[] = input("Enter a time before 15:00 ", time, <time("15:00") );
+    echo("Entered value is : ", a[],"   The type is : ", type (a[]) );

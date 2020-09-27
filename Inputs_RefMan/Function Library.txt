@@ -6,7 +6,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Library" ],
     "Keywords":			[ "function library" ],
-    "Description 01:Introduction to Function Library"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides a large and comprehenisve library of different functions.¨
 	Use the navigator bar to deep-dive into them.
@@ -21,7 +21,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Control Flow Functions" ],
     "Keywords":			[ "Control Flow Functions" ],
-    "Description 01:Introduction to Control Flow Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.
 	In contrast to other programming languages, trivial features such as the __if(__) statement is actually
@@ -40,7 +40,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Loops" ],
     "Keywords":			[ "Loops" ],
-    "Description 01:Introduction into Loops"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all
 	common programming languages.  In addition, various <b>for all...</b> loops are available to work through
@@ -55,7 +55,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Branches" ],
     "Keywords":			[ "Branches" ],
-    "Description 01:Introduction into Branches"::
+    "Description 01:Introduction"::
 
 	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.
 
@@ -67,7 +67,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Exception Functions" ],
-    "Description 01:Introduction into Branches"::
+    "Description 01:Introduction"::
 
 	Exception functions include the following: __pause__, __stop__, __end__, __exit__, __abort__, __throw__, __catch__ / __catch if__ and __interactive__.
 
@@ -79,13 +79,26 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Other Control Flow Functions" ],
-    "Keywords":			[ "Other Control Flow Functions" ],
-    "Description 01:Other Control Flow Functions"::
+    "Description 01:Introduction"::
 
 	Inclcudes: __with table(__) to provide a context allowing partial table references.
 
 	+++
    },
+
+  "Code Execution Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Code Execution Functions" ],
+    "Description 01:Introduction"::
+
+	The functions enable translation of code fragments in string format and execute them directly.
+	In addition, the __deep(__) function family allows to apply selected functions not only on single values
+	but repeatedly across all values in parameter sets.
+
+	+++
+   },
+
 
 
 
@@ -94,7 +107,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "User Defined Procedures and Functiions" ],
     "Keywords":			[ "User-defined procedures and functions", "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
-    "Description 01:User-Defined Procedures and Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
 	Procedures are defined as functions which do not provide a return value and must be called as a procedure.
@@ -137,43 +150,81 @@ B4PDOCU.START
 
 
 
-  "Type Conversion and Formatting Functions" :
-  {
+
+"Input / Output Functions":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "input output functions" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions text and console input / output features such as __echo(__) considered as a common
+	building-block for text output, but also __console special effects__ like clearing screens (__cls(__)) and changing text colors.
+
+	+++
+},
+
+
+"Text Input / Output":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "text input output" ],
+    "Description 01:Introduction"::
+
+	This subsection covers text-based input/output such as __input(__), __echo(__), __print(__) and so forth.
+
+	+++
+},
+
+
+"Console Special Effects":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Console special effects" ],
+    "Description 01:Introduction"::
+
+	This subsection covers special effects such as clearing screens, moving cursors and changing text and background colors.
+
+	+++
+},
+
+
+
+"Type Conversion and Formatting Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Type Conversion Functions" ],
     "Keywords":			[ "type conversion" ],
-    "Description 01:Type Conversion Functions and Formatting Functions"::
+    "Description 01:Introduction"::
 
 	A set of functions are available to convert data in one type (e.g. __literals__) into other types (e.g. __dates__ and __numerals__).
 	Converting values to __literal__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
 	in a desirable format.
 
 	+++
-   },
+},
 
 
 
 
-  "Mathematics and Statistics" :
-  {
+"Mathematics and Statistics" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Mathematics and Statistics" ],
     "Keywords":			[ "mathematics and statistics" ],
-    "Description 01:Mathematics and Statistics Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides a broad range of advanced mathematics and statistics functions.
 
 	+++
-   },
+},
 
 
 
-  "Basic Math Functions" :
-  {
+"Basic Math Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "basic math functions" ],
-    "Keywords":			[ "basic math functions" ],
-    "Description 01:Basic Math Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides various functions to check numeric values and carry out basic mathematis functions.
 
@@ -181,26 +232,26 @@ B4PDOCU.START
    },
 
 
- "Transcendental Functions" :
-  {
+"Transcendental Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "transcendental functions" ],
-    "Keywords":			[ "transcendental functions" ],
-    "Description 01:Transcendental Functions"::
+    "Description 01:Introduction"::
 
-	Transcendental functions include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions.
+	Transcendental functions are less mystic than you are believing.
+	They include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions
+	and suitable for everyday mathematics tasks.
 
 	+++
-   },
+},
 
 
 
- "Series Functions" :
+"Series Functions" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "series functions" ],
-    "Keywords":			[ "series functions" ],
-    "Description 01:Series Functions"::
+    "Description 01:Introduction"::
 
 	This section covers all functions which can process value series of variable sizes.
 
@@ -241,7 +292,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "statistics functions" ],
     "Keywords":			[ "statistics functions" ],
-    "Description 01:Statistics Functions"::
+    "Description 01:Introduction"::
 
 	This section covers all statistics functions.
 
@@ -255,7 +306,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "finance functions" ],
     "Keywords":			[ "finance functions", "business functions" ],
-    "Description 01:Number Introduction to Finance and Business Functions"::
+    "Description 01:Introduction"::
 
 	This section various functions needed for financial calculations, business and capacity planning.
 
@@ -270,7 +321,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set functions" ],
     "Keywords":			[ "parameter set functions" ],
-    "Description 01:Parameter Set Functions"::
+    "Description 01:Introduction"::
 
 	This section describes various functions used to process or check parameter sets.
 	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, 
@@ -286,7 +337,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set search and extraction" ],
     "Keywords":			[ "parameter set search functions", "parameter set extraction functions" ],
-    "Description 01:Introduction to Parameter Set Search and Extraction Functions"::
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.
 
@@ -300,7 +351,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix manipulation functions" ],
     "Keywords":			[ "matrix manipulation functions", "matrix manipulations" ],
-    "Description 01:Introduction to Matrix Manipulation Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
 	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
@@ -324,7 +375,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "date and time functions" ],
-    "Description 01:Introduction to Date Functions"::
+    "Description 01:Introduction"::
 
 
 	Beyond4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.
@@ -348,7 +399,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "date functions" ],
-    "Description 01:Introduction to Date, Time and Stopwatch Functions"::
+    "Description 01:Introduction"::
 
 
 	Beyond4P provides some powerful functions to process date .
@@ -370,7 +421,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "time and stopwatch functions" ],
-    "Description 01:Introduction to Time and Stopwatch Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
 	as well as stopwatch functions to measure the performance of your applications.
@@ -383,7 +434,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "sleep and wait functions" ],
-    "Description 01:Introduction Sleep and Wait Functions"::
+    "Description 01:Introduction"::
 
 	The following functions suspend program execution for a specified time or until a specific time has been reached.
 	The delay will pause Beyond4P's process and lets other application run at full speed.
@@ -397,7 +448,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string functions" ],
     "Keywords":			[ "literal functions", "string functions" ],
-    "Description 01:Introduction to String Functions"::
+    "Description 01:Introduction"::
 
 	This section describes procedures and functions for character and string manipulations.
 
@@ -410,7 +461,7 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string search and extraction" ],
     "Keywords":			[ "string search functions", "string extraction functions" ],
-    "Description 01:Introduction to String Search and Extraction Functions"::
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to search for string patterns and extract substrings from stings.
 
@@ -422,9 +473,21 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "character coding" ],
-    "Description 01:Introduction to String Search and Extraction Functions"::
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to search for string patterns and extract substrings from stings.
+
+	+++
+  },
+
+
+"Miscellaneous String Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Other string functions" ],
+    "Description 01:Introduction"::
+
+	All other string functions, including random string generation, are explained next.
 
 	+++
   },
@@ -435,7 +498,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions" ],
-    "Description 01:Introduction to Table Function"::
+    "Description 01:Introduction"::
 
 	This section summarizes all table functions.
 

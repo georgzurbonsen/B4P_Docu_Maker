@@ -1006,7 +1006,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Library" ],
     "Keywords":			[ "function library" ],
-"Description 01:Introduction to Function Library" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides a large and comprehenisve library of different functions.¨",
 "	Use the navigator bar to deep-dive into them.",
@@ -1022,7 +1022,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Control Flow Functions" ],
     "Keywords":			[ "Control Flow Functions" ],
-"Description 01:Introduction to Control Flow Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.",
 "	In contrast to other programming languages, trivial features such as the __if(__) statement is actually",
@@ -1042,7 +1042,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Loops" ],
     "Keywords":			[ "Loops" ],
-"Description 01:Introduction into Loops" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all",
 "	common programming languages.  In addition, various <b>for all...</b> loops are available to work through",
@@ -1058,7 +1058,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Branches" ],
     "Keywords":			[ "Branches" ],
-"Description 01:Introduction into Branches" : [
+"Description 01:Introduction" : [
 "",
 "	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.",
 ""
@@ -1071,7 +1071,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Exception Functions" ],
-"Description 01:Introduction into Branches" : [
+"Description 01:Introduction" : [
 "",
 "	Exception functions include the following: __pause__, __stop__, __end__, __exit__, __abort__, __throw__, __catch__ / __catch if__ and __interactive__.",
 ""
@@ -1084,14 +1084,28 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Other Control Flow Functions" ],
-    "Keywords":			[ "Other Control Flow Functions" ],
-"Description 01:Other Control Flow Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Inclcudes: __with table(__) to provide a context allowing partial table references.",
 ""
  ]
 	
    },
+
+  "Code Execution Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Code Execution Functions" ],
+"Description 01:Introduction" : [
+"",
+"	The functions enable translation of code fragments in string format and execute them directly.",
+"	In addition, the __deep(__) function family allows to apply selected functions not only on single values",
+"	but repeatedly across all values in parameter sets.",
+""
+ ]
+	
+   },
+
 
 
 
@@ -1100,7 +1114,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "User Defined Procedures and Functiions" ],
     "Keywords":			[ "User-defined procedures and functions", "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
-"Description 01:User-Defined Procedures and Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. ",
 "	Procedures are defined as functions which do not provide a return value and must be called as a procedure.",
@@ -1145,12 +1159,54 @@
 
 
 
-  "Type Conversion and Formatting Functions" :
-  {
+
+"Input / Output Functions":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "input output functions" ],
+"Description 01:Introduction" : [
+"",
+"	This subsection describes various functions text and console input / output features such as __echo(__) considered as a common",
+"	building-block for text output, but also __console special effects__ like clearing screens (__cls(__)) and changing text colors.",
+""
+ ]
+	
+},
+
+
+"Text Input / Output":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "text input output" ],
+"Description 01:Introduction" : [
+"",
+"	This subsection covers text-based input/output such as __input(__), __echo(__), __print(__) and so forth.",
+""
+ ]
+	
+},
+
+
+"Console Special Effects":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Console special effects" ],
+"Description 01:Introduction" : [
+"",
+"	This subsection covers special effects such as clearing screens, moving cursors and changing text and background colors.",
+""
+ ]
+	
+},
+
+
+
+"Type Conversion and Formatting Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Type Conversion Functions" ],
     "Keywords":			[ "type conversion" ],
-"Description 01:Type Conversion Functions and Formatting Functions" : [
+"Description 01:Introduction" : [
 "",
 "	A set of functions are available to convert data in one type (e.g. __literals__) into other types (e.g. __dates__ and __numerals__).",
 "	Converting values to __literal__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. ",
@@ -1158,32 +1214,31 @@
 ""
  ]
 	
-   },
+},
 
 
 
 
-  "Mathematics and Statistics" :
-  {
+"Mathematics and Statistics" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Mathematics and Statistics" ],
     "Keywords":			[ "mathematics and statistics" ],
-"Description 01:Mathematics and Statistics Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides a broad range of advanced mathematics and statistics functions.",
 ""
  ]
 	
-   },
+},
 
 
 
-  "Basic Math Functions" :
-  {
+"Basic Math Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "basic math functions" ],
-    "Keywords":			[ "basic math functions" ],
-"Description 01:Basic Math Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides various functions to check numeric values and carry out basic mathematis functions.",
 ""
@@ -1192,27 +1247,27 @@
    },
 
 
- "Transcendental Functions" :
-  {
+"Transcendental Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "transcendental functions" ],
-    "Keywords":			[ "transcendental functions" ],
-"Description 01:Transcendental Functions" : [
+"Description 01:Introduction" : [
 "",
-"	Transcendental functions include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions.",
+"	Transcendental functions are less mystic than you are believing.",
+"	They include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions",
+"	and suitable for everyday mathematics tasks.",
 ""
  ]
 	
-   },
+},
 
 
 
- "Series Functions" :
+"Series Functions" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "series functions" ],
-    "Keywords":			[ "series functions" ],
-"Description 01:Series Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This section covers all functions which can process value series of variable sizes.",
 ""
@@ -1255,7 +1310,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "statistics functions" ],
     "Keywords":			[ "statistics functions" ],
-"Description 01:Statistics Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This section covers all statistics functions.",
 ""
@@ -1270,7 +1325,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "finance functions" ],
     "Keywords":			[ "finance functions", "business functions" ],
-"Description 01:Number Introduction to Finance and Business Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This section various functions needed for financial calculations, business and capacity planning.",
 ""
@@ -1286,7 +1341,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set functions" ],
     "Keywords":			[ "parameter set functions" ],
-"Description 01:Parameter Set Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This section describes various functions used to process or check parameter sets.",
 "	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, ",
@@ -1303,7 +1358,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set search and extraction" ],
     "Keywords":			[ "parameter set search functions", "parameter set extraction functions" ],
-"Description 01:Introduction to Parameter Set Search and Extraction Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.",
 ""
@@ -1318,7 +1373,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix manipulation functions" ],
     "Keywords":			[ "matrix manipulation functions", "matrix manipulations" ],
-"Description 01:Introduction to Matrix Manipulation Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,",
 "	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).",
@@ -1343,7 +1398,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "date and time functions" ],
-"Description 01:Introduction to Date Functions" : [
+"Description 01:Introduction" : [
 "",
 "",
 "	Beyond4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.",
@@ -1368,7 +1423,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "date functions" ],
-"Description 01:Introduction to Date, Time and Stopwatch Functions" : [
+"Description 01:Introduction" : [
 "",
 "",
 "	Beyond4P provides some powerful functions to process date .",
@@ -1391,7 +1446,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "time and stopwatch functions" ],
-"Description 01:Introduction to Time and Stopwatch Functions" : [
+"Description 01:Introduction" : [
 "",
 "	Beyond4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)",
 "	as well as stopwatch functions to measure the performance of your applications.",
@@ -1405,7 +1460,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "sleep and wait functions" ],
-"Description 01:Introduction Sleep and Wait Functions" : [
+"Description 01:Introduction" : [
 "",
 "	The following functions suspend program execution for a specified time or until a specific time has been reached.",
 "	The delay will pause Beyond4P's process and lets other application run at full speed.",
@@ -1420,7 +1475,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string functions" ],
     "Keywords":			[ "literal functions", "string functions" ],
-"Description 01:Introduction to String Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This section describes procedures and functions for character and string manipulations.",
 ""
@@ -1434,7 +1489,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string search and extraction" ],
     "Keywords":			[ "string search functions", "string extraction functions" ],
-"Description 01:Introduction to String Search and Extraction Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This subsection describes various functions to search for string patterns and extract substrings from stings.",
 ""
@@ -1447,9 +1502,22 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "character coding" ],
-"Description 01:Introduction to String Search and Extraction Functions" : [
+"Description 01:Introduction" : [
 "",
 "	This subsection describes various functions to search for string patterns and extract substrings from stings.",
+""
+ ]
+	
+  },
+
+
+"Miscellaneous String Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Other string functions" ],
+"Description 01:Introduction" : [
+"",
+"	All other string functions, including random string generation, are explained next.",
 ""
  ]
 	
@@ -1461,7 +1529,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions" ],
-"Description 01:Introduction to Table Function" : [
+"Description 01:Introduction" : [
 "",
 "	This section summarizes all table functions.",
 ""
@@ -2274,7 +2342,7 @@
 "	functions can also be called as procedures.",
 "",
 "	=== 200, 600, 200, bold_column_1 bold_column_3",
-"	Function Nature		| Description					| Exmaples",
+"	Function Nature		| Description					| Examples",
 "	Function		| The function will always provide a return value and can only be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );",
 "	Procedure		| The function will not provide return values and must be called as procedures.  If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);",
 "	Procedure or function	| The function can be called as procedrues or functions. Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);",
@@ -3775,126 +3843,6 @@
  ]
 	
   }
-
-,
-
-  "Basic Text Output Functions" :
-  {
-
-	"Function Names":	[ "print", "print line", "echo", "compose", "compose line" ],
-	"Keywords":			[ "output to screen", "output to strings", "text output" ],
-
-	"Documentation":	"Function Description",
-	"Synopsis":			[ "print (...)", "print line (...)", "echo (...)", "compose (...)", "compose line (...)" ],
-	"Description": 		[ "<b>print</b> outputs contents to the screen without next line and provides them as return value, too.<br/>",
-						  "<b>print line</b>: works like <b>print</b>, but adds new line at the end.	<br/>",
-						  "<b>echo</b>:       works like <b>print line</b>, but indirect parameter passing is suppressed, so if the 1st parameter is a parameter set, it will be treated as such <br/>",
-						  "<b>compose</b>:    outputs contents to return value only.  No screen output <br/>",
-						  "<b>compose line</b>: works like <b>compose</b>, but adds new line at the end.<br/>",
-						  "The values provided through the parameters will be converted to literals before outputting them<br/>"],
-	"Call as":			"procedure or function",
-	"Restrictions":		"Function 'echo': No indirect parameter passing",
-	"OS differences":	"None",
-	 "Parameter count":	"Min. 0",
-	"Parameters":
-	[
-		{ "Number": "all",
-		  "Name": "Values",
-		  "Direction": "input",
-		  "Types": [ "all types" ],
-		  "Description": "The values provided will be part of the output."
-		}
-
-	],
-	"Return value":
-	[
-		{ "Name": "Output",
-		  "Types": [ "literal" ],
-		  "Description": "Output string generated resp. printed on screen"
-		}
-
-	],
-	"Exceptions":	"none",
-"Examples" : [
-"		print('Hello '); // Without line break",
-"		echo(World); // With line break",
-"		echo(\"My name is \", system info[user name] );",
-"		echo( { This, is, a, parameter, set } ); // Output a parameter set",
-"		",
-"		// While echo(...) suppresses indirect parameter passing, the print... functions",
-"		// treat the parameter set provided as 1st parameter as actual list of function parameters.",
-"		print line( { This, is, a, parameter, set } );"
- ]
-		,
-	"Output":		"automatic"
-  }
-
-
-,
-
-"Identify variable forms (if structure, array, or simple)" :
-{
-	"Function Names":		"identify",
-	"Documentation":		"Function Description",
-	"Keywords":				[ "identify variables"  ],
-	"Synopsis": 			[ "identify( variable name );" ],
-"Description" : [
-"		This function identifies the form of the variable, i.e.<br/>",
-"		- A simple variable without any further members<br/>",
-"		- A structure with at least one member inside<br/>",
-"		- An array with at least one member inside<br>",
-"		- A zero-member array<br/>",
-"		- Or the variable is not existing (no exception asserted in this case)<br/>",
-"		Zero members arrays are close relative to simple variables with the only difference that provisions",
-"		have been made to contain variable members.  Zero member array occur when deleting all members from",
-"		the structure or array. Redimensionig (e.g. using <b>redim()</b> arrays to 0 elements result in simple variables.  ",
-"		Zero members arrarys also apply when loading",
-"		a JSON file containing empty arrays.  B4P is able to clearly distinguish between <i>null</i>",
-"		and empty arrays."
- ]
-		 ,
-	"Call as":		"function",
-	"Restrictions":	"No indirect parameter passing",
-	"Parameter count":	"1",
-	"Parameters": [
-	  {
-		 "Number": "1",
-		 "Name":		"variable name",
-		 "Direction":	"code",
-		 "Types":		["variable", ":literal"],
-		 "Description": [ "Any variable name, regardless if it is a base variable or a member" ]
-	  }
-	],
-"Examples" : [
-"		a[] = \"It's simple\";",
-"		array( b[], { Item 1, Item 2 } );",
-"		structure( c[], { red, blue }, { rot, blau } );",
-"",
-"		echo( \"a[]: \", identify(a[]), \"  b[]: \", identify(b[]), \"  c[]: \", identify(c[]), \"  d[]: \", identify(d[]) );",
-"",
-"		echo( \"b[0]: \", identify(b[0]), \"  b[2]: \", identify(b[2]) );",
-"",
-"		echo( \"c[red]: \", identify(c[red]), \"  c[green]: \", identify(c[green]), \"  c[red,yellow]: \", identify(c[red,yellow]) );",
-"		delete( c[red], c[blue]);",
-"		echo( \"c[] without members: \", identify(c[]) );",
-"",
-"		delete( b[0] );",
-"		delete( b[0] );",
-"		echo( \"b[] without members: \", identify(b[]) );",
-"",
-"		echo( \"Try with json\" );",
-"		json to variable( v[], '{ \"k\" : 12, \"l\" : { \"l1\" : 23, \"l2\" : 34 }, \"m\" : [ 45, 56 ], \"n\" : [] }' );",
-"",
-"		echo( \"Member k: \", identify(v[k]) );",
-"		echo( \"Member l: \", identify(v[l]) );",
-"		echo( \"Member m: \", identify(v[m]) );",
-"		echo( \"Member n: \", identify(v[n]) );"
- ]
-		,
-	"Output":		"automatic",
-	"See also":	[ "scope", "inspect", "existing" ]
-  }
-
 
 ,
 
@@ -6120,7 +6068,7 @@
 ">>"
  ]
 	,
-	"See also" :	[ "select ifs", "pick ifs", "select by value", "pick by value" ]
+	"See also" :	[ "interactive" ]
 }
 
 
@@ -6610,16 +6558,685 @@
 
 ,
 
-  "Set console text and background colors" :
+  "call" :
   {
-    "Function Names":	[ "text color", "background colors" ],
+	"Function Names":	[ "call" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	This function calls a B4P function with the function name provided as a literal.",
+"	The 2nd function parameter may contain a parameter set which will then be passed as function parameters to the targeted function.",
+"	User-defined functions can be referenced here, but no flow-control functions and functions requiring code pieces in their",
+"	parameters such as __table proces(__), __pick if(__), etc."
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		[ "Indirect parameter passing is disabled", "Limited choice of function names, see above" ],
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Function name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":  "The name must refer to an existing B4P or user-defined function."
+		},
+		{ "Number": "2",
+		  "Name": "Function parameters",
+		  "Direction": "input",
+		  "Types": [ "parameter set" ],
+"Description" : [
+"			The values in the parameter set will be provided as function parameters to the target function"
+ ]
+		  
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Return value",
+		  "Types": [ "all types" ],
+		  "Description": "It is the return value as provided by the specified target function"
+		}
+	],
+"Examples" : [
+"	define function( diag, { { value 1, numeral }, { value 2, numeral } } )",
+"	{",
+"		return( sqrt( value 1[] * value 1[] + value 2[] * value 2[] ) );",
+"	}",
+"",
+"	for all parameters( { diag, sum, product }, function name[]  )",
+"	{",
+"		echo( \"Call \", function name[], \"(3,4): \", call( function name[], { 3, 4 } ) );",
+"	}"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "deep", "deepr", "define function" ]
+}
+
+
+,
+
+  "deep, deepr" :
+  {
+	"Function Names":	[ "deep", "deepr" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		These functions complement the __deep operators (e.g. +^) where the specified function will be applied on all elements in the parameter sets provided.",
+"		The depth is also adjustable and is by default 1 (corresponding to operators like +^), but can also be increased (e.g. 2 corresponding  to +^^)",
+"		to process contents in 2-dimensinoal matrices.",
+"		<br><br>",
+"		Restrictions:<br>",
+"		* No flow control functions",
+"		* Functions taking code pieces must take them as strings.  The variables in the code piece are used as given (no deep operations).",
+"		* For functions with I/O parameters, e.g. exchange(), the function itself will be called successfully, but resulting parameters will not be written back.",
+"		Allowed: User defined functions.",
+"		<br><br>",
+"		The differences in the functions deep and deepr come into effect if the size of the parameter sets are different so the remaining elements in the shorter sets ",
+"		need to be repeated or padded with 0 or 1 as long they are not treated as scalars:",
+"		<br><br>",
+"		<b>deep</b>:  Elements are padded with 0 or, if 4th parameter (padding) is available, with the padding value.  Example: <b>{1,2} --> {1,2,0,0,0,0}</b> if largest parameter has 6 elements<br>",
+"		<b>deepr</b>: Elements are repeated over and over again^.  Example: <b>{1,2} --> {1,2,1,2,1,2}</b> if largest parameter has 6 elements.  If the number of elements is 0, then padding is used (see <b>deep</b>).",
+""
+ ]
+	,
+
+	"Call as":			"procedure or function",
+	"Parameter count":	"2, 4",
+	"Restrictions":		[ "Indirect parameter passing is disabled", "Limited choice of function names, see above" ],
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Function name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":  "The name must refer to an existing B4P or user-defined function."
+		},
+		{ "Number": "2",
+		  "Name": "Function parameters",
+		  "Direction": "input",
+		  "Types": [ "parameter set" ],
+"Description" : [
+"			At least one element in this parameter set must in turn be a parameter set which will be processed individually."
+ ]
+		  
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Depth",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description":  "The name must refer to an existing B4P or user-defined function."
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "Padding vluae",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+		  "Default value": "0",
+		  "Description":  "This value will be used to fill up parameter sets so the number of elements are the same before processing them"
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Return value",
+		  "Types": [ "all types" ],
+		  "Description": "It is the return value as provided by the specified target function"
+		}
+	],
+"Examples" : [
+"	echo(new line, \"Processing 2 vectors of equal sizes:\");",
+"	a[] = {1..6};  b[] = 7 -^ a[];                  // Output: b[] contains {6,5,4,3,2,1}",
+"",
+"	echo( deep ( sum, {a[], b[]} ) );               // {7,7,7,7,7,7}",
+"	echo( deepr( sum, {a[], b[]} ) );               // {7,7,7,7,7,7}",
+"",
+"	echo(new line, \"Processing 1 vector and 1 scalar:\");",
+"	a[] = {1..6};                                   // Output:",
+"	echo( deep( sum, {a[], 10} ) );                 // {11,12,13,14,15,16}, same also for deepr",
+"	echo( deep( sum, {20, a[]} ) );                 // {21,22,23,24,25,26}, same also for deepr",
+"",
+"",
+"	echo(new line, \"Processing with 2 vectors of different sizes:\", new line,",
+"				   \"Shorter vectors are extended to match length of longest one:\");",
+"	a[] = {1..6};  b[] = {10,20};                   // Output:",
+"",
+"	echo( deep ( sum, {a[], b[]} ) );               // {11,22,3,4,5,6}  (shorter vector padded with 0)",
+"	echo( deep ( sum, {a[], b[]}, 1, 0) );          // {11,22,3,4,5,6}  (shorter vector padded with 0)",
+"	echo( deep ( sum, {a[], b[]}, 1, 1) );          // {11,22,4,5,6,7}  (shorter vector padded with 1)",
+"	echo( deepr( sum, {a[], b[]} ) );               // {11,22,13,24,15,26} (shorter vector repeated)",
+"",
+"	echo( deep ( product, {a[], b[]} ) );           // {10,40,0,0,0,0}",
+"	echo( deep ( product, {a[], b[]}, 1, 0 ) );     // {10,40,0,0,0,0}",
+"	echo( deep ( product, {a[], b[]}, 1, 1 ) );     // {10,40,3,4,5,6}",
+"	echo( deepr( product, {a[], b[]} ) );           // {10,40,30,80,50,120}",
+"",
+"	echo(new line, \"Example with 3 vectors of different sizes:\");",
+"	a[]={1}; b[]={10,11}; c[]={100,101,102};        // Output",
+"	echo( deep ( sum, {a[],b[],c[]} ) );            // {111,112,102}",
+"	echo( deep ( sum, {a[],b[],c[]}, 1, 1 ) );      // {111,113,104}",
+"	echo( deepr( sum, {a[],b[],c[]} ) );            // {111,113,113}",
+"",
+"	echo(new line, \"Example with 2-dimensional Vectors:\");",
+"	a[] = {{1..5},{11..15},{21..25}};",
+"	b[] = a[]*^^2;	                                // b[] contains {{2,4,6,8,10},… } all values doubled",
+"	echo( deep( sum, {a[], 1}, 2 ) );               // {{2,3,4,5,6},{12,13,14,15,16},{22,23,24,25,26}}",
+"	echo( deep( sum, {a[], {1,2,3}},2 ) );          // {{2,3,4,5,6},{13,14,15,16,17},{24,25,26,27,28}}",
+"	echo( deep( sum, {a[],b[]}, 2) );               // {{3,6,9,12,15},{33,36,39,42,45},{63,66,69,72,75}}"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "call" ]
+}
+
+
+,
+
+  "statements" :
+  {
+	"Function Names":	[ "statements" ],
+	"Documentation":	"Function Description",
+	"Keywords": "statements (function)",
+"Description" : [
+"		This function executes the statement either formulated as direct code or provided in a string."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"1",
+	"Restrictions":		[ "Indirect parameter passing is disabled"  ],
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"statement to execute",
+		 "Direction":	"code",
+		 "Types":		["statements", ":literal"],
+		 "Description": ""
+	  }
+    ],
+"Examples" : [
+"	st[] = \"for (a[] = 1, a[] <= 3, a[]++) echo(a[]);\";",
+"",
+"	statements( for (a[] = 1, a[] <= 3, a[]++) echo(a[]) ) ;",
+"	statements( :st[] );",
+"",
+"	// Note the required colon.  Otherwise st[] is seen as an incomplete statement."
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "expression (function)" ]
+}
+
+
+,
+
+  "expression" :
+  {
+	"Function Names":	[ "expression" ],
+	"Documentation":	"Function Description",
+	"Keywords": "expression (function)",
+"Description" : [
+"		This function executes the expreesion either formulated as direct code or provided in a string. The return value will be provided as calculated in the expression"
+ ]
+	,
+	"Call as":			"procedure or function",
+	"Parameter count":	"1",
+	"Restrictions":		[ "Indirect parameter passing is disabled"  ],
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"expression to execute",
+		 "Direction":	"code",
+		 "Types":		["expression", ":literal"],
+		 "Description": ""
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Return value",
+		  "Types": [ "all types" ],
+		  "Description": "It is the return value as provided by the specified expression"
+		}
+	],
+"Examples" : [
+"	ex[] = \"sqrt( x[]*x[] + y[]*y[] )\";",
+"	x[] = 3;",
+"	y[] = 4;",
+"",
+"	r[] = expression( sqrt( x[]*x[] + y[]*y[] ) );",
+"	echo(\"Output r[] = \", r[] );",
+"",
+"	r[] = expression( : ex[] );",
+"	echo(\"Output r[] = \", r[] );",
+"",
+"	// Note the required colon.  Otherwise ex[] as variable is returned."
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "statements (function)", "compare (function)" ]
+}
+
+
+,
+
+  "compare" :
+  {
+	"Function Names":	[ "compare" ],
+	"Documentation":	"Function Description",
+	"Keywords": "compare (function)",
+"Description" : [
+"		This function performs a comparing between 1st parameter (a value) and 2nd parameter containing a code piece or literal containing the __comparison expression__."
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"2",
+	"Restrictions":		[ "Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"Value to compare",
+		 "Direction":	"input",
+		 "Types":		["all types"],
+		 "Description": "This value will be compared with the comparison expression in the 2nd function parameter."
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"Comparison expression",
+		 "Direction":	"code",
+		 "Types":		["comparison expression", ":literal"],
+"Description" : [
+"			This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '<>'.  Single values,",
+"			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
+"			literal is of type __softquoted literal__."
+ ]
+		  
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Comparison result",
+		  "Types": [ "boolean" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	a[] = 3; b[] = 5; c[] = 7;",
+"	ex[] = \">6\";",
+"",
+"	echo(\"Greater than 4: \", compare( a[],  >4 ), \" \", compare( b[],  >4 ), \" \", compare( c[],  >4 ) );",
+"	echo(\"Greater than 6: \", compare( a[],:ex[]), \" \", compare( b[],:ex[]), \" \", compare( c[],:ex[]) );",
+"",
+"	// Note the required colon.  Otherwise ex[] is seen as variable to compare with."
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "expression (function)" ]
+}
+
+
+,
+
+  "assign" :
+  {
+	"Function Names":	[ "assign" ],
+	"Documentation":	"Function Description",
+	"Keywords": "assign (function)",
+"Description" : [
+"		This function assigns a value to a variable which is specified in the 1st function parameter containing a code piece or literal containing the assignment destination."
+ ]
+	,
+	"Call as":			"procedure",
+	"Parameter count":	"2",
+	"Restrictions":		[ "Indirect parameter passing is disabled" ],
+	"Parameters":
+	[
+	  {
+		 "Number":		"1",
+		 "Name":		"destination variable",
+		 "Direction":	"code",
+		 "Types":		["variable", ":literal"],
+		 "Description": ""
+	  },
+	  {
+		 "Number":		"2",
+		 "Name":		"Value to assign",
+		 "Direction":	"input",
+		 "Types":		["all types"],
+"Description" : [
+"			The specified value provided in this parameter will be assigned in the target variable."
+ ]
+		  
+	  }
+	],
+"Examples" : [
+"	v[] = \"b[]\";",
+"",
+"	assign(  c[]  , 456 );",
+"	assign( :v[]  , 123 );",
+"	assign( :\"d[]\", 789 );",
+"	// Note the required colon.  Otherwise v[] is the variable to assign to.",
+"",
+"	echo(\"Variable b[] = \", b[] );",
+"	echo(\"Variable c[] = \", c[] );",
+"	echo(\"Variable d[] = \", d[] );"
+ ]
+	,
+	"Output": "automatic",
+	"See also" :	[ "statements (function)", "expression (function)" ]
+}
+
+
+,
+
+"echo, print ..." :
+{
+  "Function Names":	[ "echo", "print", "print line" ],
+  "Documentation":	"Function Description",
+"Description" : [
+"    The following functions compose the contents in the function parameters into one string and outputs them on the screen.<br>",
+"    <b>echo</b> outputs the contents onto the screen, followed by new line. Indirect parameter passing is disabled, so parameter sets provided",
+"    in the 1st function parameter will not be interpreted as individual function parameters but is considered as an actual parameter set value.<br>",
+"    <b>print line</b> works like <b>echo</b>, but indirect parameter passing is enabled.  E.g. <b>print({a,1});</b> is treated as <b>print(a,1);</b>.",
+"    <b>print</b> works like <b>print line</b>, but stays on the same line afterwards (no 'new line'.)",
+"",
+"    <br><br>",
+"    In addition of outputting the composed string onto the screen, it is available as return value, too.",
+"   "
+ ]
+    ,
+    "Call as":			"procedure or function",
+    "Restrictions":		"Indirect parameter passing is disabled for function 'echo'.",
+    "Parameter count":	"Min 0",
+    "Parameters":
+    [
+        { "Number": "1, ...",
+          "Name": "Contents",
+          "Direction": "input",
+          "Types": [ "all types" ],
+          "Description": ["Contents to be output"]
+        }
+
+    ],
+    "Return value":
+    [
+        { "Name": "Composed string",
+          "Types": [ "literal" ],
+          "Description": "Same contents as output to the console"
+        }
+    ],
+"Examples"  : [
+"    c[] = 3+5*2;",
+"    a[] = echo( \"Calculation: \", c[], \" compared with 13 gives \", c[]==13, \".\" );",
+"    echo(\"Return value: \", a[] );",
+"    r[] = print(\"Note the line break ... \" );",
+"    print(r[]); // Repeat",
+"    print (\"in a[] at the end.\");",
+"    echo;",
+"    echo;",
+"",
+"    s[] = { \"Calculation: \", c[], \" compared with 13 gives \", c[]==13, \".\" };",
+"    echo(\"Output parameter set with 'echo':\");",
+"    echo( s[] );",
+"    echo(\"Output parameter set with 'print line':\");",
+"    print line( s[] );"
+ ]
+    ,
+    "Output": "automatic",
+    "See also": ["compose", "compose line" ]
+},
+
+
+"compose ..." :
+{
+  "Function Names":	[ "compose", "compose line" ],
+  "Documentation":	"Function Description",
+"Description" : [
+"    The functions <b>compose</b> and <b>compose line</b> work similarly like __print(__) and __print line(__).  The only difference is that",
+"    only the composed string will be returned as return value, but nothing is output onto the console."
+ ]
+    ,
+    "Call as":			"procedure or function",
+    "Restrictions":		"Indirect parameter passing is enabled",
+    "Parameter count":	"Min 0",
+    "Parameters":
+    [
+        { "Number": "1, ...",
+          "Name": "Contents",
+          "Direction": "input",
+          "Types": [ "all types" ],
+          "Description": ["Contents to be output"]
+        }
+
+    ],
+    "Return value":
+    [
+        { "Name": "Composed string",
+          "Types": [ "literal" ],
+          "Description": "Same contents as output to the console"
+        }
+    ],
+"Examples"  : [
+"    c[] = 3+5*2;",
+"",
+"    a[] = compose line( \"Calculation: \", c[], \" compared with 13 gives \", c[]==13, \".\" );",
+"    echo(\"The composed string using 'compose line' is\", new line, a[], \"... Done ...\" );",
+"",
+"    a[] = compose ( \"Calculation: \", c[], \" compared with 13 gives \", c[]==13, \".\" );",
+"    echo(\"The composed string using 'compose' is\", new line, a[], \"... Done ...\" );"
+ ]
+    ,
+    "Output": "automatic",
+    "See also": ["compose", "compose line" ]
+}
+
+,
+
+"input" :
+{
+  "Function Names":	[ "input" ],
+  "Documentation":	"Function Description",
+"Description" : [
+"    This function prompts a message on the screen (asking for user input) and then expects user input for a variable.",
+"    Type and value checking can be enabled if needed, e.g. numbers only, integers with in a specific range, etc."
+ ]
+    ,
+    "Call as":			"function",
+    "Restrictions":		"Indirect parameter passing is disabled.",
+    "Parameter count":	"1-3",
+    "Parameters":
+    [
+      { "Number": "1",
+        "Name": "Prompt",
+        "Direction": "input",
+        "Types": [ "literal" ],
+        "Description": ["The prompt will be displayed before input is requested"]
+      },
+      { "Number": "Opt. 2",
+        "Name": "Checked value type",
+        "Direction": "input",
+        "Types": [ "literal" ],
+        "Default value": "literal",
+"Description" : [
+"            Use one of the following values:",
+"            === 200, 600, noframe_1stcolbold, noheader",
+"            literal     | A literal string is expected.  Actually, all inputs (even number, true, false, {a,b,}) are treted literally. No input is rejected for its contents.",
+"            numeral     | A numeral is expected",
+"            integer     | An integer is expected (no digits behind decimal point)",
+"            character   | Expects exactly 1 character.  Blank inputs are rejected as well as inputs containing more than 1 character.",
+"            boolean     | Expects boolean value true or false.  Following replies will be translated: true, t, yes, y, 1 ='true'; false, f, no, n, 0 for = 'false'. Input is not case sensitive.",
+"            date        | Valid and unambiguous date expected",
+"            time        | Valid time expected (e.g. hh:mm, hh:mm:ss)",
+"            date and time | Expects combination of date and time",
+"            ===",
+"            If the entered value does not match with the tpye, then the user will be requested to repeat the input."
+ ]
+            
+      },
+      {
+        "Number":		"Opt. 3",
+        "Name":		"Validation expression",
+        "Direction":	"code",
+        "Default value": "true (no limitations)",
+        "Types":		["comparison expression", ":literal"],
+"Description" : [
+"            If the entered value does not match with the tpye, then the user will be requested to repeat the input.",
+"            ",
+"            <br><br>",
+"",
+"            This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '<>'.  Single values,",
+"            ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
+"            literal is of type __softquoted literal__."
+ ]
+          
+      }
+    ],
+    "Return value":
+    [
+        { "Name": "Entered value",
+          "Types": [ "valid types" ],
+          "Description": "The value entered is returned, using the appropriate type."
+        }
+    ],
+"Examples"  : [
+"    a[] = input(\"Enter both date and time: \", date and time  );",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input(\"Enter any value: \");",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input(\"Enter any integer greater than or equal to 3: \", integer, >=3);",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input(\"Enter one lower-case latin character: \", character, 'a'..'z');",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input(\"Enter a boolean value (true, false, y, n, ... ): \", boolean);",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input(\"Enter a date in 2020: \", date, date(01.01.2020)..date(31.12.2020) );",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input(\"Enter a time before 15:00 \", time, <time(\"15:00\") );",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );"
+ ]
+    ,
+    "Output": [ "savecode" ],
+    "See also": [ "input quick" ]
+}
+
+
+,
+
+"input quick ..." :
+{
+  "Function Names":	[ "input quick", "input quick ignore case" ],
+  "Documentation":	"Function Description",
+"Description" : [
+"    These two functions prompts a message on the screen (asking for user input) and then expects user input for a single character.",
+"    The character will be read in immediately without [Enter] to be pressed afterwards.  Optioally, the 2nd function parameter may contain",
+"    a collection of allowed characters.  The function <b>input quick ignore case</b> ignore case while checking with the allowed characters",
+"    and the returned character is in upper case.",
+" ",
+""
+ ]
+    ,
+    "Call as":			"function",
+    "Restrictions":		"Indirect parameter passing is disabled.",
+    "Parameter count":	"1, 2",
+    "Parameters":
+    [
+      { "Number": "1",
+        "Name": "Prompt",
+        "Direction": "input",
+        "Types": [ "literal" ],
+        "Description": ["The prompt will be displayed before input is requested"]
+      },
+      { "Number": "Opt. 2",
+        "Name": "Allowed characters",
+        "Direction": "input",
+        "Types": [ "literal" ],
+        "Description": ["Put all allowed characters into the string.  Execution will only continue if the check is OK."]
+      }
+    ],
+    "Return value":
+    [
+        { "Name": "Entered character",
+          "Types": [ "literal" ],
+          "Description": ""
+        }
+    ],
+"Examples"  : [
+"    a[] = input quick ignore case(\"Enter N/Y/1/0 \", ny10 );",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );",
+"",
+"    a[] = input quick (\"Enter äbcdé (lower case only, note the accents): \", äbcdé );",
+"    echo(\"Entered value is : \", a[],\"   The type is : \", type (a[]) );"
+ ]
+    ,
+    "Output": [ "savecode" ],
+    "See also": [ "getch", "getch ignore case", "input", "table menu" ]
+}
+
+
+,
+
+"getch ..." :
+{
+  "Function Names":	[ "getch", "getch ignore case" ],
+  "Documentation":	"Function Description",
+"Description" : [
+"    These two functions read one single character without need to push [Enter] and without the charactered echoed on the screen which is ",
+"    the case in the functions __input quick(__) and __input quick ignore case(__).",
+""
+ ]
+    ,
+    "Call as":			"function",
+    "Restrictions":		"Indirect parameter passing is disabled.",
+    "Parameter count":	"0 or 1",
+    "Parameters":
+    [
+      { "Number": "Opt. 1",
+        "Name": "Allowed characters",
+        "Direction": "input",
+        "Types": [ "literal" ],
+        "Description": ["Put all allowed characters into the string.  Execution will only continue if the check is OK."]
+      }
+    ],
+    "Return value":
+    [
+        { "Name": "Entered character",
+          "Types": [ "literal" ],
+          "Description": ""
+        }
+    ],
+"Examples"  : [
+"    do",
+"    {",
+"        echo(\"Enter a character between 'a' and 'e'. 'x' = exit\");",
+"        ch[] = getch ignore case( abcdex );",
+"        echo(\"Character entered: \", ch[] );",
+"    } while (ch[] <> X);",
+"    echo(\"Done.\");"
+ ]
+    ,
+    "Output": [ "savecode" ],
+    "See also": [ "input quick", "input quick ignore case" ]
+}
+
+
+,
+
+  "text / background color" :
+  {
+    "Function Names":	[ "text color", "background color" ],
     "Documentation":	"Function Description",
     "Keywords":			[ "font color", "foreground color", "screen color" ],
-    "Synopsis":			[ "text color ( ... );", "background color ( ... );" ],
     "Description":		[ "Standard and portable approach to set the text and background colors on the console.",
                           "This function memorizes one previous text and background color (and not more) and can be recalled with color name 'previous'." ],
     "Call as":			"procedure or function",
-    "Restrictions":		"No indirect parameter passing",
+    "Restrictions":		"Indirect parameter passing is disabled",
 "OS differences" : [
 "            Windows: Uses console attribute system calls.",
 "            LINUX / MACOS: Terminal chosen to use must support escape sequences.  Scrolling up the entire row at the bottom fills the new row with current background color."
@@ -6648,6 +7265,7 @@
     ],
     "Exceptions":	"none",
 "Examples"  : [
+"    savecode",
 "    echo( Default color );",
 "    text color( red ); // Will not show up in red in this documentation",
 "    echo( Red text );",
@@ -6667,15 +7285,14 @@
 
 ,
 
-  "Set cursor positions" :
+  "cursor" :
   {
     "Function Names":	[ "cursor" ],
     "Documentation":	"Function Description",
     "Keywords":			[ "cursor position", "move cursor" ],
-    "Synopsis":			[ "text color ( ... );", "background color ( ... );" ],
     "Description":		[ "The cursor will be moved to a specified location on the screen." ],
     "Call as":			"procedure",
-    "Restrictions":		"No indirect parameter passing",
+    "Restrictions":		"Indirect parameter passing is disabled",
 "OS differences" : [
 "            Windows: Uses console attribute system calls.",
 "            LINUX / MACOS: Terminal chosen to use must support escape sequences."
@@ -6700,6 +7317,7 @@
     ],
     "Exceptions":	"none",
 "Examples"  : [
+"    savecode",
 "    cursor( 5, 3 );",
 "    echo( \"Text appears on row 3, column 5\" );"
  ]
@@ -6713,18 +7331,18 @@
 
 ,
 
-  "Clear screen" :
+  "cls" :
   {
     "Function Names":	[ "cls" ],
     "Documentation":	"Function Description",
     "Keywords":			[ "clear the screen" ],
-    "Synopsis":			[ "cls;" ],
     "Description":		[ "Clear the screen" ],
     "Call as":			"procedure",
-    "Restrictions":		"No indirect parameter passing",
+    "Restrictions":		"Indirect parameter passing is disabled",
     "Parameter count":	"0",
     "Exceptions":	"none",
 "Examples"  : [
+"    savecode",
 "    cls;",
 "    echo( \"Text appears on the top of the empty screen\" );"
  ]
@@ -11416,6 +12034,175 @@
 
 ,
 
+"tokenize":
+{
+	"Function Names":	[ "tokenize" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function breaks a string into individual token (pieces), returning them as a parameter set of literals or other types, depending on the",
+"		settings provided in the 2nd function parameter.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1-2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+	  { "Number": "1",
+		  "Name": "input string",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": [ "This string will be tokenized" ]
+	  },
+	  {
+		 "Number":		"Opt. 2",
+		 "Name":		"Options",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+"Description" : [
+"			Specify one or more options.  Formulation rules (applicable to 2nd-7th function parameters):",
+"				* Use a literal to specify one value",
+"				* Use parameter set to specify multiple values",
+"				* Alternatively use a softquoted literal (using single quotation marks) to specify multiple values, separated by commas",
+"				* No values can be provided by using empty set {} or blank softquoted literal ''.",
+"",
+"			Following options are supported",
+"			=== 200, 600, noheader, noframe_1stcolbold",
+"			include blanks				| Blank contents (between separators) are also recognized as contents and will not be ignored / skipped.",
+"			trim token					| Leading and trailing white spaces (UNICODE 0 - 32) such as spaces, new lines, tabs, etc. will be removed from the token contents.  Non-break blanks (UNICODE 160) are excluded from this rule.",
+"			allow new line inside quotations | Normally, line breaks in texts inside specified quotation marks will generate exceptions with error messages.  This option will suppress exceptions and treat new lines like part of text.",
+"			include quotations in text	| The text returned will also include the quotation symbol.  Quotations may consist of more than 1 character, e.g. &lt;&lt; ... &gt;&gt;.",
+"			include quotations as tokens | The quotation symbols will be returned as dedicated tokens",
+"			read numeral				| Tokenized contents looking like numbers will be included as tokens of numeral type",
+"			scientific notation			| Tokenized contents looking like numbers with or without scientific notation will be included as tokens of numeral type",
+"			read date					| Tokenized contents looking like dates will be read as dates",
+"			read boolean				| Tokenized contents looking like booleans (true, false) will be read as boolean values",
+"			thousand separator			| (Next element must contain the character)  Assumptions for numbers in the input string. Default: -",
+"			decimal separator			| (Next element must contain the character)  Assumptions for numbers in the input string. Default: .",
+"			==="
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 3",
+		 "Name":		"Separator strings",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+		 "Default value": "{' ', new line } (blank and new line)",
+"Description" : [
+"			Specify at least 1 separator string (e.g. blank, comma, tab, slash, etc).  The string may contain multiple characters.  In this case, the sequence of these multiple",
+"			characters combined represent the separation, e.g. { \"//\", \"...\" } specified.",
+"			",
+"			<br><br>Formulation rules: See 2nd function parameter."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 4",
+		 "Name":		"Quotation marks",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+		 "Default value": "(quotation marks not assumed)",
+"Description" : [
+"			If one literal used: considered for opening and closing.  Example:  \"Hello World\"<br>",
+"			If 2 literals used: Separate for opening and closing.  Example: &lt;&lt;Hello World&gt;&gt;<br>",
+"			If number of quotation marks provided is odd, then the last quotation mark applies both as opening and closing quotation marks.",
+"			Multi-character quotation marks, e.g. &lt;TEXT&gt;Hello World&lt;/TEXT&gt; are also allowed.",
+"",
+"			<br><br>Formulation rules: See 2nd function parameter."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 5",
+		 "Name":		"Additional tokens",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+		 "Default value": "(none specified)",
+"Description" : [
+"			Collection of token symbols to be parsed separately and suitable for categorization.  ",
+"			This is specifically important if these tokens follow without separators (e.g. white spaces) in-between.  ",
+"			You can also assign multi-character tokens, e.g. \"&lt;=\", \"&lt;&gt;\", \"while\", \"for\", etc.",
+"",
+"			<br><br>Formulation rules: See 2nd function parameter."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 6",
+		 "Name":		"Block comment symbols",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+		 "Default value": "(none specified)",
+"Description" : [
+"			Pairwise collection of opening and closing block comment symbols, e.g. { \"/&#42;\", \"&#42;/\", \"&lt;--\", \"--&gt;\" }.",
+"			Contents commented out will not be tokenized.",
+"",
+"			<br><br>Formulation rules: See 2nd function parameter."
+ ]
+			
+	  },
+	  {
+		 "Number":		"Opt. 7",
+		 "Name":		"Line comment symbols",
+		 "Direction":	"input",
+		 "Types":		["parameter set or literal"],
+		 "Default value": "(none specified)",
+"Description" : [
+"			Specify all comment symbols which declare the rest of the line as comment, e.g. { \"//\", \"#!\" }.",
+"			Contents commented out will not be tokenized.",
+"",
+"			<br><br>Formulation rules: See 2nd function parameter."
+ ]
+			
+	  }
+	],
+	"Return value":
+	[
+		{ "Name": "Tokenized result",
+		  "Types": [ "parameter set" ],
+		  "Description": "Every token is represented as an element in the parameter set"
+		}
+	],
+"Examples" : [
+"	echo( new line, \"Basic use of tokenize. Separators are blank and new line\" );",
+"	echo( tokenize( \"This   is a\" + new line + \" test\" ) );",
+"",
+"	echo( new line, \"Demonstrate 'include blanks' and 'trim token'\" );",
+"	echo( tokenize( \",Ha, He ,,Hi,\", '', \",\" ) );",
+"	echo( tokenize( \",Ha, He ,,Hi,\", include blanks, \",\" ) );",
+"	echo( tokenize( \";Ha; He ,,Hi,\", trim token, {\",\",\";\"} ) );",
+"	echo( tokenize( \",Ha, He ,,Hi,\", {include blanks, trim token}, \",\" ) );",
+"",
+"	echo( new line, \"New line inside quotations allowed\" );",
+"	echo( tokenize( \"'Me, and\"+new line+\"You','and us'\" , allow new line inside quotations, \",\", \"'\" ) );",
+"",
+"	echo( new line, \"Demonstrate usage of quotations\" );",
+"	echo( tokenize( \"<text>A gnu</text>,<text>A gnat</text>\" , '', \",\", { \"<text>\", \"</text>\" } ) );",
+"	echo( tokenize( \"<text>A gnu</text>,<text>A gnat</text>\" , include quotations as tokens, \",\", { \"<text>\", \"</text>\" } ) );",
+"",
+"	echo( new line, \"Read numerals, dates, booleans\" );",
+"	echo( tokenize( \"1 true 1E+3 FALSE text 2020-05-07 15:30:00\", { read numerals, scientific notation, read dates, read booleans } ) );",
+"",
+"	echo( new line, \"Thousand and Decimal separators\" );",
+"	echo( tokenize( \"1,234 1.234\", { read numerals, thousand separator, \".\", decimal separator, \",\" } ) );",
+"",
+"	echo( new line, \"Additional tokens\" );",
+"	echo( tokenize( \"for a=1to5 'do something'\", {}, \" \", \"'\", { \"=\", to, for } ) );",
+"",
+"	echo( new line, \"Ignore comments\" );",
+"	echo( tokenize( \"for a=1to5 /: for a = 3 to 4 :/ 'do something'\", {}, \" \", \"'\", { \"=\", to, for }, { \"/:\", \":/\" } ) );",
+"	echo(tokenize(\"for a=1to5 // 'do something'\", {}, \" \", \"'\", { \"=\", to, for }, { }, \"//\"));"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "parameter set"  ]
+}
+
+,
+
 "code":
 {
 	"Function Names":	[ "code" ],
@@ -11627,6 +12414,48 @@
 	,
 	"Output": "automatic",
 	"See also": [ "chr", "decode entities"  ]
+}
+
+,
+"random string, random letters":
+{
+	"Function Names":	[ "random string", "random letters" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		This function creates a string containing random upper-case characters from A..Z and digits 0..9. ",
+"		The function <b>random letters</b> generates strings with upper-case characters from A..Z only.",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "character count",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description": [ "Specifies the number of random characters in the string." ]
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Generated random string",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+	],
+	"Exceptions": "Invalid character code (outside 0 - 1114111 range)",
+"Examples" : [
+"	for (i[] = 1, i[] <= 5, i[]++)",
+"	{",
+"		echo( random string( 10 ), \" \", random letters( 10 ) );",
+"	}"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "random"  ]
 }
 
 ,
