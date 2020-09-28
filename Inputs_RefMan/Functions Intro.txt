@@ -7,40 +7,51 @@ B4PDOCU.START
     "Feature Names":		[ "Functions and Procedures" ],
     "Description 01:Introduction"::
 
-	Functions and procedures are subroutines which can be called using their name.  For simplicity, all such subroutines will be referred to as
-	<i>functions</i> throughout the B4P documentation, regardless if they are called up as procedures (without using the return value provided)
-	or as functions (with return values being used).  B4P provides an extensive library of standard functions, with focus on processing
-	sophisticated tables and data structures.  In addition, you can define your own __user functions__ or even create own libraries containing
-	user functions.
+	B4P provides an extensive library of standard functions with an emphasis on processing complex tables and data structures.  In addition, you can define your own __user functions__ or even create own libraries containing user functions.  
+	<br>
+	<br>
+	Functions and procedures are subroutines that can be called up using their name.  For simplicity, all such subroutines are referred to as <i>functions</i> throughout the B4P documentation, regardless of whether they provide a return value (as functions) or not (as procedures).
+	
+	<br>
+	<br>
+	<b>FUNCTION NAMING FEATURES AND CONVENTIONS</b>
+	<br>
+	Unlike virtually any other programming language, <b>B4P function names may consist of multiple words with spaces and special characters inbetween</b>, allowing natural, intuitive, and readable naming of highly complex functions in plain, clear language. This allows specialized functions to be easily remembered, understood, and shared by members of a team for future use.
 
-	<br><br>
-
-	Different from quasi all other programming languages, B4P function names may consist of multiple words with spaces inbetween.
-	Function names are case sensitive and always specified as as unquoted literals, i.e. quotation marks are not allowed in order to refer
-	to a fancy function name.  Because function names are unquoted literals, the number of spaces (or tabs) between the individual words is
-	irrelevant, but must be at least one.  The first two function names listed below are equivalent, but the remaining ones are not.  
+	Function names are <b>case sensitive</b> and specified as as <b>unquoted literals</b>, i.e. quotation marks are not used when referring to a multi-word function name. The number of spaces (or tabs) between the individual words is irrelevant, but must be at least one.
+	
+	<br>
+	<br>
+	<b>EXAMPLES</b>
+	<br>
+	The first two function names listed below are equivalent, but all the remaining ones are not.
 
 	* <b>table process(...)</b>
-	* <b>table&nbsp;&nbsp;&nbsp;process&nbsp;&nbsp;(...);</b> // Same as 'table process'
-	* <b>tableprocess(...)</b> // 'tableprocess' differs from 'table process'
-	* <b>Table process(...)</b> // Upper case letter
-	* <b>table_process(...)</b> // <i>Snake case</i>: Underscore and other symbols differ from spaces.
-	* <b>Table-process(...)</b> // <i>Kebab case</i>: Likely wrong. Attempts to subtract return value of <b>process(...)</b> from the string 'Table'.
+	* <b>table&nbsp;&nbsp;&nbsp;process&nbsp;&nbsp;(...);</b>    // Multiple spaces is equivalent to a single space between the words 'table process'
+	* <b>Table process(...)</b>     // Upper case letter makes this distinct
+	* <b>table_process(...)</b>     // <i>Snake-case</i>: Underscore and other symbols differ from spaces.
+	* <b>table-process(...)</b>     // <i>Kebab-case: avoid dashes as separators </i>:  A dash will return value of <b>process(...)</b> substracted from the string 'table'. 
+	* <b>tableprocess(...)</b>     // Single-word 'tableprocess' differs from double-word 'table process'
+	* <b>TableProcess(...)</b>     // <i>Camel case</i>: Capitalized letter for each word makes it a distinct function name from 'tableprocess'
 
-	<br><br>
+	CAUTION: Avoid using the dash symbol ('-') as a word separator, as this will be interpreted as a subtraction sign and result in the mathematical operation being carried out. 
+	<br>
+	<br>
 
-	Functions may require no, a fixed number or a variable number of __function parameters__ with different __function parameter directions__.
+	<br>
+	<b>FUNCTION PARAMETERS</b>
+	<br>
 
-	<br><br>
-
-	The difference between procedures and functions is that procedures do not provide return values but functions do.  Where allowed,
-	functions can also be called as procedures.
+	Functions may require either none, a fixed number,  or a variable number of __function parameters__ with different __function parameter directions__.
+	<br>
+	<br>
+	The difference between procedures and functions is that procedures do not provide return values but functions do.  Where allowed, functions can also be called as procedures.  
 
 	=== 200, 600, 200, bold_column_1 bold_column_3
 	Function Nature		| Description					| Examples
-	Function		| The function will always provide a return value and can only be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );
-	Procedure		| The function will not provide return values and must be called as procedures.  If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);
-	Procedure or function	| The function can be called as procedrues or functions. Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);
+	Function		| * Always provides a return value <br) * Must be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );
+	Procedure		| * Does not provide return values  <br> * Must be called as procedures. <br> * If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);
+	Procedure or function	| * The function can be called as procedrues or functions. <br> * Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);
 	Control flow functions	| __Control flow functions__ require a succeeding statement or code block which will be executed as specified by these functions.  The __if(__) statement is one of them. | if (a[]=1) echo("is 1");
 	===	
 
