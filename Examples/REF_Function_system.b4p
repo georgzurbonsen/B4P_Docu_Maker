@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+    path[] = quote path("*table_lookup*.*");
+    echo("Path used for directory: ", path[]);
+
+    if (system info[operating system] = Windows)
+    {
+        a[] = system( "dir /w /b " + path[] );
+    }
+    else // Linux, MacOS
+    {
+        a[] = system( "ls " + path[] );
+    }
+    echo("Return value is ", a[] );

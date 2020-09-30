@@ -71,6 +71,7 @@ define procedure( gather input docu )
 	    echo		( "  Scan ", file name[] );
 	    table load		( code, file name[], TEXT );
 	    table configure	( code, read numerals, no );
+	    st2[] = ""; // Clear string to gather multiple lines of text.
 	    table process	( code, 
 		if ( [0]='*B4PDOCU.STOP*' )
 		{
@@ -98,12 +99,22 @@ define procedure( gather input docu )
 			{
 			    table append  ( json extract, { ' ]', st[] - '+++'} );
 			    full line mode[] = 0;
+			    st2[]= "";
 			}
-			else
+			else // in midst the full ine mode.
 			{
-			    if (full line mode[]++ > 1) table append on same field ( json extract, ',' );
-			    substitute all( st[], {'\', '"'}, {'\\', '\"' } );
-			    table append( json extract, { '"' + st[] + '"' } );
+			    if (st[]=~'*\') // Ends with backslash (blanks after that are ignored)
+			    {
+				st2[] += left(trim(st[]),-1) + " ";
+			    }
+			    else
+			    {
+				st[] = st2[] + st[];
+				st2[] = "";
+			        if (full line mode[]++ > 1) table append on same field ( json extract, ',' );
+			        substitute all( st[], {'\', '"'}, {'\\', '\"' } );
+			        table append( json extract, { '"' + st[] + '"' } );
+			    }
 			}
 		    }
 		    else
@@ -578,35 +589,40 @@ define procedure( convert manuscript itemizations into HTML, { { text, all, refe
 {
 	level[] = 0; // 0 = No itemization
 	prev[] = 0;
+	ul[]  = '<ul class="bullets">';
+	ulb[] = '<ul class="blank">';
 	for all variables( text[], line[], i[] )
 	{
 		line[] = trim(line[]);
-		if (line[]{0..2} == "** ") level[]= 2;
+		if (line[]{0..2} == "** ")
+		{
+		    level[]= 2;
+		}
+
 		else: level[]= select if (line[]{0..1} == "* ", 1, 0);
 
 		switch( level[] )
 		{
 		    case (0)
 		    {
-			prefix[] = select( prev[], "", 		"</ul><p>", 	"</ul></li></ul><p>" );
+			prefix[]  = select( prev[], "", 		"</li></ul><p>", 	"</li></ul></li></ul><p>" );
 			text[i[]] = prefix[] + line[];
 		    }
 		    case (1)
 		    {
-			prefix[] = select( prev[], '</p><ul class="bullets">', 	"", 		"</ul></li>" );
-			text[i[]]  = prefix[] + '<li class="bullets">' + (line[]-"* ") + "</li>";
+			prefix[]  = select( prev[], '</p>'+ul[], "</li>", 		"</li></ul></li>" );
+			text[i[]] = prefix[] + '<li class="bullets">' + (line[]-"* ");
 		    }
 		    case (2)
 		    {
-			prefix[] = select( prev[], '</p><ul class="bullets"><li class="bullets"><ul class="bullets">', '<li class="bullets"><ul class="bullets">', 	"" );
-			text[i[]]  = prefix[] + '<li class="bullets">' + (line[]-"** ") + "</li>";
+			prefix[] = select( prev[], '</p>'+ulb[]+'<li >'+ul[], ul[], "</li>" );
+			text[i[]]  = prefix[] + '<li class="bullets">' + (line[]-"** ");
 		    }
 		}
 		prev[] = level[];
 	}
+	text[i[]] += select( prev[], "", 		"</li></ul><p>", 	"</li></ul></li></ul><p>" );
 }
-
-
 
 
 define procedure( convert manuscript tables into HTML, { { text, all, reference } } )

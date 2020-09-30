@@ -49,33 +49,43 @@ a:hover {
 
 
 
+ul.blank
+{
+  list-style: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: -20px;
+}
+
+
 ul.bullets
 {
   list-style: disc outside none;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: -20px;
 }
 
 ul ul.bullets
 {
   list-style: circle outside none;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: -20px;
 }
 
 li.bullets
 {
   line-height: 100%;  
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 0px;
+  padding-bottom: 8px;
 }
 
 li li.bullets
 {
   line-height: 100%;  
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 

@@ -46,7 +46,7 @@ OK;Body;4;B 3.3.3.3;Variables (func. params);REF_Features_Variables_(func_params
 OK;Body;4;B 3.3.3.4;Statements (func. params);REF_Features_Statements_(func_params).html;Statements (func params);Statements (func params);
 OK;Body;3;B 3.3.4;Expressions to Select Rows;REF_Features_Expressions_to_select_rows.html;Expressions to select rows;Expressions to select rows;
 OK;Body;2;B 3.4;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;Indirect parameter passing;Indirect parameter passing;
-OK;Body;1;B 4;Function Library;REF_Features_Function_Library.html;Function Library;Function Library,function library;
+OK;Body;1;B 4;Function Library;REF_Features_Function_Library.html;Function Library;Function Library;
 OK;Body;2;B 4.1;Control Flow Functions;REF_Features_Control_Flow_Functions.html;Control Flow Functions;Control Flow Functions;
 OK;Body;3;B 4.1.1;Loops;REF_Features_Loops.html;Loops;Loops;
 OK;Body;4;B 4.1.1.1;do;REF_Function_do.html;do;do,do-loop;
@@ -132,7 +132,7 @@ OK;Body;3;B 4.3.8;boolean;REF_Function_boolean.html;boolean;boolean,boolean conv
 OK;Body;3;B 4.3.9;parameter set;REF_Function_parameter_set.html;parameter set;parameter set,parameter set conversion function;
 OK;Body;3;B 4.3.10;join ...;REF_Function_join.html;join,join ignore blanks,join unique,join unique ignore blanks;join,join ignore blanks,join unique,join unique ignore blanks;
 OK;Body;3;B 4.3.11;type, type detailed;REF_Function_type.html;type,typd detailed;type,typd detailed,Identify variable types;
-OK;Body;2;B 4.4;Mathematics and Statistics;REF_Features_Mathematics_and_Statistics.html;Mathematics and Statistics;Mathematics and Statistics,mathematics and statistics;
+OK;Body;2;B 4.4;Mathematics and Statistics;REF_Features_Mathematics_and_Statistics.html;Mathematics and Statistics;Mathematics and Statistics;
 OK;Body;3;B 4.4.1;Basic Math Functions;REF_Features_basic_math_functions.html;basic math functions;basic math functions;
 OK;Body;4;B 4.4.1.1;is numeric / integer - Functions;REF_Function_is_numeric.html;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank,checking numbers;
 OK;Body;4;B 4.4.1.2;even, odd, whole;REF_Function_even.html;even,odd,whole;even,odd,whole,even numbers,odd numbers,whole numbers;
@@ -384,7 +384,7 @@ OK;Body;4;B 4.9.4.1;release;REF_Function_release.html;release;release;
 OK;Body;4;B 4.9.4.2;release all;REF_Function_release_all.html;release all;release all;
 OK;Body;3;B 4.9.5;Resident Attributes Functions;REF_Features_Resident_attributes_functions.html;Resident attributes functions;Resident attributes functions;
 OK;Body;4;B 4.9.5.1;attribute ...;REF_Function_attribute_read.html;attribute read,attribute write,attribute modify,attribute delete,attribute remove,attribute listing;attribute read,attribute write,attribute modify,attribute delete,attribute remove,attribute listing;
-OK;Body;2;B 4.10;Directory and File System Functions;REF_Features_directory_and_file_system.html;directory and file system;directory and file system,short error messages on directories and files;
+OK;Body;2;B 4.10;Directory and File System Functions;REF_Features_directory_and_file_system_functions.html;directory and file system functions;directory and file system functions;
 OK;Body;3;B 4.10.1;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;basic directory and file functions;basic directory and file functions;
 OK;Body;4;B 4.10.1.1;directory existing, file existing;REF_Function_directory_existing.html;directory existing,file existing;directory existing,file existing;
 OK;Body;4;B 4.10.1.2;read access ..., write access ...;REF_Function_read_access.html;read access,read access repeat if locked,write access,write access repeat if locked;read access,read access repeat if locked,write access,write access repeat if locked;
@@ -398,7 +398,7 @@ OK;Body;4;B 4.10.2.1;directory listing ...;REF_Function_directory_listing.html;d
 OK;Body;4;B 4.10.2.2;search files ...;REF_Function_search_files.html;search files,search files recursive;search files,search files recursive;
 OK;Body;4;B 4.10.2.3;count files ...;REF_Function_count_files.html;count files,count files recursive;count files,count files recursive;
 OK;Body;4;B 4.10.2.4;resolve path/directory/file name;REF_Function_resolve_path_name.html;resolve path name,resolve directory name,resolve file name;resolve path name,resolve directory name,resolve file name;
-OK;Body;3;B 4.10.3;Manipulating Directories and Files;REF_Features_deleting_directories_and_files.html;deleting directories and files;deleting directories and files;
+OK;Body;3;B 4.10.3;Manipulating Directories and Files;REF_Features_manipulating_directories_and_files.html;manipulating directories and files;manipulating directories and files;
 OK;Body;4;B 4.10.3.1;directory create ...;REF_Function_directory_create.html;directory create,directory create all,directory create silently;directory create,directory create all,directory create silently,directory create ... Functions;
 OK;Body;4;B 4.10.3.2;file delete ...;REF_Function_file_delete.html;file delete,file delete all,file delete silently;file delete,file delete all,file delete silently,file delete ... Functions;
 OK;Body;4;B 4.10.3.3;file delete multiple/recursive ...;REF_Function_file_delete_multiple.html;file delete multiple,file delete multiple all,file delete recursive,file delete recursive all;file delete multiple,file delete multiple all,file delete recursive,file delete recursive all,file delete multiple/recursive ... Functions;
@@ -410,7 +410,13 @@ OK;Body;4;B 4.10.3.8;file copy ...;REF_Function_file_copy.html;file copy,file co
 OK;Body;4;B 4.10.3.9;file copy mulitple/recursive ...;REF_Function_file_copy_multiple.html;file copy multiple,file copy multiple all,file copy multiple overwrite,file copy multiple overwrite all,file copy recursive,file copy recursive all,file copy recursive overwrite,file copy recursive overwrite all;file copy multiple,file copy multiple all,file copy multiple overwrite,file copy multiple overwrite all,file copy recursive,file copy recursive all,file copy recursive overwrite,file copy recursive overwrite all,file copy multiple/recursive ... Functions;
 OK;Body;4;B 4.10.3.10;file create link ...;REF_Function_file_create_link.html;file create link,file create link all,file create link silently;file create link,file create link all,file create link silently,file create link ... Functions;
 OK;Body;4;B 4.10.3.11;file download ...;REF_Function_file_download.html;file download,file download all,file download silently,file download overwrite,file download overwrite all,file download overwrite silently;file download,file download all,file download silently,file download overwrite,file download overwrite all,file download overwrite silently,file download ... Functions;
-OK;Body;2;B 4.11;Cross-Functional Info;REF_Features_Cross-functional_info.html;Cross-functional info;Cross-functional info;
-OK;Body;3;B 4.11.1;Sorting and Ranking Options;REF_Features_Sorting_options.html;Sorting options,Ranking options;Sorting options,Ranking options;
-OK;Body;3;B 4.11.2;Consolidation Actions;REF_Features_consolidation_actions.html;consolidation actions;consolidation actions;
+OK;Body;2;B 4.11;System Functions;REF_Features_system_functions.html;system functions;system functions;
+OK;Body;3;B 4.11.1;Executing System Commands;REF_Features_executing_system_commands.html;executing system commands;executing system commands;
+OK;Body;4;B 4.11.1.1;system;REF_Function_system.html;system;system;
+OK;Body;4;B 4.11.1.2;quote path;REF_Function_quote_path.html;quote path;quote path;
+OK;Body;3;B 4.11.2;Registry Access Functions;REF_Features_registry_access_functions.html;registry access functions;registry access functions;
+OK;Body;2;B 4.12;Cross-Functional Info;REF_Features_Cross-functional_info.html;Cross-functional info;Cross-functional info;
+OK;Body;3;B 4.12.1;Sorting and Ranking Options;REF_Features_Sorting_options.html;Sorting options,Ranking options;Sorting options,Ranking options;
+OK;Body;3;B 4.12.2;Consolidation Actions;REF_Features_consolidation_actions.html;consolidation actions;consolidation actions;
 Pending, (Assign right Category);;;;Verbose Levels;REF_Features_verbose.html;verbose;verbose;
+New, (Assign right Category);;;;set locale;REF_Function_set_locale.html;set locale;set locale

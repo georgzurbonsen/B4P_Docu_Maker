@@ -10,6 +10,20 @@ B4PDOCU.START
 
 	See the navigator bar for full table of contents.
 
+	An itemization begins
+	* New York
+	** Manhattan
+	** Soho
+	** Harlem
+	* Philadelphia
+	* Boston
+	* San \ 
+	Francisco
+	* Seattle
+	Blank line<br>
+	Blank line
+	** Deep Dive
+	** Deep Blue
 	+++
   },
 
@@ -22,7 +36,9 @@ B4PDOCU.START
     "Feature Names":		[ "introduction" ],
     "Description 01:Introduction to B4P"::
 
-	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
+	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
+	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, 
+	complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
 
 	<br><br>
 
@@ -47,8 +63,11 @@ B4PDOCU.START
 	<br><br>
 
 	=== 240, 760, noframe_1stcolbold, noheader
-	Interpreted	| The __run-time machine__ is designed to __echo(__) interpret and process the code with very high performance. One performance aspects includes checking and tokenizing the code before starting to run.
-	Fully portable across system platforms | B4P runs on WINDOWS, LINUX and MAC-OS.  You can develop your apps so they run on all platforms without changing the code. B4P provides harmonized functions for directory, file and system function calls, as well as system variables such as user names, key system directory names, etc.
+	Interpreted	| The __run-time machine__ is designed to __echo(__) interpret and process the code with very high performance. \
+			  One performance aspects includes checking and tokenizing the code before starting to run.
+	Fully portable across system platforms | B4P runs on WINDOWS, LINUX and MAC-OS.  You can develop your apps so they run on all \
+			  platforms without changing the code. B4P provides harmonized functions for directory, file and system function calls,\
+			  as well as system variables such as user names, key system directory names, etc.
 	Names with spaces and special characters | You are allowed to use spaces and special characters in function names, variable names, table names, column header names, etc.  <b>max value[]</b> and <b>'1%'[]</b> are valid variable names. This allows you to use typical column headers, e.g. "Total Costs", without modifying them or putting quotations around. A valid function call could be " table create (customer table, supplier table, … ); " Function names like "table process selected rows" is easier to read than "TableProcessSelectedRows"
 	Variables | All simple variables end with brackets <b>[]</b>  Example: <b>value[]</b>. If you forget them, then the name is just a text value.<br/>You can create child variables with any nesting, <br/>e.g. <b>animal[dog]=poodle; animal[cat]=tiger; animal[dog,leg count]=4;</b>.<br/>You can also define arrays, e.g. <b>matrix[2,3]</b>
 	Values | Numbers are values, text are values, too.  In the example <b>a[] = bull dog ;  b[] = ' bull   dog ';</b> a[] is assiged with <i>'bull dog'</i> containing one space between the two words, whare as b[] is assigned with <i>' bull   dog '</i> where all spaces are preserved.  Without quotation marks, outside spaces and repeated spaces betwen words are ignored.

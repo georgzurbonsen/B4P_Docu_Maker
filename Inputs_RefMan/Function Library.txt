@@ -5,7 +5,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Library" ],
-    "Keywords":			[ "function library" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a large and comprehenisve library of different functions.¨
@@ -20,7 +19,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Control Flow Functions" ],
-    "Keywords":			[ "Control Flow Functions" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.
@@ -39,7 +37,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Loops" ],
-    "Keywords":			[ "Loops" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all
@@ -54,7 +51,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Branches" ],
-    "Keywords":			[ "Branches" ],
     "Description 01:Introduction"::
 
 	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.
@@ -210,7 +206,6 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Mathematics and Statistics" ],
-    "Keywords":			[ "mathematics and statistics" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a broad range of advanced mathematics and statistics functions.
@@ -262,8 +257,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix functions" ],
-    "Keywords":			[ "matrix functions" ],
-    "Description 01:Matrix Functions"::
+    "Description 01:Introduction"::
 
 	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
 	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
@@ -291,7 +285,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "statistics functions" ],
-    "Keywords":			[ "statistics functions" ],
     "Description 01:Introduction"::
 
 	This section covers all statistics functions.
@@ -305,7 +298,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "finance functions" ],
-    "Keywords":			[ "finance functions", "business functions" ],
+    "Keywords":			[ "business functions" ],
     "Description 01:Introduction"::
 
 	This section various functions needed for financial calculations, business and capacity planning.
@@ -320,7 +313,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set functions" ],
-    "Keywords":			[ "parameter set functions" ],
     "Description 01:Introduction"::
 
 	This section describes various functions used to process or check parameter sets.
@@ -350,7 +342,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix manipulation functions" ],
-    "Keywords":			[ "matrix manipulation functions", "matrix manipulations" ],
+    "Keywords":			[ "matrix manipulations" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
@@ -447,7 +439,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string functions" ],
-    "Keywords":			[ "literal functions", "string functions" ],
+    "Keywords":			[ "literal functions" ],
     "Description 01:Introduction"::
 
 	This section describes procedures and functions for character and string manipulations.
@@ -504,7 +496,6 @@ B4PDOCU.START
 
 	+++
   },
-
 
 	
 "Creating and Deleting Tables":
@@ -788,7 +779,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "variables functions" ],
-    "Description 01:Introduction to Variables Function"::
+    "Description 01:Introduction"::
 
 	This section summarizes all functions processing variables.  The functions are categorized into the following:
 	* Obtaining information about the variables
@@ -973,9 +964,8 @@ B4PDOCU.START
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "directory and file system" ],
-    "Keywords": 		[ "short error messages on directories and files"],
-    "Description 01:Introduction to Directory and File System Functions"::
+    "Feature Names":		[ "directory and file system functions" ],
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to access and process files and directories.  Following key features 
 	are included.
@@ -1039,7 +1029,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "basic directory and file functions" ],
-    "Description 01:Introduction to Basic Directory and File Functions"::
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to search to accesss directories and files.
 
@@ -1051,7 +1041,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "listing directories and files" ],
-    "Description 01:Introduction to Listing Directories and Files"::
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to obtain list of existing filse and directories, as well as searching for files and directories.
 
@@ -1061,13 +1051,63 @@ B4PDOCU.START
 "Manipulating Directories and Files":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "deleting directories and files" ],
-    "Description 01:Introduction to Manipulating Directories and Files"::
+    "Feature Names":		[ "manipulating directories and files" ],
+    "Description 01:Introduction"::
 
 	This subsection describes various functions to create, copy, rename and delete files and directories
 
 	+++
   },
+
+
+
+"System Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "system functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes system specific functions including executing operating system commands (like Windows CMD, Linux shell, etc.)
+
+	+++
+  },
+
+
+"Executing System Commands":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "executing system commands" ],
+    "Description 01:Introduction"::
+
+	This section describes the __system(__) function to execute system commands and also provides a function called __quote path(__) to precondition 
+	path and file names so they can be used as command line parameters for system commands accordingly.
+
+	+++
+  },
+
+
+"Registry Access Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "registry access functions" ],
+    "Description 01:Introduction"::
+
+	The Microsoft Windows operating system provides a <i>registry</i> which is a hierarchical database to store sytem and application
+	settings.  The contents in the registry affect the behavior of the operating system, windows graphical user interface and application
+	program.  B4P provides a set of registry access functions, however access to them have been restricted due to a considerable risk
+	that unexperienced usage could cause severe and irreversible harm to the system.  The B4P installer program is actually accessing the registry in order to
+	assign the file type ".b4p" to the B4P program, and to assign the icon to that file type.
+
+	<br><br>
+	For the reason above, the B4P contains no description of the registry access functions.  Linux and MacOS do not maintain such a registry.
+	If you intended to use the registry for storing individual values, then consider using the __resident attributes functions__ instead, and this one
+	works on all supported operating systems.
+
+	<br><br>
+	Please contact us if you need to write a B4P program which needs to access the registry and you have a good reason for that.
+	+++
+  },
+
 
 
 // ________________________________________________________________________________________ "/
