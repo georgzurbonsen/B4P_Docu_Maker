@@ -1,4 +1,8 @@
 ﻿
-	echo( quote path( "C:/program files/B4P/B4P.exe") );
-	echo( quote path( "..\Test Directory\Test123") );
-	echo( quote path( "Countries/*.xlsx") );
+
+	for all parameters( { A, B5, Z23, AA1, ZZ, AAA, AAB, XFD, C A, '123 D, '123', ' B', '...' }, c[] )
+	{
+		echo(c[],": ", excel column number( c[] ) );
+		// Note: 0 is returned if no appropriate letter is recognized.
+	}
+

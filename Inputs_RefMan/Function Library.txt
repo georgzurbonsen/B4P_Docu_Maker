@@ -185,6 +185,22 @@ B4PDOCU.START
 
 
 
+
+"Inspection and Debugging":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Inspection and debugging" ],
+    "Description 01:Introduction"::
+
+	The functions described in the following section are suited for __interactive mode__ and program use.  These functions provide
+	convenient insight into variables and tables.
+
+	+++
+},
+
+
+
+
 "Type Conversion and Formatting Functions" :
 {
     "Documentation":		"General Description", // Required value
@@ -1108,6 +1124,18 @@ B4PDOCU.START
 	+++
   },
 
+
+"Licensing and Privileges":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "licensing and privileges" ],
+    "Description 01:Introduction"::
+
+	The following functions relate to system and B4P programming privileges as well as functions needed to activate licensing.
+	As an example, these functions are used in the B4P installation script.
+
+	+++
+  },
 
 
 // ________________________________________________________________________________________ "/

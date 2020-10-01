@@ -113,6 +113,12 @@ OK;Body;3;B 4.2.2;Console Special Effects;REF_Features_Console_special_effects.h
 OK;Body;4;B 4.2.2.1;cls;REF_Function_cls.html;cls;cls,clear the screen;
 OK;Body;4;B 4.2.2.2;cursor;REF_Function_cursor.html;cursor;cursor,cursor position,move cursor;
 OK;Body;4;B 4.2.2.3;text / background color;REF_Function_text_color.html;text color,background color;text color,background color,font color,foreground color,screen color;
+OK;Body;3;B 4.2.3;Inspection and Debugging;REF_Features_Inspection_and_debugging.html;Inspection and debugging;Inspection and debugging;
+OK;Body;4;B 4.2.3.1;prompt;REF_Function_prompt.html;prompt;prompt;
+OK;Body;4;B 4.2.3.2;inspect;REF_Function_inspect.html;inspect;inspect;
+OK;Body;4;B 4.2.3.3;list variables ...;REF_Function_list_variables.html;list variables,list system variables,list global variables,list local variables;list variables,list system variables,list global variables,list local variables;
+OK;Body;4;B 4.2.3.4;list / explain functions;REF_Function_list_functions.html;list functions,explain functions;list functions,explain functions;
+OK;Body;4;B 4.2.3.5;dump functions;REF_Function_dump_functions.html;dump functions;dump functions;
 OK;Body;2;B 4.3;Type Conversion and Formatting Functions;REF_Features_Type_Conversion_Functions.html;Type Conversion Functions;Type Conversion Functions,type conversion;
 OK;Body;3;B 4.3.1;literal, quoted literal, softquoted literal;REF_Function_literal.html;literal,softquoted literal;literal,softquoted literal,literal conversion,formatting template,literal conversion functions;
 OK;Body;4;B 4.3.1.1;Literal to Literal Formatting;REF_Features_literal_to_literal_conversion_and_formatting.html;literal to literal conversion and formatting;literal to literal conversion and formatting,Literal to Literal Formatting Parameters;
@@ -132,6 +138,8 @@ OK;Body;3;B 4.3.8;boolean;REF_Function_boolean.html;boolean;boolean,boolean conv
 OK;Body;3;B 4.3.9;parameter set;REF_Function_parameter_set.html;parameter set;parameter set,parameter set conversion function;
 OK;Body;3;B 4.3.10;join ...;REF_Function_join.html;join,join ignore blanks,join unique,join unique ignore blanks;join,join ignore blanks,join unique,join unique ignore blanks;
 OK;Body;3;B 4.3.11;type, type detailed;REF_Function_type.html;type,typd detailed;type,typd detailed,Identify variable types;
+OK;Body;3;B 4.3.12;hash signature;REF_Function_hash_signature.html;hash signature;hash signature;
+OK;Body;3;;excel column number;;;;
 OK;Body;2;B 4.4;Mathematics and Statistics;REF_Features_Mathematics_and_Statistics.html;Mathematics and Statistics;Mathematics and Statistics;
 OK;Body;3;B 4.4.1;Basic Math Functions;REF_Features_basic_math_functions.html;basic math functions;basic math functions;
 OK;Body;4;B 4.4.1.1;is numeric / integer - Functions;REF_Function_is_numeric.html;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank,checking numbers;
@@ -414,9 +422,13 @@ OK;Body;2;B 4.11;System Functions;REF_Features_system_functions.html;system func
 OK;Body;3;B 4.11.1;Executing System Commands;REF_Features_executing_system_commands.html;executing system commands;executing system commands;
 OK;Body;4;B 4.11.1.1;system;REF_Function_system.html;system;system;
 OK;Body;4;B 4.11.1.2;quote path;REF_Function_quote_path.html;quote path;quote path;
-OK;Body;3;B 4.11.2;Registry Access Functions;REF_Features_registry_access_functions.html;registry access functions;registry access functions;
+OK;Body;3;B 4.11.2;set locale;REF_Function_set_locale.html;set locale;set locale;
+OK;Body;3;B 4.11.3;Registry Access Functions;REF_Features_registry_access_functions.html;registry access functions;registry access functions;
+OK;Body;3;B 4.11.4;Licensing and Privileges;REF_Features_licensing_and_privileges.html;licensing and privileges;licensing and privileges;
+OK;Body;4;B 4.11.4.1;global / script privileges;REF_Function_global_privileges.html;global privileges,script privileges;global privileges,script privileges;
+OK;Body;4;B 4.11.4.2;license provide identification;REF_Function_license_provide_identification.html;license provide identification;license provide identification;
+OK;Body;4;B 4.11.4.3;license apply key;REF_Function_license_apply_key.html;license apply key;license apply key;
 OK;Body;2;B 4.12;Cross-Functional Info;REF_Features_Cross-functional_info.html;Cross-functional info;Cross-functional info;
 OK;Body;3;B 4.12.1;Sorting and Ranking Options;REF_Features_Sorting_options.html;Sorting options,Ranking options;Sorting options,Ranking options;
 OK;Body;3;B 4.12.2;Consolidation Actions;REF_Features_consolidation_actions.html;consolidation actions;consolidation actions;
 Pending, (Assign right Category);;;;Verbose Levels;REF_Features_verbose.html;verbose;verbose;
-New, (Assign right Category);;;;set locale;REF_Function_set_locale.html;set locale;set locale

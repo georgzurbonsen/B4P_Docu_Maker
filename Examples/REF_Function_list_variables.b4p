@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+    define procedure( foo, {{ parameter passed, literal }} )
+    {
+       echo("All local variables:");
+       abc[] = Hello World;
+       def[] = 123;
+       list local variables;
+       echo("Some global variables:");
+       list global variables('my*');
+    }
+
+    my world[] = Globe;
+    my continents[Europe] = {UK, Germany, France};
+    my continents[Africa] = {Namibia, Egypt, Ivory Coast};
+    my continents[Asia] = { India, Thaland };
+
+    echo("All system variables with base variable name beginning with 'r':");
+    list system variables("r*");
+
+    foo(Works beautifully);

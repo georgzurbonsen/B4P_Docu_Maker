@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+    define procedure( mode, {{ meaningful text, literal }} )
+    {
+        echo("Test");
+    }
+
+    echo("Functions listed:");
+    list functions( "mo*" ); // Lists 3 functions: mod, mode (defined here) and month.
+    echo;
+    echo("Functions explained:");
+    explain functions( "mo*" ); 

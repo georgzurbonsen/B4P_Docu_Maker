@@ -755,6 +755,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		{
 			param[] =^ param list[index[]]; 
 			convert manuscript tables into HTML( param[Description] );
+			apply HTML links on embedded keywords( param[Description] );
 			table append( HTML out[], 
 				{ "<tr>", "<td>" + join( set( param[Types], 1 ),"<br/>") + "</td>",
 			          "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( set( param[Description], 1 ),new line) + "</p></td></tr>" } );
@@ -790,7 +791,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 		        if ([Todo]='*code*','*output*') // Output example
 		        {
-			    substitute all( payloads[index[]], {"&","<",">","\","  "}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;" } );
+			    substitute all( payloads[index[]], {"&","<",">","\"," ",tab}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;","&nbsp;" } );
 			    if (value[] =~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;')
 				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }
@@ -815,7 +816,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 				    save example program( example program, example program file name[] );
 				    payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 				}
-			        substitute all( payloads[index[]], {"&","<",">","\","  ",new line}, {"&amp;", "&lt;", "&gt;", "&#92;", " &nbsp;","<br/>" + new line } );
+			        substitute all( payloads[index[]], {"&","<",">","\"," ",tab,new line,}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;","&nbsp;","<br/>" + new line } );
 			}
 		    }	
 		    
