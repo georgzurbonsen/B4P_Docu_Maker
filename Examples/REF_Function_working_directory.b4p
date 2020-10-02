@@ -2,6 +2,6 @@
       echo( working directory() );
       working directory("..");               // One directory out
       echo( working directory() );
-      working directory("C:\Program Files"); // Absolute path
-      working directory("B4P");         // Enter subdirectory
+      echo("Jump to ", system info[bin directory] );
+      working directory(system info[bin directory]); // Absolute path
       echo( working directory() );

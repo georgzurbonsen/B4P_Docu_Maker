@@ -1,5 +1,2 @@
-﻿  include ( Support Library );
-  table load ( t, "Examples\Cities.csv" );
-
-  // Begin with row 2, skip last 3 columns, and for the rows to list, list only the first and last 3 of them.
-  table list ( t, 1st row, 2, briefly, 3, last col, -3 );
+﻿      a[] = "14. July 2020, 15:30:40";
+      echo( year( a[] ), ", ", quarter( a[] ), ", ", month( a[] ), ", ", day( a[] ) );

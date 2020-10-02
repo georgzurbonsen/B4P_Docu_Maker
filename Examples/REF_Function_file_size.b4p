@@ -1,5 +1,5 @@
 ﻿#!/usr/local/bin/b4p
       // Function 'literal' adds thousand separators to make numbers readable
       echo( literal( file size( "C:\Program Files\B4P\*.*" ), "#,000", local ) );
-      echo( literal( file size( "C:\Program Files\B4P\B4P.exe" ), "#,000", local ) );
+      echo( literal( file size( system info[bin directory] + "\B4P.exe" ), "#,000", local ) );
       echo( file size( "Non-existing File.txt" ) ); // -1

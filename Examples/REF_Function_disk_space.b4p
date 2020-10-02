@@ -1,3 +1,5 @@
 ﻿#!/usr/local/bin/b4p
-      echo( literal( disk space( "C:\" ), "#,000", local ) );
-      echo( literal( disk space free( "C:\" ), "#,000", local ) );
+      path[] = select if( system info[operating system] == Windows, "C:\", "/home" );
+
+      echo( literal( disk space( path[] ), "#,000", local ) );
+      echo( literal( disk space free( path[] ), "#,000", local ) );
