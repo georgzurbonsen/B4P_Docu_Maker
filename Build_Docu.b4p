@@ -522,7 +522,7 @@ define function( run example program, { { program table, literal }, { b4p file n
 {
 	table save	( program table[], "Example_Program.b4p", new line );
 	echo		( "    Run example program.  If dead, then look at Example_Program.b4p and run it. Here: Type 'exit' to continue");
-	system		( quote path(system info[bin directory] + system info[directory separator] + B4P) + " -wx Example_Program.b4p > Example_Out.txt" );
+	system		( quote path(system info[bin directory] + system info[directory separator] + b4p) + " -wx Example_Program.b4p > Example_Out.txt" );
 
 	save example program( program table[], b4p file name[] );
 
