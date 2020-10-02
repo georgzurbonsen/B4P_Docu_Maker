@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">	
+
+<head>
+<meta charset="utf-8"/>
+<title>B4P Reference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<div class="wrapper">
+
+<div class="logo">
+<a href="index.html">
+<img src="Images/B4P_Logo.png" alt="Beyond4P">
+</a>
+</div>
+
+<div class="header">
+<h3>Variables</h3>
+<a accesskey="p" href="REF_Features_data_types_parameter_sets_value_repetitions.html"><span>Prev</span></a> <a accesskey="n" href="REF_Features_simple_variables.html"><span>Next</span></a> 
+</div>
+
+<section>
+	<div class="nav">
+<div class="booktitle_field">Reference Manual</div>
+<ul>
+<li class="navi"><a href="GUI_Features_Table_of_Contents.html"><div class="navi"> &#8594; User Guide </div></a></li>
+<li class="navi"><a href="REF_Features_Table_of_Contents.html"><div class="navi"> Table of Contents </div></a></li>
+<li class="navi"><a href="REF_Features_starting.html"><div class="navi">1 Starting B4P </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_interactive.html"><div class="navi">1.1 Interactive Mode </div></a></li>
+<li class="navi"><a href="REF_Features_licensing.html"><div class="navi">1.2 Licensing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_introduction.html"><div class="navi">2 Introduction </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_UNICODE_character_set.html"><div class="navi">2.1 UNICODE Character Set </div></a></li>
+<li class="navi"><a href="REF_Features_data_types.html"><div class="navi">2.2 Basic Data Types </div></a></li>
+<li class="navi"><a href="REF_Features_variables.html"><div class="navi navi-selected">2.3 Variables </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_simple_variables.html"><div class="navi">2.3.1 Simple Variables </div></a></li>
+<li class="navi"><a href="REF_Features_arrays.html"><div class="navi">2.3.2 Arrays </div></a></li>
+<li class="navi"><a href="REF_Features_structures.html"><div class="navi">2.3.3 Structures </div></a></li>
+<li class="navi"><a href="REF_Features_zero_members.html"><div class="navi">2.3.4 Zero Members Variables </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_comments.html"><div class="navi">2.4 Comments </div></a></li>
+<li class="navi"><a href="REF_Features_reserved_keywords.html"><div class="navi">2.5 Reserved keywords </div></a></li>
+<li class="navi"><a href="REF_Features_path_names.html"><div class="navi">2.6 Path and File Names </div></a></li>
+<li class="navi"><a href="REF_Features_Locales.html"><div class="navi">2.7 Locales </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Functions_and_Procedures.html"><div class="navi">3 Functions and Procedures </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Function_Parameters.html"><div class="navi">3.1 Function Parameters </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_directions.html"><div class="navi">3.2 Function Parameter Directions </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_types.html"><div class="navi">+ 3.3 Function Parameter Types </div></a></li>
+<li class="navi"><a href="REF_Features_Indirect_parameter_passing.html"><div class="navi">3.4 Indirect Parameter Passing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Function_Library.html"><div class="navi">4 Function Library </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Control_Flow_Functions.html"><div class="navi">+ 4.1 Control Flow Functions </div></a></li>
+<li class="navi"><a href="REF_Features_input_output_functions.html"><div class="navi">+ 4.2 Input / Output Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Type_Conversion_Functions.html"><div class="navi">+ 4.3 Type Conversion and Formatting Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Mathematics_and_Statistics.html"><div class="navi">+ 4.4 Mathematics and Statistics </div></a></li>
+<li class="navi"><a href="REF_Features_string_functions.html"><div class="navi">+ 4.5 String Functions </div></a></li>
+<li class="navi"><a href="REF_Features_date_and_time_functions.html"><div class="navi">+ 4.6 Date and Time Functions </div></a></li>
+<li class="navi"><a href="REF_Features_parameter_set_functions.html"><div class="navi">+ 4.7 Parameter Set Functions </div></a></li>
+<li class="navi"><a href="REF_Features_table_functions.html"><div class="navi">+ 4.8 Table Functions </div></a></li>
+<li class="navi"><a href="REF_Features_variables_functions.html"><div class="navi">+ 4.9 Variables Functions </div></a></li>
+<li class="navi"><a href="REF_Features_directory_and_file_system_functions.html"><div class="navi">+ 4.10 Directory and File System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_system_functions.html"><div class="navi">+ 4.11 System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Cross-functional_info.html"><div class="navi">+ 4.12 Cross-Functional Info </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_verbose.html"><div class="navi"> Verbose Levels </div></a></li>
+</ul>
+	</div>
+
+	<div class="article">
+<h4> Introdction to Variables</h4>
+<p>
+Beyond4P provides a unique model to manage variables.
+
+<br><br>
+
+Different from other programming languages, probably looking a bit outlandish, but intended for a good reason, all variables are specified
+with brackets at the end. Example: <b>Last Name[]</b> is a legitimate variable name (Note the two words).  Referencing a variable is
+a combination of an expression providing a literal followed by these two brackets.  This flexibility, not available in other languages,
+allows you to assign table header names, tale contents, and any literal values, etc. as variable names.
+
+Following naming rules apply:
+
+</p><ul class="bullets"><li class="bullets">The naming rule applies to <a class="bold_text" href="REF_Features_variables.html">base variables</a> as well as member variables in <a class="bold_text" href="REF_Features_structures.html">structures</a>.
+</li><li class="bullets">Variable names may consist of multiple words and any character is allowed.
+</li><li class="bullets">Use quotation marks to preserve multiple blanks or accept special symbols inside variable names.  Valid example: <b>' (1.)'[]</b>
+</li><li class="bullets">Non-ANSI characters are allowed, e.g. <b>Caf&eacute;[]</b>
+</li><li class="bullets">Blank variable names are also allowed, e.g. <b>''[]</b>.  Attention: Inside <a class="bold_text" href="REF_Features_structures.html">structures</a>, blank member names will be referred as default member variables.
+</li><li class="bullets">Any expression returning a literal is allowed, e.g. <b>("Hel" + "lo")[]</b> references the variable <b>Hello[]</b>.
+</li><li class="bullets">Indirect variable referencing is allowed, e.g. <b>a[][]</b> access variable using the name as specified in variable <b>a[]</b>.
+</li></ul><p></p>
+<h4> Scoping - Global and Local Variables</h4>
+<p>
+Beyond4P variables are created (also known as <i>declared</i>) at their first assignments.  For example, <b>a[] = 1;</b> creates the variable
+<b>a</b> and assigns the numeric value 1 to it.
+If the variable is created outside procedure or function definition blocks and the Beyond4P is the initial
+program started (i.e. the program file is not called by another Beyond4P program using the <span class="red_text">start</span>() function), then the variable will be a global
+variable visible all time until deleted.  Otherwise, if the variable is created inside a procedure of function definition block, of if the running
+programm was called by another Beyond4P program, then new variables will be created as local variables.  Local variables are only visible in the
+current program resp. function definition block and are not visible if another program or user function is called.
+
+<br><br>
+Variables may be deleted using the <span class="red_text">delete</span>() function.  Local variables will be deleted automatically when leaving (returning from) user-defined
+procedures and functions or called programs.
+
+</p>
+<h4> Variable Attributes</h4>
+<p>
+In Beyond4P, every variable stored contains following information:
+
+</p><table class="noframe_1stcolbold" style = "width:1000px"><col style = "width:200px"><col style = "width:800px">
+<tr><th>Attribute       </th><th> Description</th></tr>
+<tr><td>Variable Name   </td><td> A literal of choice.  Exception: Array members have no names.</td></tr>
+<tr><td>Value       </td><td> Stored value (Base Variable)</td></tr>
+<tr><td>Data Type       </td><td> Distinguishes among <a class="bold_text" href="REF_Features_data_types_numerals.html">numeral</a>, <a class="bold_text" href="REF_Features_data_types_numerals.html">plain numeral</a>, <a class="bold_text" href="REF_Features_data_types_dates.html">date</a>, <a class="bold_text" href="REF_Features_data_types_dates.html">plain date</a>, <a class="bold_text" href="REF_Features_data_types_literals.html">literal</a>, <a class="bold_text" href="REF_Features_data_types_literals.html">softquoted literal</a>, <a class="bold_text" href="REF_Features_data_types_literals.html">quoted literal</a>, <a class="bold_text" href="REF_Features_data_types_booleans.html">boolean</a>, <a class="bold_text" href="REF_Features_data_types_voids.html">void</a>, and <a class="bold_text" href="REF_Features_data_types_parameter_sets.html">parameter set</a>.</td></tr>
+<tr><td>Variable Form   </td><td> Distinguishes whether the variable is a <a class="bold_text" href="REF_Features_simple_variables.html">simple variable</a>, an <a class="bold_text" href="REF_Features_arrays.html">array</a> or a <a class="bold_text" href="REF_Features_structures.html">structure</a>, or a simple variable containing <a class="bold_text" href="REF_Features_zero_members.html">zero members</a></td></tr>
+<tr><td>Members     </td><td> Contains all member variables (in <a class="bold_text" href="REF_Features_arrays.html">arrays</a> and <a class="bold_text" href="REF_Features_structures.html">structures</a>).  Every member is treated like an individual variable, too.</td></tr>
+<tr><td>Member count    </td><td> Number of existing members (0 for simple variables)</td></tr>
+<tr><td>Protection Setting </td><td> Applies rules on accessing and/or modifying these variables, e.g. read-only, prevent deleting, etc.  See function <span class="red_text">protect</span>()</td></tr>
+<tr><td>Locked          </td><td> Variables may be temporarily locked during the time while an assignment on that variable is executed or a <span class="red_text">reference</span> is pointing on this variable.  Locked variables cannot be deleted.</td></tr>
+</table><p>
+</p>
+<h4> Building Variable Trees with Arrays and Structures</h4>
+<p>
+With Beyond4P, you can create simple variables as well as arrays (containing numbered member variables) and structures (containing named member
+variables).  Full nesting flexibility is supported: Arrays and structures may contain further structures and/or arrays as you wish.
+In short, the variable storage model is a tree structure which can hold data in the root node (base variable), intermediate nodes (e.g. member
+variable also containing sub-members) and leaf nodes (final member variables without further members defined).
+
+</p><table class="noframe_1stcolbold" style = "width:1000px"><col style = "width:200px"><col style = "width:600px"><col style = "width:200px">
+<tr><th>Variable Form </th><th> Description </th><th> Example</th></tr>
+<tr><td><a class="bold_text" href="REF_Features_simple_variables.html">Simple Variables</a> </td><td> Simple variables hold one base variable value of any data type (numeral, literal, date, boolean, void and paramter set) and contain no members. </td><td> last name[]</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_arrays.html">Arrays</a>           </td><td> In addition to the base variable, arrays a defined number of numerically indexed members </td><td> member [1], member[3]</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_structures.html">Structures</a>       </td><td> In addition to the base variable, structures contain one or more named member variables </td><td> animal[dog], animal[cat]</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_zero_members.html">Zero Members</a>     </td><td> Very similar to simple variables.  Contains base variable and zero members, but has previously had array or structure members which have been deleted meanwhiel.  The variable form changes to <a class="bold_text" href="REF_Features_structures.html">structure</a> if a structure element is added, or to <a class="bold_text" href="REF_Features_arrays.html">array</a> if an array member is added.</td></tr>
+</table><p>
+
+</p>
+	</div>
+</section>
+
+<div class="footer">
+Copyright (C) 2007 - 2020 Georg zur Bonsen
+</div>
+
+</div>
+
+</html>	
+
+

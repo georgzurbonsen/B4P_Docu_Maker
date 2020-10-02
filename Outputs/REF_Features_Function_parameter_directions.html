@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">	
+
+<head>
+<meta charset="utf-8"/>
+<title>B4P Reference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<div class="wrapper">
+
+<div class="logo">
+<a href="index.html">
+<img src="Images/B4P_Logo.png" alt="Beyond4P">
+</a>
+</div>
+
+<div class="header">
+<h3>Function Parameter Directions</h3>
+<a accesskey="p" href="REF_Features_Function_Parameters.html"><span>Prev</span></a> <a accesskey="n" href="REF_Features_Function_parameter_types.html"><span>Next</span></a> 
+</div>
+
+<section>
+	<div class="nav">
+<div class="booktitle_field">Reference Manual</div>
+<ul>
+<li class="navi"><a href="GUI_Features_Table_of_Contents.html"><div class="navi"> &#8594; User Guide </div></a></li>
+<li class="navi"><a href="REF_Features_Table_of_Contents.html"><div class="navi"> Table of Contents </div></a></li>
+<li class="navi"><a href="REF_Features_starting.html"><div class="navi">1 Starting B4P </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_interactive.html"><div class="navi">1.1 Interactive Mode </div></a></li>
+<li class="navi"><a href="REF_Features_licensing.html"><div class="navi">1.2 Licensing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_introduction.html"><div class="navi">2 Introduction </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_UNICODE_character_set.html"><div class="navi">2.1 UNICODE Character Set </div></a></li>
+<li class="navi"><a href="REF_Features_data_types.html"><div class="navi">2.2 Basic Data Types </div></a></li>
+<li class="navi"><a href="REF_Features_variables.html"><div class="navi">2.3 Variables </div></a></li>
+<li class="navi"><a href="REF_Features_comments.html"><div class="navi">2.4 Comments </div></a></li>
+<li class="navi"><a href="REF_Features_reserved_keywords.html"><div class="navi">2.5 Reserved keywords </div></a></li>
+<li class="navi"><a href="REF_Features_path_names.html"><div class="navi">2.6 Path and File Names </div></a></li>
+<li class="navi"><a href="REF_Features_Locales.html"><div class="navi">2.7 Locales </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Functions_and_Procedures.html"><div class="navi">3 Functions and Procedures </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Function_Parameters.html"><div class="navi">3.1 Function Parameters </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_directions.html"><div class="navi navi-selected">3.2 Function Parameter Directions </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_types.html"><div class="navi">+ 3.3 Function Parameter Types </div></a></li>
+<li class="navi"><a href="REF_Features_Indirect_parameter_passing.html"><div class="navi">3.4 Indirect Parameter Passing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Function_Library.html"><div class="navi">4 Function Library </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Control_Flow_Functions.html"><div class="navi">+ 4.1 Control Flow Functions </div></a></li>
+<li class="navi"><a href="REF_Features_input_output_functions.html"><div class="navi">+ 4.2 Input / Output Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Type_Conversion_Functions.html"><div class="navi">+ 4.3 Type Conversion and Formatting Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Mathematics_and_Statistics.html"><div class="navi">+ 4.4 Mathematics and Statistics </div></a></li>
+<li class="navi"><a href="REF_Features_string_functions.html"><div class="navi">+ 4.5 String Functions </div></a></li>
+<li class="navi"><a href="REF_Features_date_and_time_functions.html"><div class="navi">+ 4.6 Date and Time Functions </div></a></li>
+<li class="navi"><a href="REF_Features_parameter_set_functions.html"><div class="navi">+ 4.7 Parameter Set Functions </div></a></li>
+<li class="navi"><a href="REF_Features_table_functions.html"><div class="navi">+ 4.8 Table Functions </div></a></li>
+<li class="navi"><a href="REF_Features_variables_functions.html"><div class="navi">+ 4.9 Variables Functions </div></a></li>
+<li class="navi"><a href="REF_Features_directory_and_file_system_functions.html"><div class="navi">+ 4.10 Directory and File System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_system_functions.html"><div class="navi">+ 4.11 System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Cross-functional_info.html"><div class="navi">+ 4.12 Cross-Functional Info </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_verbose.html"><div class="navi"> Verbose Levels </div></a></li>
+</ul>
+	</div>
+
+	<div class="article">
+<h4> Introduction</h4>
+<p>
+B4P distinguishes among following function parameter directions which are described next.
+
+</p><table class="bold_column_1" style = "width:900px"><col style = "width:200px"><col style = "width:150px"><col style = "width:150px"><col style = "width:200px"><col style = "width:200px">
+<tr><th>Direction           </th><th> Constants     </th><th> Expressions   </th><th> Variables         </th><th> Table references</th></tr>
+<tr><td>Input parameters        </td><td> allowed   </td><td> allowed   </td><td> allowed (must be defined) </td><td> allowed</td></tr>
+<tr><td>Output parameters       </td><td> not allowed   </td><td> not allowed   </td><td> allowed (may be defined)  </td><td> allowed</td></tr>
+<tr><td>Input / output parameters   </td><td> not allowed   </td><td> not allowed   </td><td> allowed (must be defined) </td><td> allowed</td></tr>
+<tr><td>References          </td><td> not allowed   </td><td> not allowed   </td><td> allowed (must be defined) </td><td> not allowed</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_Code_Piece.html">Code pieces</a>         </td><td>       </td><td>       </td><td> See section on <a class="bold_text" href="REF_Features_Code_Piece.html">code pieces</a>   </td><td></td></tr>
+</table><p>
+</p>
+<h4> Input Parameters</h4>
+<p>
+The parameters supplied to the function are values.  They can be constants, existing <a class="bold_text" href="REF_Features_variables.html">variables</a>, <span class="red_text">table references</span>,
+and any form of right-hand expressions containing calculations and/or other function calls.  Variables passed as paramters
+must be defined (i.e. values assigned) prior to calling the function.
+</p>
+<h5> </h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;a[]&nbsp;=&nbsp;World;<br/>
+&nbsp;&nbsp;echo(&nbsp;"Hello&nbsp;",&nbsp;a[],&nbsp;'&nbsp;',&nbsp;abs(-1)+2+3&nbsp;);</code></div>
+<h5> </h5>
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>REF_Features_Function_parameter_directions.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+<h4> Output Parameters</h4>
+<p>
+The parameters must either be a <span class="red_text">variable</span> or <span class="red_text">table reference</span>, similar to left-hand side of assignment statements.
+Constants and calculated expressions are not allowed.  Before the function is called, variables which are not yet existing,
+will be defined automatically. After the function call has been completed, the value will be written back to the variable or table.
+</p>
+<h5> </h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;a[]&nbsp;=&nbsp;find(&nbsp;'Say&nbsp;Hi!',&nbsp;{&nbsp;Ha,&nbsp;Hä,&nbsp;He,&nbsp;Hi,&nbsp;Ho&nbsp;},&nbsp;0,&nbsp;which[]&nbsp;);<br/>
+&nbsp;&nbsp;echo(&nbsp;which[]&nbsp;);&nbsp;//&nbsp;3,&nbsp;because&nbsp;Hi&nbsp;is&nbsp;in&nbsp;position&nbsp;3&nbsp;in&nbsp;the&nbsp;parameter&nbsp;set</code></div>
+<h5> </h5>
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>REF_Features_Function_parameter_directions_01.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+<h4> Input / Output Parameters</h4>
+<p>
+The parameters must either be an existing <span class="red_text">variable</span> or <span class="red_text">table reference</span>, similar to left-hand side of assignment statements.
+Constants and calculated expressions are not allowed.
+Before the function is called, the value will be retrieved from the variable or table.  After the function call has been completed,
+the value will be written back to the table.
+</p>
+<h5> </h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;table&nbsp;initialize(&nbsp;t,&nbsp;{{&nbsp;Hi,&nbsp;He&nbsp;}}&nbsp;);<br/>
+&nbsp;&nbsp;a[]&nbsp;=&nbsp;Ho;<br/>
+&nbsp;&nbsp;exchange(&nbsp;[t:0,0],&nbsp;a[]&nbsp;);<br/>
+&nbsp;&nbsp;echo(&nbsp;[t:..,0],&nbsp;"&nbsp;and&nbsp;",&nbsp;a[]&nbsp;);</code></div>
+<h5> </h5>
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>REF_Features_Function_parameter_directions_02.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+<h4> References</h4>
+<p>
+Some functions take over the reference to the variables provided in the function parameters.  References provide following benefits:
+</p><ul class="bullets"><li class="bullets">Higher performance (no payload data, e.g. big parameter sets, are copied in before the call and copied back after the call)
+</li><li class="bullets">Direct access to the variable contents, especially in <a class="bold_text" href="REF_Features_User_Defined_Procedures_and_Functiions.html">user procedures</a> and <a class="bold_text" href="REF_Features_User_Defined_Procedures_and_Functiions.html">user functions</a>
+</li><li class="bullets">Access to member variables (<a class="bold_text" href="REF_Features_structures.html">structure</a> and <a class="bold_text" href="REF_Features_arrays.html">array</a> members and their sub-members if available)
+</li><li class="bullets">Access to variable properties, e.g. <span class="red_text">variable protection</span> settings.
+</li></ul><p>
+The following code example shows how the user-defined procedure <b>my funct</b> accesses a member variable and defines an additional
+member variable.
+</p>
+<h5> </h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;define&nbsp;procedure(&nbsp;my&nbsp;func,&nbsp;{&nbsp;{&nbsp;a,&nbsp;all,&nbsp;reference&nbsp;}&nbsp;}&nbsp;)<br/>
+&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo(a[one]);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[two]&nbsp;=&nbsp;TWO;<br/>
+&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;b[one]&nbsp;=&nbsp;ONE;<br/>
+&nbsp;&nbsp;my&nbsp;func(&nbsp;b[]&nbsp;);<br/>
+&nbsp;&nbsp;echo(b[two]);</code></div>
+<h5> </h5>
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>REF_Features_Function_parameter_directions_03.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+<h4> Code Pieces</h4>
+<p>
+Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a literal string.
+When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
+called multiple times, or in specific cases not at all.
+
+<br><br>
+See section on <a class="bold_text" href="REF_Features_Code_Piece.html">code pieces</a> for further details.</p>
+	</div>
+</section>
+
+<div class="footer">
+Copyright (C) 2007 - 2020 Georg zur Bonsen
+</div>
+
+</div>
+
+</html>	
+
+

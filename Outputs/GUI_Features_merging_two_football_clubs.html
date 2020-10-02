@@ -68,31 +68,31 @@
 <br/><img src="Images/GUI_workflow-soccer-merger.png" alt="Guide-Tutorial-Merging Football teams"><br/>
 </p>
 <h5>  1.Start B4P in the command shell to use interactively</h5>
-<div class="code_background_color" ><code>&gt; b4p</code></div>
+<div class="code_background_color" ><code>&gt;&nbsp;b4p</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code>B4P - Beyond Former Performance<br/>
+<div class="output_background_color" ><code>B4P&nbsp;-&nbsp;Beyond&nbsp;Former&nbsp;Performance<br/>
 _______________________________________________________________________________<br/>
-Version 8.00 Candidate (2020-08-08) 'Wilhelm Tell'<br/>
-Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.<br/>
-Licensed (current user) with standard privileges for Rafael Richards.<br/>
+Version&nbsp;8.00&nbsp;Candidate&nbsp;(2020-08-08)&nbsp;'Wilhelm&nbsp;Tell'<br/>
+Copyright&nbsp;(C)&nbsp;2012..2020&nbsp;Georg&nbsp;zur&nbsp;Bonsen,&nbsp;all&nbsp;rights&nbsp;reserved.<br/>
+Licensed&nbsp;(current&nbsp;user)&nbsp;with&nbsp;standard&nbsp;privileges&nbsp;for&nbsp;Rafael&nbsp;Richards.<br/>
 <br/>
-Entering interactive mode.<br/>
+Entering&nbsp;interactive&nbsp;mode.<br/>
 <br/>
-Type 'help' for help, 'docs' for pdf manual, &nbsp;'web docs' for online manual.<br/>
+Type&nbsp;'help'&nbsp;for&nbsp;help,&nbsp;'docs'&nbsp;for&nbsp;pdf&nbsp;manual,&nbsp;&nbsp;'web&nbsp;docs'&nbsp;for&nbsp;online&nbsp;manual.<br/>
 &gt;&gt;<br/>
 </code></div>
 <h5>  Set the working directory to the data file directory, and list the files</h5>
-<div class="code_background_color" ><code>&gt;&gt; $ cd /b4p/Examples<br/>
-&gt;&gt; $ ls</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;$&nbsp;cd&nbsp;/b4p/Examples<br/>
+&gt;&gt;&nbsp;$&nbsp;ls</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code>Current directory changed to '/b4p/Examples/'<br/>
+<div class="output_background_color" ><code>Current&nbsp;directory&nbsp;changed&nbsp;to&nbsp;'/b4p/Examples/'<br/>
 <br/>
-Directory Listing:<br/>
-Football Membership List.xlsx &nbsp; &nbsp; <br/>
-Soccer Membership List.csv &nbsp; &nbsp; &nbsp; &nbsp;<br/>
-Example.xml &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+Directory&nbsp;Listing:<br/>
+Football&nbsp;Membership&nbsp;List.xlsx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+Soccer&nbsp;Membership&nbsp;List.csv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+Example.xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 Example1.json<br/>
-Tennis and Golf Players.csv<br/>
+Tennis&nbsp;and&nbsp;Golf&nbsp;Players.csv<br/>
 test.csv<br/>
 .<br/>
 .<br/>
@@ -101,266 +101,199 @@ test.csv<br/>
 <br/>
 </code></div>
 <h5>  2. Load Football Membership List (Excel file), and list contents</h5>
-<div class="code_background_color" ><code>&gt;&gt; table load excel file ( football club, Football Membership List.xlsx )<br/>
-&gt;&gt; table list( football club )</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;load&nbsp;excel&nbsp;file&nbsp;(&nbsp;football&nbsp;club,&nbsp;Football&nbsp;Membership&nbsp;List.xlsx&nbsp;)<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;football&nbsp;club&nbsp;)</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code> &nbsp; &nbsp;Load Excel file 'Football Membership List.xlsx'.<br/>
- &nbsp; &nbsp;Done. Table contains 12 rows and up to 4 columns.<br/>
+<div class="output_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;Load&nbsp;Excel&nbsp;file&nbsp;'Football&nbsp;Membership&nbsp;List.xlsx'.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Done.&nbsp;Table&nbsp;contains&nbsp;12&nbsp;rows&nbsp;and&nbsp;up&nbsp;to&nbsp;4&nbsp;columns.<br/>
 <br/>
- &nbsp; &nbsp;0 : First Name | Family Name | City &nbsp; &nbsp; &nbsp; &nbsp; | Level<br/>
- &nbsp; &nbsp;1 : Abel &nbsp; &nbsp; &nbsp; | Amberstone &nbsp;| Amsterdam &nbsp; &nbsp;| Beginner<br/>
- &nbsp; &nbsp;2 : Beata &nbsp; &nbsp; &nbsp;| Berghill &nbsp; &nbsp;| Barcelona &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;3 : Corinne &nbsp; &nbsp;| Carlson &nbsp; &nbsp; | Copenhagen &nbsp; | Beginner<br/>
- &nbsp; &nbsp;4 : Dietmar &nbsp; &nbsp;| Davis &nbsp; &nbsp; &nbsp; | Dublin &nbsp; &nbsp; &nbsp; | Beginner<br/>
- &nbsp; &nbsp;5 : Ellen &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp; | Essen &nbsp; &nbsp; &nbsp; &nbsp;| Beginner<br/>
- &nbsp; &nbsp;6 : Fred &nbsp; &nbsp; &nbsp; | Fisher &nbsp; &nbsp; &nbsp;| Frankfurt &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;7 : Gregory &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp; | Gaza City &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;8 : Henry &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp; | Hamburg &nbsp; &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;9 : Ida &nbsp; &nbsp; &nbsp; &nbsp;| Ingelberg &nbsp; | Ingolstadt &nbsp; | Beginner<br/>
- &nbsp; 10 : John &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp; | Johannesburg | Beginner<br/>
- &nbsp; 11 : Karl &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; &nbsp;| Kansas City &nbsp;| Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;First&nbsp;Name&nbsp;|&nbsp;Family&nbsp;Name&nbsp;|&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Level<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Abel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amberstone&nbsp;&nbsp;|&nbsp;Amsterdam&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Beata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Berghill&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Barcelona&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Corinne&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Carlson&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Copenhagen&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Dietmar&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Davis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dublin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Ellen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Evans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Essen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Fred&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fisher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Frankfurt&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Gregory&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Green&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaza&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Henry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hansson&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hamburg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingelberg&nbsp;&nbsp;&nbsp;|&nbsp;Ingolstadt&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;John&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Janssen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Johannesburg&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Karl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Kansas&nbsp;City&nbsp;&nbsp;|&nbsp;Experienced<br/>
 </code></div>
 <h5>  Load Soccer Membership List (CSV file), and list contents</h5>
-<div class="code_background_color" ><code>&gt;&gt; table load ( soccer club, &nbsp; Soccer Membership List.csv );<br/>
-&gt;&gt; table list( soccer club )<br/>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;load&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;Soccer&nbsp;Membership&nbsp;List.csv&nbsp;);<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;soccer&nbsp;club&nbsp;)<br/>
 </code></div>
 <h5> </h5>
-<div class="output_background_color" ><code> &nbsp; &nbsp;Loaded CSV/TSV file 'Soccer Membership List.csv':<br/>
- &nbsp; &nbsp;13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;<br/>
+<div class="output_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;Loaded&nbsp;CSV/TSV&nbsp;file&nbsp;'Soccer&nbsp;Membership&nbsp;List.csv':<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;rows,&nbsp;max&nbsp;4&nbsp;columns,&nbsp;4&nbsp;columns&nbsp;in&nbsp;1st&nbsp;row,&nbsp;52&nbsp;fields,&nbsp;list&nbsp;separator:&nbsp;;<br/>
 <br/>
- &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp;| Town &nbsp; &nbsp; &nbsp; &nbsp;| Last Name &nbsp;| First Name<br/>
- &nbsp; &nbsp;1 : Questionable | Kyoto &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; | Karl<br/>
- &nbsp; &nbsp;2 : Novice &nbsp; &nbsp; &nbsp; | London &nbsp; &nbsp; &nbsp;| Lee &nbsp; &nbsp; &nbsp; &nbsp;| Linda<br/>
- &nbsp; &nbsp;3 : Experienced &nbsp;| Morristown &nbsp;| Miller &nbsp; &nbsp; | Mike<br/>
- &nbsp; &nbsp;4 : Experienced &nbsp;| New York &nbsp; &nbsp;| Nguyen &nbsp; &nbsp; | Nathali<br/>
- &nbsp; &nbsp;5 : Experienced &nbsp;| Oslo &nbsp; &nbsp; &nbsp; &nbsp;| Oliveiro &nbsp; | Oscar<br/>
- &nbsp; &nbsp;6 : Novice &nbsp; &nbsp; &nbsp; | Phoenix &nbsp; &nbsp; | Paulsson &nbsp; | Petra<br/>
- &nbsp; &nbsp;7 : Novice &nbsp; &nbsp; &nbsp; | Quebec City | Quarles &nbsp; &nbsp;| Quincy<br/>
- &nbsp; &nbsp;8 : Experienced &nbsp;| Riga &nbsp; &nbsp; &nbsp; &nbsp;| Richardson | Richard<br/>
- &nbsp; &nbsp;9 : Experienced &nbsp;| San Diego &nbsp; | Stewart &nbsp; &nbsp;| Sandra<br/>
- &nbsp; 10 : Experienced &nbsp;| Tahoma &nbsp; &nbsp; &nbsp;| Turner &nbsp; &nbsp; | Tim<br/>
- &nbsp; 11 : Questionable | Ulm &nbsp; &nbsp; &nbsp; &nbsp; | Ufford &nbsp; &nbsp; | Uwe<br/>
- &nbsp; 12 : Novice &nbsp; &nbsp; &nbsp; | Venice &nbsp; &nbsp; &nbsp;| Viking &nbsp; &nbsp; | Victor<br/>
- &nbsp; </code></div>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Town&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Last&nbsp;Name&nbsp;&nbsp;|&nbsp;First&nbsp;Name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Questionable&nbsp;|&nbsp;Kyoto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;|&nbsp;Karl<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Novice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;London&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Linda<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Morristown&nbsp;&nbsp;|&nbsp;Miller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Mike<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;New&nbsp;York&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nguyen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nathali<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Oslo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oliveiro&nbsp;&nbsp;&nbsp;|&nbsp;Oscar<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Novice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Phoenix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Paulsson&nbsp;&nbsp;&nbsp;|&nbsp;Petra<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Novice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quebec&nbsp;City&nbsp;|&nbsp;Quarles&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quincy<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Riga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Richardson&nbsp;|&nbsp;Richard<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;San&nbsp;Diego&nbsp;&nbsp;&nbsp;|&nbsp;Stewart&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Sandra<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Tahoma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Turner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tim<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Questionable&nbsp;|&nbsp;Ulm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ufford&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Uwe<br/>
+&nbsp;&nbsp;&nbsp;12&nbsp;:&nbsp;Novice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Venice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Viking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Victor<br/>
+&nbsp;&nbsp;&nbsp;</code></div>
 <h4>  </h4>
 <p>Note that the football club and soccer club use different header names for the same thing
 (Family Name and Last Name; City and Town).
 In preparation to merge the football club table with the soccer club table, replace Family Name with Last Name,  and City with Town.</p>
 <h5>  3. Rename column headers to the same names for Last Name and Town</h5>
-<div class="code_background_color" ><code>&gt;&gt; table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );<br/>
-&gt;&gt; table list( football club )</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;rename&nbsp;column&nbsp;headers&nbsp;(&nbsp;football&nbsp;club,&nbsp;{&nbsp;Family&nbsp;Name,&nbsp;City&nbsp;},&nbsp;{&nbsp;Last&nbsp;Name,&nbsp;Town&nbsp;}&nbsp;);<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;football&nbsp;club&nbsp;)</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code> &nbsp; &nbsp;0 : First Name | Last Name &nbsp;| Town &nbsp; &nbsp; &nbsp; &nbsp; | Level<br/>
- &nbsp; &nbsp;1 : Abel &nbsp; &nbsp; &nbsp; | Amberstone | Amsterdam &nbsp; &nbsp;| Beginner<br/>
- &nbsp; &nbsp;2 : Beata &nbsp; &nbsp; &nbsp;| Berghill &nbsp; | Barcelona &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;3 : Corinne &nbsp; &nbsp;| Carlson &nbsp; &nbsp;| Copenhagen &nbsp; | Beginner<br/>
- &nbsp; &nbsp;4 : Dietmar &nbsp; &nbsp;| Davis &nbsp; &nbsp; &nbsp;| Dublin &nbsp; &nbsp; &nbsp; | Beginner<br/>
- &nbsp; &nbsp;5 : Ellen &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp;| Essen &nbsp; &nbsp; &nbsp; &nbsp;| Beginner<br/>
- &nbsp; &nbsp;6 : Fred &nbsp; &nbsp; &nbsp; | Fisher &nbsp; &nbsp; | Frankfurt &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;7 : Gregory &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp;| Gaza City &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;8 : Henry &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp;| Hamburg &nbsp; &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;9 : Ida &nbsp; &nbsp; &nbsp; &nbsp;| Ingelberg &nbsp;| Ingolstadt &nbsp; | Beginner<br/>
- &nbsp; 10 : John &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp;| Johannesburg | Beginner<br/>
- &nbsp; 11 : Karl &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; | Kansas City &nbsp;| Experienced</code></div>
+<div class="output_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;First&nbsp;Name&nbsp;|&nbsp;Last&nbsp;Name&nbsp;&nbsp;|&nbsp;Town&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Level<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Abel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amberstone&nbsp;|&nbsp;Amsterdam&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Beata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Berghill&nbsp;&nbsp;&nbsp;|&nbsp;Barcelona&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Corinne&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Carlson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Copenhagen&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Dietmar&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Davis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dublin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Ellen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Evans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Essen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Fred&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fisher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Frankfurt&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Gregory&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Green&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaza&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Henry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hansson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hamburg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Experienced<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingelberg&nbsp;&nbsp;|&nbsp;Ingolstadt&nbsp;&nbsp;&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;John&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Janssen&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Johannesburg&nbsp;|&nbsp;Beginner<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Karl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;|&nbsp;Kansas&nbsp;City&nbsp;&nbsp;|&nbsp;Experienced</code></div>
 <h4>  </h4>
 <p>Note that the football club table and soccer club table use different names for the same basic skill Level (Beginner and Novice).
 In preparation for merging the soccer club table with the football club table,  find all instances of Level that is Novice, and replace with Beginner</p>
 <h5>  4. Rename Level to Beginner wherever it appears as Novice</h5>
-<div class="code_background_color" ><code>&gt;&gt; table process selected rows ( soccer club, &nbsp; [Level]==Novice, [Level]=Beginner );<br/>
-&gt;&gt; table list( soccer club )</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;process&nbsp;selected&nbsp;rows&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;[Level]==Novice,&nbsp;[Level]=Beginner&nbsp;);<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;soccer&nbsp;club&nbsp;)</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code> &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp;| Town &nbsp; &nbsp; &nbsp; &nbsp;| Last Name &nbsp;| First Name<br/>
- &nbsp; &nbsp;1 : Questionable | Kyoto &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; | Karl<br/>
- &nbsp; &nbsp;2 : Beginner &nbsp; &nbsp; | London &nbsp; &nbsp; &nbsp;| Lee &nbsp; &nbsp; &nbsp; &nbsp;| Linda<br/>
- &nbsp; &nbsp;3 : Experienced &nbsp;| Morristown &nbsp;| Miller &nbsp; &nbsp; | Mike<br/>
- &nbsp; &nbsp;4 : Experienced &nbsp;| New York &nbsp; &nbsp;| Nguyen &nbsp; &nbsp; | Nathali<br/>
- &nbsp; &nbsp;5 : Experienced &nbsp;| Oslo &nbsp; &nbsp; &nbsp; &nbsp;| Oliveiro &nbsp; | Oscar<br/>
- &nbsp; &nbsp;6 : Beginner &nbsp; &nbsp; | Phoenix &nbsp; &nbsp; | Paulsson &nbsp; | Petra<br/>
- &nbsp; &nbsp;7 : Beginner &nbsp; &nbsp; | Quebec City | Quarles &nbsp; &nbsp;| Quincy<br/>
- &nbsp; &nbsp;8 : Experienced &nbsp;| Riga &nbsp; &nbsp; &nbsp; &nbsp;| Richardson | Richard<br/>
- &nbsp; &nbsp;9 : Experienced &nbsp;| San Diego &nbsp; | Stewart &nbsp; &nbsp;| Sandra<br/>
- &nbsp; 10 : Experienced &nbsp;| Tahoma &nbsp; &nbsp; &nbsp;| Turner &nbsp; &nbsp; | Tim<br/>
- &nbsp; 11 : Questionable | Ulm &nbsp; &nbsp; &nbsp; &nbsp; | Ufford &nbsp; &nbsp; | Uwe<br/>
- &nbsp; 12 : Beginner &nbsp; &nbsp; | Venice &nbsp; &nbsp; &nbsp;| Viking &nbsp; &nbsp; | Victor</code></div>
+<div class="output_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Town&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Last&nbsp;Name&nbsp;&nbsp;|&nbsp;First&nbsp;Name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Questionable&nbsp;|&nbsp;Kyoto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;|&nbsp;Karl<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;London&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Linda<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Morristown&nbsp;&nbsp;|&nbsp;Miller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Mike<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;New&nbsp;York&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nguyen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nathali<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Oslo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oliveiro&nbsp;&nbsp;&nbsp;|&nbsp;Oscar<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Phoenix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Paulsson&nbsp;&nbsp;&nbsp;|&nbsp;Petra<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quebec&nbsp;City&nbsp;|&nbsp;Quarles&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quincy<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Riga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Richardson&nbsp;|&nbsp;Richard<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;San&nbsp;Diego&nbsp;&nbsp;&nbsp;|&nbsp;Stewart&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Sandra<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;Experienced&nbsp;&nbsp;|&nbsp;Tahoma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Turner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tim<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Questionable&nbsp;|&nbsp;Ulm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ufford&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Uwe<br/>
+&nbsp;&nbsp;&nbsp;12&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Venice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Viking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Victor</code></div>
 <h5>  5. Merge the football club table to the soccer club table (via appending) </h5>
-<div class="code_background_color" ><code>&gt;&gt; table merge ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );<br/>
-&gt;&gt; table list( soccer club )</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;merge&nbsp;(&nbsp;football&nbsp;club,&nbsp;soccer&nbsp;club,&nbsp;{&nbsp;Last&nbsp;Name,&nbsp;First&nbsp;Name&nbsp;},&nbsp;{&nbsp;Level,&nbsp;Town&nbsp;},&nbsp;append,&nbsp;"&nbsp;or&nbsp;"&nbsp;);<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;soccer&nbsp;club&nbsp;)</code></div>
 <h5> </h5>
 <div class="output_background_color" ><code><br/>
-Merged soccer club has 22 members.<br/>
+Merged&nbsp;soccer&nbsp;club&nbsp;has&nbsp;22&nbsp;members.<br/>
 <br/>
 <br/>
- &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Town &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Last Name &nbsp;| First Name<br/>
- &nbsp; &nbsp;1 : Questionable or Experienced | Kyoto or Kansas City | Karlsson &nbsp; | Karl<br/>
- &nbsp; &nbsp;2 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| London &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Lee &nbsp; &nbsp; &nbsp; &nbsp;| Linda<br/>
- &nbsp; &nbsp;3 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Morristown &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Miller &nbsp; &nbsp; | Mike<br/>
- &nbsp; &nbsp;4 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | New York &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Nguyen &nbsp; &nbsp; | Nathali<br/>
- &nbsp; &nbsp;5 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Oslo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Oliveiro &nbsp; | Oscar<br/>
- &nbsp; &nbsp;6 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Phoenix &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Paulsson &nbsp; | Petra<br/>
- &nbsp; &nbsp;7 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Quebec City &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Quarles &nbsp; &nbsp;| Quincy<br/>
- &nbsp; &nbsp;8 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Riga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Richardson | Richard<br/>
- &nbsp; &nbsp;9 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | San Diego &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Stewart &nbsp; &nbsp;| Sandra<br/>
- &nbsp; 10 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Tahoma &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Turner &nbsp; &nbsp; | Tim<br/>
- &nbsp; 11 : Questionable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ulm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ufford &nbsp; &nbsp; | Uwe<br/>
- &nbsp; 12 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Venice &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Viking &nbsp; &nbsp; | Victor<br/>
- &nbsp; 13 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Amsterdam &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Amberstone | Abel<br/>
- &nbsp; 14 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Barcelona &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Berghill &nbsp; | Beata<br/>
- &nbsp; 15 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Copenhagen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Carlson &nbsp; &nbsp;| Corinne<br/>
- &nbsp; 16 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Dublin &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Davis &nbsp; &nbsp; &nbsp;| Dietmar<br/>
- &nbsp; 17 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Essen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp;| Ellen<br/>
- &nbsp; 18 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Frankfurt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Fisher &nbsp; &nbsp; | Fred<br/>
- &nbsp; 19 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Gaza City &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp;| Gregory<br/>
- &nbsp; 20 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Hamburg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp;| Henry<br/>
- &nbsp; 21 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ingolstadt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Ingelberg &nbsp;| Ida<br/>
- &nbsp; 22 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Johannesburg &nbsp; &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp;| John<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Town&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Last&nbsp;Name&nbsp;&nbsp;|&nbsp;First&nbsp;Name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Questionable&nbsp;or&nbsp;Experienced&nbsp;|&nbsp;Kyoto&nbsp;or&nbsp;Kansas&nbsp;City&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;|&nbsp;Karl<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;London&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Linda<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Morristown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Miller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Mike<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;New&nbsp;York&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nguyen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nathali<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oslo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oliveiro&nbsp;&nbsp;&nbsp;|&nbsp;Oscar<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Phoenix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Paulsson&nbsp;&nbsp;&nbsp;|&nbsp;Petra<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quebec&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quarles&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quincy<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Riga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Richardson&nbsp;|&nbsp;Richard<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;San&nbsp;Diego&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Stewart&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Sandra<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tahoma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Turner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tim<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Questionable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ulm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ufford&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Uwe<br/>
+&nbsp;&nbsp;&nbsp;12&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Venice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Viking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Victor<br/>
+&nbsp;&nbsp;&nbsp;13&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amsterdam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amberstone&nbsp;|&nbsp;Abel<br/>
+&nbsp;&nbsp;&nbsp;14&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Barcelona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Berghill&nbsp;&nbsp;&nbsp;|&nbsp;Beata<br/>
+&nbsp;&nbsp;&nbsp;15&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Copenhagen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Carlson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Corinne<br/>
+&nbsp;&nbsp;&nbsp;16&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dublin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Davis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dietmar<br/>
+&nbsp;&nbsp;&nbsp;17&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Essen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Evans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ellen<br/>
+&nbsp;&nbsp;&nbsp;18&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Frankfurt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fisher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fred<br/>
+&nbsp;&nbsp;&nbsp;19&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaza&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Green&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gregory<br/>
+&nbsp;&nbsp;&nbsp;20&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hamburg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hansson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Henry<br/>
+&nbsp;&nbsp;&nbsp;21&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingolstadt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingelberg&nbsp;&nbsp;|&nbsp;Ida<br/>
+&nbsp;&nbsp;&nbsp;22&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Johannesburg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Janssen&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;John<br/>
 </code></div>
 <h5>  Sort the rows based on Level and Name</h5>
-<div class="code_background_color" ><code>&gt;&gt; table sort rows ( soccer club, &nbsp; { Level, Last Name, &nbsp;First Name });<br/>
-&gt;&gt; table list( soccer club )</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;sort&nbsp;rows&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;{&nbsp;Level,&nbsp;Last&nbsp;Name,&nbsp;&nbsp;First&nbsp;Name&nbsp;});<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;soccer&nbsp;club&nbsp;)</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code> &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Town &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Last Name &nbsp;| First Name<br/>
- &nbsp; &nbsp;1 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Amsterdam &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Amberstone | Abel<br/>
- &nbsp; &nbsp;2 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Copenhagen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Carlson &nbsp; &nbsp;| Corinne<br/>
- &nbsp; &nbsp;3 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Dublin &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Davis &nbsp; &nbsp; &nbsp;| Dietmar<br/>
- &nbsp; &nbsp;4 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Essen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp;| Ellen<br/>
- &nbsp; &nbsp;5 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ingolstadt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Ingelberg &nbsp;| Ida<br/>
- &nbsp; &nbsp;6 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Johannesburg &nbsp; &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp;| John<br/>
- &nbsp; &nbsp;7 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| London &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Lee &nbsp; &nbsp; &nbsp; &nbsp;| Linda<br/>
- &nbsp; &nbsp;8 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Phoenix &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Paulsson &nbsp; | Petra<br/>
- &nbsp; &nbsp;9 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Quebec City &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Quarles &nbsp; &nbsp;| Quincy<br/>
- &nbsp; 10 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Venice &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Viking &nbsp; &nbsp; | Victor<br/>
- &nbsp; 11 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Barcelona &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Berghill &nbsp; | Beata<br/>
- &nbsp; 12 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Frankfurt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Fisher &nbsp; &nbsp; | Fred<br/>
- &nbsp; 13 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Gaza City &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp;| Gregory<br/>
- &nbsp; 14 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Hamburg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp;| Henry<br/>
- &nbsp; 15 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Morristown &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Miller &nbsp; &nbsp; | Mike<br/>
- &nbsp; 16 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | New York &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Nguyen &nbsp; &nbsp; | Nathali<br/>
- &nbsp; 17 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Oslo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Oliveiro &nbsp; | Oscar<br/>
- &nbsp; 18 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Riga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Richardson | Richard<br/>
- &nbsp; 19 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | San Diego &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Stewart &nbsp; &nbsp;| Sandra<br/>
- &nbsp; 20 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Tahoma &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Turner &nbsp; &nbsp; | Tim<br/>
- &nbsp; 21 : Questionable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ulm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ufford &nbsp; &nbsp; | Uwe<br/>
- &nbsp; 22 : Questionable or Experienced | Kyoto or Kansas City | Karlsson &nbsp; | Karl</code></div>
+<div class="output_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Town&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Last&nbsp;Name&nbsp;&nbsp;|&nbsp;First&nbsp;Name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amsterdam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amberstone&nbsp;|&nbsp;Abel<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Copenhagen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Carlson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Corinne<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dublin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Davis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dietmar<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Essen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Evans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ellen<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingolstadt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingelberg&nbsp;&nbsp;|&nbsp;Ida<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Johannesburg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Janssen&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;John<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;London&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Linda<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Phoenix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Paulsson&nbsp;&nbsp;&nbsp;|&nbsp;Petra<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quebec&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quarles&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quincy<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Venice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Viking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Victor<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Barcelona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Berghill&nbsp;&nbsp;&nbsp;|&nbsp;Beata<br/>
+&nbsp;&nbsp;&nbsp;12&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Frankfurt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fisher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fred<br/>
+&nbsp;&nbsp;&nbsp;13&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaza&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Green&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gregory<br/>
+&nbsp;&nbsp;&nbsp;14&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hamburg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hansson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Henry<br/>
+&nbsp;&nbsp;&nbsp;15&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Morristown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Miller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Mike<br/>
+&nbsp;&nbsp;&nbsp;16&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;New&nbsp;York&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nguyen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nathali<br/>
+&nbsp;&nbsp;&nbsp;17&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oslo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oliveiro&nbsp;&nbsp;&nbsp;|&nbsp;Oscar<br/>
+&nbsp;&nbsp;&nbsp;18&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Riga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Richardson&nbsp;|&nbsp;Richard<br/>
+&nbsp;&nbsp;&nbsp;19&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;San&nbsp;Diego&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Stewart&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Sandra<br/>
+&nbsp;&nbsp;&nbsp;20&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tahoma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Turner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tim<br/>
+&nbsp;&nbsp;&nbsp;21&nbsp;:&nbsp;Questionable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ulm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ufford&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Uwe<br/>
+&nbsp;&nbsp;&nbsp;22&nbsp;:&nbsp;Questionable&nbsp;or&nbsp;Experienced&nbsp;|&nbsp;Kyoto&nbsp;or&nbsp;Kansas&nbsp;City&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;|&nbsp;Karl</code></div>
 <h5>  Rearrange column order</h5>
-<div class="code_background_color" ><code>&gt;&gt; table rearrange columns ( soccer club, { Level, First Name, Last Name, Town } );<br/>
-&gt;&gt; table list( soccer club )</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;rearrange&nbsp;columns&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;{&nbsp;Level,&nbsp;First&nbsp;Name,&nbsp;Last&nbsp;Name,&nbsp;Town&nbsp;}&nbsp;);<br/>
+&gt;&gt;&nbsp;table&nbsp;list(&nbsp;soccer&nbsp;club&nbsp;)</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code> &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | First Name | Last Name &nbsp;| Town<br/>
- &nbsp; &nbsp;1 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Abel &nbsp; &nbsp; &nbsp; | Amberstone | Amsterdam<br/>
- &nbsp; &nbsp;2 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Corinne &nbsp; &nbsp;| Carlson &nbsp; &nbsp;| Copenhagen<br/>
- &nbsp; &nbsp;3 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Dietmar &nbsp; &nbsp;| Davis &nbsp; &nbsp; &nbsp;| Dublin<br/>
- &nbsp; &nbsp;4 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ellen &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp;| Essen<br/>
- &nbsp; &nbsp;5 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ida &nbsp; &nbsp; &nbsp; &nbsp;| Ingelberg &nbsp;| Ingolstadt<br/>
- &nbsp; &nbsp;6 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| John &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp;| Johannesburg<br/>
- &nbsp; &nbsp;7 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Linda &nbsp; &nbsp; &nbsp;| Lee &nbsp; &nbsp; &nbsp; &nbsp;| London<br/>
- &nbsp; &nbsp;8 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Petra &nbsp; &nbsp; &nbsp;| Paulsson &nbsp; | Phoenix<br/>
- &nbsp; &nbsp;9 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Quincy &nbsp; &nbsp; | Quarles &nbsp; &nbsp;| Quebec City<br/>
- &nbsp; 10 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Victor &nbsp; &nbsp; | Viking &nbsp; &nbsp; | Venice<br/>
- &nbsp; 11 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Beata &nbsp; &nbsp; &nbsp;| Berghill &nbsp; | Barcelona<br/>
- &nbsp; 12 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Fred &nbsp; &nbsp; &nbsp; | Fisher &nbsp; &nbsp; | Frankfurt<br/>
- &nbsp; 13 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Gregory &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp;| Gaza City<br/>
- &nbsp; 14 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Henry &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp;| Hamburg<br/>
- &nbsp; 15 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Mike &nbsp; &nbsp; &nbsp; | Miller &nbsp; &nbsp; | Morristown<br/>
- &nbsp; 16 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Nathali &nbsp; &nbsp;| Nguyen &nbsp; &nbsp; | New York<br/>
- &nbsp; 17 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Oscar &nbsp; &nbsp; &nbsp;| Oliveiro &nbsp; | Oslo<br/>
- &nbsp; 18 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Richard &nbsp; &nbsp;| Richardson | Riga<br/>
- &nbsp; 19 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Sandra &nbsp; &nbsp; | Stewart &nbsp; &nbsp;| San Diego<br/>
- &nbsp; 20 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Tim &nbsp; &nbsp; &nbsp; &nbsp;| Turner &nbsp; &nbsp; | Tahoma<br/>
- &nbsp; 21 : Questionable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Uwe &nbsp; &nbsp; &nbsp; &nbsp;| Ufford &nbsp; &nbsp; | Ulm<br/>
- &nbsp; 22 : Questionable or Experienced | Karl &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; | Kyoto or Kansas City</code></div>
+<div class="output_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;First&nbsp;Name&nbsp;|&nbsp;Last&nbsp;Name&nbsp;&nbsp;|&nbsp;Town<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Abel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Amberstone&nbsp;|&nbsp;Amsterdam<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Corinne&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Carlson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Copenhagen<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dietmar&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Davis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Dublin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ellen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Evans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Essen<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ingelberg&nbsp;&nbsp;|&nbsp;Ingolstadt<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;John&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Janssen&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Johannesburg<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Linda&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;London<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Petra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Paulsson&nbsp;&nbsp;&nbsp;|&nbsp;Phoenix<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quincy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quarles&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Quebec&nbsp;City<br/>
+&nbsp;&nbsp;&nbsp;10&nbsp;:&nbsp;Beginner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Victor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Viking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Venice<br/>
+&nbsp;&nbsp;&nbsp;11&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Beata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Berghill&nbsp;&nbsp;&nbsp;|&nbsp;Barcelona<br/>
+&nbsp;&nbsp;&nbsp;12&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fred&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Fisher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Frankfurt<br/>
+&nbsp;&nbsp;&nbsp;13&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gregory&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Green&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaza&nbsp;City<br/>
+&nbsp;&nbsp;&nbsp;14&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Henry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hansson&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Hamburg<br/>
+&nbsp;&nbsp;&nbsp;15&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Mike&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Miller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Morristown<br/>
+&nbsp;&nbsp;&nbsp;16&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nathali&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Nguyen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;New&nbsp;York<br/>
+&nbsp;&nbsp;&nbsp;17&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oscar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Oliveiro&nbsp;&nbsp;&nbsp;|&nbsp;Oslo<br/>
+&nbsp;&nbsp;&nbsp;18&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Richard&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Richardson&nbsp;|&nbsp;Riga<br/>
+&nbsp;&nbsp;&nbsp;19&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Sandra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Stewart&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;San&nbsp;Diego<br/>
+&nbsp;&nbsp;&nbsp;20&nbsp;:&nbsp;Experienced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Turner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tahoma<br/>
+&nbsp;&nbsp;&nbsp;21&nbsp;:&nbsp;Questionable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Uwe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ufford&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Ulm<br/>
+&nbsp;&nbsp;&nbsp;22&nbsp;:&nbsp;Questionable&nbsp;or&nbsp;Experienced&nbsp;|&nbsp;Karl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Karlsson&nbsp;&nbsp;&nbsp;|&nbsp;Kyoto&nbsp;or&nbsp;Kansas&nbsp;City</code></div>
 <h5>  6. Save table as a new, merged club list in an Excel file</h5>
-<div class="code_background_color" ><code>&gt;&gt; table save ( soccer club, &nbsp; Merged Soccer Club Membership List.xls, EXCEL );</code></div>
+<div class="code_background_color" ><code>&gt;&gt;&nbsp;table&nbsp;save&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;Merged&nbsp;Soccer&nbsp;Club&nbsp;Membership&nbsp;List.xls,&nbsp;EXCEL&nbsp;);</code></div>
 <h5> </h5>
-<div class="output_background_color" ><code>Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' containing 1 sheets.</code></div>
+<div class="output_background_color" ><code>Saved&nbsp;table(s)&nbsp;to&nbsp;EXCEL-XML2003&nbsp;file&nbsp;'New&nbsp;Soccer&nbsp;Club&nbsp;Membership&nbsp;List.xls'&nbsp;containing&nbsp;1&nbsp;sheets.</code></div>
 <h4>  B4P program</h4>
 <p></p>
 <h5>  Interactive code combined as single B4P program</h5>
-<div class="code_background_color" ><code> &nbsp; &nbsp;runtime settings[verbose] = low;<br/>
- &nbsp; &nbsp;working directory ( Examples );<br/>
+<div class="code_background_color" ><code>&nbsp;&nbsp;&nbsp;&nbsp;runtime&nbsp;settings[verbose]&nbsp;=&nbsp;low;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;working&nbsp;directory&nbsp;(&nbsp;Examples&nbsp;);<br/>
 <br/>
- &nbsp; &nbsp;table load excel file &nbsp; &nbsp; &nbsp; ( football club, Football Membership List.xlsx ); <br/>
- &nbsp; &nbsp;table list &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;( football club );<br/>
- &nbsp; &nbsp;table load &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;( soccer club, &nbsp; Soccer Membership List.csv ); // Beginners are Novices here<br/>
- &nbsp; &nbsp;table list &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;( soccer club );<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;load&nbsp;excel&nbsp;file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;football&nbsp;club,&nbsp;Football&nbsp;Membership&nbsp;List.xlsx&nbsp;);&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;list&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;football&nbsp;club&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;load&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;Soccer&nbsp;Membership&nbsp;List.csv&nbsp;);&nbsp;//&nbsp;Beginners&nbsp;are&nbsp;Novices&nbsp;here<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;list&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;soccer&nbsp;club&nbsp;);<br/>
 <br/>
- &nbsp; &nbsp;table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );<br/>
- &nbsp; &nbsp;table process selected rows ( soccer club, &nbsp; [Level]==Novice, [Level]=Beginner );<br/>
- &nbsp; &nbsp;table merge &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );<br/>
- &nbsp; &nbsp;echo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;("Merged soccer club has ", table length( soccer club )-1, " members.");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;rename&nbsp;column&nbsp;headers&nbsp;(&nbsp;football&nbsp;club,&nbsp;{&nbsp;Family&nbsp;Name,&nbsp;City&nbsp;},&nbsp;{&nbsp;Last&nbsp;Name,&nbsp;Town&nbsp;}&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;process&nbsp;selected&nbsp;rows&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;[Level]==Novice,&nbsp;[Level]=Beginner&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;merge&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;football&nbsp;club,&nbsp;soccer&nbsp;club,&nbsp;{&nbsp;Last&nbsp;Name,&nbsp;First&nbsp;Name&nbsp;},&nbsp;{&nbsp;Level,&nbsp;Town&nbsp;},&nbsp;append,&nbsp;"&nbsp;or&nbsp;"&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("Merged&nbsp;soccer&nbsp;club&nbsp;has&nbsp;",&nbsp;table&nbsp;length(&nbsp;soccer&nbsp;club&nbsp;)-1,&nbsp;"&nbsp;members.");<br/>
 <br/>
- &nbsp; &nbsp;table sort rows &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ( soccer club, &nbsp; { Level, Last Name, &nbsp;First Name });<br/>
- &nbsp; &nbsp;table rearrange columns &nbsp; &nbsp; ( soccer club, &nbsp; { Level, First Name, Last Name, Town } );<br/>
- &nbsp; &nbsp;table list &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;( soccer club );<br/>
- &nbsp; &nbsp;table save &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;( soccer club, &nbsp; Merged Soccer Club Membership List.xls, EXCEL );</code></div>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;sort&nbsp;rows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;{&nbsp;Level,&nbsp;Last&nbsp;Name,&nbsp;&nbsp;First&nbsp;Name&nbsp;});<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;rearrange&nbsp;columns&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;{&nbsp;Level,&nbsp;First&nbsp;Name,&nbsp;Last&nbsp;Name,&nbsp;Town&nbsp;}&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;list&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;soccer&nbsp;club&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;soccer&nbsp;club,&nbsp;&nbsp;&nbsp;Merged&nbsp;Soccer&nbsp;Club&nbsp;Membership&nbsp;List.xls,&nbsp;EXCEL&nbsp;);</code></div>
 <h5> B4P Program execution</h5>
-<div class="output_background_color" ><code>Included: Support Library &nbsp;2.01<br/>
-Included: Utility Library &nbsp;2.00<br/>
-Included: Office Libarary &nbsp;2.00<br/>
-Included: Zip Library &nbsp;2.20 &nbsp; &nbsp;Path to zip program already memorized (OK): /usr/bin/zip<br/>
-<br/>
- &nbsp; &nbsp;Loaded EXCEL file 'Football Membership List.xlsx':<br/>
- &nbsp; &nbsp;12 rows, max 4 columns, 4 columns in 1st row<br/>
-<br/>
- &nbsp; &nbsp;0 : First Name | Family Name | City &nbsp; &nbsp; &nbsp; &nbsp; | Level &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;1 : Abel &nbsp; &nbsp; &nbsp; | Amberstone &nbsp;| Amsterdam &nbsp; &nbsp;| Beginner &nbsp; <br/>
- &nbsp; &nbsp;2 : Beata &nbsp; &nbsp; &nbsp;| Berghill &nbsp; &nbsp;| Barcelona &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;3 : Corinne &nbsp; &nbsp;| Carlson &nbsp; &nbsp; | Copenhagen &nbsp; | Beginner &nbsp; <br/>
- &nbsp; &nbsp;4 : Dietmar &nbsp; &nbsp;| Davis &nbsp; &nbsp; &nbsp; | Dublin &nbsp; &nbsp; &nbsp; | Beginner &nbsp; <br/>
- &nbsp; &nbsp;5 : Ellen &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp; | Essen &nbsp; &nbsp; &nbsp; &nbsp;| Beginner &nbsp; <br/>
- &nbsp; &nbsp;6 : Fred &nbsp; &nbsp; &nbsp; | Fisher &nbsp; &nbsp; &nbsp;| Frankfurt &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;7 : Gregory &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp; | Gaza City &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;8 : Henry &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp; | Hamburg &nbsp; &nbsp; &nbsp;| Experienced<br/>
- &nbsp; &nbsp;9 : Ida &nbsp; &nbsp; &nbsp; &nbsp;| Ingelberg &nbsp; | Ingolstadt &nbsp; | Beginner &nbsp; <br/>
- &nbsp; 10 : John &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp; | Johannesburg | Beginner &nbsp; <br/>
- &nbsp; 11 : Karl &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; &nbsp;| Kansas City &nbsp;| Experienced<br/>
-<br/>
-<br/>
- &nbsp; &nbsp;Loaded CSV/TSV file 'Soccer Membership List.csv':<br/>
- &nbsp; &nbsp;13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;<br/>
-<br/>
- &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp;| Town &nbsp; &nbsp; &nbsp; &nbsp;| Last Name &nbsp;| First Name<br/>
- &nbsp; &nbsp;1 : Questionable | Kyoto &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; | Karl &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;2 : Novice &nbsp; &nbsp; &nbsp; | London &nbsp; &nbsp; &nbsp;| Lee &nbsp; &nbsp; &nbsp; &nbsp;| Linda &nbsp; &nbsp; <br/>
- &nbsp; &nbsp;3 : Experienced &nbsp;| Morristown &nbsp;| Miller &nbsp; &nbsp; | Mike &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;4 : Experienced &nbsp;| New York &nbsp; &nbsp;| Nguyen &nbsp; &nbsp; | Nathali &nbsp; <br/>
- &nbsp; &nbsp;5 : Experienced &nbsp;| Oslo &nbsp; &nbsp; &nbsp; &nbsp;| Oliveiro &nbsp; | Oscar &nbsp; &nbsp; <br/>
- &nbsp; &nbsp;6 : Novice &nbsp; &nbsp; &nbsp; | Phoenix &nbsp; &nbsp; | Paulsson &nbsp; | Petra &nbsp; &nbsp; <br/>
- &nbsp; &nbsp;7 : Novice &nbsp; &nbsp; &nbsp; | Quebec City | Quarles &nbsp; &nbsp;| Quincy &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;8 : Experienced &nbsp;| Riga &nbsp; &nbsp; &nbsp; &nbsp;| Richardson | Richard &nbsp; <br/>
- &nbsp; &nbsp;9 : Experienced &nbsp;| San Diego &nbsp; | Stewart &nbsp; &nbsp;| Sandra &nbsp; &nbsp;<br/>
- &nbsp; 10 : Experienced &nbsp;| Tahoma &nbsp; &nbsp; &nbsp;| Turner &nbsp; &nbsp; | Tim &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 11 : Questionable | Ulm &nbsp; &nbsp; &nbsp; &nbsp; | Ufford &nbsp; &nbsp; | Uwe &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 12 : Novice &nbsp; &nbsp; &nbsp; | Venice &nbsp; &nbsp; &nbsp;| Viking &nbsp; &nbsp; | Victor &nbsp; &nbsp;<br/>
-<br/>
-Merged soccer club has 22 members.<br/>
- &nbsp; &nbsp;0 : Level &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | First Name | Last Name &nbsp;| Town &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;1 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Abel &nbsp; &nbsp; &nbsp; | Amberstone | Amsterdam &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; &nbsp;2 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Corinne &nbsp; &nbsp;| Carlson &nbsp; &nbsp;| Copenhagen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;3 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Dietmar &nbsp; &nbsp;| Davis &nbsp; &nbsp; &nbsp;| Dublin &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;4 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ellen &nbsp; &nbsp; &nbsp;| Evans &nbsp; &nbsp; &nbsp;| Essen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; &nbsp;5 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Ida &nbsp; &nbsp; &nbsp; &nbsp;| Ingelberg &nbsp;| Ingolstadt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;6 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| John &nbsp; &nbsp; &nbsp; | Janssen &nbsp; &nbsp;| Johannesburg &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;7 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Linda &nbsp; &nbsp; &nbsp;| Lee &nbsp; &nbsp; &nbsp; &nbsp;| London &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; &nbsp;8 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Petra &nbsp; &nbsp; &nbsp;| Paulsson &nbsp; | Phoenix &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; &nbsp;9 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Quincy &nbsp; &nbsp; | Quarles &nbsp; &nbsp;| Quebec City &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 10 : Beginner &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Victor &nbsp; &nbsp; | Viking &nbsp; &nbsp; | Venice &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; 11 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Beata &nbsp; &nbsp; &nbsp;| Berghill &nbsp; | Barcelona &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 12 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Fred &nbsp; &nbsp; &nbsp; | Fisher &nbsp; &nbsp; | Frankfurt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 13 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Gregory &nbsp; &nbsp;| Green &nbsp; &nbsp; &nbsp;| Gaza City &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 14 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Henry &nbsp; &nbsp; &nbsp;| Hansson &nbsp; &nbsp;| Hamburg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 15 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Mike &nbsp; &nbsp; &nbsp; | Miller &nbsp; &nbsp; | Morristown &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; 16 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Nathali &nbsp; &nbsp;| Nguyen &nbsp; &nbsp; | New York &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; 17 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Oscar &nbsp; &nbsp; &nbsp;| Oliveiro &nbsp; | Oslo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; 18 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Richard &nbsp; &nbsp;| Richardson | Riga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; 19 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Sandra &nbsp; &nbsp; | Stewart &nbsp; &nbsp;| San Diego &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 20 : Experienced &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Tim &nbsp; &nbsp; &nbsp; &nbsp;| Turner &nbsp; &nbsp; | Tahoma &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
- &nbsp; 21 : Questionable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Uwe &nbsp; &nbsp; &nbsp; &nbsp;| Ufford &nbsp; &nbsp; | Ulm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
- &nbsp; 22 : Questionable or Experienced | Karl &nbsp; &nbsp; &nbsp; | Karlsson &nbsp; | Kyoto or Kansas City<br/>
-<br/>
-<br/>
- &nbsp; &nbsp;Saved table(s) to EXCEL-XML2003 file 'Merged Soccer Club Membership List.xls' containing 1 sheets.<br/>
-<br/>
-</code></div><br><u>Try it yourself:</u> Open <b>GUI_Features_merging_two_football_clubs00.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>GUI_Features_merging_two_football_clubs.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
 	</div>
 </section>
 

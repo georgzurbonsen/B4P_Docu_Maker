@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">	
+
+<head>
+<meta charset="utf-8"/>
+<title>B4P Reference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<div class="wrapper">
+
+<div class="logo">
+<a href="index.html">
+<img src="Images/B4P_Logo.png" alt="Beyond4P">
+</a>
+</div>
+
+<div class="header">
+<h3>Loading and Saving Variables</h3>
+<a accesskey="p" href="REF_Features_Arrays_and_Structures.html"><span>Prev</span></a> <a accesskey="n" href="REF_Features_Variable_references_functions.html"><span>Next</span></a> 
+</div>
+
+<section>
+	<div class="nav">
+<div class="booktitle_field">Reference Manual</div>
+<ul>
+<li class="navi"><a href="GUI_Features_Table_of_Contents.html"><div class="navi"> &#8594; User Guide </div></a></li>
+<li class="navi"><a href="REF_Features_Table_of_Contents.html"><div class="navi"> Table of Contents </div></a></li>
+<li class="navi"><a href="REF_Features_starting.html"><div class="navi">1 Starting B4P </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_interactive.html"><div class="navi">1.1 Interactive Mode </div></a></li>
+<li class="navi"><a href="REF_Features_licensing.html"><div class="navi">1.2 Licensing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_introduction.html"><div class="navi">2 Introduction </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_UNICODE_character_set.html"><div class="navi">2.1 UNICODE Character Set </div></a></li>
+<li class="navi"><a href="REF_Features_data_types.html"><div class="navi">2.2 Basic Data Types </div></a></li>
+<li class="navi"><a href="REF_Features_variables.html"><div class="navi">2.3 Variables </div></a></li>
+<li class="navi"><a href="REF_Features_comments.html"><div class="navi">2.4 Comments </div></a></li>
+<li class="navi"><a href="REF_Features_reserved_keywords.html"><div class="navi">2.5 Reserved keywords </div></a></li>
+<li class="navi"><a href="REF_Features_path_names.html"><div class="navi">2.6 Path and File Names </div></a></li>
+<li class="navi"><a href="REF_Features_Locales.html"><div class="navi">2.7 Locales </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Functions_and_Procedures.html"><div class="navi">3 Functions and Procedures </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Function_Parameters.html"><div class="navi">3.1 Function Parameters </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_directions.html"><div class="navi">3.2 Function Parameter Directions </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_types.html"><div class="navi">3.3 Function Parameter Types </div></a></li>
+<li class="navi"><a href="REF_Features_Indirect_parameter_passing.html"><div class="navi">3.4 Indirect Parameter Passing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Function_Library.html"><div class="navi">4 Function Library </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Control_Flow_Functions.html"><div class="navi">4.1 Control Flow Functions </div></a></li>
+<li class="navi"><a href="REF_Features_input_output_functions.html"><div class="navi">4.2 Input / Output Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Type_Conversion_Functions.html"><div class="navi">4.3 Type Conversion and Formatting Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Mathematics_and_Statistics.html"><div class="navi">4.4 Mathematics and Statistics </div></a></li>
+<li class="navi"><a href="REF_Features_string_functions.html"><div class="navi">4.5 String Functions </div></a></li>
+<li class="navi"><a href="REF_Features_date_and_time_functions.html"><div class="navi">4.6 Date and Time Functions </div></a></li>
+<li class="navi"><a href="REF_Features_parameter_set_functions.html"><div class="navi">4.7 Parameter Set Functions </div></a></li>
+<li class="navi"><a href="REF_Features_table_functions.html"><div class="navi">4.8 Table Functions </div></a></li>
+<li class="navi"><a href="REF_Features_variables_functions.html"><div class="navi">4.9 Variables Functions </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_basic_variables_functions.html"><div class="navi">4.9.1 Basic Variables Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Arrays_and_Structures.html"><div class="navi">4.9.2 Arrays and Structures </div></a></li>
+<li class="navi"><a href="REF_Features_Loading_and_saving_variables.html"><div class="navi navi-selected">4.9.3 Loading and Saving Variables </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><div>4.9.3.1 variable load ... </div></li>
+<li class="navi"><div>4.9.3.2 json to variable ... </div></li>
+<li class="navi"><div>4.9.3.3 variable save ... </div></li>
+<li class="navi"><div>4.9.3.4 variable to json ... </div></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Variable_references_functions.html"><div class="navi">+ 4.9.4 Variable References Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Resident_attributes_functions.html"><div class="navi">+ 4.9.5 Resident Attributes Functions </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_directory_and_file_system_functions.html"><div class="navi">+ 4.10 Directory and File System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_system_functions.html"><div class="navi">+ 4.11 System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Cross-functional_info.html"><div class="navi">+ 4.12 Cross-Functional Info </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_verbose.html"><div class="navi"> Verbose Levels </div></a></li>
+</ul>
+	</div>
+
+	<div class="article">
+<h4> Introduction</h4>
+<p>
+The following functions provide convenient methods to save variables (including all the structure and array members and sub-members) into files or $
+text strings (literals) and vice versa in JavaScriopt Object Notation (JSON).  Focus is given on full data preservation in round trip cases,
+i.e. data is saved as JSON and covered again, and vice versa.
+
+<br><br>
+
+Following rules will be applied when saving variables into JSON text.
+These rules are insofar important because the Beyond4P can consist of both base variables, array and structure members and sub-members,
+and the simple JSON representation focuses on leaf data, meaning the final members and sub-members without the intermediate one.
+In addition, special rules are applied to save Beyond4P specific formats such as dates (and times) and parameter sets.
+
+Following special rules apply
+</p><table class="noframe_1stcolbold" style = "width:1000px"><col style = "width:200px"><col style = "width:800px">
+<tr><td>General         </td><td> The base variable as well as all members and sub-members, regardless if array or structures, will be saved.</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_simple_variables.html">Simple Variables</a>    </td><td> If the variable is a simple variable, then it will be saved as a JSON plain array containing 1 element.  Using 'JSON B4P' option in the loading process will recover the variable properly.</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_arrays.html">Arrays</a>      </td><td> B4P arrays are stored as JSON arrays</td></tr>
+<tr><td><a class="bold_text" href="REF_Features_structures.html">Structures</a>      </td><td> B4P structures are stored as JSON objects</td></tr>
+<tr><td>Literals        </td><td> Literal string contents are stored as text in double quotation marks</td></tr>
+<tr><td>Numerals        </td><td> Numerals are written as numbers without quotation marks.  When saving, scientific notation is not used.  However, JSON files containing scientific notation will be loaded correctly.</td></tr>
+<tr><td>Booleans        </td><td> Will be written as <b>true</b> and <b>false</b>.  B4P will recognize boolean values and convert them to Boolean type</td></tr>
+<tr><td>Void values     </td><td> Are written as <b>null</b> in JSON output.</td></tr>
+<tr><td>Dates           </td><td> Dates (and times) are written as text in following formats: "YYYY-MM-DD", "hh:mm:ss", "YYYY-MM-DD hh:mm:ss", and "0000-00-00".  The last value refers to a blank date and will be recognized as such. When reading JSON data, dates and times must adhere strictly with the given formats, otherwise they will be loaded as text (e.g. "01 April 2020").</td></tr>
+<tr><td>Parameter Sets      </td><td> Parameter sets will be converted to string format (similarly implemented as in the <span class="red_text">literal</span>() function) and stored as text.  Literals are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested parameter sets are supported.</td></tr>
+<tr><td>Loading literals    </td><td> All loaded literals are declared as <b>quoted literals</b></td></tr>
+<tr><td>Special characters  </td><td> Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside literals, etc.</td></tr>
+</table><p></p>
+<h4> Intermediate Nodes</h4>
+<p>The JSON model describes a tree containing data at the end nodes only (leaves) whereas B4P variable model also supports data in intermediate
+nodes as well.  In these case, intermediate arrays containing 2 elements are introduced to describe the intermediate node followed by the
+remaining data up the data tree.  See the program example below:</p>
+<h5> JSON code without and with intermediate nodes</h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;b[Red]&nbsp;=&nbsp;Rot;<br/>
+&nbsp;&nbsp;b[Green,light]&nbsp;=&nbsp;Hellgrün;<br/>
+&nbsp;&nbsp;b[Green,dark]&nbsp;=&nbsp;Dunkelgrün;<br/>
+&nbsp;&nbsp;b[Blue,light]&nbsp;=&nbsp;Hellblau;<br/>
+&nbsp;&nbsp;b[Blue,dark]&nbsp;=&nbsp;Dunkelblau;<br/>
+<br/>
+&nbsp;&nbsp;inspect(b[]);<br/>
+<br/>
+&nbsp;&nbsp;j[]&nbsp;=&nbsp;variable&nbsp;to&nbsp;json(&nbsp;b[],&nbsp;JSON);<br/>
+<br/>
+&nbsp;&nbsp;echo("JSON&nbsp;code:",&nbsp;new&nbsp;line,&nbsp;j[],&nbsp;new&nbsp;line,&nbsp;"_______"&nbsp;);<br/>
+<br/>
+&nbsp;&nbsp;json&nbsp;to&nbsp;variable(&nbsp;c[],&nbsp;j[],&nbsp;JSON&nbsp;B4P&nbsp;);<br/>
+&nbsp;&nbsp;inspect(&nbsp;c[]&nbsp;);<br/>
+<br/>
+&nbsp;&nbsp;echo(new&nbsp;line,&nbsp;"Add&nbsp;data&nbsp;to&nbsp;intermediate&nbsp;nodes");<br/>
+<br/>
+&nbsp;&nbsp;b[]&nbsp;=&nbsp;Colors;<br/>
+&nbsp;&nbsp;b[Green]&nbsp;=&nbsp;Shades&nbsp;of&nbsp;green;<br/>
+<br/>
+&nbsp;&nbsp;j[]&nbsp;=&nbsp;variable&nbsp;to&nbsp;json(&nbsp;b[],&nbsp;JSON);<br/>
+<br/>
+&nbsp;&nbsp;echo("JSON&nbsp;code:",&nbsp;new&nbsp;line,&nbsp;j[],&nbsp;new&nbsp;line,&nbsp;"_______"&nbsp;);<br/>
+<br/>
+&nbsp;&nbsp;json&nbsp;to&nbsp;variable(&nbsp;c[],&nbsp;j[],&nbsp;JSON&nbsp;B4P&nbsp;);<br/>
+&nbsp;&nbsp;inspect(&nbsp;c[]&nbsp;);&nbsp;//&nbsp;Same&nbsp;as&nbsp;before.</code></div>
+<h4> Output 02</h4>
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>REF_Features_Loading_and_saving_variables.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+	</div>
+</section>
+
+<div class="footer">
+Copyright (C) 2007 - 2020 Georg zur Bonsen
+</div>
+
+</div>
+
+</html>	
+
+

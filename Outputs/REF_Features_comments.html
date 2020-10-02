@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">	
+
+<head>
+<meta charset="utf-8"/>
+<title>B4P Reference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<div class="wrapper">
+
+<div class="logo">
+<a href="index.html">
+<img src="Images/B4P_Logo.png" alt="Beyond4P">
+</a>
+</div>
+
+<div class="header">
+<h3>Comments</h3>
+<a accesskey="p" href="REF_Features_zero_members.html"><span>Prev</span></a> <a accesskey="n" href="REF_Features_reserved_keywords.html"><span>Next</span></a> 
+</div>
+
+<section>
+	<div class="nav">
+<div class="booktitle_field">Reference Manual</div>
+<ul>
+<li class="navi"><a href="GUI_Features_Table_of_Contents.html"><div class="navi"> &#8594; User Guide </div></a></li>
+<li class="navi"><a href="REF_Features_Table_of_Contents.html"><div class="navi"> Table of Contents </div></a></li>
+<li class="navi"><a href="REF_Features_starting.html"><div class="navi">1 Starting B4P </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_interactive.html"><div class="navi">1.1 Interactive Mode </div></a></li>
+<li class="navi"><a href="REF_Features_licensing.html"><div class="navi">1.2 Licensing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_introduction.html"><div class="navi">2 Introduction </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_UNICODE_character_set.html"><div class="navi">2.1 UNICODE Character Set </div></a></li>
+<li class="navi"><a href="REF_Features_data_types.html"><div class="navi">2.2 Basic Data Types </div></a></li>
+<li class="navi"><a href="REF_Features_variables.html"><div class="navi">2.3 Variables </div></a></li>
+<li class="navi"><a href="REF_Features_comments.html"><div class="navi navi-selected">2.4 Comments </div></a></li>
+<li class="navi"><a href="REF_Features_reserved_keywords.html"><div class="navi">2.5 Reserved keywords </div></a></li>
+<li class="navi"><a href="REF_Features_path_names.html"><div class="navi">2.6 Path and File Names </div></a></li>
+<li class="navi"><a href="REF_Features_Locales.html"><div class="navi">2.7 Locales </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Functions_and_Procedures.html"><div class="navi">3 Functions and Procedures </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Function_Parameters.html"><div class="navi">3.1 Function Parameters </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_directions.html"><div class="navi">3.2 Function Parameter Directions </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_types.html"><div class="navi">+ 3.3 Function Parameter Types </div></a></li>
+<li class="navi"><a href="REF_Features_Indirect_parameter_passing.html"><div class="navi">3.4 Indirect Parameter Passing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Function_Library.html"><div class="navi">4 Function Library </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Control_Flow_Functions.html"><div class="navi">+ 4.1 Control Flow Functions </div></a></li>
+<li class="navi"><a href="REF_Features_input_output_functions.html"><div class="navi">+ 4.2 Input / Output Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Type_Conversion_Functions.html"><div class="navi">+ 4.3 Type Conversion and Formatting Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Mathematics_and_Statistics.html"><div class="navi">+ 4.4 Mathematics and Statistics </div></a></li>
+<li class="navi"><a href="REF_Features_string_functions.html"><div class="navi">+ 4.5 String Functions </div></a></li>
+<li class="navi"><a href="REF_Features_date_and_time_functions.html"><div class="navi">+ 4.6 Date and Time Functions </div></a></li>
+<li class="navi"><a href="REF_Features_parameter_set_functions.html"><div class="navi">+ 4.7 Parameter Set Functions </div></a></li>
+<li class="navi"><a href="REF_Features_table_functions.html"><div class="navi">+ 4.8 Table Functions </div></a></li>
+<li class="navi"><a href="REF_Features_variables_functions.html"><div class="navi">+ 4.9 Variables Functions </div></a></li>
+<li class="navi"><a href="REF_Features_directory_and_file_system_functions.html"><div class="navi">+ 4.10 Directory and File System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_system_functions.html"><div class="navi">+ 4.11 System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Cross-functional_info.html"><div class="navi">+ 4.12 Cross-Functional Info </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_verbose.html"><div class="navi"> Verbose Levels </div></a></li>
+</ul>
+	</div>
+
+	<div class="article">
+<h4> Introduction to Comments</h4>
+<p>Documenting comments is very similar as in C/C++. The language supports following comment symbols:
+
+
+</p><table class="simple" style = "width:720px"><col style = "width:120px"><col style = "width:120px"><col style = "width:480px">
+<tr><th>Types       </th><th> Examples </th><th> Description</th></tr>
+<tr><td>Line comment    </td><td> // </td><td> Comment starting with double slashes and effective until end of line. The symbols for comment blocks /* and */ are ignored inside line comments.</td></tr>
+<tr><td>Comment block   </td><td> /* ... */ </td><td> Commented code section. <br/>/* begins commented section<br/>*/ ends commented sections<br/>Commented section is not ended prematurely with line comments.<br/>Nested comments are not supported, e.g. /* … /* … */ … */</td></tr>
+</table><p>
+
+You may wonder why obvious names such as 'if', 'while' and 'for' are not considered as similar reserved keywords.  In Beyond4P, the control flow statements
+are actually procedure names which then influence executing further statements or blocks.  Therefore, you can actually use 'if' as the given function.</p>
+<h5> </h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;//&nbsp;This&nbsp;is&nbsp;a&nbsp;commment<br/>
+&nbsp;&nbsp;//&nbsp;Bla&nbsp;Bla&nbsp;/*&nbsp;Bla&nbsp;Bla<br/>
+&nbsp;&nbsp;echo(&nbsp;This&nbsp;statement&nbsp;is&nbsp;outside&nbsp;a&nbsp;comment&nbsp;block&nbsp;);<br/>
+&nbsp;&nbsp;//&nbsp;Bla&nbsp;Bla&nbsp;*/&nbsp;Bla&nbsp;Bla</code></div>
+<h5> </h5>
+<div class="output_background_color" ><code></code></div><u>Try it yourself:</u> Open <b>REF_Features_comments.b4p</b> in <a class="bold_text" href="B4P_Examples.zip">B4P_Examples.zip</a>. Decompress before use.
+<h4> Github Markdown files</h4>
+<p>Beyond4P <i>understands</i> markdown files (with filenames ending '.md') where it only executes code lines which inside the code blocks.  All other contents
+outside the code blocks are treated like comments.  Code blocks must be delimited with three accent-grave symbols ```. Multiple such code blocks in one
+markdown file are supported.  Presently, Beyond4P does not check for possible text such as language names after these symbols, e.g  <b>```beyond4p</b>.
+</p>
+<h5> </h5>
+<div class="code_background_color" ><code>&nbsp;&nbsp;#&nbsp;This&nbsp;is&nbsp;a&nbsp;markdown&nbsp;header<br/>
+&nbsp;&nbsp;And&nbsp;some&nbsp;text&nbsp;to&nbsp;describe&nbsp;it<br/>
+&nbsp;&nbsp;```program&nbsp;code<br/>
+&nbsp;&nbsp;echo(&nbsp;This&nbsp;statement&nbsp;is&nbsp;inside&nbsp;a&nbsp;code&nbsp;block&nbsp;);<br/>
+&nbsp;&nbsp;```<br/>
+&nbsp;&nbsp;#&nbsp;This&nbsp;is&nbsp;the&nbsp;next&nbsp;header<br/>
+</code></div>
+<h5> </h5>
+<div class="output_background_color" ><code>This&nbsp;statement&nbsp;is&nbsp;inside&nbsp;a&nbsp;block</code></div>
+	</div>
+</section>
+
+<div class="footer">
+Copyright (C) 2007 - 2020 Georg zur Bonsen
+</div>
+
+</div>
+
+</html>	
+
+

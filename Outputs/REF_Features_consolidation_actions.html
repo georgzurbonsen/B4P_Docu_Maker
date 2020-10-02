@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">	
+
+<head>
+<meta charset="utf-8"/>
+<title>B4P Reference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<div class="wrapper">
+
+<div class="logo">
+<a href="index.html">
+<img src="Images/B4P_Logo.png" alt="Beyond4P">
+</a>
+</div>
+
+<div class="header">
+<h3>Consolidation Actions</h3>
+<a accesskey="p" href="REF_Features_Sorting_options.html"><span>Prev</span></a> <a accesskey="n" href="REF_Features_verbose.html"><span>Next</span></a> 
+</div>
+
+<section>
+	<div class="nav">
+<div class="booktitle_field">Reference Manual</div>
+<ul>
+<li class="navi"><a href="GUI_Features_Table_of_Contents.html"><div class="navi"> &#8594; User Guide </div></a></li>
+<li class="navi"><a href="REF_Features_Table_of_Contents.html"><div class="navi"> Table of Contents </div></a></li>
+<li class="navi"><a href="REF_Features_starting.html"><div class="navi">1 Starting B4P </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_interactive.html"><div class="navi">1.1 Interactive Mode </div></a></li>
+<li class="navi"><a href="REF_Features_licensing.html"><div class="navi">1.2 Licensing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_introduction.html"><div class="navi">2 Introduction </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_UNICODE_character_set.html"><div class="navi">2.1 UNICODE Character Set </div></a></li>
+<li class="navi"><a href="REF_Features_data_types.html"><div class="navi">2.2 Basic Data Types </div></a></li>
+<li class="navi"><a href="REF_Features_variables.html"><div class="navi">2.3 Variables </div></a></li>
+<li class="navi"><a href="REF_Features_comments.html"><div class="navi">2.4 Comments </div></a></li>
+<li class="navi"><a href="REF_Features_reserved_keywords.html"><div class="navi">2.5 Reserved keywords </div></a></li>
+<li class="navi"><a href="REF_Features_path_names.html"><div class="navi">2.6 Path and File Names </div></a></li>
+<li class="navi"><a href="REF_Features_Locales.html"><div class="navi">2.7 Locales </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Functions_and_Procedures.html"><div class="navi">3 Functions and Procedures </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Function_Parameters.html"><div class="navi">3.1 Function Parameters </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_directions.html"><div class="navi">3.2 Function Parameter Directions </div></a></li>
+<li class="navi"><a href="REF_Features_Function_parameter_types.html"><div class="navi">3.3 Function Parameter Types </div></a></li>
+<li class="navi"><a href="REF_Features_Indirect_parameter_passing.html"><div class="navi">3.4 Indirect Parameter Passing </div></a></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_Function_Library.html"><div class="navi">4 Function Library </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Control_Flow_Functions.html"><div class="navi">4.1 Control Flow Functions </div></a></li>
+<li class="navi"><a href="REF_Features_input_output_functions.html"><div class="navi">4.2 Input / Output Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Type_Conversion_Functions.html"><div class="navi">4.3 Type Conversion and Formatting Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Mathematics_and_Statistics.html"><div class="navi">4.4 Mathematics and Statistics </div></a></li>
+<li class="navi"><a href="REF_Features_string_functions.html"><div class="navi">4.5 String Functions </div></a></li>
+<li class="navi"><a href="REF_Features_date_and_time_functions.html"><div class="navi">4.6 Date and Time Functions </div></a></li>
+<li class="navi"><a href="REF_Features_parameter_set_functions.html"><div class="navi">4.7 Parameter Set Functions </div></a></li>
+<li class="navi"><a href="REF_Features_table_functions.html"><div class="navi">4.8 Table Functions </div></a></li>
+<li class="navi"><a href="REF_Features_variables_functions.html"><div class="navi">4.9 Variables Functions </div></a></li>
+<li class="navi"><a href="REF_Features_directory_and_file_system_functions.html"><div class="navi">4.10 Directory and File System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_system_functions.html"><div class="navi">4.11 System Functions </div></a></li>
+<li class="navi"><a href="REF_Features_Cross-functional_info.html"><div class="navi">4.12 Cross-Functional Info </div></a></li>
+<li class="navi"><ul>
+<li class="navi"><a href="REF_Features_Sorting_options.html"><div class="navi">4.12.1 Sorting and Ranking Options </div></a></li>
+<li class="navi"><a href="REF_Features_consolidation_actions.html"><div class="navi navi-selected">4.12.2 Consolidation Actions </div></a></li>
+</ul></li>
+</ul></li>
+<li class="navi"><a href="REF_Features_verbose.html"><div class="navi"> Verbose Levels </div></a></li>
+</ul>
+	</div>
+
+	<div class="article">
+<h4> Introduction</h4>
+<p>
+The sorting options are used (amongst others) by following functions:
+</p><ul class="bullets"><li class="bullets"><span class="red_text">table consolidate</span>()
+</li><li class="bullets"><span class="red_text">table merge</span>() function family
+</li></ul><p></p>
+<h4> Overview of Available Consolidation Actions</h4>
+<p>
+The consolidation actions does only take place if a matching row further down in the table (or source table if 2 tables are combined) needs
+to be consolidated to the target fields.  No actions are applied if only one row exists with same identifer contents.
+
+</p><table class="bold_column_1" style = "width:1000px"><col style = "width:200px"><col style = "width:800px">
+<tr><th>Consolidation Action        </th><th> Description</th></tr>
+<tr><td>none                </td><td> No consolidation: The destination fields will not be overwritten.<br>At the end of the consolidation run, the destination field contains the data from the first row belonging to the group.</td></tr>
+<tr><td>overwrite           </td><td> Source field overwrites destination field. <br>At the end of the consolidation run, the destination field contains the data from the last row belonging to the group.</td></tr>
+<tr><td>overwrite if blank      </td><td> Source field overwrites destination field if the destination field is still blank. See <sup>1</sup></td></tr>
+<tr><td>overwrite except blank      </td><td> Source field overwrites destination field if the soruce field is not blank. See <sup>1</sup></td></tr>
+<tr><td>blank               </td><td> Destination field will be blanked.  Useful to void contents no longer needed after consolidation.</td></tr>
+<tr><td>zero                </td><td> Destination field will be set to 0. Useful to void contents no longer needed after consolidation.</td></tr>
+<tr><td>delete              </td><td> This column will be deleted after the consolidation run.  Useful to get rid of contents no longer needed.</td></tr>
+<tr><td>append              </td><td> Append string contents from source fields to destination fields.  A separator string will be inserted if available.</td></tr>
+<tr><td>append once         </td><td> Like above, but contents are only appended if not yet found in the destination string.</td></tr>
+<tr><td>must match          </td><td> Checks source and destination fields.  If they differ, then <b>(Inconsistent)</b> will be written.</td></tr>
+<tr><td>blank if different      </td><td> Checks source and destination fields.  If they differ, then the destination fields will be blanked.</td></tr>
+<tr><td>min abc             </td><td> Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have highest priority.</td></tr>
+<tr><td>min abc ignore blanks       </td><td> Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have lowest priority. See <sup>1</sup></td></tr>
+<tr><td>max abc             </td><td> Choose the entry in the higher alphabetc sorting order (e.g. def preferred over abc). Blanks have lowest priority.</td></tr>
+<tr><td>min             </td><td> Choose the entry with the smaller value. Blanks and non-numeric contents are treated as zero.</td></tr>
+<tr><td>min ignore blanks       </td><td> Choose the entry with the smaller value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup></td></tr>
+<tr><td>min ignore zero         </td><td> Choose the entry with the smaller value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup></td></tr>
+<tr><td>max             </td><td> Choose the entry with the greater value. Blanks and non-numeric contents are treated as zero.</td></tr>
+<tr><td>max ignore blanks       </td><td> Choose the entry with the greater value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup></td></tr>
+<tr><td>max ignore zero         </td><td> Choose the entry with the greater value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup></td></tr>
+<tr><td>sum             </td><td> Calculates the sum: Adds source fields to destination fields.</td></tr>
+<tr><td>sum blank if zero       </td><td> Calculates the sum: Adds source fields to destination fields. If destination field is 0, it will be set to blank.</td></tr>
+<tr><td>product             </td><td> Calculates the product: Multiplies source fields to destination fields.  Blanks and non-numeric contents are treated as zero.</td></tr>
+<tr><td>product ignore blanks       </td><td> Calculates the product: Multiplies source fields to destination fields.  Blanks are ignore, but non-numeric contents are treated as zero. See <sup>1,2</sup></td></tr>
+<tr><td>product ignore zero     </td><td> Calculates the product: Multiplies source fields to destination fields.    Blanks and non-numeric contents and zero are ignored.  See <sup>2</sup></td></tr>
+<tr><td>average             </td><td> Calculates the average (sum divided by number of rows consolidated). Blanks and non-numeric contents are treated as zero.</td></tr>
+<tr><td>average ignore blanks       </td><td> Calculates the average (sum divided by number of rows consolidated). Non-numeric contents are treated as zero. See <sup>1,2</sup></td></tr>
+<tr><td>average ignore zero     </td><td> Calculates the average (sum divided by number of rows consolidated).  Blanks and non-numeric contents and zero are ignored. See <sup>2</sup></td></tr>
+<tr><td>count               </td><td> Count all fields.  Is always 1 or bigger.</td></tr>
+<tr><td>count ignore blanks     </td><td> Count non-blank fields only. See <sup>1</sup></td></tr>
+<tr><td>count ignore zero       </td><td> Count non-zero fields. 0, blanks and non-numerals are ignored.</td></tr>
+<tr><td>count positive          </td><td> Count if value is > 0. 0, blanks and non-numerals are ignored.</td></tr>
+<tr><td>count positive or zero      </td><td> Count if value is >= 0.  Blanks and non-numerals are treated as 0 and will be counted.</td></tr>
+<tr><td>count negative          </td><td> Count if value is < 0. 0, blanks and non-numerals are ignored.</td></tr>
+<tr><td>count negative or zero      </td><td> Count if value is <= 0.  Blanks and non-numerals are treated as 0 and will be counted.</td></tr>
+</table><p>
+
+<sup>1</sup> Fields are considered blank if they are absolutely blank, i.e. containing zero characters.  Fields containing white spaces (spaces, tabs, new lines, etc.) are not considered blank.<br>
+<sup>2</sup> If none of the fields qualify for calculation (e.g. min ignore blanks where all fields are blank), then the result will be zero.
+</p>
+	</div>
+</section>
+
+<div class="footer">
+Copyright (C) 2007 - 2020 Georg zur Bonsen
+</div>
+
+</div>
+
+</html>	
+
+
