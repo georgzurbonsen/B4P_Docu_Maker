@@ -163,8 +163,6 @@
 "<li class=""navi""><a href=""REF_Function_prompt.html""><div class=""navi"">4.2.3.1 prompt </div></a></li>";4;REF_Function_prompt.html;prompt
 "<li class=""navi""><a href=""REF_Function_inspect.html""><div class=""navi"">4.2.3.2 inspect </div></a></li>";4;REF_Function_inspect.html;inspect
 "<li class=""navi""><a href=""REF_Function_list_variables.html""><div class=""navi"">4.2.3.3 list variables ... </div></a></li>";4;REF_Function_list_variables.html;list variables ...
-"<li class=""navi""><a href=""REF_Function_list_functions.html""><div class=""navi"">4.2.3.4 list / explain functions </div></a></li>";4;REF_Function_list_functions.html;list / explain functions
-"<li class=""navi""><a href=""REF_Function_dump_functions.html""><div class=""navi"">4.2.3.5 dump functions </div></a></li>";4;REF_Function_dump_functions.html;dump functions
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_Type_Conversion_Functions.html""><div class=""navi"">4.3 Type Conversion and Formatting Functions </div></a></li>";2;REF_Features_Type_Conversion_Functions.html;Type Conversion and Formatting Functions
@@ -584,10 +582,20 @@
 "<li class=""navi""><a href=""REF_Function_license_apply_key.html""><div class=""navi"">4.11.4.3 license apply key </div></a></li>";4;REF_Function_license_apply_key.html;license apply key
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_Cross-functional_info.html""><div class=""navi"">4.12 Cross-Functional Info </div></a></li>";2;REF_Features_Cross-functional_info.html;Cross-Functional Info
+"<li class=""navi""><a href=""REF_Features_help_and_support_functions.html""><div class=""navi"">4.12 Help and Support Functions </div></a></li>";2;REF_Features_help_and_support_functions.html;Help and Support Functions
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_Sorting_options.html""><div class=""navi"">4.12.1 Sorting and Ranking Options </div></a></li>";3;REF_Features_Sorting_options.html;Sorting and Ranking Options
-"<li class=""navi""><a href=""REF_Features_consolidation_actions.html""><div class=""navi"">4.12.2 Consolidation Actions </div></a></li>";3;REF_Features_consolidation_actions.html;Consolidation Actions
+"<li class=""navi""><a href=""REF_Function_help.html""><div class=""navi"">4.12.1 help </div></a></li>";3;REF_Function_help.html;help
+"<li class=""navi""><a href=""REF_Function_docs.html""><div class=""navi"">4.12.2 docs </div></a></li>";3;REF_Function_docs.html;docs
+"<li class=""navi""><a href=""REF_Function_web_docs.html""><div class=""navi"">4.12.3 web docs </div></a></li>";3;REF_Function_web_docs.html;web docs
+"<li class=""navi""><a href=""REF_Function_view.html""><div class=""navi"">4.12.4 view </div></a></li>";3;REF_Function_view.html;view
+"<li class=""navi""><a href=""REF_Function_view_reset.html""><div class=""navi"">4.12.5 view reset </div></a></li>";3;REF_Function_view_reset.html;view reset
+"<li class=""navi""><a href=""REF_Function_list_functions.html""><div class=""navi"">4.12.6 list / explain functions </div></a></li>";3;REF_Function_list_functions.html;list / explain functions
+"<li class=""navi""><a href=""REF_Function_dump_functions.html""><div class=""navi"">4.12.7 dump functions </div></a></li>";3;REF_Function_dump_functions.html;dump functions
+</ul></li>;3
+"<li class=""navi""><a href=""REF_Features_Cross-functional_info.html""><div class=""navi"">4.13 Cross-Functional Info </div></a></li>";2;REF_Features_Cross-functional_info.html;Cross-Functional Info
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""REF_Features_Sorting_options.html""><div class=""navi"">4.13.1 Sorting and Ranking Options </div></a></li>";3;REF_Features_Sorting_options.html;Sorting and Ranking Options
+"<li class=""navi""><a href=""REF_Features_consolidation_actions.html""><div class=""navi"">4.13.2 Consolidation Actions </div></a></li>";3;REF_Features_consolidation_actions.html;Consolidation Actions
 </ul></li>;3
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_verbose.html""><div class=""navi""> Verbose Levels </div></a></li>";1;REF_Features_verbose.html;Verbose Levels

@@ -5,6 +5,165 @@ This text file contains all relevant function descriptions in the "Support Libra
 
 B4PDOCU.START
 
+
+"help" :
+{
+	"Function Names":	[ "help" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function provides an overview of the most important features provided in __interactive__ mode
+		such as accessing help and support information, and how B4P statements and expressions can be 
+		executed directly as commands.
+
+		<br><br>
+		This help feature provides user interaction allowing to browse through different pages.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0",
+	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Examples:'help' entered in interactive mode"::
+>> help
+
+0. Interactive - Help Table of Contents
+________________________________________________________________________________
+
+Page Number
+
+[1]     Entering interactive mode
+
+[2]     Help commands (for help text and accessing B4P documentation)
+
+[3]     Executing B4P statements and expressions by hand
+
+[4]     Basic commands (incl. leaving interactive mode)
+
+[5]     Operating system commands
+
+[6]     Inspecting tables
+
+[7]     Inspecting variables
+
+
+_______________________________________________________________________________
+Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
+>>
++++,
+	"See also": [ "docs", "web docs" ]
+},
+
+
+
+"docs" :
+{
+	"Function Names":	[ "docs" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function opens the PDF file stored on your machine which is part of the B4P installation.
+		Just type 'docs', a PDF viewer opens with the documentation and you can continue working.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0",
+	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
+
+	"See also": [ "web docs" ]
+},
+
+
+
+
+
+"web docs" :
+{
+	"Function Names":	[ "web docs" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function accesses the on-line documentation.  If no function parameter is provided, then you will be prompted to
+		start entering the keywordd in order to narrow down the search.  While typing the keyword, the number of available 
+		choices will narrow down.  It is suggesested to type as much so the number of choices ends up below 20.  The search and
+		comparison is not case sensitive.  The entered keyword supports wildcards, e.g. typing 'e*o' or 'e??o' finds 'echo.
+
+		<br><br>
+		Three comparison modes are supported.  You can toggle among them by typing the minus sign '-'.
+		* <b>begins with</b>: Keyword is compared with beginning letter(s) of the existing choices (applicable when beginning to narrow down)
+		* <b>contains</b>: Keyword is checked as part of the existing choices
+		* <b>equals</b>: Keyword is checked for perfect match (matches is 0 when nothing is typed and changes to 1 when a matching keyword is found)
+
+		<u>Note</u>: When you use <b>web docs</b> for the first time, you will be asked to select the web browser.  Select one which is installed on your system.<br>
+		<u>Note</u>: Your own user-defined functions are not included here becasue this feature uses the B4P table of contents available on the B4P web page.
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0-2",
+	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1.",
+		  "Name": "Keyword",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			If a matching keyword (e.g. 'echo') is entered, then the web page with the right contents will open directly.
+			Wildcards like '*' and '?' are supported to provide a precise search.<br><br>
+			<u>Note</u>: When using wildcard symbols, then put the expression in single or double quotation marks, e.g. <b>"table lookup*"</b>
+			+++
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Web browser",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify a valid web browser name:
+			=== 100, 400, noframe_1stcolbold, noheader
+			Windows	| chrome, edge, explorer
+			Linux   | chrome, firefox
+			MACOS   | brave, chrome, firefox, safari
+			===
+			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
+			The chosen browser will be memorized for the next times you are using this function.<br><br>
+			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
+			+++
+		}
+
+	],
+	"Examples:'web docs' entered in interactive mode"::
+>> web docs('table li*')
+
+Note: Web documentation is still under construction and not yet complete.
+
+Advice:  web docs ( [keyword] ) looks for specific keyword.
+Exmaple: web docs ( for )   looks for help for 'for'
+         web docs ( 'for*' )    looks for keywords beginning with 'for'
+
+Use 'single' quotation marks when using wildcard symbols *,?,..
+
+
+Narrow down the number of matches for your keyword (target: Max 20).
+Add text by typing, [Backspace] to delete last character
+Press [Enter] to confirm, [Escape] to leave.
+The number of matches will update automatically while typing
+Press [-] to toggle comparison mode between 'begins with', 'contains' and 'equals'.
+Comparison mode is equals
+
+   4 matches: table li*
+
+     A :  table lift contents
+     B :  table lift header row
+     C :  table lift headers
+     D :  table list
+     X :  Exit this menu
+Please select: D
+>>
+	+++,
+	"See also": [ "docs" ]
+},
+
+
+
+
+
 "table list" :
 {
 	"Function Names":	[ "table list" ],
@@ -66,7 +225,131 @@ B4PDOCU.START
 	+++,
 	"Output": "automatic",
 	"See also": [ "list" ]
+},
+
+
+
+
+"view" :
+{
+	"Function Names":	[ "view" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function provides a more elaborate approach to view tables than the function __table list(__) which is just outputting some or all
+		rows and columns of the table to the console.  You have the choice to view and scan through the table in B4P (using the console) or
+		the web browser.  For the web browser, you can view the table either in conventional manner (static HTML file) or as a browsable
+		data table (Data table functionaltiy is craeted and provided by: SpryMedia Ltd, Scotland, MIT license).
+
+		<br><br>
+		<u>Note</u>: Every time you view a table with this function, a copy of the table will be saved in the current working directory.
+		The file name begins with "_b4p_view... .html" containing the table name.  The function __view reset(__) will do the clean-up by deleting all such files created.
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1-2",
+	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Web browser",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify a valid web browser name:
+			=== 200, 600, noframe_1stcolbold, noheader
+			Windows	| chrome, chrome datatables, edge, edge datatables, explorer, explorer datatables
+			Linux   | chrome, chrome datatables, firefox, firefox datatablse
+			MACOS   | brave, brave datatables, chrome, chrome datatables, firefox, firefox datatables, safari, safari datatabls
+			All systems | here
+			===
+			<b>here</b> opens the table locally.
+			All other options open the 
+
+			+++
+		}
+
+	],
+	"Examples:'view' entered in interactive mode"::
+>> table load( cities, Examples\Cities.csv )
+
+    Loaded CSV/TSV file 'Examples\Cities.csv':
+    15 rows, max 8 columns, 8 columns in 1st row, 120 fields, list separator: ;
+
+>> view ( cities, here )
+000000: City          State / Province Country Inhabitants Famous attraction
+        ------------- ---------------- ------- ----------- ------------------
+000001: New York City New York         USA     8300000     St. of Liberty
+000002: Washington    D.C.             USA     650000      Lincoln Statue
+000003: Philadelphia  Pennsylvania     USA     1500000     Independence hall
+000004: Boston        Massachusetts    USA     620000      Freedom trail
+000005: San Francisco California       USA     805000      Golden Gate
+000006: Montréal      Quebec           CAN     1700000     Hôtel du Parlement
+000007: Copenhagen    Hovedstaten      DAN     580000      Little Mermaid
+000008: Venice        Venetia          ITA     260000      Doge's Palace
+000009: Los Angeles   California       USA     3800000     Hollywood
+000010: Vienna                         AUT     1800000     Prater
+_______________________________________________________________________________
+Action ([?] for help):  ?
+Navigation: l = Left,      r = Right       u = Page Up   d = Page Down   s = Search next
+            L = 1st Col.   R = Last Col.   U = Top       D = Bottom      S = Search
+            n = 1 column  narrower         w = 1 column wider            c = ClS on/off
+            N = 5 columns narrower         W = 5 columns wider
+            X = Change Screen Width        P = Change Page Height
+
+            Q = Quit
+
+Procedure call list:  list ( table name [, chars per row [, rows to show]] )
+               e.g.:  list ( my table, 160, 20 ) // My table, 160 chars, 20 rows to show
+
+_______________________________________________________________________________
+Action ([?] for help):  r
+000000: State / Province Country Inhabitants Famous attraction  Alt. (m)
+        ---------------- ------- ----------- ------------------ --------
+000001: New York         USA     8300000     St. of Liberty     10
+000002: D.C.             USA     650000      Lincoln Statue     7
+000003: Pennsylvania     USA     1500000     Independence hall  12
+000004: Massachusetts    USA     620000      Freedom trail      43
+000005: California       USA     805000      Golden Gate        16
+000006: Quebec           CAN     1700000     Hôtel du Parlement
+000007: Hovedstaten      DAN     580000      Little Mermaid     24
+000008: Venetia          ITA     260000      Doge's Palace      1
+000009: California       USA     3800000     Hollywood          100
+000010:                  AUT     1800000     Prater
+_______________________________________________________________________________
+Action ([?] for help):  q
+>>
+	+++,
+	"See also": [ "table list", "view reset" ]
+},
+
+
+
+"view reset" :
+{
+	"Function Names":	[ "view reset" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function deletes all temporary HTML files beginning with "_b4p_view... .html".
+		These files are create by the __view(__) command when viewing B4P tables using web browsers.  It is advised to use this 
+		function in __interactive__ mode only.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0",
+	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"See also": [ "view"]
 }
+
+
+
+
 
 
 B4PDOCU.STOP

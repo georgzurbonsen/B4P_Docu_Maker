@@ -228,6 +228,7 @@ REF;Functions and Procedures;REF_Features_Functions_and_Procedures.html;General 
 REF;HTML Entities;REF_Features_entities.html;General Description;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;html entities
+REF;Help and Support Functions;REF_Features_help_and_support_functions.html;General Description;help and support functions
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;sinh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;cosh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;tanh
@@ -558,6 +559,7 @@ REF;distribute - Value Distribution over Timeline;REF_Function_distribute.html;F
 REF;distribute - Value Distribution over Timeline;REF_Function_distribute.html;Function Description;;distribution over timeline
 REF;do;REF_Function_do.html;Function Description;do
 REF;do;REF_Function_do.html;Function Description;;do-loop
+REF;docs;REF_Function_docs.html;Function Description;docs
 REF;dump functions;REF_Function_dump_functions.html;Function Description;dump functions
 REF;echo, print ...;REF_Function_echo.html;Function Description;echo
 REF;echo, print ...;REF_Function_echo.html;Function Description;print
@@ -679,6 +681,7 @@ REF;global;REF_Function_global.html;Function Description;;one-time execution
 REF;global / script privileges;REF_Function_global_privileges.html;Function Description;global privileges
 REF;global / script privileges;REF_Function_global_privileges.html;Function Description;script privileges
 REF;hash signature;REF_Function_hash_signature.html;Function Description;hash signature
+REF;help;REF_Function_help.html;Function Description;help
 REF;horizontal;REF_Function_horizontal.html;Function Description;horizontal
 REF;horizontal;REF_Function_horizontal.html;Function Description;;horizontal
 REF;hour, minute, second;REF_Function_hour.html;Function Description;hour
@@ -1137,10 +1140,13 @@ REF;variable save ...;REF_Function_variable_save.html;Function Description;varia
 REF;variable to json ...;REF_Function_variable_to_json.html;Function Description;variable to json
 REF;vertical;REF_Function_vertical.html;Function Description;vertical
 REF;vertical;REF_Function_vertical.html;Function Description;;vertical
+REF;view;REF_Function_view.html;Function Description;view
+REF;view reset;REF_Function_view_reset.html;Function Description;view reset
 REF;wait until, wait until countdown;REF_Function_wait_until.html;Function Description;wait until
 REF;wait until, wait until countdown;REF_Function_wait_until.html;Function Description;wait until countdown
 REF;wait, wait countdown;REF_Function_wait.html;Function Description;wait
 REF;wait, wait countdown;REF_Function_wait.html;Function Description;wait countdown
+REF;web docs;REF_Function_web_docs.html;Function Description;web docs
 REF;week;REF_Function_week.html;Function Description;week
 REF;weekday;REF_Function_weekday.html;Function Description;weekday
 REF;weekday;REF_Function_weekday.html;Function Description;;weekday from date

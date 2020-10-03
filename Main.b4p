@@ -1,8 +1,39 @@
 ﻿
 
-	for all parameters( { A, B5, Z23, AA1, ZZ, AAA, AAB, XFD, C A, '123 D, '123', ' B', '...' }, c[] )
+	browser[] = 'chrome';
+
+	switch ( system info[ operating system ] )
 	{
-		echo(c[],": ", excel column number( c[] ) );
-		// Note: 0 is returned if no appropriate letter is recognized.
+	    case ( Windows )
+	    {
+	        ending[] = "";
+		switch( browser[])
+		{
+		    case (chrome)	  command[] = "start chrome -a ";
+		    case (explorer)	  command[] = "start explorer ";
+		};
+ 	    }
+	    case ( Linux )
+	    {
+	        ending[] = " >/dev/null &";
+		switch( browser[])
+		{
+		    case (chrome)	  command[] = "google-chrome ";
+		    case (firefox)	  command[] = "firefox ";
+		};
+	    }
+	    case ( MACOS )
+	    {
+	        ending[] = " >/dev/null &";
+		switch( browser[])
+		{
+		    case (chrome)	  command[] = '/usr/bin/open -a "/Applications/Google Chrome.app" ';
+		    case (brave)	  command[] = '/usr/bin/open -a "/Applications/Brave Browser.app" ';
+		    case (safari)	  command[] = '/usr/bin/open -a "/Applications/Safari.app" ';
+		    case (firefox)	  command[] = '/usr/bin/open -a firefox -g ';
+		    else:		  except[] = true;
+		};
+	    }
 	}
 
+	echo("Command is: ", command[] );

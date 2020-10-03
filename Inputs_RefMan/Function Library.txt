@@ -1,4 +1,4 @@
-//
+ 	//
 B4PDOCU.START
 
   "Function Library" :
@@ -1137,6 +1137,20 @@ B4PDOCU.START
 	+++
   },
 
+
+
+
+"Help and Support Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "help and support functions" ],
+    "Description 01:Introduction"::
+
+	The functions described next are ideally suited for interactive use in order to obtain more information
+	about specific functions and features and access on-line and off-line documentation directly.
+
+	+++
+  },
 
 // ________________________________________________________________________________________ "/
 
