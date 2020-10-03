@@ -1077,6 +1077,25 @@ B4PDOCU.START
 
 
 
+
+"File Compression and Decompression":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "file compression decompression" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions compress and decompress files.  The data compression and decompression features are
+	implemented in B4P in the library file 'Zip Library' and makes use of the zip program in the standard installation (Linux, MacOS)
+	or relies on the installed 7-Zip program on Windows installations because 7-zip provides a set of compression and decompression commands
+	which Windows does not.  See  <a class="bold_text" target="_blank" href="http://www.7-zip.org">7-zip</a> for details.
+	<br><br>
+	<u>Note</u>: All Microsoft office featuers, e.g. loading Excel files, rely on these file compression and decompression functions.
+
+	+++
+  },
+
+
+
 "System Functions":
   {
     "Documentation":		"General Description", // Required value

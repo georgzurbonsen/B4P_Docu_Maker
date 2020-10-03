@@ -1,39 +1,5 @@
-﻿
+﻿		include( Support Library );
+		include( Office Library );
+		table load excel file( football, "Examples\Football Membership List.xlsx" );
+		table list( football );
 
-	browser[] = 'chrome';
-
-	switch ( system info[ operating system ] )
-	{
-	    case ( Windows )
-	    {
-	        ending[] = "";
-		switch( browser[])
-		{
-		    case (chrome)	  command[] = "start chrome -a ";
-		    case (explorer)	  command[] = "start explorer ";
-		};
- 	    }
-	    case ( Linux )
-	    {
-	        ending[] = " >/dev/null &";
-		switch( browser[])
-		{
-		    case (chrome)	  command[] = "google-chrome ";
-		    case (firefox)	  command[] = "firefox ";
-		};
-	    }
-	    case ( MACOS )
-	    {
-	        ending[] = " >/dev/null &";
-		switch( browser[])
-		{
-		    case (chrome)	  command[] = '/usr/bin/open -a "/Applications/Google Chrome.app" ';
-		    case (brave)	  command[] = '/usr/bin/open -a "/Applications/Brave Browser.app" ';
-		    case (safari)	  command[] = '/usr/bin/open -a "/Applications/Safari.app" ';
-		    case (firefox)	  command[] = '/usr/bin/open -a firefox -g ';
-		    else:		  except[] = true;
-		};
-	    }
-	}
-
-	echo("Command is: ", command[] );

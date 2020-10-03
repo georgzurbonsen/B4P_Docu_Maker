@@ -2144,6 +2144,26 @@
 
 
 
+
+"File Compression and Decompression":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "file compression decompression" ],
+"Description 01:Introduction" : [
+"",
+"	This subsection describes various functions compress and decompress files.  The data compression and decompression features are",
+"	implemented in B4P in the library file 'Zip Library' and makes use of the zip program in the standard installation (Linux, MacOS)",
+"	or relies on the installed 7-Zip program on Windows installations because 7-zip provides a set of compression and decompression commands",
+"	which Windows does not.  See  <a class=\"bold_text\" target=\"_blank\" href=\"http://www.7-zip.org\">7-zip</a> for details.",
+"	<br><br>",
+"	<u>Note</u>: All Microsoft office featuers, e.g. loading Excel files, rely on these file compression and decompression functions.",
+""
+ ]
+	
+  },
+
+
+
 "System Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -3425,6 +3445,309 @@
 
 ,
 
+
+"office document properties" :
+{
+	"Function Names":	[ "office document properties" ],
+	"Documentation":	"Function Description",
+	"Library":		"Office Library",
+"Description" : [
+"",
+"		This function reveals the document properties of Microsoft office files with the extensions <br>",
+"		.docx, .xlsx/.xlsm, .pptx, .vsdx, etc.  The properties may include info about persons who have created",
+"		or modified the files, etc.",
+"		<br><br>",
+"		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls, .doc, .ppt) cannot be processed."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Under normal conditions, the 'Office Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Path and file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			It must be a file name of a valid Microsoft open office file."
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Property names",
+		  "Direction": "output",
+		  "Types": [ "parameter set" ],
+"Description" : [
+"			All identified property names will be stored in this variable."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Property values",
+		  "Direction": "output",
+		  "Types": [ "parameter set" ],
+"Description" : [
+"			All corresponding property values will be stored in this variable.  The number of elements in both 2nd and 3rd function ",
+"			parameters will be equal."
+ ]
+			
+		}
+	],
+	"Exceptions": "File is not an office file.",
+"Examples" : [
+"	include ( Office Library );",
+"	office document properties( \"Examples\\Football Membership List.xlsx\", property names[], property values[] );",
+"",
+"	for all parameters( property names[], pn[], index[] )",
+"	{",
+"	    echo( literal( pn[], \"16#\", align right), \"  :  \", property values[]{index[]} );",
+"	}"
+ ]
+	,
+	"Output": "automatic"
+},
+
+
+
+//	advanced directory listing, advanced directory listing recursive
+//  ________________________________________________________________________________________________________________________
+
+
+"advanced directory listing ..." :
+{
+	"Function Names":	[ "advanced directory listing", "advanced directory listing recursive" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		",
+"		This function works very similarly as __directory listing(__) and __directory listing recursive(__).  The only difference to them is that",
+"		all identified Microsoft office document properties from open office Word, Excel, Powerpoint and Visio files wll also be added as",
+"		additional columns to the directory listing.",
+"",
+"		<br><br>",
+"		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls, .doc, .ppt) cannot be processed.",
+""
+ ]
+		,
+	"Call as":		"procedure or function",
+	"Parameter count":	"1-4",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of destination table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			The directory listing will be put into this table, with header names as lsited above.",
+"			If the table is not yet existing, then it will be created.  Existing tables will be initialized first."
+ ]
+			
+		},
+		{ "Number": "Opt. 2",
+		  "Name": "drive or path name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "Current working directory",
+"Description" : [
+"			Specify a disk drive (e.g. C:\\) or a path name (/usr/local, or \\\\server_name\\path_name\\...).",
+"			If no additional parameters are provided, then the path name may also contain a file name (to list 1 file) or matching pattern to list specific files.<br>",
+"			<u>Note</u>: Wildcard symbols are supported here for the file name, but not for the path name (OK: C:\\Subdir\\*.txt,  Not OK: C:\\Sub*\\*.txt)"
+ ]
+			
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "pattern name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "* (all files)",
+"Description" : [
+"			Specify a disk drive (e.g. C:\\) or a path name (/usr/local, or \\\\server_name\\path_name\\...).",
+"			If no additional parameters are provided, then the path name may also contain a file name (to list 1 file) or matching pattern to list specific files.<br>",
+"			<u>Note</u>: Wildcard symbols are supported here for the file name, but not for the path name (OK: C:\\Subdir\\*.txt,  Not OK: C:\\Sub*\\*.txt)"
+ ]
+			
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "search option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "files and directories",
+"Description" : [
+"		    One of the following:",
+"			=== 150, 500, noheader, noframe_1stcolbold",
+"			files			| Files only",
+"			directories		| Directories only",
+"			files and directories	| Foth files and directoreies (default)",
+"			all			| Also includes hidden and system files",
+"			==="
+ ]
+			
+		  }
+
+		],
+	"Return value":
+	[
+		{ "Name": "Entry count",
+		  "Types": [ "numeral" ],
+		  "Description": "Total number of files and/or directories found.  -1 = Error (e.g. invalid path). Table will be empty in this case."
+		}
+	],
+"Examples" : [
+"		include( Support Library );",
+"		include( Office Library );",
+"",
+"		rv[] = advanced directory listing( list, \"Examples/\", \"*.xlsx,*.xls\" );",
+"		table delete remaining rows(list, 4 ); ",
+"		// Just keep the first 3 rows to fit the output on the screen",
+"",
+"		table transpose( list ); // Make the list fit on the small output",
+"		table list( list );"
+ ]
+	  ,
+	"Output": "automatic",
+	"See also": [ "directory listing", "directory listing recursive" ]
+},
+
+
+
+
+//	excel list sheets
+//  ________________________________________________________________________________________________________________________
+
+
+"excel list sheets" :
+{
+	"Function Names":	[ "excel list sheets" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function identifies all sheets (tabs) inside the Microsoft Excel workbook (Open Office format) and returns them in a parameter set containing literals.",
+"		This information may be necessary in order to load the right table in the Excel file afterwards.",
+"",
+"		<br><br>",
+"		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls) cannot be processed."
+ ]
+		,
+	"Call as":		"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of Excel file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			It must be an Excel file in Open Office format, e.g. with file type .xlsx, .xlsm, .xlst.",
+"			<br><br>",
+"			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Sheet names",
+		  "Types": [ "parameter set"],
+		  "Description": "List of all sheet names from left to right as seen in the bottom tabs on Excel"
+		}
+	],
+"Examples" : [
+"		include( Support Library );",
+"		include( Office Library );",
+"		sheets[] = excel list sheets( \"Examples\\Football Membership List.xlsx\" );",
+"		echo(\"The sheets are: \", sheets[] );	  "
+ ]
+		,
+	"Output": "automatic",
+	"See also": [ "table load excel file" ]
+},
+
+
+
+
+//	table laod excel file
+//  ________________________________________________________________________________________________________________________
+
+
+"table load excel file" :
+{
+	"Function Names":	[ "table load excel file" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function loads Excel files (Open Office format) directly into B4P tables.",
+"		If the 3rd function parameter (Excel sheet name) is not specified, then the visible sheet at the time the Excel file",
+"		has been saved with Excel will be loaded.",
+"",
+"		<br><br>",
+"		As of now, applied number formats will not be conveyed.  As an example, one Excel field contains 1.248 and the applied Excel number format ",
+"		for display is \"0.0\", the value \"1.2\" is shown on the Excel sheet using Excel.  However the original value will be loaded: 1.248.",
+"		Beyond4P is able to distinguish properly between literals (strings), numerals, boolean values (true, false), dates, times and date-time combinations ",
+"		(YYYY-MM-DD  hh:mm:ss format) Other information such as formulas, cell formatting, etc. are ignored for the time being.",
+"",
+"		<br><br>",
+"		<u>Note</u>: Only the plain data, but no no formatting information (e.g. text color), will be loaded.",
+"		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls) cannot be processed."
+ ]
+		,
+	"Call as":		"procedure",
+	"Parameter count":	"2-3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			The contents of the selected table in the Excel file will be loaded into this table."
+ ]
+			
+		},
+		{ "Number": "2",
+		  "Name": "name of Excel file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			It must be an existing Excel file in Open Office format, e.g. with file type .xlsx, .xlsm, .xlst.",
+"			<br><br>",
+"			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported."
+ ]
+			
+		},
+		{ "Number": "3",
+		  "Name": "Excel sheet name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			A particular sheet will be loaded.  This function is very useful if the Excel workbook contains multiple",
+"			sheets.  The function __excel list sheets(__) is useful to identify all sheets, which is particularly useful",
+"			if all sheets need to be loaded.  Every sheet needs to be loaded separately by repeatedly calling this function.",
+"			<br><<br>",
+"			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported."
+ ]
+			
+		}
+	],
+"Examples" : [
+"		include( Support Library );",
+"		include( Office Library );",
+"		table load excel file( football, \"Examples\\Football Membership List.xlsx\" );",
+"		table list( football );"
+ ]
+		,
+	"Output": "automatic",
+	"See also": [ "excel list sheets", "table load" ]
+}
+
+
+
+
+,
+
   "Path and File Names" :
   {
     "Documentation":		"General Description", // Required value
@@ -3861,6 +4184,171 @@
 
 
 
+
+
+,
+
+
+
+
+"choose recent file" :
+{
+	"Function Names":	[ "choose recent file" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+"Description" : [
+"",
+"		This function will either identify the <i>most recent file</i> according to a specified ordering criteria.",
+""
+ ]
+	,
+	"Call as":		"function",
+	"Parameter count":	"5",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Prompt text",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			A prompt text is needed if the count (provided in the last function parameter) is not 1.",
+"			The prompt will be displayed if needed so you can select from of the <i>n</i> recent files displayed."
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Path name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Specify the path name to the directory where the files to be searched are located.  No wildcards are supported here."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "File name pattern to match",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Specify file name pattern where the file name part may contain wildcard symbols such as",
+"			'*' and '?'. The pattern will be used to obtain a listing of matching files which will then be prioritzed",
+"			by the ordering criteria.  Exammple: \"b4p*.txt\" covers all files beginning wtih \"b4p\" and ending with file type \".txt\"."
+ ]
+			
+		},
+		{ "Number": "4.",
+		  "Name": "Ordering criteria",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			One of the following values apply:",
+"			=== 200, 600, noframe_1stcolbold, noheader",
+"			oldest	| Selects the oldest file or list <i>n</i> (count) oldest files you can choose from.",
+"			newest	| Selects the newest file or list <i>n</i> (count) newest files you can choose from.",
+"			first	| Selects the first file or list the first <i>n</i> (count) files in alphabetical order you can choose from.",
+"			last	| Selects the last file or list the last <i>n</i> (count) files in alphabetical order you can choose from.",
+"			biggest	| Selects the biggest file (file size) or list the <i>n</i> biggest files you can choose from.7",
+"			smallest| Selects the smallest file (file size) or list the <i>n</i> smallest files you can choose from.7",
+"			==="
+ ]
+			
+		},
+		{ "Number": "5.",
+		  "Name": "Count",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Valid range: 1-35<br>",
+"			If 1 is chosen, then no menu will be displayed because the first match according to the prioritization (e.g. newest file) is returned."
+ ]
+			
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Identified file name",
+		  "Types": [ "literal" ],
+"Description" : [
+"			The file name contains no directory path.  If no file has been found, then a blank string is returned."
+ ]
+			
+		}
+	],
+	"Exceptions": "If no file is found, and verbose level is not 'quiet', then an error message will warn you about no files found.  You have the choice to stop or continue",
+"Examples" : [
+"	a[] = choose recent file( \"\", \"Examples\\\", \"*table*.b4p\", first, 1 ); // No user interaction",
+"	echo(\"First file in alphabetic order containing 'table' is \", a[] );",
+"",
+"	a[] = choose recent file( \"\", \"Examples\\\", \"*table*.b4p\", last, 1 ); // No user interactino",
+"	echo(\"First file in alphabetic order containing 'table' is \", a[] );",
+"",
+"	a[] = choose recent file( \"Please choose one of the newest files: \", \"Examples\\\", \"*.b4p\", newest, 5 );",
+"",
+"	echo(\"Chosen file is: \", a[] );"
+ ]
+	,
+"Output" : [
+"	savecode",
+"First file in alphabetic order containing 'table' is REF_Features_Table_columns.b4p",
+"First file in alphabetic order containing 'table' is REF_Function_with_table.b4p",
+"Found 382 files.",
+"",
+"Please choose one of the newest files:",
+"     1 :  REF_Function_variable_to_json.b4p         (2020-10- 3 17:57:34      0 kB)",
+"     2 :  REF_Function_vertical.b4p                 (2020-10- 3 17:57:34      0 kB)",
+"     3 :  REF_Function_week.b4p                     (2020-10- 3 17:57:34      0 kB)",
+"     4 :  REF_Function_weekday.b4p                  (2020-10- 3 17:57:34      0 kB)",
+"     5 :  REF_Function_while.b4p                    (2020-10- 3 17:57:34      0 kB)",
+"Please select: 3",
+"Chosen file is: REF_Function_week.b4p"
+ ]
+	,
+	"See also": "directory listing"
+},
+
+
+
+"abbreviate name" :
+{
+	"Function Names":	[ "abbreviate name" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+"Description" : [
+"		This function abbreviates names.  The abbreviation contains the first letters of the first, all middle and",
+"		last names.  Multiple letters will be included for following sequences:<br>",
+"		<b>Ch, Gh, Ll, Ph, Rh, Sch, Sh, Sp, St, Th, Zh</b>"
+ ]
+	,
+	"Call as":		"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name to abbreviate",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Abbreviation",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+	],
+"Examples" : [
+"	include ( Utility Library );",
+"	echo( abbreviate name( \"John Adams\" ) );	",
+"	echo( abbreviate name( \"John F. Kennedy\" ) );	",
+"	echo( abbreviate name( \"Ludwig van Beethoven\" ) );",
+"	echo( abbreviate name( \"Sherlock Holmes\" ) );"
+ ]
+	,
+	"Output": "automatic"
+}
 
 
 ,
@@ -15901,26 +16389,29 @@
 "		define procedure ( listing, {{ description, literal }, {count, numeral}} )",
 "		{",
 "			echo( new line, description[], \"    (Containing \", count[], \" entries)\" );",
-"			table process( list, echo( [Date Created],\" \", [Path], [Name] ) );",
+"			table process( list, echo( [Date Created],\" \",[Time Created],\" \", [Path], [Name] ) );",
 "		}",
 "",
 "		// Both listings are equivalent.",
 "",
-"		rv[] = directory listing( list, \"C:\\Program Files\\B4P\\\" );",
+"		path[] = system info[bin directory];",
+"		echo(\"Using following main path: \", path[] );",
+"",
+"		rv[] = directory listing( list, path[] );",
 "		listing( \"All files in specified subdirectory\", rv[]);",
 "",
-"		rv[] = directory listing( list, \"C:\\Program Files\\B4P\\L*,B*\" );",
+"		rv[] = directory listing( list, path[] + \"\\L*,B*\" );",
 "		listing( \"All directories and files brginning with L or B\", rv[]);",
 "		echo;",
 "",
-"		rv[] = directory listing( list, \"C:\\Program Files\\B4P\", \"*\", directories );",
+"		rv[] = directory listing( list, path[], \"*\", directories );",
 "		listing( \"All subdirectores. Note: Use '*', not '*.*'.\", rv[]);",
 "		echo;",
 "",
-"		rv[] = directory listing( list, \"C:\\Program Files\\B4P\\lib\", \"*.txt\" );",
-"		listing( \"All files with type '.txt'\", rv[]);",
+"		rv[] = directory listing( list, path[]+\"\\lib\", \"*.txt\" );",
+"		listing( \"All files with type in lib subdirectory'.txt'\", rv[]);",
 "",
-"		rv[] = directory listing recursive( list, \"C:\\Program Files\\B4P\", \"*.b4p,*.txt\" );",
+"		rv[] = directory listing recursive( list, path[], \"*.b4p,*.txt\" );",
 "		listing( \"All .b4p and .txt files in current and subdirectories\", rv[]);",
 "",
 "		rv[] = directory listing recursive( list, \"C:\\dk3@ç%45*\\\" );",
@@ -15928,7 +16419,7 @@
  ]
 	  ,
 	"Output": "automatic",
-	"See also": [ "file ", "count files" ]
+	"See also": [ "advanced directory listing", "count files" ]
 }
 
 ,
@@ -18016,7 +18507,7 @@
  ]
 	,
 	"Output 01:":		"automatic",
-	"See also": [ "table load", "Loading XML files", "Loading JSON files" ]
+	"See also": [ "table load", "Loading XML files", "Loading JSON files", "table load excel file" ]
    },
 
 
@@ -18059,7 +18550,7 @@
  ]
 	,
 	"Output 01:":		"automatic",
-	"See also": [ "table load", "Loading HTML files", "Loading JSON files" ]
+	"See also": [ "table load", "Loading HTML files", "Loading XML files", "Loading JSON files" ]
    },
 
 

@@ -273,6 +273,7 @@
 "<li class=""navi""><a href=""REF_Features_Other_string_functions.html""><div class=""navi"">4.5.3 Miscellaneous String Functions </div></a></li>";3;REF_Features_Other_string_functions.html;Miscellaneous String Functions
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""REF_Function_random_string.html""><div class=""navi"">4.5.3.1 random string, random letters </div></a></li>";4;REF_Function_random_string.html;random string, random letters
+"<li class=""navi""><a href=""REF_Function_abbreviate_name.html""><div class=""navi"">4.5.3.2 abbreviate name </div></a></li>";4;REF_Function_abbreviate_name.html;abbreviate name
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_date_and_time_functions.html""><div class=""navi"">4.6 Date and Time Functions </div></a></li>";2;REF_Features_date_and_time_functions.html;Date and Time Functions
@@ -352,11 +353,17 @@
 "<li class=""navi""><a href=""REF_Features_Loading_and_saving_tables.html""><div class=""navi"">4.8.4 Loading and Saving Tables </div></a></li>";3;REF_Features_Loading_and_saving_tables.html;Loading and Saving Tables
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""REF_Function_table_load.html""><div class=""navi"">4.8.4.1 table load ... </div></a></li>";4;REF_Function_table_load.html;table load ...
-"<li class=""navi""><a href=""REF_Features_Loading_HTML_files.html""><div class=""navi"">4.8.4.2 Loading HTML files </div></a></li>";4;REF_Features_Loading_HTML_files.html;Loading HTML files
-"<li class=""navi""><a href=""REF_Features_Loading_XML_files.html""><div class=""navi"">4.8.4.3 Loading XML files </div></a></li>";4;REF_Features_Loading_XML_files.html;Loading XML files
-"<li class=""navi""><a href=""REF_Features_Loading_JSON_files.html""><div class=""navi"">4.8.4.4 Loading JSON files </div></a></li>";4;REF_Features_Loading_JSON_files.html;Loading JSON files
-"<li class=""navi""><a href=""REF_Function_table_save.html""><div class=""navi"">4.8.4.5 table save ... </div></a></li>";4;REF_Function_table_save.html;table save ...
-"<li class=""navi""><a href=""REF_Features_Saving_JSON_files.html""><div class=""navi"">4.8.4.6 Saving JSON files </div></a></li>";4;REF_Features_Saving_JSON_files.html;Saving JSON files
+"<li class=""navi""><ul>";5
+"<li class=""navi""><a href=""REF_Features_Loading_HTML_files.html""><div class=""navi"">4.8.4.1.1 Loading HTML files </div></a></li>";5;REF_Features_Loading_HTML_files.html;Loading HTML files
+"<li class=""navi""><a href=""REF_Features_Loading_XML_files.html""><div class=""navi"">4.8.4.1.2 Loading XML files </div></a></li>";5;REF_Features_Loading_XML_files.html;Loading XML files
+"<li class=""navi""><a href=""REF_Features_Loading_JSON_files.html""><div class=""navi"">4.8.4.1.3 Loading JSON files </div></a></li>";5;REF_Features_Loading_JSON_files.html;Loading JSON files
+</ul></li>;5
+"<li class=""navi""><a href=""REF_Function_table_save.html""><div class=""navi"">4.8.4.2 table save ... </div></a></li>";4;REF_Function_table_save.html;table save ...
+"<li class=""navi""><ul>";5
+"<li class=""navi""><a href=""REF_Features_Saving_JSON_files.html""><div class=""navi"">4.8.4.2.1 Saving JSON files </div></a></li>";5;REF_Features_Saving_JSON_files.html;Saving JSON files
+</ul></li>;5
+"<li class=""navi""><a href=""REF_Function_excel_list_sheets.html""><div class=""navi"">4.8.4.3 excel list sheets </div></a></li>";4;REF_Function_excel_list_sheets.html;excel list sheets
+"<li class=""navi""><a href=""REF_Function_table_load_excel_file.html""><div class=""navi"">4.8.4.4 table load excel file </div></a></li>";4;REF_Function_table_load_excel_file.html;table load excel file
 </ul></li>;4
 "<li class=""navi""><a href=""REF_Features_Input_output_wtih_tables.html""><div class=""navi"">4.8.5 Input/Output with Tables </div></a></li>";3;REF_Features_Input_output_wtih_tables.html;Input/Output with Tables
 "<li class=""navi""><ul>";4
@@ -547,9 +554,12 @@
 "<li class=""navi""><a href=""REF_Features_listing_directories_and_files.html""><div class=""navi"">4.10.2 Listing and Searching Directories and Files </div></a></li>";3;REF_Features_listing_directories_and_files.html;Listing and Searching Directories and Files
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""REF_Function_directory_listing.html""><div class=""navi"">4.10.2.1 directory listing ... </div></a></li>";4;REF_Function_directory_listing.html;directory listing ...
-"<li class=""navi""><a href=""REF_Function_search_files.html""><div class=""navi"">4.10.2.2 search files ... </div></a></li>";4;REF_Function_search_files.html;search files ...
-"<li class=""navi""><a href=""REF_Function_count_files.html""><div class=""navi"">4.10.2.3 count files ... </div></a></li>";4;REF_Function_count_files.html;count files ...
-"<li class=""navi""><a href=""REF_Function_resolve_path_name.html""><div class=""navi"">4.10.2.4 resolve path/directory/file name </div></a></li>";4;REF_Function_resolve_path_name.html;resolve path/directory/file name
+"<li class=""navi""><a href=""REF_Function_advanced_directory_listing.html""><div class=""navi"">4.10.2.2 advanced directory listing ... </div></a></li>";4;REF_Function_advanced_directory_listing.html;advanced directory listing ...
+"<li class=""navi""><a href=""REF_Function_search_files.html""><div class=""navi"">4.10.2.3 search files ... </div></a></li>";4;REF_Function_search_files.html;search files ...
+"<li class=""navi""><a href=""REF_Function_choose_recent_file.html""><div class=""navi"">4.10.2.4 choose recent file </div></a></li>";4;REF_Function_choose_recent_file.html;choose recent file
+"<li class=""navi""><a href=""REF_Function_count_files.html""><div class=""navi"">4.10.2.5 count files ... </div></a></li>";4;REF_Function_count_files.html;count files ...
+"<li class=""navi""><a href=""REF_Function_resolve_path_name.html""><div class=""navi"">4.10.2.6 resolve path/directory/file name </div></a></li>";4;REF_Function_resolve_path_name.html;resolve path/directory/file name
+"<li class=""navi""><a href=""REF_Function_office_document_properties.html""><div class=""navi"">4.10.2.7 office document properties </div></a></li>";4;REF_Function_office_document_properties.html;office document properties
 </ul></li>;4
 "<li class=""navi""><a href=""REF_Features_manipulating_directories_and_files.html""><div class=""navi"">4.10.3 Manipulating Directories and Files </div></a></li>";3;REF_Features_manipulating_directories_and_files.html;Manipulating Directories and Files
 "<li class=""navi""><ul>";4
@@ -564,6 +574,12 @@
 "<li class=""navi""><a href=""REF_Function_file_copy_multiple.html""><div class=""navi"">4.10.3.9 file copy mulitple/recursive ... </div></a></li>";4;REF_Function_file_copy_multiple.html;file copy mulitple/recursive ...
 "<li class=""navi""><a href=""REF_Function_file_create_link.html""><div class=""navi"">4.10.3.10 file create link ... </div></a></li>";4;REF_Function_file_create_link.html;file create link ...
 "<li class=""navi""><a href=""REF_Function_file_download.html""><div class=""navi"">4.10.3.11 file download ... </div></a></li>";4;REF_Function_file_download.html;file download ...
+</ul></li>;4
+"<li class=""navi""><a href=""REF_Features_file_compression_decompression.html""><div class=""navi"">4.10.4 File Compression and Decompression </div></a></li>";3;REF_Features_file_compression_decompression.html;File Compression and Decompression
+"<li class=""navi""><ul>";4
+"<li class=""navi""><div>4.10.4.1 zip extract files </div></li>";4
+"<li class=""navi""><div>4.10.4.2 zip extract all </div></li>";4
+"<li class=""navi""><div>4.10.4.3 zip compress </div></li>";4
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_system_functions.html""><div class=""navi"">4.11 System Functions </div></a></li>";2;REF_Features_system_functions.html;System Functions
@@ -599,4 +615,5 @@
 </ul></li>;3
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_verbose.html""><div class=""navi""> Verbose Levels </div></a></li>";1;REF_Features_verbose.html;Verbose Levels
+"<li class=""navi""><div> File compression and decompression </div></li>";1
 </ul>

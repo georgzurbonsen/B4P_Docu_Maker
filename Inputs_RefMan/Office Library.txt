@@ -1,0 +1,290 @@
+
+
+This text file contains all relevant function descriptions in the "Office Library".
+
+
+B4PDOCU.START
+
+
+"office document properties" :
+{
+	"Function Names":	[ "office document properties" ],
+	"Documentation":	"Function Description",
+	"Library":		"Office Library",
+	"Description"::
+
+		This function reveals the document properties of Microsoft office files with the extensions <br>
+		.docx, .xlsx/.xlsm, .pptx, .vsdx, etc.  The properties may include info about persons who have created
+		or modified the files, etc.
+		<br><br>
+		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls, .doc, .ppt) cannot be processed.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Under normal conditions, the 'Office Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Path and file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			It must be a file name of a valid Microsoft open office file.
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Property names",
+		  "Direction": "output",
+		  "Types": [ "parameter set" ],
+		  "Description"::
+			All identified property names will be stored in this variable.
+			+++
+		},
+		{ "Number": "3.",
+		  "Name": "Property values",
+		  "Direction": "output",
+		  "Types": [ "parameter set" ],
+		  "Description"::
+			All corresponding property values will be stored in this variable.  The number of elements in both 2nd and 3rd function 
+			parameters will be equal.
+			+++
+		}
+	],
+	"Exceptions": "File is not an office file.",
+	"Examples"::
+	include ( Office Library );
+	office document properties( "Examples\Football Membership List.xlsx", property names[], property values[] );
+
+	for all parameters( property names[], pn[], index[] )
+	{
+	    echo( literal( pn[], "16#", align right), "  :  ", property values[]{index[]} );
+	}
+	+++,
+	"Output": "automatic"
+},
+
+
+
+//	advanced directory listing, advanced directory listing recursive
+//  ________________________________________________________________________________________________________________________
+
+
+"advanced directory listing ..." :
+{
+	"Function Names":	[ "advanced directory listing", "advanced directory listing recursive" ],
+	"Documentation":	"Function Description",
+	"Description"::
+
+		
+		This function works very similarly as __directory listing(__) and __directory listing recursive(__).  The only difference to them is that
+		all identified Microsoft office document properties from open office Word, Excel, Powerpoint and Visio files wll also be added as
+		additional columns to the directory listing.
+
+		<br><br>
+		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls, .doc, .ppt) cannot be processed.
+
+		+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"1-4",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of destination table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			The directory listing will be put into this table, with header names as lsited above.
+			If the table is not yet existing, then it will be created.  Existing tables will be initialized first.
+			+++
+		},
+		{ "Number": "Opt. 2",
+		  "Name": "drive or path name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "Current working directory",
+		  "Description"::
+			Specify a disk drive (e.g. C:\) or a path name (/usr/local, or \\server_name\path_name\...).
+			If no additional parameters are provided, then the path name may also contain a file name (to list 1 file) or matching pattern to list specific files.<br>
+			<u>Note</u>: Wildcard symbols are supported here for the file name, but not for the path name (OK: C:\Subdir\*.txt,  Not OK: C:\Sub*\*.txt)
+			+++
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "pattern name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "* (all files)",
+		  "Description"::
+			Specify a disk drive (e.g. C:\) or a path name (/usr/local, or \\server_name\path_name\...).
+			If no additional parameters are provided, then the path name may also contain a file name (to list 1 file) or matching pattern to list specific files.<br>
+			<u>Note</u>: Wildcard symbols are supported here for the file name, but not for the path name (OK: C:\Subdir\*.txt,  Not OK: C:\Sub*\*.txt)
+			+++
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "search option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "files and directories",
+		  "Description"::
+		    One of the following:
+			=== 150, 500, noheader, noframe_1stcolbold
+			files			| Files only
+			directories		| Directories only
+			files and directories	| Foth files and directoreies (default)
+			all			| Also includes hidden and system files
+			===
+			+++
+		  }
+
+		],
+	"Return value":
+	[
+		{ "Name": "Entry count",
+		  "Types": [ "numeral" ],
+		  "Description": "Total number of files and/or directories found.  -1 = Error (e.g. invalid path). Table will be empty in this case."
+		}
+	],
+	"Examples"::
+		include( Support Library );
+		include( Office Library );
+
+		rv[] = advanced directory listing( list, "Examples/", "*.xlsx,*.xls" );
+		table delete remaining rows(list, 4 ); 
+		// Just keep the first 3 rows to fit the output on the screen
+
+		table transpose( list ); // Make the list fit on the small output
+		table list( list );
+	  +++,
+	"Output": "automatic",
+	"See also": [ "directory listing", "directory listing recursive" ]
+},
+
+
+
+
+//	excel list sheets
+//  ________________________________________________________________________________________________________________________
+
+
+"excel list sheets" :
+{
+	"Function Names":	[ "excel list sheets" ],
+	"Documentation":	"Function Description",
+	"Description"::
+
+		This function identifies all sheets (tabs) inside the Microsoft Excel workbook (Open Office format) and returns them in a parameter set containing literals.
+		This information may be necessary in order to load the right table in the Excel file afterwards.
+
+		<br><br>
+		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls) cannot be processed.
+		+++,
+	"Call as":		"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of Excel file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			It must be an Excel file in Open Office format, e.g. with file type .xlsx, .xlsm, .xlst.
+			<br><br>
+			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported.
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Sheet names",
+		  "Types": [ "parameter set"],
+		  "Description": "List of all sheet names from left to right as seen in the bottom tabs on Excel"
+		}
+	],
+	"Examples"::
+		include( Support Library );
+		include( Office Library );
+		sheets[] = excel list sheets( "Examples\Football Membership List.xlsx" );
+		echo("The sheets are: ", sheets[] );	  
+		+++,
+	"Output": "automatic",
+	"See also": [ "table load excel file" ]
+},
+
+
+
+
+//	table laod excel file
+//  ________________________________________________________________________________________________________________________
+
+
+"table load excel file" :
+{
+	"Function Names":	[ "table load excel file" ],
+	"Documentation":	"Function Description",
+	"Description"::
+
+		This function loads Excel files (Open Office format) directly into B4P tables.
+		If the 3rd function parameter (Excel sheet name) is not specified, then the visible sheet at the time the Excel file
+		has been saved with Excel will be loaded.
+
+		<br><br>
+		As of now, applied number formats will not be conveyed.  As an example, one Excel field contains 1.248 and the applied Excel number format 
+		for display is "0.0", the value "1.2" is shown on the Excel sheet using Excel.  However the original value will be loaded: 1.248.
+		Beyond4P is able to distinguish properly between literals (strings), numerals, boolean values (true, false), dates, times and date-time combinations 
+		(YYYY-MM-DD  hh:mm:ss format) Other information such as formulas, cell formatting, etc. are ignored for the time being.
+
+		<br><br>
+		<u>Note</u>: Only the plain data, but no no formatting information (e.g. text color), will be loaded.
+		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls) cannot be processed.
+		+++,
+	"Call as":		"procedure",
+	"Parameter count":	"2-3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name of table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			The contents of the selected table in the Excel file will be loaded into this table.
+			+++
+		},
+		{ "Number": "2",
+		  "Name": "name of Excel file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			It must be an existing Excel file in Open Office format, e.g. with file type .xlsx, .xlsm, .xlst.
+			<br><br>
+			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported.
+			+++
+		},
+		{ "Number": "3",
+		  "Name": "Excel sheet name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			A particular sheet will be loaded.  This function is very useful if the Excel workbook contains multiple
+			sheets.  The function __excel list sheets(__) is useful to identify all sheets, which is particularly useful
+			if all sheets need to be loaded.  Every sheet needs to be loaded separately by repeatedly calling this function.
+			<br><<br>
+			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported.
+			+++
+		}
+	],
+	"Examples"::
+		include( Support Library );
+		include( Office Library );
+		table load excel file( football, "Examples\Football Membership List.xlsx" );
+		table list( football );
+		+++,
+	"Output": "automatic",
+	"See also": [ "excel list sheets", "table load" ]
+}
+
+
+
+
+B4PDOCU.STOP

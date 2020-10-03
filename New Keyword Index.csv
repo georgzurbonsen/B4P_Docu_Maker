@@ -217,6 +217,7 @@ REF;Exponential Functions;REF_Function_exp.html;Function Description;10p
 REF;Exponential Functions;REF_Function_exp.html;Function Description;;exponential functions
 REF;Expressions (func. params);REF_Features_Expressions_(func_params).html;General Description;Expressions (func params)
 REF;Expressions to Select Rows;REF_Features_Expressions_to_select_rows.html;General Description;Expressions to select rows
+REF;File Compression and Decompression;REF_Features_file_compression_decompression.html;General Description;file compression decompression
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;finance functions
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;;business functions
 REF;Function Library;REF_Features_Function_Library.html;General Description;Function Library
@@ -436,9 +437,12 @@ REF;Voids;REF_Features_data_types_voids.html;General Description;;void
 REF;Voids;REF_Features_data_types_voids.html;General Description;;voids
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;zero members
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;;zero members
+REF;abbreviate name;REF_Function_abbreviate_name.html;Function Description;abbreviate name
 REF;abort;REF_Function_abort.html;Function Description;abort
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;abs
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;;absolute value
+REF;advanced directory listing ...;REF_Function_advanced_directory_listing.html;Function Description;advanced directory listing
+REF;advanced directory listing ...;REF_Function_advanced_directory_listing.html;Function Description;advanced directory listing recursive
 REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to structure
 REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to array structure
 REF;array, array protect;REF_Function_array.html;Function Description;array
@@ -466,6 +470,7 @@ REF;call;REF_Function_call.html;Function Description;call
 REF;case;REF_Function_case.html;Function Description;case
 REF;catch, catch if;REF_Function_catch.html;Function Description;catch
 REF;catch, catch if;REF_Function_catch.html;Function Description;catch if
+REF;choose recent file;REF_Function_choose_recent_file.html;Function Description;choose recent file
 REF;chr;REF_Function_chr.html;Function Description;chr
 REF;chr;REF_Function_chr.html;Function Description;;character encoding
 REF;clean (if) numeral;REF_Function_clean_numeral.html;Function Description;clean numeral
@@ -573,6 +578,7 @@ REF;even, odd, whole;REF_Function_even.html;Function Description;;even numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;odd numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;whole numbers
 REF;excel column number;REF_Function_excel_column_number.html;Function Description;excel column number
+REF;excel list sheets;REF_Function_excel_list_sheets.html;Function Description;excel list sheets
 REF;exception;REF_Function_exception.html;Function Description;exception
 REF;exchange;REF_Function_exchange.html;Function Description;exchange
 REF;existing;REF_Function_existing.html;Function Description;existing
@@ -808,6 +814,7 @@ REF;null - Function;REF_Function_null.html;Function Description;null
 REF;null - Function;REF_Function_null.html;Function Description;;null function
 REF;numeral;REF_Function_numeral.html;Function Description;numeral
 REF;numeral;REF_Function_numeral.html;Function Description;;numeral conversion function
+REF;office document properties;REF_Function_office_document_properties.html;Function Description;office document properties
 REF;once;REF_Function_once.html;Function Description;once
 REF;once;REF_Function_once.html;Function Description;;one-time execution
 REF;outside ... (parameter set function);REF_Function_outside_.html;Function Description;outside 
@@ -1033,6 +1040,7 @@ REF;table lift ...;REF_Function_table_lift_header_row.html;Function Description;
 REF;table list;REF_Function_table_list.html;Function Description;table list
 REF;table load ...;REF_Function_table_load.html;Function Description;table load
 REF;table load ...;REF_Function_table_load.html;Function Description;table load unchanged
+REF;table load excel file;REF_Function_table_load_excel_file.html;Function Description;table load excel file
 REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup
 REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup ignore case
 REF;table lookup ...;REF_Function_table_lookup.html;Function Description;table lookup top down

@@ -1,0 +1,160 @@
+
+
+This text file contains all relevant function descriptions in the "Utility Library".
+
+
+B4PDOCU.START
+
+
+
+
+"choose recent file" :
+{
+	"Function Names":	[ "choose recent file" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+	"Description"::
+
+		This function will either identify the <i>most recent file</i> according to a specified ordering criteria.
+
+	+++,
+	"Call as":		"function",
+	"Parameter count":	"5",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Prompt text",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			A prompt text is needed if the count (provided in the last function parameter) is not 1.
+			The prompt will be displayed if needed so you can select from of the <i>n</i> recent files displayed.
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Path name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify the path name to the directory where the files to be searched are located.  No wildcards are supported here.
+			+++
+		},
+		{ "Number": "3.",
+		  "Name": "File name pattern to match",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify file name pattern where the file name part may contain wildcard symbols such as
+			'*' and '?'. The pattern will be used to obtain a listing of matching files which will then be prioritzed
+			by the ordering criteria.  Exammple: "b4p*.txt" covers all files beginning wtih "b4p" and ending with file type ".txt".
+			+++
+		},
+		{ "Number": "4.",
+		  "Name": "Ordering criteria",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			One of the following values apply:
+			=== 200, 600, noframe_1stcolbold, noheader
+			oldest	| Selects the oldest file or list <i>n</i> (count) oldest files you can choose from.
+			newest	| Selects the newest file or list <i>n</i> (count) newest files you can choose from.
+			first	| Selects the first file or list the first <i>n</i> (count) files in alphabetical order you can choose from.
+			last	| Selects the last file or list the last <i>n</i> (count) files in alphabetical order you can choose from.
+			biggest	| Selects the biggest file (file size) or list the <i>n</i> biggest files you can choose from.7
+			smallest| Selects the smallest file (file size) or list the <i>n</i> smallest files you can choose from.7
+			===
+			+++
+		},
+		{ "Number": "5.",
+		  "Name": "Count",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			Valid range: 1-35<br>
+			If 1 is chosen, then no menu will be displayed because the first match according to the prioritization (e.g. newest file) is returned.
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Identified file name",
+		  "Types": [ "literal" ],
+		  "Description"::
+			The file name contains no directory path.  If no file has been found, then a blank string is returned.
+			+++
+		}
+	],
+	"Exceptions": "If no file is found, and verbose level is not 'quiet', then an error message will warn you about no files found.  You have the choice to stop or continue",
+	"Examples"::
+	a[] = choose recent file( "", "Examples\", "*table*.b4p", first, 1 ); // No user interaction
+	echo("First file in alphabetic order containing 'table' is ", a[] );
+
+	a[] = choose recent file( "", "Examples\", "*table*.b4p", last, 1 ); // No user interactino
+	echo("First file in alphabetic order containing 'table' is ", a[] );
+
+	a[] = choose recent file( "Please choose one of the newest files: ", "Examples\", "*.b4p", newest, 5 );
+
+	echo("Chosen file is: ", a[] );
+	+++,
+	"Output"::
+	savecode
+First file in alphabetic order containing 'table' is REF_Features_Table_columns.b4p
+First file in alphabetic order containing 'table' is REF_Function_with_table.b4p
+Found 382 files.
+
+Please choose one of the newest files:
+     1 :  REF_Function_variable_to_json.b4p         (2020-10- 3 17:57:34      0 kB)
+     2 :  REF_Function_vertical.b4p                 (2020-10- 3 17:57:34      0 kB)
+     3 :  REF_Function_week.b4p                     (2020-10- 3 17:57:34      0 kB)
+     4 :  REF_Function_weekday.b4p                  (2020-10- 3 17:57:34      0 kB)
+     5 :  REF_Function_while.b4p                    (2020-10- 3 17:57:34      0 kB)
+Please select: 3
+Chosen file is: REF_Function_week.b4p
+	+++,
+	"See also": "directory listing"
+},
+
+
+
+"abbreviate name" :
+{
+	"Function Names":	[ "abbreviate name" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+	"Description"::
+		This function abbreviates names.  The abbreviation contains the first letters of the first, all middle and
+		last names.  Multiple letters will be included for following sequences:<br>
+		<b>Ch, Gh, Ll, Ph, Rh, Sch, Sh, Sp, St, Th, Zh</b>
+	+++,
+	"Call as":		"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name to abbreviate",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Abbreviation",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+	],
+	"Examples"::
+	include ( Utility Library );
+	echo( abbreviate name( "John Adams" ) );	
+	echo( abbreviate name( "John F. Kennedy" ) );	
+	echo( abbreviate name( "Ludwig van Beethoven" ) );
+	echo( abbreviate name( "Sherlock Holmes" ) );
+	+++,
+	"Output": "automatic"
+}
+
+
+B4PDOCU.STOP
