@@ -1,5 +1,32 @@
-﻿		include( Support Library );
-		include( Office Library );
-		table load excel file( football, "Examples\Football Membership List.xlsx" );
-		table list( football );
+﻿
+	table initialize( test, { { Col A, Col B, Col C },
+				  { No,    No,    0 },
+				  { No,   Yes,    1 },
+				  { Yes,   No,    2 },
+				  { Yes,  Yes,    3 } });
+	interactive;
+
+
+
+	table load( table, "Examples\Cities.csv");
+
+	interactive;
+
+
+
+	echo( [ table: {1,4}, 5 ] );
+	echo( [ table: {-7,-4}, -10 ], new line );
+
+	echo( [ table: {City, Famous attraction}, 5 ] );
+	echo( [ table: {City, Famous attraction}, -10 ], new line );
+
+	echo( [ table: {City, Famous attraction}, San Francisco ] );
+	echo( [ table: {1,4}, San Francisco ], new line );
+
+	echo( [ table: City, San Francisco, {Moving along,Famous attraction} ] );
+	echo( [ table: 1, 5, {Moving along,Famous attraction} ] );
+
+	// Below is valid, though specifying 'Famous attraction' is meaningless
+	echo( [ table: {City, Famous attraction}, 5, Moving along ] ); // cable car
+	echo( [ table: {1,4}, 5, {Moving along,Inhabitants} ] );
 

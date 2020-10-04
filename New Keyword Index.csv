@@ -1,6 +1,8 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
 REF;Accessing Table Contents;REF_Features_Accessing_table_contents.html;General Description;Accessing table contents
 REF;Accessing Table Information;REF_Features_accessing_table_info.html;General Description;accessing table info
+REF;Accessing Tables;REF_Features_accessing_tables.html;General Description;accessing tables
+REF;Accessing Tables;REF_Features_accessing_tables.html;General Description;;table access methods
 REF;Addt'l Info on fast rows processing;REF_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;add
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;sub
@@ -230,6 +232,7 @@ REF;HTML Entities;REF_Features_entities.html;General Description;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;html entities
 REF;Help and Support Functions;REF_Features_help_and_support_functions.html;General Description;help and support functions
+REF;Horizontal Table Access;REF_Features_horizontal_table_access.html;General Description;horizontal table access
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;sinh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;cosh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;tanh
@@ -350,6 +353,8 @@ REF;Series Functions;REF_Features_series_functions.html;General Description;seri
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;parameter set search and extraction
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;;parameter set search functions
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;;parameter set extraction functions
+REF;Simple Table Access;REF_Features_simple_table_access.html;General Description;simple table access
+REF;Simple Table Access - Partial Specification;REF_Features_simple_table_access_partial_specification.html;General Description;simple table access partial specification
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;simple variables
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;;simple variables
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;;simple variable
@@ -393,6 +398,7 @@ REF;Table Functions;REF_Features_table_functions.html;General Description;table 
 REF;Table Integration Operation Identifiers;REF_Features_Table_integration_operation_identifiers.html;General Description;Table integration operation identifiers
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;Table of Contents
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;;Reference Manual
+REF;Tables;REF_Features_tables.html;General Description;tables
 REF;Text Input / Output;REF_Features_text_input_output.html;General Description;text input output
 REF;Time and Stopwatch Functions;REF_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
 REF;Transcendental Functions;REF_Features_transcendental_functions.html;General Description;transcendental functions
@@ -1169,6 +1175,9 @@ REF;year, quarter, month, day;REF_Function_year.html;Function Description;quarte
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;month
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;day
 REF;year, quarter, month, day;REF_Function_year.html;Function Description;;Date info functions
+REF;zip compress;REF_Function_zip_compress.html;Function Description;zip compress
+REF;zip extract all;REF_Function_zip_extract_all.html;Function Description;zip extract all
+REF;zip extract files;REF_Function_zip_extract_files.html;Function Description;zip extract files
 GUI;Access PDF documentation;GUI_Features_access_pdf_docs.html;General Description;access pdf docs
 GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
 GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts

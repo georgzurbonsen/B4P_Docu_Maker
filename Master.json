@@ -4188,6 +4188,318 @@
 
 ,
 
+"Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "tables" ],
+"Description 01:Introduction" : [
+"",
+"	Tables are the main structural objects on which this programming language has been developed for, namely processing tables of any size",
+"	effectively and efficiently with minimum amount of code to be written and delivering highest possible performance when executing",
+"	the code.  All tables are 2-dimensional data structures which hold all information as literals (text), including numeric valuesand dates."
+ ]
+	,
+"Description 02:Table Characteristics" : [
+"",
+"* All tables are global, i.e. accessible by called procedure and functions, no matter in which code file they are running, and retained if created  	  inside user-defined procedures and functions and then returned.",
+"* The tables are fully stored and managed in working memory (dynamic RAM).  In case you work with very large tables and your system has not enough memory space,  the the operating system will move data to the <i>page file</i> in order to provide additional space.  With the very large memory space available  	  systems, this should not be an issue for most applications.  B4P uses full 64-bit performance, so you will not encounter the 4GB limit.",
+"	* Tables may contain any number of rows, including 0 (= no) row.",
+"	* Row counting starts with 0 (row 0 is typically referred as the header row), 1, 2, etc.",
+"	* __Negative indexing__ is supported for referencing row numbers.  -1 refers to the last row in the table, -2 the one above, etc.",
+"	* Blank rows are allowed",
+"	* Column counting starts with 0, 1, 2, etc.",
+"	* __Negative indexing__ is also supported for referencing column numbers.  -1 refers to the rightmost column, -2 the one to the left, etc.",
+"	* The width of every table row row (i.e. number of columns) may vary.",
+"	* The number of entries in a table row may exceed the number of header entries, but in this case these entries cannot be identified by column header names.  They can only be accessed with column numbers.",
+"	* Blank columns are allowed",
+"	* Multiple identical column header names are allowed, but referencing them by names will always match with the first occurrence (from left to right).",
+"* Tables loaded, e.g. from HTML, XML, excel, contain no formatting attributes (e.g. font size, frame and cell background color, alignments, typefaces like bold, underline, etc.).   	  However, before saving the tables, you may want to append formatting attributes which will then be parts of the data contents. See the section on __styles__.",
+"	* The function __table configure(__) is available to change table-specific properties."
+ ]
+	,
+
+"Description 03:Creating tables" : [
+"",
+"	Various methods are available to create tables.<br>",
+"	* Function calls such as __table create(__), __table initialize(__), etc.",
+"	* Loading data into tables, e.g. with __table load(__), table load excel file(__)",
+"	* Copying tables, e.g. with __table copy table(__), or using other functiosn which create new tables as output, e.g. directory listing(__)."
+ ]
+	,
+
+"Description 04:Overview" : [
+"	The next sections describe the synatax which allows for straightforward and powerful access to table contents, be it simple values, whole (or parts of) rows and",
+"	columns, or a combination of both (e.g. accessing a matrix from the table).",
+"	<br><br>",
+"	__Partial table references__ is also a very efficient means to access contents with minimum syntax and is very useful when processing tables from to to",
+"	bottom, e.g in loops or using the __table process(__) function call."
+ ]
+	,
+
+"Description 05:Table used for examples throughout this chapter" : [
+"",
+"	The table \"cities.csv\" shown below will be used to demonstrate the various examples on accessing tables."
+ ]
+	,
+"Examples 05:" : [
+"	include( Support Library );",
+"	table load( table, \"Examples\\cities.csv\" );",
+"	table list( table );"
+ ]
+	,
+    "Output 05:": "automatic"
+},
+
+
+"Accessing Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "accessing tables" ],
+    "Keywords":			[ "table access methods" ],
+"Description 01:Introduction" : [
+"",
+"	B4P provides the following four <i>table access methods</i> to access table contents:",
+"	* __Simple table access__ to access individual table cells",
+"	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.",
+"	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.",
+"	* __Matrix table access__ to access multiple cells in different rows and columns as well.",
+"",
+"	In addition to these basic acces modes, __transactions__ and various functions do also provide access to tables."
+ ]
+	
+
+},
+
+
+"Simple Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple table access" ],
+"Description 01:Introduction" : [
+"",
+"	The <b>simple table access</b> is one of the four basic __access methods__ where this one accesses exactly one cell in the table.",
+""
+ ]
+	,
+"Description 02:Syntax for Full Table Specification" : [
+"",
+"	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers",
+"	or expressions providing literals and numerals.",
+"",
+"	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ]",
+"		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	|",
+"		|				|	| - Positive column number, or	|	| - Positive row number, or		|",
+"		|				|	| - Negative column number	|	| - Negative row number			|",
+"	===",
+"",
+"	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):",
+"	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2]		| ]",
+"		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|",
+"		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - Positive row number, or		|",
+"		|				|	| - Negative column number	|	| - Negative row number			|	| - Negative row number			|",
+"	===",
+"",
+""
+ ]
+	,
+
+"Description 03:Principle" : [
+"",
+"	<br/><img src=\"Images/Description_Table_Simple_Access_Full.jpg\" alt=\"Simple table access, full table specification\"><br/>",
+""
+ ]
+	,
+"Examples 03:Programming examples" : [
+"	table load( table, \"Examples\\Cities.csv\");",
+"",
+"	echo( [ table:  1,    5 ] );",
+"	echo( [ table: -7, -10 ] );",
+"	echo( [ table:  1, -10 ] );",
+"	echo( [ table: -7,    5 ], new line );",
+"",
+"	echo( [ table: City,    5 ] );",
+"	echo( [ table: City, -10 ], new line );",
+"",
+"	echo( [ table: City, San Francisco] ); // Exception to rule: Returns row numbers",
+"	echo( [ table: 1, San Francisco] );",
+"	echo( [ table: -7, San Francisco], new line );",
+"",
+"	echo( [ table: City, San Francisco, Famous attraction] );",
+"	echo( [ table: 1, 5, 4] );",
+"	echo( [ table: -7, -10, -4] );"
+ ]
+	,
+	"Output 03:Output - Consider travelling": "automatic"
+},
+
+
+"Simple Table Access - Partial Specification" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple table access partial specification" ],
+"Description 01:Introduction" : [
+"",
+"	If a context for partial __partial table specification__ is provided, then the table name and/or row numbers are optional.",
+"	Not specifying them will refer to the table name and row number in the current context.",
+""
+ ]
+	,
+"Description 02:Syntax for Partial Table Specification" : [
+"",
+"	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers",
+"	or expressions providing literals and numerals.",
+"	<br><br>",
+"",
+"	Example 1: Current table name, current row number, specified column	",
+"	=== 10, 230, 10, noframe table_syntax",
+"	[	| Simple Column Specifier	|  ]",
+"		| - Header name, or		|",
+"		| - Positive column number, or	|",
+"		| - Negative column number	|",
+"	===",
+"",
+"	<br>Example 2: Other table name, current row number, specified column	",
+"	=== 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Table Name			| :	| Simple Column Specifier	|  ]",
+"		| Must be a literal		|	| - Header name, or		|",
+"		|				|	| - Positive column number, or	|",
+"		|				|	| - Negative column number	|",
+"	===",
+"",
+"	<br>Example 3: Current table name, specified row number, specified column	",
+"	=== 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Simple Column Specifier	| ,	| Simple Row Specifier			| ]",
+"		| - Header name, or		|	| - Matching contents (literal), or 	|",
+"		| - Positive column number, or	|	| - Positive row number, or		|",
+"		| - Negative column number	|	| - Negative row number			|",
+"	===",
+"",
+"	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):",
+"	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]",
+"		| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|",
+"		| - Positive column number, or	|	| - Positive row number, or		|	| - Positive column number, or		|",
+"		| - Negative column number	|	| - Negative row number			|	| - Negative column number		|",
+"	===",
+"",
+""
+ ]
+	,
+
+"Description 03:Principle" : [
+"",
+"	<br/><img src=\"Images/Description_Table_Simple_Access_Partial.jpg\" alt=\"Simple table access, partial table specification\"><br/>",
+""
+ ]
+	,
+"Examples 03:Programming examples" : [
+"	table load( table, \"Examples\\Cities.csv\");",
+"	with table( table, 5 ) // Row 5",
+"	{",
+"	    echo( [ 1 ] );",
+"	    echo( [ -7 ], new line );",
+"",
+"	    echo( [ City ], new line );",
+"",
+"	    echo( [ City, San Francisco], new line ); // Exception to rule: Returns row number",
+"",
+"	    echo( [ City, San Francisco, Famous attraction] );",
+"	    echo( [ 1, row(), 4] );",
+"	    echo( [ -7, row(), -4] );",
+"	}	"
+ ]
+	,
+	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+"Horizontal Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "horizontal table access" ],
+"Description 01:Introduction" : [
+"",
+"	The <b>horizotal table access</b> is one of the four basic __access methods__ where this one accesses exactly one cell in the table.",
+"	Multiple columns can be specified with following approaches:",
+"	* Multiple columns specified in a parameter set",
+"	* Using __wildcards__ using the colon (:) prefix",
+"	* Using .. symbol to specify entire row or a range across multiple columns",
+"	* Skipping the value to specify the entire row",
+"",
+"	The value(s) read will be provided in a __parameter set__.  This does also apply if only one or even no value being retrieved.  In the latter case,",
+"	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:",
+"	* All elements in the parameter set have been written (not all specified cells in the table are updated), ",
+"	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).",
+""
+ ]
+	,
+"Description 02:Syntax for Full Table Specification" : [
+"",
+"	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers",
+"	or expressions providing literals and numerals.",
+"",
+"	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Table Name			| :	| Multiple Column Specifier	| ,	| Simple Row Specifier			| ]",
+"		| Must be a literal		|	| - See below			|	| - Matching contents (literal), or 	|",
+"		|				|	|				|	| - Positive row number, or		|",
+"		|				|	| 				|	| - Negative row number			|",
+"		|				|	|				|	| 					|",
+"	===",
+"",
+"	Multiple columns can be specified in following ways:",
+"	=== 200, 800,",
+"	Approach | Explanation",
+"	Header names listed in a parameter set 		| Multiple columns will be selected using their header names",
+"	Column numbers listed in a parameter set	| Multiple columns will be selected using their column numbers",
+"	Combination of above				| Multiple columns will be selected using a combination of their header names and column numbers",
+"Pattern matching with wildcards			| Specify colon followed by pattern in single quotation marks (type: softquoted literal), example: <br> 							  <b>:'A*'</b>  selects all header names beginning with A. <br><b>:'A*,a*'</b> Here beginning with A and a.",
+"	Ranges from .. to				| Specify 2 header names or column numbers or a mix with .. inbetween",
+"	Ranges from ..					| Specify 1 header name or column number followed by .. which includes all remainign columns till last column with existing header name. See <sup>1</sup>",
+"	Ranges .. to					| Specify .. follwoed by 1 header name or column number which covers 1st column till specified column",
+"	..						| Specify .. only to select all columns beginning with column 0 and ending with last column with header name.  See <sup>1</sup>",
+"	Blank - All columns				| Specify no value to select all existing cells in the current table row.  See <sup>1</sup>",
+"	===",
+"	<sup>1</sup>: Number of cells written is not limited for write accesses, i.e. writing beyond the last column is allowed.",
+"",
+"",
+"	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):",
+"	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Multiple Column Specifier 2		| ]",
+"		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - See above				|",
+"		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| 					|",
+"		|				|	| - Negative column number	|	| - Negative row number			|	| 					|",
+"	===",
+"	In the lookup cases, specifying multiple columns in 1st specifier is valid by syntax, but does not make sense.  The comparison is made with the 1st element anyhow.",
+""
+ ]
+	,
+
+"Description 03:Principle" : [
+"",
+"	<br/><img src=\"Images/Description_Table_Simple_Access_Full.jpg\" alt=\"Simple table access, full table specification\"><br/>",
+""
+ ]
+	,
+"Examples 03:Programming examples" : [
+"	table load( table, \"Examples\\Cities.csv\");",
+"	//",
+"	//",
+"	// Uner Construction",
+"	//",
+"	//",
+""
+ ]
+	,
+	"Output 03:Output - Consider travelling": "automatic"
+}
+
+
+
+ 	
+,
+
 
 
 
@@ -4739,6 +5051,211 @@
  ]
 	
   }
+
+,
+
+
+"zip compress" :
+{
+	"Function Names":	[ "zip compress" ],
+	"Documentation":	"Function Description",
+	"Library":		"Zip Library",
+"Description" : [
+"",
+"		This function compresses a file or directory with all the contents into a ZIP file."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"1-3",
+	"Restrictions":		"Under normal conditions, the 'Zip Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Source path name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Choice of file or directory name.  If directory name is chosen, then the whole directory with all contents will be compressed.",
+"			__Wildcards__ e.g. (pictures\\*.jpg)  are allowed. In this case, 2nd parameter (Archive file name) is also required to provide a concrete archive name."
+ ]
+			
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Archive file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			A dedicated archive file name is required if the 1st parameter does not specifcy a dedicated file or directory (with files inside), but to",
+"			multiple files or directories (using wildcard symbols)."
+ ]
+			
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Archive format",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			One of the following: <b>zip</b> and <b>7z<b> (latter applies for 7-Zip and is supported under Windows only. Will be rejected under other operating systems\")."
+ ]
+			
+		}
+	],
+"Examples" : [
+"		include( Support Library );",
+"		include( Zip Library );",
+"",
+"		zip compress( \"Examples\\Cities.csv\" );",
+"		zip compress( \"Examples\\*.csv\", \"All csv.zip\" );",
+"",
+"		a[] = search files( \"*.zip\" );",
+"		echo(\"Found following ZIP files: \", a[]);",
+"",
+"		zip extract all( \"All csv.zip\" );",
+"",
+"		echo(\"List the extracted contents from 'All csv.zip':\", new line);",
+"		directory listing recursive( d, \"All csv\" );",
+"		table keep columns( d, 'Path,Name,Date Created,Directory,Size' );",
+"		table list( d );",
+"",
+"		directory delete recursive ( \"\", \"All csv\" );",
+"		file delete( \"All csv.zip\" );",
+"		file delete( \"Cities.zip\" );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "zip extract files", "zip extract all" ]
+},
+
+
+"zip extract files" :
+{
+	"Function Names":	[ "zip extract files" ],
+	"Documentation":	"Function Description",
+	"Library":		"Zip Library",
+"Description" : [
+"",
+"		This function extracts one or more files from the ZIP file.",
+"		No exceptions are asserted in case a specified file has not been found in the archive.  If needed, check If the extracted file is existing after calling this function.",
+""
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"2-3",
+	"Restrictions":		"Under normal conditions, the 'Zip Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Archive file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Choice of file or directory name.  If directory name is chosen, then the whole directory with all contents will be compressed.",
+"			__Wildcards__ e.g. (pictures\\*.jpg)  are allowed. In this case, 2nd parameter (Archive file name) is also required to provide a concrete archive name."
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Content file names",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+"Description" : [
+"			Specify all files to extract:",
+"			* Use literal type to specify 1 file.",
+"			* Use aparameter set to specify multiple files",
+"			* Alternatively use softquoted literal (with single quotation marks) with file names spearated by comam to specify multiple files."
+ ]
+			
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Target directory name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "(current working directory)",
+"Description" : [
+"			Specify the directory where the extracted files shall be copied to. "
+ ]
+			
+		}
+	],
+"Examples" : [
+"		include( Support Library );",
+"		include( Zip Library );",
+"",
+"		zip compress( \"Examples\\*.csv\", \"All csv.zip\" );",
+"		zip extract files( \"All csv.zip\", \"Examples\\Cities.csv\", \"My Dir\" );",
+"",
+"		echo(\"List the extracted file from 'All csv.zip':\", new line);",
+"		directory listing recursive( d, \"My Dir\" );",
+"		table keep columns( d, 'Path,Name,Date Created,Directory,Size' );",
+"		table list( d );",
+"",
+"		directory delete recursive ( \"\", \"My Dir\" );",
+"		file delete( \"All csv.zip\" );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "zip extract all", "zip compress" ]
+},
+
+"zip extract all" :
+{
+	"Function Names":	[ "zip extract all" ],
+	"Documentation":	"Function Description",
+	"Library":		"Zip Library",
+"Description" : [
+"		Extracts the whole archive and stores the contents in a dedicated directory.",
+"		The directory structure depicted in the archive will be used to build up the necessary structure in the target directory."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"1-2",
+	"Restrictions":		"Under normal conditions, the 'Zip Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Archive file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Choice of file or directory name.  If directory name is chosen, then the whole directory with all contents will be compressed.",
+"			__Wildcards__ e.g. (pictures\\*.jpg)  are allowed. In this case, 2nd parameter (Archive file name) is also required to provide a concrete archive name."
+ ]
+			
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Target directory name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "(current working directory)",
+"Description" : [
+"			Specify the directory where the extracted files shall be copied to. "
+ ]
+			
+		}
+	],
+"Examples" : [
+"		include( Support Library );",
+"		include( Zip Library );",
+"",
+"		zip compress( \"Examples\\*.csv\", \"All csv.zip\" );",
+"		zip extract all( \"All csv.zip\", \"My Dir\" );",
+"",
+"		echo(\"List the extracted file from 'All csv.zip':\", new line);",
+"		directory listing recursive( d, \"My Dir\" );",
+"		table keep columns( d, 'Path,Name,Date Created,Directory,Size' );",
+"		table list( d );",
+"",
+"		directory delete recursive ( \"\", \"My Dir\" );",
+"		file delete( \"All csv.zip\" );"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "zip extract files", "zip compress" ]
+}
+
+
+
+
 
 ,
 

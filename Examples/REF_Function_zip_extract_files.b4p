@@ -1,8 +1,8 @@
-﻿      include( Support Library );
+﻿#!/usr/local/bin/b4p
       include( Zip Library );
 
-      zip compress( "Examples\*.csv", "All csv.zip" );
-      zip extract files( "All csv.zip", "Examples\Cities.csv", "My Dir" );
+      zip compress( "*.csv", "All csv.zip" );
+      zip extract files( "All csv.zip", "Cities.csv", "My Dir" );
 
       echo("List the extracted file from 'All csv.zip':", new line);
       directory listing recursive( d, "My Dir" );
