@@ -104,7 +104,7 @@ B4PDOCU.START
 
 	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
-	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2]		| ]
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]
 		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - Positive row number, or		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| - Negative row number			|
@@ -225,74 +225,232 @@ B4PDOCU.START
 
 	The <b>horizotal table access</b> is one of the four basic __access methods__ where this one accesses exactly one cell in the table.
 	Multiple columns can be specified with following approaches:
-	* Multiple columns specified in a parameter set
-	* Using __wildcards__ using the colon (:) prefix
-	* Using .. symbol to specify entire row or a range across multiple columns
-	* Skipping the value to specify the entire row
+	* __Horizontal table access using parameter sets__
+	* __Horizontal table access using wildcards__ with the colon (:) prefix
+	* __Horizontal table access using ranges__ with the '..' or leaving out the column specification to access all exsting columns
 
-	The value(s) read will be provided in a __parameter set__.  This does also apply if only one or even no value being retrieved.  In the latter case,
+	The value(s) read from the table will be provided in a __parameter set__.  This does also apply if only one or even no value being retrieved.  In the latter case,
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
 	* All elements in the parameter set have been written (not all specified cells in the table are updated), 
 	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	+++
+},
+
+
+"Horizontal Table Access w. Param. Sets":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Horizontal table access using parameter sets" ],
+    "Description 01:Introduction"::
+
+	Instead of specifying one column header name (literal) or column number (numeral), a parameter set can be used to specify
+	multiple columns in order to access multiple cells in a specific row at a time.  The resulting data read out is a parameter set
+	containing the data which corresponds to the headers specified accordingly.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
-	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers
+	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
 	or expressions providing literals and numerals.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Multiple Column Specifier	| ,	| Simple Row Specifier			| ]
-		| Must be a literal		|	| - See below			|	| - Matching contents (literal), or 	|
-		|				|	|				|	| - Positive row number, or		|
-		|				|	| 				|	| - Negative row number			|
-		|				|	|				|	| 					|
+		| Must be a literal		|	| - Parameter set containing	|	| - Matching contents (literal), or 	|
+		|				|	| header names and/or positive	|	| - Positive row number, or		|
+		|				|	| or negative column numbers	|	| - Negative row number			|
 	===
-
-	Multiple columns can be specified in following ways:
-	=== 200, 800,
-	Approach | Explanation
-	Header names listed in a parameter set 		| Multiple columns will be selected using their header names
-	Column numbers listed in a parameter set	| Multiple columns will be selected using their column numbers
-	Combination of above				| Multiple columns will be selected using a combination of their header names and column numbers
-	Pattern matching with wildcards			| Specify colon followed by pattern in single quotation marks (type: softquoted literal), example: <br>\
-							  <b>:'A*'</b>  selects all header names beginning with A. <br><b>:'A*,a*'</b> Here beginning with A and a.
-	Ranges from .. to				| Specify 2 header names or column numbers or a mix with .. inbetween
-	Ranges from ..					| Specify 1 header name or column number followed by .. which includes all remainign columns till last column with existing header name. See <sup>1</sup>
-	Ranges .. to					| Specify .. follwoed by 1 header name or column number which covers 1st column till specified column
-	..						| Specify .. only to select all columns beginning with column 0 and ending with last column with header name.  See <sup>1</sup>
-	Blank - All columns				| Specify no value to select all existing cells in the current table row.  See <sup>1</sup>
-	===
-	<sup>1</sup>: Number of cells written is not limited for write accesses, i.e. writing beyond the last column is allowed.
-
 
 	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Multiple Column Specifier 2		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - See above				|
-		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| 					|
-		|				|	| - Negative column number	|	| - Negative row number			|	| 					|
+		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Parameter set containing		|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - header names and/or positive	|
+		|				|	| - Negative column number	|	| - Negative row number			|	| - or negative column numbers		|
 	===
-	In the lookup cases, specifying multiple columns in 1st specifier is valid by syntax, but does not make sense.  The comparison is made with the 1st element anyhow.
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
 
     "Description 03:Principle"::
 
-	<br/><img src="Images/Description_Table_Simple_Access_Full.jpg" alt="Simple table access, full table specification"><br/>
+	<br/><img src="Images/Description_Table_Horizontal_Access_Parameter_Set_Full.jpg" alt="Horizontal table access using parameter sets, full table specification"><br/>
 
 	+++,
     "Examples 03:Programming examples"::
 	table load( table, "Examples\Cities.csv");
-	//
-	//
-	// Uner Construction
-	//
-	//
+
+	echo( [ table: {1,4}, 5 ] );
+	echo( [ table: {-7,-4}, -10 ], new line );
+
+	echo( [ table: { City, 4 }, -10 ] );
+	echo( [ table: { City, Famous attraction }, 5 ], new line );
+
+	echo("Special case");	
+	echo( [ table: { }, -10 ] ); // returns empty set
+
+
+	echo( [ table: { City, Famous attraction }, San Francisco ] );
+	// No exception to rule: It retrieves "San Francisco" and "Golden Gate"
+
+	echo( [ table: City, San Francisco, { Famous attraction, Country } ] );
+	+++,
+	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+
+"Horizontal Table Access w. Wildcards":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Horizontal table access using wildcards" ],
+    "Description 01:Introduction"::
+
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (strings values inside single quotation
+	marks) to compare the header row.  All headers matching to the string pattern will be included in the selecction.
 
 	+++,
-	"Output 03:Output - Consider travelling": "automatic"
+    "Description 02:Syntax for Full Table Specification"::
+
+	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
+	by the softquoted literal value.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| : Header Name Pattern		| ,	| Simple Row Specifier			| ]
+		| Must be a literal		|	| - Must be a softquoted	|	| - Matching contents (literal), or 	|
+		|				|	| literal, recommended to use	|	| - Positive row number, or		|
+		|				|	| wildcard symbols		|	| - Negative row number			|
+	===
+
+	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  : Header Name Pattern		| ]
+		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Must be a softquoted 		|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| literal, recommended to use		|
+		|				|	| - Negative column number	|	| - Negative row number			|	| wildcard symbosl			|
+	===
+	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), 
+	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Horizontal_Access_Wildcard_Full.jpg" alt="Horizontal table access using wildcads, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  :'F*',   5 ] ); // 2 matches: looks for headers starting with "F*"
+	echo( [ table:  :'F*', -10 ] ); // Same result
+	echo( [ table:  :"F*",   5 ] ); // No match. Qquoted literal, looks for header name "F*"
+	echo;
+
+	echo( [ table: :'F*', Golden Gate] ); // Golden Gate is 1st match
+	echo( [ table: :'F*', SFMOMA] );      // SFMOMA is not 1st match, empty set returned
+	echo;
+
+	echo( [ table : : 'F*', Golden Gate, { City, Famous cultural place } ] );
+	echo;
+
+	echo( [ table : City, San Francisco, :'F*' ] );
+	echo( [ table : City, 5, :'F*' ] );
+	echo( [ table : 1, 5, :'F*' ] );
+	echo( [ table : -7, -10, :'F*' ] );
+
+	echo( "Output entire row with wildcards:");
+	echo( [ table : :'*', 5 ] );
+
+	+++,
+	"Output 03:Output - Forgot to recommend Fisherman's Wharf": "automatic"
+},
+
+
+
+"Horizontal Table Access w. Ranges":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Horizontal table access using ranges" ],
+    "Description 01:Introduction"::
+
+	Ranges can be specified to select multiple adjacent table columns.  Ranges come in four flavors:
+	
+	=== 200, 800, noframe_1stcolbold, noheader
+	From .. To	| From starting header name or column number to ending header name or colum number
+	.. To		| From 1st column (column 0) to ending header name or column number
+	From ..		| From starting header name or column number to last column in table with header name
+	..		| From 1st column (column 0) to last column in table with header name
+	(blank)		| From 1st column (column 0) to last existing column in the current table row (ignoring the header row)
+	===	
+	In all cases, the data read will be in parameter sets, even if no or only 1 cell has been accessed.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	
+	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing literals and numerals or parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Range Column Specifier	| ,	| Simple Row Specifier			| ]
+		| Must be a literal		|	| - Starting .. Ending column	|	| - Matching contents (literal), or 	|
+		|				|	| - .. Ending column		|	| - Positive row number, or		|
+		|				|	| - Starting column ..		|	| - Negative row number			|
+		|				|	| - .. or left blank		|	| - Negative row number			|
+	===
+
+	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Range Column Specifier 2	| ]
+		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Starting .. Ending column	|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - .. Ending column		|
+		|				|	| - Negative column number	|	| - Negative row number			|	| - Starting column ..		|
+		|				|	|				|	|					|	| - .. or left blank		|
+	===
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Horizontal_Access_Range_Full.jpg" alt="Horizontal table access using ranges, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1..4,    5 ] );
+	echo( [ table:  1..-4,   5 ] );
+	echo( [ table: City..Famous attraction, -10 ] );
+
+	echo( [ table:  4..1,    5 ] ); // Empty set returned (ending column is left of starting column)
+	echo;
+
+	echo( [ table:  1..4, San Francisco ] );
+	echo( [ table:  City..Famous attraction, San Francisco  ] );
+	echo;
+
+	echo( [ table: ..4, 5 ] );         		// San Francisco
+	echo( [ table: City, San Francisco, ..4 ]);	// 
+	echo;
+	echo( [ table: 1.., Vienna] );    		// Vienna
+	echo( [ table: City, Vienna, City..] );
+	echo( [ table: City.., Vienna] );
+	echo( [ table: 1.., 10] );
+	echo;
+
+	[table:table row width(table, 0)..,5] = {"Sightseeing boat","RV"}; // Append 2 vehicles
+	echo( [ table: .., 5 ] );		    // San Francisco
+	echo( [ table: , 5 ] );			    // San Francisco  inclduing the boat & RV
+	echo( [ table: City, San Francisco, .. ] ); // Without the boat
+	echo( [ table: City, San Francisco, ] );    // With the boat & RV
+	+++,
+	"Output 03:Output - Staying in San Francisco": "automatic"
 }
+
 
 
 

@@ -233,6 +233,9 @@ REF;HTML Entities;REF_Features_entities.html;General Description;;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;html entities
 REF;Help and Support Functions;REF_Features_help_and_support_functions.html;General Description;help and support functions
 REF;Horizontal Table Access;REF_Features_horizontal_table_access.html;General Description;horizontal table access
+REF;Horizontal Table Access w. Param. Sets;REF_Features_Horizontal_table_access_using_parameter_sets.html;General Description;Horizontal table access using parameter sets
+REF;Horizontal Table Access w. Ranges;REF_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
+REF;Horizontal Table Access w. Wildcards;REF_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;sinh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;cosh
 REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;tanh
@@ -1178,6 +1181,7 @@ REF;year, quarter, month, day;REF_Function_year.html;Function Description;;Date 
 REF;zip compress;REF_Function_zip_compress.html;Function Description;zip compress
 REF;zip extract all;REF_Function_zip_extract_all.html;Function Description;zip extract all
 REF;zip extract files;REF_Function_zip_extract_files.html;Function Description;zip extract files
+MAS;Welcome to B4P;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 GUI;Access PDF documentation;GUI_Features_access_pdf_docs.html;General Description;access pdf docs
 GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
 GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts
@@ -1207,4 +1211,3 @@ GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
 GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;what is B4P
 GUI;What is B4P?;GUI_Features_what_is_B4P.html;General Description;;B4P anatomy
 GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-MAS;Welcome to B4P;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
