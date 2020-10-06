@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  echo( [ table:  1, 6..12 ] );
+  echo( [ table: -7, -9..-3 ] );
+  echo( [ table: -7, 6..-3 ] );
+  echo( [ table: City, 6..Zürich ] );
+  echo( [ table:  1, Montréal..Zürich ] );
+  echo( [ table:  1, Zürich..Montréal ] );  // Empty set - Zürich is after Montréal
+  echo;
+
+  echo( [ table:  1, .. 6 ] );
+  echo( [ table:  1, ..-9 ] );
+  echo( [ table: City, .. Montréal ] );
+  echo;
+
+  echo( [ table:  1, 12.. ] );
+  echo( [ table:  1,  -3.. ] );
+  echo( [ table: City, Zürich .. ] );
+  echo;
+
+  echo( [ table: 1, .. ] );   // Reads all rows except header row
+  echo( [ table: City, .. ] );    // "
+  echo( [ table: -7, ] );     // Note the required final comma. Reads header row, too
+  echo( [ table: City,  ] );  // "
+
+  echo( new line, "Some lookup examples:");
+  echo( [ table: City, .. Montréal, Moving along ] );
+  echo( [ table:  1,  -3.. , Famous attraction ] );

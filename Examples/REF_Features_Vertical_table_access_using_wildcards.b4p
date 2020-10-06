@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  echo( [ table:  1, :'*n' ] );     // Cities ending with n
+  echo( [ table: -7, :'*n*' ] );    // Cities containing n
+  echo( [ table:  1, :'*n,*s' ] );  // Ending with n or s
+  echo( [ table:  1, :"*n" ] );     // No match (No data entry = "*n*)
+  echo;
+
+  echo( [ table:  City, :'*n' ] );     // Cities ending with n
+  echo;
+
+  echo( [ table: City, :'*n', Moving along ] );
+  echo;
+
+  [ table: City, 2, Moving along ] = Ambulance; // Makes more sense for the moment.
+  echo( [ table: 1, :'*n',  -1 ] );
+  echo( [ table: -7, :'*n',  7 ] );

@@ -87,7 +87,7 @@ B4PDOCU.START
     "Feature Names":		[ "simple table access" ],
     "Description 01:Introduction"::
 
-	The <b>simple table access</b> is one of the four basic __access methods__ where this one accesses exactly one cell in the table.
+	The <b>simple table access</b> is one of the four basic __table access methods__ where this one accesses exactly one cell in the table.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
@@ -102,7 +102,7 @@ B4PDOCU.START
 		|				|	| - Negative column number	|	| - Negative row number			|
 	===
 
-	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]
 		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|
@@ -181,7 +181,7 @@ B4PDOCU.START
 		| - Negative column number	|	| - Negative row number			|
 	===
 
-	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]
 		| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|
@@ -223,7 +223,7 @@ B4PDOCU.START
     "Feature Names":		[ "horizontal table access" ],
     "Description 01:Introduction"::
 
-	The <b>horizotal table access</b> is one of the four basic __access methods__ where this one accesses exactly one cell in the table.
+	The <b>horizontal table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table row.
 	Multiple columns can be specified with following approaches:
 	* __Horizontal table access using parameter sets__
 	* __Horizontal table access using wildcards__ with the colon (:) prefix
@@ -233,8 +233,24 @@ B4PDOCU.START
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
 	* All elements in the parameter set have been written (not all specified cells in the table are updated), 
 	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	+++,
+    "Description 02:Read Accesses"::
+	The value(s) read from the table will be provided in a __parameter set__, regardless of the number of cells accessed. Empty parameter sets are returned
+	if the read access results in no matches (e.g. empty parameter set for headers specified, wildcard yields no match, specified range is in the wrong
+	(right to left) direction.
+	+++,
+    "Description 03:Write Accesses"::
+	When writing a parameter set horizontally to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	one of the two conditions are met:
+	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
+	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a literal in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+
+	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the horizontal table access.
 	+++
 },
+
 
 
 "Horizontal Table Access w. Param. Sets":
@@ -251,7 +267,7 @@ B4PDOCU.START
     "Description 02:Syntax for Full Table Specification"::
 
 	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing literals and numerals.
+	or expressions providing literals and numerals, as well as parameter sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Multiple Column Specifier	| ,	| Simple Row Specifier			| ]
@@ -260,12 +276,12 @@ B4PDOCU.START
 		|				|	| or negative column numbers	|	| - Negative row number			|
 	===
 
-	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
-	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Multiple Column Specifier 2		| ]
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	| Multiple Column Specifier 2		| ]
 		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Parameter set containing		|
-		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - header names and/or positive	|
-		|				|	| - Negative column number	|	| - Negative row number			|	| - or negative column numbers		|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| header names and/or positive	|
+		|				|	| - Negative column number	|	| - Negative row number			|	| or negative column numbers		|
 	===
 	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
@@ -307,7 +323,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (strings values inside single quotation
-	marks) to compare the header row.  All headers matching to the string pattern will be included in the selecction.
+	marks) to compare the header row.  A colon (:) must be added before this string to instruct B4P to search the table for matching
+	contents. All headers matching to the string pattern will be included in the selecction.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
@@ -322,12 +339,12 @@ B4PDOCU.START
 		|				|	| wildcard symbols		|	| - Negative row number			|
 	===
 
-	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  : Header Name Pattern		| ]
 		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Must be a softquoted 		|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| literal, recommended to use		|
-		|				|	| - Negative column number	|	| - Negative row number			|	| wildcard symbosl			|
+		|				|	| - Negative column number	|	| - Negative row number			|	| wildcard symbols			|
 	===
 	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), 
 	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
@@ -398,10 +415,10 @@ B4PDOCU.START
 		| Must be a literal		|	| - Starting .. Ending column	|	| - Matching contents (literal), or 	|
 		|				|	| - .. Ending column		|	| - Positive row number, or		|
 		|				|	| - Starting column ..		|	| - Negative row number			|
-		|				|	| - .. or left blank		|	| - Negative row number			|
+		|				|	| - .. or (blank)		|	| 					|
 	===
 
-	<br>Syntax for lookup access (Choose column, folowed by the row, and pick up data from a different column):
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Range Column Specifier 2	| ]
 		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Starting .. Ending column	|
@@ -449,9 +466,292 @@ B4PDOCU.START
 	echo( [ table: City, San Francisco, ] );    // With the boat & RV
 	+++,
 	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+
+
+
+"Vertical Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "vertical table access" ],
+    "Description 01:Introduction"::
+
+	The <b>vertical table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table column.
+	Multiple columns can be specified with following approaches:
+	* __Vertical table access using parameter sets__
+	* __Vertical table access using wildcards__ with the colon (:) prefix
+	* __Vertical table access using ranges__ with the '..' or leaving out the column specification to access all exsting columns
+
+	+++,
+    "Description 02:Read Accesses"::
+	The value(s) read from the table will be provided in a __parameter set__, regardless of the number of cells accessed. Empty parameter sets are returned
+	if the read access results in no matches (e.g. empty parameter set for headers specified, wildcard yields no match, specified range is in the wrong
+	(right to left) direction.
+	+++,
+    "Description 03:Write Accesses"::
+	When writing a parameter set vertically to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	one of the two conditions are met:
+	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
+	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a literal in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+
+	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
+	+++
+},
+
+
+
+
+"Vertical Table Access w. Param. Sets":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Vertical table access using parameter sets" ],
+    "Description 01:Introduction"::
+
+	Instead of specifying one row number (numeral) or matching contents (literal), a parameter set can be used to specify
+	multiple rows in order to access multiple cells in a specific column at a time.  The resulting data read out is a parameter set
+	containing the data which corresponds to the row numbers specified accordingly.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing literals and numerals, as well as parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ]
+		| Must be a literal		|	| - Header name, or		|	| - Parameter set containing		|
+		|				|	| - Positive column number, or	|	| row numbers or contents to match	|
+		|				|	| - Negative column number	|	| with the data in the table		|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by one or more rows, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ,	|  Simple Column Specifier 2	| ]
+		| Must be a literal		|	| - Header name, or		|	| - Parameter set containing 		| 	| - Header name, or		|
+		|				|	| - Positive column number, or	|	| row numbers or contents to match	|	| - Positive column number, or	|
+		|				|	| - Negative column number	|	| with the data in the table		|	| - Negative column number	|
+	===
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Vertical_Access_Parameter_Set_Full.jpg" alt="Vertical table access using parameter sets, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1, {12,4,8} ] );     // Zürich, Boston, Venice
+	echo( [ table: -7, {-3,-11,-7} ] );
+	echo;
+
+	echo( [ table: City, {12,4,8} ] );
+	echo( [ table: City, { Zürich, Boston, Venice } ] );	// Loads own contents
+	echo( [ table: City, { Zürich, 4, Venice } ] );		// 4 -> Boston
+	echo;
+	echo( [ table: City, {  } ] );				// Returns empty set
+	echo;
+	echo( [ table: City, { 12,4,8 }, Moving along ] ); // Tram, walking, gondola
+	echo;
+	
+	echo( [ table : 1, { 12,4,8}, -1 ] );
+	echo( [ table : -7, {-3,-11,-7}, 7 ] );
+	+++,
+	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+
+"Vertical Table Access w. Wildcards":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Vertical table access using wildcards" ],
+    "Description 01:Introduction"::
+
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (strings values inside single quotation
+	marks) to compare the header row.  A colon (:) must be added before this string to instruct B4P to search the table for matching
+	contents. All headers matching to the string pattern will be included in the selecction.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
+	by the softquoted literal value.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier		| ,	| : Contents Search Pattern		| ]
+		| Must be a literal		|	| - Matching contents (literal), or	|	| - Must be a softquoted  		|
+		|				|	| - Positive row number, or		|	| literal, recommended to use		|
+		|				|	| - Negative row number			|	| wildcard symbols			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| : Contents Search Pattern		| ,	| Simple Column Specifier		| ]
+		| Must be a literal		|	| - Header name, or		|	| - Must be a softquoted  		| 	| - Header name, or			|
+		|				|	| - Positive column number, or	|	| literal, recommended to use		|	| - Positive column number, or		|
+		|				|	| - Negative column number	|	| wildcard symbols			|	| - Negative column number		|
+	===
+	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), 
+	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Vertical_Access_Wildcard_Full.jpg" alt="Vertical table access using wildcads, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1, :'*n' ] );     // Cities ending with n
+	echo( [ table: -7, :'*n*' ] );	  // Cities containing n
+	echo( [ table:  1, :'*n,*s' ] );  // Ending with n or s
+	echo( [ table:  1, :"*n" ] );     // No match (No data entry = "*n*)
+	echo;
+
+	echo( [ table:  City, :'*n' ] );     // Cities ending with n
+	echo;
+
+	echo( [ table: City, :'*n', Moving along ] );
+	echo;
+
+	[ table: City, 2, Moving along ] = Ambulance; // Makes more sense for the moment.
+	echo( [ table: 1, :'*n',  -1 ] );
+	echo( [ table: -7, :'*n',  7 ] );
+	+++,
+	"Output 03:Output - Prefer choosing a climate friendly vehicle ...": "automatic"
+},
+
+
+
+"Vertical Table Access w. Ranges":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Vertical table access using ranges" ],
+    "Description 01:Introduction"::
+
+	Ranges can be specified to select multiple adjacent table rows.  Ranges come in four flavors:
+	
+	=== 200, 800, noframe_1stcolbold, noheader
+	From .. To	| From starting row number to ending row number
+	.. To		| From 1st data row (row 1) to ending row number
+	From ..		| From starting row number to last table row (end of table)
+	..		| From 1st data row (row 1) to last table row (end of table)
+	(blank)		| From top row (row 0 / header row) to last table row (end of table)
+	===	
+	In all cases, the data read will be in parameter sets, even if no or only 1 cell has been accessed.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	
+	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing literals and numerals or parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier		| ,	| Range Column Specifier		| ]
+		| Must be a literal		|	| - Matching contents (literal), or	|	| - Starting .. Ending row		|
+		|				|	| - Positive row number, or		|	| - .. Ending row			|
+		|				|	| - Negative row number			|	| - Starting row ..			|
+		|				|	| 					|	| - .. or (blank)			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Contents Search Pattern		| ,	| Simple Column Specifier		| ]
+		| Must be a literal		|	| - Header name, or		|	| - Starting .. Ending row		| 	| - Header name, or			|
+		|				|	| - Positive column number, or	|	| - .. Ending row			|	| - Positive column number, or		|
+		|				|	| - Negative column number	|	| - Starting row ..			|	| - Negative column number		|
+		|				|	| 				|	| - .. or (blank)			|	|					|
+	===
+
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Vertical_Access_Range_Full.jpg" alt="Vertical table access using ranges, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1, 6..12 ] );
+	echo( [ table: -7, -9..-3 ] );
+	echo( [ table: -7, 6..-3 ] );
+	echo( [ table: City, 6..Zürich ] );
+	echo( [ table:  1, Montréal..Zürich ] );
+	echo( [ table:  1, Zürich..Montréal ] );  // Empty set - Zürich is after Montréal
+	echo;
+
+	echo( [ table:  1, .. 6 ] );
+	echo( [ table:  1, ..-9 ] );
+	echo( [ table: City, .. Montréal ] );
+	echo;
+
+	echo( [ table:  1, 12.. ] );
+	echo( [ table:  1,  -3.. ] );
+	echo( [ table: City, Zürich .. ] );
+	echo;
+
+	echo( [ table: 1, .. ] );	// Reads all rows except header row
+	echo( [ table: City, .. ] );	// "
+	echo( [ table: -7, ] );		// Note the required final comma. Reads header row, too
+	echo( [ table: City,  ] );	// "
+
+	echo( new line, "Some lookup examples:");
+	echo( [ table: City, .. Montréal, Moving along ] );
+	echo( [ table:  1,  -3.. , Famous attraction ] );
+	+++,
+	"Output 03:Output - Hope to come back next year": "automatic"
+},
+
+
+
+
+
+"Matrix Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "matrix table access" ],
+    "Description 01:Introduction"::
+
+	The <b>matrix table access</b> is one of the four basic __table access methods__ which combines both __horizontal table access__ and __vertical table access__
+	in order to access cells in multiple rows and columns in one.  You can freely combine different ways to access the rows and columns, for example
+	parameter sets for the rows and wildcards for the columns, and so forth.
+
+	+++,
+    "Description 02:Read Accesses"::
+	The value(s) read from the table will be provided in a nested __parameter set__: It contains multiple parameter sets where each of them relates to
+	a particular row, and the contents in the parameter sets relate to the columns.  If the read access results in no matches (e.g. empty parameter sets
+	used to specify rows or columns, wildcard patterns yielding no matches and/or ranges in wrong direction), then an empty set will be returned, or in
+	specific cases, nested empty parameter sets.
+
+	+++,
+    "Description 03:Write Accesses"::
+	TBD TBD TBD <br>
+
+	When writing a parameter set vertically to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	one of the two conditions are met:
+	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
+	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a literal in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+
+	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
+	+++
 }
-
-
 
 
  	
