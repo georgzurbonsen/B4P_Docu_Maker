@@ -300,7 +300,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
-    "Keywords":			[ "table columns as function parameters", "Shifted Table Column Specifications" ],
+    "Keywords":			[ "table columns as function parameters" ],
     "Description 01:Introduction"::
 
 	Whenever a function expects a __function parameter__ for table columns, the following types are supported:
@@ -329,38 +329,10 @@ B4PDOCU.START
 	+++,
     "Description 02:Shifted Table Column Specifications"::
 
-	In some cases, you want to refer to neighboring columns to the left or to the right of a column for which the header name is presently
-	known. In this case, put the header name into <u>single</u> quotation marks so it will be regarded as a softquoted literal, and
-	add one or multiple '&lt;' or '&gt' symbols before the name starts, but inside the single quotation marks.  Multiple consecutive
-	symobls can be cascaded to refer to nearby columns which are not immediate neighbors.
-
-	* &lt; = Refer to the next column to the left.  Example:  '&lt;First Name'
-	* &gt; = Refer to the next column to the right.  Example:  '&lt;State or Province'
-	* &lt;&lt; = Refer to 2 columns to the left left.  Example:  '&lt;&lt;First Name'
-	* &gt;&gt; = Refer to 2 columns to the left right..  Example:  '&lt;&lt;State or Province'
-	* &gt;&gt; = The two shift operations facing to opposite directions neutralize each other, regardless how they are arranged
-
-	
-	<u>Attention</u>: The &lt; and &gt; symbols must be the 1st characters after the quotation marks.  If spaces lie inbetween, then these symbols are considered as part of header names.<br>
-	<u>Attention</u>: Shifting does not happen in quoted literals, e.g. "&gt;Last Name". It assumes the header name containing the &gt; symbol.<br>
-	
-	<br><br>
-	Attempting to left-shift beyond the first column (column 0) will assert exceptions.  Attempting to right-shift beyond the last column is OK as long
-	the function allows it.  Otherwise exceptions will be asserted, too.
-
-	+++,
-    "Examples 02:"::
-	table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },
-	                        { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );
-
-	echo( table read column selected rows ( t, Col B, true ) ); // Val B
-	echo( table read column selected rows ( t, '<Col B', true ) ); // Val A
-	// echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception
-	echo( table read column selected rows ( t, '<>Col B', true ) );	// Val B
-	echo( table read column selected rows ( t, '>Col E', true ) ); // Val F
-	echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G
-	+++,
-    "Output 02:": "automatic"
+	See the section on __shifted table column specifications__ for more details.  They can be applied both in table references as well as in column header
+	names provided as function parameters.  In both cases, the literal must be of type __softquoted literal__, e.g. contents put into single quotation marks.
+	Otherwise, the contents are treated literally as they are.
+	+++
    },
 
 

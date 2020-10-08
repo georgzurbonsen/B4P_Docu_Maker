@@ -1,93 +1,19 @@
-﻿	table load( table, "Examples\Cities.csv");
+﻿	include ( Support Library );
 
-	echo( [ table:  1, 6..12 ] );
-	echo( [ table: -7, -9..-3 ] );
-	echo( [ table: -7, 6..-3 ] );
-	echo( [ table: City, 6..Zürich ] );
-	echo( [ table:  1, Montréal..Zürich ] );
-	echo( [ table:  1, Zürich..Montréal ] );  // Empty set - Zürich is after Montréal
-	echo;
+	table load( table, "Examples\Cities.csv" );
 
-	echo( [ table:  1, .. 6 ] );
-	echo( [ table:  1, ..-9 ] );
-	echo( [ table: City, .. Montréal ] );
-	echo;
+	table keep columns( table, { Country, City, Famous attraction, Moving along} );
 
-	echo( [ table:  1, 12.. ] );
-	echo( [ table:  1,  -3.. ] );
-	echo( [ table: City, Zürich .. ] );
-	echo;
+	table configure( table, column not found, first column );
+	echo( [ table : City, Boston, Nation ] );
 
-	echo( [ table: 1, .. ] );	// Reads all rows except header row
-	echo( [ table: City, .. ] );	// "
-	echo( [ table: -7, ] );		// Note the required final comma. Reads header row, too
-	echo( [ table: City,  ] );	// "
+	table configure( table, column not found, last column );
+	echo( [ table : City, Boston, Nation ] ); // Walking
 
-	echo( new line, "Some lookup examples:");
-	echo( [ table: City, .. Montréal, Moving along ] );
-	echo( [ table:  1,  -3.. , Famous attraction ] );
-	
+	table configure( table, column not found, new column );
+	[ table : City, Boston, Best Restaurant ] = Legal Seafood;
+	[ table : City, Los Angeles, Best Restaurant ] = Jack in the Box; // A chain ...
+	[ table : City, Zürich, Pizza Takeaway ] = Dieci; // A chain ...
 
-interactive;
+	table list( table  ); 
 
-
-	echo( [ table:  1, :'*n' ] );     // Cities ending with n
-	echo( [ table: -7, :'*n*' ] );	  // Cities containing n
-	echo( [ table:  1, :'*n,*s' ] );  // Ending with n or s
-	echo( [ table:  1, :"*n" ] );     // No match (No data entry = "*n*)
-	echo;
-
-	echo( [ table:  City, :'*n' ] );     // Cities ending with n
-	echo;
-
-	echo( [ table: City, :'*n', Moving along ] );
-	echo;
-
-	[ table: City, 2, Moving along ] = Ambulance; // Makes more sense for the moment.
-	echo( [ table: 1, :'*n',  -1 ] );
-	echo( [ table: -7, :'*n',  7 ] );
-
-
-interactive;
-
-	echo;
-
-	echo( [ table: City, {12,4,8} ] );
-	echo( [ table: City, { Zürich, Boston, Venice } ] );	// Loads own contents
-	echo( [ table: City, { Zürich, 4, Venice } ] );		// 4 -> Boston
-	echo;
-	echo( [ table: City, {  } ] );				// Returns empty set
-	echo;
-	echo( [ table: City, { 12,4,8 }, Moving along ] ); // Tram, walking, gondola
-	echo;
-	
-	echo( [ table : 1, { 12,4,8}, -1 ] );
-	echo( [ table : -7, {-3,-11,-7}, 7 ] );
-
-
-interactive;
-	echo( [ table:  1..4,    5 ] );
-	echo( [ table:  1..-4,   5 ] );
-	echo( [ table: City..Famous attraction, -10 ] );
-
-	echo( [ table:  4..1,    5 ] ); // Empty set returned (ending column is left of starting column)
-	echo;
-
-	echo( [ table:  1..4, San Francisco ] );
-	echo( [ table:  City..Famous attraction, San Francisco  ] );
-	echo;
-
-	echo( [ table: ..4, 5 ] );         		// San Francisco
-	echo( [ table: City, San Francisco, ..4 ]);	// 
-	echo;
-	echo( [ table: 1.., Vienna] );    		// Vienna
-	echo( [ table: City, Vienna, City..] );
-	echo( [ table: City.., Vienna] );
-	echo( [ table: 1.., 10] );
-	echo;
-
-	[table:table row width(table, 0)..,5] = {"Sightseeing boat","RV"}; // Append 2 vehicles
-	echo( [ table: .., 5 ] );		    // San Francisco
-	echo( [ table: , 5 ] );			    // San Francisco  inclduing the boat & RV
-	echo( [ table: City, San Francisco, .. ] ); // Without the boat
-	echo( [ table: City, San Francisco, ] );    // With the boat & RV

@@ -36,7 +36,6 @@ OK;Body;2;B 2.7;Locales;REF_Features_Locales.html;Locales;Locales,list of Locale
 OK;Body;1;B 3;Tables;REF_Features_tables.html;tables;tables;
 OK;Body;2;B 3.1;Accessing Tables;REF_Features_accessing_tables.html;accessing tables;accessing tables,table access methods;
 OK;Body;3;B 3.1.1;Simple Table Access;REF_Features_simple_table_access.html;simple table access;simple table access;
-OK;Body;3;B 3.1.2;Simple Table Access - Partial Specification;REF_Features_simple_table_access_partial_specification.html;simple table access partial specification;simple table access partial specification;
 OK;Body;3;B 3.1.3;Horizontal Table Access;REF_Features_horizontal_table_access.html;horizontal table access;horizontal table access;
 OK;Body;4;B 3.1.3.1;Horizontal Table Access w. Param. Sets;REF_Features_Horizontal_table_access_using_parameter_sets.html;Horizontal table access using parameter sets;Horizontal table access using parameter sets;
 OK;Body;4;B 3.1.3.2;Horizontal Table Access w. Wildcards;REF_Features_Horizontal_table_access_using_wildcards.html;Horizontal table access using wildcards;Horizontal table access using wildcards;
@@ -45,6 +44,9 @@ OK;Body;3;B 3.1.4;Vertical Table Access;REF_Features_vertical_table_access.html;
 OK;Body;4;B 3.1.4.1;Vertical Table Access w. Param. Sets;REF_Features_Vertical_table_access_using_parameter_sets.html;Vertical table access using parameter sets;Vertical table access using parameter sets;
 OK;Body;4;B 3.1.4.2;Vertical Table Access w. Wildcards;REF_Features_Vertical_table_access_using_wildcards.html;Vertical table access using wildcards;Vertical table access using wildcards;
 OK;Body;4;B 3.1.4.3;Vertical Table Access w. Ranges;REF_Features_Vertical_table_access_using_ranges.html;Vertical table access using ranges;Vertical table access using ranges;
+OK;Body;3;B 3.1.5;Matrix Table Access;REF_Features_matrix_table_access.html;matrix table access;matrix table access;
+;Body;3;;Partial Table Specification;;;;
+OK;Body;3;B 3.1.2;Nested Partial Table Specification;REF_Features_simple_table_access_partial_specification.html;simple table access partial specification;simple table access partial specification;
 OK;Body;1;B 4;Functions and Procedures;REF_Features_Functions_and_Procedures.html;Functions and Procedures;Functions and Procedures;
 OK;Body;2;B 4.1;Function Parameters;REF_Features_Function_Parameters.html;Function Parameters;Function Parameters;
 OK;Body;2;B 4.2;Function Parameter Directions;REF_Features_Function_parameter_directions.html;Function parameter directions;Function parameter directions;

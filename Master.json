@@ -2727,7 +2727,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
-    "Keywords":			[ "table columns as function parameters", "Shifted Table Column Specifications" ],
+    "Keywords":			[ "table columns as function parameters" ],
 "Description 01:Introduction" : [
 "",
 "	Whenever a function expects a __function parameter__ for table columns, the following types are supported:",
@@ -2757,40 +2757,11 @@
 	,
 "Description 02:Shifted Table Column Specifications" : [
 "",
-"	In some cases, you want to refer to neighboring columns to the left or to the right of a column for which the header name is presently",
-"	known. In this case, put the header name into <u>single</u> quotation marks so it will be regarded as a softquoted literal, and",
-"	add one or multiple '&lt;' or '&gt' symbols before the name starts, but inside the single quotation marks.  Multiple consecutive",
-"	symobls can be cascaded to refer to nearby columns which are not immediate neighbors.",
-"",
-"	* &lt; = Refer to the next column to the left.  Example:  '&lt;First Name'",
-"	* &gt; = Refer to the next column to the right.  Example:  '&lt;State or Province'",
-"	* &lt;&lt; = Refer to 2 columns to the left left.  Example:  '&lt;&lt;First Name'",
-"	* &gt;&gt; = Refer to 2 columns to the left right..  Example:  '&lt;&lt;State or Province'",
-"	* &gt;&gt; = The two shift operations facing to opposite directions neutralize each other, regardless how they are arranged",
-"",
-"	",
-"	<u>Attention</u>: The &lt; and &gt; symbols must be the 1st characters after the quotation marks.  If spaces lie inbetween, then these symbols are considered as part of header names.<br>",
-"	<u>Attention</u>: Shifting does not happen in quoted literals, e.g. \"&gt;Last Name\". It assumes the header name containing the &gt; symbol.<br>",
-"	",
-"	<br><br>",
-"	Attempting to left-shift beyond the first column (column 0) will assert exceptions.  Attempting to right-shift beyond the last column is OK as long",
-"	the function allows it.  Otherwise exceptions will be asserted, too.",
-""
+"	See the section on __shifted table column specifications__ for more details.  They can be applied both in table references as well as in column header",
+"	names provided as function parameters.  In both cases, the literal must be of type __softquoted literal__, e.g. contents put into single quotation marks.",
+"	Otherwise, the contents are treated literally as they are."
  ]
-	,
-"Examples 02:" : [
-"	table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },",
-"	                        { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );",
-"",
-"	echo( table read column selected rows ( t, Col B, true ) ); // Val B",
-"	echo( table read column selected rows ( t, '<Col B', true ) ); // Val A",
-"	// echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception",
-"	echo( table read column selected rows ( t, '<>Col B', true ) );	// Val B",
-"	echo( table read column selected rows ( t, '>Col E', true ) ); // Val F",
-"	echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G"
- ]
-	,
-    "Output 02:": "automatic"
+	
    },
 
 
@@ -4266,8 +4237,32 @@
 "",
 "	In addition to these basic acces modes, __transactions__ and various functions do also provide access to tables."
  ]
-	
+	,
 
+"Description 02:Reading Values" : [
+"",
+"	With the intitial settings, all data which look like numbers will be read as numerals and everything else",
+"	as literals.  The function __table configure(__) lets you decide whether to inteprete dates, booleans, etc. as such or read them as text.",
+"	On the other hand, the table can be configured to force reading numbers as literals, too.",
+"",
+"	<br><br>",
+"	Attempting to read values which lie outside the table (except if referencing above the header row or left of the first column) will return blank."
+ ]
+	,	
+
+"Description 03:Writing Values" : [
+"",
+"	Please note that values can only written into the table if the table is existing (for example created, initailized, loaded, etc.).",
+"",
+"	All data written to tables will be converted to literals first. This also includes for numbers, dates, times, parameter sets, etc.",
+"	For boolean values, 'true' and 'false' will be used.",
+"",
+"	<br><br>",
+"	Attempting to write values which lie outside the table (except if referencing above the header row or left of the first column) will work successfully.",
+"	If necessary, the size of the table will be extended accordingly.  Valid example: <b>[ table: 999, 999] = \"nine nine nine\";</b> ",
+""
+ ]
+	
 },
 
 
@@ -4284,7 +4279,7 @@
 "Description 02:Syntax for Full Table Specification" : [
 "",
 "	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers",
-"	or expressions providing literals and numerals.",
+"	or expressions providing literals and numerals.  __Negative indexing__ is supported for both rows and columns.",
 "",
 "	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
 "	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ]",
@@ -4331,88 +4326,16 @@
 "	echo( [ table: -7, -10, -4] );"
  ]
 	,
-	"Output 03:Output - Consider travelling": "automatic"
+	"Output 03:Output - Consider travelling": "automatic",
+
+"Description 04:Rule on Column Header Names" : [
+"	You have full freedom to specify the header names as you wish.  Some rules need to be followed:",
+"* If the header name contains 1 or more words and optionally single spaces inbetween, and they contain no special symbol which could be interpreted by  	  B4P otherwise (e.g. hypen as minus sign), then the name can be used without quotation marks.",
+"* If you want to refer a header name which is a number (e.g. 1, 24.12, etc.), then make sure to provided these numbers as literals, e.g. with quotation  	  marks or using the __literal(__) function to convert numeric results to literals."
+ ]
+	
 },
 
-
-"Simple Table Access - Partial Specification" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "simple table access partial specification" ],
-"Description 01:Introduction" : [
-"",
-"	If a context for partial __partial table specification__ is provided, then the table name and/or row numbers are optional.",
-"	Not specifying them will refer to the table name and row number in the current context.",
-""
- ]
-	,
-"Description 02:Syntax for Partial Table Specification" : [
-"",
-"	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers",
-"	or expressions providing literals and numerals.",
-"	<br><br>",
-"",
-"	Example 1: Current table name, current row number, specified column	",
-"	=== 10, 230, 10, noframe table_syntax",
-"	[	| Simple Column Specifier	|  ]",
-"		| - Header name, or		|",
-"		| - Positive column number, or	|",
-"		| - Negative column number	|",
-"	===",
-"",
-"	<br>Example 2: Other table name, current row number, specified column	",
-"	=== 10, 230, 10, 230, 10, noframe table_syntax",
-"	[	| Table Name			| :	| Simple Column Specifier	|  ]",
-"		| Must be a literal		|	| - Header name, or		|",
-"		|				|	| - Positive column number, or	|",
-"		|				|	| - Negative column number	|",
-"	===",
-"",
-"	<br>Example 3: Current table name, specified row number, specified column	",
-"	=== 10, 230, 10, 230, 10, noframe table_syntax",
-"	[	| Simple Column Specifier	| ,	| Simple Row Specifier			| ]",
-"		| - Header name, or		|	| - Matching contents (literal), or 	|",
-"		| - Positive column number, or	|	| - Positive row number, or		|",
-"		| - Negative column number	|	| - Negative row number			|",
-"	===",
-"",
-"	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):",
-"	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
-"	[	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]",
-"		| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|",
-"		| - Positive column number, or	|	| - Positive row number, or		|	| - Positive column number, or		|",
-"		| - Negative column number	|	| - Negative row number			|	| - Negative column number		|",
-"	===",
-"",
-""
- ]
-	,
-
-"Description 03:Principle" : [
-"",
-"	<br/><img src=\"Images/Description_Table_Simple_Access_Partial.jpg\" alt=\"Simple table access, partial table specification\"><br/>",
-""
- ]
-	,
-"Examples 03:Programming examples" : [
-"	table load( table, \"Examples\\Cities.csv\");",
-"	with table( table, 5 ) // Row 5",
-"	{",
-"	    echo( [ 1 ] );",
-"	    echo( [ -7 ], new line );",
-"",
-"	    echo( [ City ], new line );",
-"",
-"	    echo( [ City, San Francisco], new line ); // Exception to rule: Returns row number",
-"",
-"	    echo( [ City, San Francisco, Famous attraction] );",
-"	    echo( [ 1, row(), 4] );",
-"	    echo( [ -7, row(), -4] );",
-"	}	"
- ]
-	,
-	"Output 03:Output - Staying in San Francisco": "automatic"
-},
 
 
 "Horizontal Table Access" :
@@ -4430,7 +4353,8 @@
 "	The value(s) read from the table will be provided in a __parameter set__.  This does also apply if only one or even no value being retrieved.  In the latter case,",
 "	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:",
 "	* All elements in the parameter set have been written (not all specified cells in the table are updated), ",
-"	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table)."
+"	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).",
+""
  ]
 	,
 "Description 02:Read Accesses" : [
@@ -4957,32 +4881,390 @@
 "",
 "	The <b>matrix table access</b> is one of the four basic __table access methods__ which combines both __horizontal table access__ and __vertical table access__",
 "	in order to access cells in multiple rows and columns in one.  You can freely combine different ways to access the rows and columns, for example",
-"	parameter sets for the rows and wildcards for the columns, and so forth.",
+"	parameter sets for the rows and wildcards for the columns, and so forth."
+ ]
+	,
+"Description 02:Principle" : [
+"	The following illustrations hows how the different approaches can be freely combined horizontally and vertically.",
+"",
+"	<br/><img src=\"Images/Description_Table_Matrix_Access_Full.jpg\" alt=\"Matrix table access using different methods, full table specification\"><br/>"
+ ]
+	,
+
+"Examples 02:Programming examples" : [
+"	table load( table, \"Examples\\Cities.csv\");",
+"",
+"	echo( [ table : {1,7,4}, {12, 4, 8}] );",
+"	echo;",
+"",
+"	echo( [ table : :'C*', :'*T*' ] );",
+"	echo;",
+"	// 1st horizontal match is country, therefore it checks for all countries containing 'T'",
+"	// Country and City are retrieved",
+"",
+"	echo( [ table: ..'State/Province', 12..] );",
+"	echo( [ table: 1..Inhabitants, Boston..6] );",
+"	a[] = [ table: Inhabitants .. 'Alt. (m)', ]; // Read all rows incluuding the header",
+"	for all parameters( a[], b[] ) echo( b[] );",
+"",
+"",
+"	// Reading no data",
+"",
+"	echo;",
+"	echo( [ table: :'xxx', :'yyy' ] );  // Returns 0 rews",
+"	echo( [ table: :'C*', :'yyy' ] ); // Found 2 columns, but number of rows is 0.",
+"	echo( [ table: :'xxx', :'*' ] ); // All rows, no column",
+"	echo( [ table: {2,3,4}, {} ] );	// 3 columns, no row",
+"	echo( [ table: {}, {2,3,4} ] );	 // No column, 3 rows",
+"	echo( [ table: {}, {} ] ); // Nothing",
+"	echo;",
+"",
+"	// Matrix access on one single row, column, cell.  Note: Always nested parameter sets",
+"	// First level: Rows, 2nd level: COlumns",
+"",
+"	echo( [ table: {City}, 1..3 ] ); // One column",
+"	echo( [ table: City..Inhabitants, {Venice} ] ); // One row",
+"	echo( [ table: {Moving along}, {3} ] ); // One cell"
+ ]
+	,
+    "Output 02:Output:": "automatic",
+
+"Description 03:Read Accesses" : [
+"	The value(s) read from the table will be provided in nested __parameter sets__: One complete set containing sets resembling rows which in turn",
+"	contain the columns in their rows.<br>",
+"	Example: <b>{ { Row 1 Column 1, Row 1 Column 2 }, { Row 2 Column 1, Row 2 Column 2 } } </b>.",
+"	Even if the matrix access results in a single row, single column or even single cell, all such values are returned in nested parameter sets.",
+"	Example: <b>[ table: { City }, { 4 } ]</b> returns <b>{ { Boston } }</b>.",
+"	If the read access results in no matches (e.g. empty parameter sets provided to specify rows or columns, wildcard patterns yielding no matches",
+"	and/or ranges in wrong direction), then empty sets will be returned.",
 ""
  ]
 	,
-"Description 02:Read Accesses" : [
-"	The value(s) read from the table will be provided in a nested __parameter set__: It contains multiple parameter sets where each of them relates to",
-"	a particular row, and the contents in the parameter sets relate to the columns.  If the read access results in no matches (e.g. empty parameter sets",
-"	used to specify rows or columns, wildcard patterns yielding no matches and/or ranges in wrong direction), then an empty set will be returned, or in",
-"	specific cases, nested empty parameter sets.",
-""
- ]
-	,
-"Description 03:Write Accesses" : [
-"	TBD TBD TBD <br>",
-"",
-"	When writing a parameter set vertically to a table, then the elements of the parameter set will be written.  The write access stops prematurely if",
-"	one of the two conditions are met:",
-"	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:",
-"	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.",
-"	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).",
-"	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a literal in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>",
-"",
+"Description 04:Write Accesses" : [
+"	Write access using matrix access method appears tricky but is not.  The most simple approach is to specify staring ranges for rows and columns",
+"	and do the writing, e.g. <b>[ table: 3.., 4.. ]</b>.  Write access begins in row 4 and column 3.",
 "	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access."
  ]
-	
+	,
+"Examples 04:Programming examples" : [
+"	include( Support Library );",
+"	table initialize( table, { { A0 .. O0 } } );",
+"	[ table: .., 1..15 ] = '.'; // Initialize with points",
+"",
+"	// Writing some data (actually on row 3 and 5)",
+"",
+"	a[] = { { 3, 4, 5, 6 }, {}, { 23, 24, 25 } };",
+"",
+"	[ table: 2.., 3.. ] = a[]; // Write all values (as long if inside the table",
+"	[ table: J0..K0, 3.. ] = a[];  // Note: Limited to 2 columns (5,6 and 25 are not written)",
+"	[ table: N0.., 10.. ] = a[]; // Writes beyond the existing headers (note 2 unnamed columns added)",
+"",
+"	table list( table );",
+"",
+"	echo(\"Further write accesses:\");",
+"	table initialize( table, { { A0 .. O0 } } );",
+"	[ table: .., 1..15 ] = '.'; // Initialize again",
+"",
+"	[ table: ..1, ..2] = { { aa, bb, cc }, { dd, ee, ff }, { gg, hh, ii } }; // Only 4 elements written",
+"	[ table: 2.., -3.. ] = { 1,2,3,4,5 }; // Last 3 rows",
+"	[ table: 10.., -3.. ] = {{ 1,2,3,4,5 }}; // Only 1 row",
+"	[ table: H0.., 1.. ] = { {1},{2},{3},{4},{5} }; // Only 1 column",
+"	[ table: B0..D0, 6..8 ] = X; // 1 value written everywhere",
+"",
+"	[ table: { N0, M0, K0 }, {3,2,1}  ] = a[]; // Write in opposite directions",
+"",
+"	table list( table );"
+ ]
+	,
+    "Output 04:Output:": "automatic"
+},
+
+
+
+"Partial Table Specification" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "partial table specification" ],
+    "Keywords":			[ "partial table specifications" ],
+"Description 01:Introduction" : [
+"",
+"	If a context for partial __partial table specification__ is provided, then the table name and/or row numbers are optionaland and can be left out.",
+"	The context refers refers to a specific table and a <i>current</i> row number.",
+"",
+"	The function names listed below are the common ones which support partial table specification:",
+"	* __with table(__) to provide a context (table name and row number) directly.",
+"	* __for all table rows(__)",
+"	* __table process(__) and __table process selected rows(__)",
+"	* All standard table functions which contain the term <b>selected rows</b> at the end.  In this case, partial table specifciation is allowed in the __expression__ calculated for every row",
+"",
+"	With such a context available, the row number can also be retrieved directly with the function __row(__).",
+""
+ ]
+	,
+"Description 02:Syntax for Partial Table Specification" : [
+"",
+"	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers",
+"	or expressions providing literals and numerals.",
+"	<br><br>",
+"",
+"	Example 1: Current table name, current row number, specified column	",
+"	=== 10, 230, 10, noframe table_syntax",
+"	[	| Column Specifier		|  ]",
+"		| - Header name(s)		|",
+"		| - Column number(s)		|",
+"		| - : Wildcards			|",
+"		| - Ranges			|",
+"	===",
+"",
+"	<br>Example 2: Other table name, current row number, specified column	",
+"	=== 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Table Name			| :	| Column Specifier		|  ]",
+"		| Must be a literal		|	| - Header name(s)		|",
+"		|				|	| - Column number(s)		|",
+"		|				|	| - : Wildcards			|",
+"		|				|	| - Ranges			|",
+"	===",
+"",
+"	<br>Example 3: Current table name, specified row number, specified column	",
+"	=== 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Column Specifier		| ,	| Row Specifier				| ]",
+"		| - Header name(s)		|	| - Matching contents (literal), or 	|",
+"		| - Column number(s)		|	| - Row numbers				|",
+"		| - : Wildcards			|	| : Wildcards				|",
+"		| - Ranges			|	| - Ranges				|",
+"	===",
+"",
+"	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):",
+"	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax",
+"	[	| Column Specifier		| ,	| Row Specifier				| ,	| Column Specifier 2	]",
+"		| - Header name(s)		|	| - Matching contents (literal), or 	|	| - Header name(s)",
+"		| - Column number(s)		|	| - Row numbers				|	| - Column number(s)	",
+"		| - : Wildcards			|	| : Wildcards				|	| - : Wildcards	",
+"		| - Ranges			|	| - Ranges				|	| - Ranges	",
+"	===",
+"",
+""
+ ]
+	,
+
+"Description 03:Principle" : [
+"",
+"	<br/><img src=\"Images/Description_Table_Simple_Access_Partial.jpg\" alt=\"Simple table access, partial table specification\"><br/>",
+""
+ ]
+	,
+"Examples 03:Programming xamples" : [
+"	table load( table, \"Examples\\Cities.csv\");",
+"	with table( table, 5 ) // Row 5",
+"	{",
+"	    echo( [ 1 ] );",
+"	    echo( [ -7 ], new line );",
+"",
+"	    echo( [ City ], new line );",
+"",
+"	    echo( [ City, San Francisco], new line ); // Exception to rule: Returns row number",
+"",
+"	    echo( [ City, San Francisco, Famous attraction] );",
+"	    echo( [ 1, row(), 4] );",
+"	    echo( [ -7, row(), -4] );",
+"",
+"	    echo(\"Horizontal access:\");",
+"	    [table row width( table, row() )] = Street roller;",
+"	    echo( [0..\"State/Province\"] );",
+"	    echo( [..] ); // Entire row (till column with last header on top row)",
+"	    echo( [] )  ; // Entire row (all elements, inclding the Street roler)",
+"	    echo( [,6] )  ; // Read data in next row",
+"	    echo( [,row()-1] )  ; // Read data in previous row",
+"",
+"	    echo( [,0] ); // All header names",
+"",
+"	    echo(\"Vertical access:\");",
+"	    echo( trim( [0,] ) ); // Column 0, including header ( trim: Countries listed only once )",
+"	}	"
+ ]
+	,
+	"Output 03:Output - Staying in San Francisco": "automatic",
+	"See also": "Nested partial table specifications"
+},
+
+
+"Nested Partial Table Specification" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "nested partial table specification" ],
+    "Keywords":			[ "nested partial table specifications" ],
+"Description 01:Introduction" : [
+"",
+"	B4P supports nested table contexts and facilitates working with 2 tables directly.",
+"	In order to reference to the next higher context, use the <b>deep</b> symbol (^) after the beginning bracket.  If 3 or more nested",
+"	table context info are specified, then use additional ^ symbols to reference the even higher ones.  The __row(__) function also provides",
+"	one parameter which can be used to reference the next higher levels up.",
+""
+ ]
+	,
+
+"Examples 01:Example" : [
+"	include( Support Library );",
+"	table initialize( master, { { Name, Score }, { Angela, 10 }, { Bob, 12 }, { Charlotte, 14 }, { Dan, 10 } } );",
+"",
+"	table initialize( new scores,",
+"	{ { Name, Score },",
+"	  { Bob,  3 }, { Angela, 5}, { Dan, 1 }, { Bob, 5 }, { Charlotte, 2 }, { Bob, 1 }, { Angela, 2 } } );",
+"",
+"	echo(\"Master table:\");	table list ( master );",
+"	echo(\"New scores to add:\"); table list( new scores );",
+"",
+"	table process( master,  ",
+"	    table process selected rows( new scores, [Name] == [^Name], [^Score] += [Score] ) );",
+"",
+"	echo(\"Updated master table:\"); table list( master );",
+"",
+"	echo(\"Demonstrate row numbers: \");",
+"	with table( master, 1 ) with table ( new scores, 3 )",
+"	{",
+"	    echo( [Name], \" in 'new scores' row \", row() );",
+"	    echo( [^Name], \" in 'master' row \", row(1) );",
+"	}"
+ ]
+	,
+	"Output 01:Output:Output": "automatic"
+
+},
+
+
+
+"Shifted Table Column Specifications" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "shifted table column specification","shifted table column specifications" ],
+"Description 01:Introduction" : [
+"",
+"	In some situations, you know a specific column number for orientation, and want to use this column to reference a different",
+"	column nearby, i.e. further to the left or to the right.  In this case, put the header name into <u>single</u> quotation marks ",
+"	so it will be considered as a softquoted literal, and add one or multiple '&lt;' or '&gt' symbols before the name starts, but inside",
+"	the single quotation marks.  Multiple consecutive symobls can be cascaded to refer to nearby columns which are not immediate neighbors.",
+"",
+"",
+"	=== 40, 960, bold_column_1 noframe, noheader",
+"	&lt;		| Refer to the next column to the left.  Example:  '&lt;First Name'",
+"	&gt;		| Refer to the next column to the right.  Example:  '&lt;State or Province'",
+"	&lt;&lt;	| Refer to 2 columns to the left left.  Example:  '&lt;&lt;First Name'",
+"	&gt;&gt;	| Refer to 2 columns to the left right..  Example:  '&lt;&lt;State or Province'",
+"	&lt;&gt;	| The two symbols neutralize each other",
+"	&gt;&lt;	| Same here",
+"	===",
+"	<u>Attention</u>: The &lt; and &gt; symbols must be the 1st characters after the quotation marks.  If spaces lie inbetween, then these symbols are considered as part of header names.<br>",
+"	<u>Attention</u>: Shifting does not happen in quoted literals, e.g. \"&gt;Last Name\". It assumes the header name containing the &gt; symbol.<br>",
+"	",
+"	<br><br>",
+"	Attempting to left-shift beyond the first column (column 0) will assert exceptions.  Attempting to right-shift beyond the last column is OK as long",
+"	the function allows it.  Otherwise exceptions will be asserted, too.",
+"",
+"	<br><br>",
+"	Shifted table column specifications are supported referencing tables as well as in selected function parameters expecting __table columns as function parameters__.",
+"" ],
+"Examples 01:" : [
+"	table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },",
+"	                        { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );",
+"",
+"	echo(\"Accessing the table directly:\");",
+"	echo( [ t: '<Col D', 1 ] ); // Col C",
+"	echo( [ t: '>>Col D', 1 ] ); // Col F",
+"	with table( t, 1 ) echo( [ '>Col A'] ); // Partial table specifcation used here, too.",
+"",
+"	echo(new line, \"And with function parameters:\");",
+"	echo( table read column selected rows ( t, Col B, true ) ); // Val B",
+"	echo( table read column selected rows ( t, '<Col B', true ) ); // Val A",
+"	// echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception",
+"	echo( table read column selected rows ( t, '<>Col B', true ) );	// Val B",
+"	echo( table read column selected rows ( t, '>Col E', true ) ); // Val F",
+"	echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G"
+ ]
+	,
+    "Output 01:": "automatic"
+
+},
+
+
+"Header Name Exception Handling":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "header name exception handling" ],
+"Description 01:Exception on headers not found" : [
+"",
+"	Normally, exceptions will be asserted column header names specified are not existing, e.g. <b>[ cities : Best Restaurant, .. ]</b>.",
+"	However, the function __table configure(__) allows differnt options such as",
+"	* Referring to the 1st column (column 0) to return some default value",
+"	* Referring to the last column to return some default value",
+"	* Create a new column with header name Useful for write access.  E.g. <b>[ cities: City, Boston, Best Restaurant ] = Legal Seafood;</b> would add a new row."
+ ]
+	,
+"Examples 01:" : [
+"",
+"	include ( Support Library );",
+"",
+"	table load( table, \"Examples\\Cities.csv\" );",
+"",
+"	table keep columns( table, { Country, City, Famous attraction, Moving along} );",
+"",
+"	table configure( table, column not found, first column );",
+"	echo( [ table : City, Boston, Nation ] );",
+"",
+"	table configure( table, column not found, last column );",
+"	echo( [ table : City, Boston, Nation ] ); // Walking",
+"",
+"	table configure( table, column not found, new column );",
+"	[ table : City, Boston, Best Restaurant ] = Legal Seafood;",
+"	[ table : City, Los Angeles, Best Restaurant ] = Jack in the Box; // A chain ...",
+"	[ table : City, Zürich, Pizza Takeaway ] = Dieci; // A chain ...",
+"",
+"	table list( table  ); "
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+
+
+"Lookup Access Exception Handling" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "lookup access exception handling" ],
+"Description 01:Exception on rows not found" : [
+"",
+"	Normally, exceptions will be asserted when a table reference with lookup access fails, e.g. <b>[ cities : City, Tokyo ]</b>",
+"	would assert an error message and stops program execution.",
+"",
+"	However, the function __table configure(__) allows differnt options such as",
+"	* Referring to the header row and returning the header name",
+"	* Referring to the 1st row (below the header row) to return some default value",
+"	* Referring to the last row (below the header row) to return some default value",
+"	* Create a new row. Useful for write access.  E.g. <b>[ cities: City, Toyko, Moving along ]</b> would add a new row."
+ ]
+	,
+
+"Examples 01:" : [
+"	include ( Support Library );",
+"",
+"	table load( table, \"Examples\\Cities.csv\" );",
+"",
+"	table keep columns( table, { City, Famous attraction, Moving along} );",
+"",
+"	table configure( table, row not found, header row );",
+"	echo( [ table : City, Boston   , Moving along]  ); // 'Walking'",
+"	echo( [ table : City, New Haven, Moving along]  ); // 'Moving along' (Header row)",
+"	echo;",
+"",
+"	table configure( table, row not found, new row );",
+"	[ table : City, Kiruna, Moving along ] = Cross Country Skis; // Adds new row",
+"",
+"	table list( table, 1st row, -3 ); // List last 3 rows"
+ ]
+	,
+    "Output 01:": "automatic"
+
 }
+
 
 
  	
@@ -6722,7 +7004,6 @@
 {
 	"Documentation":		"Function Description", // Required value
 	"Function Names" :		"with table" ,
-	"Keywords" :			["partial table specification"] ,
 	"Synopsis": 			[ "with table ( table name, row number ) statement; ",
 						      "with table ( table name, row number ) {statements; } "],
 "Description"  : [
@@ -18760,7 +19041,7 @@
 
 "table configure" :
 {
-	"Function Names":	[ "table configure" ],
+	"Function Names":	[ "table configure" ],	
 	"Documentation":	"Function Description",
 "Description" : [
 "	",
@@ -18782,7 +19063,7 @@
 "										| last row							| Return the last row istead.   Exception asserted if this row is not existing.",
 "										| new row							| Creates a new row.  See description further below.",
 "		column not found				|									| ",
-"										| exception column					| Default value.  Exception asserted.  E.g. in <b>[table: Last Name, 1 ]</b> where \"Last Name\" does not exist as a header name.",
+"										| exception							| Default value.  Exception asserted.  E.g. in <b>[table: Last Name, 1 ]</b> where \"Last Name\" does not exist as a header name.",
 "										| first column						| Refer to first column (column 0) instead.",
 "										| last column						| Refer to last column at the right instead.",
 "										| new column						| Create a new column with the specified name, even when using this option for reading data.",
