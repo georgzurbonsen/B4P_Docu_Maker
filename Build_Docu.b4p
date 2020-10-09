@@ -897,6 +897,8 @@ define procedure ( create all general and function descriptions in HTML )
 	    applicable row 2[] = applicable row[];
 	    if ( [HTML navigator:0,applicable row[] ] = '*Table of Contents*' ) applicable row[]= -1; // Skip on table of contents
 
+	// The following rules determin which of the navigator orws to show and to hide.	
+
 	    if (applicable row[] > 0) // From applicable row to top: Mark all items at same level (local only) and superior levels visible
 	    {
 		level[] = [HTML navigator:Level,applicable row[]];
@@ -910,10 +912,6 @@ define procedure ( create all general and function descriptions in HTML )
 		    }  
 		    else
 		    {
-			if (prev action[] == Hide)
-			{
-			    substitute( [0], "<span>", "<span>+ " ); // Add a plus sign
-			}
 			prev action[] = '';
 			if ([Level] < level[]) level[] = [Level]; // Step up
 		    }
@@ -924,10 +922,6 @@ define procedure ( create all general and function descriptions in HTML )
 		{
 		    if (([Level] > level[]) & ([Level]>2)) // Identified deeper places. Hide them.  But show level 1 and level 2 sections
 		    {
-			if (prev action[] != Hide)
-			{
-			    substitute( [0,i[]-1], '<div class="navi">', '<div class="navi">+ ' ); // Add a plus sign in the row above
-			}
 			[Action] = Hide; 
 			prev action[] = Hide;
 		    }  
@@ -938,6 +932,8 @@ define procedure ( create all general and function descriptions in HTML )
 		    }
 		}
 	    }
+
+	    table process selected rows ( HTML navigator, [Action,row()+1]==Hide & [Action]!=Hide, substitute( [0], '<div class="navi">', '<div class="navi">+ ' ) ); // Add a plus sign
 
 	    table process	( HTML template,
 		switch( [0] )

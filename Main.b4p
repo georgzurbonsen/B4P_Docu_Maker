@@ -1,19 +1,20 @@
-﻿	include ( Support Library );
+﻿	var[me,you,we,they] = those people;
+	var[me,you,we,us] = we the people;
+	var[me,you,we] = all of us;
+	var[] = grandfather;
 
-	table load( table, "Examples\Cities.csv" );
+	a[] = you;
+	b[] = we;
+	echo( var[ me, a[], b[] ] );
 
-	table keep columns( table, { Country, City, Famous attraction, Moving along} );
+	c[] = { you, we, us };
+	echo( var[me, c[]] );	// Use parameter set to specify sub-members behind 'me'
 
-	table configure( table, column not found, first column );
-	echo( [ table : City, Boston, Nation ] );
+	c[] = {me} + c[];
+	echo( var[c[]] );	// Use parameter set to specify all nested members
 
-	table configure( table, column not found, last column );
-	echo( [ table : City, Boston, Nation ] ); // Walking
+	c[] = c[]{0..2}; 	// me, you we only
+	echo( var[c[]]  );      // Use paramter set to specify first part of all nested members
 
-	table configure( table, column not found, new column );
-	[ table : City, Boston, Best Restaurant ] = Legal Seafood;
-	[ table : City, Los Angeles, Best Restaurant ] = Jack in the Box; // A chain ...
-	[ table : City, Zürich, Pizza Takeaway ] = Dieci; // A chain ...
-
-	table list( table  ); 
-
+	echo( var[ {} ] );	// Empty set refers to base variable
+	echo( var[ {}, {me, you}, {we, they} ] );	// Combinations like this one are OK

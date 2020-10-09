@@ -228,10 +228,12 @@ REF;Function Parameter Directions;REF_Features_Function_parameter_directions.htm
 REF;Function Parameter Types;REF_Features_Function_parameter_types.html;General Description;Function parameter types
 REF;Function Parameters;REF_Features_Function_Parameters.html;General Description;Function Parameters
 REF;Functions and Procedures;REF_Features_Functions_and_Procedures.html;General Description;Functions and Procedures
+REF;Global Variables;REF_Features_global_variables.html;General Description;global variables
 REF;HTML Entities;REF_Features_entities.html;General Description;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;html entities
 REF;Header Name Exception Handling;REF_Features_header_name_exception_handling.html;General Description;header name exception handling
+REF;Header Names - Memory Effect;REF_Features_memory_effect.html;General Description;memory effect
 REF;Help and Support Functions;REF_Features_help_and_support_functions.html;General Description;help and support functions
 REF;Horizontal Table Access;REF_Features_horizontal_table_access.html;General Description;horizontal table access
 REF;Horizontal Table Access w. Param. Sets;REF_Features_Horizontal_table_access_using_parameter_sets.html;General Description;Horizontal table access using parameter sets
@@ -294,6 +296,7 @@ REF;Loading and Saving Files;REF_Features_loading_files.html;General Description
 REF;Loading and Saving Files;REF_Features_loading_files.html;General Description;;loading files
 REF;Loading and Saving Tables;REF_Features_Loading_and_saving_tables.html;General Description;Loading and saving tables
 REF;Loading and Saving Variables;REF_Features_Loading_and_saving_variables.html;General Description;Loading and saving variables
+REF;Local Variables;REF_Features_local_variables.html;General Description;local variables
 REF;Locales;REF_Features_Locales.html;General Description;Locales
 REF;Locales;REF_Features_Locales.html;General Description;;list of Locales
 REF;Locales;REF_Features_Locales.html;General Description;;locale
@@ -325,6 +328,7 @@ REF;Parameter Set or Literal (Func. Param. Type);REF_Features_parameter_set_or_l
 REF;Parameter Set or Literal (Func. Param. Type);REF_Features_parameter_set_or_literal.html;General Description;;parameter set or literal
 REF;Parameter Set to Literal Formatting;REF_Features_Parameter_Set_to_literal_conversion_and_formatting.html;General Description;Parameter Set to literal conversion and formatting
 REF;Parameter Set to Literal Formatting;REF_Features_Parameter_Set_to_literal_conversion_and_formatting.html;General Description;;Parameter Set to Literal Formatting Parameters
+REF;Parameter Sets Specifying Members;REF_Features_specifying_members_with_parameter_sets.html;General Description;specifying members with parameter sets
 REF;Parameter Types in User-Defined Functions;REF_Features_user_parameter_types.html;General Description;user parameter types
 REF;Parameter Types in User-Defined Functions;REF_Features_user_parameter_types.html;General Description;;list of parameter types in user functions
 REF;Parameter sets;REF_Features_data_types_parameter_sets.html;General Description;data types parameter sets
@@ -398,8 +402,8 @@ REF;String Search and Extraction Functions;REF_Features_string_search_and_extrac
 REF;String Search and Extraction Functions;REF_Features_string_search_and_extraction.html;General Description;;string extraction functions
 REF;Structures;REF_Features_structures.html;General Description;structures
 REF;Structures;REF_Features_structures.html;General Description;;structure
-REF;Structures;REF_Features_structures.html;General Description;;structures
 REF;System Functions;REF_Features_system_functions.html;General Description;system functions
+REF;System Variables;REF_Features_system_variables.html;General Description;system variables
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;Table columns
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;;table columns as function parameters
 REF;Table Comparison Reports;REF_Features_Table_comparison_reports.html;General Description;Table comparison reports
@@ -436,13 +440,12 @@ REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_a
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user-defined functions
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user procedures
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user functions
+REF;Variable Attributes;REF_Features_Variable_attributes.html;General Description;Variable attributes
+REF;Variable Forms and Trees;REF_Features_Variable_forms.html;General Description;Variable forms
+REF;Variable Forms and Trees;REF_Features_Variable_forms.html;General Description;base variable
 REF;Variable References Functions;REF_Features_Variable_references_functions.html;General Description;Variable references functions
+REF;Variable Scopes;REF_Features_variable_scopes.html;General Description;variable scopes
 REF;Variables;REF_Features_variables.html;General Description;variables
-REF;Variables;REF_Features_variables.html;General Description;;variables
-REF;Variables;REF_Features_variables.html;General Description;;base variables
-REF;Variables;REF_Features_variables.html;General Description;;base variable
-REF;Variables;REF_Features_variables.html;General Description;;member variable
-REF;Variables;REF_Features_variables.html;General Description;;member variables
 REF;Variables (func. params);REF_Features_Variables_(func_params).html;General Description;Variables (func params)
 REF;Variables Functions;REF_Features_variables_functions.html;General Description;variables functions
 REF;Verbose Levels;REF_Features_verbose.html;General Description;verbose
@@ -456,7 +459,6 @@ REF;Voids;REF_Features_data_types_voids.html;General Description;data types void
 REF;Voids;REF_Features_data_types_voids.html;General Description;;void
 REF;Voids;REF_Features_data_types_voids.html;General Description;;voids
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;zero members
-REF;Zero Members Variables;REF_Features_zero_members.html;General Description;;zero members
 REF;abbreviate name;REF_Function_abbreviate_name.html;Function Description;abbreviate name
 REF;abort;REF_Function_abort.html;Function Description;abort
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;abs

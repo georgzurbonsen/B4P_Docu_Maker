@@ -1,0 +1,17 @@
+﻿#!/usr/local/bin/b4p
+    names[Mozart] = Wolfgang Amadeus Mozart;
+    names[Williams] = John Williams;
+    names[Strauss] = Johan Strauss;
+    names[Bach] = Johan Sebastian Bach;
+    names[Beethoven] = Ludwig van Beethoven;
+
+    for (i[] = 0, i[] < member count(names[]), i[]+=1)
+    {
+        echo(i[], ": ", names[i[]]);
+    }
+
+    echo("names[2] = ", names[2] );
+    names[Bartok] = Bela Bartok;
+    echo("names[2] = ", names[2] ); // List of names has shifted down
+
+    echo("Last entry is ", names[-1] ); // Negative indexing    

@@ -1,0 +1,22 @@
+﻿#!/usr/local/bin/b4p
+  var[me,you,we,they] = those people;
+  var[me,you,we,us] = we the people;
+  var[me,you,we] = all of us;
+  var[] = grandfather;
+
+  a[] = you;
+  b[] = we;
+  echo( var[ me, a[], b[] ] );
+
+  c[] = { you, we, us };
+  echo( var[me, c[]] );   // Use parameter set to specify sub-members behind 'me'
+
+  c[] = {me} + c[];
+  echo( var[c[]] );   // Use parameter set to specify all nested members
+
+  c[] = c[]{0..2};    // me, you we only
+  echo( var[c[]]  );      // Use paramter set to specify first part of all nested members
+
+  echo( var[ {} ] );  // Empty set refers to base variable
+  echo( var[ {}, {me, you}, {}, {we, they} ] );   // Combinations like this one are OK
+  // Empty sets in the middle of the 'path' are considered as 'same location'
