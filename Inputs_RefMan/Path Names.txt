@@ -1,8 +1,8 @@
 //
 B4PDOCU.START
 
-  "Path and File Names" :
-  {
+"Path and File Names" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "path names" ],
     "Keywords":			[ "path name", "path names", "file name", "file names" ],
@@ -29,7 +29,77 @@ B4PDOCU.START
 
 	+++
 
-  }
+},
+
+
+
+"Wildcards" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "wildcards" ],
+    "Keywords":			[ "wildcard symbols" ],
+    "Description 01:Introduction"::
+
+	B4P supports wildcards which enables for more effective search and comparison functions as they enable pattern matching with concepts such as
+	* Begins with ...
+	* Ends with ...
+	* Contains ...
+	* Multiple optios separated by cmmas ...
+
+
+	Wildcards are used, amongst others, in following functionalities:
+	* Comparison operators __equal to__ <b>=</b> and __not equal to__ <b>&lt;&gt;</b> where the operands on the right hand side may consist of literals containing wildcards
+	* __Horizontal table access w. wildcards__ and __vertical table access w. wildcards__
+	* Various B4P functions accepting parameters allowign wildcards for pattern matching
+	* Searching for files, e.g. __directory listing(__) and __resolve path name(__) function.
+
+	Unless specified otherwise (like in searching files), wildcard symbols in strings will only work if specified as __softquoted literals__, for
+	example using single (and not double) quotation marks.
+
+ 	=== 100, 200, 100, 600, bold_column_1 bold_column_3
+	Symbol	| Meaning						| Example			| Explanation
+	*	| Plaholder for any number of characters (incl. 0)	| A*<br>*s<br>*-*<br>A*E	| Begins with 'A' <br>Ends with 's'<br>Contains '-' <br>\
+													  Begins with 'A' and ends with 'E'
+	~	| Placeholder for any number of letters (incl. 0)<br>\
+		  Foreign (non-ANSI) characters are accepted here, too.	| ~ Street			| Expecting a name for the street (letters only)
+	&amp;	| Placeholder for any number of numeric digits 0..9	| &amp; kg			| Expects a number of any size before ' kg'
+	?	| Placeholder for exactly 1 character			| ???<br>A?			| Contains 3 characters of choice<br>A follwed by 1 character of choice
+	#	| Placeholder for exactly 1 numeric digit 0..9		| ###-##-####			| Expect a social security number (U.S. number format)
+	^	| Placeholder for exactly 1 alphanumeric character<br>\
+		  Foreign (non-ANSI) characters are accepted here, too.	| ^^^				| Expect 3 letters
+	,	| Defines additional pattern to compare			| A*,B*,C*			| May begin with A, B or C.
+	===
+
+	For searching files using directory and file functions, the wildcards are limited to * and ?.
+
+	+++,
+	"Examples 01:Programming example"::
+	include( Support Library );
+
+	table initialize ( demo wildcards,
+	{ { Target string, '*', '~', 'A*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*' },
+	    Hello,
+	    1234,
+	    12345,              // Column headers contain wildcard symbols
+	    Zip 12010,          // 1st column contain target strings to compare with these patterns
+	    Cat,                // The blank rows will be filled in with comparison results
+	    Bat,                // 'true' and 'false'.
+	    halt } );
+
+	table configure( demo wildcards, read numerals, no ); // Read numbers from tables as strings
+
+	table process( demo wildcards,
+	    for (c[] = 1, c[] < table row width( demo wildcards, 0 ), c[]++ )
+	    {
+	        [c[]]      = [0]      = softquoted literal( [c[], 0 ] ); // Compare and write the result
+	        // Current   Column   Compared with corresponding header name above
+	        // column    zero
+	    } );
+
+	table list( demo wildcards );
+	+++,
+	"Output 01": "automatic"
+}
 
 
 B4PDOCU.STOP
