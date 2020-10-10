@@ -1,0 +1,34 @@
+﻿#!/usr/local/bin/b4p
+  echo("Basic comparisons:");
+
+  a[0] = 3 = 3;       // true
+  a[1] = 5.1 = 5;         // false
+  a[2] = 5 = 2,3,5,7;     // true
+  a[3] = 5 = 2,2+1,5,7;   // true
+  a[4] = 5 = 1..3;    // false
+  a[5] = 5 = 4..7;    // true
+  a[6] = 5 = 1..3,5,7;    // true
+  a[7] = {1,2,3} = {3,2,1}; // true
+
+  for all variables( a[], x[] ) echo( x[] );
+
+  echo("Literal with other types:");
+
+  b[0] = 123 = "123";         // true
+  b[1] = '123' = 123;         // true
+  b[2] = false = 'false';     // true
+  b[3] = false = 'False';     // false
+  b[4] = date("2020-08-01") = "2020-08-01";  // true
+  b[5] = date("2020-08-01") = "01.08.2020";  // false
+  // The last one is 'false' because literal representation of date is YYYY-MM-DD
+
+  for all variables( b[], x[] ) echo( x[] );
+
+  echo("Compare with wildcards:");
+
+  c[0] = Hello World = '*o*'; // Contains 0, true
+  c[1] = Hello World = "*o*"; // Not equal to string "*o*", false
+  c[2] = Hi = 'Ha,Hi,Ho';     // Wildcard with commas, true
+  c[3] = Hi = Ha,Hi,Ho;       // Selection with commas, true
+
+  for all variables( c[], x[] ) echo( x[] );

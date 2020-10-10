@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+  a[0] = 5 * 3;
+  a[1] = '' * 10; // Blank = 0
+  a[2] = 0.5 * true;
+  a[3] = { a, b, c } * 3; // Repetition
+  a[4] = { a, b, c } * 0; // Empty set
+
+  for all variables( a[], b[] ) echo( b[] );

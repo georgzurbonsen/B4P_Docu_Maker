@@ -3,7 +3,9 @@ REF;Accessing Table Contents;REF_Features_Accessing_table_contents.html;General 
 REF;Accessing Table Information;REF_Features_accessing_table_info.html;General Description;accessing table info
 REF;Accessing Tables;REF_Features_accessing_tables.html;General Description;accessing tables
 REF;Accessing Tables;REF_Features_accessing_tables.html;General Description;;table access methods
+REF;Additions;REF_Features_addition.html;General Description;addition
 REF;Addt'l Info on fast rows processing;REF_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
+REF;Arithmetic Operators;REF_Features_arithmetic_operators.html;General Description;arithmetic operators
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;add
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;sub
 REF;Arithmetic and Boolean Series Functions;REF_Function_add.html;Function Description;mul
@@ -76,6 +78,7 @@ REF;Comments;REF_Features_comments.html;General Description;comments
 REF;Comments;REF_Features_comments.html;General Description;;comments
 REF;Comparison Expressions (func. params);REF_Features_Comparison_Expression_(func._params).html;General Description;Comparison Expression (func. params)
 REF;Comparison Expressions (func. params);REF_Features_Comparison_Expression_(func._params).html;General Description;;Comparison Expressions
+REF;Comparison Operators;REF_Features_comparison_operators.html;General Description;comparison operators
 REF;Comparison and Selection Functions;REF_Features_Comparison_and_selection_functions.html;General Description;Comparison and selection functions
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if
 REF;Conditional Combination Functions;REF_Function_sum_if.html;Function Description;sum if any
@@ -197,6 +200,7 @@ REF;Console Input / Output;REF_Features_console.html;General Description;;consol
 REF;Console Special Effects;REF_Features_Console_special_effects.html;General Description;Console special effects
 REF;Consolidation Actions;REF_Features_consolidation_actions.html;General Description;consolidation actions
 REF;Control Flow Functions;REF_Features_Control_Flow_Functions.html;General Description;Control Flow Functions
+REF;Copying References;REF_Features_copying_references.html;General Description;copying references
 REF;Creating and Deleting Tables;REF_Features_table_creating_deleting.html;General Description;table creating deleting
 REF;Cross-Functional Info;REF_Features_Cross-functional_info.html;General Description;Cross-functional info
 REF;Date Functions;REF_Features_date_functions.html;General Description;date functions
@@ -211,6 +215,8 @@ REF;Dates;REF_Features_data_types_dates.html;General Description;;dates
 REF;Dates;REF_Features_data_types_dates.html;General Description;;plain date
 REF;Dates;REF_Features_data_types_dates.html;General Description;;plain dates
 REF;Directory and File System Functions;REF_Features_directory_and_file_system_functions.html;General Description;directory and file system functions
+REF;Divisions;REF_Features_division.html;General Description;division
+REF;Equal to;REF_Features_equal_to.html;General Description;equal to
 REF;Exception Functions;REF_Features_Exception_Functions.html;General Description;Exception Functions
 REF;Executing System Commands;REF_Features_executing_system_commands.html;General Description;executing system commands
 REF;Exploring and Extracting Tables;REF_Features_Exploring_and_Extracting_Tables.html;General Description;Exploring and Extracting Tables
@@ -222,6 +228,7 @@ REF;Expressions to Select Rows;REF_Features_Expressions_to_select_rows.html;Gene
 REF;File Compression and Decompression;REF_Features_file_compression_decompression.html;General Description;file compression decompression
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;finance functions
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;;business functions
+REF;Formulas and Operators;REF_Features_formulas_and_operators.html;General Description;formulas and operators
 REF;Function Library;REF_Features_Function_Library.html;General Description;Function Library
 REF;Function Parameter Directions;REF_Features_Function_parameter_directions.html;General Description;Function parameter directions
 REF;Function Parameter Directions;REF_Features_Function_parameter_directions.html;General Description;parameter directions
@@ -229,6 +236,8 @@ REF;Function Parameter Types;REF_Features_Function_parameter_types.html;General 
 REF;Function Parameters;REF_Features_Function_Parameters.html;General Description;Function Parameters
 REF;Functions and Procedures;REF_Features_Functions_and_Procedures.html;General Description;Functions and Procedures
 REF;Global Variables;REF_Features_global_variables.html;General Description;global variables
+REF;Greater than (or Equal to);REF_Features_greater_than_or_equal_to.html;General Description;greater than or equal to
+REF;Greater than (or Equal to);REF_Features_greater_than_or_equal_to.html;General Description;;greater than
 REF;HTML Entities;REF_Features_entities.html;General Description;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;entities
 REF;HTML Entities;REF_Features_entities.html;General Description;;html entities
@@ -269,6 +278,7 @@ REF;Licensing and Privileges;REF_Features_licensing_and_privileges.html;General 
 REF;Linear and Exponential Regression;REF_Function_regression.html;Function Description;regression
 REF;Linear and Exponential Regression;REF_Function_regression.html;Function Description;;linear regression
 REF;Linear and Exponential Regression;REF_Function_regression.html;Function Description;;exponential regression
+REF;List of System Variables;REF_Features_list_of_system_variables.html;General Description;list of system variables
 REF;Listing and Searching Directories and Files;REF_Features_listing_directories_and_files.html;General Description;listing directories and files
 REF;Literal to Literal Formatting;REF_Features_literal_to_literal_conversion_and_formatting.html;General Description;literal to literal conversion and formatting
 REF;Literal to Literal Formatting;REF_Features_literal_to_literal_conversion_and_formatting.html;General Description;;Literal to Literal Formatting Parameters
@@ -303,6 +313,9 @@ REF;Locales;REF_Features_Locales.html;General Description;;locale
 REF;Logarithmic Functions;REF_Function_ln.html;Function Description;ln
 REF;Logarithmic Functions;REF_Function_ln.html;Function Description;log
 REF;Logarithmic Functions;REF_Function_ln.html;Function Description;;logarithmic functions
+REF;Logical And;REF_Features_logical_and.html;General Description;logical and
+REF;Logical Operators;REF_Features_logical_operators.html;General Description;logical operators
+REF;Logical Or;REF_Features_logical_or.html;General Description;logical or
 REF;Looking up Other Tables;REF_Features_Looking_up_Other_Tables.html;General Description;Looking up Other Tables
 REF;Lookup Access Exception Handling;REF_Features_lookup_access_exception_handling.html;General Description;lookup access exception handling
 REF;Loops;REF_Features_Loops.html;General Description;Loops
@@ -313,8 +326,10 @@ REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.htm
 REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.html;General Description;;matrix manipulations
 REF;Matrix Table Access;REF_Features_matrix_table_access.html;General Description;matrix table access
 REF;Miscellaneous String Functions;REF_Features_Other_string_functions.html;General Description;Other string functions
+REF;Multiplications;REF_Features_multiplication.html;General Description;multiplication
 REF;Nested Partial Table Specification;REF_Features_nested_partial_table_specification.html;General Description;nested partial table specification
 REF;Nested Partial Table Specification;REF_Features_nested_partial_table_specification.html;General Description;;nested partial table specifications
+REF;Not Equal to;REF_Features_not_equal_to.html;General Description;not equal to
 REF;Numeral to Literal Formatting;REF_Features_numeral_to_literal_conversion_and_formatting.html;General Description;numeral to literal conversion and formatting
 REF;Numeral to Literal Formatting;REF_Features_numeral_to_literal_conversion_and_formatting.html;General Description;;Numeral to Literal Formatting Parameters
 REF;Numerals;REF_Features_data_types_numerals.html;General Description;data types numerals
@@ -356,7 +371,12 @@ REF;Pivoting and Conosolidating Tables;REF_Features_Pivoting_and_consolidating_t
 REF;Processing Table Columns;REF_Features_Processing_table_columns.html;General Description;Processing table columns
 REF;Processing Table Contents;REF_Features_Processing_table_contents.html;General Description;Processing table contents
 REF;Processing Table Rows;REF_Features_Processing_table_rows.html;General Description;Processing table rows
+REF;Protecting Variables;REF_Features_protecting_variables.html;General Description;protecting variables
+REF;Redirecting References;REF_Features_redirecting_references.html;General Description;redirecting references
+REF;References in Member Variables;REF_Features_References_in_member_variables.html;General Description;References in member variables
+REF;References to Variables;REF_Features_references_to_variables.html;General Description;references to variables
 REF;Registry Access Functions;REF_Features_registry_access_functions.html;General Description;registry access functions
+REF;Releasing References;REF_Features_Releasing_references.html;General Description;Releasing references
 REF;Renaming, Copying and Splitting Tables;REF_Features_Copying_and_spitting_tables.html;General Description;Copying and spitting tables
 REF;Reserved keywords;REF_Features_reserved_keywords.html;General Description;reserved keywords
 REF;Reserved keywords;REF_Features_reserved_keywords.html;General Description;;keywords
@@ -369,11 +389,15 @@ REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_ex
 REF;Set Search and Extraction Functions;REF_Features_parameter_set_search_and_extraction.html;General Description;;parameter set extraction functions
 REF;Shifted Table Column Specifications;REF_Features_shifted_table_column_specification.html;General Description;shifted table column specification
 REF;Shifted Table Column Specifications;REF_Features_shifted_table_column_specification.html;General Description;shifted table column specifications
+REF;Simple References;REF_Features_simple_references_to_variables.html;General Description;simple references to variables
+REF;Simple References;REF_Features_simple_references_to_variables.html;General Description;;simple references
 REF;Simple Table Access;REF_Features_simple_table_access.html;General Description;simple table access
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;simple variables
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;;simple variables
 REF;Simple Variables;REF_Features_simple_variables.html;General Description;;simple variable
 REF;Sleep and Wait Functions;REF_Features_sleep_and_wait_functions.html;General Description;sleep and wait functions
+REF;Smaller than (or Equal to);REF_Features_smaller_than_or_equal_to.html;General Description;smaller than or equal to
+REF;Smaller than (or Equal to);REF_Features_smaller_than_or_equal_to.html;General Description;;smaller than
 REF;Smart Formatting;REF_Features_smart_conversion_and_formatting.html;General Description;smart conversion and formatting
 REF;Smart Formatting;REF_Features_smart_conversion_and_formatting.html;General Description;;Smart Formatting Parameters
 REF;Smart Formatting;REF_Features_smart_conversion_and_formatting.html;General Description;;smart formatting
@@ -395,6 +419,8 @@ REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description;watch
 REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description;watch continue
 REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description;watch reset
 REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description; watch read
+REF;Strictly Equal to;REF_Features_strictly_equal_to.html;General Description;strictly equal to
+REF;Strictly Not Equal to;REF_Features_strictly_not_equal_to.html;General Description;strictly not equal to
 REF;String Functions;REF_Features_string_functions.html;General Description;string functions
 REF;String Functions;REF_Features_string_functions.html;General Description;;literal functions
 REF;String Search and Extraction Functions;REF_Features_string_search_and_extraction.html;General Description;string search and extraction
@@ -402,6 +428,7 @@ REF;String Search and Extraction Functions;REF_Features_string_search_and_extrac
 REF;String Search and Extraction Functions;REF_Features_string_search_and_extraction.html;General Description;;string extraction functions
 REF;Structures;REF_Features_structures.html;General Description;structures
 REF;Structures;REF_Features_structures.html;General Description;;structure
+REF;Subtractions;REF_Features_subtraction.html;General Description;subtraction
 REF;System Functions;REF_Features_system_functions.html;General Description;system functions
 REF;System Variables;REF_Features_system_variables.html;General Description;system variables
 REF;Table Columns (Func. Param. Type);REF_Features_Table_columns.html;General Description;Table columns
@@ -414,6 +441,7 @@ REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;Ta
 REF;Table of Contents;REF_Features_Table_of_Contents.html;General Description;;Reference Manual
 REF;Tables;REF_Features_tables.html;General Description;tables
 REF;Text Input / Output;REF_Features_text_input_output.html;General Description;text input output
+REF;Through-Referencing;REF_Features_through-referencing.html;General Description;through-referencing
 REF;Time and Stopwatch Functions;REF_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
 REF;Transcendental Functions;REF_Features_transcendental_functions.html;General Description;transcendental functions
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin
@@ -434,6 +462,7 @@ REF;Type Conversion and Formatting Functions;REF_Features_Type_Conversion_Functi
 REF;UNICODE Character Set;REF_Features_UNICODE_character_set.html;General Description;UNICODE character set
 REF;UNICODE Character Set;REF_Features_UNICODE_character_set.html;General Description;;UNICODE
 REF;UNICODE Character Set;REF_Features_UNICODE_character_set.html;General Description;;character set
+REF;Unary Operators;REF_Features_unary_operators.html;General Description;unary operators
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;User Defined Procedures and Functiions
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;User-defined procedures and functions
 REF;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user-defined procedures

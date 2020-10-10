@@ -1,20 +1,16 @@
-﻿	var[me,you,we,they] = those people;
-	var[me,you,we,us] = we the people;
-	var[me,you,we] = all of us;
-	var[] = grandfather;
+﻿	echo("On boolean values:");
 
-	a[] = you;
-	b[] = we;
-	echo( var[ me, a[], b[] ] );
+	a[0] = false & false;
+	a[1] = true & false;
+	a[2] = true & true;
 
-	c[] = { you, we, us };
-	echo( var[me, c[]] );	// Use parameter set to specify sub-members behind 'me'
+	for all variables( a[], x[] ) echo( x[] );
 
-	c[] = {me} + c[];
-	echo( var[c[]] );	// Use parameter set to specify all nested members
+	echo("On parameter sets:");
 
-	c[] = c[]{0..2}; 	// me, you we only
-	echo( var[c[]]  );      // Use paramter set to specify first part of all nested members
+	b[0] = { a, b, c, 1, 2 } & { d, f, 3 }; // Empty set
+	b[1] = { a, b, c, 1, 2 } & { c, b, 3 }; // {b, c}
+	b[2] = { a, b, c, 1 ,2 } & { 1, 2, c }; // {c, 1, 2}
+	b[3] = { a, b, b, c } & { b, a, b, b }; // {a, b, b}
 
-	echo( var[ {} ] );	// Empty set refers to base variable
-	echo( var[ {}, {me, you}, {we, they} ] );	// Combinations like this one are OK
+	for all variables( b[], x[] ) echo( x[] );

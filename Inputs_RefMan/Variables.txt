@@ -168,7 +168,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 	System variables are predefined variables which contain system-related information (e.g. <b>system info[user name]</b>) or configuration settings. e.g.
 	<b>runtime settings[verbose]</b>.  For most system variables, __variable protections__ apply which may permit read-accesses, or impose restrictions
-	on wrixte accesses, e.g. limiting values to write to a selection of permitted values.
+	on write accesses, e.g. limiting values to write to a selection of permitted values.  See the __list of system variables__ for existing system variables.
 	+++,
     "Examples 01:Demonstrating system and local variables"::
 	define procedure( foo, { { system info, numeral } } )
@@ -183,6 +183,78 @@ B4PDOCU.START
 	+++,
     "Output 01:": "automatic"
 },
+
+
+"List of System Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "list of system variables" ],
+    "Description 01:"::
+
+	=== 300, 100, 100, 500, bold_column_1
+	Variable Name				| Variable Type	| Protection Settings	| Description
+	command line arguments[]		| numeral	| read only		| Number of command line arguments, at least 1
+	&nbsp;&nbsp;...[0]			| literal	| full access		| 1st command line argument (typically the name of the B4P program file)
+	&nbsp;&nbsp;...[1, 2, ...]		| literal	| full access		| Additional command line arguments if available
+						|		|			|
+	local settings[]			| void		| locked		| <b>Following variables refer to local settings</b>
+	&nbsp;&nbsp;...[locale]			| literal	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[country name]		| literal	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[language]		| literal	| read only 		| Configured language as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[currency symbol]	| literal	| limited access	| Currency symbol as configured in locale settings
+	&nbsp;&nbsp;...[decimal separator]	| literal	| limited access	| Typically 1 chracter, e.g. '.', ','
+	&nbsp;&nbsp;...[thousand separator]	| literal	| limited access	| Typically 1 chracter, e.g. ',', '.', ' ', "'"
+	&nbsp;&nbsp;...[date format]		| literal	| limited access	| E.g. "DD.MM.YYYY", "MM/DD/YY", etc.  See __date to literal formatting parameters__.
+	&nbsp;&nbsp;...[date format short]	| literal	| limited access	| E.g. "DMY" or "MDY", used for resolving ambiguities in extracting dates from strings
+	&nbsp;&nbsp;...[date separator]		| literal	| limited access	| Typically 1 chracter, e.g. '.', '/', '-'
+	&nbsp;&nbsp;...[time format]		| literal	| limited access	| E.g. "HH:II:SS" Note the "I" for minute digits. See __date to literal formatting parameters__.
+	&nbsp;&nbsp;...[time separator]		| literal	| limited access	| Typically 1 chracter, e.g. ':'
+	&nbsp;&nbsp;...[list separator]		| literal	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.
+						|		|			|
+	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>
+	&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS \
+											  releases, this variable is true, for Windows it is false.
+	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| Numeric tolerance value used for __comparisons with tolerances__.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.
+	&nbsp;&nbsp;...[exit directly]		| boolean	| limited access	| Normally false, i.e. user must press [Enter] to finally leave the program and the console window may close.  If set to true, then B4P programs exist directly.
+	&nbsp;&nbsp;...[search files ignore case]| boolean	| limited access	| Normally true under Windows and false under Linux/MACOS.  In Windows systems, finding files is not case sensitive.
+	&nbsp;&nbsp;...[input file character set]| literal	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks, \
+											  and too few special symbols were inside to recognize the files properly.  Presently, its <b>win-1252</b> for Windows and <b>utf-8</b> for Linux/MACOS systems.<br>\
+											  Following character sets are supported: <b>ansi, iso8859-1, win1252, utf-8, utf-16, utr-16 big endian</b>.
+	&nbsp;&nbsp;...[output file character set]| literal	| limited access	| Default character set assumed for saving files if no other format specified.  Presently it's <b>utf-8</b>.
+	&nbsp;&nbsp;...[memorize table columns]	| boolean	| limited access	| See __memory effect__ regarding table header names begin memorized. Set to false to deactivate memorizing.
+	&nbsp;&nbsp;...[prompt]			| literal	| limited access	| Current prompt as used in the __interactive mode__.  Change it using the __prompt(__) function.
+	&nbsp;&nbsp;...[registry my space]	| literal	| limited access	| Obsolete.
+	&nbsp;&nbsp;...[verbose]		| literal	| limited access	| Verbose levels.  See __verbose__ for more details.
+						|		|			|
+	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>
+	&nbsp;&nbsp;...[app data directory]	| literal	| read only		| Local machine application data directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
+	&nbsp;&nbsp;...[app data directory b4p]	| literal	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[user app data directory]     | literal	| read only		| User application data directory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
+	&nbsp;&nbsp;...[user app data directory b4p] | literal	| read only		| User application data directory with B4P subdirectory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[bin directory]		| literal	| read only		| Location of binary executable file<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[program directory]	| literal	| read only		| Program directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/usr/local/etc"
+	&nbsp;&nbsp;...[program directory b4p]	| literal	| read only		| Program directory with B4P subdirectory<br>Windows: "C:\Program Files\b4p"<br>Linux/MACOS: "/usr/local/etc/b4p"
+	&nbsp;&nbsp;...[temp directory]		| literal	| read only		| Directory for temporary data storage:<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\TEMP"<br>Linux/MACOS: "/tmp"
+	&nbsp;&nbsp;...[user directory]		| literal	| read only		| User directory after login:<br>Windows: "C:\Users\<i>user name</i>\"<br>Linux/MACOS: "/home/<i>user name</i>"
+	&nbsp;&nbsp;...[directory separator]	| literal	| read only		| Windows: '\' and Linux/MACOS: '/'
+	&nbsp;&nbsp;...[operating system]	| literal	| read only		| e.g. "Windows", "Linux", "MACOS"
+	&nbsp;&nbsp;...[operating system product] | literal	| read only		| e.g. specific Windows OS product like "Windows 10 Pro" or Linux distribution name like "Ubuntu"
+	&nbsp;&nbsp;...[user name] 		| literal	| read only		| Your login user name
+	&nbsp;&nbsp;...[user domain] 		| literal	| read only		| Your user domain
+	&nbsp;&nbsp;...[host name]		| literal	| read only		| Name of your system
+	&nbsp;&nbsp;...[privileges]		| literal	| read only		| Your privilege level for the operating system: <br>\
+											  <b>standard</b>: Standard user privileges <br>\
+											  <b>elevated</b>: Enhanced privileges, entitled to install software <br>\
+											  <b>administrator</b>: Administrator privileges.  Applicable if program is started with administration rights (e.g. 'sudo' added in front in Linux/MACOS systems)
+	&nbsp;&nbsp;...[operating system version] | literal	| read only		| Version number of installed operating system
+						|		|			|
+	time stamp[]				| void		| read only		| Provides date and time at start-up. Example under Windows: "Sat Oct 10 10:17:34 2020"
+	version info[]				| void		| read only		| Provides B4P version and release info
+	===
+
+	+++
+},
+
 
 
 
@@ -575,6 +647,318 @@ B4PDOCU.START
 	// Empty sets in the middle of the 'path' are considered as 'same location'
 	+++,
     "Output 01": "automatic"
+},
+
+
+
+"References to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "references to variables" ],
+    "Description 01:Introduction"::
+
+
+	In several cases, sophisticated variable structures with multiple levels, e.g. a[b,c,d,e] need to be referenced repeatedly where every reference checks for the existence of
+	of the base variable name and all names a through e.  To address this problem, B4P provides the feature called <i>refrences to variables</i> which allows you to define 
+	variables which poinnt to other base variables, regardless if they are base variables, intermediate or leaf members inside variable structures.
+
+	<br><br>
+	References to variables in B4P have similarities with references in other modern programming languges such as C++, C# and Java.  References are not pointers, i.e. any for of
+	mingling up pointers with pointer arithmetics is not supported here. 
+
+	<br><br>
+	Destination variables which are pointed by references carry along a kind of blocking notice which forbids deleting them until all references applied on them have been
+	released again.  This protection mechanism avoids working with disconnected references pointing to nowhere.  Automatic releases will happen with locally defined references to
+	variables in program, procedure and function blocks when leaving.  The remaining references will be released in a coordinated manner when the program ends execution.
+
+	+++,
+    "Description 02:References in Function Parameters"::
+	Some B4P functions and user-defined functions can accept parameters as references to variables, too.  These parameters provide access to the base variable as well as
+	to all mebmer variables.
+	+++
+},
+
+"Simple References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple references to variables" ],
+    "Keywords":			[ "simple references" ],
+    "Description 01:Introduction"::
+
+	The following exmaple shows how a simple reference is designed and describes how to use the '^' symbol to do a reference.
+
+	<br/><img src="Images/Description_Variables_Simple_References.jpg" alt="Simple References to Variables"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]    = Hello;
+	ref1[] =^ a[]; // ref1[] references a[]
+
+	a[]    = Hi;
+	echo( a[],", ",ref1[] ); // Outputs "Hi, Hi"
+
+	ref1[] = He;
+	echo( a[],", ",ref1[] ); // Outputs "He, He"
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Through-Referencing" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "through-referencing" ],
+    "Description 01:Introduction"::
+
+	Note that the variable name used to establish a reference must either be vacant (no variable defined yet) or just a __simple variable__ containing no members.
+	This rules is insofar relevant because member (and subname) names and array index numbers specified in the references will be applied on the target variables directly.
+	The following examples shows a typical through-referencing:
+
+	<br/><img src="Images/Description_Variables_Through_References.jpg" alt="Through-Referencing"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]     = Hello;
+	ref1[]  =^ a[]; // ref1[] references a[]
+
+	ref1[b] = Ho;   // Both assignments build members on a[]
+	a[c]    = Hi;
+
+	echo( a[b],", ",ref1[b] ); // Ho, Ho
+	echo( a[c],", ",ref1[c] ); // Hi, Hi
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"Redirecting References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "redirecting references" ],
+    "Description 01:Introduction"::
+
+	<br/><img src="Images/Description_Variables_Redirecting_References.jpg" alt="Redirecting References"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]     = Hello;
+	a[b]	= Hi;
+
+	ref1[]  =^ a[]; // ref1[] references a[]
+	echo( ref1[] ); // Hello
+
+	ref1[]  =^ a[b];
+	echo( ref1[] ); // Hi
+
+	a[b]    = Ho;	
+	echo( ref1[] ); // Ho
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Copying References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "copying references" ],
+    "Description 01:Introduction"::
+
+	Two flavors of copying references exist:
+	* If <b>=^</b> is used, then the referencing process passes through all intermediate references and establishes the link to the target variable directly.
+	* If <b>=^^</b> is used, then the reference will be made on the specified intermediate reference.
+	The 1st choice ensures that all referncing are fast and direct.  The 2nd choice provides the flexibiltiy to make modifications on the intermediate
+	references such as redirecting only the intermediate reference and not all intial references attached to them.
+
+	<br/><img src="Images/Description_Variables_Copying_References.jpg" alt="Copying References"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]    = Hello;
+	a[b]   = Hi;
+
+	ref1[] =^ a[b]; 	// References a[b]
+	ref2[] =^  ref1[];	// References a[b] directly
+	ref3[] =^^ ref2[];	// References ref2[]
+	ref4[] =^  ref3[];	// References a[] directly
+
+	ref3[] = He;
+	echo( a[b],", ",ref1[],", ",ref2[],", ",ref3[] );    // 4 x He
+
+	a[c]   = Ho;		// Visible in ref[2] and ref[3]
+	ref2[] =^  a[c];	// Detach ref2[] from a[b] and link to a[c]
+
+	echo( ref1[],", ",ref2[],", ",ref3[],", ",ref4[] );    // He, Ho, Ho, He
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Releasing References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Releasing references" ],
+    "Description 01:Introduction"::
+
+	Following methods are available to release references:
+	* Function call __release(__): 	Specify references to variables directly.  Example: <b>release ( ref1[ ], ref2[ ], ref3[ ] );</b>
+	* Function call __release all(__): All locally defined references to variables will be released.  When called from the main program (neither function nor other program called), then all globally defined references will be released.
+	* Function call __release all(__): Specify references to variables directly, or variables which contain one or more members / sub-members which are references to variables.  All of them will be released.
+	* Exiting a user-defined procedure or function, or a B4P program called wiht __start(__) or __include(__): All locally defined references to variables will be released.
+	* __Redirecting references__: The original reference will be leased and moved to a different variable.
+
+	<br/><img src="Images/Description_Variables_Releasing_References.jpg" alt="Releasing References"><br/>
+
+	<u>Note</u>: Please note that the target variables remain unaffected while releasing the references.  Once all references on a target variable are released, then the target variable may be deleted.
+
+	<br><br>
+	Released references will not be deleted but mutate to simple variables containing void values.
+
+	+++,
+    "Examples 01:"::
+	a[]    = Hello;
+
+	ref1[] =^ a[];
+	echo( ref1[] );
+
+	release( ref1[] );
+	echo( ref1[] );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+
+"References in Member Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "References in member variables" ],
+    "Description 01:Introduction"::
+
+	The past examples have been made with simple references.  However B4P also allows declaring member variables in structures and arrays as references.
+	Here, a similar rule applies that references can only be made on member variables which are not yet existing or do not contain their own sub-members.
+	Two code examples below illustrate this powerful feature.
+
+    "Description 02:Example 1"::
+
+	In the following example, 3 members in variable c[] point to variable a[] and a[g] accordingly.  In addition, a[g] is a reference which
+	referst to c[]. An "eight-loop" has been created, and the code example demonstrates that you can walk the path through the loop multiple times.
+	
+	<br/><img src="Images/Description_Variables_References_in_Member_Variables_1.jpg" alt="References in Member Variables 2"><br/>
+
+	+++,
+    "Examples 02:"::
+// Black part in illustration
+
+a[] = Ha;
+a[b] = He;
+c[] = Hi;
+
+// Greeen part in illustration
+
+c[d] = ^a[];
+c[e] = ^a[b];
+c[f] = ^c[e]; // references to a[b]
+echo( c[d],", ", c[e] ); // Ha,He
+
+// Blue part of illustration
+
+a[g] = ^c[];
+echo( a[g],", ", a[g,d] ); // Hi, Ha
+
+// You can loop around multiple times if you wish:
+
+echo( a[g,d,b] ); // He
+echo( a[g,d,g],", ", a[g,d,g,d], ", ", a[g,d,g,d,g] ); // Hi, Ha, Hi
+	+++,
+    "Output 02:": "automatic",
+    "Description 03:Example 2"::
+
+
+	In the following example, 3 members in variable c[] point to variable a[] and a[g] accordingly.  In addition, a[g] is a reference which
+	referst to c[]. An "eight-loop" has been created, and the code example demonstrates that you can walk the path through the loop multiple times.
+	
+	<br/><img src="Images/Description_Variables_References_in_Member_Variables_2.jpg" alt="References in Member Variables 2"><br/>
+
+	+++,
+    "Examples 03:"::
+
+// Black part in illustration
+
+array( a[ ],{Ha,He,Hi,Ho} );
+
+// Green part in illustration
+
+a[0] =^  a[3];
+a[1] =^^ a[0]; // a[1] refers to a[0] (and not to a[3] directly)
+
+echo( a[0],", ", a[1] ); // Ho, Ho
+
+// Blue part in illustration
+
+a[0] =^ a[2];
+echo( a[0],", ", a[1] ); // Hi, Hi
+	+++,
+    "Output 03:": "automatic",
+    "Description 04:Avoid Tail-Biting"::
+
+	Be aware that you do not build up references resembling infinite loops because B4P will start circling around through 1 or more variables.
+	See the following code examples with one variables and the tail-biting effect with two variables.
+	+++,
+     "Examples 04:"::
+	// Bad example 1: 1 dog runs in a circle, attempting to bite its own tail 
+	a[] = a[];
+
+	// Bad example 2: 2 dogs run in a circle, attempting to bite each other's tails
+	x[] = 5;
+	y[] =^x[];
+	x[] =^y[];
+	+++
+
+},
+
+
+"Protecting Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "protecting variables" ],
+    "Description 01:Introduction"::
+
+	The functions __protect(__), __dim protect(__), __redim protect, __array protect(__), and structure protect(__) are available apply
+	protection rules on the target variables.  It is always possible to change protection settings on local variable.  For global variables, this
+	is only allwed in the global context (i.e. not in the code of user-defined procedures and functions and B4P programs started with __start(__) or __include(__)).
+	Protection settings of system variables cannot be altered. If not specified otherwise, all newly created variables bear the protection setting <i>full access</i>.
+
+	The follwoing table provides an overview of the available protection settings and their functional impacts:
+
+	=== 400, 100, 100, 100, 100, 100, 100
+	Protection Settings			| full access		| prvent deleting	| limited access			| read only		| locked		| tightly locked
+	Read variables				| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| -			| -
+	Read member variables <sup>1</sup>	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| -
+	Use as input parameter to functions	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| -			| -
+	Write variables				| &#x2714;		| &#x2714;		| Data of same type only <sup>2</sup>	| -			| -			| -
+	Write member variables <sup>1</sup>	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| -
+	Use as I/O paramters to functions	| &#x2714;		| &#x2714;		| -					| -			| -			| -
+	Delete varibles				| local variables only	| -			| -					| -			| -			| -
+	Create / add member variables		| &#x2714;		| &#x2714;		| -					| -			| -			| -
+	Modify __variable forms__ <sup>3</sup>	| &#x2714;		| -			| -					| -			| -			| -
+	Create arrays				| &#x2714;		| &#x2714; <sup>4</sup>	| -					| -			| -			| -
+	Do __Transactions__			| &#x2714;		| -			| -					| -			| -			| -
+	Use __protect(__) to check settings	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| &#x2714;
+	===
+	<sup>1</sup> Provided no additional protection seetings restrict usage of the member variables.<br>
+	<sup>2</sup> E.g. forbidden to overwrite literal contents with numeric contents.  Additional restrictions may apply on system variables, e.g. only specific values may be written.<br>
+	<sup>3</sup> E.g. converting structures to arrays and back using __array to structure(__) or __structure to array(__) functions.<br>
+	<sup>4</sup> Only possible if variable contains no other members so far.<br>
+
+    "Description 02:Variables temporarily locked with Blocking Notices"::
+
+	Variables may be temporarily locked with blocking notices in order to prevent adverse system behavior if they are deleted.  All other accesses are possible.  Blocking notices
+	are temporarily applied in following cases:
+	* Target variable is blocked during the time an assignment is calculated
+	* A __transaction__ is applied between target and source variable
+	* The variable is referenced as an I/O or reference function parameter to a B4P or user-defined function
+	* __References to variables__ refer to the affected variable.
+	Only if all block notices are removed again (assignment resp. transactions completed, function execution finished, references released), then the variable may be deleted again.
+
+	+++
 }
 
 

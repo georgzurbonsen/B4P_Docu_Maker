@@ -1001,6 +1001,906 @@
 
 ,
 
+
+
+"Formulas and Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "formulas and operators" ],
+"Description 01:Introduction" : [
+"",
+"	Formulas are expression which contains a combination of the following algorithms:",
+"	* Constants (numerals, literals, Booleans, dates etc.)",
+"	* __Parameter sets__",
+"	* __Variables__ and __references to variables__",
+"	* References to __tables__",
+"	* Operators",
+"	** __Unary operators__ (e.g. minus sign for negation)",
+"	** __Binary operators__ (arithmetic, comparison and logical operators)",
+"	* Parenthses (to influence the calculation precedence)",
+"",
+"	<br>",
+"	The following sections provide further details on the operators.",
+"" ],
+"Description 02:Calculation Precedence Rules" : [
+"",
+"	=== 100, 200, 700, bold_column_1 bold_column_2",
+"	Precedence	| Symbols	| Description",
+"	1 (highest)	| +, -, ~, !	| All unary operators",
+"	2		| *, /		| Arithmetic operators: multiplication and division",
+"	3		| +, -		| Arithmetic operators: addition and subtraction",
+"	4		| =, ==, &lt;&gt;, !=, &gt, &gt;, &lt;, &lt;= | Comparison operators",
+"	5 (lowest)	| &amp;, &vert;	| Logical operators",
+"	===",
+"	<br>",
+"	Use parentheses to influence the precedence, e.g. <b>2*(5+7)</b> returns 24 and not 17.",
+""
+ ]
+	
+},
+
+
+
+"Unary Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "unary operators" ],
+"Description 01:Introduction" : [
+"",
+"	<br/><img src=\"Images/Description_Formulas_Unary_Operators.jpg\" alt=\"Unary Operators\"><br/>",
+"",
+"	<sup>1</sup> First character is capitalized.  All other characters are not touched.<br>",
+"	<sup>2</sup> Mirroring, example: !{a,b,c} returns {c,b,a}.  Contents in nested parameter sets remain unaffected (no mirroring there).<br>",
+"	<sup>3</sup> Sorting order across different data types: parameter set > literal > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,",
+"	             the longer one is considered as the \"greater\" one.  Nested sets will also be sorted.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[0] = -1;",
+"	a[1] = -'heLLO world';",
+"	a[2] = +'heLLO world';",
+"	a[3] = !'heLLO world';",
+"	a[4] = ~ Hello World;",
+"	a[5] = + { 3, a, f, { a, b, d}, { c, a, b }, 1, true, date(today), 5, b,  };",
+"	a[6] = - { 3, a, f, { a, b, d}, { c, a, b }, 1, true, date(today), 5, b,  };",
+"	a[7] = + false;",
+"	a[8] = - false;",
+"	a[9] = + true;",
+"	a[10] = - true;",
+"	a[11] = ! true;",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+
+"Arithmetic Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "arithmetic operators" ],
+"Description 01:Introduction" : [
+"	Arithmetic operators cover the four basic mathematical operations:",
+"	* __addition__",
+"	* __subtraction__",
+"	* __multiplication__",
+"	* __division__",
+"",
+"	The operators can also be imposed on non-numeric data types which result in different operations (e.g. string operations)",
+"	or implicit conversion to numerals before operation (e.g. boolean values converted to 0 or 1 before operation is carried out).",
+""
+ ]
+
+
+},
+
+
+"Additions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "addition" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to additions:",
+"	* Numbers are added together as learnt in 1st grade.",
+"	* Boolean values are converted to 0 and 1 first.",
+"	* Literal strings are catenated.",
+"	* The elements in parameter sets are also catenated.",
+"	* Special rules apply on arithmetics with dates and times which are described further below.",
+"	* Special rules apply to some operations with different data types.  See the table below for details.",
+"	",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Additions.jpg\" alt=\"Additions\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[0] = 5 + 3;",
+"	a[1] = Hello + ' ' + World;",
+"	a[2] = 0.5 + true;",
+"	a[3] = { a, b, c } + { c, d };",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Addition of Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Additions_of_Dates.jpg\" alt=\"Additions\"><br/>",
+"",
+"	'Date 1' and 'Time 1' refer to the data from the left operand whereas 'Date 2' and 'Time 2' refer to the right operand.<br>",
+"	<sup>1</sup> Only fractional part (digits behind decimal point) are used to add time value.  Value must be between 0 and (24*60*60-1)/(24*60*60).  Calculated sum must lie within 00:00:00 and 23:59:59.<br>",
+"	<sup>2</sup> Only the integer (whole number before decimal point) is used for the calculation.<br>",
+"	<sup>3</sup> Sorting order across different data types: parameter set > literal > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,",
+"	             the longer one is considered as the \"greater\" one.  Nested sets will also be sorted.",
+""
+ ]
+	,
+"Examples 02:" : [
+"	d [] = date('2020-07-14');",
+"	dt[] = date('2020-07-14 12:30:00');",
+"	t [] = date('09:15:00');",
+"	o [] = date(''); // blank date",
+"",
+"	a[0] = d[] + 3.25;     // Just integer is used",
+"	a[1] = dt[]+ 3.25;    // 3 days, 6 hours",
+"	a[2] = t[] + 0.25;     // 6 hours",
+"	a[3] = d[] + t[];     // Date + time combind",
+"	a[4] = d[] + true;     // add 1 day",
+"	a[5] = o[] + d[];      // Add date to blank date",
+"",
+"	for all variables( a[], b[] ) echo( b[] );",
+""
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+"Subtractions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "subtraction" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to subtractions:",
+"	* Numbers are subtracted from each other as learnt at school.",
+"	* Boolean values are converted to 0 and 1 first.",
+"	* Literal strings: The first occurrences of the (sub-)string in the right operand found in the left operand will be removed, but not all.",
+"	* Parameter sets: The first occurrences of the elements in the right operand found in the left operand will be removed, but not all.",
+"	* Special rules apply on arithmetics with dates and times which are described further below.",
+"	* Special rules apply to some operations with different data types.  See the table below for details.",
+"",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Subtractions.jpg\" alt=\"Subtractions\"><br/>",
+"",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[0] = 5 - 3;",
+"	a[1] = Hello - ell;",
+"	a[2] = 0.5 - true;",
+"	a[3] = { a, b, c, c } - { c, d }; // Removes one c, not all",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Subtraction of Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Subtractions_of_Dates.jpg\" alt=\"Additions\"><br/>",
+"",
+"	'Date 1' and 'Time 1' refer to the data from the left operand whereas 'Date 2' and 'Time 2' refer to the right operand.<br>",
+"	<sup>1</sup> Only fractional part (digits behind decimal point) are used to add time value.  Value must be between 0 and (24*60*60-1)/(24*60*60).  Calculated sum must lie within 00:00:00 and 23:59:59.<br>",
+"	<sup>2</sup> Only the integer (whole number before decimal point) is used for the calculation.<br>",
+"	<sup>3</sup> Sorting order across different data types: parameter set > literal > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,",
+"	             the longer one is considered as the \"greater\" one.  Nested sets will also be sorted.",
+""
+ ]
+	,
+"Examples 02:" : [
+"	d [] = date('2020-07-14');",
+"	dt[] = date('2020-07-14 12:30:00');",
+"	t [] = date('09:15:00');",
+"	o [] = date(''); // blank date",
+"",
+"	a[0] = d[] - 3.25;    // Just integer is used",
+"	a[1] = dt[]- 3.25;    // 3 days, 6 hours",
+"	a[2] = t[] - 0.25;    // 6 hours",
+"	a[3] = d[] - true;    // subtract 1 day",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+"Multiplications" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "multiplication" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to subtractions:",
+"	* Numbers are multiplied with each other as learned in business school (probably a bit too late).",
+"	* Boolean values are converted to 0 and 1 first.",
+"	* Parameter sets: Parameter sets can be multiplied with numbers in order to repeat the elements.",
+"	* Special rules apply to some operations with different data types.  See the table below for details.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Multiplications.jpg\" alt=\"Multiplications\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[0] = 5 * 3;",
+"	a[1] = '' * 10; // Blank = 0",
+"	a[2] = 0.5 * true;",
+"	a[3] = { a, b, c } * 3; // Repetition",
+"	a[4] = { a, b, c } * 0; // Empty set",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 01:": "automatic"
+
+},
+
+
+"Divisions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "division" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to divisions:",
+"	* Numbers are divided with each other as learned in 2nd grade.",
+"	* Boolean values are converted to 0 and 1 first.",
+"	* Literal strings: All occurrences of the (sub-)string in the right operand found in the left operand will be removed.",
+"	* Parameter sets: All occurrences of the elements in the right operand found in the left operand will be removed.",
+"	* Special rules apply on arithmetics with dates and times which are described further below.",
+"	* Special rules apply to some operations with different data types.  See the table below for details.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Divisions.jpg\" alt=\"Divisions\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[0] = 5 / 3;",
+"	a[1] = '' / 10; // Blank = 0",
+"	a[2] = 0.5 * true;",
+"	a[3] = { a, b, c, c, d } / { b, c }; // Removes all matching elements",
+"	a[4] = This is a great tiger / i; // All i's removed",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 01:": "automatic"
+
+},
+
+
+
+"Comparison Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "comparison operators" ],
+"Description 01:Introduction" : [
+"	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators and a few modifiers:",
+"	* <b>&lt;</b> Less than",
+"	* <b>&le;</b> Less than or equal to",
+"	* <b>&gt;</b> Greater than",
+"	* <b>&ge;</b> Greater than or equal to",
+"	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.  ",
+"	* <b>&gt;&lt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.",
+"	* <b>==</b> __strictly Equal__ to, expecting 1 operand only",
+"	* <b>!=</b> __strictly not equal__ to, expecting 1 operand only",
+"",
+"	Comparisons with b>=</b> and <b>&gt;&lt;</b> are more tolerant in comparing numbers and strings containing numbers, and also support",
+"	wildcard symbols on the right-hand operands if they are defined as softquoted literals (e.g. values in single quotation marks, not double).",
+""
+ ]
+	,
+"Description 02:Attention! = and &lt;&gt; may Hijack Parameters" : [
+"",
+"	<u>Attention</u>: As the two comparison operators <b>=</b> and <b>&gt;&lt;</b> expect 1 or more operands on the right hand side,",
+"	you may risk situations where the comparison hijacks the remaining comma-separated values on the right-hand-side typically encountered",
+"	in function parameters and values in parameter sets.  To avoid this, put the comparison into parentheses, or use the <b>==</b> and <b>!=</b>",
+"	symbols."
+ ]
+	,
+"Examples 02" : [
+"	b[] = 12; ",
+"	// Want to compare b[] == 9 and include the result in the parameter set between 'false' and 12",
+"	// Good luck!",
+"",
+"	a[0] = { 3, 6, false, b[] =  9 , 12, 15 }; // Comparison has hijacked the last two parameters",
+"	a[1] = { 3, 6, false,(b[] =  9), 12, 15 }; // OK",
+"	a[2] = { 3, 6, false, b[] == 9 , 12, 15 }; // OK",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 02": "automatic"
+},
+
+
+
+"Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "equal to" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to equal-to comparisons which are a bit more relaxed than the __strictly equal to__ comparison operator:",
+"	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.",
+"	* __Wildcards__ are supported in the right-hand operand if the value is a softquoted literal (e.g. specified inside single quotation marks)",
+"	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order",
+"	* Dates, Booleans and numerals can be compared with literals if they have the same text value / literal representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.",
+"	* Comparing two void values will always return true.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Equal_to.jpg\" alt=\"Comparison Equal to\"><br/>",
+"",
+"	<sup>1</sup> If a numeral is compared with a literal, then a literal copy will be made of the numeral and both literals are compared.<br>",
+"	<sup>2</sup> If a date is compared with a literal, then a literal copy will be made of the date and both literals are compared.  Depending on the state of the date, the format is \"YYYY-MM-DD\", \"HH:II:SS\", or \"YYYY-MM-DD HH:II:SS\".<br>",
+"	<sup>3</sup> If a boolean value is compared with a literal, then a literal copy will be made of the boolean value and both literals are compared.<br>",
+"	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.",
+"",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"Basic comparisons:\");",
+"",
+"	a[0] = 3 = 3;		// true",
+"	a[1] = 5.1 = 5;         // false",
+"	a[2] = 5 = 2,3,5,7;     // true",
+"	a[3] = 5 = 2,2+1,5,7;	// true",
+"	a[4] = 5 = 1..3;	// false",
+"	a[5] = 5 = 4..7;	// true",
+"	a[6] = 5 = 1..3,5,7;	// true",
+"	a[7] = {1,2,3} = {3,2,1}; // true",
+"",
+"	for all variables( a[], x[] ) echo( x[] );",
+"",
+"	echo(\"Literal with other types:\");",
+"",
+"	b[0] = 123 = \"123\";         // true",
+"	b[1] = '123' = 123;         // true",
+"	b[2] = false = 'false';     // true",
+"	b[3] = false = 'False';     // false",
+"	b[4] = date(\"2020-08-01\") = \"2020-08-01\";  // true",
+"	b[5] = date(\"2020-08-01\") = \"01.08.2020\";  // false",
+"	// The last one is 'false' because literal representation of date is YYYY-MM-DD",
+"",
+"	for all variables( b[], x[] ) echo( x[] );",
+"",
+"	echo(\"Compare with wildcards:\");",
+"",
+"	c[0] = Hello World = '*o*'; // Contains 0, true",
+"	c[1] = Hello World = \"*o*\"; // Not equal to string \"*o*\", false",
+"	c[2] = Hi = 'Ha,Hi,Ho';     // Wildcard with commas, true",
+"	c[3] = Hi = Ha,Hi,Ho;       // Selection with commas, true",
+"",
+"	for all variables( c[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Comparing Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Equal_to_of_Dates.jpg\" alt=\"Comparison Equal to of dates\"><br/>",
+"	",
+"	Note that in some cases, only the time or only the dates are compared.",
+""
+ ]
+	,
+"Examples 02:" : [
+"	d [] = date('2020-07-14');",
+"	dt[] = date('2020-07-14 12:30:00');",
+"	t [] = date('12:30:00');",
+"	o [] = date(''); // blank date",
+"	dz[] = date('2020-07-14 12:30:01');",
+"",
+"	a[0] = d[] = dt[];   // true, dates same, time not compared",
+"	a[1] = t[] = dt[];   // true, times same, date not compared",
+"	a[2] = d[] = date(\"2020-07-15\") - 1; // true",
+"	a[3] = dt[] = dz[];   // false (time differs)",
+"	",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+
+"Not Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "not equal to" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to not-equal-to comparisons which are a bit more relaxed than the __strictly not equal to__ comparison operator:",
+"	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.",
+"	* __Wildcards__ are supported in the right-hand operand if the value is a softquoted literal (e.g. specified inside single quotation marks)",
+"	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order",
+"	* Dates, Booleans and numerals can be compared with literals if they have the same text value / literal representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.",
+"	* Comparing two void values will always return true.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Not_Equal_to.jpg\" alt=\"Comparison not Equal to\"><br/>",
+"",
+"",
+"	<sup>1</sup> If a numeral is compared with a literal, then a literal copy will be made of the numeral and both literals are compared.<br>",
+"	<sup>2</sup> If a date is compared with a literal, then a literal copy will be made of the date and both literals are compared.  Depending on the state of the date, the format is \"YYYY-MM-DD\", \"HH:II:SS\", or \"YYYY-MM-DD HH:II:SS\".<br>",
+"	<sup>3</sup> If a boolean value is compared with a literal, then a literal copy will be made of the boolean value and both literals are compared.<br>",
+"	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"Basic comparisons:\");",
+"",
+"	a[0] = 3 <> 3;		// false",
+"	a[1] = 5.1 <> 5;         // true",
+"	a[2] = 5 <> 2,3,5,7;     // false",
+"	a[3] = 5 <> 2,2+1,5,7;	// false",
+"	a[4] = 5 <> 1..3;	// true",
+"	a[5] = 5 <> 4..7;	// false",
+"	a[6] = 5 <> 1..3,5,7;	// false",
+"	a[7] = {1,2,3} <> {3,2,1}; // false",
+"",
+"	for all variables( a[], x[] ) echo( x[] );",
+"",
+"	echo(\"Literal with other types:\");",
+"",
+"	b[0] = 123 <> \"123\";         // false",
+"	b[1] = '123' <> 123;         // false",
+"	b[2] = false <> 'false';     // false",
+"	b[3] = false <> 'False';     // true",
+"	b[4] = date(\"2020-08-01\") <> \"2020-08-01\";  // false",
+"	b[5] = date(\"2020-08-01\") <> \"01.08.2020\";  // true",
+"	// The last one is 'true' because literal representation of date is YYYY-MM-DD",
+"",
+"	for all variables( b[], x[] ) echo( x[] );",
+"",
+"	echo(\"Compare with wildcards:\");",
+"",
+"	c[0] = Hello World <> '*o*'; // Contains o, false",
+"	c[1] = Hello World <> \"*o*\"; // Not equal to string \"*o*\", true",
+"	c[2] = Hi <> 'Ha,Hi,Ho';     // Wildcard with commas, false",
+"	c[3] = Hi <> Ha,Hi,Ho;       // Selection with commas, false",
+"",
+"	for all variables( c[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Comparing Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Not_Equal_to_of_Dates.jpg\" alt=\"Comparison Equal to of dates\"><br/>",
+"	",
+"	Note that in some cases, only the time or only the dates are compared.",
+""
+ ]
+	,
+"Examples 02:" : [
+"	d [] = date('2020-07-14');",
+"	dt[] = date('2020-07-14 12:30:00');",
+"	t [] = date('12:30:00');",
+"	o [] = date(''); // blank date",
+"	dz[] = date('2020-07-14 12:30:01');",
+"",
+"	a[0] = d[] <> dt[];   // false, dates same, time not compared",
+"	a[1] = t[] <> dt[];   // false, times same, date not compared",
+"	a[2] = d[] <> date(\"2020-07-15\") - 1; // false",
+"	a[3] = dt[] <> dz[];   // true (time differs)",
+"	",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+"Strictly Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "strictly equal to" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to strictly-equal-to comparisons:",
+"	* The number of operands on the right-hand-side is always 1.  No risk of hijacking parameters.",
+"	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.",
+"	* Comparing values of different types, e.g. numerals with literals, will always be unequal.",
+"	* When comparing parameter sets, the same elements in both left and right hand side must exist, and they need to be in the same order.",
+"	* Comparing two void values will always return true.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Strictly_Equal_to.jpg\" alt=\"Comparison Equal to\"><br/>",
+"",
+"	<sup>1</sup> Contents in both sets must be the same and in the same ordering E.g. {1,2,3} = {3,2,1} returns false.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"Basic comparisons:\");",
+"",
+"	a[0] = 3 == 3;             // true",
+"	a[1] = 5.1 == 5;           // false",
+"	a[2] = {1,2,3} == {3,2,1}; // false",
+"	a[3] = {1,2,3} == {1,2,3}; // true",
+"",
+"	for all variables( a[], x[] ) echo( x[] );",
+"",
+"	echo(\"Literal with other types always return false:\");",
+"",
+"	b[0] = 123 == \"123\";         // false",
+"	b[1] = '123' == 123;         // false",
+"	b[2] = false == 'false';     // false",
+"	b[3] = date(\"2020-08-01\") == \"2020-08-01\";  // false",
+"",
+"	for all variables( b[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Comparing Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Strictly_Equal_to_of_Dates.jpg\" alt=\"Comparison Equal to of dates\"><br/>",
+""
+ ]
+	,
+"Examples 02:" : [
+"	d [] = date('2020-07-14');",
+"	dt[] = date('2020-07-14 12:30:00');",
+"	t [] = date('12:30:00');",
+"	o [] = date(''); // blank date",
+"	dz[] = date('2020-07-14 12:30:01');",
+"",
+"	a[0] = d[] != dt[];   // true (one contains time, the other not)",
+"	a[1] = t[] != dt[];   // true (one contains date, the other not)",
+"	a[2] = d[] != date(\"2020-07-15\") - 1; // false",
+"	a[3] = dt[] != dz[];   // true (time differs)",
+"	",
+"	for all variables( a[], b[] ) echo( b[] );",
+""
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+
+"Strictly Not Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "strictly not equal to" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to strictly-equal-to comparisons:",
+"	* The number of operands on the right-hand-side is always 1.  No risk of hijacking parameters.",
+"	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.",
+"	* Comparing values of different types, e.g. numerals with literals, will always be unequal.",
+"	* When comparing parameter sets, the same elements in both left and right hand side must exist, and they need to be in the same order.",
+"	* Comparing two void values will always return true.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Strictly_Not_Equal_to.jpg\" alt=\"Comparison not Equal to\"><br/>",
+"",
+"	<sup>1</sup> Contents in both sets must be the same and in the same ordering E.g. {1,2,3} = {3,2,1} returns false.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"Basic comparisons:\");",
+"",
+"	a[0] = 3 != 3;             // false",
+"	a[1] = 5.1 != 5;           // true",
+"	a[2] = {1,2,3} != {3,2,1}; // true",
+"	a[3] = {1,2,3} != {1,2,3}; // false",
+"",
+"	for all variables( a[], x[] ) echo( x[] );",
+"",
+"	echo(\"Literal with other types always return false:\");",
+"",
+"	b[0] = 123 != \"123\";         // true",
+"	b[1] = '123' != 123;         // true",
+"	b[2] = false != 'false';     // true",
+"	b[3] = date(\"2020-08-01\") != \"2020-08-01\";  // true",
+"",
+"	for all variables( b[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Comparing Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Not_Equal_to_of_Dates.jpg\" alt=\"Comparison Equal to of dates\"><br/>",
+"	",
+"	Note that in some cases, only the time or only the dates are compared.",
+""
+ ]
+	,
+"Examples 02:" : [
+"	d [] = date('2020-07-14');",
+"	dt[] = date('2020-07-14 12:30:00');",
+"	t [] = date('12:30:00');",
+"	o [] = date(''); // blank date",
+"	dz[] = date('2020-07-14 12:30:01');",
+"",
+"	a[0] = d[] != dt[];   // true (one contains time, the other not)",
+"	a[1] = t[] != dt[];   // true (one contains date, the other not)",
+"	a[2] = d[] != date(\"2020-07-15\") - 1; // false",
+"	a[3] = dt[] != dz[];   // true (time differs)",
+"	",
+"	for all variables( a[], b[] ) echo( b[] );",
+""
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+
+"Smaller than (or Equal to)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "smaller than or equal to" ],
+    "Keywords":			[ "smaller than" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to smaller than / smaller than or equal to comparisons:",
+"	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.",
+"	* Comparing values of different types, e.g. numerals with literals, will always return false.",
+"	* When comparing parameter sets, the sorting order of the parameter is compared.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Smaller_than_or_Equal_to.jpg\" alt=\"Comparison Smaller than (or Equal to)\"><br/>",
+"",
+"	<sup>1</sup> When comparing parameter sets, the following sorting order across different data types applies: parameter set > literal > date > numeral > boolean, ",
+"	then followed by contents if types are equal. For sets with common contents and different lengths,",
+"	the longer one is considered as the \"greater\" one.  Nested sets will also be compared.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"Basic comparisons:\");",
+"",
+"	a[0] = 3   <  3;            // false",
+"	a[1] = 3   <= 3;            // true",
+"	a[2] = 4.9 <  5;            // true",
+"	a[3] = Ha  < He;            // true (sorting order)",
+"	a[4] = {1,2,3} <  {3,2,1};  // true",
+"	a[5] = {1,2,3} <  {1,2,3};  // false",
+"	a[6] = {1,2,3} <= {1,2,3};  // true",
+"	a[7] = {1,2,3} < {1,2,3,4}; // true",
+"	a[8] = false < true;        // true",
+"	a[9] = a < 1;               // always false",
+"",
+"	for all variables( a[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Comparing Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Smaller_than_or_Equal_to_of_Dates.jpg\" alt=\"Comparison Smaller than (or Equal to) of dates\"><br/>",
+""
+ ]
+	,
+"Examples 02:" : [
+"	dt1[] = date('2020-07-14 12:30:00');",
+"	dt2[] = date('2020-08-01 06:45:00');",
+"	d1 [] = date('2020-07-14');",
+"	d2 [] = date('2020-08-01');",
+"	t1 [] = date('12:30:00');",
+"	t2 [] = date('06:45:00');",
+"",
+"	a[0] = dt1[] < dt2[]; // true",
+"	a[1] = dt1[] < t2 []; // Times compared, false",
+"	a[2] = dt2[] < d1 []; // Dates compared, false",
+"	a[3] = dt2[] < t2 []; // Times compared, false",
+"	a[4] = dt2[] <=t2 []; // Times compared, true",
+"	a[5] = dt1[] < d1 []; // Dates compared, false",
+"	a[6] = dt1[] <=d1 []; // dates compared, true",
+"	a[7] = dt1[] < dt1[]; // false",
+"	a[8] = dt1[] <=dt1[]; // true",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+
+"Greater than (or Equal to)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "greater than or equal to" ],
+    "Keywords":			[ "greater than" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to greater than / greater than or equal to comparisons:",
+"	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.",
+"	* Comparing values of different types, e.g. numerals with literals, will always return false.",
+"	* When comparing parameter sets, the sorting order of the parameter is compared.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Greater_than_or_Equal_to.jpg\" alt=\"Comparison Greater than (or Equal to)\"><br/>",
+"",
+"	<sup>1</sup> When comparing parameter sets, the following sorting order across different data types applies: parameter set > literal > date > numeral > boolean, ",
+"	then followed by contents if types are equal. For sets with common contents and different lengths,",
+"	the longer one is considered as the \"greater\" one.  Nested sets will also be compared.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"Basic comparisons:\");",
+"",
+"	a[0] = 3   >  3;            // false",
+"	a[1] = 3   >= 3;            // true",
+"	a[2] = 4.9 >  5;            // false",
+"	a[3] = Ha  > He;            // false (sorting order)",
+"	a[4] = {1,2,3} >  {3,2,1};  // false",
+"	a[5] = {1,2,3} >  {1,2,3};  // false",
+"	a[6] = {1,2,3} >= {1,2,3};  // true",
+"	a[7] = {1,2,3} > {1,2,3,4}; // false",
+"	a[8] = false > true;        // false",
+"	a[9] = a > 1;               // always false",
+"",
+"	for all variables( a[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Description 02:Comparing Dates" : [
+"",
+"	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,",
+"	the rules of calculating dates and numeric operands differ.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Greater_than_or_Equal_to_of_Dates.jpg\" alt=\"Comparison Greater than (or Equal to) to of dates\"><br/>",
+""
+ ]
+	,
+"Examples 02:" : [
+"	dt1[] = date('2020-07-14 12:30:00');",
+"	dt2[] = date('2020-08-01 06:45:00');",
+"	d1 [] = date('2020-07-14');",
+"	d2 [] = date('2020-08-01');",
+"	t1 [] = date('12:30:00');",
+"	t2 [] = date('06:45:00');",
+"",
+"	a[0] = dt1[] > dt2[]; // false",
+"	a[1] = dt1[] > t2 []; // Times compared, true",
+"	a[2] = dt2[] > d1 []; // Dates compared, true",
+"	a[3] = dt2[] > t2 []; // Times compared, false",
+"	a[4] = dt2[] >=t2 []; // Times compared, true",
+"	a[5] = dt1[] > d1 []; // Dates compared, false",
+"	a[6] = dt1[] >=d1 []; // dates compared, true",
+"	a[7] = dt1[] > dt1[]; // false",
+"	a[8] = dt1[] >=dt1[]; // true",
+"",
+"	for all variables( a[], b[] ) echo( b[] );"
+ ]
+	,
+    "Output 02:": "automatic"
+},
+
+
+"Logical Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "logical operators" ],
+"Description 01:Introduction" : [
+"	Logical operators cover the follwoing two operators:",
+"	* __logical and__",
+"	* __logical or__",
+"",
+"	The operators are only applicable to boolean values and parameter sets.",
+""
+ ]
+
+
+},
+
+
+"Logical And" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "logical and" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to logical AND (Symbol: <b>&amp;</b>):",
+"	* For boolean values the logical AND operator is applied.",
+"	* For parameter sets, the intersection of equal elements will be identified.",
+"	* All other data types wll be rejected",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Logical_And.jpg\" alt=\"Logical And\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"On boolean values:\");",
+"",
+"	a[0] = false & false;",
+"	a[1] = true & false;",
+"	a[2] = true & true;",
+"",
+"	for all variables( a[], x[] ) echo( x[] );",
+"",
+"	echo(\"On parameter sets:\");",
+"",
+"	b[0] = { a, b, c, 1, 2 } & { d, f, 3 }; // Empty set",
+"	b[1] = { a, b, c, 1, 2 } & { c, b, 3 }; // {b, c}",
+"	b[2] = { a, b, c, 1 ,2 } & { 1, 2, c }; // {c, 1, 2}",
+"	b[3] = { a, b, b, c } & { b, a, b, b }; // {a, b, b}",
+"",
+"	for all variables( b[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic"
+
+},
+
+"Logical Or" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "logical or" ],
+"Description 01:Introduction" : [
+"",
+"	Basic rules to logical OR  (Symbol: <b>&vert;</b>):",
+"	* For boolean values the logical OR operator is applied.",
+"	* For parameter sets, the union of equal elements will be identified.",
+"	* All other data types wll be rejected",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Logical_Or.jpg\" alt=\"Logical Or\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	echo(\"On boolean values:\");",
+"",
+"	a[0] = false | false;",
+"	a[1] = true | false;",
+"	a[2] = true | true;",
+"",
+"	for all variables( a[], x[] ) echo( x[] );",
+"",
+"	echo(\"On parameter sets:\");",
+"",
+"	b[0] = { a, b, 1 } | { 1, b, a }; // {a, b, 1}",
+"	b[1] = { a, b, 1 } | { 1, b, c }; // {a, b, 1, c}",
+"	b[2] = { a, b, b } | { b, b, c }; // {a, b, b, c}",
+"",
+"	for all variables( b[], x[] ) echo( x[] );"
+ ]
+	,
+    "Output 01:": "automatic"
+
+}
+
+
+
+
+
+,
+
   "Function Library" :
   {
     "Documentation":		"General Description", // Required value
@@ -5754,7 +6654,7 @@
 "Description 01:Introduction" : [
 "	System variables are predefined variables which contain system-related information (e.g. <b>system info[user name]</b>) or configuration settings. e.g.",
 "	<b>runtime settings[verbose]</b>.  For most system variables, __variable protections__ apply which may permit read-accesses, or impose restrictions",
-"	on wrixte accesses, e.g. limiting values to write to a selection of permitted values."
+"	on write accesses, e.g. limiting values to write to a selection of permitted values.  See the __list of system variables__ for existing system variables."
  ]
 	,
 "Examples 01:Demonstrating system and local variables" : [
@@ -5771,6 +6671,73 @@
 	,
     "Output 01:": "automatic"
 },
+
+
+"List of System Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "list of system variables" ],
+"Description 01:" : [
+"",
+"	=== 300, 100, 100, 500, bold_column_1",
+"	Variable Name				| Variable Type	| Protection Settings	| Description",
+"	command line arguments[]		| numeral	| read only		| Number of command line arguments, at least 1",
+"	&nbsp;&nbsp;...[0]			| literal	| full access		| 1st command line argument (typically the name of the B4P program file)",
+"	&nbsp;&nbsp;...[1, 2, ...]		| literal	| full access		| Additional command line arguments if available",
+"						|		|			|",
+"	local settings[]			| void		| locked		| <b>Following variables refer to local settings</b>",
+"	&nbsp;&nbsp;...[locale]			| literal	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.",
+"	&nbsp;&nbsp;...[country name]		| literal	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.",
+"	&nbsp;&nbsp;...[language]		| literal	| read only 		| Configured language as part of locale settings.  Use __set locale(__) to change.",
+"	&nbsp;&nbsp;...[currency symbol]	| literal	| limited access	| Currency symbol as configured in locale settings",
+"	&nbsp;&nbsp;...[decimal separator]	| literal	| limited access	| Typically 1 chracter, e.g. '.', ','",
+"	&nbsp;&nbsp;...[thousand separator]	| literal	| limited access	| Typically 1 chracter, e.g. ',', '.', ' ', \"'\"",
+"	&nbsp;&nbsp;...[date format]		| literal	| limited access	| E.g. \"DD.MM.YYYY\", \"MM/DD/YY\", etc.  See __date to literal formatting parameters__.",
+"	&nbsp;&nbsp;...[date format short]	| literal	| limited access	| E.g. \"DMY\" or \"MDY\", used for resolving ambiguities in extracting dates from strings",
+"	&nbsp;&nbsp;...[date separator]		| literal	| limited access	| Typically 1 chracter, e.g. '.', '/', '-'",
+"	&nbsp;&nbsp;...[time format]		| literal	| limited access	| E.g. \"HH:II:SS\" Note the \"I\" for minute digits. See __date to literal formatting parameters__.",
+"	&nbsp;&nbsp;...[time separator]		| literal	| limited access	| Typically 1 chracter, e.g. ':'",
+"	&nbsp;&nbsp;...[list separator]		| literal	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.",
+"						|		|			|",
+"	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>",
+"&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS  											  releases, this variable is true, for Windows it is false.",
+"	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| Numeric tolerance value used for __comparisons with tolerances__.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.",
+"	&nbsp;&nbsp;...[exit directly]		| boolean	| limited access	| Normally false, i.e. user must press [Enter] to finally leave the program and the console window may close.  If set to true, then B4P programs exist directly.",
+"	&nbsp;&nbsp;...[search files ignore case]| boolean	| limited access	| Normally true under Windows and false under Linux/MACOS.  In Windows systems, finding files is not case sensitive.",
+"&nbsp;&nbsp;...[input file character set]| literal	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks,  and too few special symbols were inside to recognize the files properly.  Presently, its <b>win-1252</b> for Windows and <b>utf-8</b> for Linux/MACOS systems.<br> 											  Following character sets are supported: <b>ansi, iso8859-1, win1252, utf-8, utf-16, utr-16 big endian</b>.",
+"	&nbsp;&nbsp;...[output file character set]| literal	| limited access	| Default character set assumed for saving files if no other format specified.  Presently it's <b>utf-8</b>.",
+"	&nbsp;&nbsp;...[memorize table columns]	| boolean	| limited access	| See __memory effect__ regarding table header names begin memorized. Set to false to deactivate memorizing.",
+"	&nbsp;&nbsp;...[prompt]			| literal	| limited access	| Current prompt as used in the __interactive mode__.  Change it using the __prompt(__) function.",
+"	&nbsp;&nbsp;...[registry my space]	| literal	| limited access	| Obsolete.",
+"	&nbsp;&nbsp;...[verbose]		| literal	| limited access	| Verbose levels.  See __verbose__ for more details.",
+"						|		|			|",
+"	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>",
+"	&nbsp;&nbsp;...[app data directory]	| literal	| read only		| Local machine application data directory<br>Windows: \"C:\\ProgramData\\b4p\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config\"",
+"	&nbsp;&nbsp;...[app data directory b4p]	| literal	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: \"C:\\ProgramData\\b4p\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config/b4p\"",
+"	&nbsp;&nbsp;...[user app data directory]     | literal	| read only		| User application data directory<br>Windows: \"C:\\Users\\<i>user name</i>\\AppData\\Local\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config\"",
+"	&nbsp;&nbsp;...[user app data directory b4p] | literal	| read only		| User application data directory with B4P subdirectory<br>Windows: \"C:\\Users\\<i>user name</i>\\AppData\\Local\\b4p\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config/b4p\"",
+"	&nbsp;&nbsp;...[bin directory]		| literal	| read only		| Location of binary executable file<br>Windows: \"C:\\ProgramData\\b4p\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config/b4p\"",
+"	&nbsp;&nbsp;...[program directory]	| literal	| read only		| Program directory<br>Windows: \"C:\\ProgramData\\b4p\"<br>Linux/MACOS: \"/usr/local/etc\"",
+"	&nbsp;&nbsp;...[program directory b4p]	| literal	| read only		| Program directory with B4P subdirectory<br>Windows: \"C:\\Program Files\\b4p\"<br>Linux/MACOS: \"/usr/local/etc/b4p\"",
+"	&nbsp;&nbsp;...[temp directory]		| literal	| read only		| Directory for temporary data storage:<br>Windows: \"C:\\Users\\<i>user name</i>\\AppData\\Local\\TEMP\"<br>Linux/MACOS: \"/tmp\"",
+"	&nbsp;&nbsp;...[user directory]		| literal	| read only		| User directory after login:<br>Windows: \"C:\\Users\\<i>user name</i>\\\"<br>Linux/MACOS: \"/home/<i>user name</i>\"",
+"	&nbsp;&nbsp;...[directory separator]	| literal	| read only		| Windows: '\\' and Linux/MACOS: '/'",
+"	&nbsp;&nbsp;...[operating system]	| literal	| read only		| e.g. \"Windows\", \"Linux\", \"MACOS\"",
+"	&nbsp;&nbsp;...[operating system product] | literal	| read only		| e.g. specific Windows OS product like \"Windows 10 Pro\" or Linux distribution name like \"Ubuntu\"",
+"	&nbsp;&nbsp;...[user name] 		| literal	| read only		| Your login user name",
+"	&nbsp;&nbsp;...[user domain] 		| literal	| read only		| Your user domain",
+"	&nbsp;&nbsp;...[host name]		| literal	| read only		| Name of your system",
+"&nbsp;&nbsp;...[privileges]		| literal	| read only		| Your privilege level for the operating system: <br> <b>standard</b>: Standard user privileges <br> <b>elevated</b>: Enhanced privileges, entitled to install software <br> 											  <b>administrator</b>: Administrator privileges.  Applicable if program is started with administration rights (e.g. 'sudo' added in front in Linux/MACOS systems)",
+"	&nbsp;&nbsp;...[operating system version] | literal	| read only		| Version number of installed operating system",
+"						|		|			|",
+"	time stamp[]				| void		| read only		| Provides date and time at start-up. Example under Windows: \"Sat Oct 10 10:17:34 2020\"",
+"	version info[]				| void		| read only		| Provides B4P version and release info",
+"	===",
+""
+ ]
+	
+},
+
 
 
 
@@ -6183,6 +7150,337 @@
  ]
 	,
     "Output 01": "automatic"
+},
+
+
+
+"References to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "references to variables" ],
+"Description 01:Introduction" : [
+"",
+"",
+"	In several cases, sophisticated variable structures with multiple levels, e.g. a[b,c,d,e] need to be referenced repeatedly where every reference checks for the existence of",
+"	of the base variable name and all names a through e.  To address this problem, B4P provides the feature called <i>refrences to variables</i> which allows you to define ",
+"	variables which poinnt to other base variables, regardless if they are base variables, intermediate or leaf members inside variable structures.",
+"",
+"	<br><br>",
+"	References to variables in B4P have similarities with references in other modern programming languges such as C++, C# and Java.  References are not pointers, i.e. any for of",
+"	mingling up pointers with pointer arithmetics is not supported here. ",
+"",
+"	<br><br>",
+"	Destination variables which are pointed by references carry along a kind of blocking notice which forbids deleting them until all references applied on them have been",
+"	released again.  This protection mechanism avoids working with disconnected references pointing to nowhere.  Automatic releases will happen with locally defined references to",
+"	variables in program, procedure and function blocks when leaving.  The remaining references will be released in a coordinated manner when the program ends execution.",
+""
+ ]
+	,
+"Description 02:References in Function Parameters" : [
+"	Some B4P functions and user-defined functions can accept parameters as references to variables, too.  These parameters provide access to the base variable as well as",
+"	to all mebmer variables."
+ ]
+	
+},
+
+"Simple References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple references to variables" ],
+    "Keywords":			[ "simple references" ],
+"Description 01:Introduction" : [
+"",
+"	The following exmaple shows how a simple reference is designed and describes how to use the '^' symbol to do a reference.",
+"",
+"	<br/><img src=\"Images/Description_Variables_Simple_References.jpg\" alt=\"Simple References to Variables\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[]    = Hello;",
+"	ref1[] =^ a[]; // ref1[] references a[]",
+"",
+"	a[]    = Hi;",
+"	echo( a[],\", \",ref1[] ); // Outputs \"Hi, Hi\"",
+"",
+"	ref1[] = He;",
+"	echo( a[],\", \",ref1[] ); // Outputs \"He, He\""
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+"Through-Referencing" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "through-referencing" ],
+"Description 01:Introduction" : [
+"",
+"	Note that the variable name used to establish a reference must either be vacant (no variable defined yet) or just a __simple variable__ containing no members.",
+"	This rules is insofar relevant because member (and subname) names and array index numbers specified in the references will be applied on the target variables directly.",
+"	The following examples shows a typical through-referencing:",
+"",
+"	<br/><img src=\"Images/Description_Variables_Through_References.jpg\" alt=\"Through-Referencing\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[]     = Hello;",
+"	ref1[]  =^ a[]; // ref1[] references a[]",
+"",
+"	ref1[b] = Ho;   // Both assignments build members on a[]",
+"	a[c]    = Hi;",
+"",
+"	echo( a[b],\", \",ref1[b] ); // Ho, Ho",
+"	echo( a[c],\", \",ref1[c] ); // Hi, Hi"
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+
+"Redirecting References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "redirecting references" ],
+"Description 01:Introduction" : [
+"",
+"	<br/><img src=\"Images/Description_Variables_Redirecting_References.jpg\" alt=\"Redirecting References\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[]     = Hello;",
+"	a[b]	= Hi;",
+"",
+"	ref1[]  =^ a[]; // ref1[] references a[]",
+"	echo( ref1[] ); // Hello",
+"",
+"	ref1[]  =^ a[b];",
+"	echo( ref1[] ); // Hi",
+"",
+"	a[b]    = Ho;	",
+"	echo( ref1[] ); // Ho"
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+"Copying References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "copying references" ],
+"Description 01:Introduction" : [
+"",
+"	Two flavors of copying references exist:",
+"	* If <b>=^</b> is used, then the referencing process passes through all intermediate references and establishes the link to the target variable directly.",
+"	* If <b>=^^</b> is used, then the reference will be made on the specified intermediate reference.",
+"	The 1st choice ensures that all referncing are fast and direct.  The 2nd choice provides the flexibiltiy to make modifications on the intermediate",
+"	references such as redirecting only the intermediate reference and not all intial references attached to them.",
+"",
+"	<br/><img src=\"Images/Description_Variables_Copying_References.jpg\" alt=\"Copying References\"><br/>",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[]    = Hello;",
+"	a[b]   = Hi;",
+"",
+"	ref1[] =^ a[b]; 	// References a[b]",
+"	ref2[] =^  ref1[];	// References a[b] directly",
+"	ref3[] =^^ ref2[];	// References ref2[]",
+"	ref4[] =^  ref3[];	// References a[] directly",
+"",
+"	ref3[] = He;",
+"	echo( a[b],\", \",ref1[],\", \",ref2[],\", \",ref3[] );    // 4 x He",
+"",
+"	a[c]   = Ho;		// Visible in ref[2] and ref[3]",
+"	ref2[] =^  a[c];	// Detach ref2[] from a[b] and link to a[c]",
+"",
+"	echo( ref1[],\", \",ref2[],\", \",ref3[],\", \",ref4[] );    // He, Ho, Ho, He"
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+"Releasing References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Releasing references" ],
+"Description 01:Introduction" : [
+"",
+"	Following methods are available to release references:",
+"	* Function call __release(__): 	Specify references to variables directly.  Example: <b>release ( ref1[ ], ref2[ ], ref3[ ] );</b>",
+"	* Function call __release all(__): All locally defined references to variables will be released.  When called from the main program (neither function nor other program called), then all globally defined references will be released.",
+"	* Function call __release all(__): Specify references to variables directly, or variables which contain one or more members / sub-members which are references to variables.  All of them will be released.",
+"	* Exiting a user-defined procedure or function, or a B4P program called wiht __start(__) or __include(__): All locally defined references to variables will be released.",
+"	* __Redirecting references__: The original reference will be leased and moved to a different variable.",
+"",
+"	<br/><img src=\"Images/Description_Variables_Releasing_References.jpg\" alt=\"Releasing References\"><br/>",
+"",
+"	<u>Note</u>: Please note that the target variables remain unaffected while releasing the references.  Once all references on a target variable are released, then the target variable may be deleted.",
+"",
+"	<br><br>",
+"	Released references will not be deleted but mutate to simple variables containing void values.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	a[]    = Hello;",
+"",
+"	ref1[] =^ a[];",
+"	echo( ref1[] );",
+"",
+"	release( ref1[] );",
+"	echo( ref1[] );"
+ ]
+	,
+    "Output 01:": "automatic"
+},
+
+
+
+
+"References in Member Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "References in member variables" ],
+"Description 01:Introduction" : [
+"",
+"	The past examples have been made with simple references.  However B4P also allows declaring member variables in structures and arrays as references.",
+"	Here, a similar rule applies that references can only be made on member variables which are not yet existing or do not contain their own sub-members.",
+"	Two code examples below illustrate this powerful feature.",
+"" ],
+"Description 02:Example 1" : [
+"",
+"	In the following example, 3 members in variable c[] point to variable a[] and a[g] accordingly.  In addition, a[g] is a reference which",
+"	referst to c[]. An \"eight-loop\" has been created, and the code example demonstrates that you can walk the path through the loop multiple times.",
+"	",
+"	<br/><img src=\"Images/Description_Variables_References_in_Member_Variables_1.jpg\" alt=\"References in Member Variables 2\"><br/>",
+""
+ ]
+	,
+"Examples 02:" : [
+"// Black part in illustration",
+"",
+"a[] = Ha;",
+"a[b] = He;",
+"c[] = Hi;",
+"",
+"// Greeen part in illustration",
+"",
+"c[d] = ^a[];",
+"c[e] = ^a[b];",
+"c[f] = ^c[e]; // references to a[b]",
+"echo( c[d],\", \", c[e] ); // Ha,He",
+"",
+"// Blue part of illustration",
+"",
+"a[g] = ^c[];",
+"echo( a[g],\", \", a[g,d] ); // Hi, Ha",
+"",
+"// You can loop around multiple times if you wish:",
+"",
+"echo( a[g,d,b] ); // He",
+"echo( a[g,d,g],\", \", a[g,d,g,d], \", \", a[g,d,g,d,g] ); // Hi, Ha, Hi"
+ ]
+	,
+    "Output 02:": "automatic",
+"Description 03:Example 2" : [
+"",
+"",
+"	In the following example, 3 members in variable c[] point to variable a[] and a[g] accordingly.  In addition, a[g] is a reference which",
+"	referst to c[]. An \"eight-loop\" has been created, and the code example demonstrates that you can walk the path through the loop multiple times.",
+"	",
+"	<br/><img src=\"Images/Description_Variables_References_in_Member_Variables_2.jpg\" alt=\"References in Member Variables 2\"><br/>",
+""
+ ]
+	,
+"Examples 03:" : [
+"",
+"// Black part in illustration",
+"",
+"array( a[ ],{Ha,He,Hi,Ho} );",
+"",
+"// Green part in illustration",
+"",
+"a[0] =^  a[3];",
+"a[1] =^^ a[0]; // a[1] refers to a[0] (and not to a[3] directly)",
+"",
+"echo( a[0],\", \", a[1] ); // Ho, Ho",
+"",
+"// Blue part in illustration",
+"",
+"a[0] =^ a[2];",
+"echo( a[0],\", \", a[1] ); // Hi, Hi"
+ ]
+	,
+    "Output 03:": "automatic",
+"Description 04:Avoid Tail-Biting" : [
+"",
+"	Be aware that you do not build up references resembling infinite loops because B4P will start circling around through 1 or more variables.",
+"	See the following code examples with one variables and the tail-biting effect with two variables."
+ ]
+	,
+"Examples 04:" : [
+"	// Bad example 1: 1 dog runs in a circle, attempting to bite its own tail ",
+"	a[] = a[];",
+"",
+"	// Bad example 2: 2 dogs run in a circle, attempting to bite each other's tails",
+"	x[] = 5;",
+"	y[] =^x[];",
+"	x[] =^y[];"
+ ]
+	
+
+},
+
+
+"Protecting Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "protecting variables" ],
+"Description 01:Introduction" : [
+"",
+"	The functions __protect(__), __dim protect(__), __redim protect, __array protect(__), and structure protect(__) are available apply",
+"	protection rules on the target variables.  It is always possible to change protection settings on local variable.  For global variables, this",
+"	is only allwed in the global context (i.e. not in the code of user-defined procedures and functions and B4P programs started with __start(__) or __include(__)).",
+"	Protection settings of system variables cannot be altered. If not specified otherwise, all newly created variables bear the protection setting <i>full access</i>.",
+"",
+"	The follwoing table provides an overview of the available protection settings and their functional impacts:",
+"",
+"	=== 400, 100, 100, 100, 100, 100, 100",
+"	Protection Settings			| full access		| prvent deleting	| limited access			| read only		| locked		| tightly locked",
+"	Read variables				| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| -			| -",
+"	Read member variables <sup>1</sup>	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| -",
+"	Use as input parameter to functions	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| -			| -",
+"	Write variables				| &#x2714;		| &#x2714;		| Data of same type only <sup>2</sup>	| -			| -			| -",
+"	Write member variables <sup>1</sup>	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| -",
+"	Use as I/O paramters to functions	| &#x2714;		| &#x2714;		| -					| -			| -			| -",
+"	Delete varibles				| local variables only	| -			| -					| -			| -			| -",
+"	Create / add member variables		| &#x2714;		| &#x2714;		| -					| -			| -			| -",
+"	Modify __variable forms__ <sup>3</sup>	| &#x2714;		| -			| -					| -			| -			| -",
+"	Create arrays				| &#x2714;		| &#x2714; <sup>4</sup>	| -					| -			| -			| -",
+"	Do __Transactions__			| &#x2714;		| -			| -					| -			| -			| -",
+"	Use __protect(__) to check settings	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| &#x2714;",
+"	===",
+"	<sup>1</sup> Provided no additional protection seetings restrict usage of the member variables.<br>",
+"	<sup>2</sup> E.g. forbidden to overwrite literal contents with numeric contents.  Additional restrictions may apply on system variables, e.g. only specific values may be written.<br>",
+"	<sup>3</sup> E.g. converting structures to arrays and back using __array to structure(__) or __structure to array(__) functions.<br>",
+"	<sup>4</sup> Only possible if variable contains no other members so far.<br>",
+"" ],
+"Description 02:Variables temporarily locked with Blocking Notices" : [
+"",
+"	Variables may be temporarily locked with blocking notices in order to prevent adverse system behavior if they are deleted.  All other accesses are possible.  Blocking notices",
+"	are temporarily applied in following cases:",
+"	* Target variable is blocked during the time an assignment is calculated",
+"	* A __transaction__ is applied between target and source variable",
+"	* The variable is referenced as an I/O or reference function parameter to a B4P or user-defined function",
+"	* __References to variables__ refer to the affected variable.",
+"	Only if all block notices are removed again (assignment resp. transactions completed, function execution finished, references released), then the variable may be deleted again.",
+""
+ ]
+	
 }
 
 
