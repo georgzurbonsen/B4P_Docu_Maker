@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+  runtime settings[ epsilon ] = 0.001; // Make comparisons very tolerant for now to show how it works
+
+  // 1st number is on left side of comparison, the others are on the right sides
+  numbers[] = { 15.0000, 14.9989, 14.9990, 14.9991, 15.0000, 15.0009, 15.0010, 15.0011 };
+  symbols[] = { '=', '=~', '<>', '<>~', '>', '>~', '>=', '>=~', '<', '<~', '<=', '<=~' };
+
+  table initialize( overview, {numbers[]} + symbols[] );
+
+  table process( overview, 
+      for (col[] = 1, col[] < table row width( overview, 0 ), col[]++ )
+      {
+      // Formulate the coparison expression in a string and use 'compare' to use it. Colon required for this.
+      // [0,0] = Current table (overview), column 0, row 0.   [0] = Current table, column 0, current row
+
+          [col[]] = compare ( [0,0], : [0] + literal( [col[],0] ) );
+      } );
+
+  table list( overview ); 

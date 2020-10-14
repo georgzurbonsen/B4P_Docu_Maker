@@ -1,25 +1,7 @@
-﻿	include( Support Library );
+﻿	a[] = 1.2156;
+	b[] = a[] * 1.9123 * 2.591271 / 1.9123 / 2.591271;
 
-	table initialize ( demo wildcards,
-	{ { Target string, '*', '~', 'A*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*' },
-	    Hello,
-	    1234,
-	    12345,              // Column headers contain wildcard symbols
-	    Zip 12010,          // 1st column contain target strings to compare with these patterns
-	    Cat,                // The blank rows will be filled in with comparison results
-	    Bat,                // 'true' and 'false'.
-	    halt } );
-
-	table configure( demo wildcards, read numerals, no ); // Read numbers from tables as strings
-
-	table process( demo wildcards,
-	    for (c[] = 1, c[] < table row width( demo wildcards, 0 ), c[]++ )
-	    {
-	        [c[]]      = [0]      = softquoted literal( [c[], 0 ] ); // Compare and write the result
-		// Current   Column   Compared with corresponding header name above
-		// column    zero
-	    } );
-
-	table list( demo wildcards );
-	    
-	
+	echo( a[], ", ", b[] );
+	echo( "Epsilon: ", runtime settings[epsilon] );
+	echo( "Hard comparison    : ", a[] = b[] );	// Falsely outputting false
+	echo( "Tolerant comparison: ", a[] = ~b[] );	// Now it's OK (both values are within epsilon tolerance)

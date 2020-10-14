@@ -214,7 +214,7 @@ B4PDOCU.START
 	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>
 	&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS \
 											  releases, this variable is true, for Windows it is false.
-	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| Numeric tolerance value used for __comparisons with tolerances__.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.
+	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| __Epsilon__ as numeric tolerance value used for comparisons.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.
 	&nbsp;&nbsp;...[exit directly]		| boolean	| limited access	| Normally false, i.e. user must press [Enter] to finally leave the program and the console window may close.  If set to true, then B4P programs exist directly.
 	&nbsp;&nbsp;...[search files ignore case]| boolean	| limited access	| Normally true under Windows and false under Linux/MACOS.  In Windows systems, finding files is not case sensitive.
 	&nbsp;&nbsp;...[input file character set]| literal	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks, \

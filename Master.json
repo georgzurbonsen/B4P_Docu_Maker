@@ -1295,7 +1295,8 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "comparison operators" ],
 "Description 01:Introduction" : [
-"	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators and a few modifiers:",
+"	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators which can be combined with __comparison options__",
+"	to make adjustments on the comparison rules:",
 "	* <b>&lt;</b> Less than",
 "	* <b>&le;</b> Less than or equal to",
 "	* <b>&gt;</b> Greater than",
@@ -1894,7 +1895,105 @@
 	,
     "Output 01:": "automatic"
 
+},
+
+
+"Comparison Options" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "comparison options" ],
+    "Keywords":			[ "Epsilon" ],
+"Description 01:Introduction" : [
+"",
+"	Comparison options provide further adjustments on the comparison rules.  The rules affect the following:",
+"	* String comparisons: Ignoring case and/or blanks",
+"	* Numeric comparisons: Using epsilon as tolerance value.",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Comparison_Options.jpg\" alt=\"Comparison Options\"><br/>"
+ ]
+	,
+"Description 02:Options for String Comparisons" : [
+"	Specify '+' after the comparison operator to ignore upper/lower case checking, and '~' to ignore all blanks.",
+"	Both symbols may be used where it does not matter if specified as '+~' or the '~+'.",
+""
+ ]
+	,
+"Examples 02:Comparing varieties of ahorns and the F horn (an instrument)" : [
+"	include( Support Library );",
+"	runtime settings[ epsilon ] = 0.001; // Make comparisons very tolerant for now to show how it works",
+"",
+"	// 1st number is on left side of comparison, the others are on the right sides",
+"	numbers[] = { A horn, A Horn, AHorn, A horn, Ahorn, a horn, ahorn, F horn };",
+"	symbols[] = { '=',  '=~',  '=+',  '=+~',  '', // Blanks cause line breaks for better visibility",
+"	              '<>', '<>~', '<>+', '<>+~', '',",
+"	              '>',   '>~', '>+',  '>+~',  '',",
+"	              '>=',  '>=~','>=+', '>=+~', '',",
+"	              '<',   '<~', '<+',  '<+~',  '',",
+"	              '<=',  '<=~','<=+', '<=+~' };",
+"",
+"	table initialize( overview, {numbers[]} + symbols[] );",
+"",
+"	table process selected rows( overview, [0]!='',",
+"	    for (col[] = 1, col[] < table row width( overview, 0 ), col[]++ )",
+"	    {",
+"		// Formulate the coparison expression in a string and use 'compare' to use it. Colon required for this.",
+"		// [0,0] = Current table (overview), column 0, row 0.   [0] = Current table, column 0, current row",
+"",
+"	        [col[]] = compare ( [0,0], : [0] + [col[],0] );",
+"	    } );",
+"",
+"	table list( overview );	"
+ ]
+	,
+    "Output 02": "automatic",
+"Description 03:Options for Numeric Comparisons" : [
+"	For numeric comparisons, the plus sign is ignored.  However, the '~' sign provides a numeric tolerance of value epsilon.",
+"	This value is maintained in the system variable <b>run time settings[epsilon]</b> and may be changed to a different",
+"	meaningful value if needed.  Tolerant comparisons make sense for comparing two values which have gone through some",
+"	calculatons and minor numeric imprecisions may have occurred which should not adversely influence numeric comparisons.",
+"",
+"	The following overview illustrates how the epsilon comparison tolerance is applied for the different operators:",
+"",
+"	<br/><img src=\"Images/Description_Formulas_Comparison_Epsilon.jpg\" alt=\"Comparison Options\"><br/>",
+""
+ ]
+	,
+"Examples 03:Simple example of comparisons dealing with minor imperfections from calculations" : [
+"	a[] = 1.2156;",
+"	b[] = a[] * 1.9123 * 2.591271 / 1.9123 / 2.591271; // Result should be unchanged  ...theoretically.",
+"",
+"	echo( a[], \", \", b[] );",
+"	echo( \"Epsilon: \", runtime settings[epsilon] );",
+"	echo( \"Hard comparison    : \", a[] = b[] );	// Falsely outputting false",
+"	echo( \"Tolerant comparison: \", a[] = ~b[] );	// Now it's OK (both values are within epsilon tolerance)"
+ ]
+	,
+    "Output 03": "automatic",
+"Examples 04:Comprehensive overview" : [
+"	include( Support Library );",
+"	runtime settings[ epsilon ] = 0.001; // Make comparisons very tolerant for now to show how it works",
+"",
+"	// 1st number is on left side of comparison, the others are on the right sides",
+"	numbers[] = { 15.0000, 14.9989, 14.9990, 14.9991, 15.0000, 15.0009, 15.0010, 15.0011 };",
+"	symbols[] = { '=', '=~', '<>', '<>~', '>', '>~', '>=', '>=~', '<', '<~', '<=', '<=~' };",
+"",
+"	table initialize( overview, {numbers[]} + symbols[] );",
+"",
+"	table process( overview, ",
+"	    for (col[] = 1, col[] < table row width( overview, 0 ), col[]++ )",
+"	    {",
+"		// Formulate the coparison expression in a string and use 'compare' to use it. Colon required for this.",
+"		// [0,0] = Current table (overview), column 0, row 0.   [0] = Current table, column 0, current row",
+"",
+"	        [col[]] = compare ( [0,0], : [0] + literal( [col[],0] ) );",
+"	    } );",
+"",
+"	table list( overview );	"
+ ]
+	,
+    "Output 04:": "automatic"
 }
+
 
 
 
@@ -6771,7 +6870,7 @@
 "						|		|			|",
 "	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>",
 "&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS  											  releases, this variable is true, for Windows it is false.",
-"	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| Numeric tolerance value used for __comparisons with tolerances__.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.",
+"	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| __Epsilon__ as numeric tolerance value used for comparisons.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.",
 "	&nbsp;&nbsp;...[exit directly]		| boolean	| limited access	| Normally false, i.e. user must press [Enter] to finally leave the program and the console window may close.  If set to true, then B4P programs exist directly.",
 "	&nbsp;&nbsp;...[search files ignore case]| boolean	| limited access	| Normally true under Windows and false under Linux/MACOS.  In Windows systems, finding files is not case sensitive.",
 "&nbsp;&nbsp;...[input file character set]| literal	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks,  and too few special symbols were inside to recognize the files properly.  Presently, its <b>win-1252</b> for Windows and <b>utf-8</b> for Linux/MACOS systems.<br> 											  Following character sets are supported: <b>ansi, iso8859-1, win1252, utf-8, utf-16, utr-16 big endian</b>.",
