@@ -938,11 +938,334 @@ B4PDOCU.START
 	table list( overview );	
 	+++,
     "Output 04:": "automatic"
+},
+
+
+
+"Assignment operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Assignment operators" ],
+    "Description 01:Introduction"::
+
+	Similar to C/C++, B4P supports assignment operators as listed in the table below. An assignment operator such as <b>a[]+=3</b>; 
+	is equivalent to <b>a[]=a[]+3</b>, making use of the same type checking and conversion rules.  Spaces between the assignment operator and
+	the equal sign are allowed.  The execution performance of assignment operators is faster than conventional formulation because fewer
+	language elements (symbols, names, values) are interpreted, e.g. from 9 (<b>a[]=a[]+3</b>) to 6 (<b>a[]+=3</b>).
+
+	=== 100, 200, 700, bold_column_1
+	Operator	| Examples				| Equivalent traditional formulation
+	+=		| a[] += 3;<br>a[] += ' km/h';		| a[] = a[] + 3;<br>a[] = a[] + ' km/h';
+	-=		| a[] -= 4;<br>a[] -= {'1','2'};	| a[] = a[] - 4;<br>a[] = a[] - { '1','2' };
+	*=		| a[] *= 5;<br>				| a[] = a[] * 5;
+	/=		| a[] /= 2;<br>a[] /= '.';		| a[] = a[] / 2;<br>a[] = a[] / '.';
+	&amp;=		| a[] &amp;= b[];			| a[] = a[] &amp; b[];
+	&vert;=		| a[] &vert;= b[];			| a[] = a[] &vert; b[];
+	== =		| a[] == = b[];				| a[] = a[] == b[];
+	!= =		| a[] != = b[];				| a[] = a[] != b[];
+	===
+	In the last two rows, the symbols may be written together, but have been shown separately for better clarity.<br><br>
+
+	In the destination variable is not existing yet and an assignment operator is applied, then the destination variable will
+	be initialized implicitly with following values:
+
+	=== 200, 100, 200, 500, bold_column_1
+	Type		| Value		| Examples		| Equivalen traditional formulation
+	Numeral		| 0		| a[] += 5;		| a[] = 0; a[] = a[] + 5; 
+	Literal		| '' (blank)	| a[] += 's';		| a[] = ''; a[] = a[] + 's';
+	Date		| (blank date)	| a[] += date(today);	| a[] = date(''); a[] = a[] + date(today);
+	Boolean		| false		| a[] &vert;= b[];	| a[] = false; a[] = a[] &vert; b[];
+	parameter set	| {} (empty set)| a[] &vert;= {1,2};	| a[] = {}; a[] = a[] &vert; {1,2};
+	===
+
+	+++,
+    "Examples 01:"::
+	// Implicit initialization cases
+
+	a[0] += 3;
+	a[1] += 'Hello';
+	a[2] += date("2020-10-12");
+	a[3] |= false;
+	a[4] |= { 1,2,3 };
+	a[5] += true;   // Arithmetic operator converts true to 1 first
+	a[6] = ''; a[6] -= 1; // a[] = '' - 1 is legitimate because arithmetic calculation 
+	// of numbers with blank strings is valid where blanks are treated as zero.
+
+	// Doing some calculations
+
+	a[0] *= 2;      // 3 --> 6
+	a[1] -= llo;    // Hello --> He
+	a[2] += 1;      // Next day
+	a[3] |= true;	// true
+	a[4] *= 2;      // { 1,2,3, 1,2,3 }
+	a[5] /= 2;      // 1 -> 0.5	
+
+	for all variables( a[], x[] ) echo ( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Assignment operators on table cells"::
+
+	Using assignment operators on tables is supported to a limited extent since the type of the destination is either a literal or
+	numeral (legitimate positive or negative number with or without decimal point recognized) unless the table has been configured
+	differently using the __table configure(__) function.
+	+++,
+    "Examples 02:"::
+	include( Support Library );
+	table create ( a );
+
+	[a:0,0] += 1;
+	[a:0,1] += 'Hello';
+	[a:0,1] -= 'llo';
+	[a:0,1] += 'y'; // Hey
+	[a:0,2] = true; // converts to literal
+	[a:0,2] += ' false'; // 'true false'
+
+	table list(a);
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+
+
+"Ad-hoc Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ad-hoc operators" ],
+    "Description 01:Introduction"::
+
+	Ad-hoc operators are features which apply an immediate action on the variable or table field referenced.
+	The increment and decrement operators (++ and --) common in C/C++, Java and Python are just two of a variety
+	of ad-hoc operators.  Ad-hoc operators can be applied in following ways:
+
+	* Stand-alone use
+	** As prefix: <b>++a[];</b>
+	** As postfix: <b>a[]--;</b>
+	* As part of a left-hand expression of assignments
+	** As postfix: <b>a[]++ = 1;</b> (Prefix use would not make sense as it increments the value before being overwritten.
+	* As part of a right-hand expression of
+	** As prefix: <b>b[] = 3 + ++a[];</b>
+	** As postfix: <b>b[] = 3 + a[]++;</b>
+	** Combination of prefix and postfix use is allowed, e.g. <b>++a[]--</b>.  Actually, (a[]+1) in an expression is more meaningful.
+	** In parameters for function calls, e.g. <b>echo( ++a[] )</b>
+
+
+	=== 100, 900, noheader, noframe bold_column_1
+	++		| Increment
+	--		| Decrement
+	++(<i>n</i>)	| Increment by specified numeral or numeric expression (negative values will obviously decrement the target value)
+	--(<i>n</i>)	| Decrement by specified numeral or numeric expression (negative values will obviously increment the target value)
+	**(<i>n</i>)	| Apply scaling factor, with numeral or numeric expression in parentheses.  An equivalent symbol for division does \
+			  not exist.  Use a reciprocal value in combination with the scaling factor instead.
+	===
+	<u>Note</u>: The two consecutive characters need to be written together without spaces.  Otherwise they are recognized as
+	plus, minus and multiplication symbols.  False example: <b>c[] = - - a[];</b> where the value of a[] is negated twice and
+	assigned to c[].
+
+	Ad-hoc operators are allowed on target value with following types:
+	* Numerals
+	* Blank literals, which are treated as 0
+	* Non-blank literals: All ad-hoc operations will be ignored.  No error messages occur, which may be beneficial when processing tables with mix of numbers and text
+	* Dates: 
+	** If containing dates: +/-1 represents next/previous days
+	** If containing times: For example Adding a fraction of 1, e.g. <b>**(0.25)</b> for 6 hous, is possible
+	* Parameter sets: All elements, including nested ones, are affected
+	* Booleans: ++ sets to true -- sets to false.
+
+	Ad-hoc operators can be applied on variable as well as table cells.  However following restrictions apply:
+
+	* Applying ad-hoc operators on unknown variables.
+	** Exception to rule: Post-fix use in assignments, e.g. <b>b[]++ = 3;</b> because the incrementation is carried out after the assignemnt is completed.
+	* Variables where specific protections apply (read only)
+	* Ad-hoc operators are not allowed in __transactions__, e.g. <b>a[]++ <== b[];</b>
+	* They are also not allowed in function call requiring variables as code pices, e.g. in __dim(__), __protect(__), etc.
+	* Ad-hoc operatoros on multiple table cells (e.g. in __horizontal table access__).  Only single cells are allowed.
+
+	B4P provides following ad-hoc operators;
+
+	<br><br>
+	Ad-hoc operators can also be cascaded, e.g. <b>a[]++ ++</b>, <b>a[] **(3) ++</b>. Following restriction applies: All scaling operations must 
+	happen before ++ and/or -- operators.  Not valid: <b>a[] ++ **(3)</b>.  However <b>++a[]**(3)</b> is OK.
+	+++,
+    "Examples 01:"::
+	a[] = 10;
+	b[] = 20;
+	d[] = 30;
+
+	echo("Demonstrate ad-hoc operations in right-hand expressions:");
+
+	//    10          11            9             11
+	echo( a[]++, ' ', a[]--, ' ', --a[], ' ', ++ ++a[] );
+
+	//    22             22 -> 66               6
+	echo( **(2)a[], ' ', a[]**(3), ' ', **(1/11)a[] );
+
+	x[] = --(2) a[]++;  // Decrement a by 2, assign, then increment by 1. Result: 4, 5
+
+	echo( x[], ' ', a[]);
+
+	echo(new line, "Demonstrate ad-hoc operations in left-hand expressions:");
+
+	e[]++ = b[];       // becomes 21
+	f[]**(2) = 10;     // becomes 20
+
+	echo( e[], ' ', f[]) ;
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations:");
+
+	d[]++;             // Simple one, 31.
+	**(2)e[]--;        // Double 21 to 42, subract by 1 becomes 41.
+
+	echo( d[], ' ', e[]) ;
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations in tables:");
+
+	table create ( t );    // Ad-hoc operators applied on table cells
+
+	[t:0,0]++;             // Table entry was blank. Arithmetics interpret blanks as zero;  Contains 1.
+	[t:0,0]**(3);	       // Multiplied by 3.
+	echo( [t:0,0] );       // 3
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations with dates:");
+
+	d[] = date( "2020-08-01 18:30:00" );
+	echo( --d[] ); // Previous day
+	echo( ++(0.5)d[] ); // Next day, 06:30
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations with parameter sets:");
+
+	a[] = { 1, 2, 5, 10, { 20, 50 } };
+	a[]++;
+	echo(a[]);
+	+++,
+    "Output 01:": "automatic",
+    "See also": "Ad-hoc operators overview"
+},
+
+"Cascading ad-hoc Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "cascading ad-hoc operators" ],
+    "Description 01:Introduction"::
+
+	Unlike in other common programming languages, B4P supports cascaded ad-hoc operators.  Cascading is realized
+	by applying multiple ad-hoc operators in sequence which are then always calculated from left to right.
+	Cascading may be used for both prefix and postfix usages.
+	<br>
+	Some examples:
+	=== 200, 800, noheader, noframe bold_column_1
+	++ ++		| Increment twice
+	++ --		| Makes no sense (original value)
+	-- --		| Decrements twice
+	++(3) ++	| Adds 4
+	++ ++(3)	| Adds 4
+	**(2) ++	| Multiplies 2, adds 1
+	++ **(2)	| Syntax error. Scaling not allowed after ad-hoc incrementing or decrementing
+	**(2) **(3)	| This combination is OK.  Multiples by 6
+	**(1/2)		| Divides by 2
+	===
+	+++,
+    "Examples 01:"::
+	a[] = 10;
+	b[] = date( "2020-05-01 15:00:00" );
+	c[] = { { 1, 2 }, { 3, 4 }, 5 };
+
+	a[] ++ ++ ++ -- ++;        // Becomes 13, even if code appears less meaningful
+	b[] ++(3.75) ++;	   // 4 days and 18 hours later
+	c[] **(2) ++(2);	   // Double all elements, then add 2 on all of them
+
+	echo("a[] = ", a[],"  b[] = ", b[] );
+	echo("c: ", c[] );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"Ad-hoc Operators Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ad-hoc operators overview" ],
+    "Description 01:Introduction"::
+
+	The following table provides a summary of the ad-hoc rules.
+	<br>
+	<br>Ad-hoc operations on variables and table cells containing or assigned with numerals:
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Increment by 1		| --		| Decrement by 1		| **		| Syntax error (factor missing)
+	++ ++		| Increment by 2		| -- --		| Decrement by 2		| ** **		| "
+	++ (3)		| Add 3				| -- (3)	| Subtract 3			| **(3)		| Multiply by 3
+	++ (-3)		| Subtract 3			| -- (-)	| Add 3				| **(1/3)	| Divide by 3
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with blank literals <b>''</b>  assumed zero:
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Sets to 1			| --		| Sets to -1			| **		| Syntax error (factor missing)
+	++ ++		| Sets to 2			| -- --		| Sets to -2			| ** **		| "
+	++ (3)		| Sets to 3			| -- (3)	| Sets to -3			| **(3)		| 0 Multiplied by 3 = 0
+	++ (-3)		| Sets to -3			| -- (-)	| Sets to 3			| **(1/3)	| 0 Multiplied by 3 = 0
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with non-blank literals  have no impact, and cause no exceptions.
+
+	<br><br>Ad-hoc operations on variables and table cells containing or assigned with blank dates <b>date('')</b> have no impact, and cause no exceptions.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+
+	<br><br>Ad-hoc operations on variables and table cells containing or assigned with dates (e.g. <b>date("2020-01-01")</b> ) are supported.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Tomorrow			| --		| Yesterday			| **		| Syntax error (factor missing)
+	++ ++		| Day after tomorrow		| -- --		| 2 days before			| ** **		| "
+	++ (0.25)	| Same day			| -- (0.25)	| Same day			| 		| Results in blank date
+	++ (3)		| 3 days later			| -- (3)	| 3 days before			| **(0)		| Results in blank date
+	++ (3.75)	| 3 days later (same)		| -- (3.75)	| 3 days before (same)		| **(1)		| Unchanged date
+	++ (-7)		| 1 week before			| -- (-7)	| 1 week later			| **(...)	| All other values: Exceptions (dates cannot be multiplied)
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with dates and times (e.g. <b>date("2020-01-01 12:45:00")</b>) are supported.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Tomorrow			| --		| Yesterday			| **		| Syntax error (factor missing)
+	++ ++		| Day after tomorrow		| -- --		| 2 days before			| ** **		| "
+	++ (0.25)	| 6 hours later			| -- (0.25)	| 6 hours earlier		| 		| Results in blank date
+	++ (3)		| 3 days later			| -- (3)	| 3 days before			| **(0)		| Results in blank date
+	++ (3.75)	| 3 days + 18 hours later	| -- (3.75)	| 3 days + 18 hours before	| **(1)		| Unchanged date and time
+	++ (-7)		| 1 week before			| -- (-7)	| 1 week later			| **(...)	| All other values: Exceptions (dates cannot be multiplied)
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with and times (e.g. <b>time("12:45:00")</b>) are supported.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Exception (not same day)	| --		| Exception (not same day)	| **		| Syntax error (factor missing)
+	++ ++		| Exception (not same day)	| -- --		| Exception (not same day)	| ** **		| "
+	++ (0.25)	| 6 hours later (if same day)	| -- (0.25)	| 6 hours earlier (if same day)	| **(0)		| Results in blank date
+	++ (3)		| Exception (not same day)	| -- (3)	| Exception (not same day)	| **(1)		| Unchaned time
+	===
+
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with booleans:<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Sets to true			| --		| Sets to false			| **		| Syntax error (factor missing)
+	++ ++		| Sets to true			| -- --		| Sets to false			| ** **		| "
+	++ (3)		| Sets to true			| -- (3)	| Sets to false			| **(0)		| Sets to false
+	++ (-1)		| Sets to false 		| -- (-1)	| Sets to true			| **(1)		| Non-zero: Value unchanged
+	++ (-3)		| Sets to false 		| -- (-3)	| Sets to true			| **(-1)	| "
+	===
+
+	<br>Ad-hoc operations on variables containing parameter sets:<br>
+	All elements will be affected by this operation, including elements in nested parameter sets.  This is a clear difference from all other arithmetic operations 
+	where you need to distinguish between regular operators (affects one individual value) and deep operators (affects elements in a parameter set at a specified depth).<br>
+	<u>Note</u>: No impact on empty cells.
+
+	<br><br>
+	<u>Note</u>: Ad-hoc operations on void values will cause exceptions.
+	+++
 }
-
-
-
-
-
 
 B4PDOCU.STOP

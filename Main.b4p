@@ -1,7 +1,12 @@
-﻿	a[] = 1.2156;
-	b[] = a[] * 1.9123 * 2.591271 / 1.9123 / 2.591271;
+﻿
+	a[] = 10;
+	b[] = date( "2020-05-01 15:00:00" );
+	c[] = { { 1, 2 }, { 3, 4 }, 5 };
 
-	echo( a[], ", ", b[] );
-	echo( "Epsilon: ", runtime settings[epsilon] );
-	echo( "Hard comparison    : ", a[] = b[] );	// Falsely outputting false
-	echo( "Tolerant comparison: ", a[] = ~b[] );	// Now it's OK (both values are within epsilon tolerance)
+	a[] ++ ++ ++ -- ++;        // Becomes 13, even if code appears less meaningful
+	b[] ++(3.75) ++;	          // 3 days and 18 hours later
+	c[] **(2) ++(2);
+
+	echo("a[] = ", a[],"  b[] = ", b[] );
+	echo("c: ", c[] );
+
