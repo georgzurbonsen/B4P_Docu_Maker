@@ -1,0 +1,36 @@
+﻿#!/usr/local/bin/b4p
+  echo("Deep binary operators on simple parameter sets (vectors) and scalars:");
+
+  a[] = {  1, 2, 3, 4, 5 };
+  b[] = { 10,15,20,25,30 };
+  c[] = {  2,-2,'',-2, 2 };
+
+  s[] = { Ha, He, Ho, Hu, Hi };
+  t[] = { ngar, ring, ney, nger, ll };
+
+  echo( a[] +^ 1 );         // Add 1 to all elements
+  echo( 120 /^ b[]);        // Divide 120 by all elements
+
+
+  echo(new line, "Matrices combined with vectors and scalars");
+
+  a[] = { {1,2},{3,4} };  
+  b[] = { {5,6},{7,8} };
+
+  echo( a[] +   b[] );                     // Catenation: { {1,2},{3,4},{5,6},{7,8} }
+  echo( a[] +^  b[] );                     // Catenating the 1st level elements: { {1,2,5,6},{3,4,7,8} }
+  echo( a[] +^^ b[] );                     // Calculating elements: { {6,8},{10,12} }
+  echo;
+  echo( a[] +^^ 10 );                      // Adds 10 to all elements
+  echo( a[] +^^ {10} );                    // {10} acts as scalar to {1,2} -> { {11,12},{3,4} }   
+  echo( a[] +^^:{10} );                    // Repetition suffix - Repeat the {10}:Like { {1,2},{3,4} } +^^ {10,10} } -> { {11,12},{13,14} }   
+  echo( a[] +^^ {10,10} );                 // Like above
+  echo;
+  echo( a[] +^^ {{10}} );                  // Affects the 1st nested element only: { {11,2},{3,4} }
+  echo( a[] +^^:{{10}} );                  // Repetition suffix - Repeat the {10}: All elements affected: { {11,12},{13,14} } 
+  echo( a[] +^^ {10,20} );                 // Calculates { {11,12},{23,24} }
+  echo( a[] +^^:{10,20} );                 // Same result  (Repetition suffix)
+  echo;
+  echo( a[] +^^ {{10,20}} );               // Calculates { {11,22},{ 3, 4} }
+  echo( a[] +^^ {{10},{20}} );             // Calculates { {11, 2},{23, 4} }
+  echo( a[] +^^:{{10},{20}} );             // Calculates { {11,12},{23,24} }  (Repetition suffix)

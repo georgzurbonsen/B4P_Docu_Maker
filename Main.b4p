@@ -1,12 +1,11 @@
-﻿
-	a[] = 10;
-	b[] = date( "2020-05-01 15:00:00" );
-	c[] = { { 1, 2 }, { 3, 4 }, 5 };
+﻿	include ( Support Library );
 
-	a[] ++ ++ ++ -- ++;        // Becomes 13, even if code appears less meaningful
-	b[] ++(3.75) ++;	          // 3 days and 18 hours later
-	c[] **(2) ++(2);
+	table create( t );
 
-	echo("a[] = ", a[],"  b[] = ", b[] );
-	echo("c: ", c[] );
+	[t:0,0] = 10;
+	[t:0,1] = "Hi ";
 
+	[t:0,0] *^= { 5, 6, 7, 8 };
+	[t:0,1] +^= { volks, everyone, to all of you };
+
+	table list ( t );
