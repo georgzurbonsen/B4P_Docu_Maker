@@ -1,0 +1,17 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals,
+      { { Name,  Leg count, Special ability  },
+        { Owl,   2,         Night vision     },
+        { Dog,   4,         Sensitive nose   },
+        { Ape,   2 or 4,    Relatively smart } } );
+
+  animal1[] = "My animal";  
+  animal2[] = "My animal";  
+
+  animal1[] <<=  [ animals: Name, Dog, .. ]; // Pick up entire row
+  animal2[] <<=^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
+
+  echo( "Variable animal1[]: ", animal1[], new line, "  member names: ", set names( animal1[] ), " contents: ", set ( animal1[] ));
+  echo( "Variable animal2[]: ", animal2[], new line, "  member names: ", set names( animal2[] ), " contents: ", set ( animal2[] ));
+
+  table list( animals ); // The owl is left over

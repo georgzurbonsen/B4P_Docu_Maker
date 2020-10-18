@@ -1,0 +1,22 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals1,
+      { { Name,  Leg count, Special ability  },
+        { Owl,   2,         Night vision     },
+        { Dog,   4,         Sensitive nose   },
+        { Ape,   2 or 4,    Relatively smart } } );
+
+  table initialize( animals2,
+      { { Name,  Leg count, Special ability, Weapon  },
+        { Bee,   6,         Makes honey,     sting   },
+        { Gnu,   4,         Knows UNIX,      horns   },
+        { Cat,   4,         Empathy to humans, sharp claws } } );
+
+  [ animals2: Name, Gnu, .. ] <<= [ animals1: Name, Dog, ];  // Dog overwrites Gnu, Dog erased from animals 1
+  [ animals1: Name, Owl,    ] <<= [ animals2: Name, Bee, .. ]; // Open ended items, also copy the weapon
+
+
+  echo("Contains the bee, owl and dog removed");
+  table list( animals1 ); // No additional column created
+  
+  echo("Contains the dog, gnu and bee removed");
+  table list( animals2 ); // Additional column created

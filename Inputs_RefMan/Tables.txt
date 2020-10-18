@@ -187,6 +187,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "horizontal table access" ],
+    "Keywords":			[ "horizontal table accesses" ],
     "Description 01:Introduction"::
 
 	The <b>horizontal table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table row.
@@ -443,6 +444,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "vertical table access" ],
+    "Keywords":			[ "vertical table accesses" ],
     "Description 01:Introduction"::
 
 	The <b>vertical table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table column.
@@ -692,6 +694,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix table access" ],
+    "Keywords":			[ "matrix table accesses" ],
     "Description 01:Introduction"::
 
 	The <b>matrix table access</b> is one of the four basic __table access methods__ which combines both __horizontal table access__ and __vertical table access__

@@ -1,4 +1,6 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+REF;"&amp; Transaction Assignment Operators";REF_Features_Transactions_with_AND_assignment_operator.html;General Description;Transactions with AND assignment operator
+REF;"&amp; Transactions between variables";REF_Features_AND_Transactions_between_variables.html;General Description;AND Transactions between variables
 REF;Accessing Table Contents;REF_Features_Accessing_table_contents.html;General Description;Accessing table contents
 REF;Accessing Table Information;REF_Features_accessing_table_info.html;General Description;accessing table info
 REF;Accessing Tables;REF_Features_accessing_tables.html;General Description;accessing tables
@@ -256,6 +258,7 @@ REF;Header Name Exception Handling;REF_Features_header_name_exception_handling.h
 REF;Header Names - Memory Effect;REF_Features_memory_effect.html;General Description;memory effect
 REF;Help and Support Functions;REF_Features_help_and_support_functions.html;General Description;help and support functions
 REF;Horizontal Table Access;REF_Features_horizontal_table_access.html;General Description;horizontal table access
+REF;Horizontal Table Access;REF_Features_horizontal_table_access.html;General Description;;horizontal table accesses
 REF;Horizontal Table Access w. Param. Sets;REF_Features_Horizontal_table_access_using_parameter_sets.html;General Description;Horizontal table access using parameter sets
 REF;Horizontal Table Access w. Ranges;REF_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
 REF;Horizontal Table Access w. Wildcards;REF_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
@@ -337,6 +340,7 @@ REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.htm
 REF;Matrix Manipulation Functions;REF_Features_matrix_manipulation_functions.html;General Description;;matrix manipulations
 REF;Matrix Operations Summary;REF_Features_matrix_operations_summary.html;General Description;matrix operations summary
 REF;Matrix Table Access;REF_Features_matrix_table_access.html;General Description;matrix table access
+REF;Matrix Table Access;REF_Features_matrix_table_access.html;General Description;;matrix table accesses
 REF;Miscellaneous String Functions;REF_Features_Other_string_functions.html;General Description;Other string functions
 REF;Multiplications;REF_Features_multiplication.html;General Description;multiplication
 REF;Nested Partial Table Specification;REF_Features_nested_partial_table_specification.html;General Description;nested partial table specification
@@ -455,6 +459,11 @@ REF;Tables;REF_Features_tables.html;General Description;tables
 REF;Text Input / Output;REF_Features_text_input_output.html;General Description;text input output
 REF;Through-Referencing;REF_Features_through-referencing.html;General Description;through-referencing
 REF;Time and Stopwatch Functions;REF_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
+REF;Transactions;REF_Features_Transactions.html;General Description;Transactions
+REF;Transactions between Tables;REF_Features_Transactions_between_tables.html;General Description;Transactions between tables
+REF;Transactions between variables;REF_Features_Transactions_between_variables.html;General Description;Transactions between variables
+REF;Transactions from tables to variables;REF_Features_Transactions_from_tables_to_variables.html;General Description;Transactions from tables to variables
+REF;Transactions from variables to tables;REF_Features_Transactions_from_variables_to_tables.html;General Description;Transactions from variables to tables
 REF;Transcendental Functions;REF_Features_transcendental_functions.html;General Description;transcendental functions
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin deg
@@ -491,6 +500,7 @@ REF;Variables (func. params);REF_Features_Variables_(func_params).html;General D
 REF;Variables Functions;REF_Features_variables_functions.html;General Description;variables functions
 REF;Verbose Levels;REF_Features_verbose.html;General Description;verbose
 REF;Vertical Table Access;REF_Features_vertical_table_access.html;General Description;vertical table access
+REF;Vertical Table Access;REF_Features_vertical_table_access.html;General Description;;vertical table accesses
 REF;Vertical Table Access w. Param. Sets;REF_Features_Vertical_table_access_using_parameter_sets.html;General Description;Vertical table access using parameter sets
 REF;Vertical Table Access w. Ranges;REF_Features_Vertical_table_access_using_ranges.html;General Description;Vertical table access using ranges
 REF;Vertical Table Access w. Wildcards;REF_Features_Vertical_table_access_using_wildcards.html;General Description;Vertical table access using wildcards
@@ -501,6 +511,7 @@ REF;Voids;REF_Features_data_types_voids.html;General Description;;void
 REF;Voids;REF_Features_data_types_voids.html;General Description;;voids
 REF;Wildcards;REF_Features_wildcards.html;General Description;wildcards
 REF;Wildcards;REF_Features_wildcards.html;General Description;;wildcard symbols
+REF;Without Transaction Assignment Operators;REF_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 REF;Zero Members Variables;REF_Features_zero_members.html;General Description;zero members
 REF;abbreviate name;REF_Function_abbreviate_name.html;Function Description;abbreviate name
 REF;abort;REF_Function_abort.html;Function Description;abort

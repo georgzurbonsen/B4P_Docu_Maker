@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+  structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+  structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+  structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+  structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+  animals2[] = Includes a reptile;
+  animals1[] &<== animals2[];  // mammal, carnivore and fish will be overwritten.
+
+  animals3[] = No animal inside yet; // And nothing will be built up here.
+  animals3[] &<==^ animals2[];
+
+  echo("Merged animals as ", identify( animals1[]));
+  inspect( animals1[] );
+
+  echo("Initially no animals. Merged as ", identify( animals3[]));
+  inspect( animals3[] );
