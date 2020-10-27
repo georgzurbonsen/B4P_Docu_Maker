@@ -10,7 +10,7 @@ B4PDOCU.START
 	Beyond4P has only six reserved symbols.  If not put into quotation marks, these special symbols are automatically converted into special characters or values.
 
 
-	=== 120, 120, 360, noframe
+	=== 120, 120, 360, bold_column_1
 	Keyword 	| Meaning | Description
 	tab		| Tabulator | Converts to a tab character (ANSI and UNICODE 9)
 	new line	| Line Break | Converts to CR+LF (Windows) or LF (LINUX) to continue on the next line
@@ -33,7 +33,7 @@ B4PDOCU.START
 	+++,
     "Output 02:":		"automatic",
     "OS differences":		[ "LINUX uses a different representation of 'new line' than Windows." ],
-    "See also":			[ "Flow control functions" ]
+    "See also":			[ "Control flow functions" ]
 
   }
 

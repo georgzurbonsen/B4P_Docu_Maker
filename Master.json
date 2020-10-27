@@ -153,11 +153,11 @@
 "",
 "" ],
 "Examples 01:" : [
-"	echo( abcde {} );     // Returns 5 (character count)",
-"	echo( abcde, {0} );   // Access the 1st element",
-"	echo( abcde, {-2} );  // Access the 2nd last element",
-"	echo( abcde, {10} );  // Attempts to access characters outside the string returns blank literals.",
-"	echo( abcde, {-10} ); // Same case here."
+"	echo( abcde{} );     // Returns 5 (character count)",
+"	echo( abcde{0} );   // Access the 1st element",
+"	echo( abcde{-2} );  // Access the 2nd last element",
+"	echo( abcde{10} );  // Attempts to access characters outside the string returns blank literals.",
+"	echo( abcde{-10} ); // Same case here."
  ]
 	,
 
@@ -521,7 +521,7 @@
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets extracting subsets" ],
-    "Keywords":			[ "parameter sets extracting subsets" ],
+    "Keywords":			[ "parameter sets extracting subsets", "extracting subsets" ],
 
 
 "Description 01:Parameter Sets - Extracting Subsets" : [
@@ -3553,6 +3553,69 @@
 
 
 
+
+"Formatting and Styling Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Formatting and Styling Tables" ],
+"Description 01:Introduction" : [
+"",
+"	B4P provides a generic set of functions for giving a final touch to your tables.  They include:",
+"	* Setting row widths and column hights",
+"	* Formatting text (font name, font size, color, bold, underscore, line wraps, etc.)",
+"	* Formatting tables (cell colors, etc.)",
+"	* Number and date formats",
+"	* Freezing panes",
+"	* Setting the autofilter",
+"	* and many more.",
+"",
+"	At present, the formatting and styling functions are supported for following file formats when saving the tables where minor differences in the",
+"	interpretation of the formatting may apply:",
+"",
+"	* HTML (understood by both Excel and web browsers)",
+"	* Excel (XML 2003) format",
+"",
+"	You can add formatting and style to multiple tables and then save them as multiple sheets in one Excel file.",
+"",
+"	<br><br>",
+"",
+"	<u>Note</u>: The whole function library has been written in B4P and is in the file \"Style Library.b4p\" in your installed library directory.",
+"	In order to use these functions, you need to do the following function call at first:",
+"	<br><br>",
+"	<b>include ( Style Library );</b>",
+"	<br><br>"
+ ]
+	,
+
+"Description 02:Formatting Procedure" : [
+"",
+"	Follow the seven basic steps described below in order to do a successful and attractive finish .",
+"",
+"	=== 50, 950, noheader, noframe_1stcolbold",
+"1.	| <b>Finalize the table with all necessary contents.</b>  You may want to have some helper columns on the right hand side which you  		  can delete after adding formatting features, but the formatted table contents must not move in any direction because the formatting info will not move along with them.",
+"2.	| A broad pallette of named colors is already available. Optionally, you can __define user-specific colors__ so you can reference them conveniently by color name and not by red-green-blue codes: <br> __add color(__): Add user-defined colors<br> __lighten colors(__): Lighten the set of standard colors according to your specifications<br> __darken colors(__): Darken the set of standard colors according to your specifications<br> 		  __weaken colors(__): Weaken the intensity of standard colors according to your specifications<br>",
+"3.	| <b>Be creative. Do the artistic work</b> on the table using the following four functions:<br> __table style table(__): Formatting instructions applicable for the whole table, e.g. general font name, font size, location of autofilter row, etc.<br> __table style rows(__): E.g row height, formatting all entries in the specified rows, etc.<br> __table style columns(__): E.g. column width, formatting all entries in the specified columns, etc.<br> 		  __table style cells(__): Style individual cells, a set of cells, a matrix of cells, or a rectangular area in the table, and applying Excel <i>mouse-over</i> comments.",
+"4.	| If needed, <b>delete redundant contents on the right hand side or below the table</b> but without moving the final table around (e.g. with inserting / deleting  columns and/or rows. The formatting you have applied have a fixed association to the rows and columns.  If you delete a row, then the next row below will get the formatting. The same applies to sorting and rearranging table rows and columns after the formatting.<br> 		  <u>General advice</u>: Finalize the table first, then do the creative artwork.",
+"5.	| <b>Generate the final formatting instructions specific to the file format</b> you intend to use for saving.  You need to call one of the two functions listed below<br> __translate style attributes for excel(__)<br> 		  __translate style attributes for html(__)",
+"6.	| <b>Save your (art-)work</b> using one of the following functions:<br> __table save(__), and <br> __table save multiple(__).<br> <u>Note</u>: Make sure you choose the format as specified in step 5.  You can do the style attribute translation for multiple formats on the same table. If you save the file in a format for which no tranlsation has been made, then the table will be saved as if no formatting has been applied at all. The CSV file format 		  and close relatives (e.g. tab separated files, text files) do not support any formatting.",
+"7.	| If needed, <b>reset all format attributes</b> using the function<br> __table style reset(__)<br> 		  in order to start doing a different formatting artwork on the same table.",
+"	==="
+ ]
+	,
+"Description 03:Important Info" : [
+"	<b>The \"Style Library\" works with following global variables which shall not be manipulated directly as this could result in unexpected and erratic outcome</b>",
+"	* <b>table style descriptions[]</b>: This variable contains all formatting attributes for all tables.",
+"	* <b>hex[]</b>: Conversion of hexadecimal values",
+"	* <b>table style rules[]</b>: Defines rules to properly interpret formatting codes",
+"	* <b>table style html comments[]</b>: Template to put comments into HTML file format so opening them with Excel will make the comments show up.",
+"	In addition, this library maintains one table called <b>global color table</b> which describes all available colors with their names.  See next section for details."
+ ]
+	
+},
+
+// See "Style Library.txt" for further documentation on styles.
+
+
 "Variables Functions":
   {
     "Documentation":		"General Description", // Required value
@@ -5475,7 +5538,7 @@
 "	Beyond4P has only six reserved symbols.  If not put into quotation marks, these special symbols are automatically converted into special characters or values.",
 "",
 "",
-"	=== 120, 120, 360, noframe",
+"	=== 120, 120, 360, bold_column_1",
 "	Keyword 	| Meaning | Description",
 "	tab		| Tabulator | Converts to a tab character (ANSI and UNICODE 9)",
 "	new line	| Line Break | Converts to CR+LF (Windows) or LF (LINUX) to continue on the next line",
@@ -5501,9 +5564,442 @@
 	,
     "Output 02:":		"automatic",
     "OS differences":		[ "LINUX uses a different representation of 'new line' than Windows." ],
-    "See also":			[ "Flow control functions" ]
+    "See also":			[ "Control flow functions" ]
 
   }
+
+
+,
+
+
+
+"Defining User Specific Colors":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Defining User Specific Colors" ],
+"Description 01:Introduction" : [
+"",
+"	B4P provides 3 ways to specify text and cell colors in the tables:",
+"	* Specifying the RGB value directly, e.g. <b>{ 255, 192, 0 }</b> for orange",
+"	* Specifying the RGB value wiht a hexadecimal code as practiced in HTML files, e.g. <b>'#FFC000'</b> for orange",
+"	* Specifying a color name from the __color palette__",
+"",
+"	B4P provides a decent palette of color names which includes the circle of vivid colors (red - orange - yellow - green - cyan - blue - purple - magenta),",
+"	gray levels, some dedicated colors used by Microsoft Office tools, particularly Excel, and a decent collection of various colors in different shades and",
+"	intensities.",
+"",
+"	<br><br>	",
+"",
+"	After having the style library file included, a B4P table called <b>global color table</b> is available which lists the entire palette of named colors.",
+"	The table contains following columns:",
+"",
+"	=== 100, 900, bold_column_1",
+"	Header Name		| Description	",
+".	Color Name		| Assigned color name, e.g. 'green', 'gray 12', 'turquoise', 'teal', etc.  All colors named in this table can be used as color names in applicable function parameters",
+"	Cat 1			| One of the following: standard, lightened, darkened, weakened, user defined",
+"	Cat 2			| One of the following: primary, saturated, gray scales, excel color, red tones, yellow tones, green tones, blue tones, purple tones, pink tones, brown tones",
+"	Red			| Intensity level of red, must be between 0 and 255",
+"	Green			| Intensity level of green, must be between 0 and 255",
+"	Blue			| Intensity level of blue, must be between 0 and 255",
+"	HTML Color		| HTML #RRGGBB color coding, e.g. '#FFC000' for orange",
+"	===",
+"",
+"	<u>Important</u>: You can make changes on this table directly, but it is more advisable to use the available function to introduce additional named colors.",
+"	Functions are available to extend the named colors by applying functions to derive lightened, darkened and weakened (reduction of color saturation) varieties.",
+"	The function __add color(__) allows you to add colors.",
+"",
+"	<br><br>",
+"	<u>Note</u>: Microsoft Excel and web browers may interpret some text colors in a degraded manner, e.g. using the same text color if the specified color differs only slightly."
+ ]
+	
+},
+
+
+
+"Color Palettes":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Color Palettes" ],
+    "Keywords":			[ "Color Palette" ],
+"Description 01:Touring the Vivid Color Circle" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_1.jpg\" alt=\"Color Circle\"><br/><br/>"
+ ]
+	,
+"Description 03:Shades of Gray" : [
+"	",
+"	<img src=\"Images/Description_Style_Colors_2.jpg\" alt=\"Shades of Gray\"><br/><br/>",
+""
+ ]
+	,
+"Description 04:Excel Colors" : [
+"	",
+"	The following colors are found in the standard color template in Microsoft Excel and other Office tools.  For red and yellow, use the names 'red' and 'yellow'.<br>",
+"",
+"	<img src=\"Images/Description_Style_Colors_3.jpg\" alt=\"Excel Colors\"><br/><br/>",
+""
+ ]
+	,
+"Description 05:Shades of Red" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_4.jpg\" alt=\"Shades of Red\"><br/><br/>",
+""
+ ]
+	,
+"Description 06:Shades of Yellow" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_5.jpg\" alt=\"Shades of Yellow\"><br/><br/>",
+""
+ ]
+	,
+"Description 07:Shades of Green" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_6.jpg\" alt=\"Shades of Green\"><br/><br/>",
+""
+ ]
+	,
+"Description 08:Shades of Blue" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_7.jpg\" alt=\"Shades of Blue\"><br/><br/>",
+""
+ ]
+	,
+
+"Description 09:Shades of Purple" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_8.jpg\" alt=\"Shades of Purple\"><br/><br/>",
+""
+ ]
+	,
+"Description 10:Shades of Pink" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_9.jpg\" alt=\"Shades of Pink\"><br/><br/>",
+""
+ ]
+	,
+"Description 11:Shades of Brown" : [
+"",
+"	<img src=\"Images/Description_Style_Colors_10.jpg\" alt=\"Shades of Brown\"><br/><br/>"
+ ]
+	
+},
+
+
+
+
+
+"add color" :
+{
+	"Function Names":	[ "add color" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+"Description" : [
+"",
+"		This function adds a further color to the __color palette__."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"5",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "New color name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Specify a new color name which does not yet exist in the color table"
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Category 2",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			Apply a categorization, e.g. an existing one like \"gray scale\" or a new one of choice.  This value will noted down as",
+"			\"Cat 2\" in the color table.  The 1st category is assigned automatically with \"user defined\"."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Red intensity",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Valid values: 0..255"
+ ]
+			
+		},
+		{ "Number": "4.",
+		  "Name": "Green intensity",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Valid values: 0..255"
+ ]
+			
+		},
+		{ "Number": "5.",
+		  "Name": "Blue intensity",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			Valid values: 0..255"
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include( Style Library );",
+"",
+"	add color( crème, natural shades, 245,238, 222 );",
+"",
+"	table initialize( t, { { Item, Color }, { Jacket, crème }, { Trousers, gray 12 }, { scarf, teal } } );",
+"",
+"	table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );",
+"",
+"	translate style attributes for html(t);",
+"	table save( t, \"Images/Custom_Colors.html\", HTML );",
+"	translate style attributes for excel(t);",
+"	table save( t, \"Images/Custom_Colors.xls\", EXCEL );",
+"	echo(\"Done. Open the file Custom_Colors.html with a web browser.\");"
+ ]
+	,
+	"Output": "automatic",
+"Details 02:Viewing the result:" : [
+"	Test Click on the file name view the result: <a href=\"Images/Style_Custom_Colors.html\" target=\"_blank\">Style_Custom_Colors.html</a>.<br>",
+"	Test Click on the file name open the file with Excel: <a href=\"Images/Style_Custom_Colors.xls\" >Style_Custom_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	"
+ ]
+	
+},
+
+
+
+
+"lighten colors" :
+{
+	"Function Names":	[ "lighten colors" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+"Description" : [
+"",
+"		This function Derives lightened shades of selected colors in the __color palette__."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "numeral", "parameter set" ],
+"Description" : [
+"			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be lightened.<br>",
+"			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table.."
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Suffix",
+		  "Direction": "input",
+		  "Types": [ "numeral or literal" ],
+"Description" : [
+"				Specify a suffix to be added to the color names in order to distinguish them from their original colors."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Lightening up factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			e.g. factor 2 is the color precisely between white and specified color<br>",
+"			Example: mandarin (255,128,0) translates to (255,192,128)<br>",
+"			Use lower factors (e.g. 1.5) for less lighter shades, and bigger factors (e.g. 4) for significantly lighter shades."
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include( Support Library );",
+"	include( Style Library );",
+"",
+"	lighten colors( table selected rows( global color table, [Cat 2]==primary), X, 3 );",
+"",
+"	table copy table selected rows( global color table, t, [Cat 2]==primary );",
+"",
+"	table list ( t );",
+"	table process( t, table style rows( t, row(), table, fill color, [Color Name] ) );",
+"",
+"	translate style attributes for html(t);",
+"	table save( t, \"Images/Style_Lightened_Colors.html\", HTML );",
+"	translate style attributes for excel(t);",
+"	table save( t, \"Images/Style_Lightened_Colors.xls\", EXCEL );",
+"	echo(\"Done. Open the file Custom_Colors.html with a web browser.\");",
+""
+ ]
+	,
+	"Output": "automatic",
+"Details 02:Viewing the result:" : [
+"	Test Click on the file name view the result: <a href=\"Images/Style_Lightened_Colors.html\" target=\"_blank\">Style_Lightened_Colors.html</a>.<br>",
+"	Test Click on the file name open the file with Excel: <a href=\"Images/Style_Lightened_Colors.xls\" >Style_Lightened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	"
+ ]
+	
+},
+
+
+"darken colors" :
+{
+	"Function Names":	[ "darken colors" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+"Description" : [
+"",
+"		This function Derives darkened shades of selected colors in the __color palette__."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "numeral", "parameter set" ],
+"Description" : [
+"			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be darkened.<br>",
+"			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table.."
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Suffix",
+		  "Direction": "input",
+		  "Types": [ "numeral or literal" ],
+"Description" : [
+"				Specify a suffix to be added to the color names in order to distinguish them from their original colors."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Darkening down factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			e.g. factor 2 is the color precisely between white and specified color<br>",
+"			Example: mandarin (255,128,0) translates to (255,192,128)<br>",
+"			Use lower factors (e.g. 1.5) for less darker shades, and bigger factors (e.g. 4) for significantly darker shades."
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include( Support Library );",
+"	include( Style Library );",
+"",
+"	darken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );",
+"",
+"	table copy table selected rows( global color table, t, [Cat 2]==primary );",
+"",
+"	table list ( t );",
+"	table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );",
+"",
+"	translate style attributes for html(t);",
+"	table save( t, \"Images/Style_Darkened_Colors.html\", HTML );",
+"	translate style attributes for excel(t);",
+"	table save( t, \"Images/Style_Darkened_Colors.xls\", EXCEL );",
+"	echo(\"Done. Open the file Custom_Colors.html with a web browser.\");",
+""
+ ]
+	,
+	"Output": "automatic",
+"Details 02:Viewing the result:" : [
+"	Test Click on the file name view the result: <a href=\"Images/Style_Darkened_Colors.html\" target=\"_blank\">Style_Darkened_Colors.html</a>.<br>",
+"	Test Click on the file name open the file with Excel: <a href=\"Images/Style_Darkened_Colors.xls\" >Style_Darkened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	"
+ ]
+	
+},
+
+
+"weaken colors" :
+{
+	"Function Names":	[ "weaken colors" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+"Description" : [
+"",
+"		This function Derives weakened saturations of selected colors in the __color palette__."
+ ]
+	,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "numeral", "parameter set" ],
+"Description" : [
+"			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be weakened.<br>",
+"			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table.."
+ ]
+			
+		},
+		{ "Number": "2.",
+		  "Name": "Suffix",
+		  "Direction": "input",
+		  "Types": [ "numeral or literal" ],
+"Description" : [
+"				Specify a suffix to be added to the color names in order to distinguish them from their original colors."
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Weakening down factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"			e.g. factor 2 is the color precisely between white and specified color<br>",
+"			Example: mandarin (255,128,0) translates to (255,192,128)<br>",
+"			Use lower factors (e.g. 1.5) for less weaker saturations, and bigger factors (e.g. 4) for significantly weaker saturations."
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include( Support Library );",
+"	include( Style Library );",
+"",
+"	weaken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );",
+"",
+"	table copy table selected rows( global color table, t, [Cat 2]==primary );",
+"",
+"	table list ( t );",
+"	table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );",
+"",
+"	translate style attributes for html(t);",
+"	table save( t, \"Images/Style_Weakened_Colors.html\", HTML );",
+"	translate style attributes for excel(t);",
+"	table save( t, \"Images/Style_Weakened_Colors.xls\", EXCEL );",
+"	echo(\"Done. Open the file Custom_Colors.html with a web browser.\");",
+""
+ ]
+	,
+	"Output": "automatic",
+"Details 02:Viewing the result:" : [
+"	Test Click on the file name view the result: <a href=\"Images/Style_Weakened_Colors.html\" target=\"_blank\">Style_Weakened_Colors.html</a>.<br>",
+"	Test Click on the file name open the file with Excel: <a href=\"Images/Style_Weakened_Colors.xls\" >Style_Weakened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	"
+ ]
+	
+}
+
+
+
 
 
 ,
@@ -5889,7 +6385,7 @@
 "	* All tables are referred with table names",
 "	* Table names must be of type __literal__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters",
 "	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing literals (e.g. variables, string calculations, etc.)",
-"	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name<b> collapses to <b>Last Name</b>.",
+"	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.",
 "	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.",
 "	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.",
 "	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but makes little sense unless you want to do esoteric programming.",
@@ -7138,7 +7634,7 @@
     "Feature Names":		[ "Transactions" ],
 "Description 01:Introduction" : [
 "",
-"	Simple __assignments__ in B4P program statements, such as <b>a[] = b[];</b>, affect only the __base variables__. Possible members of",
+"	Simple __assignments__ in B4P program statements, such as <b>a[] = b[];</b>, affect only the __base variables__. Possibly existing members of",
 "	the variable on either side remain untouched.  They are not duplicated, overwritten and cleared.  However, situations exist where assignments",
 "	are needed for the whole variable tree, including all underlying __structure__ and __array__ members.  Transactions are an advanced form of",
 "	assignments which also include the variable members.",
@@ -7148,7 +7644,7 @@
 "	B4P supports transactions between",
 "	* Two variables",
 "	* One variable and one table row (in both directions)",
-"	* Two table rows",
+"	* Two table rows inside the same or in two different tables",
 "	",
 "	<br>",
 "	The syntax for transactions is as follows:",
@@ -7161,13 +7657,14 @@
 "					| <b>&vert;</b> : union	(OR combination)	| <b>&lt;=&gt;</b> : Swap	|					|",
 "					| <b>+</b> : add data				|				|					|",
 "	===",
-"",
+"	<br>",
 "	<u>Syntax:</u> The 3-character transaction symbols must be written together without spaces inbetween because they are treated as dedicated language tokens.",
 "	Spaces are allowed between the prefix and the symbols and between the symbols and the suffix.",
 "",
+"	<br>br>",
 "	Both left-hand and right-hand destinations specify table cells or destination variables in the same way as if they would be on the left-hand side of",
-"	assignments.  Applying algorithms on these variables or table cells on either side, e.g. <b>b[] &lt;== a[]*2</b> is not allowed here.  Do them ",
-"	with assignments before.  However, specifying member variables in (nested) arrays and/or structures is allowed (Example: <b>b[kid1] &lt;== a[kid2,grandchild]</b>).",
+"	assignments.  Applying algorithms on these variables or table cells on either side, e.g. <b>b[] &lt;== a[]*2</b> is not allowed here.  Do such operations with ",
+"	assignments before.  However, specifying member variables in (nested) arrays and/or structures is allowed (Example: <b>b[kid1] &lt;== a[kid2,grandchild]</b>).",
 "	Using this in combination with moving or swapping data, you can do easy data manipulations such as balancing binary trees.",
 "",
 "	<br><br>",
@@ -7178,22 +7675,19 @@
 "",
 "	<br><br>",
 "	If an accent circumflex is added after the transaction operator, then the transaction will only touch the member variables, but do not modify the base variables",
-"	on both sides.",
-""
+"	on both sides."
  ]
 	,
 "Examples 01:First Example:" : [
-"	array( a[], { Ape, Bat, Cat, Dog, Elk, Fox, Gnu, Hog } );",
+"	array( a[], { Ape, Bat, Cat, Dog, { Setter, Jack Russell, Dachshund }, Elk, Fox, Gnu, Hog } );",
 "	array( b[], { Granite, Gneiss, Quartz, Basalt } );",
 "",
 "	a[] = Animals; b[] = Varieties of Rocks;",
 "",
 "	a[] <=> b[]; // Swap",
 "",
-"	echo(\"a:\");",
-"	inspect( a[] );",
-"	echo(\"b:\");",
-"	inspect( b[] );	"
+"	inspect( a[] ); // Your rocks collection",
+"	inspect( b[] );	// Animals, incl varieties of dogs"
  ]
 	,
     "Output 01:": "automatic"	
@@ -7208,33 +7702,47 @@
     "Feature Names":		[ "Without Transaction Assignment Operators" ],
 "Description 01:Introduction" : [
 "	The following sections provide an introduction of carrying out transactions without assignment operators.",
-"	In this case, destination variables or table entries will be cleared first before they are overwritten."
+"	In this case, destination variables or table entries are cleared first before they are overwritten.  The following",
+"	illustration shows a typical <b>copy</b> transaction:",
+"",
+"	<br/><br/><img src=\"Images/Description_Transactions_Basics.jpg\" alt=\"Transactions Basics\"><br/>",
+""
  ]
 	
 },
 
 
-"Transactions between variables" :
+"Transactions between Variables" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Transactions between variables" ],
 "Description 01:Introduction" : [
-"	Transaction between variables covers all nested members without limitation of the nesting depth.",
 "",
-"	=== 100, 100, 100, 700, bold_column_1 bold_column_2 bold_column_3",
-"	Transaction	| Symbol	| Explanation		| Description",
-"Copy		| &lt;==	| a[] &lt;== b[];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise, the variable will  be initialized, including deleting all members.<br> Step 2: Value from b[] to a[] will be copied like in an assignment<br> 								  Step 3: All members and sub-members will be copied from b[] to a[].",
+"	Transactions can be carried out on base variables as well as member variables.  The following rulesa pply:",
+"	* If the destination variable does not yet exist, then it will be created before the transaction begins.  Hoever, the source variable on the right-hand side must exist.",
+"	* All member variables of the specified destination variable will be cleared.",
+"	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.",
+"	* All structure and array members and sub-members of the source variable will be included in the transaction.",
+"",
+"	<br>",
+"",
+"	The table below uses the variable names <b>a[]</b> and <b>b[]</b> which may also be replaced with array or structure member variables of any hierarchical depth.  This flexible setup allows you to shape up your",
+"	variable trees as you like.",
+"	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3",
+"	Transaction	| Symbol	| Example		| Description",
+"Copy		| &lt;==	| a[] &lt;== b[];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise, the variable will  be initialized, including deleting all members.<br> Step 2: Value from b[] to a[] will be copied like in an assignment.<br> 								  Step 3: All members and sub-members will be copied from b[] to a[].",
 "Copy Members	| &lt;==^	| a[] &lt;==^ b[];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise all members will be deleted.  The base variable will be preserved.<br> Step 2: Will be skipped.<br> 								  Step 3: Like above.",
-"Move		| &lt;&lt;=	| a[] &lt;&lt;= b[];	| Steps 1-3: Like the copy-transaction<br> 								  Step 4: Deletes variable b[] entirely.",
-"Move Members	| &lt;&lt;=^	| a[] &lt;&lt;=^ b[];	| Steps 1-3: Like the copy-members-transaction<br> 								  Step 4: Deletes all members and sub-members of variable b[], but the base variable remains unaffected.",
+"Move		| &lt;&lt;=	| a[] &lt;&lt;= b[];	| Steps 1-3: Like the copy-transaction<br> 								  Step 4: Deletes variable b[] entirely including its members.  If a member variable is specified on the right-hand side, then that member variable with its sub-members will be deleted.",
+"Move Members	| &lt;&lt;=^	| a[] &lt;&lt;=^ b[];	| Steps 1-3: Like the copy-members-transaction<br> 								  Step 4: Deletes all members and sub-members of variable b[], but the base variable remains unaffected. If a member variable is specified on the right-hand side, then those sub-members will be deleted.",
 "	Swap		| &lt;=&gt;	| a[] &lt;=&gt; b[];	| Swaps all contents (base variable and all members and sub-members) between the two variables",
-"	Swap Members	| &lt;=&gt;^	| a[] &lt;=&gt;^ b[];	| Swaps all members (and sub-members) between the two variables",
+"	Swap Members	| &lt;=&gt;^	| a[] &lt;=&gt;^ b[];	| Swaps all members (and sub-members) between the two variables, but the base variables are not swapped.",
 "	===",
 ""
  ]
 	,
 "Examples 01:Copy Transaction Example" : [
 "	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
 "",
 "	animals1[] = Mikes collection;",
 "	b[] = My pets;",
@@ -7242,31 +7750,35 @@
 "	a[] <==  animals1[];",
 "	b[] <==^ animals1[];",
 "",
-"	echo( a[], new line, \"  member names: \", set names( a[] ), \" contents: \", set ( b[] ));",
-"	echo( b[], new line, \"  member names: \", set names( b[] ), \" contents: \", set ( b[] ));"
+"	inspect(a[]);",
+"	inspect(b[]);"
  ]
 	,
     "Output 01:": "automatic",
 "Examples 02:Move Transaction Example" : [
 "	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
-"	animals2[] <== animals1[]; // Make a copy",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
 "",
+"	animals2[] <== animals1[]; // Make a copy",
 "	animals1[] = Mikes collection;",
 "	b[] = My pets;",
 "",
 "	a[] <<=  animals1[];",
 "	b[] <<=^ animals2[];",
 "",
-"	echo( a[], new line, \"  member names: \", set names( a[] ), \" contents: \", set ( b[] ));",
-"	echo(\"  animal1[] existing? \", existing(animals1[]) );",
-"	echo( b[], new line, \"  member names: \", set names( b[] ), \" contents: \", set ( b[] ));",
-"	echo(\"  animal2[] existing? \", existing(animals2[]) );"
+"	inspect(a[]);",
+"	inspect(b[]);",
+"	echo(\"animals1[] existing? \", existing(animals1[]));",
+"	inspect(animals2[]);",
+""
  ]
 	,
     "Output 02:": "automatic",
 "Examples 03:Swap Transaction Example" : [
 "	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
 "	array    ( plants1[],  { tulip, sunflower, fir } );",
+"",
 "	animals1[] = Pets and animals;",
 "	plants1 [] = Plants and flowers;",
 "",
@@ -7276,11 +7788,11 @@
 "	animals1[] <=> plants1[];",
 "	animals2[] <=>^ plants2[];",
 "",
-"	echo( \"Variable animals1[]: \", animals1[], new line, \" contents: \", set ( animals1[] ));",
-"	echo( \"Variable animals2[]: \", animals2[], new line, \" contents: \", set ( animals2[] ));",
-"	echo;",
-"	echo( \"Variable plants1[]: \", plants1[], new line, \"  member names: \", set names( plants1[] ), \" contents: \", set ( plants1[] ));",
-"	echo( \"Variable plants2[]: \", plants2[], new line, \"  member names: \", set names( plants2[] ), \" contents: \", set ( plants2[] ));"
+"	inspect( animals1[] );",
+"	inspect( plants1[] );",
+"",
+"	inspect( animals2[] );",
+"	inspect( plants2[] );"
  ]
 	,
     "Output 03:": "automatic"
@@ -7289,40 +7801,39 @@
 
 
 
-"Transactions from tables to variables" :
+"Transactions from Tables to Variables" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Transactions from tables to variables" ],
 "Description 01:Introduction" : [
 "",
-"	Transactions provide a powerful way to read one row or a specified part of the row and store the contents into a structure.",
+"	Transactions provide a powerful way to read one row or a specified part of the row and store the contents into a __structure__.",
 "	For every item read from the table, a new member will be created, given the name of the corresponding column header name and the contents placed into the ",
-"	member variable variable.  The following rules apply:",
+"	member variable variable.  The following rules apply for these transactions:",
 "",
 "	* Only simple and __horizontal table accesses__ are allowed. __Vertical table accesses__ and __matrix table accesses__ will be rejected and cause exceptions.",
-"	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the __table process(__) call)",
-"	* Transactions from tables to variables generate members (1 nesting level), but no nested sub-members.",
-"	* For automatic type conversions from tables to variables the same rules as if table contents are read out.  See __table configure(__) to modify the fules.",
-"	* Table accesses resulting to empty sets result in creating no members, but the destination variable will exist.",
-"	* Void value is assigned to the base variable unless the <b>^</b> suffix is used behind the transction operator to preserve the __base variable__ value if existing.",
-"	* Make sure every table header in the table to include are unique.  Otherwise, the same member variable will be overwritten since the same name is used repeatedly.",
-"	* Blank table header names a ranslate into blank member names which are valid.  Note that members with blank member names are also treated as __default members__.",
-"",
+"	* Use '..' or keep blank to specify all column entries in the specified row, e.g. <b>[t:..,1]</b> or <b>[t:,1]</b>.",
+"	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the function parameters of the __table process(__) call)",
+"	* Transactions from tables to variables generate only one level of structure members and no further nesting.  Arrays are not created.",
+"	* For automatic type conversions from tables to variables the same rules as if table contents are read out.  See __table configure(__) to modify the rules.",
+"	* The table name is assigned to the base variable unless the <b>^</b> suffix is used behind the transction operator to preserve the __base variable__ value if existing.",
+"	* Table accesses resulting in no values read (empty sets) will at least intialize the destination variable with __zero members__ variable form, but contains no members.",
+"	* Make sure every table header in the table to include are unique.  Otherwise, the same member variable will be overwritten since the same name is used repeatedly.  Alternatively, you can use column numbers.",
+"	* Blank table header names translate into blank member names which are valid.  Note that members with blank member names are also treated as __default members__.",
 "",
 "	The following table applies to transactions from a table row (example: table name 't', row 1, all columns) to a variable.",
-"	=== 100, 100, 100, 700, bold_column_1 bold_column_2 bold_column_3",
+"	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3",
 "	Transaction	| Symbol	| Explanation		| Description",
-"Copy		| &lt;==	| a[] &lt;== t[..,1];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise, the variable will  be initialized, including deleting all members.<br> Step 2: The base variable a[] will be initialized with void value<br> Step 3: For every cell retrieved from the table, a dedicated member will be created.  The header name (row 0) will  								  be used for the member name and the contents will be written into the member variables.",
-"Copy Members	| &lt;==^	| a[] &lt;==^ t[..,1];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise all members will be deleted.  The base variable will be preserved.<br> Step 2: Will be skipped.<br> 								  Step 3: Like above.",
-"Move		| &lt;&lt;=	| a[] &lt;&lt;= t[..,1];| Steps 1-3: Like the copy-transaction<br> 								  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.",
-"Move Members	| &lt;&lt;=^	| a[] &lt;&lt;=^ t[..,1];	| Steps 1-3: Like the copy-members-transaction<br> 									  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.",
-"	Swap		| &lt;=&gt;	| a[] &lt;=&gt; t[..,1];	| The contents in the member variable and the table row will be exchanged.  Void value will be assigned to the base variable.",
-"	Swap Members	| &lt;=&gt;^	| a[] &lt;=&gt;^ t[..,1];	| The contents in the member variable and the table row will be exchanged.  The base variable will be preserved.",
+"Copy		| &lt;==	| a[] &lt;== [t:..,1];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise, the variable will  be initialized, including deleting all members.<br> Step 2: The table name will be copied into the base variable a[].<br> Step 3: For every cell retrieved from the table, a dedicated member will be created.  The header name (row 0) will  								  be used for the member name and the contents will be written into the member variables.",
+"Copy Members	| &lt;==^	| a[] &lt;==^ [t:..,1];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise all members will be deleted.  The base variable will be preserved.<br> Step 2: Will be skipped.<br> 								  Step 3: Like above.",
+"Move		| &lt;&lt;=	| a[] &lt;&lt;= [t:..,1];| Steps 1-3: Like the copy-transaction<br> 								  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.",
+"Move Members	| &lt;&lt;=^	| a[] &lt;&lt;=^ [t:..,1];	| Steps 1-3: Like the copy-members-transaction<br> 									  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.",
+"	Swap		| &lt;=&gt;	| a[] &lt;=&gt; [t:..,1];	| The contents in the member variable and the table row will be exchanged.  Void value will be assigned to the base variable.",
+"	Swap Members	| &lt;=&gt;^	| a[] &lt;=&gt;^ [t:..,1];	| The contents in the member variable and the table row will be exchanged.  The base variable will be preserved.",
 "	===",
 "",
 "	In the swap transaction, all members in the original variable will be written back to the table.  For further details, see __transactions from variables to tables__ ",
 "	how members are transferred to the table row.",
-"",
 ""
  ]
 	,
@@ -7339,8 +7850,9 @@
 "	animal1[] <==  [ animals: Name, Dog, .. ]; // Pick up entire row",
 "	animal2[] <==^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only",
 "",
-"	echo( \"Variable animal1[]: \", animal1[], new line, \"  member names: \", set names( animal1[] ), \" contents: \", set ( animal1[] ));",
-"	echo( \"Variable animal2[]: \", animal2[], new line, \"  member names: \", set names( animal2[] ), \" contents: \", set ( animal2[] ));"
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+""
  ]
 	,
     "Output 01:": "automatic",
@@ -7358,9 +7870,8 @@
 "	animal1[] <<=  [ animals: Name, Dog, .. ]; // Pick up entire row",
 "	animal2[] <<=^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only",
 "",
-"	echo( \"Variable animal1[]: \", animal1[], new line, \"  member names: \", set names( animal1[] ), \" contents: \", set ( animal1[] ));",
-"	echo( \"Variable animal2[]: \", animal2[], new line, \"  member names: \", set names( animal2[] ), \" contents: \", set ( animal2[] ));",
-"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
 "	table list( animals ); // The owl is left over"
  ]
 	,
@@ -7382,9 +7893,8 @@
 "	animal1[] <=>  [ animals: Name, Dog, .. ]; // Pick up entire row",
 "	animal2[] <=>^ [ animals: Name, Owl,    ]; ",
 "",
-"	echo( \"Variable animal1[]: \", animal1[], new line, \"  member names: \", set names( animal1[] ), \" contents: \", set ( animal1[] ));",
-"	echo( \"Variable animal2[]: \", animal2[], new line, \"  member names: \", set names( animal2[] ), \" contents: \", set ( animal2[] ));",
-"	echo;",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
 "	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)"
  ]
 	,
@@ -7394,63 +7904,59 @@
 
 
 
-"Transactions from variables to tables" :
+"Transactions from Variables to Tables" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Transactions from variables to tables" ],
+    "Keywords":			[ "Open-ended ranges" ],
 "Description 01:Introduction" : [
 "",
-"	This is the opposite direction where member contents of structures as well as arrays are transferred into tables.",
-"	As long the transaction operator has no assignment operator (discussed in later sections), then the destination row will be cleared entirely before writing.",
-"	Generally, only one nesting level (direct members of specified variables) will be used for the data transfer.",
+"	This is the opposite direction where member contents of structures or arrays are transferred into tables.",
+"	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the",
+"	destination row will be cleared entirely before writing. Generally, only one nesting level (direct members of specified variables) will be used for the data transfer.",
 "",
-"	<br><br>",
+"	Following rules apply:",
+"	* Only simple and __horizontal table accesses__ are allowed. __Vertical table accesses__ and __matrix table accesses__ will be rejected and cause exceptions.",
+"	* Use '..' or keep blank to specify all column entries in the specified row, e.g. <b>[t:..,1]</b> or <b>[t:,1]</b>.  Otherwise only the specified columns will be written.",
+"	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the function parameters of the __table process(__) call)",
+"	* Only one level of __array members__ or __structure members__ will be transferred to the table.",
+"	* Further nested members will not be considered and transferred.",
+"	* The base variable will also not be considered and transferred (i.e. the name of the table will not be altered).",
+"	* During the transaction, the values will be converted to literals automatically because tables maintain all contents as strings.",
+"	* Transactions of variables without members (e.g. __simple variables__, __zero members__ variables) result in no data transfers.  Only row in the destination table will be cleared.",
+"	* Structure members with blank member names (so called __default members__) correspond with blank headers",
+"	* <b>Open-ended ranges</b>: Additional table columns with header names are only added if <i>open-ended ranges</i> are specified for the table row.  Open-ended ranges apply in following cases:",
+"	** <b>[t:..,1]</b> - All columns under existing headers selected.  Further columns may be added",
+"	** <b>[t:,1]</b> - All columns in the current row are selected.  Further columns may be added",
+"	** <b>[t:3..,1]</b> - All columns beginning with column 3 (example value) till end of row.",
 "",
-"	<u>Structures to tables:</u> The member names will be matched with the existing column header names, provided they are part of the table specification",
+"	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification",
 "	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then an additional",
 "	header with that name will be added to the table and the data will be written into the designated field below.",
 "",
 "	<br><br>",
 "",
-"	<u>Arrays to tables:</u> The array members will be written into the table as defined in the table specification (whole row, set of columns, a range or just one column).",
+"	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).",
 "	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.",
-"	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table.",
-"	Only exception: Open-ended ranges, for example: [t:5..,1], [t:..,1], [t:, 1].",
+"	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table unless",
+"	open-ended ranges have been specified, for example: <b>[t:5..,1], [t:..,1], [t:,1]</b>.",
 "",
 "	<br><br>",
 "",
 "	The following table applies to transactions from a table row (example: table name 't', row 1, all columns) to a variable.",
-"	=== 100, 100, 100, 700, bold_column_1 bold_column_2 bold_column_3",
+"	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3",
 "	Transaction	| Symbol	| Explanation			| Description",
-"Copy		| &lt;==	| t[..,1] &lt;== a[];		| Step 1: Checks that exactly one table row and one or more or all columns are specified.<br> Step 2: Clears all contents in the specified table row<br> Step 3: Data transfer from variable to table as described above.<br> 									  Note: The base variable will not be copied.",
-"	Copy Members	| &lt;==^	| t[..,1] &lt;==^ b[];		| Same mas copy-transaction.",
-"Move		| &lt;&lt;=	| t[..,1] &lt;&lt;= b[];	| Steps 1-3: Like the copy-transaction<br> 									  Step 4: Deletes variable b[] entirely.",
-"Move Members	| &lt;&lt;=^	| t[..,1] &lt;&lt;=^ b[];	| Steps 1-3: Like the copy-members-transaction<br> 									  Step 4: Deletes all members and sub-members of variable b[], but the base variable remains unaffected.",
-"	Swap		| &lt;=&gt;	| t[..,1] &lt;=&gt; b[];	| The contents in the member variable and the table row will be exchanged.  Void value will be assigned to the base variable.",
-"	Swap Members	| &lt;=&gt;^	| t[..,1] &lt;=&gt;^ b[];	| The contents in the member variable and the table row will be exchanged.  The base variable will be preserved.",
+"Copy		| &lt;==	| [t:..,1] &lt;== a[];		| Step 1: Checks that exactly one table row and one or more or all columns are specified.<br> Step 2: Clears all contents in the specified table row<br> Step 3: Data transfer from variable to table as described above.<br> 									  Note: The base variable will not be copied.",
+"	Copy Members	| &lt;==^	| [t:..,1] &lt;==^ a[];		| Same mas copy-transaction.",
+"Move		| &lt;&lt;=	| [t:..,1] &lt;&lt;= a[];	| Steps 1-3: Like the copy-transaction<br> 									  Step 4: Deletes variable b[] entirely including its members.  If a member variable is specified on the right-hand side, then that member variable with its sub-members will be deleted.",
+"Move Members	| &lt;&lt;=^	| [t:..,1] &lt;&lt;=^ a[];	| Steps 1-3: Like the copy-members-transaction<br> 									  Step 4: Deletes all members and sub-members of variable b[], but the base variable remains unaffected. If a member variable is specified on the right-hand side, then those sub-members will be deleted.",
+"	Swap		| &lt;=&gt;	| [t:..,1] &lt;=&gt; a[];	| The contents in the member variable and the table row will be exchanged.  Void value will be assigned to the base variable.",
+"	Swap Members	| &lt;=&gt;^	| [t:..,1] &lt;=&gt;^ a[];	| The contents in the member variable and the table row will be exchanged.  The base variable will be preserved.",
 "	===",
 ""
  ]
 	,
 "Examples 01:Copy Transaction Example" : [
-"	table initialize( animals,",
-"		{ { Name,  Leg count, Special ability  },",
-"		  { Owl,   2,         Night vision     },",
-"		  { Dog,   4,         Sensitive nose   },",
-"		  { Ape,   2 or 4,    Relatively smart } } );",
-"",
-"	animal1[] = \"My animal\";	",
-"	animal2[] = \"My animal\";	",
-"",
-"	animal1[] <==  [ animals: Name, Dog, .. ]; // Pick up entire row",
-"	animal2[] <==^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only",
-"",
-"	echo( \"Variable animal1[]: \", animal1[], new line, \"  member names: \", set names( animal1[] ), \" contents: \", set ( animal1[] ));",
-"	echo( \"Variable animal2[]: \", animal2[], new line, \"  member names: \", set names( animal2[] ), \" contents: \", set ( animal2[] ));"
- ]
-	,
-    "Output 01:": "automatic",
-"Examples 02:Move Transaction Example" : [
 "	include( Support Library );",
 "	table initialize( animals,",
 "		{ { Name,  Leg count, Special ability  },",
@@ -7458,8 +7964,9 @@
 "		  { Dog,   4,         Sensitive nose   },",
 "		  { Ape,   2 or 4,    Relatively smart } } );",
 "",
-"",
 "	structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );",
+"	structure( animals1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table",
+"",
 "	structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );",
 "",
 "	[ animals : Name, Owl, .. ] <== animal1[]; 				// All columsns are written, plus new ones",
@@ -7468,8 +7975,47 @@
 "	table list ( animals );"
  ]
 	,
+    "Output 01:": "automatic",
+"Examples 02:Copy Transaction Example from an array" : [
+"	include( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	array( animal1[], { Boa, 0, Kills by constricting, Likes rats, and mice } ); // Addt'l colum without header added",
+"	",
+"	[ animals : .., 1 ] <== animal1[];   // All columsns are written, plus new ones",
+"",
+"	table list ( animals );"
+ ]
+	,
     "Output 02:": "automatic",
-"Examples 03:Swap Transaction Example" : [
+"Examples 03:Move Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );",
+"	structure( animal1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table",
+"",
+"	structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );",
+"	animal2[] = Pets;",
+"",
+"	[ animals : Name, Owl, .. ] <<= animal1[]; 				// All columns are written, plus new ones",
+"	[ animals : Name, Ape, {Name, Leg count} ] <<=^ animal2[];		// Only name and leg count are written",
+"",
+"	table list ( animals );",
+"	echo(\"animal1[] existing? \", existing(animal1[]) );",
+"	inspect(animal2[]); "
+ ]
+	,
+    "Output 03:": "automatic",
+"Examples 04:Swap Transaction Example" : [
 "	include( Support Library );",
 "	table initialize( animals,",
 "		{ { Name,  Leg count, Special ability  },",
@@ -7486,13 +8032,13 @@
 "	[ animals: Name, Dog, .. ] <=> animal1[]; // Pick up entire row",
 "	[ animals: Name, Owl, {Name,Special ability} ] <=>^ animal2[];  // E.g. leg count not included",
 "",
-"	echo( \"Variable animal1[]: \", animal1[], new line, \"  member names: \", set names( animal1[] ), \" contents: \", set ( animal1[] ));",
-"	echo( \"Variable animal2[]: \", animal2[], new line, \"  member names: \", set names( animal2[] ), \" contents: \", set ( animal2[] ));",
-"	echo;",
-"	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)	"
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)	",
+""
  ]
 	,
-    "Output 03:": "automatic"
+    "Output 04:": "automatic"
 },
 
 
@@ -7504,23 +8050,30 @@
     "Feature Names":		[ "Transactions between tables" ],
 "Description 01:Introduction" : [
 "",
-"	Transactions are possible between two table rows inside the same table or between two different tables.  ",
-"	The <b>^</b> suffix behind the transaction operator is irrelvant because no base variables are involved.",
-"	Transactions between two different tables, or two different rows in the same table are allowed.",
+"	Transactions between table rows in the same or two different tables are also supported.  ",
+"	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the",
+"	destination row will be cleared entirely before writing.",
 "",
+"	Following rules apply:",
+"	* Only simple and __horizontal table accesses__ are allowed. __Vertical table accesses__ and __matrix table accesses__ will be rejected and cause exceptions.",
+"	* Use '..' or keep blank to specify all column entries in the specified row, e.g. <b>[t:..,1]</b> or <b>[t:,1]</b>.  Otherwise only the specified columns will be written.",
+"	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the function parameters of the __table process(__) call)",
+"	* The transactions uses the header names and not physical column positions for orientation.  Make sure you are using unique header names.  Otherwise, the first matching column from the left will be used.",
+"	* Additional table columns with header names are only added if __open-ended ranges__ are specified for the table row.  Open-ended ranges apply in following cases:",
+"	** <b>[t:..,1]</b> - All columns under existing headers selected.  Further columns may be added",
+"	** <b>[t:,1]</b> - All columns in the current row are selected.  Further columns may be added",
+"	** <b>[t:3..,1]</b> - All columns beginning with column 3 (example value) till end of row.",
+"	* The <b>^</b> suffix behind the transaction operator is irrelvant because no base variables are involved.",
+"",
+"	<u>Attention</u>: In case no __open-ended ranges__ have been specified, then only the columns with header names found in both source and destination tables will be transferred.",
 "	<br><br>",
-"	Copying procedure: If specifc columns in the source table are selected, the those data items will only be copied if the same items (e.g. same header names)",
-"	are selected in the destination table.  Nothing is copied if specified columns in both source and destination are common (i.e. overlapping), for example",
-"	in the following statement: <b>[t: {City, Country}, 3] <== [t: {State, Street}, 4];</b>.",
 "",
-"	<br><br>",
-"	When coping data from one table to another table, additional headers will only be created if the column specification is open-ended.  Examples: [t:5..,1], [t:..,1], [t:, 1].",
-"",
-"	=== 100, 100, 100, 700, bold_column_1 bold_column_2 bold_column_3",
+"	The following table applies to transactions between table rows (example: table names 't' and 'u', row 1 and 2, all columns) to a variable.",
+"	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3",
 "	Transaction	| Symbol	| Explanation			| Description",
-"Copy		| &lt;==	| t[..,1] &lt;== a[];		| Step 1: Checks that exactly one table row and one or more or all columns are specified.<br> Step 2: Clears all contents in the specified table row<br> Step 3: Data transfer from variable to table as described above.<br> 									  Note: The base variable will not be copied.",
-"Move		| &lt;&lt;=	| t[..,1] &lt;&lt;= b[];	| Steps 1-3: Like the copy-transaction<br> 									  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.",
-"	Swap		| &lt;=&gt;	| t[..,1] &lt;=&gt; b[];	| The contents in the member variable and the table row will be exchanged.",
+"Copy		| &lt;==	| [t:..,1] &lt;== [u:,2]	| Step 1: Checks that exactly one table row and one or more or all columns are specified.<br> Step 2: Clears all contents in the specified table row<br> Step 3: Data transfer from variable to table as described above.<br> 									  Note: The base variable will not be copied.",
+"Move		| &lt;&lt;=	| [t:..,1] &lt;&lt;= [u:,2];	| Steps 1-3: Like the copy-transaction<br> 									  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.",
+"	Swap		| &lt;=&gt;	| [t:..,1] &lt;=&gt; [u:,2];	| The contents in the member variable and the table row will be exchanged.",
 "	===",
 ""
  ]
@@ -7567,7 +8120,6 @@
 "	[ animals2: Name, Gnu, .. ] <<= [ animals1: Name, Dog, ];  // Dog overwrites Gnu, Dog erased from animals 1",
 "	[ animals1: Name, Owl,    ] <<= [ animals2: Name, Bee, .. ]; // Open ended items, also copy the weapon",
 "",
-"",
 "	echo(\"Contains the bee, owl and dog removed\");",
 "	table list( animals1 ); // No additional column created",
 "	",
@@ -7590,11 +8142,9 @@
 "		  { Gnu,   4,         Knows UNIX,      horns   },",
 "		  { Cat,   4,         Empathy to humans, sharp claws } } );",
 "",
-"",
 "	[ animals2: Name, Cat, .. ] <=> [ animals1: Name, Dog,  ];",
 "	[ animals2: Name, Bee, Name..Special ability ] <=> [ animals1: Name, Owl, ]; // Excludes the weapon",
 "	",
-"",
 "	echo(\"Contains Bee, Cat and Ape\");",
 "	table list( animals1 ); // No additional column created",
 "	",
@@ -7612,43 +8162,56 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Transactions with AND assignment operator" ],
 "Description 01:Introduction" : [
-"	The following pages summarize the transactions using the &amp; prefix.  In principle, matching elements in the source",
-"	will overwrite the corresponding elements in the destination as long they are existing. The destination will not be extended.",
+"	The following pages summarize the transactions using the <b>&amp;</b> prefix. Different from transactions without assignment operators where",
+"	the destination variable or table row is initialized first, the existing values in the destination are overwritten if the corresponding",
+"	source data is available in the same member variable position or with same table column header name or number.  More specifically, following rules apply:",
+"",
+"	* Existing structure members will be overwritten",
+"	* Missing structure members will <u>not</u> be created and the corresponding data will <u>not</u> be written",
+"	* Existing array members will be overwritten",
+"	* Existing arrays will <u>not</u>be extended with additional members if not all data fit in the existing members, meaning that the remaining data will not be transferred.",
+"	* If the destination is a table, then <u>no</u> additional columns will be added to fit the data.  Excessive data will not be transferred",
+"	* Missing arrays and/or structures will <u>not</u> be created (in order to transfer the remaining data which will not be the case)",
+""
+ ]
+	,
+"Description 02:Typical Example" : [
+"	<img src=\"Images/Description_Transactions_Variable_Variable_AND.jpg\" alt=\"Variable to Variable Transaction with &amp; Assignment Operator\"><br/>",
 ""
  ]
 	
 },
 
 
-"&amp; Transactions between variables" :
+"&amp; Transactions between Variables" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "AND Transactions between variables" ],
 "Description 01:Introduction" : [
-"	Different from transactions without assignment operators, the &amp; assignment operator in front of the transaction symbol will assume the",
-"	following rules focussing on overlaying data from the source variable in the destination variable.:",
-"	",
-"	* If the destination variable does not yet exist, then it will be created",
-"	* The base variable will be overwritten as long no <b>^</b> suffix has been specified.",
-"	* The existing variable tree structure (arrays, structures, nested arrays and nested structures) will be preserved.",
-"	** No further arrays and/or structures are added",
-"	** Neither arrays nor structures will be extended or reduced",
-"	* Only the contents in the destination variables for which a source value exists in the same hierarchical position will be overwritten.",
+"	Different from transactions without assignment operators, the <b>&amp;</b> assignment operator in front of the transaction symbol will assume the",
+"	following rules focussing on overlaying data from the source variable in the destination variable:",
 "",
+"	* Transactions can be carried out on base variables as well as member variables.",
+"	* If the destination variable does not yet exist, then it will be created as __simple variable__ containing void value before the transaction begins.  However, the source variable on the right-hand side must exist.",
+"	* The existing setup of structure and array members and sub-members in the destination variable will not be altered.",
+"	** No further arrays or structures will be added",
+"	** No additional members will be added to existing array and structure members",
+"	* Where possible, all structure and array members and sub-members of the source variable will be included in the transaction.",
+"	** Values in member positions in the source variables for which no corresponding position is existing in the destination variable will not be transferred.",
+"	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.",
 "",
 "	<br><br>Following actions are applied on the destination variables using this assignment operator:",
-"",
-"	== 100, 100, 800",
+"	=== 100, 100, 800",
 "	Destination		| Source			| Description",
-"Non-existing variable	| Array or structure 		| Step 1: The destination is initialized as specified. <br> Step 2: The base variable is copied if the assignment operator has no <b>^</b> suffix.<br> 								  Step 3: The variable form of the destination becomes a __zero member__ type (only base variable and zero members)",
-"	Simple or zero members	| Array or structure		| Same behavior as above",
-"	Non-existing variable	| Simple or zero members	| Steps 1+2: See above. That's it.",
-"	Simple or zero members	| Simple or zero members	| Steps 1+2: See above. That's it.",
-"Structure		| Structure			| Steps 1+2: See above.<br> 								  Step 3: Members with matching member names will be copied. All other members in the source will not be copied. All other members in the destination remain unaffected.",
-"Array			| Structure			| Steps 1+2: See above.<br> Step 3: The existing array members will be replaced by members from the source variable, sorted in alphabetic order by member name.<br> - If the destination ahs more members than teh source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then not all members will be copied.",
-"	Structure		| Array				| Same behavior as for simple varialbes in the destination side because arrays are not compatible with structures",
-"Array			| Array				| Steps 1+2: See above.<br> Step 3: The existing array members will be replaced from the members in the source variable in unchanged sequential order.<br> - If the destination ahs more members than teh source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then not all members will be copied.",
-"	Structure or array	| Simple or zero members	 | Steps 1+2: See above. That's it.",
+"	Simple or zero members	| Simple or zero members	| The value of the base variable will be transferred as long no <b>^</b> suffix is specified. ",
+"	Simple or zero members	| Array				| Base variable: See above.  The array nembers are not transferred.  Same applies to their sub-members.",
+"	Simple or zero members	| Structure			| Base variable: See above.  The structure nembers are not transferred. Same applies to their sub-members.",
+"	Structure		| Simple or zero members	| Base variable: See above.",
+"	Structure		| Array				| Base variable: See above.  The array members are not copied into structure members as they are incompatiable (missing names).",
+"Structure		| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. - Existing members will be overwritten<br> 								  - No additional member names will be added.",
+"	Array			| Simple or zero members	| Base variable: See above. ",
+"Array			| Array				| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. - If the destination has more members than the source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then the remaining members in the source variable will not be copied.",
+"Array			| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br> - If the destination has more members than the source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then the remaining members in the source variable will not be copied.",
 "	===",
 ""
  ]
@@ -7660,65 +8223,1043 @@
 "	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
 "	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
 "",
-"	animals2[] = Includes a reptile;",
-"	animals1[] &<== animals2[];  // mammal, carnivore and fish will be overwritten.",
-"",
-"	animals3[] = No animal inside yet; // And nothing will be built up here.",
-"	animals3[] &<==^ animals2[];",
-"",
-"	echo(\"Merged animals as \", identify( animals1[]));",
-"	inspect( animals1[] );",
-"",
-"	echo(\"Initially no animals. Merged as \", identify( animals3[]));",
-"	inspect( animals3[] );"
+"	animals1[] &<== animals2[];  // Trout and cat overwritten, owl survives",
+"	inspect(animals1[]);"
  ]
 	,
     "Output 01:": "automatic",
 "Examples 02:Move Transaction Example" : [
-"	echo(\"UNDER CONSTRUCTION\");",
 "	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
-"	animals2[] <== animals1[]; // Make a copy",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
 "",
-"	animals1[] = Mikes collection;",
-"	b[] = My pets;",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
 "",
-"	a[] <<=  animals1[];",
-"	b[] <<=^ animals2[];",
+"	animals1[mammal] &<<= animals2[mammal]; ",
+"	// Lynx replaces bear, and the deer continues living.",
 "",
-"	echo( a[], new line, \"  member names: \", set names( a[] ), \" contents: \", set ( b[] ));",
-"	echo(\"  animal1[] existing? \", existing(animals1[]) );",
-"	echo( b[], new line, \"  member names: \", set names( b[] ), \" contents: \", set ( b[] ));",
-"	echo(\"  animal2[] existing? \", existing(animals2[]) );"
+"	inspect(animals1[]);",
+"	inspect(animals2[]);"
  ]
 	,
     "Output 02:": "automatic",
 "Examples 03:Swap Transaction Example" : [
-"	echo(\"UNDER CONSTRUCTION\");",
-"",
 "	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
-"	array    ( plants1[],  { tulip, sunflower, fir } );",
-"	animals1[] = Pets and animals;",
-"	plants1 [] = Plants and flowers;",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
 "",
-"	animals2[] <== animals1[];",
-"	plants2 [] <== plants1[];",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
 "",
-"	animals1[] <=> plants1[];",
-"	animals2[] <=>^ plants2[];",
+"	animals1[] &<=> animals2[]; ",
 "",
-"	echo( \"Variable animals1[]: \", animals1[], new line, \" contents: \", set ( animals1[] ));",
-"	echo( \"Variable animals2[]: \", animals2[], new line, \" contents: \", set ( animals2[] ));",
-"	echo;",
-"	echo( \"Variable plants1[]: \", plants1[], new line, \"  member names: \", set names( plants1[] ), \" contents: \", set ( plants1[] ));",
-"	echo( \"Variable plants2[]: \", plants2[], new line, \"  member names: \", set names( plants2[] ), \" contents: \", set ( plants2[] ));"
+"	inspect(animals1[]); // animals1 gets cat, trout, lynx",
+"	inspect(animals2[]); // animals2 gets dog, eel and bear"
  ]
 	,
     "Output 03:": "automatic"
 
+},
+
+
+
+
+"&amp; Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions from tables to variables" ],
+"Description 01:Introduction" : [
+"",
+"	This form of transaction picks up a table row and treats it as a 1-level structure with members named by the corresponding header names which will then be",
+"	integrated in the destination variable using the rules of the <b>&amp;</b> prefix.",
+"",
+"	<br><br>",
+"	Table access rules: See section on __Transactions from Tables to Variables__.<br>",
+"	Destination variable rules: See section on __AND Transactions between variables__.",
+"",
+"	<br><br>Following actions are applied on the destination variables using this assignment operator:",
+"	=== 100, 100, 800",
+"	Destination		| Source			| Description",
+"	Simple or zero members	| Table contents (1 row)	| Base variable: Updated with table name if no <b>^</b> suffix is specified.",
+"Structure		| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. - Existing members will be overwritten<br> 								  - No additional member names will be added.",
+"Array			| Table contents (1 row)	| Base variable: See above.  Existing array members will be overwritten. - If the destination has more members than the source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then the remaining members in the source variable will not be copied.",
+"	===",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, \"On-flight acoustic radar\", skin wings } );",
+"	array( animal2[], { Rat, \"Relatively intelligent\", gray hair, not a favorable pet  } );",
+"	animal1[] = \"A kind of flying dog\";",
+"	animal2[] = \"A kind of big mouse\";",
+"",
+"	animal1[] &<== [ animals: .., 1 ]; // Owl with skin wings and night vision",
+"	animal2[] &<== [ animals: .., 1 ]; // Owl",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Move Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, \"On-flight acoustic radar\", skin wings } );",
+"	array( animal2[], { Rat, \"Relatively intelligent\", gray hair, not a favorable pet  } );",
+"	animal1[] = \"A kind of flying dog\";",
+"	animal2[] = \"A kind of big mouse\";",
+"",
+"	animal1[] &<<= [ animals: .., 1 ]; // Owl ",
+"	animal2[] &<<= [ animals: .., 1 ]; // Dog",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Ape left over"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Swap Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10  } );",
+"",
+"	animal1[] &<=>  [ animals: .., 1 ]; // Animal1: Owl with night vision, no info on legs, keeps bat wings and hangs while sleeping",
+"	animal2[] &<=>^ [ animals: .., 2 ]; // Animal2: Dog with 4 legs.  Circumflex symbol: Do not transfer table name.",
+"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains bat and crab and ape with some info"
+ ]
+	,
+    "Output 03:": "automatic"
+
+},
+
+
+
+"&amp; Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions from variables to tables" ],
+"Description 01:Introduction" : [
+"",
+"	This is the opposite direction where member contents of structures or arrays are transferred into tables.  In contrast to transaction to tables",
+"	without assignment operators, the data in the destination table row will not be deleted.  Only the specifed data columns will be overwritten as long as",
+"	matching data from the source variable is available. No additional table columns are introduced here to insert the remaining data.",
+"",
+"	<br><br>",
+"	Destination table rules: See section on __Transactions from Variables to Tables__.<br>",
+"	The only exception is that destination table rows are not cleared, and the __open-ended ranges__ rule does not apply for the <b>&amp;</b> assignment operator.",
+"	The <b>^</b> suffix, if used, does not affect the functionality with copy- and swap-transactions because the destination is a table and table names will not be changed during transactions.",
+"",
+"	<br><br>",
+"	",
+"	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification",
+"	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then it will be ignored.",
+"",
+"	<br><br>",
+"",
+"	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).",
+"	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.",
+"	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table.",
+""
+ ]
+	,
+"Examples 01:Copy and Move Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );",
+"",
+"	[ animals: .., 2 ] &<== animal1[];",
+"	[ animals: .., 3 ] &<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.",
+"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains owl, bat and crab"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Swap Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );",
+"",
+"	[ animals: .., 2 ] &<=> animal1[];  // Swap, with table name in base variable",
+"	[ animals: .., 3 ] &<=>^ animal2[]; // Swap",
+"",
+"	inspect( animal1[] ); // Strange animal descriptions ...",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains owl, bat and crab with some info"
+ ]
+	,
+    "Output 02:": "automatic"
+
+},
+
+
+
+
+"&amp; Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions between tables" ],
+"Description 01:Introduction" : [
+"",
+"	Transactions between table rows in the same or two different tables are also supported.  ",
+"	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the",
+"	destination row will be cleared entirely before writing.",
+"",
+"	<br><br>",
+"	Table rules: See section on __Transactions between Tables__.<br>",
+"	The only exception is that tables are not cleared, and the __open-ended ranges__ rule does not apply for the <b>&amp;</b> assignment operator.",
+"	The <b>^</b> suffix has no impact on table-to-table transactions.",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals1: Name, Dog, .. ] &<== [ animals2: Name, Cat, ]; // sharp claws will not be copied due to &-Rules",
+"	[ animals1: {Name,Leg count}, 3 ]  &<== [ animals2: Name, Bee, { Weapon, Name } ]; // Only name will be transferred: Bee",
+"	[ animals2: Name, 2 ] &<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers",
+"",
+"	table list( animals1 ); // Cat with sensitive nose, relatively smart bee",
+"	table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu."
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Move Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Surface,   Leg count, Special ability  },",
+"		  { Owl,   Feathers,  2,         Night vision     },",
+"		  { Dog,   Fur,       4,         Sensitive nose   },",
+"		  { Ape,   Hair,      2 or 4,    Relatively smart } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals2: Name, Gnu, .. ] &<<= [ animals1: Name, Dog, Special ability ];  // Gnu with sensitive nose",
+"	[ animals1: Name, Owl,    ] &<<= [ animals2: Name, Bee, .. ]; // Bee without sting",
+"",
+"	table list( animals1 );  // Without dog",
+"	table list( animals2 );  // Without bee"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Swap Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Leg count, Special ability, Strange habit  },",
+"		  { Owl,   2,         Night vision, night time noise in the forest     },",
+"		  { Dog,   4,         Sensitive nose, \"Man's best friend\"   },",
+"		  { Ape,   2 or 4,    Relatively smart, often funny } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals2: Name, Cat, .. ] &<=> [ animals1: Name, Dog,  ];",
+"	[ animals2: Name, Bee, Name..Special ability ] &<=> [ animals1: Name, Owl, ]; // Excludes the weapon",
+"	",
+"	table list( animals1 ); // No additional column created",
+"	table list( animals2 ); // No additional column created"
+ ]
+	,
+    "Output 03:": "automatic"
+},
+
+
+
+"&vert; Transaction Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions with OR assignment operator" ],
+"Description 01:Introduction" : [
+"	Transactions with the <b>+</b> prefix function similarily like the <b>&amp;</b> prefix, but following differences apply where the variable tree in the",
+"	destination table or variable will be extended to fit the data:",
+"",
+"	* Existing structure members will be overwritten",
+"	* Missing structure members will be created and the data will be written to them",
+"	* Existing array members will be overwritten",
+"	* Existing arrays will be extended with additional members if not all data can fit into the already existing members",
+"	* If the destination is a table, then additional columns may be added to fit the data (dependings on how the target table row is specified)",
+"	* New arrays and/or structures will be created if they are still missing in the destination in order to fit all data to be transferred"
+ ]
+	,
+"Description 02:Typical Example" : [
+"",
+"	<img src=\"Images/Description_Transactions_Variable_Variable_OR.jpg\" alt=\"Variable to Variable Transaction with &vert; Assignment Operator\"><br/>",
+""
+ ]
+	
+},
+
+
+"&vert; Transactions between Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions between variables" ],
+"Description 01:Introduction" : [
+"	Different from transactions without assignment operators, the <b>&vert;</b> assignment operator in front of the transaction symbol will assume the",
+"	following rules focussing on overlaying data from the source variable in the destination variable:",
+"",
+"	* Transactions can be carried out on base variables as well as member variables.",
+"	* If the destination variable does not yet exist, then it will be created as __simple variable__ containing void value before the transaction begins.  However, the source variable on the right-hand side must exist.",
+"	* The existing setup of structure and array members and sub-members in the destination variable may be extended:",
+"	** Further arrays and/or structures may be added.",
+"	** Additional members may be added to existing arrays and/or structures.",
+"	** Destination memebers for which equivalent source members are existing will be overwritten.",
+"	* Where possible, all structure and array members and sub-members of the source variable will be included in the transaction.",
+"	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.",
+"",
+"	<br><br>Following actions are applied on the destination variables using this assignment operator:",
+"	=== 100, 100, 800",
+"	Destination		| Source			| Description",
+"	Simple or zero members	| Simple or zero members	| The value of the base variable will be transferred as long no <b>^</b> suffix is specified. ",
+"	Simple or zero members	| Array				| Base variable: See above.  The array (including sub-members) will be transferred.",
+"	Simple or zero members	| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred.",
+"	Structure		| Simple or zero members	| Base variable: See above.",
+"Structure		| Array				| Base variable: See above.  The array members will be renamed to structure members where the member names are 8-digit text representations of the index number, e.g. '00000000', '00000001', etc. 								  After this, same rules as for structures described below apply.",
+"Structure		| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred. - Existing members will be overwritten<br> - Additional members may be added<br> 								  - Additional arrays and/or structures may be added<br>",
+"	Array			| Simple or zero members	| Base variable: See above. ",
+"Array			| Array				| Base variable: See above.  The array will be copied. - If the destination has more members than the source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then the array will be extended in order to transfer all members.",
+"Array			| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br> - If the destination has more members than the source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then the array will be extended in order to transfer all members.",
+"	===",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
+"",
+"	animals1[] |<== animals2[];  // animals1 contains overwritten fish, reptile and all mammal sub-members",
+"	inspect(animals1[]);"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Copy Transaction Example among Structures and Arrays" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { herbivore, carnivore }, { deer, bear } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	array( animals2[mammal], { lynx, skunk, shark, pig } );",
+"",
+"	animals2[] |<== animals1[];  // Note: bear, then deer replace lynx and skunk",
+"	animals1[] |<== animals2[];",
+"",
+"	inspect(animals2[]); // Array with 4 elements",
+"	inspect(animals1[]); // Addition of beer, dear, shark and pig"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Move Transaction Example" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
+"",
+"	animals1[mammal] |<<= animals2[mammal]; ",
+"	// Lynx replaces bear, skunk added, turtle added",
+"",
+"	inspect(animals1[]); // omnivore added, carnivore overwritten",
+"	inspect(animals2[]); // no more mammal subtypes (...vores)"
+ ]
+	,
+    "Output 03:": "automatic",
+"Examples 04:Swap Transaction Example" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
+"",
+"	animals1[] |<=> animals2[]; ",
+"",
+"	inspect(animals1[]); // trout and eel; and dog and cat are exchanged, owl and turtle duplicated",
+"	inspect(animals2[]); "
+ ]
+	,
+    "Output 04:": "automatic"
+
+},
+
+"&vert; Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions from tables to variables" ],
+"Description 01:Introduction" : [
+"",
+"	This form of transaction picks up a table row and treats it as a 1-level structure with members named by the corresponding header names which will then be",
+"	integrated in the destination variable using the rules of the <b>&vert;</b> prefix.",
+"",
+"	<br><br>",
+"	Table access rules: See section on __Transactions from Tables to Variables__.<br>",
+"	Destination variable rules: See section on __OR Transactions between variables__.",
+"",
+"	<br><br>Following actions are applied on the destination variables using this assignment operator:",
+"	=== 100, 100, 800",
+"	Destination		| Source			| Description",
+"	Simple or zero members	| Table contents (1 row)	| Base variable: Updated with table name if no <b>^</b> suffix is specified.",
+"Structure		| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. - Existing members will be overwritten<br> - Additional members may be added<br> 								  - Additional arrays and/or structures may be added<br>",
+"Array			| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br> - If the destination has more members than the source, then the excess destination members remain unaffected.<br> 								  - If the destination has fewer members than the source, then the array will be extended in order to transfer all members.",
+"	===",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, \"On-flight acoustic radar\", skin wings } );",
+"	array( animal2[], { Rat, \"Relatively intelligent\", gray hair, not a favorable pet  } );",
+"	animal1[] = \"A kind of flying dog\";",
+"	animal2[] = \"A kind of big mouse\";",
+"",
+"	animal1[] |<== [ animals: .., 1 ];",
+"	animal2[] |<==^	 [ animals: .., 1 ];",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Move Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, \"On-flight acoustic radar\", skin wings } );",
+"	array( animal2[], { Rat, \"Relatively intelligent\", gray hair, not a favorable pet  } );",
+"	animal1[] = \"A kind of flying dog\";",
+"	animal2[] = \"A kind of big mouse\";",
+"",
+"	animal1[] |<<= [ animals: .., 1 ]; // Owl, with skin wings like a bat",
+"	animal2[] |<<= [ animals: .., 1 ]; // Dog, but not a favorable pet",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Ape left over"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Swap Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10  } );",
+"",
+"	animal1[] |<=>  [ animals: .., 1 ]; // Exchange owl with bat",
+"	animal2[] |<=>^ [ animals: .., 2 ]; // Exchange dog with crab",
+"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains bat and crab and ape with some info"
+ ]
+	,
+    "Output 03:": "automatic"
+
+},
+
+
+"&vert; Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions from variables to tables" ],
+"Description 01:Introduction" : [
+"",
+"	This is the opposite direction where member contents of structures or arrays are transferred into tables.  In contrast to transaction to tables",
+"	without assignment operators, the data in the destination table row will not be deleted.  Only the specifed data columns will be overwritten as long as",
+"	matching data from the source variable is available. Additional columns may be added as long __open-ended ranges__ have been specified.",
+"",
+"	<br><br>",
+"	Destination table rules: See section on __Transactions from Variables to Tables__.<br>",
+"	The only exception is that destination table rows are not cleared, and the __open-ended ranges__ rule does not apply for the <b>&vert;</b> assignment operator.",
+"	The <b>^</b> suffix, if used, does not affect the functionality with copy- and swap-transactions because the destination is a table and table names will not be changed during transactions.",
+"",
+"	<br><br>",
+"	",
+"	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification",
+"	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then an additional",
+"	header with that name will be added to the table and the data will be written into the designated field below as long __open-ended ranges__ have been specified.",
+"",
+"	<br><br>",
+"",
+"	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).",
+"	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.",
+"	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table unless",
+"	__open-ended ranges__ have been specified.</b>.",
+""
+ ]
+	,
+"Examples 01:Copy and Move Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );",
+"",
+"	[ animals: .., 2 ] |<== animal1[];",
+"	[ animals: .., 3 ] |<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.",
+"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains bat and crab and ape with some info"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Swap Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );",
+"",
+"	[ animals: .., 2 ] |<=> animal1[];  // Swap, with table name in base variable",
+"	[ animals: .., 3 ] |<=>^ animal2[]; // Swap",
+"",
+"	inspect( animal1[] ); // Dog, ...",
+"	inspect( animal2[] ); // Ape, ...",
+"	table list( animals ); // Contains owl, bat and crab and ape with some info"
+ ]
+	,
+    "Output 02:": "automatic"
+
+},
+
+
+"&vert; Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions between tables" ],
+"Description 01:Introduction" : [
+"",
+"	Transactions between table rows in the same or two different tables are also supported.  ",
+"	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the",
+"	destination row will be cleared entirely before writing.",
+"",
+"	<br><br>",
+"	Table rules: See section on __Transactions between Tables__.<br>",
+"	The <b>^</b> suffix has no impact on table-to-table transactions.",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals1: Name, Dog, .. ] |<== [ animals2: Name, Cat, ]; // sharp claws will not be copied due to &-Rules",
+"	[ animals1: {Name,Leg count}, 3 ]  |<== [ animals2: Name, Bee, { Weapon, Name } ]; // Only name will be transferred: Bee",
+"	[ animals2: Name, 2 ] |<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers",
+"",
+"	table list( animals1 ); // Cat with sensitive nose, relatively smart bee",
+"	table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu."
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Move Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Surface,   Leg count, Special ability  },",
+"		  { Owl,   Feathers,  2,         Night vision     },",
+"		  { Dog,   Fur,       4,         Sensitive nose   },",
+"		  { Ape,   Hair,      2 or 4,    Relatively smart } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals2: Name, Gnu, .. ] |<<= [ animals1: Name, Dog, Special ability ];  // Gnu with sensitive nose",
+"	[ animals1: Name, Owl,    ] |<<= [ animals2: Name, Bee, .. ]; // Bee without sting",
+"",
+"	table list( animals1 );  // Without dog",
+"	table list( animals2 );  // Without bee"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Swap Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Leg count, Special ability, Strange habit  },",
+"		  { Owl,   2,         Night vision, night time noise in the forest     },",
+"		  { Dog,   4,         Sensitive nose, \"Man's best friend\"   },",
+"		  { Ape,   2 or 4,    Relatively smart, often funny } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals2: Name, Cat, .. ] |<=> [ animals1: Name, Dog,  ];",
+"	[ animals2: Name, Bee, Name..Special ability ] |<=> [ animals1: Name, Owl, ]; // Excludes the weapon",
+"	",
+"	table list( animals1 );",
+"	table list( animals2 );"
+ ]
+	,
+    "Output 03:": "automatic"
+},
+
+
+
+"&#43; Transaction Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions with ADD assignment operator" ],
+"Description 01:Introduction" : [
+"	Transactions with the <b>+</b> prefix operate in a similar way like the <b>&vert;</b> prefix, but following differences apply, aiming to ",
+"	add the data to the existing data in the destination without overwriting the data which is already existing:",
+"",
+"	* Existing structure members will <u>not</u> be overwritten",
+"	* However, missing structure members will be created and the data will be written to them",
+"	* Existing array members will <u>not</u> be overwritten",
+"	** For the additional data to be written, additional array members will be created for all of them",
+"	* If the destination is a table, then additional columns may be added to fit the data (dependings on how the target table row is specified)",
+"	* New arrays and/or structures will be created if they are still missing in the destination in order to fit all data to be transferred"
+ ]
+	,
+"Description 02:Typical Example" : [
+"",
+"	<img src=\"Images/Description_Transactions_Variable_Variable_ADD.jpg\" alt=\"Variable to Variable Transaction with &vert; Assignment Operator\"><br/>",
+""
+ ]
+	
+},
+
+
+"&#43; Transactions between Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions between variables" ],
+"Description 01:Introduction" : [
+"	Different from transactions without assignment operators, the <b>&#43;</b> assignment operator in front of the transaction symbol will assume the",
+"	following rules focussing on overlaying data from the source variable in the destination variable:",
+"",
+"	* Transactions can be carried out on base variables as well as member variables.",
+"	* If the destination variable does not yet exist, then it will be created as __simple variable__ containing void value before the transaction begins.  However, the source variable on the right-hand side must exist.",
+"	* The existing setup of structure and array members and sub-members in the destination variable may be extended:",
+"	** Further arrays and/or structures may be added.",
+"	** Additional members may be added to existing arrays and/or structures.",
+"	** Destination memebers for which equivalent source members are existing will, which is different from the <b>&vert;</b> prfix, not be overwritten.",
+"	* Where possible, all structure and array members and sub-members of the source variable will be included in the transaction.",
+"	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.",
+"",
+"	<br><br>Following actions are applied on the destination variables using this assignment operator:",
+"	=== 100, 100, 800",
+"	Destination		| Source			| Description",
+"	Simple or zero members	| Simple or zero members	| The value of the base variable will be transferred as long no <b>^</b> suffix is specified. ",
+"	Simple or zero members	| Array				| Base variable: See above.  The array (including sub-members) will be transferred.",
+"	Simple or zero members	| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred.",
+"	Structure		| Simple or zero members	| Base variable: See above.",
+"Structure		| Array				| Base variable: See above.  The array members will be renamed to structure members where the member names are 8-digit text representations of the index number, e.g. '00000000', '00000001', etc. 								  After this, same rules as for structures described below apply.",
+"Structure		| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred. - Existing members will <u>not</b> be overwritten<br> - All members in the source variable will be added as furhter members to the destination array.<br> 								  - Existing members will not be overwritten",
+"	Array			| Simple or zero members	| Base variable: See above. ",
+"Array			| Array				| Base variable: See above.  The array will be copied. - All members in the source variable will be added as furhter members to the destination array.<br> 								  - Existing members will not be overwritten",
+"Array			| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br> - All members in the source variable will be added as furhter members to the destination array.<br> 								  - Existing members will not be overwritten",
+"	===",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"	array ( animals1[insects], { bee, fly } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
+"	array ( animals2[insects], { ant, tick, mosquito } );",
+"",
+"	animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle",
+"	inspect(animals1[]);"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Copy Transaction Example among Structures and Arrays" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"	array ( animals1[insects], { bee, fly } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	array( animals2[mammal], { lynx, skunk } );",
+"	structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );",
+"",
+"	animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle",
+"	inspect(animals1[]);"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Move Transaction Example" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"	array ( animals1[insects], { bee, fly } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	array( animals2[mammal], { lynx, skunk } );",
+"	structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );",
+"",
+"	animals1[mammal] +<<= animals2[ mammal ];",
+"",
+"	inspect(animals1[]);",
+"	inspect(animals2[]); // Without the mammals"
+ ]
+	,
+    "Output 03:": "automatic",
+"Examples 04:Swap Transaction Example" : [
+"	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );",
+"	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );",
+"	array ( animals1[insects], { bee, fly } );",
+"",
+"	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );",
+"	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );",
+"	array ( animals2[insects], { ant, tick, mosquito } );",
+"",
+"	animals1[] +<=> animals2[];  ",
+"	inspect(animals1[]); // Keep dog, owl eel, bear, deer, bee, fly. Get turtle, skunk and all insects",
+"	inspect(animals2[]); // Keep cat, trout, turtle, lynx, skunk. Get owl, deer and all insects"
+ ]
+	,
+    "Output 04:": "automatic"
+
+},
+
+"&#43; Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions from tables to variables" ],
+"Description 01:Introduction" : [
+"",
+"	This form of transaction picks up a table row and treats it as a 1-level structure with members named by the corresponding header names which will then be",
+"	integrated in the destination variable using the rules of the <b>&vert;</b> prefix.",
+"",
+"	<br><br>",
+"	Table access rules: See section on __Transactions from Tables to Variables__.<br>",
+"	Destination variable rules: See section on __ADD Transactions between variables__.",
+"",
+"	<br><br>Following actions are applied on the destination variables using this assignment operator:",
+"	=== 100, 100, 800",
+"	Destination		| Source			| Description",
+"	Simple or zero members	| Table contents (1 row)	| Base variable: Updated with table name if no <b>^</b> suffix is specified.",
+"Structure		| Table contents (1 row) 	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. - Existing members will <u>not</b> be overwritten<br> - All members in the source variable will be added as furhter members to the destination array.<br> 								  - Existing members will not be overwritten",
+"Array			| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred. The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br> - All members in the source variable will be added as furhter members to the destination array.<br> 								  - Existing members will not be overwritten",
+"	===",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, \"On-flight acoustic radar\", skin wings } );",
+"	array( animal2[], { Rat, \"Relatively intelligent\", gray hair, not a favorable pet  } );",
+"	animal1[] = \"A kind of flying dog\";",
+"	animal2[] = \"A kind of big mouse\";",
+"",
+"	animal1[] +<== [ animals: .., 1 ];",
+"	animal2[] +<==^	 [ animals: .., 3 ];",
+"	inspect( animal1[] ); // Adds leg count, but name and special ability are maintained",
+"	inspect( animal2[] ); // animal2[] gets all table entries for the ape"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Move Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, \"On-flight acoustic radar\", skin wings } );",
+"	array( animal2[], { Rat, \"Relatively intelligent\", gray hair, not a favorable pet  } );",
+"	animal1[] = \"A kind of flying dog\";",
+"	animal2[] = \"A kind of big mouse\";",
+"",
+"	animal1[] +<<= [ animals: .., 1 ];",
+"	animal2[] +<<=^	 [ animals: .., 2 ]; // Ape on row 2 (was on row 3 before the transaction on previous row)",
+"	inspect( animal1[] ); // Adds leg count, but name and special ability are maintained",
+"	inspect( animal2[] ); // animal2[] gets all table entries for the ape",
+"",
+"	table list( animals ); // Dog with its nose is left over."
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Swap Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10  } );",
+"",
+"	animal1[] +<=>  [ animals: .., 1 ]; // Exchange owl with bat",
+"	animal2[] +<=>^ [ animals: .., 2 ]; // Exchange dog with crab",
+"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains bat (row 1) and crab (row 2) in addition"
+ ]
+	,
+    "Output 03:": "automatic"
+
+},
+
+
+"&#43; Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions from variables to tables" ],
+"Description 01:Introduction" : [
+"",
+"	This is the opposite direction where member contents of structures or arrays are transferred and added to the tables.  First the existing table contents",
+"	beginning at the specified row are moved down by 1 line in order to provide a new blank row without deleting any other data.  Then the transaction into the",
+"	new row takes place by transferring the data into the table. Only the specifed data columns will be overwritten as long as",
+"	matching data from the source variable is available. Additional columns may be added as long __open-ended ranges__ have been specified.",
+"",
+"	<br><br>",
+"	",
+"	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification",
+"	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then an additional",
+"	header with that name will be added to the table and the data will be written into the designated field below as long __open-ended ranges__ have been specified.",
+"",
+"	<br><br>",
+"",
+"	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).",
+"	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.",
+"	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table unless",
+"	__open-ended ranges__ have been specified.</b>.",
+""
+ ]
+	,
+"Examples 01:Copy and Move Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );",
+"",
+"	[ animals: .., 3 ] +<== animal1[];  // Bat is added in row 3",
+"	[ animals: .., 2 ] +<<=^ animal2[]; // Crab is added to row 2 (bat moves from row 3 to row 4)",
+"",
+"	inspect( animal1[] );",
+"	inspect( animal2[] );",
+"	table list( animals ); // Contains bat and crab and ape with some info"
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Swap Transaction Example" : [
+"	include ( Support Library );",
+"	table initialize( animals,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4 and 1 tail,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, ",
+"	                      { Bat, \"On-flight acoustic radar\", skin wings, hangs while sleeping } );",
+"",
+"	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );",
+"",
+"	[ animals: .., 2 ] +<=> animal1[];  // Bat is written to row 2 (other rows move down), other data not overwritten",
+"	[ animals: .., 1 ] +<=>^ animal2[]; // Owl data added to array",
+"",
+"	inspect( animal1[] ); // Gets leg count from the dog",
+"	inspect( animal2[] ); // Ape, ...",
+"	table list( animals ); // Contains owl, bat and crab and ape with some info"
+ ]
+	,
+    "Output 02:": "automatic"
+
+},
+
+
+"&#43; Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions between tables" ],
+"Description 01:Introduction" : [
+"",
+"	Transactions between table rows in the same or two different tables are also supported.  ",
+"	As long the transaction operator has no assignment operator (described in the next sections further below), then the destination",
+"	row is cleared by moving all data 1 line down before the writing take place, so no exiting data gets lost",
+""
+ ]
+	,
+"Examples 01:Copy Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Leg count, Special ability  },",
+"		  { Owl,   2,         Night vision     },",
+"		  { Dog,   4,         Sensitive nose   },",
+"		  { Ape,   2 or 4,    Relatively smart } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals1: Name, Dog, .. ]        +<== [ animals2: Name, Cat, ]; // sharp claws will be added",
+"	[ animals1: {Name,Leg count}, 3 ]  +<== [ animals2: Name, Bee, { Weapon, Name, Leg count } ]; // Only name + leg count will be transferred: Bee",
+"	[ animals2: Name, 2 ]              +<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers. Added row stays blank",
+"",
+"	table list( animals1 ); // Cat with sensitive nose, relatively smart bee",
+"	table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu."
+ ]
+	,
+    "Output 01:": "automatic",
+"Examples 02:Move Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Surface,   Leg count, Special ability  },",
+"		  { Owl,   Feathers,  2,         Night vision     },",
+"		  { Dog,   Fur,       4,         Sensitive nose   },",
+"		  { Ape,   Hair,      2 or 4,    Relatively smart } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	[ animals2: Name, Gnu, .. ] +<<= [ animals1: Name, Dog, Special ability ];  // Dog: Nose without Dog",
+"	[ animals1: Name, Owl,    ] +<<= [ animals2: Name, Bee, .. ]; // Bee without sting",
+"",
+"	table list( animals1 );  // Dog moved to table 2 (just the nose)",
+"	table list( animals2 );  // Bee moved to table 1"
+ ]
+	,
+    "Output 02:": "automatic",
+"Examples 03:Swap Transaction Example" : [
+"	include( Support Library );",
+"	table initialize( animals1,",
+"		{ { Name,  Leg count, Special ability, Strange habit  },",
+"		  { Owl,   2,         Night vision, night time noise in the forest     },",
+"		  { Dog,   4,         Sensitive nose, \"Man's best friend\"   },",
+"		  { Ape,   2 or 4,    Relatively smart, often funny } } );",
+"",
+"	table initialize( animals2,",
+"		{ { Name,  Leg count, Special ability, Weapon  },",
+"		  { Bee,   6,         Makes honey,     sting   },",
+"		  { Gnu,   4,         Knows UNIX,      horns   },",
+"		  { Cat,   4,         Empathy to humans, sharp claws } } );",
+"",
+"	// The +<=> is very useful for mutual data replication in both tables.",
+"",
+"	[ animals2: Name, Cat, .. ] +<=> [ animals1: Name, Dog,  ]; // Cats and dogs are on both tables",
+"	[ animals2: Name, Bee, Name..Special ability ] +<=> [ animals1: Name, Owl, ]; // Owl and be duplicated (names)",
+"	",
+"	table list( animals1 );",
+"	table list( animals2 );"
+ ]
+	,
+    "Output 03:": "automatic"
 }
-
-
-
 
 
 

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" 
+xmlns:o="urn:schemas-microsoft-com:office:office" 
+xmlns:x="urn:schemas-microsoft-com:office:excel" 
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" 
+xmlns:html="http://www.w3.org/TR/REC-html40"> 
+<Styles>
+<Style ss:ID="St3"> <Interior ss:Color = "#008080" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St2"> <Interior ss:Color = "#C0C0C0" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St1"> <Interior ss:Color = "#F5EEDE" ss:Pattern="Solid" /></Style>
+
+</Styles>
+<Worksheet ss:Name="t">
+<Table >
+<Row ><Cell ><Data ss:Type="String" >Item</Data></Cell><Cell ><Data ss:Type="String" >Color</Data></Cell></Row>
+<Row ><Cell ><Data ss:Type="String" >Jacket</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="String" >crème</Data></Cell></Row>
+<Row ><Cell ><Data ss:Type="String" >Trousers</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="String" >gray 12</Data></Cell></Row>
+<Row ><Cell ><Data ss:Type="String" >scarf</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="String" >teal</Data></Cell></Row>
+</Table>
+</Worksheet>
+</Workbook>

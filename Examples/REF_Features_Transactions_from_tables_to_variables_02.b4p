@@ -14,7 +14,6 @@
   animal1[] <=>  [ animals: Name, Dog, .. ]; // Pick up entire row
   animal2[] <=>^ [ animals: Name, Owl,    ]; 
 
-  echo( "Variable animal1[]: ", animal1[], new line, "  member names: ", set names( animal1[] ), " contents: ", set ( animal1[] ));
-  echo( "Variable animal2[]: ", animal2[], new line, "  member names: ", set names( animal2[] ), " contents: ", set ( animal2[] ));
-  echo;
+  inspect( animal1[] );
+  inspect( animal2[] );
   table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)

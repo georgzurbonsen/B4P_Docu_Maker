@@ -144,11 +144,11 @@ B4PDOCU.START
 
 
     "Examples 01:"::
-	echo( abcde {} );     // Returns 5 (character count)
-	echo( abcde, {0} );   // Access the 1st element
-	echo( abcde, {-2} );  // Access the 2nd last element
-	echo( abcde, {10} );  // Attempts to access characters outside the string returns blank literals.
-	echo( abcde, {-10} ); // Same case here.
+	echo( abcde{} );     // Returns 5 (character count)
+	echo( abcde{0} );   // Access the 1st element
+	echo( abcde{-2} );  // Access the 2nd last element
+	echo( abcde{10} );  // Attempts to access characters outside the string returns blank literals.
+	echo( abcde{-10} ); // Same case here.
 	+++,
 
     "Output 01:Output:":		"automatic"
@@ -493,7 +493,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets extracting subsets" ],
-    "Keywords":			[ "parameter sets extracting subsets" ],
+    "Keywords":			[ "parameter sets extracting subsets", "extracting subsets" ],
 
 
     "Description 01:Parameter Sets - Extracting Subsets"::

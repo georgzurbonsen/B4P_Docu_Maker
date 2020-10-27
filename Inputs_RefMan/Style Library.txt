@@ -1,0 +1,402 @@
+
+
+This text file contains all relevant function descriptions in the "Style Library".
+
+
+B4PDOCU.START
+
+
+
+"Defining User Specific Colors":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Defining User Specific Colors" ],
+    "Description 01:Introduction"::
+
+	B4P provides 3 ways to specify text and cell colors in the tables:
+	* Specifying the RGB value directly, e.g. <b>{ 255, 192, 0 }</b> for orange
+	* Specifying the RGB value wiht a hexadecimal code as practiced in HTML files, e.g. <b>'#FFC000'</b> for orange
+	* Specifying a color name from the __color palette__
+
+	B4P provides a decent palette of color names which includes the circle of vivid colors (red - orange - yellow - green - cyan - blue - purple - magenta),
+	gray levels, some dedicated colors used by Microsoft Office tools, particularly Excel, and a decent collection of various colors in different shades and
+	intensities.
+
+	<br><br>	
+
+	After having the style library file included, a B4P table called <b>global color table</b> is available which lists the entire palette of named colors.
+	The table contains following columns:
+
+	=== 100, 900, bold_column_1
+	Header Name		| Description	
+	Color Name		| Assigned color name, e.g. 'green', 'gray 12', 'turquoise', 'teal', etc.  All colors named in this table can be used as color names in applicable function parameters
+	Cat 1			| One of the following: standard, lightened, darkened, weakened, user defined
+	Cat 2			| One of the following: primary, saturated, gray scales, excel color, red tones, yellow tones, green tones, blue tones, purple tones, pink tones, brown tones
+	Red			| Intensity level of red, must be between 0 and 255
+	Green			| Intensity level of green, must be between 0 and 255
+	Blue			| Intensity level of blue, must be between 0 and 255
+	HTML Color		| HTML #RRGGBB color coding, e.g. '#FFC000' for orange
+	===
+
+	<u>Important</u>: You can make changes on this table directly, but it is more advisable to use the available function to introduce additional named colors.
+	Functions are available to extend the named colors by applying functions to derive lightened, darkened and weakened (reduction of color saturation) varieties.
+	The function __add color(__) allows you to add colors.
+
+	<br><br>
+	<u>Note</u>: Microsoft Excel and web browers may interpret some text colors in a degraded manner, e.g. using the same text color if the specified color differs only slightly.
+	+++
+},
+
+
+
+"Color Palettes":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Color Palettes" ],
+    "Keywords":			[ "Color Palette" ],
+    "Description 01:Touring the Vivid Color Circle"::
+
+	<img src="Images/Description_Style_Colors_1.jpg" alt="Color Circle"><br/><br/>
+	+++,
+    "Description 03:Shades of Gray"::
+	
+	<img src="Images/Description_Style_Colors_2.jpg" alt="Shades of Gray"><br/><br/>
+
+	+++,
+    "Description 04:Excel Colors"::
+	
+	The following colors are found in the standard color template in Microsoft Excel and other Office tools.  For red and yellow, use the names 'red' and 'yellow'.<br>
+
+	<img src="Images/Description_Style_Colors_3.jpg" alt="Excel Colors"><br/><br/>
+
+	+++,
+    "Description 05:Shades of Red"::
+
+	<img src="Images/Description_Style_Colors_4.jpg" alt="Shades of Red"><br/><br/>
+
+	+++,
+    "Description 06:Shades of Yellow"::
+
+	<img src="Images/Description_Style_Colors_5.jpg" alt="Shades of Yellow"><br/><br/>
+
+	+++,
+    "Description 07:Shades of Green"::
+
+	<img src="Images/Description_Style_Colors_6.jpg" alt="Shades of Green"><br/><br/>
+
+	+++,
+    "Description 08:Shades of Blue"::
+
+	<img src="Images/Description_Style_Colors_7.jpg" alt="Shades of Blue"><br/><br/>
+
+	+++,
+
+    "Description 09:Shades of Purple"::
+
+	<img src="Images/Description_Style_Colors_8.jpg" alt="Shades of Purple"><br/><br/>
+
+	+++,
+    "Description 10:Shades of Pink"::
+
+	<img src="Images/Description_Style_Colors_9.jpg" alt="Shades of Pink"><br/><br/>
+
+	+++,
+    "Description 11:Shades of Brown"::
+
+	<img src="Images/Description_Style_Colors_10.jpg" alt="Shades of Brown"><br/><br/>
+	+++
+},
+
+
+
+
+
+"add color" :
+{
+	"Function Names":	[ "add color" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function adds a further color to the __color palette__.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"5",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "New color name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify a new color name which does not yet exist in the color table
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Category 2",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Apply a categorization, e.g. an existing one like "gray scale" or a new one of choice.  This value will noted down as
+			"Cat 2" in the color table.  The 1st category is assigned automatically with "user defined".
+			+++
+		},
+		{ "Number": "3.",
+		  "Name": "Red intensity",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			Valid values: 0..255
+			+++
+		},
+		{ "Number": "4.",
+		  "Name": "Green intensity",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			Valid values: 0..255
+			+++
+		},
+		{ "Number": "5.",
+		  "Name": "Blue intensity",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			Valid values: 0..255
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+
+	add color( crème, natural shades, 245,238, 222 );
+
+	table initialize( t, { { Item, Color }, { Jacket, crème }, { Trousers, gray 12 }, { scarf, teal } } );
+
+	table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Custom_Colors.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Custom_Colors.xls", EXCEL );
+	echo("Done. Open the file Custom_Colors.html with a web browser.");
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Custom_Colors.html" target="_blank">Style_Custom_Colors.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Custom_Colors.xls" >Style_Custom_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+
+
+"lighten colors" :
+{
+	"Function Names":	[ "lighten colors" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function Derives lightened shades of selected colors in the __color palette__.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "numeral", "parameter set" ],
+		  "Description"::
+			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be lightened.<br>
+			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table..
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Suffix",
+		  "Direction": "input",
+		  "Types": [ "numeral or literal" ],
+		  "Description"::
+				Specify a suffix to be added to the color names in order to distinguish them from their original colors.
+			+++
+		},
+		{ "Number": "3.",
+		  "Name": "Lightening up factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			e.g. factor 2 is the color precisely between white and specified color<br>
+			Example: mandarin (255,128,0) translates to (255,192,128)<br>
+			Use lower factors (e.g. 1.5) for less lighter shades, and bigger factors (e.g. 4) for significantly lighter shades.
+			+++
+		}
+	],
+	"Examples"::
+	include( Support Library );
+	include( Style Library );
+
+	lighten colors( table selected rows( global color table, [Cat 2]==primary), X, 3 );
+
+	table copy table selected rows( global color table, t, [Cat 2]==primary );
+
+	table list ( t );
+	table process( t, table style rows( t, row(), table, fill color, [Color Name] ) );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Lightened_Colors.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Lightened_Colors.xls", EXCEL );
+	echo("Done. Open the file Custom_Colors.html with a web browser.");
+
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Lightened_Colors.html" target="_blank">Style_Lightened_Colors.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Lightened_Colors.xls" >Style_Lightened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+"darken colors" :
+{
+	"Function Names":	[ "darken colors" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function Derives darkened shades of selected colors in the __color palette__.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "numeral", "parameter set" ],
+		  "Description"::
+			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be darkened.<br>
+			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table..
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Suffix",
+		  "Direction": "input",
+		  "Types": [ "numeral or literal" ],
+		  "Description"::
+				Specify a suffix to be added to the color names in order to distinguish them from their original colors.
+			+++
+		},
+		{ "Number": "3.",
+		  "Name": "Darkening down factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			e.g. factor 2 is the color precisely between white and specified color<br>
+			Example: mandarin (255,128,0) translates to (255,192,128)<br>
+			Use lower factors (e.g. 1.5) for less darker shades, and bigger factors (e.g. 4) for significantly darker shades.
+			+++
+		}
+	],
+	"Examples"::
+	include( Support Library );
+	include( Style Library );
+
+	darken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
+
+	table copy table selected rows( global color table, t, [Cat 2]==primary );
+
+	table list ( t );
+	table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Darkened_Colors.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
+	echo("Done. Open the file Custom_Colors.html with a web browser.");
+
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Darkened_Colors.html" target="_blank">Style_Darkened_Colors.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Darkened_Colors.xls" >Style_Darkened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+"weaken colors" :
+{
+	"Function Names":	[ "weaken colors" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function Derives weakened saturations of selected colors in the __color palette__.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"3",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "numeral", "parameter set" ],
+		  "Description"::
+			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be weakened.<br>
+			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table..
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Suffix",
+		  "Direction": "input",
+		  "Types": [ "numeral or literal" ],
+		  "Description"::
+				Specify a suffix to be added to the color names in order to distinguish them from their original colors.
+			+++
+		},
+		{ "Number": "3.",
+		  "Name": "Weakening down factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			e.g. factor 2 is the color precisely between white and specified color<br>
+			Example: mandarin (255,128,0) translates to (255,192,128)<br>
+			Use lower factors (e.g. 1.5) for less weaker saturations, and bigger factors (e.g. 4) for significantly weaker saturations.
+			+++
+		}
+	],
+	"Examples"::
+	include( Support Library );
+	include( Style Library );
+
+	weaken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
+
+	table copy table selected rows( global color table, t, [Cat 2]==primary );
+
+	table list ( t );
+	table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Weakened_Colors.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Weakened_Colors.xls", EXCEL );
+	echo("Done. Open the file Custom_Colors.html with a web browser.");
+
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Weakened_Colors.html" target="_blank">Style_Weakened_Colors.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Weakened_Colors.xls" >Style_Weakened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+}
+
+
+
+
+
+B4PDOCU.STOP

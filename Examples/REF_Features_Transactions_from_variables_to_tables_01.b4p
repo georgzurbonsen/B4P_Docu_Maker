@@ -5,11 +5,8 @@
         { Dog,   4,         Sensitive nose   },
         { Ape,   2 or 4,    Relatively smart } } );
 
-
-  structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
-  structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );
-
-  [ animals : Name, Owl, .. ] <== animal1[];              // All columsns are written, plus new ones
-  [ animals : Name, Ape, {Name, Leg count} ] <==^ animal2[];      // Only name and leg count are written
+  array( animal1[], { Boa, 0, Kills by constricting, Likes rats, and mice } ); // Addt'l colum without header added
+  
+  [ animals : .., 1 ] <== animal1[];   // All columsns are written, plus new ones
 
   table list ( animals );

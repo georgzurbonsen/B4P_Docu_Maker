@@ -6,15 +6,14 @@
         { Ape,   2 or 4,    Relatively smart } } );
 
   structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
-  structure( animal2[], { Name, Leg count, Weapon, Special ability }, { Wolf, 4, teeth, teamwork } );
+  structure( animal1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table
 
-  animal1[] = "Was a snake";
-  animal2[] = "Was a wolf";
+  structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );
+  animal2[] = Pets;
 
-  [ animals: Name, Dog, .. ] <=> animal1[]; // Pick up entire row
-  [ animals: Name, Owl, {Name,Special ability} ] <=>^ animal2[];  // E.g. leg count not included
+  [ animals : Name, Owl, .. ] <<= animal1[];              // All columns are written, plus new ones
+  [ animals : Name, Ape, {Name, Leg count} ] <<=^ animal2[];      // Only name and leg count are written
 
-  echo( "Variable animal1[]: ", animal1[], new line, "  member names: ", set names( animal1[] ), " contents: ", set ( animal1[] ));
-  echo( "Variable animal2[]: ", animal2[], new line, "  member names: ", set names( animal2[] ), " contents: ", set ( animal2[] ));
-  echo;
-  table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)    
+  table list ( animals );
+  echo("animal1[] existing? ", existing(animal1[]) );
+  inspect(animal2[]); 

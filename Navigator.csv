@@ -69,8 +69,8 @@
 "<li class=""navi""><a href=""REF_Features_copying_references.html""><div class=""navi"">3.4.4 Copying References </div></a></li>";3;REF_Features_copying_references.html;Copying References
 "<li class=""navi""><a href=""REF_Features_Releasing_references.html""><div class=""navi"">3.4.5 Releasing References </div></a></li>";3;REF_Features_Releasing_references.html;Releasing References
 "<li class=""navi""><a href=""REF_Features_References_in_member_variables.html""><div class=""navi"">3.4.6 References in Member Variables </div></a></li>";3;REF_Features_References_in_member_variables.html;References in Member Variables
-"<li class=""navi""><a href=""REF_Features_protecting_variables.html""><div class=""navi"">3.4.7 Protecting Variables </div></a></li>";3;REF_Features_protecting_variables.html;Protecting Variables
 </ul></li>;3
+"<li class=""navi""><a href=""REF_Features_protecting_variables.html""><div class=""navi"">3.5 Protecting Variables </div></a></li>";2;REF_Features_protecting_variables.html;Protecting Variables
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_tables.html""><div class=""navi"">4 Tables </div></a></li>";1;REF_Features_tables.html;Tables
 "<li class=""navi""><ul>";2
@@ -145,31 +145,31 @@
 "<li class=""navi""><ul>";2
 "<li class=""navi""><a href=""REF_Features_Without_Transaction_Assignment_Operators.html""><div class=""navi"">6.1 Without Transaction Assignment Operators </div></a></li>";2;REF_Features_Without_Transaction_Assignment_Operators.html;Without Transaction Assignment Operators
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_Transactions_between_variables.html""><div class=""navi"">6.1.1 Transactions between variables </div></a></li>";3;REF_Features_Transactions_between_variables.html;Transactions between variables
-"<li class=""navi""><a href=""REF_Features_Transactions_from_tables_to_variables.html""><div class=""navi"">6.1.2 Transactions from tables to variables </div></a></li>";3;REF_Features_Transactions_from_tables_to_variables.html;Transactions from tables to variables
-"<li class=""navi""><a href=""REF_Features_Transactions_from_variables_to_tables.html""><div class=""navi"">6.1.3 Transactions from variables to tables </div></a></li>";3;REF_Features_Transactions_from_variables_to_tables.html;Transactions from variables to tables
+"<li class=""navi""><a href=""REF_Features_Transactions_between_variables.html""><div class=""navi"">6.1.1 Transactions between Variables </div></a></li>";3;REF_Features_Transactions_between_variables.html;Transactions between Variables
+"<li class=""navi""><a href=""REF_Features_Transactions_from_tables_to_variables.html""><div class=""navi"">6.1.2 Transactions from Tables to Variables </div></a></li>";3;REF_Features_Transactions_from_tables_to_variables.html;Transactions from Tables to Variables
+"<li class=""navi""><a href=""REF_Features_Transactions_from_variables_to_tables.html""><div class=""navi"">6.1.3 Transactions from Variables to Tables </div></a></li>";3;REF_Features_Transactions_from_variables_to_tables.html;Transactions from Variables to Tables
 "<li class=""navi""><a href=""REF_Features_Transactions_between_tables.html""><div class=""navi"">6.1.4 Transactions between Tables </div></a></li>";3;REF_Features_Transactions_between_tables.html;Transactions between Tables
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_Transactions_with_AND_assignment_operator.html""><div class=""navi"">6.2 &amp; Transaction Assignment Operators </div></a></li>";2;REF_Features_Transactions_with_AND_assignment_operator.html;"&amp; Transaction Assignment Operators"
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_AND_Transactions_between_variables.html""><div class=""navi"">6.2.1 &amp; Transactions between variables </div></a></li>";3;REF_Features_AND_Transactions_between_variables.html;"&amp; Transactions between variables"
-"<li class=""navi""><div>6.2.2 &amp; Transactions from tables to variables </div></li>";3
-"<li class=""navi""><div>6.2.3 &amp; Transactions from variables to tables </div></li>";3
-"<li class=""navi""><div>6.2.4 &amp; Transactions between Tables </div></li>";3
+"<li class=""navi""><a href=""REF_Features_AND_Transactions_between_variables.html""><div class=""navi"">6.2.1 &amp; Transactions between Variables </div></a></li>";3;REF_Features_AND_Transactions_between_variables.html;"&amp; Transactions between Variables"
+"<li class=""navi""><a href=""REF_Features_AND_Transactions_from_tables_to_variables.html""><div class=""navi"">6.2.2 &amp; Transactions from Tables to Variables </div></a></li>";3;REF_Features_AND_Transactions_from_tables_to_variables.html;"&amp; Transactions from Tables to Variables"
+"<li class=""navi""><a href=""REF_Features_AND_Transactions_from_variables_to_tables.html""><div class=""navi"">6.2.3 &amp; Transactions from Variables to Tables </div></a></li>";3;REF_Features_AND_Transactions_from_variables_to_tables.html;"&amp; Transactions from Variables to Tables"
+"<li class=""navi""><a href=""REF_Features_AND_Transactions_between_tables.html""><div class=""navi"">6.2.4 &amp; Transactions between Tables </div></a></li>";3;REF_Features_AND_Transactions_between_tables.html;"&amp; Transactions between Tables"
 </ul></li>;3
-"<li class=""navi""><div>6.3 &vert; Transaction Assignment Operators </div></li>";2
+"<li class=""navi""><a href=""REF_Features_Transactions_with_OR_assignment_operator.html""><div class=""navi"">6.3 &vert; Transaction Assignment Operators </div></a></li>";2;REF_Features_Transactions_with_OR_assignment_operator.html;"&vert; Transaction Assignment Operators"
 "<li class=""navi""><ul>";3
-"<li class=""navi""><div>6.3.1 &vert; Transactions between variables </div></li>";3
-"<li class=""navi""><div>6.3.2 &vert; Transactions from tables to variables </div></li>";3
-"<li class=""navi""><div>6.3.3 &vert; Transactions from variables to tables </div></li>";3
-"<li class=""navi""><div>6.3.4 &vert; Transactions between Tables </div></li>";3
+"<li class=""navi""><a href=""REF_Features_OR_Transactions_between_variables.html""><div class=""navi"">6.3.1 &vert; Transactions between Variables </div></a></li>";3;REF_Features_OR_Transactions_between_variables.html;"&vert; Transactions between Variables"
+"<li class=""navi""><a href=""REF_Features_OR_Transactions_from_tables_to_variables.html""><div class=""navi"">6.3.2 &vert; Transactions from Tables to Variables </div></a></li>";3;REF_Features_OR_Transactions_from_tables_to_variables.html;"&vert; Transactions from Tables to Variables"
+"<li class=""navi""><a href=""REF_Features_OR_Transactions_from_variables_to_tables.html""><div class=""navi"">6.3.3 &vert; Transactions from Variables to Tables </div></a></li>";3;REF_Features_OR_Transactions_from_variables_to_tables.html;"&vert; Transactions from Variables to Tables"
+"<li class=""navi""><a href=""REF_Features_OR_Transactions_between_tables.html""><div class=""navi"">6.3.4 &vert; Transactions between Tables </div></a></li>";3;REF_Features_OR_Transactions_between_tables.html;"&vert; Transactions between Tables"
 </ul></li>;3
-"<li class=""navi""><div>6.4 &#43; Transaction Assignment Operators </div></li>";2
+"<li class=""navi""><a href=""REF_Features_Transactions_with_ADD_assignment_operator.html""><div class=""navi"">6.4 &#43; Transaction Assignment Operators </div></a></li>";2;REF_Features_Transactions_with_ADD_assignment_operator.html;"&#43; Transaction Assignment Operators"
 "<li class=""navi""><ul>";3
-"<li class=""navi""><div>6.4.1 &#43; Transactions between variables </div></li>";3
-"<li class=""navi""><div>6.4.2 &#43; Transactions from tables to variables </div></li>";3
-"<li class=""navi""><div>6.4.3 &#43; Transactions from variables to tables </div></li>";3
-"<li class=""navi""><div>6.4.4 &#43; Transactions between Tables </div></li>";3
+"<li class=""navi""><a href=""REF_Features_ADD_Transactions_between_variables.html""><div class=""navi"">6.4.1 &#43; Transactions between Variables </div></a></li>";3;REF_Features_ADD_Transactions_between_variables.html;"&#43; Transactions between Variables"
+"<li class=""navi""><a href=""REF_Features_ADD_Transactions_from_tables_to_variables.html""><div class=""navi"">6.4.2 &#43; Transactions from Tables to Variables </div></a></li>";3;REF_Features_ADD_Transactions_from_tables_to_variables.html;"&#43; Transactions from Tables to Variables"
+"<li class=""navi""><a href=""REF_Features_ADD_Transactions_from_variables_to_tables.html""><div class=""navi"">6.4.3 &#43; Transactions from Variables to Tables </div></a></li>";3;REF_Features_ADD_Transactions_from_variables_to_tables.html;"&#43; Transactions from Variables to Tables"
+"<li class=""navi""><a href=""REF_Features_ADD_Transactions_between_tables.html""><div class=""navi"">6.4.4 &#43; Transactions between Tables </div></a></li>";3;REF_Features_ADD_Transactions_between_tables.html;"&#43; Transactions between Tables"
 </ul></li>;3
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_Functions_and_Procedures.html""><div class=""navi"">7 Functions and Procedures </div></a></li>";1;REF_Features_Functions_and_Procedures.html;Functions and Procedures
@@ -622,120 +622,141 @@
 "<li class=""navi""><a href=""REF_Function_table_extract.html""><div class=""navi"">8.8.16.3 table extract ... </div></a></li>";4;REF_Function_table_extract.html;table extract ...
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_variables_functions.html""><div class=""navi"">8.9 Variables Functions </div></a></li>";2;REF_Features_variables_functions.html;Variables Functions
+"<li class=""navi""><a href=""REF_Features_Formatting_and_Styling_Tables.html""><div class=""navi"">8.9 Formatting and Styling Tables </div></a></li>";2;REF_Features_Formatting_and_Styling_Tables.html;Formatting and Styling Tables
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_basic_variables_functions.html""><div class=""navi"">8.9.1 Basic Variables Functions </div></a></li>";3;REF_Features_basic_variables_functions.html;Basic Variables Functions
+"<li class=""navi""><a href=""REF_Features_Defining_User_Specific_Colors.html""><div class=""navi"">8.9.1 Defining User Specific Colors </div></a></li>";3;REF_Features_Defining_User_Specific_Colors.html;Defining User Specific Colors
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_existing.html""><div class=""navi"">8.9.1.1 existing </div></a></li>";4;REF_Function_existing.html;existing
-"<li class=""navi""><a href=""REF_Function_identify.html""><div class=""navi"">8.9.1.2 identify </div></a></li>";4;REF_Function_identify.html;identify
-"<li class=""navi""><a href=""REF_Function_scope.html""><div class=""navi"">8.9.1.3 scope </div></a></li>";4;REF_Function_scope.html;scope
-"<li class=""navi""><a href=""REF_Function_name.html""><div class=""navi"">8.9.1.4 name </div></a></li>";4;REF_Function_name.html;name
-"<li class=""navi""><a href=""REF_Function_exchange.html""><div class=""navi"">8.9.1.5 exchange </div></a></li>";4;REF_Function_exchange.html;exchange
-"<li class=""navi""><a href=""REF_Function_protect.html""><div class=""navi"">8.9.1.6 protect ... </div></a></li>";4;REF_Function_protect.html;protect ...
-"<li class=""navi""><a href=""REF_Function_delete.html""><div class=""navi"">8.9.1.7 delete ... </div></a></li>";4;REF_Function_delete.html;delete ...
-"<li class=""navi""><a href=""REF_Function_global.html""><div class=""navi"">8.9.1.8 global </div></a></li>";4;REF_Function_global.html;global
+"<li class=""navi""><a href=""REF_Features_Color_Palettes.html""><div class=""navi"">8.9.1.1 Color Palettes </div></a></li>";4;REF_Features_Color_Palettes.html;Color Palettes
+"<li class=""navi""><a href=""REF_Function_add_color.html""><div class=""navi"">8.9.1.2 add color </div></a></li>";4;REF_Function_add_color.html;add color
+"<li class=""navi""><a href=""REF_Function_lighten_colors.html""><div class=""navi"">8.9.1.3 lighten colors </div></a></li>";4;REF_Function_lighten_colors.html;lighten colors
+"<li class=""navi""><a href=""REF_Function_darken_colors.html""><div class=""navi"">8.9.1.4 darken colors </div></a></li>";4;REF_Function_darken_colors.html;darken colors
+"<li class=""navi""><a href=""REF_Function_weaken_colors.html""><div class=""navi"">8.9.1.5 weaken colors </div></a></li>";4;REF_Function_weaken_colors.html;weaken colors
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Arrays_and_Structures.html""><div class=""navi"">8.9.2 Arrays and Structures </div></a></li>";3;REF_Features_Arrays_and_Structures.html;Arrays and Structures
+"<li class=""navi""><div>8.9.2 Formatting the Tables </div></li>";3
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_dim.html""><div class=""navi"">8.9.2.1 dim / redim </div></a></li>";4;REF_Function_dim.html;dim / redim
-"<li class=""navi""><a href=""REF_Function_dim_protect.html""><div class=""navi"">8.9.2.2 dim / redim protect </div></a></li>";4;REF_Function_dim_protect.html;dim / redim protect
-"<li class=""navi""><a href=""REF_Function_array.html""><div class=""navi"">8.9.2.3 array, array protect </div></a></li>";4;REF_Function_array.html;array, array protect
-"<li class=""navi""><a href=""REF_Function_strcture.html""><div class=""navi"">8.9.2.4 structure, structure protect </div></a></li>";4;REF_Function_strcture.html;structure, structure protect
-"<li class=""navi""><a href=""REF_Function_member_count.html""><div class=""navi"">8.9.2.5 member count </div></a></li>";4;REF_Function_member_count.html;member count
-"<li class=""navi""><a href=""REF_Function_structure_to_array.html""><div class=""navi"">8.9.2.6 structure to array ... </div></a></li>";4;REF_Function_structure_to_array.html;structure to array ...
-"<li class=""navi""><a href=""REF_Function_array_to_structure.html""><div class=""navi"">8.9.2.7 array to structure ... </div></a></li>";4;REF_Function_array_to_structure.html;array to structure ...
-"<li class=""navi""><a href=""REF_Function_set.html""><div class=""navi"">8.9.2.8 set, set names </div></a></li>";4;REF_Function_set.html;set, set names
+"<li class=""navi""><div>8.9.2.1 table style table </div></li>";4
+"<li class=""navi""><div>8.9.2.2 table style rows </div></li>";4
+"<li class=""navi""><div>8.9.2.3 table style columns </div></li>";4
+"<li class=""navi""><div>8.9.2.4 table style cells </div></li>";4
+"<li class=""navi""><div>8.9.2.5 Translate to Specific File FOrmat </div></li>";4
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Loading_and_saving_variables.html""><div class=""navi"">8.9.3 Loading and Saving Variables </div></a></li>";3;REF_Features_Loading_and_saving_variables.html;Loading and Saving Variables
+"<li class=""navi""><div>8.9.3 translate style attributes </div></li>";3
+"<li class=""navi""><div>8.9.4 table style reset </div></li>";3
+</ul></li>;3
+"<li class=""navi""><a href=""REF_Features_variables_functions.html""><div class=""navi"">8.10 Variables Functions </div></a></li>";2;REF_Features_variables_functions.html;Variables Functions
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""REF_Features_basic_variables_functions.html""><div class=""navi"">8.10.1 Basic Variables Functions </div></a></li>";3;REF_Features_basic_variables_functions.html;Basic Variables Functions
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_variable_load.html""><div class=""navi"">8.9.3.1 variable load ... </div></a></li>";4;REF_Function_variable_load.html;variable load ...
-"<li class=""navi""><a href=""REF_Function_json_to_variable.html""><div class=""navi"">8.9.3.2 json to variable ... </div></a></li>";4;REF_Function_json_to_variable.html;json to variable ...
-"<li class=""navi""><a href=""REF_Function_variable_save.html""><div class=""navi"">8.9.3.3 variable save ... </div></a></li>";4;REF_Function_variable_save.html;variable save ...
-"<li class=""navi""><a href=""REF_Function_variable_to_json.html""><div class=""navi"">8.9.3.4 variable to json ... </div></a></li>";4;REF_Function_variable_to_json.html;variable to json ...
+"<li class=""navi""><a href=""REF_Function_existing.html""><div class=""navi"">8.10.1.1 existing </div></a></li>";4;REF_Function_existing.html;existing
+"<li class=""navi""><a href=""REF_Function_identify.html""><div class=""navi"">8.10.1.2 identify </div></a></li>";4;REF_Function_identify.html;identify
+"<li class=""navi""><a href=""REF_Function_scope.html""><div class=""navi"">8.10.1.3 scope </div></a></li>";4;REF_Function_scope.html;scope
+"<li class=""navi""><a href=""REF_Function_name.html""><div class=""navi"">8.10.1.4 name </div></a></li>";4;REF_Function_name.html;name
+"<li class=""navi""><a href=""REF_Function_exchange.html""><div class=""navi"">8.10.1.5 exchange </div></a></li>";4;REF_Function_exchange.html;exchange
+"<li class=""navi""><a href=""REF_Function_protect.html""><div class=""navi"">8.10.1.6 protect ... </div></a></li>";4;REF_Function_protect.html;protect ...
+"<li class=""navi""><a href=""REF_Function_delete.html""><div class=""navi"">8.10.1.7 delete ... </div></a></li>";4;REF_Function_delete.html;delete ...
+"<li class=""navi""><a href=""REF_Function_global.html""><div class=""navi"">8.10.1.8 global </div></a></li>";4;REF_Function_global.html;global
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Variable_references_functions.html""><div class=""navi"">8.9.4 Variable References Functions </div></a></li>";3;REF_Features_Variable_references_functions.html;Variable References Functions
+"<li class=""navi""><a href=""REF_Features_Arrays_and_Structures.html""><div class=""navi"">8.10.2 Arrays and Structures </div></a></li>";3;REF_Features_Arrays_and_Structures.html;Arrays and Structures
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_release.html""><div class=""navi"">8.9.4.1 release </div></a></li>";4;REF_Function_release.html;release
-"<li class=""navi""><a href=""REF_Function_release_all.html""><div class=""navi"">8.9.4.2 release all </div></a></li>";4;REF_Function_release_all.html;release all
+"<li class=""navi""><a href=""REF_Function_dim.html""><div class=""navi"">8.10.2.1 dim / redim </div></a></li>";4;REF_Function_dim.html;dim / redim
+"<li class=""navi""><a href=""REF_Function_dim_protect.html""><div class=""navi"">8.10.2.2 dim / redim protect </div></a></li>";4;REF_Function_dim_protect.html;dim / redim protect
+"<li class=""navi""><a href=""REF_Function_array.html""><div class=""navi"">8.10.2.3 array, array protect </div></a></li>";4;REF_Function_array.html;array, array protect
+"<li class=""navi""><a href=""REF_Function_strcture.html""><div class=""navi"">8.10.2.4 structure, structure protect </div></a></li>";4;REF_Function_strcture.html;structure, structure protect
+"<li class=""navi""><a href=""REF_Function_member_count.html""><div class=""navi"">8.10.2.5 member count </div></a></li>";4;REF_Function_member_count.html;member count
+"<li class=""navi""><a href=""REF_Function_structure_to_array.html""><div class=""navi"">8.10.2.6 structure to array ... </div></a></li>";4;REF_Function_structure_to_array.html;structure to array ...
+"<li class=""navi""><a href=""REF_Function_array_to_structure.html""><div class=""navi"">8.10.2.7 array to structure ... </div></a></li>";4;REF_Function_array_to_structure.html;array to structure ...
+"<li class=""navi""><a href=""REF_Function_set.html""><div class=""navi"">8.10.2.8 set, set names </div></a></li>";4;REF_Function_set.html;set, set names
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Resident_attributes_functions.html""><div class=""navi"">8.9.5 Resident Attributes Functions </div></a></li>";3;REF_Features_Resident_attributes_functions.html;Resident Attributes Functions
+"<li class=""navi""><a href=""REF_Features_Loading_and_saving_variables.html""><div class=""navi"">8.10.3 Loading and Saving Variables </div></a></li>";3;REF_Features_Loading_and_saving_variables.html;Loading and Saving Variables
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_attribute_read.html""><div class=""navi"">8.9.5.1 attribute ... </div></a></li>";4;REF_Function_attribute_read.html;attribute ...
+"<li class=""navi""><a href=""REF_Function_variable_load.html""><div class=""navi"">8.10.3.1 variable load ... </div></a></li>";4;REF_Function_variable_load.html;variable load ...
+"<li class=""navi""><a href=""REF_Function_json_to_variable.html""><div class=""navi"">8.10.3.2 json to variable ... </div></a></li>";4;REF_Function_json_to_variable.html;json to variable ...
+"<li class=""navi""><a href=""REF_Function_variable_save.html""><div class=""navi"">8.10.3.3 variable save ... </div></a></li>";4;REF_Function_variable_save.html;variable save ...
+"<li class=""navi""><a href=""REF_Function_variable_to_json.html""><div class=""navi"">8.10.3.4 variable to json ... </div></a></li>";4;REF_Function_variable_to_json.html;variable to json ...
+</ul></li>;4
+"<li class=""navi""><a href=""REF_Features_Variable_references_functions.html""><div class=""navi"">8.10.4 Variable References Functions </div></a></li>";3;REF_Features_Variable_references_functions.html;Variable References Functions
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""REF_Function_release.html""><div class=""navi"">8.10.4.1 release </div></a></li>";4;REF_Function_release.html;release
+"<li class=""navi""><a href=""REF_Function_release_all.html""><div class=""navi"">8.10.4.2 release all </div></a></li>";4;REF_Function_release_all.html;release all
+</ul></li>;4
+"<li class=""navi""><a href=""REF_Features_Resident_attributes_functions.html""><div class=""navi"">8.10.5 Resident Attributes Functions </div></a></li>";3;REF_Features_Resident_attributes_functions.html;Resident Attributes Functions
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""REF_Function_attribute_read.html""><div class=""navi"">8.10.5.1 attribute ... </div></a></li>";4;REF_Function_attribute_read.html;attribute ...
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_directory_and_file_system_functions.html""><div class=""navi"">8.10 Directory and File System Functions </div></a></li>";2;REF_Features_directory_and_file_system_functions.html;Directory and File System Functions
+"<li class=""navi""><a href=""REF_Features_directory_and_file_system_functions.html""><div class=""navi"">8.11 Directory and File System Functions </div></a></li>";2;REF_Features_directory_and_file_system_functions.html;Directory and File System Functions
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_basic_directory_and_file_functions.html""><div class=""navi"">8.10.1 Basic Directory and File Functions </div></a></li>";3;REF_Features_basic_directory_and_file_functions.html;Basic Directory and File Functions
+"<li class=""navi""><a href=""REF_Features_basic_directory_and_file_functions.html""><div class=""navi"">8.11.1 Basic Directory and File Functions </div></a></li>";3;REF_Features_basic_directory_and_file_functions.html;Basic Directory and File Functions
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_directory_existing.html""><div class=""navi"">8.10.1.1 directory existing, file existing </div></a></li>";4;REF_Function_directory_existing.html;directory existing, file existing
-"<li class=""navi""><a href=""REF_Function_read_access.html""><div class=""navi"">8.10.1.2 read access ..., write access ... </div></a></li>";4;REF_Function_read_access.html;read access ..., write access ...
-"<li class=""navi""><a href=""REF_Function_working_directory.html""><div class=""navi"">8.10.1.3 working directory </div></a></li>";4;REF_Function_working_directory.html;working directory
-"<li class=""navi""><a href=""REF_Function_starting_directory.html""><div class=""navi"">8.10.1.4 starting directory </div></a></li>";4;REF_Function_starting_directory.html;starting directory
-"<li class=""navi""><a href=""REF_Function_directory_size.html""><div class=""navi"">8.10.1.5 directory size </div></a></li>";4;REF_Function_directory_size.html;directory size
-"<li class=""navi""><a href=""REF_Function_file_size.html""><div class=""navi"">8.10.1.6 file size </div></a></li>";4;REF_Function_file_size.html;file size
-"<li class=""navi""><a href=""REF_Function_disk_space.html""><div class=""navi"">8.10.1.7 disk space ... </div></a></li>";4;REF_Function_disk_space.html;disk space ...
+"<li class=""navi""><a href=""REF_Function_directory_existing.html""><div class=""navi"">8.11.1.1 directory existing, file existing </div></a></li>";4;REF_Function_directory_existing.html;directory existing, file existing
+"<li class=""navi""><a href=""REF_Function_read_access.html""><div class=""navi"">8.11.1.2 read access ..., write access ... </div></a></li>";4;REF_Function_read_access.html;read access ..., write access ...
+"<li class=""navi""><a href=""REF_Function_working_directory.html""><div class=""navi"">8.11.1.3 working directory </div></a></li>";4;REF_Function_working_directory.html;working directory
+"<li class=""navi""><a href=""REF_Function_starting_directory.html""><div class=""navi"">8.11.1.4 starting directory </div></a></li>";4;REF_Function_starting_directory.html;starting directory
+"<li class=""navi""><a href=""REF_Function_directory_size.html""><div class=""navi"">8.11.1.5 directory size </div></a></li>";4;REF_Function_directory_size.html;directory size
+"<li class=""navi""><a href=""REF_Function_file_size.html""><div class=""navi"">8.11.1.6 file size </div></a></li>";4;REF_Function_file_size.html;file size
+"<li class=""navi""><a href=""REF_Function_disk_space.html""><div class=""navi"">8.11.1.7 disk space ... </div></a></li>";4;REF_Function_disk_space.html;disk space ...
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_listing_directories_and_files.html""><div class=""navi"">8.10.2 Listing and Searching Directories and Files </div></a></li>";3;REF_Features_listing_directories_and_files.html;Listing and Searching Directories and Files
+"<li class=""navi""><a href=""REF_Features_listing_directories_and_files.html""><div class=""navi"">8.11.2 Listing and Searching Directories and Files </div></a></li>";3;REF_Features_listing_directories_and_files.html;Listing and Searching Directories and Files
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_directory_listing.html""><div class=""navi"">8.10.2.1 directory listing ... </div></a></li>";4;REF_Function_directory_listing.html;directory listing ...
-"<li class=""navi""><a href=""REF_Function_advanced_directory_listing.html""><div class=""navi"">8.10.2.2 advanced directory listing ... </div></a></li>";4;REF_Function_advanced_directory_listing.html;advanced directory listing ...
-"<li class=""navi""><a href=""REF_Function_search_files.html""><div class=""navi"">8.10.2.3 search files ... </div></a></li>";4;REF_Function_search_files.html;search files ...
-"<li class=""navi""><a href=""REF_Function_choose_recent_file.html""><div class=""navi"">8.10.2.4 choose recent file </div></a></li>";4;REF_Function_choose_recent_file.html;choose recent file
-"<li class=""navi""><a href=""REF_Function_count_files.html""><div class=""navi"">8.10.2.5 count files ... </div></a></li>";4;REF_Function_count_files.html;count files ...
-"<li class=""navi""><a href=""REF_Function_resolve_path_name.html""><div class=""navi"">8.10.2.6 resolve path/directory/file name </div></a></li>";4;REF_Function_resolve_path_name.html;resolve path/directory/file name
-"<li class=""navi""><a href=""REF_Function_office_document_properties.html""><div class=""navi"">8.10.2.7 office document properties </div></a></li>";4;REF_Function_office_document_properties.html;office document properties
+"<li class=""navi""><a href=""REF_Function_directory_listing.html""><div class=""navi"">8.11.2.1 directory listing ... </div></a></li>";4;REF_Function_directory_listing.html;directory listing ...
+"<li class=""navi""><a href=""REF_Function_advanced_directory_listing.html""><div class=""navi"">8.11.2.2 advanced directory listing ... </div></a></li>";4;REF_Function_advanced_directory_listing.html;advanced directory listing ...
+"<li class=""navi""><a href=""REF_Function_search_files.html""><div class=""navi"">8.11.2.3 search files ... </div></a></li>";4;REF_Function_search_files.html;search files ...
+"<li class=""navi""><a href=""REF_Function_choose_recent_file.html""><div class=""navi"">8.11.2.4 choose recent file </div></a></li>";4;REF_Function_choose_recent_file.html;choose recent file
+"<li class=""navi""><a href=""REF_Function_count_files.html""><div class=""navi"">8.11.2.5 count files ... </div></a></li>";4;REF_Function_count_files.html;count files ...
+"<li class=""navi""><a href=""REF_Function_resolve_path_name.html""><div class=""navi"">8.11.2.6 resolve path/directory/file name </div></a></li>";4;REF_Function_resolve_path_name.html;resolve path/directory/file name
+"<li class=""navi""><a href=""REF_Function_office_document_properties.html""><div class=""navi"">8.11.2.7 office document properties </div></a></li>";4;REF_Function_office_document_properties.html;office document properties
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_manipulating_directories_and_files.html""><div class=""navi"">8.10.3 Manipulating Directories and Files </div></a></li>";3;REF_Features_manipulating_directories_and_files.html;Manipulating Directories and Files
+"<li class=""navi""><a href=""REF_Features_manipulating_directories_and_files.html""><div class=""navi"">8.11.3 Manipulating Directories and Files </div></a></li>";3;REF_Features_manipulating_directories_and_files.html;Manipulating Directories and Files
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_directory_create.html""><div class=""navi"">8.10.3.1 directory create ... </div></a></li>";4;REF_Function_directory_create.html;directory create ...
-"<li class=""navi""><a href=""REF_Function_file_delete.html""><div class=""navi"">8.10.3.2 file delete ... </div></a></li>";4;REF_Function_file_delete.html;file delete ...
-"<li class=""navi""><a href=""REF_Function_file_delete_multiple.html""><div class=""navi"">8.10.3.3 file delete multiple/recursive ... </div></a></li>";4;REF_Function_file_delete_multiple.html;file delete multiple/recursive ...
-"<li class=""navi""><a href=""REF_Function_directory_delete.html""><div class=""navi"">8.10.3.4 directory delete ... </div></a></li>";4;REF_Function_directory_delete.html;directory delete ...
-"<li class=""navi""><a href=""REF_Function_directory_delete_multiple.html""><div class=""navi"">8.10.3.5 directory delete multiple/recursive ... </div></a></li>";4;REF_Function_directory_delete_multiple.html;directory delete multiple/recursive ...
-"<li class=""navi""><a href=""REF_Function_file_rename.html""><div class=""navi"">8.10.3.6 file rename ... </div></a></li>";4;REF_Function_file_rename.html;file rename ...
-"<li class=""navi""><a href=""REF_Function_directory_rename.html""><div class=""navi"">8.10.3.7 directory rename ... </div></a></li>";4;REF_Function_directory_rename.html;directory rename ...
-"<li class=""navi""><a href=""REF_Function_file_copy.html""><div class=""navi"">8.10.3.8 file copy ... </div></a></li>";4;REF_Function_file_copy.html;file copy ...
-"<li class=""navi""><a href=""REF_Function_file_copy_multiple.html""><div class=""navi"">8.10.3.9 file copy mulitple/recursive ... </div></a></li>";4;REF_Function_file_copy_multiple.html;file copy mulitple/recursive ...
-"<li class=""navi""><a href=""REF_Function_file_create_link.html""><div class=""navi"">8.10.3.10 file create link ... </div></a></li>";4;REF_Function_file_create_link.html;file create link ...
-"<li class=""navi""><a href=""REF_Function_file_download.html""><div class=""navi"">8.10.3.11 file download ... </div></a></li>";4;REF_Function_file_download.html;file download ...
+"<li class=""navi""><a href=""REF_Function_directory_create.html""><div class=""navi"">8.11.3.1 directory create ... </div></a></li>";4;REF_Function_directory_create.html;directory create ...
+"<li class=""navi""><a href=""REF_Function_file_delete.html""><div class=""navi"">8.11.3.2 file delete ... </div></a></li>";4;REF_Function_file_delete.html;file delete ...
+"<li class=""navi""><a href=""REF_Function_file_delete_multiple.html""><div class=""navi"">8.11.3.3 file delete multiple/recursive ... </div></a></li>";4;REF_Function_file_delete_multiple.html;file delete multiple/recursive ...
+"<li class=""navi""><a href=""REF_Function_directory_delete.html""><div class=""navi"">8.11.3.4 directory delete ... </div></a></li>";4;REF_Function_directory_delete.html;directory delete ...
+"<li class=""navi""><a href=""REF_Function_directory_delete_multiple.html""><div class=""navi"">8.11.3.5 directory delete multiple/recursive ... </div></a></li>";4;REF_Function_directory_delete_multiple.html;directory delete multiple/recursive ...
+"<li class=""navi""><a href=""REF_Function_file_rename.html""><div class=""navi"">8.11.3.6 file rename ... </div></a></li>";4;REF_Function_file_rename.html;file rename ...
+"<li class=""navi""><a href=""REF_Function_directory_rename.html""><div class=""navi"">8.11.3.7 directory rename ... </div></a></li>";4;REF_Function_directory_rename.html;directory rename ...
+"<li class=""navi""><a href=""REF_Function_file_copy.html""><div class=""navi"">8.11.3.8 file copy ... </div></a></li>";4;REF_Function_file_copy.html;file copy ...
+"<li class=""navi""><a href=""REF_Function_file_copy_multiple.html""><div class=""navi"">8.11.3.9 file copy mulitple/recursive ... </div></a></li>";4;REF_Function_file_copy_multiple.html;file copy mulitple/recursive ...
+"<li class=""navi""><a href=""REF_Function_file_create_link.html""><div class=""navi"">8.11.3.10 file create link ... </div></a></li>";4;REF_Function_file_create_link.html;file create link ...
+"<li class=""navi""><a href=""REF_Function_file_download.html""><div class=""navi"">8.11.3.11 file download ... </div></a></li>";4;REF_Function_file_download.html;file download ...
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_file_compression_decompression.html""><div class=""navi"">8.10.4 File Compression and Decompression </div></a></li>";3;REF_Features_file_compression_decompression.html;File Compression and Decompression
+"<li class=""navi""><a href=""REF_Features_file_compression_decompression.html""><div class=""navi"">8.11.4 File Compression and Decompression </div></a></li>";3;REF_Features_file_compression_decompression.html;File Compression and Decompression
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_zip_extract_files.html""><div class=""navi"">8.10.4.1 zip extract files </div></a></li>";4;REF_Function_zip_extract_files.html;zip extract files
-"<li class=""navi""><a href=""REF_Function_zip_extract_all.html""><div class=""navi"">8.10.4.2 zip extract all </div></a></li>";4;REF_Function_zip_extract_all.html;zip extract all
-"<li class=""navi""><a href=""REF_Function_zip_compress.html""><div class=""navi"">8.10.4.3 zip compress </div></a></li>";4;REF_Function_zip_compress.html;zip compress
+"<li class=""navi""><a href=""REF_Function_zip_extract_files.html""><div class=""navi"">8.11.4.1 zip extract files </div></a></li>";4;REF_Function_zip_extract_files.html;zip extract files
+"<li class=""navi""><a href=""REF_Function_zip_extract_all.html""><div class=""navi"">8.11.4.2 zip extract all </div></a></li>";4;REF_Function_zip_extract_all.html;zip extract all
+"<li class=""navi""><a href=""REF_Function_zip_compress.html""><div class=""navi"">8.11.4.3 zip compress </div></a></li>";4;REF_Function_zip_compress.html;zip compress
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_system_functions.html""><div class=""navi"">8.11 System Functions </div></a></li>";2;REF_Features_system_functions.html;System Functions
+"<li class=""navi""><a href=""REF_Features_system_functions.html""><div class=""navi"">8.12 System Functions </div></a></li>";2;REF_Features_system_functions.html;System Functions
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_executing_system_commands.html""><div class=""navi"">8.11.1 Executing System Commands </div></a></li>";3;REF_Features_executing_system_commands.html;Executing System Commands
+"<li class=""navi""><a href=""REF_Features_executing_system_commands.html""><div class=""navi"">8.12.1 Executing System Commands </div></a></li>";3;REF_Features_executing_system_commands.html;Executing System Commands
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_system.html""><div class=""navi"">8.11.1.1 system </div></a></li>";4;REF_Function_system.html;system
-"<li class=""navi""><a href=""REF_Function_quote_path.html""><div class=""navi"">8.11.1.2 quote path </div></a></li>";4;REF_Function_quote_path.html;quote path
+"<li class=""navi""><a href=""REF_Function_system.html""><div class=""navi"">8.12.1.1 system </div></a></li>";4;REF_Function_system.html;system
+"<li class=""navi""><a href=""REF_Function_quote_path.html""><div class=""navi"">8.12.1.2 quote path </div></a></li>";4;REF_Function_quote_path.html;quote path
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Function_set_locale.html""><div class=""navi"">8.11.2 set locale </div></a></li>";3;REF_Function_set_locale.html;set locale
-"<li class=""navi""><a href=""REF_Features_registry_access_functions.html""><div class=""navi"">8.11.3 Registry Access Functions </div></a></li>";3;REF_Features_registry_access_functions.html;Registry Access Functions
-"<li class=""navi""><a href=""REF_Features_licensing_and_privileges.html""><div class=""navi"">8.11.4 Licensing and Privileges </div></a></li>";3;REF_Features_licensing_and_privileges.html;Licensing and Privileges
+"<li class=""navi""><a href=""REF_Function_set_locale.html""><div class=""navi"">8.12.2 set locale </div></a></li>";3;REF_Function_set_locale.html;set locale
+"<li class=""navi""><a href=""REF_Features_registry_access_functions.html""><div class=""navi"">8.12.3 Registry Access Functions </div></a></li>";3;REF_Features_registry_access_functions.html;Registry Access Functions
+"<li class=""navi""><a href=""REF_Features_licensing_and_privileges.html""><div class=""navi"">8.12.4 Licensing and Privileges </div></a></li>";3;REF_Features_licensing_and_privileges.html;Licensing and Privileges
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_global_privileges.html""><div class=""navi"">8.11.4.1 global / script privileges </div></a></li>";4;REF_Function_global_privileges.html;global / script privileges
-"<li class=""navi""><a href=""REF_Function_license_provide_identification.html""><div class=""navi"">8.11.4.2 license provide identification </div></a></li>";4;REF_Function_license_provide_identification.html;license provide identification
-"<li class=""navi""><a href=""REF_Function_license_apply_key.html""><div class=""navi"">8.11.4.3 license apply key </div></a></li>";4;REF_Function_license_apply_key.html;license apply key
+"<li class=""navi""><a href=""REF_Function_global_privileges.html""><div class=""navi"">8.12.4.1 global / script privileges </div></a></li>";4;REF_Function_global_privileges.html;global / script privileges
+"<li class=""navi""><a href=""REF_Function_license_provide_identification.html""><div class=""navi"">8.12.4.2 license provide identification </div></a></li>";4;REF_Function_license_provide_identification.html;license provide identification
+"<li class=""navi""><a href=""REF_Function_license_apply_key.html""><div class=""navi"">8.12.4.3 license apply key </div></a></li>";4;REF_Function_license_apply_key.html;license apply key
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_help_and_support_functions.html""><div class=""navi"">8.12 Help and Support Functions </div></a></li>";2;REF_Features_help_and_support_functions.html;Help and Support Functions
+"<li class=""navi""><a href=""REF_Features_help_and_support_functions.html""><div class=""navi"">8.13 Help and Support Functions </div></a></li>";2;REF_Features_help_and_support_functions.html;Help and Support Functions
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Function_help.html""><div class=""navi"">8.12.1 help </div></a></li>";3;REF_Function_help.html;help
-"<li class=""navi""><a href=""REF_Function_docs.html""><div class=""navi"">8.12.2 docs </div></a></li>";3;REF_Function_docs.html;docs
-"<li class=""navi""><a href=""REF_Function_web_docs.html""><div class=""navi"">8.12.3 web docs </div></a></li>";3;REF_Function_web_docs.html;web docs
-"<li class=""navi""><a href=""REF_Function_view.html""><div class=""navi"">8.12.4 view </div></a></li>";3;REF_Function_view.html;view
-"<li class=""navi""><a href=""REF_Function_view_reset.html""><div class=""navi"">8.12.5 view reset </div></a></li>";3;REF_Function_view_reset.html;view reset
-"<li class=""navi""><a href=""REF_Function_list_functions.html""><div class=""navi"">8.12.6 list / explain functions </div></a></li>";3;REF_Function_list_functions.html;list / explain functions
-"<li class=""navi""><a href=""REF_Function_dump_functions.html""><div class=""navi"">8.12.7 dump functions </div></a></li>";3;REF_Function_dump_functions.html;dump functions
+"<li class=""navi""><a href=""REF_Function_help.html""><div class=""navi"">8.13.1 help </div></a></li>";3;REF_Function_help.html;help
+"<li class=""navi""><a href=""REF_Function_docs.html""><div class=""navi"">8.13.2 docs </div></a></li>";3;REF_Function_docs.html;docs
+"<li class=""navi""><a href=""REF_Function_web_docs.html""><div class=""navi"">8.13.3 web docs </div></a></li>";3;REF_Function_web_docs.html;web docs
+"<li class=""navi""><a href=""REF_Function_view.html""><div class=""navi"">8.13.4 view </div></a></li>";3;REF_Function_view.html;view
+"<li class=""navi""><a href=""REF_Function_view_reset.html""><div class=""navi"">8.13.5 view reset </div></a></li>";3;REF_Function_view_reset.html;view reset
+"<li class=""navi""><a href=""REF_Function_list_functions.html""><div class=""navi"">8.13.6 list / explain functions </div></a></li>";3;REF_Function_list_functions.html;list / explain functions
+"<li class=""navi""><a href=""REF_Function_dump_functions.html""><div class=""navi"">8.13.7 dump functions </div></a></li>";3;REF_Function_dump_functions.html;dump functions
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_Cross-functional_info.html""><div class=""navi"">8.13 Cross-Functional Info </div></a></li>";2;REF_Features_Cross-functional_info.html;Cross-Functional Info
+"<li class=""navi""><a href=""REF_Features_Cross-functional_info.html""><div class=""navi"">8.14 Cross-Functional Info </div></a></li>";2;REF_Features_Cross-functional_info.html;Cross-Functional Info
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_Sorting_options.html""><div class=""navi"">8.13.1 Sorting and Ranking Options </div></a></li>";3;REF_Features_Sorting_options.html;Sorting and Ranking Options
-"<li class=""navi""><a href=""REF_Features_consolidation_actions.html""><div class=""navi"">8.13.2 Consolidation Actions </div></a></li>";3;REF_Features_consolidation_actions.html;Consolidation Actions
+"<li class=""navi""><a href=""REF_Features_Sorting_options.html""><div class=""navi"">8.14.1 Sorting and Ranking Options </div></a></li>";3;REF_Features_Sorting_options.html;Sorting and Ranking Options
+"<li class=""navi""><a href=""REF_Features_consolidation_actions.html""><div class=""navi"">8.14.2 Consolidation Actions </div></a></li>";3;REF_Features_consolidation_actions.html;Consolidation Actions
 </ul></li>;3
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_verbose.html""><div class=""navi""> Verbose Levels </div></a></li>";1;REF_Features_verbose.html;Verbose Levels

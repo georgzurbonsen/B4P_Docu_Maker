@@ -791,7 +791,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 		        if ([Todo]='*code*','*output*') // Output example
 		        {
-			    substitute all( payloads[index[]], {"&","<",">","\"," ",tab}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;","&nbsp;" } );
+			    substitute all( payloads[index[]], {"&","<",">","\","  ","&nbsp; ", tab}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;&nbsp;","&nbsp;&nbsp;","&nbsp;" } );
+			    substitute    ( payloads[index[]], {" "}, {"&nbsp;"} ); // First space must be nbsp
 			    if (value[] =~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;')
 				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }

@@ -1,6 +1,19 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+REF;"&#43; Transaction Assignment Operators";REF_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
+REF;"&#43; Transactions between Tables";REF_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
+REF;"&#43; Transactions between Variables";REF_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
+REF;"&#43; Transactions from Tables to Variables";REF_Features_ADD_Transactions_from_tables_to_variables.html;General Description;ADD Transactions from tables to variables
+REF;"&#43; Transactions from Variables to Tables";REF_Features_ADD_Transactions_from_variables_to_tables.html;General Description;ADD Transactions from variables to tables
 REF;"&amp; Transaction Assignment Operators";REF_Features_Transactions_with_AND_assignment_operator.html;General Description;Transactions with AND assignment operator
-REF;"&amp; Transactions between variables";REF_Features_AND_Transactions_between_variables.html;General Description;AND Transactions between variables
+REF;"&amp; Transactions between Tables";REF_Features_AND_Transactions_between_tables.html;General Description;AND Transactions between tables
+REF;"&amp; Transactions between Variables";REF_Features_AND_Transactions_between_variables.html;General Description;AND Transactions between variables
+REF;"&amp; Transactions from Tables to Variables";REF_Features_AND_Transactions_from_tables_to_variables.html;General Description;AND Transactions from tables to variables
+REF;"&amp; Transactions from Variables to Tables";REF_Features_AND_Transactions_from_variables_to_tables.html;General Description;AND Transactions from variables to tables
+REF;"&vert; Transaction Assignment Operators";REF_Features_Transactions_with_OR_assignment_operator.html;General Description;Transactions with OR assignment operator
+REF;"&vert; Transactions between Tables";REF_Features_OR_Transactions_between_tables.html;General Description;OR Transactions between tables
+REF;"&vert; Transactions between Variables";REF_Features_OR_Transactions_between_variables.html;General Description;OR Transactions between variables
+REF;"&vert; Transactions from Tables to Variables";REF_Features_OR_Transactions_from_tables_to_variables.html;General Description;OR Transactions from tables to variables
+REF;"&vert; Transactions from Variables to Tables";REF_Features_OR_Transactions_from_variables_to_tables.html;General Description;OR Transactions from variables to tables
 REF;Accessing Table Contents;REF_Features_Accessing_table_contents.html;General Description;Accessing table contents
 REF;Accessing Table Information;REF_Features_accessing_table_info.html;General Description;accessing table info
 REF;Accessing Tables;REF_Features_accessing_tables.html;General Description;accessing tables
@@ -80,6 +93,8 @@ REF;Checking and Processing Headers;REF_Features_Checking_headers.html;General D
 REF;Code Execution Functions;REF_Features_Code_Execution_Functions.html;General Description;Code Execution Functions
 REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Description;Code Piece
 REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Description;;code pieces
+REF;Color Palettes;REF_Features_Color_Palettes.html;General Description;Color Palettes
+REF;Color Palettes;REF_Features_Color_Palettes.html;General Description;;Color Palette
 REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
 REF;Comments;REF_Features_comments.html;General Description;comments
 REF;Comments;REF_Features_comments.html;General Description;;comments
@@ -227,6 +242,7 @@ REF;Deep Assignment Operators;REF_Features_deep_assignment_operators.html;Genera
 REF;Deep Binary Operators;REF_Features_deep_binary_operators.html;General Description;deep binary operators
 REF;Deep Operators;REF_Features_deep_operators.html;General Description;deep operators
 REF;Deep Unary Operators;REF_Features_deep_unary_operators.html;General Description;deep unary operators
+REF;Defining User Specific Colors;REF_Features_Defining_User_Specific_Colors.html;General Description;Defining User Specific Colors
 REF;Directory and File System Functions;REF_Features_directory_and_file_system_functions.html;General Description;directory and file system functions
 REF;Divisions;REF_Features_division.html;General Description;division
 REF;Equal to;REF_Features_equal_to.html;General Description;equal to
@@ -241,6 +257,7 @@ REF;Expressions to Select Rows;REF_Features_Expressions_to_select_rows.html;Gene
 REF;File Compression and Decompression;REF_Features_file_compression_decompression.html;General Description;file compression decompression
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;finance functions
 REF;Finance and Business Functions;REF_Features_finance_functions.html;General Description;;business functions
+REF;Formatting and Styling Tables;REF_Features_Formatting_and_Styling_Tables.html;General Description;Formatting and Styling Tables
 REF;Formulas and Operators;REF_Features_formulas_and_operators.html;General Description;formulas and operators
 REF;Function Library;REF_Features_Function_Library.html;General Description;Function Library
 REF;Function Parameter Directions;REF_Features_Function_parameter_directions.html;General Description;Function parameter directions
@@ -367,6 +384,7 @@ REF;Parameter sets;REF_Features_data_types_parameter_sets.html;General Descripti
 REF;Parameter sets;REF_Features_data_types_parameter_sets.html;General Description;;parameter sets
 REF;Parameter sets - Extracting Subsets;REF_Features_data_types_parameter_sets_extracting_subsets.html;General Description;data types parameter sets extracting subsets
 REF;Parameter sets - Extracting Subsets;REF_Features_data_types_parameter_sets_extracting_subsets.html;General Description;;parameter sets extracting subsets
+REF;Parameter sets - Extracting Subsets;REF_Features_data_types_parameter_sets_extracting_subsets.html;General Description;;extracting subsets
 REF;Parameter sets - Indexing;REF_Features_data_types_parameter_sets_indexing.html;General Description;data types parameter sets indexing
 REF;Parameter sets - Indexing;REF_Features_data_types_parameter_sets_indexing.html;General Description;;parameter set indexing
 REF;Parameter sets - Indexing;REF_Features_data_types_parameter_sets_indexing.html;General Description;;length of parameter sets
@@ -461,9 +479,10 @@ REF;Through-Referencing;REF_Features_through-referencing.html;General Descriptio
 REF;Time and Stopwatch Functions;REF_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
 REF;Transactions;REF_Features_Transactions.html;General Description;Transactions
 REF;Transactions between Tables;REF_Features_Transactions_between_tables.html;General Description;Transactions between tables
-REF;Transactions between variables;REF_Features_Transactions_between_variables.html;General Description;Transactions between variables
-REF;Transactions from tables to variables;REF_Features_Transactions_from_tables_to_variables.html;General Description;Transactions from tables to variables
-REF;Transactions from variables to tables;REF_Features_Transactions_from_variables_to_tables.html;General Description;Transactions from variables to tables
+REF;Transactions between Variables;REF_Features_Transactions_between_variables.html;General Description;Transactions between variables
+REF;Transactions from Tables to Variables;REF_Features_Transactions_from_tables_to_variables.html;General Description;Transactions from tables to variables
+REF;Transactions from Variables to Tables;REF_Features_Transactions_from_variables_to_tables.html;General Description;Transactions from variables to tables
+REF;Transactions from Variables to Tables;REF_Features_Transactions_from_variables_to_tables.html;General Description;;Open-ended ranges
 REF;Transcendental Functions;REF_Features_transcendental_functions.html;General Description;transcendental functions
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin
 REF;Trigonometric Functions;REF_Function_sin.html;Function Description;sin deg
@@ -517,6 +536,7 @@ REF;abbreviate name;REF_Function_abbreviate_name.html;Function Description;abbre
 REF;abort;REF_Function_abort.html;Function Description;abort
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;abs
 REF;abs - Absolute Value;REF_Function_abs.html;Function Description;;absolute value
+REF;add color;REF_Function_add_color.html;Function Description;add color
 REF;advanced directory listing ...;REF_Function_advanced_directory_listing.html;Function Description;advanced directory listing
 REF;advanced directory listing ...;REF_Function_advanced_directory_listing.html;Function Description;advanced directory listing recursive
 REF;array to structure ...;REF_Function_array_to_structure.html;Function Description;array to structure
@@ -579,6 +599,7 @@ REF;covariance, correlation;REF_Function_covariance.html;Function Description;;c
 REF;cursor;REF_Function_cursor.html;Function Description;cursor
 REF;cursor;REF_Function_cursor.html;Function Description;;cursor position
 REF;cursor;REF_Function_cursor.html;Function Description;;move cursor
+REF;darken colors;REF_Function_darken_colors.html;Function Description;darken colors
 REF;date inside, time inside;REF_Function_date_inside.html;Function Description;date inside
 REF;date inside, time inside;REF_Function_date_inside.html;Function Description;time inside
 REF;date, pure date, date time;REF_Function_date.html;Function Description;date
@@ -819,6 +840,7 @@ REF;length ... (string function);REF_Function_length.html;Function Description;;
 REF;length ... (string function);REF_Function_length.html;Function Description;;length [string function]
 REF;license apply key;REF_Function_license_apply_key.html;Function Description;license apply key
 REF;license provide identification;REF_Function_license_provide_identification.html;Function Description;license provide identification
+REF;lighten colors;REF_Function_lighten_colors.html;Function Description;lighten colors
 REF;linear - Solve Linear Equations;REF_Function_linear.html;Function Description;linear
 REF;linear - Solve Linear Equations;REF_Function_linear.html;Function Description;;linear equation
 REF;list / explain functions;REF_Function_list_functions.html;Function Description;list functions
@@ -1230,6 +1252,7 @@ REF;wait until, wait until countdown;REF_Function_wait_until.html;Function Descr
 REF;wait until, wait until countdown;REF_Function_wait_until.html;Function Description;wait until countdown
 REF;wait, wait countdown;REF_Function_wait.html;Function Description;wait
 REF;wait, wait countdown;REF_Function_wait.html;Function Description;wait countdown
+REF;weaken colors;REF_Function_weaken_colors.html;Function Description;weaken colors
 REF;web docs;REF_Function_web_docs.html;Function Description;web docs
 REF;week;REF_Function_week.html;Function Description;week
 REF;weekday;REF_Function_weekday.html;Function Description;weekday

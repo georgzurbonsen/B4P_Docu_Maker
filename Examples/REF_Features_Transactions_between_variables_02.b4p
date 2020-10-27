@@ -1,6 +1,8 @@
 ﻿#!/usr/local/bin/b4p
   structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+  structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
   array    ( plants1[],  { tulip, sunflower, fir } );
+
   animals1[] = Pets and animals;
   plants1 [] = Plants and flowers;
 
@@ -10,8 +12,8 @@
   animals1[] <=> plants1[];
   animals2[] <=>^ plants2[];
 
-  echo( "Variable animals1[]: ", animals1[], new line, " contents: ", set ( animals1[] ));
-  echo( "Variable animals2[]: ", animals2[], new line, " contents: ", set ( animals2[] ));
-  echo;
-  echo( "Variable plants1[]: ", plants1[], new line, "  member names: ", set names( plants1[] ), " contents: ", set ( plants1[] ));
-  echo( "Variable plants2[]: ", plants2[], new line, "  member names: ", set names( plants2[] ), " contents: ", set ( plants2[] ));
+  inspect( animals1[] );
+  inspect( plants1[] );
+
+  inspect( animals2[] );
+  inspect( plants2[] );

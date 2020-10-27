@@ -1,4 +1,5 @@
- 	//
+
+
 B4PDOCU.START
 
   "Function Library" :
@@ -789,6 +790,87 @@ B4PDOCU.START
 	+++
   },
 
+
+
+
+"Formatting and Styling Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Formatting and Styling Tables" ],
+    "Description 01:Introduction"::
+
+	B4P provides a generic set of functions for giving a final touch to your tables.  They include:
+	* Setting row widths and column hights
+	* Formatting text (font name, font size, color, bold, underscore, line wraps, etc.)
+	* Formatting tables (cell colors, etc.)
+	* Number and date formats
+	* Freezing panes
+	* Setting the autofilter
+	* and many more.
+
+	At present, the formatting and styling functions are supported for following file formats when saving the tables where minor differences in the
+	interpretation of the formatting may apply:
+
+	* HTML (understood by both Excel and web browsers)
+	* Excel (XML 2003) format
+
+	You can add formatting and style to multiple tables and then save them as multiple sheets in one Excel file.
+
+	<br><br>
+
+	<u>Note</u>: The whole function library has been written in B4P and is in the file "Style Library.b4p" in your installed library directory.
+	In order to use these functions, you need to do the following function call at first:
+	<br><br>
+	<b>include ( Style Library );</b>
+	<br><br>
+	+++,
+
+    "Description 02:Formatting Procedure"::
+
+	Follow the seven basic steps described below in order to do a successful and attractive finish .
+
+	=== 50, 950, noheader, noframe_1stcolbold
+	1.	| <b>Finalize the table with all necessary contents.</b>  You may want to have some helper columns on the right hand side which you \
+		  can delete after adding formatting features, but the formatted table contents must not move in any direction because the formatting info will not move along with them.
+	2.	| A broad pallette of named colors is already available. Optionally, you can __define user-specific colors__ so you can reference them conveniently by color name and not by red-green-blue codes: <br>\
+		  __add color(__): Add user-defined colors<br>\
+		  __lighten colors(__): Lighten the set of standard colors according to your specifications<br>\
+		  __darken colors(__): Darken the set of standard colors according to your specifications<br>\
+		  __weaken colors(__): Weaken the intensity of standard colors according to your specifications<br>
+	3.	| <b>Be creative. Do the artistic work</b> on the table using the following four functions:<br>\
+		  __table style table(__): Formatting instructions applicable for the whole table, e.g. general font name, font size, location of autofilter row, etc.<br>\
+		  __table style rows(__): E.g row height, formatting all entries in the specified rows, etc.<br>\
+		  __table style columns(__): E.g. column width, formatting all entries in the specified columns, etc.<br>\
+		  __table style cells(__): Style individual cells, a set of cells, a matrix of cells, or a rectangular area in the table, and applying Excel <i>mouse-over</i> comments.
+	4.	| If needed, <b>delete redundant contents on the right hand side or below the table</b> but without moving the final table around (e.g. with inserting / deleting \
+		  columns and/or rows. The formatting you have applied have a fixed association to the rows and columns.  If you delete a row, then the next row below will get the formatting.\
+		  The same applies to sorting and rearranging table rows and columns after the formatting.<br>\
+		  <u>General advice</u>: Finalize the table first, then do the creative artwork.
+	5.	| <b>Generate the final formatting instructions specific to the file format</b> you intend to use for saving.  You need to call one of the two functions listed below<br>\
+		  __translate style attributes for excel(__)<br>\
+		  __translate style attributes for html(__)
+	6.	| <b>Save your (art-)work</b> using one of the following functions:<br>\
+		  __table save(__), and <br>\
+		  __table save multiple(__).<br>\
+		  <u>Note</u>: Make sure you choose the format as specified in step 5.  You can do the style attribute translation for multiple formats on the same table.\
+		  If you save the file in a format for which no tranlsation has been made, then the table will be saved as if no formatting has been applied at all. The CSV file format\
+		  and close relatives (e.g. tab separated files, text files) do not support any formatting.
+	7.	| If needed, <b>reset all format attributes</b> using the function<br>\
+		  __table style reset(__)<br>\
+		  in order to start doing a different formatting artwork on the same table.
+	===
+	+++,
+    "Description 03:Important Info"::
+	<b>The "Style Library" works with following global variables which shall not be manipulated directly as this could result in unexpected and erratic outcome</b>
+	* <b>table style descriptions[]</b>: This variable contains all formatting attributes for all tables.
+	* <b>hex[]</b>: Conversion of hexadecimal values
+	* <b>table style rules[]</b>: Defines rules to properly interpret formatting codes
+	* <b>table style html comments[]</b>: Template to put comments into HTML file format so opening them with Excel will make the comments show up.
+	In addition, this library maintains one table called <b>global color table</b> which describes all available colors with their names.  See next section for details.
+	+++
+},
+
+// See "Style Library.txt" for further documentation on styles.
 
 
 "Variables Functions":

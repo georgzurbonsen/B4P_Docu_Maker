@@ -14,7 +14,6 @@
   [ animals2: Name, Gnu, .. ] <<= [ animals1: Name, Dog, ];  // Dog overwrites Gnu, Dog erased from animals 1
   [ animals1: Name, Owl,    ] <<= [ animals2: Name, Bee, .. ]; // Open ended items, also copy the weapon
 
-
   echo("Contains the bee, owl and dog removed");
   table list( animals1 ); // No additional column created
   

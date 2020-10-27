@@ -1,0 +1,39 @@
+﻿<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" 
+xmlns:o="urn:schemas-microsoft-com:office:office" 
+xmlns:x="urn:schemas-microsoft-com:office:excel" 
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" 
+xmlns:html="http://www.w3.org/TR/REC-html40"> 
+<Styles>
+<Style ss:ID="St11"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#000033" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St5"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#0000FF" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St9"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#003300" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St10"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#003333" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St3"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#00FF00" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St4"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#00FFFF" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St7"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#330000" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St12"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#330033" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St8"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#333300" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St1"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#FF0000" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St6"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#FF00FF" ss:Pattern="Solid" /></Style>
+<Style ss:ID="St2"> <Font ss:Color="#FFFFFF" /><Interior ss:Color = "#FFFF00" ss:Pattern="Solid" /></Style>
+
+</Styles>
+<Worksheet ss:Name="t">
+<Table >
+<Row ><Cell ><Data ss:Type="String" >Color Name</Data></Cell><Cell ><Data ss:Type="String" >Cat 1</Data></Cell><Cell ><Data ss:Type="String" >Cat 2</Data></Cell><Cell ><Data ss:Type="String" >Red</Data></Cell><Cell ><Data ss:Type="String" >Green</Data></Cell><Cell ><Data ss:Type="String" >Blue</Data></Cell><Cell ><Data ss:Type="String" >HTML Color</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St1"><Data ss:Type="String" >red</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="String" >standard</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="String" >#FF0000</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St2"><Data ss:Type="String" >yellow</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="String" >standard</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St2"><Data ss:Type="String" >#FFFF00</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St3"><Data ss:Type="String" >green</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="String" >standard</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St3"><Data ss:Type="String" >#00FF00</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St4"><Data ss:Type="String" >cyan</Data></Cell><Cell ss:StyleID="St4"><Data ss:Type="String" >standard</Data></Cell><Cell ss:StyleID="St4"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St4"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St4"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St4"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St4"><Data ss:Type="String" >#00FFFF</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St5"><Data ss:Type="String" >blue</Data></Cell><Cell ss:StyleID="St5"><Data ss:Type="String" >standard</Data></Cell><Cell ss:StyleID="St5"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St5"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St5"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St5"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St5"><Data ss:Type="String" >#0000FF</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St6"><Data ss:Type="String" >magenta</Data></Cell><Cell ss:StyleID="St6"><Data ss:Type="String" >standard</Data></Cell><Cell ss:StyleID="St6"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St6"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St6"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St6"><Data ss:Type="Number" >255</Data></Cell><Cell ss:StyleID="St6"><Data ss:Type="String" >#FF00FF</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St7"><Data ss:Type="String" >dark red X</Data></Cell><Cell ss:StyleID="St7"><Data ss:Type="String" >darkened</Data></Cell><Cell ss:StyleID="St7"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St7"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St7"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St7"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St7"><Data ss:Type="String" >#330000</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St8"><Data ss:Type="String" >dark yellow X</Data></Cell><Cell ss:StyleID="St8"><Data ss:Type="String" >darkened</Data></Cell><Cell ss:StyleID="St8"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St8"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St8"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St8"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St8"><Data ss:Type="String" >#333300</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St9"><Data ss:Type="String" >dark green X</Data></Cell><Cell ss:StyleID="St9"><Data ss:Type="String" >darkened</Data></Cell><Cell ss:StyleID="St9"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St9"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St9"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St9"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St9"><Data ss:Type="String" >#003300</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St10"><Data ss:Type="String" >dark cyan X</Data></Cell><Cell ss:StyleID="St10"><Data ss:Type="String" >darkened</Data></Cell><Cell ss:StyleID="St10"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St10"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St10"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St10"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St10"><Data ss:Type="String" >#003333</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St11"><Data ss:Type="String" >dark blue X</Data></Cell><Cell ss:StyleID="St11"><Data ss:Type="String" >darkened</Data></Cell><Cell ss:StyleID="St11"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St11"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St11"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St11"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St11"><Data ss:Type="String" >#000033</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St12"><Data ss:Type="String" >dark magenta X</Data></Cell><Cell ss:StyleID="St12"><Data ss:Type="String" >darkened</Data></Cell><Cell ss:StyleID="St12"><Data ss:Type="String" >primary</Data></Cell><Cell ss:StyleID="St12"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St12"><Data ss:Type="Number" >0</Data></Cell><Cell ss:StyleID="St12"><Data ss:Type="Number" >51</Data></Cell><Cell ss:StyleID="St12"><Data ss:Type="String" >#330033</Data></Cell></Row>
+</Table>
+</Worksheet>
+</Workbook>

@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+  include( Style Library );
+
+  darken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
+
+  table copy table selected rows( global color table, t, [Cat 2]==primary );
+
+  table list ( t );
+  table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
+
+  translate style attributes for html(t);
+  table save( t, "Images/Style_Darkened_Colors.html", HTML );
+  translate style attributes for excel(t);
+  table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
+  echo("Done. Open the file Custom_Colors.html with a web browser.");
+

@@ -11,11 +11,9 @@
         { Gnu,   4,         Knows UNIX,      horns   },
         { Cat,   4,         Empathy to humans, sharp claws } } );
 
-
   [ animals2: Name, Cat, .. ] <=> [ animals1: Name, Dog,  ];
   [ animals2: Name, Bee, Name..Special ability ] <=> [ animals1: Name, Owl, ]; // Excludes the weapon
   
-
   echo("Contains Bee, Cat and Ape");
   table list( animals1 ); // No additional column created
   
