@@ -12,5 +12,5 @@
   table save( t, "Images/Style_Weakened_Colors.html", HTML );
   translate style attributes for excel(t);
   table save( t, "Images/Style_Weakened_Colors.xls", EXCEL );
-  echo("Done. Open the file Custom_Colors.html with a web browser.");
+  echo("Done.");
 

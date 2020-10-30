@@ -1,0 +1,23 @@
+﻿#!/usr/local/bin/b4p
+  include( Style Library );
+  table load( t, "Cities.csv" );
+
+  table style columns( t, {City,"State/Province"}, sheet, boldface, true, text color, burgundy, fill color, champagne );
+  table style columns( t, Country,                 table, italic,   true, fill color, { 224, 229, 244 } );
+  table style columns( t, {-3,-1},                 body,  fill color, lemon );
+
+  // Number format is supported in Excel only
+  table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
+
+  translate style attributes for excel(t);
+  table save( t, "Images/Style_Function_table_style_columns.xls", EXCEL );
+
+  // How to apply number formats in HTML for browsers
+
+  table process              ( t,                      [Inhabitants] = literal([Inhabitants], '#,##0', local) );  
+  table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
+  table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
+
+  translate style attributes for html(t);
+  table save( t, "Images/Style_Function_table_style_columns.html", HTML );
+  echo("Done.");

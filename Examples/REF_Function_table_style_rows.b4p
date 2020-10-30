@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  include( Style Library );
+  table load( t, "Cities.csv" );
+
+  table style rows( t, 0, body, boldface, true, row height, 30 );
+
+  // for table style rows, coverage values 'body' and 'table' work similarly.
+
+  table style rows( t, table selected rows( t, [Country]==USA), body, fill color, gray 15, 
+      top border, { thick, blue }, bottom border, { thick, blue },
+      left border, { thick, red }, right border, { thick, red } );
+
+  // Here: Sheet wide coverage when viewing files with Excel
+  table style rows( t, table selected rows( t, [Country]==ITA), sheet, fill color, lemon, italic, true );
+
+  translate style attributes for html(t);
+  table save( t, "Images/Style_Function_table_style_rows.html", HTML );
+  translate style attributes for excel(t);
+  table save( t, "Images/Style_Function_table_style_rows.xls", EXCEL );
+  echo("Done.");

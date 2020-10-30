@@ -11,6 +11,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Defining User Specific Colors" ],
+    "Keywords":			[ "Color Specification" ],
     "Description 01:Introduction"::
 
 	B4P provides 3 ways to specify text and cell colors in the tables:
@@ -249,7 +250,7 @@ B4PDOCU.START
 	table save( t, "Images/Style_Lightened_Colors.html", HTML );
 	translate style attributes for excel(t);
 	table save( t, "Images/Style_Lightened_Colors.xls", EXCEL );
-	echo("Done. Open the file Custom_Colors.html with a web browser.");
+	echo("Done.");
 
 	+++,
 	"Output": "automatic",
@@ -317,7 +318,7 @@ B4PDOCU.START
 	table save( t, "Images/Style_Darkened_Colors.html", HTML );
 	translate style attributes for excel(t);
 	table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
-	echo("Done. Open the file Custom_Colors.html with a web browser.");
+	echo("Done.");
 
 	+++,
 	"Output": "automatic",
@@ -385,7 +386,7 @@ B4PDOCU.START
 	table save( t, "Images/Style_Weakened_Colors.html", HTML );
 	translate style attributes for excel(t);
 	table save( t, "Images/Style_Weakened_Colors.xls", EXCEL );
-	echo("Done. Open the file Custom_Colors.html with a web browser.");
+	echo("Done.");
 
 	+++,
 	"Output": "automatic",
@@ -393,7 +394,672 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Weakened_Colors.html" target="_blank">Style_Weakened_Colors.html</a>.<br>
 	Test Click on the file name open the file with Excel: <a href="Images/Style_Weakened_Colors.xls" >Style_Weakened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
 	+++
+},
+
+
+
+
+
+
+"Styling Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Formatting the Tables" ],
+    "Description 01:Introduction"::
+
+	Four different functions are available to format the tables:
+	* __table style table(__)
+	* __table style rows(__)
+	* __table style columns(__)
+	* __table style cells(__)
+
+	<br><br>
+	All four functions make use of __generic attribute names__ and __generic attribute values__, for exmple <i>font size</i> followed by a number.  These attributes
+	will then be translated to the file-type specifc formatting attributes wich differ between HTML and Excel formats.  Even though greate effort has been invested
+	to ensure that the formatting attributes provide equivalent outcome, some differences apply. One example is that formatting complete rows across the entire sheet
+	works fine in Excel but for good reasons not in HTML where the color ends with the last table column.
+
+	<br><br>
+	The attributes are summarized in the next section, followed by the description of the four formatting functions.
+
+	+++
+},
+
+
+
+"Generic Formatting Attributes":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Generic Formatting Attributes" ],
+    "Keywords":			[ "Generic Attribute Names", "Generic Attribute Values" ],
+    "Description 01:Introduction"::
+
+	The formatting attributes are always tuples which consist of generic attribue names and generic attribute values which are described in the table below:
+
+	=== 200, 200, 100, 300, 200, bold_column_1
+	Generic Attribute Name		| Generic Attribute Value		| Scope				| Descriptions					| Restrictions, Portability
+	text color			| __color specification__		| table, row, column, cell	| Sets text color				| Excel and browsers may group slightly different colors together
+	fill color			| __color specification__		| "				| Sets background color of the table fields	|
+	top border<br>bottom border<br>left border<br>right border \
+					| border specificaction<sup>1</sup>	| "				| Applies cell borders				| HTML: 'hairline' thickness is same as 'thin' thickness
+	underscore<br>boldface<br>italic| Boolean: true / false			| "				| Applies text formatting			|
+	wrap text			| Boolean: true / false			| "				| Text inside the cell will wrap to next row if too long | 
+	comment				| Literal: text contents		| cell				| Adds comments which are visible in Excel when holding the mouse cursor above the red triangle symbol | See <sup>2</sup>
+	font name			| Literal: font name			| table, row, column, cell	| Sets the font name				| The font name must be known to Excel or the web browser
+	font size			| Numeral: size in points		| "				| Sets the font size				| 
+	number format			| Literal: Excel number format		| "				| Applies Excel number format			| See <sup>3</sup>. It differs from B4P formatting.  Web browsers do not support this. Output the values as text if they should contain formatting.
+	type				| Literal: default, literal, numeral, boolean 	| "			| default: No special rules<br> \
+														  literal: All contents are treated as literals, incl. numbers<br>\
+														  numeral: Contents are treated as numerals<br>\
+														  boolean: Contents are treated as booleans, e.g. 0 and 1 are TRUE and FALSE in Excel. \
+																				| <u>Attention</u>: Forcing text as numerals or booleans may result to unsuccessful file loading by Excel.
+	horizontal align		| Literal: automatic, left, middle, right	| "			| Alignment of cell contents			|
+	vertical align			| Literal: automatic, top, center, bottom	| "			| Alignment of cell contents			|
+	column width			| Numeral: width (1..255)			| column		| Sets column width using Excel units		|
+	row height			| Numeral: height (1..255)			| row			| Sets row height using Excel units		| Not 100% accurate if using HTML format (Difference by +/- 1 is possible)
+	autofilter			| Numeral: row number				| table			| Use 0 for header row. No pre-filtering made	|
+	freeze rows			| Numeral: row count				| table			| Number of top row frozen and always visible when scrolling		| Used by Excel
+	freeze columns			| Numeral: column count				| table			| Number of left columns frozen and always visible when scrolling	| Used by Excel
+	hidden				| Boolean: true, false				| row, column		| Hides a specifci row or column		| In HTML, column width 0 is used
+	hidden row			| Boolean: true, false				| row			| Like above, appliable to rows only		|
+	hidden column			| Boolean: true, false				| column		| Like above, appliable to columns only		| In HTML, column width 0 is used
+	===
+
+	<sup>1</sup>Parameter set with two values: thickness (literal) and __color specification__, e.g. <b>{ thin, red }</b>.  Valid thicknesses: hairline, thin, medium, thick<br>
+	<sup>2</sup>Comments in HTML files loaded with Excel will work on the 1st table only in case multiple table are saved.</br>
+	<sup>3</sup>See: <a href="https://exceljet.net/custom-number-formats" target="_blank"><b>Info about Excel number format codes</b></a><br>
+
+	<br>
+
+	The following table summarizes some of the identified differences between HTML and Excel results:
+	=== 200, 400, 400
+	Category, Attributes		| Excel										| HTML
+	Default character set		| Arial 10 pt									| Calibri 11 pt (may differ among browsers)
+	Spreadsheet grid visible	| Yes. To make invisible:<br><b>table style table ( table name, sheet, fill color, white );</b>	| No.  Need to specify border color.
+	Unspecified column width	| Standard 10.71 pt (may differ if Excel start-up configuration is different)			| Width varies to fit contents.
+	Specified column widths		| Fully supported								| Fully supported when opening with Excel.  Browsers will maintain at least minimum column width to fit the contents.
+	Dates				| No autoamtic date recognition. You need to put numbers into the fields (e.g. with function abs ( date value ) and then apply a number format with values like "DD.MM.YYYY".	| Excel recognizes dates in an intelligent manner.  Dates in local format or specified as YYYY-MM-DD are detected automatically and loaded as dates.
+	Horizontal align		| Default: left									| Default: left.  Header row: middle
+	Vertical align			| Default: bottom								| Default: middle
+	Header row			| Standard text									| Bold text
+	Wrap text			| Default: false								| Default: true
+	Text colors			| May be degraded (e.g. crimson shown in red)					| Normally not, but some browers may act differently
+	Formulas			| Not supported									| Supported, but language specific.  Formulate as you work in Excel.  All formulas must begin with an equal sign. <br> Function names must be specified in the local language configured for Excel.  If it's German, use a function name like "SUMME" instead of "SUM".
+	Output boolean values		| Not supported									| Supported, but language specific, and not case sensitive. Use "WAHR" and "FALSCH" if Excel is configured in German.
+	Forcing data to literal format, including numbers | Use attribute name 'type' and value 'text'. e.g.<br><b>table style table( test, sheet, type, literal);</b> | The same rule applies
+	===
+	+++,
+	"Examples 01:Different interpretation of numeric, date and boolean values"::
+	include( Style Library );
+	echo("Test various date, numeric and boolean representations");
+
+	table initialize( t, 
+	{   { Dates Lit 1,Dates Lit 2,Dates Num,Boolean EN,Boolean DE,Boolean Num,Numbers,Formulas },
+	    { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=WURZEL(4)"  },
+	    { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=G2*2"  },
+	    { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=G2*2"  },
+	    { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=SQRT(4)"  } } )	;
+
+	table style columns( t, {0..7}, table, column width, 14 );
+	table style cells  ( t, Dates Num,   2, single, number format, "DD.MMM.YYYY" );
+	table style cells  ( t, Dates Lit 1, 2, single, number format, "DD.MMM.YYYY" );
+	table style cells  ( t, Dates Lit 2, 2, single, number format, "DD.MMM.YYYY" );
+	table style rows   ( t, 3, sheet, type, literal );
+	table style cells  ( t, Boolean Num, 4, single, type, boolean );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Number_Formats.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Number_Formats.xls", EXCEL );
+	echo("Done.");
+	+++,
+	"Output 01:": "automatic",
+	"Description 02:"::
+	Test Click on the file name view the result: <a href="Images/Style_Number_Formats.html" target="_blank">Style_Number_Formats.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Number_Formats.xls" >Style_Number_Formats.xls</a> (Excel XML 2003 format - confirm the message box query).	
+
+	<br><br>
+
+	The Excel file looks like this one:
+	<img src="Images/Description_Style_Number_Formats_1.jpg" alt="Excel file"><br/><br/>
+	
+	The HTML file loaded in Excel looks as follows:
+	<img src="Images/Description_Style_Number_Formats_2.jpg" alt="HTML file opened in Excel"><br/><br/>
+	
+	The HTML file loaded in Excel looks as follows:
+	<img src="Images/Description_Style_Number_Formats_3.jpg" alt="HTML file opened in a browser"><br/><br/>
+	+++
+
+},
+
+
+"Formatting Coverages and Precedences":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Formatting Precedences", "Formatting Coverages" ],
+    "Description 01:Introduction"::
+
+	The fnctiosn __table style table(__), __table style rows(__) and __table style columsn(__) a parameter called <b>Coverage</b> which can take following values:
+	=== 100, 600, 100, 100, 100, bold_column_1
+	Coverage	| Explanation
+	sheet		| Covers entire sheet. In Excel the entire sheet and not just the table saved applies.  Following precedence rules apply:<br>\
+			  Columns, rows and cells overpaint tables<br>\
+			  Rows and cells overpaint columns<br>\
+			  Cells overpaint rows.
+	table		| Covers entire table, but not outside the table.  Same precedence level as formatting cells. The last function call applies the last paint on the top.
+	body		| Covers table body except header row.  Same precedence lvel as formating cells.  The last function call applies the last paint on the top.
+	===
+	+++,
+	"Examples 01:Precedence example with the 'Cities' table"::
+	include( Style Library );
+
+	echo("Demonstrate precedences in formatting sheets / rows / columns / cells");
+
+	table load( t, "Examples\Cities.csv" );
+
+	table style cells( t, City, 1, single, fill color, yellow );
+	table style cells( t, Famous attraction, 3, single, fill color, red );
+	table style rows( t, 4, sheet, fill color, green );
+	table style columns( t, City, sheet, fill color, aquamarine);
+	table style rows( t, 3, sheet, fill color, saffron );
+
+	table style rows( t, 9, table, fill color, powder blue );
+	table style columns( t, "State/Province", table, fill color, steel blue);
+	table style rows( t, 10, table, fill color, plum );
+	table style cells( t, "State/Province", 9, single, fill color, {255,255,128} );
+
+	table style table( t, sheet, fill color, gray 15 );
+	// Calling the same function with 'table' instead of 'sheet' would overpaint every cell
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Precedences.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Precedences.xls", EXCEL );
+	echo("Done.");
+	+++,
+	"Output 01:": "automatic",
+	"Description 02:"::
+	Test Click on the file name view the result: <a href="Images/Style_Precedences.html" target="_blank">Style_Precedences.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Precedences.xls" >Style_Precedences.xls</a> (Excel XML 2003 format - confirm the message box query).	
+
+	<br><br>
+
+	The Excel file looks like this one (Formatting rows and colums beyond the table):
+	<img src="Images/Description_Style_Precedences_1.jpg" alt="Excel file"><br/><br/>
+	
+	The HTML file loaded in Excel looks as follows (Formatting inside table only):
+	<img src="Images/Description_Style_Precedences_2.jpg" alt="HTML file opened in Excel"><br/><br/>
+	
+	The HTML file loaded in Excel looks as follows (Formatting horizontally beyond the table but not vertically):
+	<img src="Images/Description_Style_Precedences_3.jpg" alt="HTML file opened in a browser"><br/><br/>
+	+++
+	
+},
+
+
+
+
+
+"table style table" :
+{
+	"Function Names":	[ "table style table" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function applies style and formatting to a whole table or sheet
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"4, 6, 8, etc.",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "2.",
+		  "Name": "Formatting Coerage",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __formatting coverages__.  Valid values are: 
+			* <b>sheet</b>: Covers entire sheet, even outside the table
+			* <b>table</b>: Covers table, but sheet outside the table is not affected
+			* <b>body</b>: Covers table except header row
+			+++
+		},
+		{ "Number": "3, 5, ....",
+		  "Name": "Generic Attribute Name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute names__ for available names.
+			+++
+		},
+		{ "Number": "4, 6, ....",
+		  "Name": "Generic Attribute Value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	table load( t, "Examples\Cities.csv" );
+
+	table style table( t, sheet, column width, 24, wrap text, true );
+	table style table( t, body, text color, navy );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Function_table_style_sheet.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Function_table_style_sheet.xls", EXCEL );
+	echo("Done.");
+
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_sheet.html" target="_blank">Style_Function_table_style_sheet.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_sheet.xls" >Style_Function_table_style_sheet.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+
+
+"table style rows" :
+{
+	"Function Names":	[ "table style rows" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function applies style and formatting to a row inside the table or the whole sheet
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"5, 7, 9, etc.",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "2.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "parameter set containing numerals", "numeral" ],
+		  "Description": "Specify 1 or more row numbers.  <br><u>Hint</u>: Use __table selected rows(__) to identify row numbers using a condition to apply on every row."
+		},
+		{ "Number": "3.",
+		  "Name": "Formatting Coerage",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __formatting coverages__.  Valid values are: 
+			* <b>sheet</b>: Covers entire sheet, even outside the table
+			* <b>table</b>: Covers table, but sheet outside the table is not affected
+			* <b>body</b>: Same functionality as with <b>table</b>, even when applying this function on row 0 (header row).
+			+++
+		},
+		{ "Number": "4, 6, ....",
+		  "Name": "Generic Attribute Name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute names__ for available names.
+			+++
+		},
+		{ "Number": "5, 7, ....",
+		  "Name": "Generic Attribute Value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	table load( t, "Examples\Cities.csv" );
+
+	table style rows( t, 0, body, boldface, true, row height, 30 );
+
+	// for table style rows, coverage values 'body' and 'table' work similarly.
+
+	table style rows( t, table selected rows( t, [Country]==USA), body, fill color, gray 15, 
+		top border, { thick, blue }, bottom border, { thick, blue },
+		left border, { thick, red }, right border, { thick, red } );
+
+	// Here: Sheet wide coverage when viewing files with Excel
+	table style rows( t, table selected rows( t, [Country]==ITA), sheet, fill color, lemon, italic, true );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Function_table_style_rows.html", HTML );
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Function_table_style_rows.xls", EXCEL );
+	echo("Done.");
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_columns.html" target="_blank">Style_Function_table_style_columns.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_columns.xls" >Style_Function_table_style_columns.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+
+"table style columns" :
+{
+	"Function Names":	[ "table style columns" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function applies style and formatting to a column inside the table or the whole sheet
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"5, 7, 9, etc.",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "2.",
+		  "Name": "Table columns to format",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Description": "Specify 1 or more columns using header names and/or column numbers.  __Negative indexing__ is supported."
+		},
+		{ "Number": "3.",
+		  "Name": "Formatting Coerage",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __formatting coverages__.  Valid values are: 
+			* <b>sheet</b>: Covers entire sheet, even outside the table
+			* <b>table</b>: Covers table, but sheet outside the table is not affected
+			* <b>body</b>: Covers table except header row
+			+++
+		},
+		{ "Number": "4, 6, ....",
+		  "Name": "Generic Attribute Name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute names__ for available names.
+			+++
+		},
+		{ "Number": "5, 7, ....",
+		  "Name": "Generic Attribute Value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	table load( t, "Examples\Cities.csv" );
+
+	table style columns( t, {City,"State/Province"}, sheet, boldface, true, text color, burgundy, fill color, champagne );
+	table style columns( t, Country,                 table, italic,   true, fill color, { 224, 229, 244 } );
+	table style columns( t, {-3,-1},                 body,  fill color, lemon );
+
+	// Number format is supported in Excel only
+	table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
+
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Function_table_style_columns.xls", EXCEL );
+
+	// How to apply number formats in HTML for browsers
+
+	table process              ( t,                      [Inhabitants] = literal([Inhabitants], '#,##0', local) );  
+	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
+	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Function_table_style_columns.html", HTML );
+	echo("Done.");
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_columns.html" target="_blank">Style_Function_table_style_columns.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_columns.xls" >Style_Function_table_style_columns.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+"table style cells" :
+{
+	"Function Names":	[ "table style cells" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function applies style and formatting to one or multiple cells inside the table.
+		<u>Attention</u>: Formats added to cell locations which are outside of the table will not appear.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"6, 8, 10, etc.",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "2.",
+		  "Name": "Table columns to format",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+		  "Description": "Specify 1 or more columns using header names and/or column numbers.  __Negative indexing__ is supported."
+		},
+		{ "Number": "2.",
+		  "Name": "Row numbers",
+		  "Direction": "input",
+		  "Types": [ "parameter set containing numerals", "numeral" ],
+		  "Description": "Specify 1 or more row numbers.  <br><u>Hint</u>: Use __table selected rows(__) to identify row numbers using a condition to apply on every row."
+		},
+		{ "Number": "4.",
+		  "Name": "Formatting Coerage",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __formatting coverages__.  Valid values are: 
+			* <b>single</b>: Single cell addressed.  If parameter set provided, then both parameter set must contain same number of elements. Each element pair corresponds to coordinates for one cell
+			* <b>matrix</b>: Intersections of all specified rows and columns will be formatted
+			* <b>field</b>: Pairs of 2 parameter set elements represent a field to format.
+			+++
+		},
+		{ "Number": "5, 7, ....",
+		  "Name": "Generic Attribute Name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute names__ for available names.
+			+++
+		},
+		{ "Number": "6, 8, ....",
+		  "Name": "Generic Attribute Value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	table load( t, "Examples\Cities.csv" );
+
+	table style cells( t, {City,City,Moving along},{1, 12, -2}, single, fill color, yellow );
+	table style cells( t, {0,1}, {3,5}, single, fill color, lemon, font size, 20, font name, courier new );
+	table style cells( t, {City,3,5}, {3,5,7,9}, matrix, fill color, green );
+	table style cells( t, {Famous cultural place, Moving along}, {0,8}, field, fill color, cyan );
+
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Function_table_style_cells.xls", EXCEL );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Function_table_style_cells.html", HTML );
+	echo("Done.");
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_cells.html" target="_blank">Style_Function_table_style_cells.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_cells.xls" >Style_Function_table_style_cells.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	+++
+},
+
+
+
+"Finishing up formatting":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Finishing up formatting" ],
+    "Description 01:Introduction"::
+
+	After all the <b>table style ... ()</b> functions have been applied on cells, rows, columns and/or the entire table, one additional step
+	is necessary before saving the tables, namely translating the generic formatting applied to target-specific formatting, i.e. HTML markups for
+	HTML files, and Excel formatting markups for the Excel (XML 2003) file format.
+
+	The following function are available:
+	* __translate style attributes for excel(__)
+	* __translate style attributes for excel(__)
+
+	<br>
+	You can save multiple formatted tables in one files using the __table save multiple(__) function.  In this case, the translation functions need to be
+	called for every table to be included as sheets in the file.
+	<br><br>
+	<u>Attention</u>: The formatting is associated to the table names.  If you make a copy of the table, then the new table has no formatting information.
+
+	<br><br>
+	If you want to apply different style and formatting on the same table, then use the function __table style reset(__) and begin again with formatting.
+
+	+++,
+	"Examples 01:The 'Cities' table in a nice and professional appearance"::
+	include( Style Library );
+	table load( t, "Examples\Cities.csv" );
+
+	// Freeze panes and apply an autofilter
+	table style table( t, sheet, freeze rows, 1, freeze columns, 2, autofilter, 0 );	
+
+	for all parameters( { 10, 20, 20, 14, 20, 10, 20, 20 }, width[], col[] )
+	{
+	    table style columns( t, col[], sheet, column width, width[] );
+	}	
+	
+	table style rows( t, 0, table, row height, 32, vertical align, center, 
+	    fill color, gray 14, boldface, true, font size, 12, wrap text, true );
+
+	table style columns( t, { City, Country }, body, text color, blue, boldface, true, italic, true );
+	table process selected rows( t, [Inhabitants]>=1000000, 
+	    table style cells( t, Inhabitants, row(), single, 
+	    text color, royal purple, fill color, champagne, boldface, true ) );
+
+	border[] = { medium, red };
+	table process selected rows( t, ([Famous cultural place]=+'*theater*','*opera*'), 
+	    table style cells( t, { City, Famous cultural place}, row(), matrix, 
+	    text color, mandarin, fill color, lemonchiffon, boldface, true,
+	    left border, border[], right border, border[], top border, border[], bottom border, border[]  ) );
+
+	// Number format is supported in Excel only
+	table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
+
+	translate style attributes for excel(t);
+	table save( t, "Images/Style_Function_table_style_professionally.xls", EXCEL );
+
+	// How to apply number formats in HTML for browsers
+
+	table process              ( t,                      [Inhabitants] = literal([Inhabitants], '#,##0', local) );  
+	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
+	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
+
+	translate style attributes for html(t);
+	table save( t, "Images/Style_Function_table_style_professionally.html", HTML );
+	file copy overwrite( "Images/Style_Function_table_style_professionally.html", "Images/Style_Function_table_style_professionally_in_html.xls" );
+	echo("Done.");
+	+++,
+	"Output 01:": "automatic",
+	"Description 02:"::
+	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_professionally.html" target="_blank">Style_Function_table_style_professionally.html</a>.<br>
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_professionally.xls" >Style_Function_table_style_professionally.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the HTML file with Excel: <a href="Images/Style_Function_table_style_professionally_in_html.xls" >Style_Function_table_style_professionally_in_html.xls</a> (Note: HTML file opened with Excel).	
+	+++
+
+
+},
+
+
+
+"translate style attributes ..." :
+{
+	"Function Names":	[ "translate style attributes for excel", "translate style attributes for html" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		The generic formatting attributes will be translated to the target-specific format and will then be included when saving the
+		file in the corresponding file format.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+
+	]
+},
+
+
+"table style reset" :
+{
+	"Function Names":	[ "table style reset" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function clears all formatting attributes on the tables specified.
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"Min. 0",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1, 2, etc.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		}
+	]
 }
+
+
+
+
+
 
 
 
