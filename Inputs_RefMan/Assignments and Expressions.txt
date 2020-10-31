@@ -3,32 +3,49 @@ B4PDOCU.START
 
 
 
-"Formulas and Operators" :
+"Assignments and Expressions" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "formulas and operators" ],
-    "Description 01:Introduction"::
+    "Feature Names":		[ "assignments", "expressions" ],
+    "Keywords":			[ "assignment", "expression" ],
+    "Description 01:Assignments"::
 
-	In B4P formulas and operators come into use in procedure and function calls with parameters, assignments, transactions, expressions
-	and standalone __ad-hoc operators__.
+	Assignments are one of the key building blocks in B4P and most other programming languages where a value is written (i.e. assigned) 
+	to a destination variable or a table entry.  Only the actual target variable will be updated, regardless if that variable contains
+	array and/or structure members.
+	+++,
+    "Examples 01:Examples"::
+	include( Support Library );
+	a[] = 10;                // Assign 10 to variable a[]
+        a[color] = Red;          // Assign the string value 'Red' to the structure member named 'color'
+	a[color,red] = Crimson;
+	a[approved] = true;      // Assign a boolean value
+	a[set] = { 1,2,a,b}; // Assign a parameter set
 
-	<br><br>
+	table initialize( table, { Name } );
+	[table:Name,2] = Nic;
+	[table:Name,2] = Jane;	
 
+	inspect( a[] );
+	table list( table );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Expressions"::
 
-	Formulas are expression which contains a combination of the following algorithms:
-	* Constants (numerals, literals, Booleans, dates etc.)
-	* __Parameter sets__
-	* __Variables__ and __references to variables__
-	* References to __tables__
-	* Operators
-	** __Unary operators__ (e.g. minus sign for negation)
-	** __Binary operators__ (arithmetic, comparison and logical operators)
-	* Parenthses (to influence the calculation precedence)
-
-	<br>
-	The following sections provide further details on the operators.
-
-    "Description 02:Calculation Precedence Rules"::
+	Like in common programming languages, the pexression is a syntactic entity to calculate its value.  It can be one of the following, or a combination of the following:
+	* __Literal constants__ and __numeric constants__ to describe numbers, string values and boolean values
+	* __Parameter sets_ (e.g. constants in braces and separated with commas, nested parameter sets)
+	* __Variables__
+	* __Table references__
+	* __Functions_ (with or without function parameters which are also expressions)
+	* Calculations which combine the above with
+	** __Unary operators__
+	** __Binary operators__
+	** __ad-hoc operators__
+	** Parentheses (to infulence the calculation precedence)
+	
+	Use parentheses to influence the precedence, e.g. <b>2*(5+7)</b> returns 24 and not 17.
+	As long no parentheses are used in the expressions and calculations, following algorithmic precedence rules apply:
 
 	=== 100, 200, 700, bold_column_1 bold_column_2
 	Precedence	| Symbols	| Description
@@ -39,7 +56,8 @@ B4PDOCU.START
 	5 (lowest)	| &amp;, &vert;	| Logical operators
 	===
 	<br>
-	Use parentheses to influence the precedence, e.g. <b>2*(5+7)</b> returns 24 and not 17.
+
+	The operators are described in the following section.
 
 	+++
 },
@@ -300,7 +318,7 @@ B4PDOCU.START
 "Comparison Operators" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "comparison operators" ],
+    "Feature Names":		[ "comparison operators", "comparison expression" ],
     "Description 01:Introduction"::
 	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators which can be combined with __comparison options__
 	to make adjustments on the comparison rules:
@@ -310,11 +328,12 @@ B4PDOCU.START
 	* <b>&ge;</b> Greater than or equal to
 	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.  
 	* <b>&gt;&lt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.
-	* <b>==</b> __strictly Equal__ to, expecting 1 operand only
-	* <b>!=</b> __strictly not equal__ to, expecting 1 operand only
+	* <b>==</b> __strictly Equal to__, expecting 1 operand only
+	* <b>!=</b> __strictly not equal to__, expecting 1 operand only
 
 	Comparisons with b>=</b> and <b>&gt;&lt;</b> are more tolerant in comparing numbers and strings containing numbers, and also support
 	wildcard symbols on the right-hand operands if they are defined as softquoted literals (e.g. values in single quotation marks, not double).
+
 
 	+++,
     "Description 02:Attention! = and &lt;&gt; may Hijack Parameters"::
@@ -357,7 +376,7 @@ B4PDOCU.START
 
 	Wildcards are used, amongst others, in following functionalities:
 	* Comparison operators __equal to__ <b>=</b> and __not equal to__ <b>&lt;&gt;</b> where the operands on the right hand side may consist of literals containing wildcards
-	* __Horizontal table access w. wildcards__ and __vertical table access w. wildcards__
+	* __Horizontal table access using wildcards__ and __vertical table access using wildcards__
 	* Various B4P functions accepting parameters allowign wildcards for pattern matching
 	* Searching for files, e.g. __directory listing(__) and __resolve path name(__) function.
 
@@ -1126,6 +1145,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "ad-hoc operators" ],
+    "Keywords":		[ "ad-hoc operations" ],
     "Description 01:Introduction"::
 
 	Ad-hoc operators are features which apply an immediate action on the variable or table field referenced.
@@ -1558,6 +1578,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "matrix operations summary" ],
+    "Keywords":			[ "matrix mathematics" ],
     "Description 01:Introduction"::
 	The following illustration shows how the deep operator is applied for the different mathematical matrix operations:
 

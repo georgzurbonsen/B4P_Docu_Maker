@@ -1,0 +1,14 @@
+﻿#!/usr/local/bin/b4p
+  a[] = 123;
+  a variable[] = 456;
+  a   variable[] = 789;   // redundant spaces collapse to 1 space if not put in quotation marks
+  "Total Value [€]"[] = 98.95;
+
+  b[] = City;
+  (b[])[] = Milano; // Write access: Don't forget the parentheses
+  
+  echo( a[] );
+  echo( a  variable[] );
+  echo( "Total Value [€]"[] );
+  echo( City[] );
+  echo( b[][] );

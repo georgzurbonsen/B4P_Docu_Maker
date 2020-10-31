@@ -4,7 +4,7 @@ B4PDOCU.START
 "Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "variables" ],
+    "Feature Names":		[ "variable", "variables" ],
     "Description 01:Introduction to Variables"::
 
 	B4P provides a unique storage model for variables.  
@@ -165,6 +165,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "system variables" ],
+    "Keywords":			[ "system variable" ],
     "Description 01:Introduction"::
 	System variables are predefined variables which contain system-related information (e.g. <b>system info[user name]</b>) or configuration settings. e.g.
 	<b>runtime settings[verbose]</b>.  For most system variables, __variable protections__ apply which may permit read-accesses, or impose restrictions
@@ -284,7 +285,7 @@ B4PDOCU.START
 "Variable Forms and Trees":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Variable forms", "base variable" ],
+    "Feature Names":		[ "Variable forms", "base variable", "base variables" ],
     "Description 01:Introduction"::
 
 	B4P lets you create variable trees which consist of __structures__, __arrays__ or free combinations of both and with quasi unlimited
@@ -359,7 +360,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "arrays" ],
-    "Keywords":			[ "array", "arrays" ],
+    "Keywords":			[ "array", "arrays", "array member", "array members", "spontaneous array creation" ],
     "Description 01:Arrays"::
 
 	Arrays are variables with members which are only referenced numerically using an index value.  Arrays support negative indexing, meaning that -1, -2, etc. references
@@ -389,11 +390,11 @@ B4PDOCU.START
 
 
 	<br><br>
-	Following approaches are avialable to create arrays:
+	Following approaches are available to create arrays:
 	=== 200, 800, noframe_1stcolbold, noheader
 	dim...() function family | Functions such as __dim(__), __redim(__), __dim protect(__) and __redim protect(__) initialize arrays with a specified number of elements and initial values.
 	array...() | Functions like __array(__) and __array protect(__) create arrays with initial values provided in parameter sets.
-	Direct referencing | Assigning a simple variable with an index will automatically create an array with members 0...<i>index</i> where the members inbetween are not initialized and return __void__ values.
+	Direct referencing | (Spontaneous array creation) Assigning a simple variable with an index will automatically create an array with members 0...<i>index</i> where the members inbetween are not initialized and return __void__ values.
 	===
 
 	<br><br>
@@ -453,7 +454,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "structures" ],
-    "Keywords":			[ "structure" ],
+    "Keywords":			[ "structure", "default members", "default member", "structure members", "structure member" ],
     "Description 01:Structures"::
 
 	Structures are variables with members which are referenced by <i>member names</i>.  Structures are useful for following pruposes: 1) managing
@@ -583,7 +584,7 @@ B4PDOCU.START
 
 	Zero members avariables are very closely related to simple variables.
 	The only difference is that these variables have contained __array__ or __structure__ members before, but all members have
-	been deleted meanwhile.  In some application cases, e.g. loading variables from __JSON__ files, zero members may be useful to distinguish
+	been deleted meanwhile.  In some application cases, e.g. loading variables from JSON files, zero members may be useful to distinguish
 	between loading empty arrys and no arrays at all.
 
 	+++,
@@ -654,7 +655,7 @@ B4PDOCU.START
 "References to Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "references to variables" ],
+    "Feature Names":		[ "references to variables", "variable references", "variable reference" ],
     "Description 01:Introduction"::
 
 
@@ -919,9 +920,10 @@ echo( a[0],", ", a[1] ); // Hi, Hi
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "protecting variables" ],
+    "Keywords":			[ "protecting setting", "variable protection", "protection settings", "variable protections" ],
     "Description 01:Introduction"::
 
-	The functions __protect(__), __dim protect(__), __redim protect, __array protect(__), and structure protect(__) are available apply
+	The functions __protect(__), __dim protect(__), __redim protect(__), __array protect(__), and structure protect(__) are available apply
 	protection rules on the target variables.  It is always possible to change protection settings on local variable.  For global variables, this
 	is only allwed in the global context (i.e. not in the code of user-defined procedures and functions and B4P programs started with __start(__) or __include(__)).
 	Protection settings of system variables cannot be altered. If not specified otherwise, all newly created variables bear the protection setting <i>full access</i>.

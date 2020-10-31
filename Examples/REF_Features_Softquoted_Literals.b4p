@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+  echo( 'Hello World' );
+  echo( '  Hello   World  ' );
+  echo( 'One + One' );
+  echo( '"In double quotation Marks"' );
+  echo( 'Price tags: &euro; 10.00, &#x20ac; 10.00, &#8364; 10.00');
+  echo( '3 * 2 = 6' );
+  echo( 'A cheap way to continue on&#10;the next line' ); // Not recommended. Use '...', new line, '...' instead.

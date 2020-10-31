@@ -1,9 +1,27 @@
 ﻿#!/usr/local/bin/b4p
-  echo(Hello World);
-  echo(  Hello   World   ); // To include the blanks, use quotation marks.
-  echo(Hello World, new line, Hello Folks, new line); // 'new line' is a reserved keyword.
-  echo( 31.12.2021 );       // No automatic conversion to __date__ type.  Use: echo(date( 31.12.2021 ))
-  echo( 100 Flowers );
-  echo( mike@example.com ); // No need include quotation marks because the @-sign is not a Beyond4P symbol
-  echo( 1 2 3 );            // Is a literal because of spaces between teh digits
-  echo( type( 1 2 3 ));
+  a[0] =  Hello World;       // (Unquoted) literal
+  a[1] =    Hello  World  ;  // Multiple white spaces between collapse to 1 space. No leading or trailing spaces.
+  a[2] = 'Hello World';      // Softquoted literal
+  a[3] = 'Hello  World';
+  a[4] = "Hello World";      // Quoted literal
+  a[5] = "Hello  World";
+
+  a[6] = 07.04.2020;         // Literal constant, because it contains two points
+  a[7] = 555 1212;           // Contains a space
+  a[8] = 1 Main St.;         // This is a valid literal constant
+  a[9] = mike@example.com;   // Valid, too.  See note below.
+
+  a[10] = a[0] + a[2];       // When calculating literals, then the higher quoted one applies.
+  a[11] = a[0] + a[4];       // "
+
+
+  // General advice: Please put literal constants containing @, #, %, \ and other special
+  // symbols not (yet) part of the B4P language elements into quotation marks in order
+  // to avoid any compatibility issues in the future.
+
+  inspect( a[] );
+
+  echo( a[0] = a[1] ); // True
+  echo( a[0] = a[2] ); // True
+  echo( a[0] = a[4] ); // True
+  echo( a[3] = a[5] ); // True

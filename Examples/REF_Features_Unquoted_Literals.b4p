@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+  echo( Hello World );
+  echo( Hello   World   );    // Same as above
+  echo( One + One );      // + sign is an operator, or specify 'One + One'
+  echo( Dial 555 1212 );
+  echo( this is on, new line, the next line );  // new line is a reserved keyword
+  echo( Café in Zürich );       // Foreign characters inside

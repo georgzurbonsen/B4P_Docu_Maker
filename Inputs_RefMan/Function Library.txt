@@ -430,6 +430,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "time and stopwatch functions" ],
+    "Keywords":			[ "time functions", "stopwatch functions" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
@@ -503,16 +504,57 @@ B4PDOCU.START
 
 
 
-"Table Functions":
+"Table Functions - Basics":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions" ],
     "Description 01:Introduction"::
 
-	This section summarizes all table functions.
+	This section summarizes the basic fuctions which include the following:
+	* Creating and deleting tables
+	* Accessing table information (like sizes)
+	* Accessing table contents
+	* Loading and saving tables
+	* Inputting and outputting tables (listing them, menu operations)
 
 	+++
-  },
+},
+
+
+"Table Functions - Processing":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "table functions processing" ],
+    "Description 01:Introduction"::
+
+	This section summarizes the basic fuctions which include the following:
+	* Checking and processing headers
+	* Searching tables
+	* Processing table columns
+	* Processing table rows
+	* Processing table contents
+	* Renaming, copying and splitting tables
+	+++
+},
+
+"Table Functions - Advanced":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "advanced table functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes the basic fuctions which include the following:
+	* Comparing two tables
+	* Checkng tables according to rules provided
+	* Looking up data from toehr tables
+	* Pivoting adn consolidating tables
+	* Combining multiple tables (e.g. merging data)
+	* Exploring and extracting tables
+
+	+++
+},
+
+
 
 	
 "Creating and Deleting Tables":
@@ -722,7 +764,7 @@ B4PDOCU.START
 	members shall act as matching identifiers.  In case no person has a membership in both clubs, no overlap applies, and the list will simply be
 	appended where the data are aligned to the right columns, using header names as orientation.  The columns in both tables do not need to be aligned
 	before the merger.  If one or more persons possess memberships in both clubs, then the information will be consolidated where the same 
-	__ consolidation actions__ rules are available as used by __table consolidate__.  As an example, the account receivable (e.g.
+	__consolidation actions__ rules are available as used by __table consolidate__.  As an example, the account receivable (e.g.
 	indoor court reservation fees to be balanced) can be added up whereas the preferences at the club bar can be consolidated with <b>append once</b>
 	so the preference for tonic water at one club and beer at the other club will appended into "tonic water, beer".
 
@@ -793,7 +835,7 @@ B4PDOCU.START
 
 
 
-"Formatting and Styling Tables":
+"Table Functions - Formatting and Styling":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Formatting and Styling Tables" ],

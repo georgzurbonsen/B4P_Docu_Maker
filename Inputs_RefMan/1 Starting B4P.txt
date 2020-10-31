@@ -1,0 +1,189 @@
+//
+B4PDOCU.START
+
+"Table of Contents" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table of Contents" ],
+    "Keywords":			[ "Reference Manual" ],
+    "Description 01:Table of Contents"::
+
+	See the navigator bar for full table of contents.
+
+	+++
+},
+
+
+
+"Starting B4P" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "starting" ],
+    "Keywords":			[ "installing","installation", "starting","launching", "command line options" ],
+    "Description 01:Installation"::
+	A separate presentation is available which guides through the installation of B4P under Windows and Linux.
+	+++,
+    "Description 02:Starting B4P from Windows"::
+
+	=== 240, 760, noframe_1stcolbold, noheader
+	Start menu					| Click on the start menu and select "B4P".
+	Desktop icon					| If activated during installation, then click on the desktop icon.
+	Click on B4P ap (.b4p file)			| In a file explorer or on the desktop, double-click on a .b4p-file to run it directly.  Windows will automatically start B4P with that file when running .b4p files.
+	Command line 					| Enter "B4P" alone or followed by B4P app file.  In Windows, the <b>Path</b> environment variable includes looking for B4P. Example: <b>B4P HelloWorld.b4p</b
+	===
+	+++,
+
+    "Description 03:Starting B4P from Linux"::
+
+	=== 240, 760, noframe_1stcolbold, noheader
+	Command line	| Enter <b>/usr/local/bin/b4p</b>.  To start a specific B4P application sript, then add the file name as command line parameter.  Example: <b>/usr/local/bin/b4p HelloWorld.b4p</b>
+	Shebang		| If the file contains <b>#!/usr/local/bin/b4p</b> in the 1st row, and the B4P file contains Linux-compliant line breaks (line feeds without carriage return symbols), then B4P will be started automatically as the interpreter when executing the specified file.  The file must be configured as executable, e.g. with the command <b>chmod 755 *.b4p</b>
+	===
+	+++,
+
+    "Description 04:Starting B4P from MacOS"::
+
+	The same rules apply as for Linux.
+	+++,
+
+    "Description 05:Command Line Arguments"::
+
+	Additional information, for example file names, can be added as further command line arguments.  Inside the B4P app, the command line arguments are accessible by referencing the global variable <b>command line arguments[]</b> which is configured as an array of literals.
+	+++,
+
+    "Description 06:Starting Behvavior"::
+
+	If B4P is started from the start menu, desktop icon or entered command without specifiying an application script, then B4P undertakes the following steps:
+
+	=== 40, 860, noframe_1stcolbold, noheader
+	1.	| Look in the current working directory for the file name "main.b4p".  If found, then B4P starts this application script.
+	2.	| Look in the starting directory (a memorized directory name you can inspect and change with the __starting directory(__) function) for "main.b4p".  If found, then the current working directory will be changed to the that starting directory (unless command line option -d is used) and the "main.b4p" will be started.
+	3.	| If "main.b4p" cannot be found at all, then interactive mode will be started.
+	===
+
+	If B4P is started with an application script, the following steps will be undertaken:
+
+	=== 40, 860, noframe_1stcolbold, noheader
+	1.	| The current working directory will be set to the directory where the application script is located (unless command line option -d is used)
+	2.	| The application script will be started immediately.
+	===
+
+
+    "Description 07:Command Line Options (Switches)"::
+
+	Following command line options influence B4P startup behavior. These options are not added to the global variable array <b>command line arguments[]</b>.
+
+	=== 40, 960, noframe_1stcolbold, noheader
+	-d	| Suppress changeing the current working directory to the directory where the B4P app is started.
+	-i	| Start B4P and enter interactive mode immediately. You can execute any B4P statement as a command. In addition, you can inspect variables and execute operating system commands. You can start B4P apps by typing <b>start (filename.b4p)</b>.
+	-w	| Suppress B4P welcome text. <br><u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br><u>Attention 2:</u> Important B4P library files (e.g. "Support Library") will not be loaded automatically.<br>The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.
+	-x	| Skip the "<i>Press [Enter] to end the program</i>" before B4P is exiting.  Useful for running B4P apps from batch scripts.
+	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.
+	-I	| MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for normal applicaction use.
+	===
+
+	Invalid command line parameters will provide descriptive error messages and stop B4P.<br><br>
+	Command line arguments may be freely ordered and specified as combined or individual parameters.  See below.
+	+++,
+
+    "Examples 07:5 ways to start B4P with the same command line options"::
+	b4p -wx myprogram.b4p	// All 5 variants are equivalent.
+	b4p myprogram.b4p -wx
+	b4p myprogram.b4p -xw
+	b4p -w -x myprogram.b4p
+	b4p myprogram.b4p -w -x
+	+++,
+
+     "See also": [ "Interactive Mode" ]
+
+},
+
+
+"Distinct Language Features":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Distinct Language Features" ],
+    "Description 01:Overview"::
+
+	<b> B4P includes an <i>interpreted programming language</i> with powerful syntax, highly flexible data structures, and a large function library which enables immediate results with 
+	a minimum of code.</b>  Programs containing just a few statements can perform sophisticated operations such as merging two tables with very different data arrangements and formats
+	or analyzing big amounts of data.  The following key features makes the B4P language distinct from other popular programming languages:
+
+	<br><br>
+
+	=== 200, 800, noframe_1stcolbold, noheader
+	Interpreted				| The __run-time machine__ is designed to interpret and process the code with very high performance. \
+						  Two factors contribute to high execution performance despite being an interpreted language: <br>\
+						  1. The code is checked and fully tokenized before starting to run<br>\
+						  2. The language provides an extensive library to manage large tables, variable structures and parameter sets (i.e. vectors and matrices).
+	Fully portable across system platforms | B4P runs on WINDOWS, LINUX and MAC-OS.  You can develop your apps so they run on all \
+			 			 platforms without changing the code. B4P provides harmonized functions for directory, file and system function calls,\
+			 			 as well as system variables such as user names, key system directory names, etc.
+	Names with spaces and special characters | You are allowed to use spaces and special characters in function names, variable names, table names, column header names, etc.  \
+						  <b>max value[]</b> and <b>'1%'[]</b> are valid variable names. This allows you to use typical column headers, e.g. "Total Costs", \
+						  without modifying them or putting quotations around. A valid function call could be " table create (customer table, supplier table, etc. ); \
+						  " Function names like __table process selected rows(__) is easier to read than "TableProcessSelectedRows"
+	Variables 				| All simple variables end with brackets <b>[]</b>  Example: <b>value[]</b>. If you forget them, then the name is just a string value.<br/>\
+						  You can create child variables with any nesting, <br/>e.g. <b>animal[dog]=poodle; animal[cat]=tiger; animal[dog,leg count]=4;</b>.<br/>\
+						  You can also define arrays, e.g. <b>matrix[2,3]</b> or the combination of both structures and arrays to develop sophisticated variable storage models.
+	Values 					| Numbers are values, text are values, too.  In the example <b>a[] = bull dog ;  b[] = ' bull   dog ';</b> a[] is assiged with <i>'bull dog'</i> containing one space between the two words, whare as b[] is assigned with <i>' bull   dog '</i> where all spaces are preserved.  Without quotation marks, outside spaces and repeated spaces betwen words are ignored.
+	Full UNICODE support 			| Every character counts as 1 character, including the foreign and non-ANSI ones.  The full UNICODE including the Basic Multilingual Plane (like &eacute; and &euro;), and all the other UNICODE planes (e.g. &#x1F609;) are supported.
+	Basic variable types 			| They are <i>numeral</i>, <i>literal</i>, <i>boolean</i>, <i>date</i> (manages date, time and both), <i>parameter set</i>, and <i>void</i>.
+	Parameter sets 				| Very powerful type to combine any number of variables and nested parameter sets into one parameter set.<br>Example: <b>names[] = {Abel, Beata, Charly};</b>
+	Dynamic weak typing 			| B4P uses dynamic weak typing.  The type is set once a value is assigned. Example: <b>a[] = 1;</b> automatically declares a[] as a numeric variable. <br>The type will change if something non-numeric is assigned, eg. <b>a[] = Hello;</b>.
+	Tables 					| Tables are the heart of B4P.  Typically referenced as <b>[table name : row , column ]</b>.<br/>If a conext with table name and row number is given, e.g. inside a loop, then a simple reference like <b>[column]</b> is sufficient.<br>Example: <b>table process</b>( membership list, <b>echo</b>( [Family Name], ", ", [First Name] );
+	Accessing multiple values in tables 	| Powerful schemes are available to access individual cells, entire rows or parts of them, entire columsn or parts of them, or combination of all.
+	Powerful table processing function library | A large number of procedures and functions is available to analyze, process and combine tables as you wish.  These functions deliver highest machine performance.
+	Transactions 				| Very smart assignments for variables and table rows. You can replicate variables including all child members, or combine two variables including their member variables.
+	Function parameters accept code pieces | Unlike in other languages, some functions accept pieces of code such as expressions and statements as input parameters.  These codes may be executed several time. <br/>Good example: <b>table process( members, [full name] = [1st name] + ' ' + [last name] );</b>
+	Variable count function parameters 	| Some functions accept a variable number of parameters, with minimum, maximum and incrementals given.
+	User definable procedures and functions | You can defined own procedures and functions.  Functions provide return values whereas procedures don't.  You can assign multiple function names to the same user-defined code. In this case, the pre-defined local variable <b>function name[]</b> allows to identify the function name used to call the code.
+	Indirect parameter passing 		| Some procedures and functions allow one <i>parameter set</i> variable to be used to provide all function parameters in one.<br/>Example: a[] = { 2,3,4 }; <b>echo</b>( <b>min</b>( 2,3,4 ), ' and ', <b>min</b>( a[] ) ); // Output in both cases is 2.
+	Deep unary and binary operators 	| Deep operators (supplemented with the circumflex '^' symbol) can be used to calculate with elements inside parameter sets. <br/>Example: { 1,2,3 } +^ { 4,5,6 } results in { 5,7,9 }.  However, { 1,2,3 } + { 4,5,6 } results in {1,2,3,4,5,6} instead.  Deep operations are analogous to vector and matrix operations.
+	Control flow | Unless in other programming languages, control flow features like __if(__), __for(__), __while(__), __return__, etc. are actually procedure and function calls.  \
+						  Something as simple as <b>if</b> takes one boolean value as function parameter and decides whether to execute or skip the next statement or code block.  In fact, this is made possible because procedures and functions can accept code pieces as it is required for functions like <b>for</b>.
+	Portable directory paths 		| B4P accepts both '/' and '\' for path separators. They will be adjusted automatically to match with the operating system requirements.
+	===
+	
+	+++,
+
+    "Description 02:Think Big to be Successful"::
+
+	You can unleash the full power of B4P if you are thinking big.  Writing a complete end-to-end solution (with loops, variable assignments, comparisons
+	of individual values, etc.) is straighforward to learn with no special programming background.  Other languages like Python can do similar processing, but requires one to learn object-oriented programming, and does not scale for complexity.
+	
+
+	=== 60, 940, noframe_1stcolbold, noheader
+	Hint 1 | Use the rich B4P function library to process these tables and big data.  Large tables will be analyzed and processed at naked machine performance.<br/>
+	Hint 2 | Use deep operations (vector and matrix operations) to process large amount of data inside tables and parameter sets.<br/>
+	Hint 3 | Think how you can formulate your code in a very compact manner without compromising comprehensibility.  Doing great things with 5-20 lines of code is within reach.<br/>
+	===
+	+++
+},
+
+"Licensing" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "licensing" ],
+    "Keywords":			[ "licensing","unlock" ],
+    "Description 01:Licensing Scheme"::
+
+	Without possessing a license, B4P will start in a demo mode and exploit the full performance.  The demo mode is useful for evaluations,
+	demo, education and doing small projects.  However, following restrictions apply:
+
+	=== 240, 760, noframe_1stcolbold, noheader
+	Table size restrictions when saving	| Tables can only be saved if the table contains not more than 300 rows and not more than 40 columns.
+	Number of savings 			| During a running B4P session, at most 5 tables can be saved.  The number of tables (and not files) also applies when using the procedure <b>table save multiple</b> to save two or more tables in one file.
+	===
+
+	Table size restrictions do not apply while processing tables internally, i.e. you are able to load large amounts of data and do data processing and
+	analysis, but need to condense your output accordingly inorder to meet the size limitations.
+	<br/><br/>
+	Individual licenses for one machine, a specific domain or site licenses will be provided on request.
+
+	+++
+}
+
+
+B4PDOCU.STOP
+

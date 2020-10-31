@@ -77,7 +77,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "accessing tables" ],
-    "Keywords":			[ "table access methods" ],
+    "Keywords":			[ "table access methods", "table references", "table reference" ],
     "Description 01:Introduction"::
 
 	B4P provides the following four <i>table access methods</i> to access table contents:
@@ -797,7 +797,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "partial table specification" ],
-    "Keywords":			[ "partial table specifications" ],
+    "Keywords":			[ "partial table specifications", "partial table references", "partial table referencee" ],
     "Description 01:Introduction"::
 
 	If a context for partial __partial table specification__ is provided, then the table name and/or row numbers are optionaland and can be left out.

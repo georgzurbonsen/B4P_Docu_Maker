@@ -539,7 +539,7 @@ B4PDOCU.START
     "Feature Names":		[ "Formatting Precedences", "Formatting Coverages" ],
     "Description 01:Introduction"::
 
-	The fnctiosn __table style table(__), __table style rows(__) and __table style columsn(__) a parameter called <b>Coverage</b> which can take following values:
+	The fnctiosn __table style table(__), __table style rows(__) and __table style columns(__) a parameter called <b>Coverage</b> which can take following values:
 	=== 100, 600, 100, 100, 100, bold_column_1
 	Coverage	| Explanation
 	sheet		| Covers entire sheet. In Excel the entire sheet and not just the table saved applies.  Following precedence rules apply:<br>\
