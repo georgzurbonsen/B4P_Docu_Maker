@@ -365,50 +365,113 @@
 ,
 
 
-  "Overview" :
-  {
+"Overview" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "overview" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
-    "Keywords":			[ "general overview" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
-"Description 01:Introduction ..." : [
+    "Feature Names":		[ "overview" ],
+"Description 01:Introduction to B4P" : [
 "",
-"	Start typing here.",
-"	The 3 plus signs mark the end of multi-line contents.",
+"	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  ",
+"	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, ",
+"	complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. ",
+"",
+"	<br><br>",
+"",
+"	<br/><img src=\"Images/B4P_General_Overview.png\" alt=\"B4P Overview\"><br/>",
+"",
+"",
+"	=== 150, 120, 700, noframe_1stcolbold, noheader",
+"			| <b> data files </b>:  | Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..",
+"			| <b> databases </b>:   | Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)",
+"			| <b> web data </b>:    | Any source of structured data on the web(Wikipedia, ...)",
+"			| <b> other data </b>:  | PDF (via Tabula), Statistical data sets (R, SAS, SPPSS, Stata)",
+"	===",
 ""
  ]
 	
-  },
+},
 
 
-  "What is B4P?" :
-  {
+
+"Key Benefits" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "what is B4P" ],
-    "Keywords":			[ "B4P anatomy" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
-"Description 01:Introduction ..." : [
+    "Feature Names":		[ "Key Benefits" ],
+"Description 01:Introduction" : [
 "",
-"	Add text here",
+"	B4P, with its full name <b>Beyond Former Expectations</b> is a language which builds on long-lasting experience focussing on handling large amounts of data",
+"	from different sources and providing efficient means to gather, align an analyze the data quickly and efficiently.  The language is based on ",
+"	following key principles aiming to delivering performance, productivity and professionalism:",
 "",
+"	* Learn the language quickly",
+"	* Minimize the number of statements needed to solve challenging data processing problems",
+"	* No advanced programming skills required (e.g. object oriented programming)",
+"	* Minimize the time required to find solutions for your problems",
+"	* B4P delivers maximum processing performance, especially with large data",
+"	* The language is easy to read and understand",
+"	* Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.",
+"	* The language and run-time machine requires no further installation of external libraries",
+"	* Focus on the problem to solve, without wasting time coding algorithic details",
+"	* A respectable library of procedures and functions, with focus on table data processing, is available",
+"",
+"	<b>Focus on solving the problems and nothing else:</b>",
+"",
+"	<br/><img src=\"Images/Description_Introduction_Flowchart.png\" alt=\"B4P Typical Data Processing Steps\">",
+"",
+"	<br><br>",
+"	By experience, successful solutions have been provided already <b>during the first consultation</b> with colleagues who needed solutions for",
+"	their data processing needs.  They originally expected a cost and time estimation and a project plan for the project in order to approve the ",
+"	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem",
+"	and a lot of money saved.",
+"",
+"	<br><br>",
+"	The full web documentation has been compiled with a B4P program which extracts embedded raw documentation from source code and text files,",
+"	creates one master file (JSON) and generates all pages including tables of contents, illustrations, and code examples which are automatically executed",
+"	and their results included in the documentation.",
 ""
  ]
 	
-  },
+},
 
-  "Benefits and Features":
-  {
+"Key Features":
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "features and benefits" ],
-    "Keywords":			[ "B4P features", "B4P benefits" ], // Keywords field is optional.  Delete this if not needed.  Cross-referencable.
-"Description 01:Beneftis" : [
+    "Feature Names":		[ "Key Features" ],
+"Description 01:Key Benefits" : [
 "",
-"	Add text here.",
-"	Consider table, or itemization like below",
+"	The overall intention is to provide a tool for you which helps to solve sophisticated problems with large amounts of data involved:",
+"	* <b>Simple</b> procedural language easy to read, understand and lear.",
+"	* Powerful langauge semantics <b>minimizes the number of statements</b> needed to solve the problem.",
+"	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this",
+"	* <b>No programming bureaucracy</b> such as declaring all the variables you need.",
+"	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.",
+"	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly",
+"	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).",
+"	* The run-time machine and all libary files are very lean, very robust and start quickly.",
+"	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same code on different platforms.",
 "",
+"	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro",
+"	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage",
+"	big data (e.g. indexing).  The syntax is, even though looking differently from other langauges, incredibly easy to understand and to use.",
+"	In contrast to other programming langages, much fewer statements and time are needed, no additional libraries need to be installed ",
+"	separately (like Panda for Python) and you experience unparalleled machine performance, forgetting the fact that B4P is an interpreted language.",
 "",
 ""
  ]
+	,
+"Description 02:No Graphic Gadgets" : [
+"",
+"	Intentionally, B4P does not make use of any visual features such as graphical user interfaces.  For visualization purposes, powerful",
+"	and highly standardized tools such as Microsoft Excel providie all features to do the visualziation, creating all required charts, etc.",
+"	to round up you presentation.   The philosophy of B4P is to do all data processing first and very rapidly, and creating final Excel files",
+"	for visualization purposes.",
+"",
+"	<br><br>",
+"	However, B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already",
+"	included (e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.)."
+ ]
 	
-  },
+},
 
 
 

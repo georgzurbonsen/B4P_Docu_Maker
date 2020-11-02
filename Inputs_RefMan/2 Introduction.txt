@@ -94,7 +94,7 @@ B4PDOCU.START
 	=== 200, 600, 200, bold_column_1 bold_column_3
 	Feature			| Description										| Example
 	Statements		| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
-				  Multiple statements are separated with semiclon <b>;</b>				|
+				  Multiple statements are separated with semiclons <b>;</b>				|
 	Procedure calls		| A B4P function is called as a procedure						| echo( Hello World );
 	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry		| a[] = 3 * 3;
 	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment		| a[]++;
@@ -1404,7 +1404,8 @@ B4PDOCU.START
 
 	echo( [t:-2,-1] ); // Last row, 2nd last column.  It's 'London'.
 	echo( [t:-1,-1] ); // Last row, last column.  It's 'UK'.	
-	+++
+	+++,
+    "Output 01:Outcome": "automatic"
 }
 
 
