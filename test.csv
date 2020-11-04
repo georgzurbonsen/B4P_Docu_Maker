@@ -1,17 +1,3 @@
 ﻿Choice;Keywords;HTML File Name;Section Nr;Section Name;Match
-A;variable;REF_Features_variable.html;B 3;Variables;Yes
-B;Variable attributes;REF_Features_Variable_attributes.html;B 3.2;Variable Attributes;Yes
-C;Variable forms;REF_Features_Variable_forms.html;B 3.3;Variable Forms and Trees;Yes
-D;variable load;REF_Function_variable_load.html;B 8.12.3.1;variable load ...;Yes
-E;variable members;REF_Function_for_all_variables.html;B 8.1.1.9;for all variables;Yes
-F;variable protection;REF_Features_protecting_variables.html;B 3.5;Protecting Variables;Yes
-G;variable protections;REF_Features_protecting_variables.html;B 3.5;Protecting Variables;Yes
-H;variable references;REF_Features_references_to_variables.html;B 3.4;References to Variables;Yes
-I;Variable references functions;REF_Features_Variable_references_functions.html;B 8.12.4;Variable References Functions;Yes
-J;variable save;REF_Function_variable_save.html;B 8.12.3.3;variable save ...;Yes
-K;variable scopes;REF_Features_variable_scopes.html;B 3.1;Variable Scopes;Yes
-L;variable to json;REF_Function_variable_to_json.html;B 8.12.3.4;variable to json ...;Yes
-M;variables;REF_Features_variable.html;B 3;Variables;Yes
-N;Variables (func params);REF_Features_Variables_(func_params).html;B 7.3.3.3;Variables (func. params);Yes
-O;variables functions;REF_Features_variables_functions.html;B 8.12;Variables Functions;Yes
+A;define additional procedure;REF_Function_define_additional_procedure.html;B 8.1.3.2;define additional procedure / function;Yes
 X;Exit this menu;Exit
