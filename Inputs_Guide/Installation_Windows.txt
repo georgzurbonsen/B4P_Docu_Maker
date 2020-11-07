@@ -35,6 +35,7 @@ B4PDOCU.START
 	<br><br>
 	<b>System requirements:</b>
 	* Personal computer running Windows 7.0 or higher
+	* 64 bit CPU (we are not supporting legacy platforms)
 	* You have elevated privileges to do installations (e.g. admin rights on your local machine)
 	* Min 2 GB, but more memory is stronly recommended espeically when working with large data
 	* B4P requires less than 20 MB disk space
@@ -42,7 +43,7 @@ B4PDOCU.START
 
 	<b>Special software requirements:</b>
 	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.
-	* Install 7-ZIP, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.  \
+	* Install <b>7-ZIP</b>, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.  \
 	  Without this tool, some functions, including file compression/decompression functions and loading Excel files, will not work.
 
 	Click on the following link: <a href="https://www.7-zip.org/download.html" target="_blank"><b>https://www.7-zip.org/download.html</b></a> to download aind install 7-ZIP.
@@ -64,7 +65,7 @@ B4PDOCU.START
 
 	<br><br>
 
-	( Placeholder for file )
+	( Placeholder for a link to download the file )
 
 	<br><br>
 
