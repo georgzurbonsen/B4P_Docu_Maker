@@ -906,7 +906,8 @@ define procedure ( create all general and function descriptions in HTML )
 		prev action[] = '';
 		for (i[] = applicable row[], i[]>0, i[]--) with table( HTML navigator, i[] )
 		{
-		    if (([Level] > level[]) & ([Level]>2)) // Identified deeper places. Hide them.  But show level 1 and level 2 sections
+		    if (([Level] > level[]) & ([Level]>1)) // Here you can choose level 1 base, level 2 base, etc. which shall always been shown.  Identified deeper places. Hide them.  But show level 1 and level 2 sections
+							   // Don't forget to update the figure below, too 
 		    {
 			[Action] = Hide; 
 			prev action[] = Hide;
@@ -921,7 +922,7 @@ define procedure ( create all general and function descriptions in HTML )
 		level[] = [HTML navigator:Level,applicable row[]]+1;
 		for (i[] = applicable row[]+1, i[]<table length(HTML navigator), i[]++) with table( HTML navigator, i[] )
 		{
-		    if (([Level] > level[]) & ([Level]>2)) // Identified deeper places. Hide them.  But show level 1 and level 2 sections
+		    if (([Level] > level[]) & ([Level]>1)) // Identified deeper places. Hide them.  But show level 1 and level 2 sections
 		    {
 			[Action] = Hide; 
 			prev action[] = Hide;
