@@ -17,8 +17,7 @@ B4PDOCU.START
 
 	Since the installation script has also been implemented in B4P, the installation procedure 
 	appears a bit differently as compared to installing other software, however you will be
-	experiencing a very fast installation procedure.  The installation script is open source
-	(see 'setup.txt'), but is protected from doing modifications on it and attempting to run it.
+	experiencing a very fast installation procedure.
 
 	+++
 },
@@ -339,10 +338,10 @@ License activation ...
 	This is a nice feature especially for beginners.
 	A directory called <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b> will be created
 	and contains the following files: 
-	* Hello World.b4p
+	* hello world.b4p
 	* interacctive b4p
-	* Main.b4p
-	* Start B4P here.b4p
+	* main.b4p
+	* start B4P here.b4p
 
 	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.
 
@@ -395,6 +394,7 @@ Done - Press ENTER key
 
 	<br/><img src="Images/GUI_Windows_Example_Files_Edit.png" alt="Windows Open in Explorer"><br/>
 
+	<br><br>
 	The Microsoft editor will open and show the source code:
 	+++,
     "Examples 01:"::
@@ -416,7 +416,8 @@ echo(Hello World);
 
 	<br/><img src="Images/GUI_Windows_Example_Files.png" alt="Windows Start in Explorer"><br/>
 
-	The program will start an you will see the following output:
+	<br><br>
+	The program will start and you will see the following output:
 	+++,
     "Output 02:"::
 4P - Beyond Former Performance
@@ -462,6 +463,7 @@ Done - Press ENTER key
 
 	<br/><img src="Images/GUI_Windows_Start_Menu.png" alt="Windows Start Menu"><br/>
 
+	<br><br>
 	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start the run-time machine.
 	The following output will occur:
 

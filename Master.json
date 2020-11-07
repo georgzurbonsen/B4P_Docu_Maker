@@ -789,8 +789,7 @@
 "",
 "	Since the installation script has also been implemented in B4P, the installation procedure ",
 "	appears a bit differently as compared to installing other software, however you will be",
-"	experiencing a very fast installation procedure.  The installation script is open source",
-"	(see 'setup.txt'), but is protected from doing modifications on it and attempting to run it.",
+"	experiencing a very fast installation procedure.",
 ""
  ]
 	
@@ -808,6 +807,7 @@
 "	<br><br>",
 "	<b>System requirements:</b>",
 "	* Personal computer running Windows 7.0 or higher",
+"	* 64 bit CPU (we are not supporting legacy platforms)",
 "	* You have elevated privileges to do installations (e.g. admin rights on your local machine)",
 "	* Min 2 GB, but more memory is stronly recommended espeically when working with large data",
 "	* B4P requires less than 20 MB disk space",
@@ -815,7 +815,7 @@
 "",
 "	<b>Special software requirements:</b>",
 "	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.",
-"* Install 7-ZIP, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.   	  Without this tool, some functions, including file compression/decompression functions and loading Excel files, will not work.",
+"* Install <b>7-ZIP</b>, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.   	  Without this tool, some functions, including file compression/decompression functions and loading Excel files, will not work.",
 "",
 "	Click on the following link: <a href=\"https://www.7-zip.org/download.html\" target=\"_blank\"><b>https://www.7-zip.org/download.html</b></a> to download aind install 7-ZIP.",
 "",
@@ -837,7 +837,7 @@
 "",
 "	<br><br>",
 "",
-"	( Placeholder for file )",
+"	( Placeholder for a link to download the file )",
 "",
 "	<br><br>",
 "",
@@ -1121,10 +1121,10 @@
 "	This is a nice feature especially for beginners.",
 "	A directory called <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b> will be created",
 "	and contains the following files: ",
-"	* Hello World.b4p",
+"	* hello world.b4p",
 "	* interacctive b4p",
-"	* Main.b4p",
-"	* Start B4P here.b4p",
+"	* main.b4p",
+"	* start B4P here.b4p",
 "",
 "	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.",
 ""
@@ -1140,8 +1140,7 @@
 "    in this directory will be started.",
 "",
 "",
-"    Allow some time until the color icons appear on the '.b4p' files.",
-"    Restart needed if you want to use 'B4P' as command in 'cmd' or 'powershell'.",
+"    Highly advisable to restart your machine so all configuration settings for this installation are in effect.",
 "",
 "",
 "exit (); called",
@@ -1169,7 +1168,8 @@
     "Feature Names":		[ "Windows Getting Started" ],
 "Description 01:Introduction" : [
 "",
-"	As a general advice, restart your machine because various graphic icons will not show up immediately.",
+"	As a general advice, restart your machine because various graphic icons will not show up immediately and",
+"	the paths needed to start B4P from command line will be effective after the restart only.",
 "",
 "	<br><br>",
 "",
@@ -1180,6 +1180,7 @@
 "",
 "	<br/><img src=\"Images/GUI_Windows_Example_Files_Edit.png\" alt=\"Windows Open in Explorer\"><br/>",
 "",
+"	<br><br>",
 "	The Microsoft editor will open and show the source code:"
  ]
 	,
@@ -1203,7 +1204,8 @@
 "",
 "	<br/><img src=\"Images/GUI_Windows_Example_Files.png\" alt=\"Windows Start in Explorer\"><br/>",
 "",
-"	The program will start an you will see the following output:"
+"	<br><br>",
+"	The program will start and you will see the following output:"
  ]
 	,
 "Output 02:" : [
@@ -1253,6 +1255,7 @@
 "",
 "	<br/><img src=\"Images/GUI_Windows_Start_Menu.png\" alt=\"Windows Start Menu\"><br/>",
 "",
+"	<br><br>",
 "	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start the run-time machine.",
 "	The following output will occur:",
 ""
