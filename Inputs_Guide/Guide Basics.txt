@@ -21,7 +21,6 @@ B4PDOCU.START
 			| <b> data files </b>:  | Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..
 			| <b> databases </b>:   | Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)
 			| <b> web data </b>:    | Any source of structured data on the web(Wikipedia, ...)
-			| <b> other data </b>:  | PDF (via Tabula), Statistical data sets (R, SAS, SPPSS, Stata)
 	===
 
 	+++
@@ -279,19 +278,6 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "access web docs" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-	
-	+++
-
-  },
-
-
-  "Access PDF documentation" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "access pdf docs" ],
 //  "Keywords":			[ "add unique keywords" ],
 
     "Description 01:Overview"::
