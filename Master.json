@@ -760,6 +760,902 @@
 
 
 
+"Linux" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on Linux" ],
+"Description 01:Introduction" : [
+"",
+"	The following pages provide step-by-step instructions for downloading and installing",
+"	the B4P applications for Linux.  In the example documented here, the UBUNTU distribution has been used.",
+"",
+"	<br><br>",
+"	<b>System requirements:</b>",
+"	* Personal computer running LINUX using a common distribution (e.g. Ubuntu)",
+"	* 64 bit CPU (we are not supporting legacy platforms)",
+"	* You have elevated privileges to do installations (e.g. allowed to run commands with 'sudo' in front)",
+"	* Min 2 GB, but more memory is stronly recommended espeically when working with large data",
+"	* B4P requires less than 20 MB disk space",
+"	* Internet connectivity is required to access documentation, but not during normal program execution",
+"",
+"	<b>Special software requirements:</b>",
+"	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.",
+"	* Ensure that the Linux command <b>wget</b> is available.  If not, then install it according to Linux-specific procedures (e.g. using <b>apt-get install wget</b>, commands vary among different Linux distributions)",
+"	* Ensure that the Linux command <b>zip</b> and <b>unzip</b> are available.  If not, then install it according to Linux-specific procedures (e.g. using <b>apt-get install zip unzip</b>, commands vary among different Linux distributions)",
+"	* Web browser installed: Firefox or Google Chrome",
+"",
+"	<br><br>",
+"	Continue with __Linux Download__.",
+""
+ ]
+	
+},
+
+
+"Linux - Download" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Download" ],
+"Description 01:Introduction" : [
+"",
+"	B4P for Linux can be downloaded by clicking on the following link:",
+"",
+"	<br><br>",
+"",
+"	( Placeholder for a link to download the file )",
+"",
+"	<br><br>",
+"",
+"	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all",
+"	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.",
+"" ],
+"Description 02:Extracting the Files" : [
+"",
+"	The downloaded file is either a compressed <b>.zip</b> or <b>.tar.gz</b> file.",
+"	* Use <b>tar -xzvf B4P_*.tar.gz</b>, or",
+"	* Use <b>unzip B4P_*.zip</b>",
+"	to decompress the files. The asterisk symbol is a wildcard feature ana allows you to specify a unique part of the file name only, as long there is no ",
+"	ambiguity with other files.",
+"",
+"	<br><br>",
+"",
+"	You should see the following files and directory in a new directory called <b>b4p installation</b>:",
+"",
+"	=== 300, 700, noheader, bold_column_1",
+"	b4p			| B4P run-time machine including the language interpreter.",
+"	setup			| B4P installation program",
+"	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)",
+"	lib\\			| Directory containing B4P library files",
+"	weblib\\			| Directory containing Web-specific library features written in JavaScript.",
+"	===",
+"	<br>",
+"	The contents in 'weblib' contain some CSS files and Javascript codes files which are provided by SpryMedia Ltd, Scottland, and are in use under the MIT license.",
+"",
+"",
+"	<br><br>",
+"	Included B4P programs:",
+"	=== 300, 700, noheader, bold_column_1",
+"	main.b4p			| A default B4P program which can start automatically if declared so",
+"	interactive.b4p			| A 1-statement B4P program going to interactive mode directly",
+"	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.",
+"	hello world.b4p			| Self-explanatory",
+"start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P  					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.",
+"	===	",
+""
+ ]
+	,
+"Description 03:Adjust File Mode Flags (Applicable only if .zip file chosen and extracted)" : [
+"",
+"	If you have chosen to use the <b>... .tar.gz</b> file, then the mode flag settings (B4P files executable) are already preserved and you can skip the last step",
+"	described below.",
+"",
+"	<br><br>	",
+"	However, if you have chosen to decompress the <b>... .zip</b> file, then you need to change the mode flags of selected files which include",
+"	the executable program as well as all B4P program files included.  Use the following command for this: <b>chmod 755 b4p *.b4p setup </b>",
+""
+ ]
+	,
+"Examples 03:File mode: Enable ability to execute files with 'chmod' command" : [
+"username@domain:~/b4p_installation$ ls",
+" b4p                         interactive.b4p        main.b4p              weblib",
+"'B4P Reference Manual.b4p'   lib                    setup",
+"'hello world.b4p'           'List of Locales.csv'  'start B4P here.b4p'",
+"username@domain:~/b4p_installation$ chmod 755 b4p *.b4p setup",
+"username@domain:~/b4p_installation$ "
+ ]
+	,
+"Description 04:Ready for installation" : [
+"",
+"	Continue with __Linux Installation__ to start the installation process.",
+""
+ ]
+	
+},
+
+
+
+"Linux - Installation" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Installation" ],
+"Description 01:Introduction" : [
+"",
+"	To start the installation, type \"sudo ./setup\" click on \"setup.exe\" on a Linux console window which is in the",
+"	directory \"b4p installation\".  You may possibly be asked to enter the password in order to activate elevated",
+"	access rights in order to run the B4P installation program as a <i>super user</i>.",
+"",
+"",
+"	The follwoing contents will appear:"
+ ]
+	,
+"Examples 01:" : [
+"username@domain:~/b4p_installation$ sudo ./setup",
+"",
+"B4P - Installation Program",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-08)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"B4P installation program is starting (Linux and MacOS platforms) ... ",
+"",
+"1 >> Check the B4P privileges to run installation program ...",
+"",
+"",
+"2 >> Installation program - Main Menu ...",
+"",
+"     M :  Do Machine installation for all users",
+"     D :  De-install B4P",
+"     I :  Do Identification for acquiring a license",
+"     E :  Exit installer without actions",
+"Please select: "
+ ]
+	,
+"Description 02:" : [
+"	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\\Program Files\\B4P</b>.  ",
+"",
+"	<br><br>",
+"	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.",
+""
+ ]
+	,
+"Examples 02:" : [
+"3 >> Check that all required files are available for installation ...",
+"...",
+"4 >> Identify locations for the program files ...",
+"...",
+"5 >> Deleting B4P program and application data subdirectories (if existing) ...",
+"...",
+"6 >> Create new folders for B4P program ...",
+"...",
+"7 >> Copy all files to destination directory '/usr/local/etc/b4p ...",
+"..."
+ ]
+	,
+"Description 03:Select Country and Language Settings" : [
+"	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules",
+"	things like number and date format, currency symbols, month and weekday names in the specified language, etc.",
+"",
+"	<br><br>",
+"",
+"	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as",
+"	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, ",
+"	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or ",
+"	more parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.",
+""
+ ]
+	,
+"Examples 03:" : [
+"8 >> Restore user and locale settings (if available) ...",
+"",
+"    Info: User settings file not found. Skipped copying",
+"",
+"    Info: No locale settings have been defined yet.",
+"",
+"    Loaded CSV/TSV file 'List of Locales.csv':",
+"    31 rows, max 28 columns, 28 columns in 1st row, 868 fields, list separator: ;",
+"",
+"",
+"    Step 1 - Choose language:",
+"     A :  none",
+"     B :  English",
+"     C :  Hindi",
+"     D :  German",
+"     E :  French",
+"     F :  Italian",
+"     G :  Spanish",
+"     H :  Swedish",
+"Please select: D",
+"",
+"    Step 2 - Choose country:",
+"     A :  Germany",
+"     B :  Switzerland",
+"     C :  Austria",
+"     D :  Italy",
+"Please select: B",
+"    Locale chosen: de_CH",
+"    Done setting locale.",
+""
+ ]
+	,
+"Description 05:Activating B4P with License File or in Demo Mode" : [
+"	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,",
+"	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have",
+"	received in order to deactivate all restrictions.",
+"",
+"	<br><br>",
+"	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path",
+"	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.",
+"	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.",
+""
+ ]
+	,
+
+"Examples 05:" : [
+"",
+"9 >> Program Licensing ...",
+"",
+"License activation ...",
+"",
+"    Specify the license file (typically called 'B4P Licsense File.json'), or",
+"    press [Enter] to skip this and run B4P in demo mode with some restrictions.",
+"    Enter path + file name or press [Enter] to skip",
+"    -->     ",
+"    Nothing entered.  B4P will be activated in demo mode.",
+"",
+">>  Congratulations! Installation has been completed.",
+""
+ ]
+	,
+"Description 06:Option - Create a personal folder" : [
+"	This is a nice feature especially for beginners. Highly recommended.",
+"	A directory called <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b> will be created",
+"	and contains the following files: ",
+"	* hello world.b4p",
+"	* interacctive b4p",
+"	* main.b4p",
+"	* start B4P here.b4p",
+"	* B4P Reference Manual.b4p",
+"",
+"	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.",
+""
+ ]
+	,
+"Examples 06:" : [
+"    Do you want to create a personal B4P program folder ?  Y",
+"    Creating directory: /home/georg/b4p",
+"    If directory or files already exist, then existing files",
+"    will not be overwritten.",
+"",
+"    Done creating this directory.",
+"    When you start B4P without file specified, 'Main.b4p' in this directory will be started.",
+"",
+"",
+"    Highly advisable to restart your machine so all configuration settings for this installation are in effect.",
+"",
+"",
+"Done - Press ENTER key",
+""
+ ]
+    ,
+"Description 07:Concluding the Installation" : [
+"	Press [Enter] to close the installer.  Now you are ready to start working with B4P.",
+"",
+"	<br><br>Consider a __Linux Getting Started__ first to see if your installation is fine.",
+""
+ ]
+    
+},
+
+
+
+
+"Linux - Getting Started" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Getting Started" ],
+"Description 01:Introduction" : [
+"",
+"	B4P under Linux is operational immediately after installation.  No system reboot is necessary.",
+"",
+"	<br><br>",
+"",
+"	As a first step, go to the directory <b>/home/username/b4p</b> (b4p is a sub-directory created in your personal",
+"	home directory.  The path stated above may vary among Linux distributions.)  In that directory, you will see",
+"	fllowing files:",
+""
+ ]
+    ,
+"Examples 01:" : [
+"username@domain:~$ cd b4p",
+"username@domain:~/b4p$ ls",
+"'B4P Reference Manual.b4p'   interactive.b4p  'start B4P here.b4p'",
+"'hello world.b4p'            main.b4p",
+"username@domain:~/b4p$",
+""
+ ]
+    ,
+"Description 02:Try Hello World" : [
+"",
+"	As a first step, take a look at the B4P program 'hello world.b4p'. Use an editor of choice (I typically prefer the",
+"	gnu editor called 'gedit') to open the file and take a look at the source code.",
+"",
+""
+ ]
+	,
+"Examples 02:(You may wish to use wildcard symbols like * to specify a unique part of the file name only)" : [
+"username@domain:~/b4p$ gedit hello*"
+ ]
+	,
+"Output 02:" : [
+"#!/usr/local/bin/b4p",
+"",
+"// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a \"Shebang\".",
+"// It specifies the language interpreter to use when started as an executable file.",
+"// You can delete this line it if you plan to use B4P under Windows only.",
+"",
+"// Shebangs are ignored in Microsoft Windows environments.",
+"",
+"echo(Hello World);"
+ ]
+	,
+"Description 03:" : [
+"",
+"	Close the editor. The following three commands do the same: Start b4p and run the B4P program \"hello world.b4p\".",
+"	* <b>b4p \"hello world.b4p\"</b> to start B4P explicitly with the B4P program provided as command line parameter,",
+"	* <b>./\"hello world.b4p\"</b> to start the B4P file like an executable program,",
+"	* <b>./hello*</b>, using wildcard symboles allowing you to specify a part of the file name which is unique in the current directory.",
+""
+ ]
+	,
+"Examples 03:" : [
+"username@domain:~/b4p$ ./hello*"
+ ]
+	,
+"Output 03:" : [
+"",
+"4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-08)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Included: Support Library  2.03",
+"Included: Utility Library  2.01",
+"Included: Office Libarary  2.01",
+"Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip",
+"Hello World",
+"Done - Press ENTER key",
+"",
+"username@domain:~/b4p$ "
+ ]
+    ,
+"Description 04:Starting B4P Without a B4P Program Name" : [
+"",
+"	You can also start B4P without specifying a file name.  In this case, it will look for the",
+"	B4P program called \"main.b4p\" in the currently configured starting directory.  After the",
+"	installation with the personal folder created, the directory you are inside is presently",
+"	the memorized starting directory.",
+"",
+"	<br><br>",
+"",
+"	You can change the starting directory to a different location by making a copy of <b>start B4P here.b4p</b>",
+"	into a different directory and execute this one.  Don't do it for this first example yet.",
+"",
+"	<br><br>",
+"	In the starting directory, B4P will look for the file 'main.b4p'.  If the file is available, then you",
+"	will be asked whether to start that one or enter interactive mode instead.  Start the program.",
+"	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.",
+""
+ ]
+	,
+"Examples 04:" : [
+"username@domain:~/b4p$ b4p"
+ ]
+	,
+"Output 04:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)" : [
+"B4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-08)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Following B4P file has been found:",
+"main.b4p",
+"",
+"Press 'S' to start, or any other key to go into interactive mode: ",
+"Included: Support Library  2.03",
+"Included: Utility Library  2.01",
+"Included: Office Libarary  2.01",
+"Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip",
+"",
+"Started Main.b4p.",
+"This is the main program",
+"Feel free to add some code here ...",
+"interactive (); called",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> exit",
+"exit (); called",
+"Code execution will stop.  Exiting program.",
+"_______________________________________________________________________________",
+"Done - Press ENTER key"
+ ]
+    ,
+"Description 05:Accessing the Reference Manual" : [
+"	Congratulations.  You have been able to get your first B4P programs running.",
+"	You also find the file \"B4P Reference Manual.b4p\". Type one of the following commands",
+"	to open the on-line manual  ",
+"	* <b>\"./B4P Reference Manual.b4p\"</b> (Command fully spelled out)",
+"	* <b>./*Manual*</b> (More convenient if you use wildcard symbols)",
+"	* Inside B4P running in interactive mode, you can type <b>docs</b> to access the documentation, too.",
+"	At the first time, you will be asked for the browser you wish (currently Chrome and Firefox are supported),",
+"	following this the on-line documentation opens up.",
+""
+ ]
+	
+}
+
+
+
+,
+
+
+
+"MacOS" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on MacOS" ],
+"Description 01:Introduction" : [
+"",
+"	The following pages provide step-by-step instructions for downloading and installing",
+"	the B4P applications for MacOS.  In the example documented here, the UBUNTU distribution has been used.",
+"",
+"	<br><br>",
+"	<b>System requirements:</b>",
+"	* Apple Mac computer running MacOS using a common distribution",
+"	* 64 bit CPU (we are not supporting legacy platforms)",
+"	* You have elevated privileges to do installations (e.g. allowed to run commands with 'sudo' in front)",
+"	* Min 2 GB, but more memory is stronly recommended espeically when working with large data",
+"	* B4P requires less than 20 MB disk space",
+"	* Internet connectivity is required to access documentation, but not during normal program execution",
+"",
+"	<b>Special software requirements:</b>",
+"	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.",
+"	* Ensure that the MacOS command <b>wget</b> is available.  If not, then install it according to MacOS-specific procedures (e.g. using <b>apt-get install wget</b>, commands vary among different MacOS distributions)",
+"	* Ensure that the MacOS command <b>zip</b> and <b>unzip</b> are available.  If not, then install it according to MacOS-specific procedures (e.g. using <b>apt-get install zip unzip</b>, commands vary among different MacOS distributions)",
+"	* Web browser installed: Safari, Brave, Google Chrome, Firefox",
+"",
+"	<br><br>",
+"	Continue with __MacOS Download__.",
+""
+ ]
+	
+},
+
+
+"MacOS - Download" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "MacOS Download" ],
+"Description 01:Introduction" : [
+"",
+"	B4P for MacOS can be downloaded by clicking on the following link:",
+"",
+"	<br><br>",
+"",
+"	( Placeholder for a link to download the file )",
+"",
+"	<br><br>",
+"",
+"	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all",
+"	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.",
+"" ],
+"Description 02:Extracting the Files" : [
+"",
+"	The downloaded file is either a compressed <b>.zip</b> or <b>.tar.gz</b> file.",
+"	* Use <b>tar -xzvf B4P_*.tar.gz</b>, or",
+"	* Use <b>unzip B4P_*.zip</b>",
+"	to decompress the files. The asterisk symbol is a wildcard feature ana allows you to specify a unique part of the file name only, as long there is no ",
+"	ambiguity with other files.",
+"",
+"	<br><br>",
+"",
+"	You should see the following files and directory in a new directory called <b>b4p installation</b>:",
+"",
+"	=== 300, 700, noheader, bold_column_1",
+"	b4p			| B4P run-time machine including the language interpreter.",
+"	setup			| B4P installation program",
+"	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)",
+"	lib\\			| Directory containing B4P library files",
+"	weblib\\			| Directory containing Web-specific library features written in JavaScript.",
+"	===",
+"	<br>",
+"	The contents in 'weblib' contain some CSS files and Javascript codes files which are provided by SpryMedia Ltd, Scottland, and are in use under the MIT license.",
+"",
+"",
+"	<br><br>",
+"	Included B4P programs:",
+"	=== 300, 700, noheader, bold_column_1",
+"	main.b4p			| A default B4P program which can start automatically if declared so",
+"	interactive.b4p			| A 1-statement B4P program going to interactive mode directly",
+"	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.",
+"	hello world.b4p			| Self-explanatory",
+"start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P  					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.",
+"	===	",
+""
+ ]
+	,
+"Description 03:Adjust File Mode Flags (Applicable only if .zip file chosen and extracted)" : [
+"",
+"	If you have chosen to use the <b>... .tar.gz</b> file, then the mode flag settings (B4P files executable) are already preserved and you can skip the last step",
+"	described below.",
+"",
+"	<br><br>	",
+"	However, if you have chosen to decompress the <b>... .zip</b> file, then you need to change the mode flags of selected files which include",
+"	the executable program as well as all B4P program files included.  Use the following command for this: <b>chmod 755 b4p *.b4p setup </b>",
+""
+ ]
+	,
+"Examples 03:File mode: Enable ability to execute files with 'chmod' command" : [
+"username@domain:~/b4p_installation$ ls",
+" b4p                         interactive.b4p        main.b4p              weblib",
+"'B4P Reference Manual.b4p'   lib                    setup",
+"'hello world.b4p'           'List of Locales.csv'  'start B4P here.b4p'",
+"username@domain:~/b4p_installation$ chmod 755 b4p *.b4p setup",
+"username@domain:~/b4p_installation$ "
+ ]
+	,
+"Description 04:Ready for installation" : [
+"",
+"	Continue with __MacOS Installation__ to start the installation process.",
+""
+ ]
+	
+},
+
+
+
+"MacOS - Installation" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "MacOS Installation" ],
+"Description 01:Introduction" : [
+"",
+"	To start the installation, type \"sudo ./setup\" click on \"setup.exe\" on a MacOS console window which is in the",
+"	directory \"b4p installation\".  You may possibly be asked to enter the password in order to activate elevated",
+"	access rights in order to run the B4P installation program as a <i>super user</i>.",
+"",
+"",
+"	The follwoing contents will appear:"
+ ]
+	,
+"Examples 01:" : [
+"username@domain:~/b4p_installation$ sudo ./setup",
+"",
+"B4P - Installation Program",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-08)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"B4P installation program is starting (Linux and MacOS platforms) ... ",
+"",
+"1 >> Check the B4P privileges to run installation program ...",
+"",
+"",
+"2 >> Installation program - Main Menu ...",
+"",
+"     M :  Do Machine installation for all users",
+"     D :  De-install B4P",
+"     I :  Do Identification for acquiring a license",
+"     E :  Exit installer without actions",
+"Please select: "
+ ]
+	,
+"Description 02:" : [
+"	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\\Program Files\\B4P</b>.  ",
+"",
+"	<br><br>",
+"	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.",
+""
+ ]
+	,
+"Examples 02:" : [
+"3 >> Check that all required files are available for installation ...",
+"...",
+"4 >> Identify locations for the program files ...",
+"...",
+"5 >> Deleting B4P program and application data subdirectories (if existing) ...",
+"...",
+"6 >> Create new folders for B4P program ...",
+"...",
+"7 >> Copy all files to destination directory '/usr/local/etc/b4p ...",
+"..."
+ ]
+	,
+"Description 03:Select Country and Language Settings" : [
+"	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules",
+"	things like number and date format, currency symbols, month and weekday names in the specified language, etc.",
+"",
+"	<br><br>",
+"",
+"	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as",
+"	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, ",
+"	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or ",
+"	more parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.",
+""
+ ]
+	,
+"Examples 03:" : [
+"8 >> Restore user and locale settings (if available) ...",
+"",
+"    Info: User settings file not found. Skipped copying",
+"",
+"    Info: No locale settings have been defined yet.",
+"",
+"    Loaded CSV/TSV file 'List of Locales.csv':",
+"    31 rows, max 28 columns, 28 columns in 1st row, 868 fields, list separator: ;",
+"",
+"",
+"    Step 1 - Choose language:",
+"     A :  none",
+"     B :  English",
+"     C :  Hindi",
+"     D :  German",
+"     E :  French",
+"     F :  Italian",
+"     G :  Spanish",
+"     H :  Swedish",
+"Please select: D",
+"",
+"    Step 2 - Choose country:",
+"     A :  Germany",
+"     B :  Switzerland",
+"     C :  Austria",
+"     D :  Italy",
+"Please select: B",
+"    Locale chosen: de_CH",
+"    Done setting locale.",
+""
+ ]
+	,
+"Description 05:Activating B4P with License File or in Demo Mode" : [
+"	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,",
+"	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have",
+"	received in order to deactivate all restrictions.",
+"",
+"	<br><br>",
+"	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path",
+"	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.",
+"	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.",
+""
+ ]
+	,
+
+"Examples 05:" : [
+"",
+"9 >> Program Licensing ...",
+"",
+"License activation ...",
+"",
+"    Specify the license file (typically called 'B4P Licsense File.json'), or",
+"    press [Enter] to skip this and run B4P in demo mode with some restrictions.",
+"    Enter path + file name or press [Enter] to skip",
+"    -->     ",
+"    Nothing entered.  B4P will be activated in demo mode.",
+"",
+">>  Congratulations! Installation has been completed.",
+""
+ ]
+	,
+"Description 06:Option - Create a personal folder" : [
+"	This is a nice feature especially for beginners. Highly recommended.",
+"	A directory called <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b> will be created",
+"	and contains the following files: ",
+"	* hello world.b4p",
+"	* interacctive b4p",
+"	* main.b4p",
+"	* start B4P here.b4p",
+"	* B4P Reference Manual.b4p",
+"",
+"	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.",
+""
+ ]
+	,
+"Examples 06:" : [
+"    Do you want to create a personal B4P program folder ?  Y",
+"    Creating directory: /home/georg/b4p",
+"    If directory or files already exist, then existing files",
+"    will not be overwritten.",
+"",
+"    Done creating this directory.",
+"    When you start B4P without file specified, 'Main.b4p' in this directory will be started.",
+"",
+"",
+"    Highly advisable to restart your machine so all configuration settings for this installation are in effect.",
+"",
+"",
+"Done - Press ENTER key",
+""
+ ]
+    ,
+"Description 07:Concluding the Installation" : [
+"	Press [Enter] to close the installer.  Now you are ready to start working with B4P.",
+"",
+"	<br><br>Consider a __MacOS Getting Started__ first to see if your installation is fine.",
+""
+ ]
+    
+},
+
+
+
+
+"MacOS - Getting Started" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "MacOS Getting Started" ],
+"Description 01:Introduction" : [
+"",
+"	B4P under MacOS is operational immediately after installation.  No system reboot is necessary.",
+"",
+"	<br><br>",
+"",
+"	As a first step, go to the directory <b>/home/username/b4p</b> (b4p is a sub-directory created in your personal",
+"	home directory.  The path stated above may vary among MacOS distributions.)  In that directory, you will see",
+"	fllowing files:",
+""
+ ]
+    ,
+"Examples 01:" : [
+"username@domain:~$ cd b4p",
+"username@domain:~/b4p$ ls",
+"'B4P Reference Manual.b4p'   interactive.b4p  'start B4P here.b4p'",
+"'hello world.b4p'            main.b4p",
+"username@domain:~/b4p$",
+""
+ ]
+    ,
+"Description 02:Try Hello World" : [
+"",
+"	As a first step, take a look at the B4P program 'hello world.b4p'. Use an editor of choice (I typically prefer the",
+"	gnu editor called 'gedit') to open the file and take a look at the source code.",
+"",
+""
+ ]
+	,
+"Examples 02:(You may wish to use wildcard symbols like * to specify a unique part of the file name only)" : [
+"username@domain:~/b4p$ gedit hello*"
+ ]
+	,
+"Output 02:" : [
+"#!/usr/local/bin/b4p",
+"",
+"// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a \"Shebang\".",
+"// It specifies the language interpreter to use when started as an executable file.",
+"// You can delete this line it if you plan to use B4P under Windows only.",
+"",
+"// Shebangs are ignored in Microsoft Windows environments.",
+"",
+"echo(Hello World);"
+ ]
+	,
+"Description 03:" : [
+"",
+"	Close the editor. The following three commands do the same: Start b4p and run the B4P program \"hello world.b4p\".",
+"	* <b>b4p \"hello world.b4p\"</b> to start B4P explicitly with the B4P program provided as command line parameter,",
+"	* <b>./\"hello world.b4p\"</b> to start the B4P file like an executable program,",
+"	* <b>./hello*</b>, using wildcard symboles allowing you to specify a part of the file name which is unique in the current directory.",
+""
+ ]
+	,
+"Examples 03:" : [
+"username@domain:~/b4p$ ./hello*"
+ ]
+	,
+"Output 03:" : [
+"",
+"4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-08)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Included: Support Library  2.03",
+"Included: Utility Library  2.01",
+"Included: Office Libarary  2.01",
+"Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip",
+"Hello World",
+"Done - Press ENTER key",
+"",
+"username@domain:~/b4p$ "
+ ]
+    ,
+"Description 04:Starting B4P Without a B4P Program Name" : [
+"",
+"	You can also start B4P without specifying a file name.  In this case, it will look for the",
+"	B4P program called \"main.b4p\" in the currently configured starting directory.  After the",
+"	installation with the personal folder created, the directory you are inside is presently",
+"	the memorized starting directory.",
+"",
+"	<br><br>",
+"",
+"	You can change the starting directory to a different location by making a copy of <b>start B4P here.b4p</b>",
+"	into a different directory and execute this one.  Don't do it for this first example yet.",
+"",
+"	<br><br>",
+"	In the starting directory, B4P will look for the file 'main.b4p'.  If the file is available, then you",
+"	will be asked whether to start that one or enter interactive mode instead.  Start the program.",
+"	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.",
+""
+ ]
+	,
+"Examples 04:" : [
+"username@domain:~/b4p$ b4p"
+ ]
+	,
+"Output 04:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)" : [
+"B4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-08)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Following B4P file has been found:",
+"main.b4p",
+"",
+"Press 'S' to start, or any other key to go into interactive mode: ",
+"Included: Support Library  2.03",
+"Included: Utility Library  2.01",
+"Included: Office Libarary  2.01",
+"Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip",
+"",
+"Started Main.b4p.",
+"This is the main program",
+"Feel free to add some code here ...",
+"interactive (); called",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> exit",
+"exit (); called",
+"Code execution will stop.  Exiting program.",
+"_______________________________________________________________________________",
+"Done - Press ENTER key"
+ ]
+    ,
+"Description 05:Accessing the Reference Manual" : [
+"	Congratulations.  You have been able to get your first B4P programs running.",
+"	You also find the file \"B4P Reference Manual.b4p\". Type one of the following commands",
+"	to open the on-line manual  ",
+"	* <b>\"./B4P Reference Manual.b4p\"</b> (Command fully spelled out)",
+"	* <b>./*Manual*</b> (More convenient if you use wildcard symbols)",
+"	* Inside B4P running in interactive mode, you can type <b>docs</b> to access the documentation, too.",
+"	At the first time, you will be asked for the browser you wish (currently Safari, Brave, Firefox and Chrome are supported),",
+"	following this the on-line documentation opens up.",
+""
+ ]
+	
+}
+
+
+
+,
+
+
+
 "Installation and Setup" :
 {
     "Documentation":		"General Description", // Required value
@@ -800,6 +1696,7 @@
 "",
 "	<b>Special software requirements:</b>",
 "	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.",
+"	* Web browser installed: Microsoft Explorer, Microsoft Edge or Google Chrome",
 "* Install <b>7-ZIP</b>, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.   	  Without this tool, some functions, including file compression/decompression functions and loading Excel files, will not work.",
 "",
 "	Click on the following link: <a href=\"https://www.7-zip.org/download.html\" target=\"_blank\"><b>https://www.7-zip.org/download.html</b></a> to download aind install 7-ZIP.",
@@ -826,12 +1723,19 @@
 "",
 "	<br><br>",
 "",
-"	With the download carried out, you automatically agree to accept the __terms and conditions__ for use of the B4P run-time machine and all",
-"	associatd files such as libraries.",
-"	<br><br>",
+"	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all",
+"	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.",
 "",
-"	The downloaded file is a compressed .zip file.  Decomporess the file in a dedicated directory on your local machine. You should see",
-"	following files:",
+"	<br><br>",
+"" ],
+"Description 02:Extracting the Files" : [
+"",
+"	The downloaded file is a compressed <b>.zip</b> file.",
+"	* Move the .zip file into a directory where you want to extract it",
+"	* Then use the right mouse key to click on the file.  A pop-up menu occurs and use the the decompression option provided by Windows or 7-ZIP.",
+"",
+"	<br><br>",
+"	You should see the following extracted files and directories:",
 "",
 "	=== 300, 700, noheader, bold_column_1",
 "	B4P.exe			| B4P run-time machine including the language interpreter. A link to this file will be included in the start menu and added to the desktop if requested.",
@@ -841,8 +1745,10 @@
 "	b4picon.ico		| Windows icon for B4P files (.b4p filetype)",
 "	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)",
 "	lib\\			| Directory containing B4P library files",
-"	weblib\\			| Web-specific library features written in JavaScript",
+"	weblib\\			| Directory containing Web-specific library features written in JavaScript",
 "	===",
+"	<br>",
+"	The contents in 'weblib' contain some CSS files and Javascript codes files which are provided by SpryMedia Ltd, Scottland, and are in use under the MIT license.",
 "",
 "	<br><br>",
 "	Included B4P programs:",
@@ -886,135 +1792,82 @@
 "Info: Enhanced access privileges activated for this B4P script.",
 "",
 "",
-"Starting B4P installation script ...",
+"B4P installation program is starting ...",
 "",
 "1 >> Check the B4P privileges to run installation program ...",
 "",
 "",
 "2 >> Installation program - Main Menu ...",
 "",
-"     M :  Installation on local machine for all users",
-"     U :  Installation for current user (=you) only",
+"     M :  Do Machine installation for all users",
+"     U :  Do User installation (your user name only)",
 "     D :  De-install B4P",
-"     I :  Get identification for generating a license",
+"     I :  Do Identification for acquiring a license",
 "     E :  Exit installer without actions",
-"Please select:",
-""
+"Please select:"
  ]
 	,
 "Description 02:" : [
 "	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\\Program Files\\B4P</b>.  ",
 "	However, Choice 'U' puts the file into a directory owned by you only and will not be visible by other users sharing the same machine.",
-"	If no specific issues apply, choic 'M0 is recommended.",
+"	If no specific issues apply, choice 'M' is strongly recommended.",
+"",
+"	<br><br>",
+"	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.",
 ""
  ]
 	,
 "Examples 02:" : [
+"",
 "2 >> Installation program - Main Menu ...",
 "",
-"     M :  Installation on local machine for all users",
-"     U :  Installation for current user (=you) only",
+"     M :  Do Machine installation for all users",
+"     U :  Do User installation (your user name only)",
 "     D :  De-install B4P",
-"     I :  Get identification for generating a license",
+"     I :  Do Identification for acquiring a license",
 "     E :  Exit installer without actions",
 "Please select: M",
 "",
 "3 >> Check that all required files are available for installation ...",
-"",
-"    Check file vcruntime140_1.dll",
-"    Check file b4picon.ico",
-"    Check file Install.txt",
-"    Check file List of Locales.csv",
-"    Check file B4P Reference Manual.b4p",
-"    Check file B4P.exe",
-"    Check file Setup.exe",
-"    Check directory lib",
-"    Check directory weblib",
-"",
+"...",
 "4.1 >> Remove legacy files ...",
-"",
-"",
+"...",
 "4.2 >> Identify locations for the program files ...",
-"",
-"    Identified following directories:",
-"",
-"    Directory for local  machine  installation: C:\\Program Files",
-"    Directory for  current  user  installation: C:\\Users\\Zur Bonsen Georg\\AppData\\Local",
-"    Using following directory for installation: C:\\Program Files",
-"",
-"    Found following settings files:",
-"",
-"    User   settings:   No.",
-"    Locale settings:   No.",
-"    License file   :   No.",
-"",
+"...",
 "5 >> Deleting B4P program and application data subdirectories (if existing) ...",
-"",
-"    Done.",
-"",
-"6. >> Windows - Identify desktop and start menu locations ...",
-"",
-"    Local machine start menu path: C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs",
-"    Local machine desktop    path: C:\\Users\\Public\\Desktop",
-"    Current user start menu  path: C:\\Users\\Zur Bonsen Georg\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs",
-"    Current user desktop     path: C:\\Users\\Zur Bonsen Georg\\Desktop",
-"",
+"...",
+"6 >> Windows - Identify desktop and start menu locations ...",
+"...",
 "7 >> Windows - Delete old contents in desktop and start menu locations ...",
-"",
-"    0 files deleted in C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs",
-"    0 files deleted in C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs (legacy locations)",
-"    0 files deleted in C:\\Users\\Zur Bonsen Georg\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs",
-"    0 files deleted in C:\\Users\\Zur Bonsen Georg\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs (legacy locations)",
-"    0 files deleted in C:\\Users\\Public\\Desktop",
-"    0 files deleted in C:\\Users\\Public\\Desktop (legacy locations)",
-"    0 files deleted in C:\\Users\\Zur Bonsen Georg\\Desktop",
-"    0 files deleted in C:\\Users\\Zur Bonsen Georg\\Desktop (legacy locations)",
-"",
+"...",
 "8 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...",
-"",
+"...",
 "9 >> Create new folders for B4P program ...",
-"",
-"",
+"...",
 "10 >> Copy all files to destination directory 'C:\\Program Files\\B4P ...",
+"..."
+ ]
+	,
+"Description 03:Select Country and Language Settings" : [
+"	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules",
+"	things like number and date format, currency symbols, month and weekday names in the specified language, etc.",
 "",
-"    vcruntime140_1.dll",
-"    b4picon.ico",
-"    Install.txt",
-"    List of Locales.csv",
-"    B4P Reference Manual.b4p",
-"    B4P.exe",
-"    Setup.exe",
-"    lib",
-"    weblib",
+"	<br><br>",
 "",
+"	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as",
+"	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, ",
+"	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or ",
+"	more parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.",
+""
+ ]
+	,
+"Examples 03:" : [
 "11 >> Restore user and locale settings (if available) ...",
 "",
 "    User settings file: skipped.",
 "",
 "    No locale settings have been defined yet.",
 "",
-"    Step 1 - Choose language:",
-"     A :  none",
-"     B :  English",
-"     C :  Hindi",
-"     D :  German",
-"     E :  French",
-"     F :  Italian",
-"     G :  Spanish",
-"     H :  Swedish",
-"Please select:",
-""
- ]
-	,
-"Description 03:" : [
-"	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as",
-"	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, ",
-"	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or ",
-"	more parameters and check how the parameters are separated), and usage of decimal points or decimal commas for numbers.",
-""
- ]
-	,
-"Examples 03:" : [
 "    Step 1 - Choose language:",
 "     A :  none",
 "     B :  English",
@@ -1034,48 +1887,30 @@
 "Please select: B",
 "    Locale chosen: de_CH",
 "    Done setting locale.",
-"",
-"12 >> Adding B4P shortcut on the desktop ...",
-"",
-"",
-"    Do you want to create a shortcut on the desktop (N,Y)?",
-"",
 ""
  ]
 	,
-"Description 04:" : [
+"Description 04:Add Shortcut on the Windows Desktop" : [
 "	If you reply positively, then two icons will be added to your desktop: The B4P run-time machine, and the link to the B4P online documentation.",
-"",
 ""
  ]
 	,
 "Examples 04:" : [
-"    Do you want to create a shortcut on the desktop (N,Y)?  Y",
+"12 >> Adding B4P shortcut on the desktop ...",
+"",
+"",
+"    Do you want to create a shortcut on the desktop (N,Y)?",
 "    Create shortcut on the desktop",
 "",
 "13 >> Adding B4P shortcut in the main menu ...",
-"",
-"",
+"...",
 "14.1 >> Windows - Assign file type '.b4p' to B4P (start) and Editor (edit) and to an icon ...",
-"",
-"",
+"...",
 "14.2 >> Windows - Include B4P in path environment variable.",
-"",
-"",
-"15 >> Program Licensing ...",
-"",
-"",
-"License activation ...",
-"",
-"    Specify the license file (typically called 'B4P Licsense File.json'), or",
-"    press [Enter] to skip this and run B4P in demo mode with some restrictions.",
-"    Enter path + file name or press [Enter] to skip",
-"    -->",
-"",
-""
+"..."
  ]
 	,
-"Description 05:" : [
+"Description 05:Activating B4P with License File or in Demo Mode" : [
 "	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,",
 "	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have",
 "	received in order to deactivate all restrictions.",
@@ -1089,6 +1924,12 @@
 	,
 
 "Examples 05:" : [
+"",
+"15 >> Program Licensing ...",
+"",
+"",
+"License activation ...",
+"",
 "    Specify the license file (typically called 'B4P Licsense File.json'), or",
 "    press [Enter] to skip this and run B4P in demo mode with some restrictions.",
 "    Enter path + file name or press [Enter] to skip",
@@ -1096,14 +1937,11 @@
 "    Nothing entered.  B4P will be activated in demo mode.",
 "",
 ">>  Congratulations! Installation has been completed.",
-"",
-"",
-"",
-"    Do you want to create a personal B4P program folder ?"
+""
  ]
 	,
-"Description 06:" : [
-"	This is a nice feature especially for beginners.",
+"Description 06:Option - Create a personal folder" : [
+"	This is a nice feature especially for beginners. Highly recommended.",
 "	A directory called <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b> will be created",
 "	and contains the following files: ",
 "	* hello world.b4p",
@@ -1128,14 +1966,11 @@
 "    Highly advisable to restart your machine so all configuration settings for this installation are in effect.",
 "",
 "",
-"exit (); called",
-"Code execution will stop.  Exiting program.",
-"_______________________________________________________________________________",
 "Done - Press ENTER key",
 ""
  ]
     ,
-"Description 07:" : [
+"Description 07:Concluding the Installation" : [
 "	Press [Enter] to close the console window.  Now you are ready to start working with B4P.",
 "",
 "	<br><br>Consider a __Windows Getting Started__ first to see if your installation is fine.",
@@ -1160,10 +1995,10 @@
 "",
 "	As a first step, go to <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b>.",
 "	Using the Microsoft file explorer, right-click on the file <b>Hello World.b4p</b> and choose <b>Edit</b> in the",
-"	pop-up menu. Depending on your country and language settings in Windoes, it may be in a different language, ",
+"	pop-up menu. Depending on your country and language settings in Windows, it may be in a different language, ",
 "	but typically it's the 2nd menu entry after <b>Open</b>:",
 "",
-"	<br/><img src=\"Images/GUI_Windows_Example_Files_Edit.png\" alt=\"Windows Open in Explorer\"><br/>",
+"	<br/><br/><img src=\"Images/GUI_Windows_Example_Files_Edit.png\" alt=\"Windows Open in Explorer\"><br/>",
 "",
 "	<br><br>",
 "	The Microsoft editor will open and show the source code:"
@@ -1209,34 +2044,30 @@
 "Done - Press ENTER key"
  ]
 	,
-"Description 03:Starting B4P from Start Menu" : [
+"Description 03:" : [
 "	Congratulations.  B4P has successfully started. Press [Enter] to close the console window.  This is the easiest",
-"	way to run B4P program files.  As a next step, you will learn how to start B4P directly without a program file.",
-"	In this case, B4P expects a <b>starting directory</b> and will look for <b>Main.b4p</b>. "
- ]
-	,
-
-"Output 03:" : [
-"B4P - Beyond Former Performance",
-"_______________________________________________________________________________",
+"	way to run B4P program files.",
+"" ],
+"Description 04:Starting B4P from Start Menu" : [
 "",
-"Version 8.00 Candidate (2020-11-04)",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"Licensed (local machine) with standard privileges for Georg zur Bonsen.",
+"	As a next step, you will learn how to start B4P directly without specifying a program file.",
+"	In this case, it will look for the",
+"	B4P program called \"main.b4p\" in the currently configured starting directory.  After the",
+"	installation with the personal folder created, the directory <b>C:\\Users\\Your user name\\Documents\\Programs\\B4P</b>",
+"	the memorized starting directory.",
 "",
-"Included: Support Library  2.03",
-"Included: Utility Library  2.01",
-"Included: Office Libarary  2.01",
-"Included: Zip Library  2.20    Path to 7z.exe already memorized (OK): C:\\Program Files\\7-Zip\\7z.exe",
+"	<br><br>",
 "",
-"    When starting, then Beyond4P now looks for 'Main.b4p'",
-"    in the following directory:",
-"    C:\\Users\\Zur Bonsen Georg\\Documents\\Programs\\B4P",
-"Done - Press ENTER key"
- ]
-    ,
-"Description 04:" : [
-"	Now you start B4P from the start menu as shown below:",
+"	You can change the starting directory to a different location by making a copy of <b>start B4P here.b4p</b>",
+"	into a different directory and click on it to execute it.  Don't do it for this first example yet.",
+"",
+"	<br><br>",
+"	In the starting directory, B4P will look for the file 'main.b4p'.  If the file is available, then you",
+"	will be asked whether to start that one or enter interactive mode instead.  Start the program.",
+"	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.",
+"",
+"	<br><br>",
+"	Start B4P using the start menu:",
 "",
 "	<br/><img src=\"Images/GUI_Windows_Start_Menu.png\" alt=\"Windows Start Menu\"><br/>",
 "",
@@ -1246,32 +2077,35 @@
 ""
  ]
     ,
-"Output 04:" : [
-"",
+"Output 04:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)" : [
 "B4P - Beyond Former Performance",
 "_______________________________________________________________________________",
 "",
-"Version 8.00 Candidate (2020-11-04)",
+"Version 8.00 Candidate (2020-11-08)",
 "Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"Licensed (local machine) with standard privileges for Georg zur Bonsen.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
 "",
 "Following B4P file has been found:",
-"C:\\Users\\Zur Bonsen Georg\\Documents\\Programs\\B4P\\main.b4p",
+"main.b4p",
 "",
-"Press 'S' to start, or any other key to go into interactive mode:"
- ]
-    ,
-"Description 05:" : [
-"	Press 'S' to start the example code.  The output will look as follows:"
- ]
-    ,
-"Output 05:" : [
-"Press 'S' to start, or any other key to go into interactive mode:",
+"Press 'S' to start, or any other key to go into interactive mode: ",
 "Included: Support Library  2.03",
 "Included: Utility Library  2.01",
 "Included: Office Libarary  2.01",
-"Included: Zip Library  2.20    Path to 7z.exe already memorized (OK): C:\\Program Files\\7-Zip\\7z.exe",
-"Test",
+"Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip",
+"",
+"Started Main.b4p.",
+"This is the main program",
+"Feel free to add some code here ...",
+"interactive (); called",
+"",
+"Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.",
+">> exit",
+"exit (); called",
+"Code execution will stop.  Exiting program.",
+"_______________________________________________________________________________",
 "Done - Press ENTER key"
  ]
     ,
@@ -1329,54 +2163,21 @@
 "PS C:\\Users\\Your user name\\Documents\\Programs\\B4P>                      ",
 ""
  ]
-	
-},
-
-
-	
-
-
-  "MacOS" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Installation on MacOS" ],
-"Description 01:Overview" : [
-"",
-"	Add text here",
-"	"
+	,
+"Description 08:Accessing the Reference Manual" : [
+"	Congratulations.  You have been able to get your first B4P programs running.",
+"	You also find the file \"B4P Reference Manual.b4p\". You have three possibilites to access the on-line documentation:",
+"	* <b>\"./B4P Reference Manual.b4p\"</b> (Command fully spelled out)",
+"	* <b>./*Manual*</b> (More convenient if you use wildcard symbols)",
+"	* Inside B4P running in interactive mode, you can type <b>docs</b> to access the documentation, too.",
+"	At the first time, you will be asked for the browser you wish (currently Edge, Explorer and Chrome are supported),",
+"	following this the on-line documentation opens up.",
+""
  ]
 	
-  },
+}
 
 
-// Hint: Consider putting MacOS and LINUX into one page if they are very similar.
-
-  "Linux" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Installation on Linux" ],
-//  "Keywords":			[ "add unique keywords" ],
-"Description 01:Overview" : [
-"",
-"	Add text here",
-"	"
- ]
-	
-  },
-
-
-  "Post-Installation Optimization" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Post Installation Optimization" ],
-//  "Keywords":			[ "add unique keywords" ],
-"Description 01:Overview" : [
-"",
-"	Add text here",
-"	"
- ]
-	
-  }
 
 
 
