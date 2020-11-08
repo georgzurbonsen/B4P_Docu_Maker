@@ -49,7 +49,7 @@ _______________________________________________________________________________
 Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 >>
 +++,
-	"See also": [ "docs", "web docs" ]
+	"See also": [ "docs", "docs search" ]
 },
 
 
@@ -60,38 +60,69 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 	"Documentation":	"Function Description",
 	"Library":		"Support Library",
 	"Description"::
-		This function opens the PDF file stored on your machine which is part of the B4P installation.
-		Just type 'docs', a PDF viewer opens with the documentation and you can continue working.
+		This function accesses the on-line B4P documentation.
+		When calling this function for the very first time without providing a favorite web browser specified in the
+		1st function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
+		installed.
+
 	+++,
 	"Call as":		"procedure",
-	"Parameter count":	"0",
+	"Parameter count":	"0 or 1",
 	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
-
-	"See also": [ "web docs" ]
+	"Parameters":
+	[
+		{ "Number": "Opt. 1.",
+		  "Name": "Web browser",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify a valid web browser name:
+			=== 100, 400, noframe_1stcolbold, noheader
+			Windows	| chrome, edge, explorer
+			Linux   | chrome, firefox, brave
+			MacOS   | brave, chrome, firefox, safari
+			===
+			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
+			The chosen browser will be memorized for the next times you are using this function if you do not specify the browser expicitly.<br><br>
+			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
+			+++
+		}
+	],
+	"See also": [ "docs search" ]
 },
 
 
 
 
 
-"web docs" :
+"docs search" :
 {
-	"Function Names":	[ "web docs" ],
+	"Function Names":	[ "docs search" ],
 	"Documentation":	"Function Description",
 	"Library":		"Support Library",
 	"Description"::
-		This function accesses the on-line documentation.  If no function parameter is provided, then you will be prompted to
-		start entering the keywordd in order to narrow down the search.  While typing the keyword, the number of available 
-		choices will narrow down.  It is suggesested to type as much so the number of choices ends up below 20.  The search and
-		comparison is not case sensitive.  The entered keyword supports wildcards, e.g. typing 'e*o' or 'e??o' finds 'echo.
+		This function uses the keyword provided to access the on-line B4P documentation and opens the page you are looking
+		for.  When calling this function for the very first time without providing a favorite web browser specified in the
+		2nd function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
+		installed.
 
 		<br><br>
-		Three comparison modes are supported.  You can toggle among them by typing the minus sign '-'.
+
+		If the keyword provided matches with an existing keyword in the online B4P documentation, then the targeted page
+		will be opened immediately.  Try <b>docs search( table process )</b> to get the details about the function __table search(__).
+		Otherwise, yo will be prompted to enter a keyword.  While typing the letters, the number of possible matches shown at the
+		left will narrow down.  Try to type as match so the number of matches reduces to below 20 so they fit into one menu
+		overview.  
+
+		<br><br>
+
+		The keywords are not case-sensitive.  Wildcards are supported, e.g. typing 'e*o' or 'e??o' finds 'echo.
+		You can use the question mark (?) to toggle among three comparison methods applied for the keyword:
 		* <b>begins with</b>: Keyword is compared with beginning letter(s) of the existing choices (applicable when beginning to narrow down)
 		* <b>contains</b>: Keyword is checked as part of the existing choices
 		* <b>equals</b>: Keyword is checked for perfect match (matches is 0 when nothing is typed and changes to 1 when a matching keyword is found)
 
-		<u>Note</u>: When you use <b>web docs</b> for the first time, you will be asked to select the web browser.  Select one which is installed on your system.<br>
+		<u>Note</u>: When you use <b>docs search</b> for the first time, you will be asked to select the web browser.  Select one which is installed on your system.<br>
 		<u>Note</u>: Your own user-defined functions are not included here becasue this feature uses the B4P table of contents available on the B4P web page.
 
 	+++,
@@ -118,24 +149,24 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 			Specify a valid web browser name:
 			=== 100, 400, noframe_1stcolbold, noheader
 			Windows	| chrome, edge, explorer
-			Linux   | chrome, firefox
-			MACOS   | brave, chrome, firefox, safari
+			Linux   | chrome, firefox, brave
+			MacOS   | brave, chrome, firefox, safari
 			===
 			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
-			The chosen browser will be memorized for the next times you are using this function.<br><br>
+			The chosen browser will be memorized for the next times you are using this function if you do not specify the browser expicitly.<br><br>
 			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
 			+++
 		}
 
 	],
-	"Examples:'web docs' entered in interactive mode"::
->> web docs('table li*')
+	"Examples:'docs search' entered in interactive mode"::
+>> docs search('table li*')
 
 Note: Web documentation is still under construction and not yet complete.
 
-Advice:  web docs ( [keyword] ) looks for specific keyword.
-Exmaple: web docs ( for )   looks for help for 'for'
-         web docs ( 'for*' )    looks for keywords beginning with 'for'
+Advice:  docs search ( [keyword] ) looks for specific keyword.
+Exmaple: docs search ( for )   looks for help for 'for'
+         docs search ( 'for*' )    looks for keywords beginning with 'for'
 
 Use 'single' quotation marks when using wildcard symbols *,?,..
 
@@ -265,8 +296,8 @@ Please select: D
 			Specify a valid web browser name:
 			=== 200, 600, noframe_1stcolbold, noheader
 			Windows	| chrome, chrome datatables, edge, edge datatables, explorer, explorer datatables
-			Linux   | chrome, chrome datatables, firefox, firefox datatablse
-			MACOS   | brave, brave datatables, chrome, chrome datatables, firefox, firefox datatables, safari, safari datatabls
+			Linux   | chrome, chrome datatables, firefox, firefox datatables, brave, brave datatables
+			MacOS   | brave, brave datatables, chrome, chrome datatables, firefox, firefox datatables, safari, safari datatabls
 			All systems | here
 			===
 			<b>here</b> opens the table locally.

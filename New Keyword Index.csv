@@ -1,38 +1,4 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
-GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
-GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts
-GUI;B4P Program Examples;GUI_Features_B4P_Program_Examples.html;General Description;B4P Program Examples
-GUI;Example - Analyzing data from web;GUI_Features_B4P_example_analzing_data_from_web.html;General Description;B4P example analzing data from web
-GUI;Example - Consolidating data from mulitple spreadsheets;GUI_Features_B4P_example_consolidating_data.html;General Description;B4P example consolidating data
-GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
-GUI;Getting Help;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;Interactive Mode - Help Options;GUI_Features_Interactive_mode_help_options.html;General Description;Interactive mode help options
-GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
-GUI;Introduction to Programming in B4P;GUI_Features_Introduction_to_programming_in_B4P.html;General Description;Introduction to programming in B4P
-GUI;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
-GUI;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
-GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
-GUI;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
-GUI;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
-GUI;MacOS;GUI_Features_Installation_on_MacOS.html;General Description;Installation on MacOS
-GUI;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
-GUI;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
-GUI;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
-GUI;Overview;GUI_Features_overview.html;General Description;overview
-GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
-GUI;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;Tutorials;GUI_Features_Tutorials.html;General Description;Tutorials
-GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
-GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
-GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
-GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
-MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 REF;"&#43; Transaction Assignment Operators";REF_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 REF;"&#43; Transactions between Tables";REF_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 REF;"&#43; Transactions between Variables";REF_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -740,6 +706,7 @@ REF;distribute - Value Distribution over Timeline;REF_Function_distribute.html;F
 REF;do;REF_Function_do.html;Function Description;do
 REF;do;REF_Function_do.html;Function Description;;do-loop
 REF;docs;REF_Function_docs.html;Function Description;docs
+REF;docs search;REF_Function_docs_search.html;Function Description;docs search
 REF;dump functions;REF_Function_dump_functions.html;Function Description;dump functions
 REF;echo, print ...;REF_Function_echo.html;Function Description;echo
 REF;echo, print ...;REF_Function_echo.html;Function Description;print
@@ -1338,7 +1305,6 @@ REF;wait until, wait until countdown;REF_Function_wait_until.html;Function Descr
 REF;wait, wait countdown;REF_Function_wait.html;Function Description;wait
 REF;wait, wait countdown;REF_Function_wait.html;Function Description;wait countdown
 REF;weaken colors;REF_Function_weaken_colors.html;Function Description;weaken colors
-REF;web docs;REF_Function_web_docs.html;Function Description;web docs
 REF;week;REF_Function_week.html;Function Description;week
 REF;weekday;REF_Function_weekday.html;Function Description;weekday
 REF;weekday;REF_Function_weekday.html;Function Description;;weekday from date
@@ -1355,3 +1321,37 @@ REF;year, quarter, month, day;REF_Function_year.html;Function Description;;Date 
 REF;zip compress;REF_Function_zip_compress.html;Function Description;zip compress
 REF;zip extract all;REF_Function_zip_extract_all.html;Function Description;zip extract all
 REF;zip extract files;REF_Function_zip_extract_files.html;Function Description;zip extract files
+GUI;Access web documentation;GUI_Features_access_web_docs.html;General Description;access web docs
+GUI;B4P Concepts;GUI_Features_B4P_concepts.html;General Description;B4P concepts
+GUI;B4P Program Examples;GUI_Features_B4P_Program_Examples.html;General Description;B4P Program Examples
+GUI;Example - Analyzing data from web;GUI_Features_B4P_example_analzing_data_from_web.html;General Description;B4P example analzing data from web
+GUI;Example - Consolidating data from mulitple spreadsheets;GUI_Features_B4P_example_consolidating_data.html;General Description;B4P example consolidating data
+GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
+GUI;Getting Help;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;Interactive Mode - Help Options;GUI_Features_Interactive_mode_help_options.html;General Description;Interactive mode help options
+GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
+GUI;Introduction to Programming in B4P;GUI_Features_Introduction_to_programming_in_B4P.html;General Description;Introduction to programming in B4P
+GUI;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
+GUI;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
+GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
+GUI;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
+GUI;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
+GUI;MacOS;GUI_Features_Installation_on_MacOS.html;General Description;Installation on MacOS
+GUI;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
+GUI;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
+GUI;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
+GUI;Overview;GUI_Features_overview.html;General Description;overview
+GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
+GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
+GUI;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;Tutorials;GUI_Features_Tutorials.html;General Description;Tutorials
+GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
+GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
+GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
+MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
