@@ -3,6 +3,7 @@ Missing, (Assign right Category);Link;;;"&#8594; User Guide";GUI_Features_overvi
 OK, (Assign right Category);TOC;1;;Table of Contents;REF_Features_Table_of_Contents.html;Table of Contents;Table of Contents,Reference Manual;
 OK;Body;1;B 1;Starting B4P;REF_Features_starting.html;starting;starting,installing,installation,launching,command line options;
 OK;Body;2;B 1.1;Distinct Language Features;REF_Features_Distinct_Language_Features.html;Distinct Language Features;Distinct Language Features;
+;Body;3;;Command Line Switches;;;;
 OK;Body;2;B 1.2;Interactive Mode;REF_Features_interactive.html;interactive;interactive,interactive mode;
 OK;Body;2;B 1.3;Licensing;REF_Features_licensing.html;licensing;licensing,unlock;
 OK;Body;1;B 2;Introduction;REF_Features_introduction.html;introduction;introduction;
@@ -554,11 +555,11 @@ OK;Body;4;B 8.14.4.3;license apply key;REF_Function_license_apply_key.html;licen
 OK;Body;2;B 8.15;Help and Support Functions;REF_Features_help_and_support_functions.html;help and support functions;help and support functions;
 OK;Body;3;B 8.15.1;help;REF_Function_help.html;help;help;
 OK;Body;3;B 8.15.2;docs;REF_Function_docs.html;docs;docs;
-OK;Body;3;B 8.15.3;web docs;REF_Function_web_docs.html;web docs;web docs;
+OK;Body;3;B 8.15.3;docs search;REF_Function_docs_search.html;docs search;docs search;
 OK;Body;3;B 8.15.4;view;REF_Function_view.html;view;view;
 OK;Body;3;B 8.15.5;view reset;REF_Function_view_reset.html;view reset;view reset;
-OK;Body;3;B 8.15.6;list / explain functions;REF_Function_list_functions.html;list functions,explain functions;list functions,explain functions;
-OK;Body;3;B 8.15.7;dump functions;REF_Function_dump_functions.html;dump functions;dump functions;
+OK;Body;3;B 8.15.6;function list / explain;REF_Function_function_list.html;function list,function explain;function list,function explain;
+OK;Body;3;B 8.15.7;function dump;REF_Function_function_dump.html;function dump;function dump;
 OK;Body;2;B 8.16;Cross-Functional Info;REF_Features_Cross-functional_info.html;Cross-functional info;Cross-functional info;
 OK;Body;3;B 8.16.1;Sorting and Ranking Options;REF_Features_Sorting_options.html;Sorting options,Ranking options;Sorting options,Ranking options;
 OK;Body;3;B 8.16.2;Consolidation Actions;REF_Features_consolidation_actions.html;consolidation actions;consolidation actions;

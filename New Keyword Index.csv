@@ -105,6 +105,9 @@ REF;Code Pieces (Func. Param. Type);REF_Features_Code_Piece.html;General Descrip
 REF;Color Palettes;REF_Features_Color_Palettes.html;General Description;Color Palettes
 REF;Color Palettes;REF_Features_Color_Palettes.html;General Description;;Color Palette
 REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
+REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;Command line switches
+REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;;Command line options
+REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;;switches
 REF;Comments;REF_Features_comments.html;General Description;comments
 REF;Comments;REF_Features_comments.html;General Description;;comments
 REF;Comparison Expressions (func. params);REF_Features_Comparison_Expression_(func._params).html;General Description;Comparison Expression (func. params)
@@ -707,7 +710,6 @@ REF;do;REF_Function_do.html;Function Description;do
 REF;do;REF_Function_do.html;Function Description;;do-loop
 REF;docs;REF_Function_docs.html;Function Description;docs
 REF;docs search;REF_Function_docs_search.html;Function Description;docs search
-REF;dump functions;REF_Function_dump_functions.html;Function Description;dump functions
 REF;echo, print ...;REF_Function_echo.html;Function Description;echo
 REF;echo, print ...;REF_Function_echo.html;Function Description;print
 REF;echo, print ...;REF_Function_echo.html;Function Description;print line
@@ -816,6 +818,9 @@ REF;forget memorized table columns;REF_Function_forget_memorized_table_columns.h
 REF;function / user function existing;REF_Function_function_existing.html;Function Description;function existing
 REF;function / user function existing;REF_Function_function_existing.html;Function Description;user function existing
 REF;function / user function existing;REF_Function_function_existing.html;Function Description;;function existing
+REF;function dump;REF_Function_function_dump.html;Function Description;function dump
+REF;function list / explain;REF_Function_function_list.html;Function Description;function list
+REF;function list / explain;REF_Function_function_list.html;Function Description;function explain
 REF;get differences;REF_Function_get_differences.html;Function Description;get differences
 REF;getch ...;REF_Function_getch.html;Function Description;getch
 REF;getch ...;REF_Function_getch.html;Function Description;getch ignore case
@@ -888,8 +893,6 @@ REF;license provide identification;REF_Function_license_provide_identification.h
 REF;lighten colors;REF_Function_lighten_colors.html;Function Description;lighten colors
 REF;linear - Solve Linear Equations;REF_Function_linear.html;Function Description;linear
 REF;linear - Solve Linear Equations;REF_Function_linear.html;Function Description;;linear equation
-REF;list / explain functions;REF_Function_list_functions.html;Function Description;list functions
-REF;list / explain functions;REF_Function_list_functions.html;Function Description;explain functions
 REF;list variables ...;REF_Function_list_variables.html;Function Description;list variables
 REF;list variables ...;REF_Function_list_variables.html;Function Description;list system variables
 REF;list variables ...;REF_Function_list_variables.html;Function Description;list global variables

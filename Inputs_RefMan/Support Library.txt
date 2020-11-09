@@ -255,7 +255,7 @@ Please select: D
 	table list ( t, 1st row, 2, briefly, 3, last col, -3 );
 	+++,
 	"Output": "automatic",
-	"See also": [ "list" ]
+	"See also": [ "view" ]
 },
 
 
@@ -336,8 +336,8 @@ Navigation: l = Left,      r = Right       u = Page Up   d = Page Down   s = Sea
 
             Q = Quit
 
-Procedure call list:  list ( table name [, chars per row [, rows to show]] )
-               e.g.:  list ( my table, 160, 20 ) // My table, 160 chars, 20 rows to show
+Procedure call  :  view ( table name [, chars per row [, rows to show]] )
+            e.g.:  view ( my table, 160, 20 ) // My table, 160 chars, 20 rows to show
 
 _______________________________________________________________________________
 Action ([?] for help):  r

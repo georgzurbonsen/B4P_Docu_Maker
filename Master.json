@@ -30,8 +30,8 @@
 "	=== 240, 760, noframe_1stcolbold, noheader",
 "	Start menu					| Click on the start menu and select \"B4P\".",
 "	Desktop icon					| If activated during installation, then click on the desktop icon.",
-"	Click on B4P ap (.b4p file)			| In a file explorer or on the desktop, double-click on a .b4p-file to run it directly.  Windows will automatically start B4P with that file when running .b4p files.",
-"	Command line 					| Enter \"B4P\" alone or followed by B4P app file.  In Windows, the <b>Path</b> environment variable includes looking for B4P. Example: <b>B4P HelloWorld.b4p</b",
+"	Click on B4P program file (.b4p file)		| In a file explorer or on the desktop, double-click on a .b4p-file to run it directly.  Windows will automatically start B4P with that file when running .b4p files.",
+"	Command line 					| Enter \"B4P\" alone or followed by B4P program file.  In Windows, the <b>Path</b> environment variable includes looking for B4P. Example: <b>B4P HelloWorld.b4p</b",
 "	==="
  ]
 	,
@@ -39,8 +39,8 @@
 "Description 03:Starting B4P from Linux" : [
 "",
 "	=== 240, 760, noframe_1stcolbold, noheader",
-"	Command line	| Enter <b>/usr/local/bin/b4p</b>.  To start a specific B4P application sript, then add the file name as command line parameter.  Example: <b>/usr/local/bin/b4p HelloWorld.b4p</b>",
-"	Shebang		| If the file contains <b>#!/usr/local/bin/b4p</b> in the 1st row, and the B4P file contains Linux-compliant line breaks (line feeds without carriage return symbols), then B4P will be started automatically as the interpreter when executing the specified file.  The file must be configured as executable, e.g. with the command <b>chmod 755 *.b4p</b>",
+"Command line	| Enter <b>/usr/local/bin/b4p</b>.  To start a specific B4P program, then add the file name as command line parameter. <br> 			  Example: <b>/usr/local/bin/b4p HelloWorld.b4p</b><br> or <b>b4p HelloWorld.b4p</b>",
+"Shebang		| If the file contains <b>#!/usr/local/bin/b4p</b> in the 1st row, and the B4P file contains Linux-compliant line breaks (line feeds without carriage return symbols), then B4P will be started automatically as the interpreter when executing the specified file.  The file must be configured as executable, e.g. with the command <b>chmod 755 *.b4p</b><br> 			  Example: <b>./HelloWorld.b4p</b>.",
 "	==="
  ]
 	,
@@ -53,7 +53,8 @@
 
 "Description 05:Command Line Arguments" : [
 "",
-"	Additional information, for example file names, can be added as further command line arguments.  Inside the B4P app, the command line arguments are accessible by referencing the global variable <b>command line arguments[]</b> which is configured as an array of literals."
+"	Additional information, for example file names, can be added as further command line arguments.  Inside the B4P, the command line arguments are accessible by referencing the global variable <b>command line arguments[]</b> which is configured as an array of literals.",
+"	In addition to command line arguments, __command line switches__ are provided to influence the execution behavior of B4P."
  ]
 	,
 
@@ -73,28 +74,41 @@
 "	1.	| The current working directory will be set to the directory where the application script is located (unless command line option -d is used)",
 "	2.	| The application script will be started immediately.",
 "	===",
+""
+ ]
+	,
+     "See also": [ "Interactive Mode" ]
+
+},
+
+
+"Command Line Switches":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Command line switches" ],
+    "Keywords":			[ "Command line options", "switches" ],
+"Description 01:Introduction" : [
 "",
-"" ],
-"Description 07:Command Line Options (Switches)" : [
+"	Following command line switches (or options)influence B4P startup behavior. These options are not added to the global variable array <b>command line arguments[]</b>, and they",
+"	will not be visible in any other variable or parameter inside the running B4P program..",
 "",
-"	Following command line options influence B4P startup behavior. These options are not added to the global variable array <b>command line arguments[]</b>.",
-"",
-"	=== 40, 960, noframe_1stcolbold, noheader",
-"	-d	| Suppress changeing the current working directory to the directory where the B4P app is started.",
-"	-i	| Start B4P and enter interactive mode immediately. You can execute any B4P statement as a command. In addition, you can inspect variables and execute operating system commands. You can start B4P apps by typing <b>start (filename.b4p)</b>.",
-"	-w	| Suppress B4P welcome text. <br><u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br><u>Attention 2:</u> Important B4P library files (e.g. \"Support Library\") will not be loaded automatically.<br>The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.",
-"	-x	| Skip the \"<i>Press [Enter] to end the program</i>\" before B4P is exiting.  Useful for running B4P apps from batch scripts.",
-"	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.",
+"	=== 100, 900, bold_column_1",
+"	Swtich	| Description",
+"-d	| Normally, at start-up, B4P sets the working directory to the directory where the B4P program to execute is located. <br> 		  This command line switch suppresses this and leaves the current dierctory where B4P has been started.",
+"	-i	| Start B4P and enter __interactive mode__ immediately.  Even if a B4P program has been specified, the program will not be loaded and started</b>.",
 "	-I	| MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for normal applicaction use.",
+"-w	| Suppress B4P welcome text. <br> <u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br> <u>Attention 2:</u> The script \"B4P Iniit.b4p\" will not be started.  This file would otherwise load the default important B4P library files (e.g. \"Support Library\").<br> 		  The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.",
+"-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.<br> 		  To suppress the welcome text, too, use teh command lie swtich -w, too.",
+"	-x	| Skip the \"<i>Press [Enter] to end the program</i>\" before B4P is exiting.  Useful for running B4P programs from batch scripts without user interaction",
 "	===",
 "",
 "	Invalid command line parameters will provide descriptive error messages and stop B4P.<br><br>",
-"	Command line arguments may be freely ordered and specified as combined or individual parameters.  See below."
+"	Command line arguments may be freely ordered and specified as combined or individual parameters.  See the example below."
  ]
 	,
 
 "Examples 07:5 ways to start B4P with the same command line options" : [
-"	b4p -wx myprogram.b4p	// All 5 variants are equivalent.",
+"	b4p -wx myprogram.b4p	// All 5 variations are equivalent.",
 "	b4p myprogram.b4p -wx",
 "	b4p myprogram.b4p -xw",
 "	b4p -w -x myprogram.b4p",
@@ -103,8 +117,8 @@
 	,
 
      "See also": [ "Interactive Mode" ]
-
 },
+
 
 
 "Distinct Language Features":
@@ -7303,7 +7317,7 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "list" ]
+	"See also": [ "view" ]
 },
 
 
@@ -7386,8 +7400,8 @@
 "",
 "            Q = Quit",
 "",
-"Procedure call list:  list ( table name [, chars per row [, rows to show]] )",
-"               e.g.:  list ( my table, 160, 20 ) // My table, 160 chars, 20 rows to show",
+"Procedure call  :  view ( table name [, chars per row [, rows to show]] )",
+"            e.g.:  view ( my table, 160, 20 ) // My table, 160 chars, 20 rows to show",
 "",
 "_______________________________________________________________________________",
 "Action ([?] for help):  r",
@@ -15327,9 +15341,9 @@
 
 ,
 
-  "list / explain functions" :
+  "function list / explain" :
   {
-    "Function Names":	[ "list functions", "explain functions" ],
+    "Function Names":	[ "function list", "function explain" ],
     "Documentation":	"Function Description",
 "Description" : [
 "",
@@ -15358,21 +15372,21 @@
 "    }",
 "",
 "    echo(\"Functions listed:\");",
-"    list functions( \"mo*\" ); // Lists 3 functions: mod, mode (defined here) and month.",
+"    function list( \"mo*\" ); // Lists 3 functions: mod, mode (defined here) and month.",
 "    echo;",
 "    echo(\"Functions explained:\");",
-"    explain functions( \"mo*\" ); "
+"    function explain( \"mo*\" ); "
  ]
     ,
     "Output": "automatic",
-    "See also": "dump functions"
+    "See also": "function dump"
   }
 
 ,
 
-  "dump functions" :
+  "function dump" :
   {
-    "Function Names":	[ "dump functions" ],
+    "Function Names":	[ "function dump" ],
     "Documentation":	"Function Description",
 "Description" : [
 "",
@@ -15423,7 +15437,7 @@
 "        echo(\"Test\");",
 "    }",
 "",
-"    dump functions( table );",
+"    function dump( table );",
 "",
 "    // table save( table, \"All functions.csv\" ); // Advisable for you to use.",
 "",
@@ -15437,7 +15451,7 @@
  ]
     ,
     "Output": "automatic",
-    "See also": ["list functions", "explain functions"]
+    "See also": ["function list", "function explain"]
   }
 
 ,
