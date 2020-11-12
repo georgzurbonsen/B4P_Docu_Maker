@@ -1,62 +1,392 @@
 //
 B4PDOCU.START
 
-  "Interactive Mode" :
-  {
+"Interactive Mode":
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "interactive" ],
-    "Keywords":			[ "interactive", "interactive mode" ],
+    "Feature Names":		[ "interactive mode" ],
+    "Description 01:Overview"::
+
+	The <b>interactive mode</b> allows direct user interaction with the B4P run-time machine and is particularly useful for following purposes:
+	* Access documentation, e.g. type 'docs search( keywords )'
+	* __Execute B4P statements interactively__
+	* __Execute B4P expressions interactively__
+	* __Inspect tables__
+	* __Inspect variables__
+	* Execute __operating system commands__
+	* And debug your B4P program using the features listed above.
+
+	+++
+},
+
+
+
+
+"Entering Interactive Mode":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "entering interactive mode" ],
+    "Description 01:Introduction"::
+
+	Following appraoches are available to enter interactive mode:
+
+	=== 300, 700, noframe_1stcolbold, noheader
+	Command line option -i		| Starting B4P with the command lien option <b>-i</b> will activate interactive mode immediately.
+	Start interactive.b4p		| Run this B4P program available in the installation to enter interactive immediately
+	Start B4P alone			| B4P will give you the choice to enter interactive mode or start 'main.b4p' if one is available
+	Call 'interactive' function	| Add 'interactive;' in your B4P program to enter interactive mode.  Type 'return' to continue executing from there
+	Exceptions (errors) happened	| In most exceptions (e.g. syntax errors, wrong parameters, etc.), interactive mode is entered so you can inspect your code, variables and loaded tables
+	===
+
+	+++,
+    "Examples 01:"::
+	echo("Add the 'interactive' statement int your B4P program ...");
+	interactive;
+	+++,
+    "Output 01:"::
+Add the 'interactive' statement int your B4P program ...
+interactive (); called
+
+Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
+>>
+	+++	
+},
+
+
+"Interactive Help":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Interactive help" ],
+    "Description 01:Introduction"::
+
+	Interactive mode is ideally suited to look for helpful information and access the on-line documentation which is kept
+	up-to-date.  Available commands for information retrieval include the following and some of them accept wildcard symbols
+	as placeholder for any number of characters (using <b>*</b>) or exactly 1 character (using <b>?</b>).
+
+	<br><br>
+
+	=== 300, 700, bold_column_1
+	Command				| Description
+	help				| Brief overview of most important features provided in interactive mode
+	docs				| Access the on-line B4P documentation
+	docs search <br> \
+	docs search( for ) <br>\
+	docs search( 'for*') <br>\
+	docs search( for all ) <br>\
+	docs search( '*abc*' ) 		| Searches the on-line B4P documentation by listing up all keywords and selecting one of them<br>\
+					  <b>for</b> is an existing keyword, so the documentation for the function <b>for</b> is opened directly<br>\
+					  <b>for*</b> lists all keywords beginning with 'for'. Select one of them to access the dscription.<br>\
+					  <b>for all</b> is not an existing keyword, but various keywords begin with 'for all' which will be listed.<br>\
+					  <b>*abc*</b> looks up all keywords containing 'abc'.<br>\
+					  For more info, see detailed description of __docs search(__).
+	function list<br>\
+	function list( 'max*' )		| List all function names, but without descriptions.<br>\
+					  <b>max*</b> limits the list to all functions beginning with 'max'.<br>\
+					  For more info, see detailed description of __function list(__).
+	function explain<br>\
+	function explain( 'max*' )<br> \
+	function explain( max )		| Explains all paraters required for listed functions (Very long output generated!).<br>\
+					  <b>max*</b> limits the explainations to all functions beginning with 'max'.<br>\
+					  <b>max</b> explains the parameters for function __max(__) only.<br>\
+					  <br>For more info, see detailed description of __function explain(__).
+	function dump( table name )	| Dumps all available functions and their descriptions into a B4P table.  <br>\
+					  As a next step, type 'table save( table name, file name.csv )' or 'view ( table name, excel )' to view the table.<br>\
+					  <br>For more info, see detailed description of __function dump(__).
+	===
+	+++
+},
+
+
+
+"Execute B4P Statements Interactively":
+	{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Execute B4P statements interactively" ],
+    "Keywords":			[ "interactive statements" ],
     "Description 01:Interactive Mode"::
 
-	Interactive mode allows you to run any Beyon4P command and expression interactively, start programs and inspect variables.  Additional commands, such as
-	executing system commands, are also supported.  Following cases will activate interactive mode:
+	In interactive mode, you can enter any valid B4P program statement which will be executed immediately after pressing the [Enter] key.
+	You are able to specfify multiple statements (example: <b>for (a[]=1, a[]<5, a[]++) echo(a[]); echo(Done.)</b>) in one line and they will
+	be executed like a small B4P program.  Even angular braces <b>{ ... }</b> are allowed here to put multiple statements into one block.
 
-	=== 240, 760, noframe_1stcolbold, noheader
-	Command line option -i	| Starting Beyond4P with the command lien option <b>-i</b> will activate interactive mode immediately.
-	Exception asserted | Most exceptions (e.g. parsing syntax and run-time errors) will start interactive mode so you can inspect the actual circumstances of the error, e.g. by looking at variables and table contents.
-	Function 'interactive' called | Specify <b>interactive;</b> inside your program if execution should stop here so you can do some inspections or manipulations.  Type <b>return</b> to continue running that program.
+	<br><br>
+	A semicolon is not required at the end of the last statement entered interactively.
+	<br>
+
+	+++,
+    "Examples 01:"::
+>> a[] = 5
+>> b[] = 3; echo( a[]*b[] + 5)
+20
+>> for (a[] = 1, a[]<=5, a[]++) print (a[]," "); echo(Done.)
+1 2 3 4 5 Done.	
+>> echo( average( 1,2,3,4 ) )
+2.5
+>> table load ( t, 'Examples\Cities.csv' )
+>> echo( [t: City, Boston, 'State/Province' ])
+Massachusetts
+>> exit // Leave B4P
+
+	+++
+},
+
+
+"Execute B4P Expressions Interactively":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Execute B4P expressions interactively" ],
+    "Keywords":			[ "interactive expressions" ],
+    "Description 01:Interactive Mode"::
+
+	You can calculate expressions and see the outcome (value and data type) on the console directly.  The simple syntax
+	consists of an equal sign (<b>=</b>) followed by the expression.
+
+	+++,
+    "Examples 01:"::
+>> a[] = 5
+>> = a[]* (3 + 5)
+24 [plain numeral]
+>> = average( 1,2,3,4 )
+2.5 [plain numeral]
+>> table load ( t, 'Examples\Cities.csv' )
+>> = [t: City, Boston, 'State/Province' ]
+Massachusetts ["literal"]
+>> exit // Leave B4P
+	+++
+},
+
+
+
+"Inspecting Tables Interactively":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Inspect Tables" ],
+    "Description 01:Introduction"::
+
+	The B4P functions __table list(__) and __view(__) are suitable to view table contents interactively.
+	In addition to these functions, you can also formulate expressions interactively to look for specific contents
+	in the table, e.g. one or more cells, entire rows and/or columns.
+
+	<br><br>
+
+	=== 300, 700, bold_column_1
+	Command				| Description
+	table list ( my table )		| List the table. See __table list(__) for details where you can specify additional parameterse to specify the \
+					  starting and ending rows and columns and also use the 'briefly' option to list the first and last <i>n</i> lines only. \
+					  The table will be shown on the console without need of user interaction and is also useful as a program statement to print out table contents.
+	view ( my table )		| This function provides visualzation with user interaction (e.g. navigation) using <br>\
+					  - The console output <br>\
+					  - Excel <br>\
+					  - A web browser of choice <br>\
+					  - A web browser of choice with data tables.<br>\
+
+					  If no further parameter is provided, then the last browser option chosen will be used.
+	view ( my table, here )		| Visualization on the console, with some features to navigate
+	view ( my table, excel )	| Opens the file with Excel
+	view ( my table, chrome )	| Opens the file with a browser, for example Google Chrome (other browers available, see __view(__) for details
+	view ( my table, chrome datatables ) | Opens the files with a browser and making use of <i>data tables</i>, a function provided by SpryMedia Ltd. under the MIT license.
+	===
+	+++,
+
+    "Description 02:Advanced Inspection Methods"::
+	Make use of the __execute B4P statements interactively__ and __execute B4P expressions interactively__ to inspect selected table contents.  See the example below
+	showing various statements and expressions entered:
+	+++,
+    "Examples 02:"::
+>> table load( t, 'examples\Cities.csv')
+
+    Loaded CSV/TSV file 'examples\Cities.csv':
+    15 rows, max 8 columns, 8 columns in 1st row, 120 fields, list separator: ;
+
+>> =[t:..5,0]
+{'Country','City','State/Province','Inhabitants','Famous attraction','Alt. (m)'} [parameter set]
+>> =[t:City,3..5]
+{'Philadelphia','Boston','San Francisco'} [parameter set]
+>> =[t:City,Boston,{Inhabitants,Famous attraction}]
+{620000,'Freedom trail'} [parameter set]
+>> table process selected rows ( t, [Country]==USA, echo( row(),": ", [Famous attraction] ) )
+1: St. of Liberty
+2: Lincoln Statue
+3: Independence hall
+4: Freedom trail
+5: Golden Gate
+9: Hollywood
+>>
+	+++
+
+},
+
+
+
+"Inspecting Variables Interactively":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Inspect Variables" ],
+    "Description 01:Introduction"::
+
+	The B4P function fuamily __list variables(__) and __inspect(__) aer suitable to inspect the contents of the variables
+	and their members if these variables contain __array__ and/or __structure__ members.
+
+	<br><br>
+
+	=== 300, 700, bold_column_1
+	Command				| Description
+	list variables<br>\
+	list variables(a)<br>\
+	list variables('a*')		| All variables inclding their members and sub-members will be listed, including data types and applicable protections.<br>\
+					  Limit the listing varialbes named 'a'<br>\
+					  Limit the listing to all variables beginning with 'a' (made use of wildcard symbols).
+	list system variables		| Same as above, but system variables only
+	list global variables		| Same as above, but global variables only
+	list local variables		| Same as above, but local variables only
+	inspect( variable name[] )<br>\
+	inspect( a[] )<br>\
+	inspect( a[b] )			| Inspect the contents of the variable including all defined array and/or structure members if existing.<br> \
+					  Example for variable 'a[]'<br>\
+					  Example for member variable 'a[b]'
+	table list ( my table )		| List the table. See __table list(__) for details where you can specify additional parameterse to specify the \
+					  starting and ending rows and columns and also use the 'briefly' option to list the first and last <i>n</i> lines only. \
+					  The table will be shown on the console without need of user interaction and is also useful as a program statement to print out table contents.
+	view ( my table )		| This function provides visualzation with user interaction (e.g. navigation) using <br>\
+					  - The console output <br>\
+					  - Excel <br>\
+					  - A web browser of choice <br>\
+					  - A web browser of choice with data tables.<br>\
+
+					  If no further parameter is provided, then the last browser option chosen will be used.
+	view ( my table, here )		| Visualization on the console, with some features to navigate
+	view ( my table, excel )	| Opens the file with Excel
+	view ( my table, chrome )	| Opens the file with a browser, for example Google Chrome (other browers available, see __view(__) for details
+	view ( my table, chrome datatables ) | Opens the files with a browser and making use of <i>data tables</i>, a function provided by SpryMedia Ltd. under the MIT license.
+	= a[]				| Use __execute B4P expressions interactively__ to access values in individual variables.
+	===
+	+++,
+
+    "Description 02:Examples"::
+	In the follwoing example, some variables are created and then inspected interactively.
+	+++,
+    "Examples 02:"::
+>> a[] = 3
+>> a[kid] = 4
+>> a[nic] = 5
+>> inspect(a[])
+a[]                     3  ("3")                   (numeral,full access)
+kid                     4  ("4")                   (numeral,full access)
+nic                     5  ("5")                   (numeral,full access)
+
+>> inspect(a[kid])
+a[kid]                  4  ("4")                   (numeral,full access)
+
+>> =a[]
+3 [numeral]
+>> list variables( a )
+
+Variable List Level = 0  Regional Level = 0    System variables
+_______________________________________________________________________________
+
+Variable List Level = 1  Regional Level = 1    Global variables
+_______________________________________________________________________________
+a                       3  ("3")                   (numeral,full access)
+  kid                   4  ("4")                   (numeral,full access)
+  nic                   5  ("5")                   (numeral,full access)
+
+>>
+	+++
+
+},
+
+
+
+"Basic Commands":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Basic Commands" ],
+    "Description 01:Introduction"::
+
+	The following commands are recommended for interactive use and are described below:
+
+	<br><br>
+
+	=== 300, 700, bold_column_1
+	Command				| Description
+	start ( Program Name.b4p )	| Start executing a B4P program.  Note: All variables created in that program will be global variables, even if defined outside user-defined procedures and functions.
+	return				| Return to executing the program.  Very useful if interactive mode is activated using an <b>interactive;</b> statement.
+	exit				| Leaves B4P run-time machine
+	Pressing CTRL+C			| Leaves B4P run-time machine, too
+	prompt ("...")			| You can change the prompt.  See __prompt(__) for more details.  Qutoation marks are required here.
+	prompt ("working directory()" ) | Choose to show the working directory in the prompt.  It will be memorized until changed again or reset.
+	prompt ("system info[user name]") | Choose to show your user name in the prompt.  You can combine mulitple info, e.g. showing both user name and current path name.
+	prompt ("")			| Reset prompt to factory settings
+	===
+	+++,
+
+    "Description 02:Examples"::
+	Change the prompt interactively
+	+++,
+    "Examples 02:"::
+>> prompt ("working directory()+' >>'" )
+C:\Users\User Name\Documents\Programs\B4P >> prompt ("system info[user name]+':'")
+User Name: prompt('')
+>> exit
+	+++
+
+},
+
+
+
+"Operating System Commands":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Operating System Commands" ],
+    "Keywords":			[ "OS Commands" ],
+    "Description 01:Introduction"::
+
+	The B4P interactive mode provides direct access to operating system commands.  Simply begin the OS commands wiht a dollar sign <b>$</b> in front.
+	Operating-specific features like redirecting input/output of commands executed as well as piping are obviously supported.
+	<br><br>
+
+	=== 400, 300, 300, bold_column_2  bold_column_3
+	Example				| Windows				| Linux / MacOS
+	Clear the screen		| $ cls					| $ clear
+	Change drive			| $ D:					| (not applicable)
+	Show current directory		| $ cd					| $ pwd
+	Change directory		| $ cd ..\directory			| $ cd ../directory
+	Open a PDF document		| $ start abc.pdf			| $ open abc.pdf
 	===
 
-	In interactive mode, the default prompt <b>'&gt;&gt; '</b> will appear.  You are able to change the default prompt with the <b>prompt</b> function call.
+	Please note that the operating system commands are executed in separate child processes.  For this reason, B4P inspects the entered commands
+	and will also change the current drive and/or directory if commands to change drives and/or directores (<b>cd, chdir</b>) are recognized.
 
-	=== 240, 360, 400, noframe_1stcolbold
-	Command type | Explanation | Examples
-	Beyond4P statements | All Beyond4P assignments, procedure and function calls and transactions | echo ( Hello World ) <br/>a[] = 5; echo(a[])<br/> for (i[ ] = 1, i[ ] <= 3, i[ ]++) echo (i[ ])<br/> start(My program.b4p);<br/> include(Zip Library);<br/>exit;
-	Beyond4P expressions | Start the command with an equal sign '=' followed by an expression to calculate.  The resulting value and type will be shown. | = 5+3 <br/>
-	Special Beyond4P commands | start <b/> return | Starts a Beyond4P program <br/> Continues running the Beyond4P program at the next statement after the 'interactive' call.
-	System commands | System commands as provided by the operating system must precede with a dollar sign '$' | $ dir (Windows) or $ ls (Linux) for directory listing<br/>cd subdirectory <br/>start excel.exe
-	===
-
-	<u>Note on changing drives and/or directories:</u> You can change the current directory of Beyond4P using the '$ cd' (or '$ chdir') command.  Since changing directory in a child process started with the system
-	command has no effect on the calling process like Beyond4P running, Beyond4P is smart enough to capture 'cd' (and 'chdir') commands and change to the specified directory
-	accordingly. Whenever Beyond4P captures a change drive or directory command, it will provide a response of success or failure.
-
-	<br/><br/>
-	Following restrictions apply where drive names and paths will not be captured:<br/>
-	- Window sonly: Commands like '$ D:\' are supported to change drives.<br/>
-	- If the command contains multiple commands and the change directory command is not the first one, then it will not be captured.  Example:  "$ dir ; cd ..".<br/>
-	- Input redirection are also not captured, e.g. "cd < directory_nam.txt"<br/>
-	- Change drive directory commands in started batch scripts (and Beyond4P scripts) will not be captured, too. e.g. "START change_dir.bat", or "Beyond4P change_dir.b4p".<br/>
+	<br><br>
+	Alternative, you can use the __system(__) function to execute operating system commands.  This fuction can also be used in B4P programs.
 
 	+++,
 
-    "Description 02:Recommended Procedure and Function Calls for Interactive Mode"::
+    "Description 02:Examples"::
+	The following example shows how to enter a sub-directory by name, step out again, and back in using a wildcard.
+	B4P confirms that it has identified the path names and changes the working directory inside B4P, too.
+	+++,
+    "Examples 02:"::
+>> $ cd examples
+B4P: Verify and resolve path 'examples' ...
+     OK. Current directory changed to 'C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\examples\'
 
-	=== 240, 760, noframe_1stcolbold, noheader
-	prompt (...)	| Customize the prompt.  The settings will be memorized.  Specify an expression as a literal which returns a literal.  Example: prompt( "working directory() + '>> '" )
-	prompt ('')	| Reset customized propt to '>> '
-	list variables  | List all variables
-	list system variables | List all system variables
-	list global variables | List all global variables
-	list local variables | List all local variables
-	list functions | List available functions
-	explain functions | Explain avaialble functions
-	inspect | Inspect a variable, inclding all member variables (arrays, structures)
-	view | View a table in a browser or Excel.
-	===
+>> $ cd ..
+B4P: Verify and resolve path '..' ...
+     OK. Current directory changed to 'C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\'
+
+>> $ cd ex*
+B4P: Verify and resolve path 'ex*' ...
+     OK. Current directory changed to 'C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\Examples\'
+
+>> exit
 	+++
 
-  }
+}
+
+
+
+
 
 
 B4PDOCU.STOP

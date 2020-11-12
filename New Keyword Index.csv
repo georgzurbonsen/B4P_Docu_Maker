@@ -50,6 +50,7 @@ REF;Assignments and Expressions;REF_Features_assignments.html;General Descriptio
 REF;Assignments and Expressions;REF_Features_assignments.html;General Description;expressions
 REF;Assignments and Expressions;REF_Features_assignments.html;General Description;;assignment
 REF;Assignments and Expressions;REF_Features_assignments.html;General Description;;expression
+REF;Basic Commands;REF_Features_Basic_Commands.html;General Description;Basic Commands
 REF;Basic Data Types;REF_Features_basic_data_types.html;General Description;basic data types
 REF;Basic Directory and File Functions;REF_Features_basic_directory_and_file_functions.html;General Description;basic directory and file functions
 REF;Basic Language Structure;REF_Features_Basic_Language_Structure.html;General Description;Basic Language Structure
@@ -106,6 +107,7 @@ REF;Color Palettes;REF_Features_Color_Palettes.html;General Description;Color Pa
 REF;Color Palettes;REF_Features_Color_Palettes.html;General Description;;Color Palette
 REF;Combining Multiple Tables;REF_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
 REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;Command line switches
+REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;;Command line switch
 REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;;Command line options
 REF;Command Line Switches;REF_Features_Command_line_switches.html;General Description;;switches
 REF;Comments;REF_Features_comments.html;General Description;comments
@@ -263,8 +265,13 @@ REF;Directories and Files;REF_Features_Directory_and_files.html;General Descript
 REF;Directory and File System Functions;REF_Features_directory_and_file_system_functions.html;General Description;directory and file system functions
 REF;Distinct Language Features;REF_Features_Distinct_Language_Features.html;General Description;Distinct Language Features
 REF;Divisions;REF_Features_division.html;General Description;division
+REF;Entering Interactive Mode;REF_Features_entering_interactive_mode.html;General Description;entering interactive mode
 REF;Equal to;REF_Features_equal_to.html;General Description;equal to
 REF;Exception Functions;REF_Features_Exception_Functions.html;General Description;Exception Functions
+REF;Execute B4P Expressions Interactively;REF_Features_Execute_B4P_expressions_interactively.html;General Description;Execute B4P expressions interactively
+REF;Execute B4P Expressions Interactively;REF_Features_Execute_B4P_expressions_interactively.html;General Description;;interactive expressions
+REF;Execute B4P Statements Interactively;REF_Features_Execute_B4P_statements_interactively.html;General Description;Execute B4P statements interactively
+REF;Execute B4P Statements Interactively;REF_Features_Execute_B4P_statements_interactively.html;General Description;;interactive statements
 REF;Executing System Commands;REF_Features_executing_system_commands.html;General Description;executing system commands
 REF;Exploring and Extracting Tables;REF_Features_Exploring_and_Extracting_Tables.html;General Description;Exploring and Extracting Tables
 REF;Exponential Functions;REF_Function_exp.html;Function Description;exp
@@ -311,10 +318,11 @@ REF;Hyperbolic Functions;REF_Function_sinh.html;Function Description;;hyperbolic
 REF;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
 REF;Input / Output Functions;REF_Features_input_output_functions.html;General Description;input output functions
 REF;Input/Output with Tables;REF_Features_Input_output_wtih_tables.html;General Description;Input output wtih tables
+REF;Inspecting Tables Interactively;REF_Features_Inspect_Tables.html;General Description;Inspect Tables
+REF;Inspecting Variables Interactively;REF_Features_Inspect_Variables.html;General Description;Inspect Variables
 REF;Inspection and Debugging;REF_Features_Inspection_and_debugging.html;General Description;Inspection and debugging
-REF;Interactive Mode;REF_Features_interactive.html;General Description;interactive
-REF;Interactive Mode;REF_Features_interactive.html;General Description;;interactive
-REF;Interactive Mode;REF_Features_interactive.html;General Description;;interactive mode
+REF;Interactive Help;REF_Features_Interactive_help.html;General Description;Interactive help
+REF;Interactive Mode;REF_Features_interactive_mode.html;General Description;interactive mode
 REF;Interpolation Examples Visualized;REF_Features_Interpolation_Examples.html;General Description;Interpolation Examples
 REF;Interpolation Examples Visualized;REF_Features_Interpolation_Examples.html;General Description;;interpolation examples
 REF;Interpolation Functions;REF_Function_linear_interpolation.html;Function Description;linear interpolation
@@ -390,6 +398,8 @@ REF;Numerals;REF_Features_data_types_numerals.html;General Description;;numerals
 REF;Numerals;REF_Features_data_types_numerals.html;General Description;;plain numeral
 REF;Numerals;REF_Features_data_types_numerals.html;General Description;;plain numerals
 REF;Numeric Constants;REF_Features_Numeric_Constants.html;General Description;Numeric Constants
+REF;Operating System Commands;REF_Features_Operating_System_Commands.html;General Description;Operating System Commands
+REF;Operating System Commands;REF_Features_Operating_System_Commands.html;General Description;;OS Commands
 REF;Other Control Flow Functions;REF_Features_Other_Control_Flow_Functions.html;General Description;Other Control Flow Functions
 REF;Parameter Set Functions;REF_Features_parameter_set_functions.html;General Description;parameter set functions
 REF;Parameter Set or Literal (Func. Param. Type);REF_Features_parameter_set_or_literal.html;General Description;parameter set or literal
@@ -474,12 +484,8 @@ REF;Sorting and Ranking Options;REF_Features_Sorting_options.html;General Descri
 REF;Start or include Beyond4P Programs;REF_Features_Start_or_include_Beyond4P_Programs.html;General Description;Start or include Beyond4P Programs
 REF;Start or include Beyond4P Programs;REF_Features_Start_or_include_Beyond4P_Programs.html;General Description;;start programs
 REF;Start or include Beyond4P Programs;REF_Features_Start_or_include_Beyond4P_Programs.html;General Description;;include programs
-REF;Starting B4P;REF_Features_starting.html;General Description;starting
-REF;Starting B4P;REF_Features_starting.html;General Description;;installing
-REF;Starting B4P;REF_Features_starting.html;General Description;;installation
-REF;Starting B4P;REF_Features_starting.html;General Description;;starting
-REF;Starting B4P;REF_Features_starting.html;General Description;;launching
-REF;Starting B4P;REF_Features_starting.html;General Description;;command line options
+REF;Starting B4P;REF_Features_starting_B4P.html;General Description;starting B4P
+REF;Starting Behavior;REF_Features_Starting_Behavior.html;General Description;Starting Behavior
 REF;Statements (func. params);REF_Features_Statements_(func_params).html;General Description;Statements (func params)
 REF;Statistics Functions;REF_Features_statistics_functions.html;General Description;statistics functions
 REF;Stopwatch Functions;REF_Function_watch_start.html;Function Description;watch start
