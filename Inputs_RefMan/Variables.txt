@@ -212,6 +212,8 @@ B4PDOCU.START
 	&nbsp;&nbsp;...[time separator]		| literal	| limited access	| Typically 1 chracter, e.g. ':'
 	&nbsp;&nbsp;...[list separator]		| literal	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.
 						|		|			|
+	libraries[]				| boolean	| prevent deleting	| This system variable is reserved for libraries to add structured info such as version and other important info.  It helps to unclutter the global variable space.
+						|		|			|
 	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>
 	&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS \
 											  releases, this variable is true, for Windows it is false.
@@ -226,6 +228,7 @@ B4PDOCU.START
 	&nbsp;&nbsp;...[prompt]			| literal	| limited access	| Current prompt as used in the __interactive mode__.  Change it using the __prompt(__) function.
 	&nbsp;&nbsp;...[registry my space]	| literal	| limited access	| Obsolete.
 	&nbsp;&nbsp;...[verbose]		| literal	| limited access	| Verbose levels.  See __verbose__ for more details.
+	&nbsp;&nbsp;...[found main]		| boolean	| read only		| true if B4P was started without a specified B4P program file, but has found 'main.b4p' in the current or starting directory.
 						|		|			|
 	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>
 	&nbsp;&nbsp;...[app data directory]	| literal	| read only		| Local machine application data directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config"

@@ -105,6 +105,7 @@ B4PDOCU.START
 	hello world.b4p			| Self-explanatory
 	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P \
 					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.
+	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.
 	===	
 
 	<br><br>

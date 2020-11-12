@@ -96,6 +96,10 @@ B4PDOCU.START
 	* "Office Library": Ability to access Microsoft office meta data and load Excel files
 	* "Support Library": Comprehensive help and support features
 
+	The intialization prgraom <b>B4P Init.b4p</b> will also call <b>My B4P Init.b4p</b>, a user customizable initialization program twice (before and after including
+	the library files), as long the file is available in the user application directory.  For more details, see the section on __user initialization program__
+
+
 	Once this has happend, then the laoded B4P program will be started or interactive mode is activated, depending on the parameters provided.
 
 	<br/><img src="Images/REF_Starting_Behavior.png" alt="B4P Starting Behavior"><br/>
@@ -103,6 +107,48 @@ B4PDOCU.START
 	+++,
      "See also": [ "Interactive mode" ]
 },
+
+
+"User Initialization Program" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User initialization program" ],
+    "Keywords":			[ "custom initialization program","My B4P Init" ],
+    "Description 01:Introduction"::
+
+	If a file called <b>My B4P Init.b4p</b> is avaiable in the directory for user application data, then it will be loadeod executed:
+	The directory name is specified in the system variable <b>system info[user app data directory b4p]</b> and is typically
+	* <b>Windows:</b> C:\users\Your User Name\AppData\Local\b4p
+	* <b>Linux/MacOS:</b> /home/username/.profile/b4p/
+	
+	This file will be executed twice, namely before the library files are loaded, and after this.  For this reason, the template code prepared
+	in this file makes use of the __once(__) {...} __else__ {...} clause where the first code block after <b>once</b> is executed at the first
+	instance, and the code block after <b>else</b> is executed at the 2nd instance.
+
+	<br><br>
+
+	The factory contents of this file <b>My B4P Init.b4p</b> contains the following simple contents:  Silencing output messages while loading
+	the libraries by setting <b>system info[verbose]</b> to <b>quiet</b>, and in the 2nd call back to <b>low</b> to allow minimum messages
+	and progress information to occur. See __verbose__ for more information about this.
+
+	+++,
+    "Examples 01:"::
+once // Following code is executed at the 1st call before loading library files begins
+{
+
+//	echo("Starting to load the standard library files ...");
+	runtime settings[verbose] = quiet;
+
+}
+else // Following code is executed at the 2nd call after all library files have been loaded
+{
+
+//	echo("... Done.");
+	runtime settings[verbose] = low;
+}
+	+++
+},
+
 
 
 "Licensing" :
