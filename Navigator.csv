@@ -6,17 +6,18 @@
 "<li class=""navi""><ul>";2
 "<li class=""navi""><a href=""REF_Features_Command_line_switches.html""><div class=""navi"">1.1 Command Line Switches </div></a></li>";2;REF_Features_Command_line_switches.html;Command Line Switches
 "<li class=""navi""><a href=""REF_Features_Starting_Behavior.html""><div class=""navi"">1.2 Starting Behavior </div></a></li>";2;REF_Features_Starting_Behavior.html;Starting Behavior
-"<li class=""navi""><a href=""REF_Features_licensing.html""><div class=""navi"">1.3 Licensing </div></a></li>";2;REF_Features_licensing.html;Licensing
-"<li class=""navi""><a href=""REF_Features_interactive_mode.html""><div class=""navi"">1.4 Interactive Mode </div></a></li>";2;REF_Features_interactive_mode.html;Interactive Mode
+"<li class=""navi""><a href=""REF_Features_User_initialization_program.html""><div class=""navi"">1.3 User Initialization Program </div></a></li>";2;REF_Features_User_initialization_program.html;User Initialization Program
+"<li class=""navi""><a href=""REF_Features_licensing.html""><div class=""navi"">1.4 Licensing </div></a></li>";2;REF_Features_licensing.html;Licensing
+"<li class=""navi""><a href=""REF_Features_interactive_mode.html""><div class=""navi"">1.5 Interactive Mode </div></a></li>";2;REF_Features_interactive_mode.html;Interactive Mode
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_entering_interactive_mode.html""><div class=""navi"">1.4.1 Entering Interactive Mode </div></a></li>";3;REF_Features_entering_interactive_mode.html;Entering Interactive Mode
-"<li class=""navi""><a href=""REF_Features_Interactive_help.html""><div class=""navi"">1.4.2 Interactive Help </div></a></li>";3;REF_Features_Interactive_help.html;Interactive Help
-"<li class=""navi""><a href=""REF_Features_Execute_B4P_statements_interactively.html""><div class=""navi"">1.4.3 Execute B4P Statements Interactively </div></a></li>";3;REF_Features_Execute_B4P_statements_interactively.html;Execute B4P Statements Interactively
-"<li class=""navi""><a href=""REF_Features_Execute_B4P_expressions_interactively.html""><div class=""navi"">1.4.4 Execute B4P Expressions Interactively </div></a></li>";3;REF_Features_Execute_B4P_expressions_interactively.html;Execute B4P Expressions Interactively
-"<li class=""navi""><a href=""REF_Features_Inspect_Tables.html""><div class=""navi"">1.4.5 Inspecting Tables Interactively </div></a></li>";3;REF_Features_Inspect_Tables.html;Inspecting Tables Interactively
-"<li class=""navi""><a href=""REF_Features_Inspect_Variables.html""><div class=""navi"">1.4.6 Inspecting Variables Interactively </div></a></li>";3;REF_Features_Inspect_Variables.html;Inspecting Variables Interactively
-"<li class=""navi""><a href=""REF_Features_Basic_Commands.html""><div class=""navi"">1.4.7 Basic Commands </div></a></li>";3;REF_Features_Basic_Commands.html;Basic Commands
-"<li class=""navi""><a href=""REF_Features_Operating_System_Commands.html""><div class=""navi"">1.4.8 Operating System Commands </div></a></li>";3;REF_Features_Operating_System_Commands.html;Operating System Commands
+"<li class=""navi""><a href=""REF_Features_entering_interactive_mode.html""><div class=""navi"">1.5.1 Entering Interactive Mode </div></a></li>";3;REF_Features_entering_interactive_mode.html;Entering Interactive Mode
+"<li class=""navi""><a href=""REF_Features_Interactive_help.html""><div class=""navi"">1.5.2 Interactive Help </div></a></li>";3;REF_Features_Interactive_help.html;Interactive Help
+"<li class=""navi""><a href=""REF_Features_Execute_B4P_statements_interactively.html""><div class=""navi"">1.5.3 Execute B4P Statements Interactively </div></a></li>";3;REF_Features_Execute_B4P_statements_interactively.html;Execute B4P Statements Interactively
+"<li class=""navi""><a href=""REF_Features_Execute_B4P_expressions_interactively.html""><div class=""navi"">1.5.4 Execute B4P Expressions Interactively </div></a></li>";3;REF_Features_Execute_B4P_expressions_interactively.html;Execute B4P Expressions Interactively
+"<li class=""navi""><a href=""REF_Features_Inspect_Tables.html""><div class=""navi"">1.5.5 Inspecting Tables Interactively </div></a></li>";3;REF_Features_Inspect_Tables.html;Inspecting Tables Interactively
+"<li class=""navi""><a href=""REF_Features_Inspect_Variables.html""><div class=""navi"">1.5.6 Inspecting Variables Interactively </div></a></li>";3;REF_Features_Inspect_Variables.html;Inspecting Variables Interactively
+"<li class=""navi""><a href=""REF_Features_Basic_Commands.html""><div class=""navi"">1.5.7 Basic Commands </div></a></li>";3;REF_Features_Basic_Commands.html;Basic Commands
+"<li class=""navi""><a href=""REF_Features_Operating_System_Commands.html""><div class=""navi"">1.5.8 Operating System Commands </div></a></li>";3;REF_Features_Operating_System_Commands.html;Operating System Commands
 </ul></li>;3
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_introduction.html""><div class=""navi"">2 Introduction </div></a></li>";1;REF_Features_introduction.html;Introduction
@@ -225,27 +226,28 @@
 "<li class=""navi""><ul>";2
 "<li class=""navi""><a href=""REF_Features_Control_Flow_Functions.html""><div class=""navi"">8.1 Control Flow Functions </div></a></li>";2;REF_Features_Control_Flow_Functions.html;Control Flow Functions
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_Loops.html""><div class=""navi"">8.1.1 Loops </div></a></li>";3;REF_Features_Loops.html;Loops
+"<li class=""navi""><a href=""REF_Features_Branches.html""><div class=""navi"">8.1.1 Branches </div></a></li>";3;REF_Features_Branches.html;Branches
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_do.html""><div class=""navi"">8.1.1.1 do </div></a></li>";4;REF_Function_do.html;do
-"<li class=""navi""><a href=""REF_Function_for.html""><div class=""navi"">8.1.1.2 for </div></a></li>";4;REF_Function_for.html;for
-"<li class=""navi""><a href=""REF_Function_while.html""><div class=""navi"">8.1.1.3 while, until </div></a></li>";4;REF_Function_while.html;while, until
-"<li class=""navi""><a href=""REF_Function_for_all_table_columns.html""><div class=""navi"">8.1.1.4 for all table columns </div></a></li>";4;REF_Function_for_all_table_columns.html;for all table columns
-"<li class=""navi""><a href=""REF_Function_for_all_current_table_columns.html""><div class=""navi"">8.1.1.5 for all current table columns </div></a></li>";4;REF_Function_for_all_current_table_columns.html;for all current table columns
-"<li class=""navi""><a href=""REF_Function_for_all_parameters.html""><div class=""navi"">8.1.1.6 for all parameters </div></a></li>";4;REF_Function_for_all_parameters.html;for all parameters
-"<li class=""navi""><a href=""REF_Function_for_all_table_rows.html""><div class=""navi"">8.1.1.7 for all table rows </div></a></li>";4;REF_Function_for_all_table_rows.html;for all table rows
-"<li class=""navi""><a href=""REF_Function_for_all_table_selected_rows.html""><div class=""navi"">8.1.1.8 for all table selected rows </div></a></li>";4;REF_Function_for_all_table_selected_rows.html;for all table selected rows
-"<li class=""navi""><a href=""REF_Function_for_all_variables.html""><div class=""navi"">8.1.1.9 for all variables </div></a></li>";4;REF_Function_for_all_variables.html;for all variables
-"<li class=""navi""><a href=""REF_Function_for_all_current_table_selected_columns.html""><div class=""navi"">8.1.1.10 for all current table selected columns </div></a></li>";4;REF_Function_for_all_current_table_selected_columns.html;for all current table selected columns
-"<li class=""navi""><a href=""REF_Function_for_all_table_selected_columns.html""><div class=""navi"">8.1.1.11 for all table selected columns </div></a></li>";4;REF_Function_for_all_table_selected_columns.html;for all table selected columns
+"<li class=""navi""><a href=""REF_Function_if.html""><div class=""navi"">8.1.1.1 if, unless </div></a></li>";4;REF_Function_if.html;if, unless
+"<li class=""navi""><a href=""REF_Features_else.html""><div class=""navi"">8.1.1.2 else </div></a></li>";4;REF_Features_else.html;else
+"<li class=""navi""><a href=""REF_Function_once.html""><div class=""navi"">8.1.1.3 once </div></a></li>";4;REF_Function_once.html;once
+"<li class=""navi""><a href=""REF_Function_switch.html""><div class=""navi"">8.1.1.4 switch, check </div></a></li>";4;REF_Function_switch.html;switch, check
+"<li class=""navi""><a href=""REF_Function_case.html""><div class=""navi"">8.1.1.5 case </div></a></li>";4;REF_Function_case.html;case
+"<li class=""navi""><a href=""REF_Function_break_case.html""><div class=""navi"">8.1.1.6 break, continue </div></a></li>";4;REF_Function_break_case.html;break, continue
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Branches.html""><div class=""navi"">8.1.2 Branches </div></a></li>";3;REF_Features_Branches.html;Branches
+"<li class=""navi""><a href=""REF_Features_Loops.html""><div class=""navi"">8.1.2 Loops </div></a></li>";3;REF_Features_Loops.html;Loops
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Function_if.html""><div class=""navi"">8.1.2.1 if, unless </div></a></li>";4;REF_Function_if.html;if, unless
-"<li class=""navi""><a href=""REF_Function_once.html""><div class=""navi"">8.1.2.2 once </div></a></li>";4;REF_Function_once.html;once
-"<li class=""navi""><a href=""REF_Function_switch.html""><div class=""navi"">8.1.2.3 switch, check </div></a></li>";4;REF_Function_switch.html;switch, check
-"<li class=""navi""><a href=""REF_Function_case.html""><div class=""navi"">8.1.2.4 case </div></a></li>";4;REF_Function_case.html;case
-"<li class=""navi""><a href=""REF_Function_break_case.html""><div class=""navi"">8.1.2.5 break, continue </div></a></li>";4;REF_Function_break_case.html;break, continue
+"<li class=""navi""><a href=""REF_Function_do.html""><div class=""navi"">8.1.2.1 do </div></a></li>";4;REF_Function_do.html;do
+"<li class=""navi""><a href=""REF_Function_for.html""><div class=""navi"">8.1.2.2 for </div></a></li>";4;REF_Function_for.html;for
+"<li class=""navi""><a href=""REF_Function_while.html""><div class=""navi"">8.1.2.3 while, until </div></a></li>";4;REF_Function_while.html;while, until
+"<li class=""navi""><a href=""REF_Function_for_all_table_columns.html""><div class=""navi"">8.1.2.4 for all table columns </div></a></li>";4;REF_Function_for_all_table_columns.html;for all table columns
+"<li class=""navi""><a href=""REF_Function_for_all_current_table_columns.html""><div class=""navi"">8.1.2.5 for all current table columns </div></a></li>";4;REF_Function_for_all_current_table_columns.html;for all current table columns
+"<li class=""navi""><a href=""REF_Function_for_all_parameters.html""><div class=""navi"">8.1.2.6 for all parameters </div></a></li>";4;REF_Function_for_all_parameters.html;for all parameters
+"<li class=""navi""><a href=""REF_Function_for_all_table_rows.html""><div class=""navi"">8.1.2.7 for all table rows </div></a></li>";4;REF_Function_for_all_table_rows.html;for all table rows
+"<li class=""navi""><a href=""REF_Function_for_all_table_selected_rows.html""><div class=""navi"">8.1.2.8 for all table selected rows </div></a></li>";4;REF_Function_for_all_table_selected_rows.html;for all table selected rows
+"<li class=""navi""><a href=""REF_Function_for_all_variables.html""><div class=""navi"">8.1.2.9 for all variables </div></a></li>";4;REF_Function_for_all_variables.html;for all variables
+"<li class=""navi""><a href=""REF_Function_for_all_current_table_selected_columns.html""><div class=""navi"">8.1.2.10 for all current table selected columns </div></a></li>";4;REF_Function_for_all_current_table_selected_columns.html;for all current table selected columns
+"<li class=""navi""><a href=""REF_Function_for_all_table_selected_columns.html""><div class=""navi"">8.1.2.11 for all table selected columns </div></a></li>";4;REF_Function_for_all_table_selected_columns.html;for all table selected columns
 </ul></li>;4
 "<li class=""navi""><a href=""REF_Features_User_Defined_Procedures_and_Functiions.html""><div class=""navi"">8.1.3 User-Defined Procedures and Functions </div></a></li>";3;REF_Features_User_Defined_Procedures_and_Functiions.html;User-Defined Procedures and Functions
 "<li class=""navi""><ul>";4
@@ -797,7 +799,6 @@
 "<li class=""navi""><ul>";3
 "<li class=""navi""><a href=""REF_Features_Sorting_options.html""><div class=""navi"">8.16.1 Sorting and Ranking Options </div></a></li>";3;REF_Features_Sorting_options.html;Sorting and Ranking Options
 "<li class=""navi""><a href=""REF_Features_consolidation_actions.html""><div class=""navi"">8.16.2 Consolidation Actions </div></a></li>";3;REF_Features_consolidation_actions.html;Consolidation Actions
-</ul></li>;3
-</ul></li>;2
-"<li class=""navi""><a href=""REF_Features_User_initialization_program.html""><div class=""navi""> User Initialization Program </div></a></li>";1;REF_Features_User_initialization_program.html;User Initialization Program
+</ul></li>
+</ul></li>
 </ul>

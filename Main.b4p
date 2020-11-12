@@ -1,2 +1,30 @@
-	echo("Trying interactive mode");
-	interactive;
+
+	define procedure ( else echo, {{ contents, literal }} )
+	{
+	    echo("Haha! Cought you!!  You tried to output ", contents[]);
+	}
+
+
+	define procedure( test 1, {{ value, numeral }} )
+	{
+	    if (value[] = 5)
+	    {
+	        echo(five);
+	    }
+	    else: echo(not five);
+	}
+
+	define procedure( test 2, {{ value, numeral }} )
+	{
+	    if (value[] = 5)
+	    {
+	        echo(five);
+	    }
+	    else echo(not five); // Oops! Forgot the colon.
+	}
+
+	test 1 ( 5 );
+	test 1 ( 6 );
+	test 2 ( 5 );
+	test 2 ( 6 );
+

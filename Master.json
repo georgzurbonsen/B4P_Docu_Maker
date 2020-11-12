@@ -12264,6 +12264,61 @@
 
 ,
 
+"else" :
+{
+	"Documentation":	"General Description", // Required value
+		"Feature Names" : ["else"] ,
+"Description 01:Introduction" : [
+"",
+"		In contrast other names such as __if(__), __while(__), etc. which are control flow functions, <b>else</b> is one of the very few __reserved keywords__.",
+"		<b>else</b> is used in combination with following functions:",
+"		* __if(__): Used to run the statement or block if the condition inside __if(__) is false.",
+"		* __once(__): Used to run the statement or block if the condition inside __once(__) is false, i.e. it is the 2nd or further time __once(__) is encountered.",
+"		* __switch(__): As default alternative to __case(__) to cover all remaining case possibilities",
+"		* __check(__): Same as above",
+"",
+"",
+"		If a code block with <b>{ ... }</b> follows the else keyword, then you can formulate it like in a C/C++ or Java program.  However if a single statement follows",
+"		the <b>else</b> keyword, then you need to add a colon (<b>:</b>) to separate the 'else' from the following statement, otherwise it would cause some misinterpretations."
+ ]
+		,
+"Examples 01:" : [
+"",
+"	define procedure ( else echo, {{ contents, all }} )",
+"	{",
+"		echo(\"Haha! Cought you!!  You tried to output \", contents[]);",
+"	}",
+"",
+"	define procedure( test 1, {{ value, numeral }} )",
+"	{",
+"		if (value[] = 5)",
+"		{",
+"			echo(five);",
+"		}",
+"		else: echo(not five); // This is the right formulation",
+"	}",
+"",
+"	define procedure( test 2, {{ value, numeral }} )",
+"	{",
+"		if (value[] = 5)",
+"		{",
+"			echo(five);",
+"		}",
+"		else echo(value[]); // Oops! Forgot the colon. Calling 'else echo' as procedure.",
+"	}",
+"",
+"	test 1 ( 5 );",
+"	test 1 ( 6 );",
+"	test 2 ( 5 ); // Watch the output",
+"	test 2 ( 6 ); // Watch the output, too"
+ ]
+		,
+	"Output 01:": "automatic",
+	"See also": [ "if", "once", "switch", "check", "case" ]
+}
+
+,
+
   "if, unless" :
   {
 	"Function Names":	[ "if", "unless" ],

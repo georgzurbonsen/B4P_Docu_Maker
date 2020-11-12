@@ -4,6 +4,7 @@ OK, (Assign right Category);TOC;1;;Table of Contents;REF_Features_Table_of_Conte
 OK;Body;1;B 1;Starting B4P;REF_Features_starting_B4P.html;starting B4P;starting B4P;
 OK;Body;2;B 1.1;Command Line Switches;REF_Features_Command_line_switches.html;Command line switches;Command line switches,Command line options;
 OK;Body;2;B 1.2;Starting Behavior;REF_Features_Starting_Behavior.html;Starting Behavior;Starting Behavior;
+OK;Body;2;;User Initialization Program;REF_Features_User_initialization_program.html;User initialization program;User initialization program,custom initialization program,My B4P Init;
 OK;Body;2;B 1.3;Licensing;REF_Features_licensing.html;licensing;licensing,unlock;
 OK;Body;2;B 1.4;Interactive Mode;REF_Features_interactive_mode.html;interactive mode;interactive mode;
 OK;Body;3;B 1.4.1;Entering Interactive Mode;REF_Features_entering_interactive_mode.html;entering interactive mode;entering interactive mode;
@@ -154,6 +155,13 @@ OK;Body;3;B 7.3.4;Expressions to Select Rows;REF_Features_Expressions_to_select_
 OK;Body;2;B 7.4;Indirect Parameter Passing;REF_Features_Indirect_parameter_passing.html;Indirect parameter passing;Indirect parameter passing;
 OK;Body;1;B 8;Function Library;REF_Features_Function_Library.html;Function Library;Function Library;
 OK;Body;2;B 8.1;Control Flow Functions;REF_Features_Control_Flow_Functions.html;Control Flow Functions;Control Flow Functions;
+OK;Body;3;B 8.1.2;Branches;REF_Features_Branches.html;Branches;Branches;
+OK;Body;4;B 8.1.2.1;if, unless;REF_Function_if.html;if,unless;if,unless,conditional branches;
+OK;Body;4;;else;;;;
+OK;Body;4;B 8.1.2.2;once;REF_Function_once.html;once;once,one-time execution;
+OK;Body;4;B 8.1.2.3;switch, check;REF_Function_switch.html;switch,check;switch,check,alternative execution of code blocks;
+OK;Body;4;B 8.1.2.4;case;REF_Function_case.html;case;case;
+OK;Body;4;B 8.1.2.5;break, continue;REF_Function_break_case.html;break case,continue case,continue with next case,break loop,continue loop;break case,continue case,continue with next case,break loop,continue loop;
 OK;Body;3;B 8.1.1;Loops;REF_Features_Loops.html;Loops;Loops;
 OK;Body;4;B 8.1.1.1;do;REF_Function_do.html;do;do,do-loop;
 OK;Body;4;B 8.1.1.2;for;REF_Function_for.html;for;for,for-loop;
@@ -166,12 +174,6 @@ OK;Body;4;B 8.1.1.8;for all table selected rows;REF_Function_for_all_table_selec
 OK;Body;4;B 8.1.1.9;for all variables;REF_Function_for_all_variables.html;for all variables,for all variables if existing;for all variables,for all variables if existing,for-loop through variables,variable members;
 OK;Body;4;B 8.1.1.10;for all current table selected columns;REF_Function_for_all_current_table_selected_columns.html;for all current table selected columns;for all current table selected columns,for-loop through table selected columns;
 OK;Body;4;B 8.1.1.11;for all table selected columns;REF_Function_for_all_table_selected_columns.html;for all table selected columns;for all table selected columns,for-loop through table selected columns;
-OK;Body;3;B 8.1.2;Branches;REF_Features_Branches.html;Branches;Branches;
-OK;Body;4;B 8.1.2.1;if, unless;REF_Function_if.html;if,unless;if,unless,conditional branches;
-OK;Body;4;B 8.1.2.2;once;REF_Function_once.html;once;once,one-time execution;
-OK;Body;4;B 8.1.2.3;switch, check;REF_Function_switch.html;switch,check;switch,check,alternative execution of code blocks;
-OK;Body;4;B 8.1.2.4;case;REF_Function_case.html;case;case;
-OK;Body;4;B 8.1.2.5;break, continue;REF_Function_break_case.html;break case,continue case,continue with next case,break loop,continue loop;break case,continue case,continue with next case,break loop,continue loop;
 OK;Body;3;B 8.1.3;User-Defined Procedures and Functions;REF_Features_User_Defined_Procedures_and_Functiions.html;User Defined Procedures and Functiions;User Defined Procedures and Functiions,User-defined procedures and functions,user-defined procedures,user-defined functions,user procedures,user functions;
 OK;Body;4;B 8.1.3.1;define procedure / function;REF_Function_define_procedure.html;define procedure,define function,define procedure and function;define procedure,define function,define procedure and function,defining user procedures and user functions,user-defined function;
 OK;Body;4;B 8.1.3.2;define additional procedure / function;REF_Function_define_additional_procedure.html;define additional procedure,define additional function,define additional procedure and function;define additional procedure,define additional function,define additional procedure and function,additional function names;
@@ -572,4 +574,3 @@ OK;Body;3;B 8.15.7;function dump;REF_Function_function_dump.html;function dump;f
 OK;Body;2;B 8.16;Cross-Functional Info;REF_Features_Cross-functional_info.html;Cross-functional info;Cross-functional info;
 OK;Body;3;B 8.16.1;Sorting and Ranking Options;REF_Features_Sorting_options.html;Sorting options,Ranking options;Sorting options,Ranking options;
 OK;Body;3;B 8.16.2;Consolidation Actions;REF_Features_consolidation_actions.html;consolidation actions;consolidation actions;
-Pending, (Assign right Category);;;;User Initialization Program;REF_Features_User_initialization_program.html;User initialization program;User initialization program,custom initialization program,My B4P Init;
