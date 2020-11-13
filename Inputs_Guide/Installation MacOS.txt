@@ -14,7 +14,7 @@ B4PDOCU.START
 
 	<br><br>
 	<b>System requirements:</b>
-	* Apple Mac computer running MacOS using a common distribution
+	* Personal computer running MacOS using a common distribution (e.g. Ubuntu)
 	* 64 bit CPU (we are not supporting legacy platforms)
 	* You have elevated privileges to do installations (e.g. allowed to run commands with 'sudo' in front)
 	* Min 2 GB, but more memory is stronly recommended espeically when working with large data
@@ -23,9 +23,9 @@ B4PDOCU.START
 
 	<b>Special software requirements:</b>
 	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.
-	* Ensure that the MacOS command <b>wget</b> is available.  If not, then install it according to MacOS-specific procedures (e.g. using <b>apt-get install wget</b>, commands vary among different MacOS distributions)
-	* Ensure that the MacOS command <b>zip</b> and <b>unzip</b> are available.  If not, then install it according to MacOS-specific procedures (e.g. using <b>apt-get install zip unzip</b>, commands vary among different MacOS distributions)
-	* Web browser installed: Safari, Brave, Google Chrome, Firefox
+	* Ensure that the MacOS command <b>wget</b> is available.  If not, then install it according to MacOS-specific procedures (e.g. using <b>apt-get install wget</b>, commands vary among different MacOS variants and versions)
+	* Ensure that the Linux command <b>zip</b> and <b>unzip</b> are available.  If not, then install it according to Linux-specific procedures (e.g. using <b>apt-get install zip unzip</b>, commands vary among different MacOS variants and versions)
+	* Web browser installed: Firefox or Google Chrome or Brave or Safari
 
 	<br><br>
 	Continue with __MacOS Download__.
@@ -290,7 +290,7 @@ Done - Press ENTER key
 	<br><br>
 
 	As a first step, go to the directory <b>/home/username/b4p</b> (b4p is a sub-directory created in your personal
-	home directory.  The path stated above may vary among MacOS distributions.)  In that directory, you will see
+	home directory.  The path stated above may vary among MacOS variants and versions)  In that directory, you will see
 	fllowing files:
 
     +++,
@@ -334,27 +334,38 @@ echo(Hello World);
     "Examples 03:"::
 username@domain:~/b4p$ ./hello*
 	+++,
-    "Output 03:"::
-
-4P - Beyond Former Performance
+    "Output 03:In the very first run, B4P searches the 7-Zip utility and memorizes its whereabouts:"::
+B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-08)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
 *** No valid license found. For demos, education and evaluation only.
     Some functional restrictions apply.
 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip
+Look for the 7Z compression/decomopression utility
+
+Found following program file paths: {'C:\Program Files','C:\Program Files (x86)'}
+ - 7z.exe Zip-utility found in {'C:\Program Files\7-Zip\7z.exe'} (OK)
 Hello World
 Done - Press ENTER key
+	+++,
+    "Output 04:Outcome if this is not the very first run:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
 
+Version 8.00 Candidate (2020-11-12)
+Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
+
+*** No valid license found. For demos, education and evaluation only.
+    Some functional restrictions apply.
+
+Hello World
+Done - Press ENTER key
 username@domain:~/b4p$ 
     +++,
-    "Description 04:Starting B4P Without a B4P Program Name"::
+    "Description 05:Starting B4P Without a B4P Program Name"::
 
 	You can also start B4P without specifying a file name.  In this case, it will look for the
 	B4P program called "main.b4p" in the currently configured starting directory.  After the
@@ -372,48 +383,36 @@ username@domain:~/b4p$
 	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.
 
 	+++,
-    "Examples 04:"::
+    "Examples 05:"::
 username@domain:~/b4p$ b4p
 	+++,
-    "Output 04:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
+    "Output 05:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
 B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-08)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
 *** No valid license found. For demos, education and evaluation only.
     Some functional restrictions apply.
 
-Following B4P file has been found:
-main.b4p
+Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.
+Main.b4p in C:\Users\Zur Bonsen Georg\Documents\Programs\B4P completed execution.
+Feel free to add or change the code in this file.
 
-Press 'S' to start, or any other key to go into interactive mode: 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip
-
-Started Main.b4p.
-This is the main program
-Feel free to add some code here ...
-interactive (); called
-
-Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
+Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
 >> exit
 exit (); called
-Code execution will stop.  Exiting program.
-_______________________________________________________________________________
 Done - Press ENTER key
     +++,
-    "Description 05:Accessing the Reference Manual"::
+    "Description 06:Accessing the Reference Manual"::
 	Congratulations.  You have been able to get your first B4P programs running.
 	You also find the file "B4P Reference Manual.b4p". Type one of the following commands
 	to open the on-line manual  
 	* <b>"./B4P Reference Manual.b4p"</b> (Command fully spelled out)
 	* <b>./*Manual*</b> (More convenient if you use wildcard symbols)
 	* Inside B4P running in interactive mode, you can type <b>docs</b> to access the documentation, too.
-	At the first time, you will be asked for the browser you wish (currently Safari, Brave, Firefox and Chrome are supported),
+	At the first time, you will be asked for the browser you wish (currently Chrome and Firefox are supported),
 	following this the on-line documentation opens up.
 
 	+++

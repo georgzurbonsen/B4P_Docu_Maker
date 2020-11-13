@@ -334,27 +334,38 @@ echo(Hello World);
     "Examples 03:"::
 username@domain:~/b4p$ ./hello*
 	+++,
-    "Output 03:"::
-
-4P - Beyond Former Performance
+    "Output 03:In the very first run, B4P searches the 7-Zip utility and memorizes its whereabouts:"::
+B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-08)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
 *** No valid license found. For demos, education and evaluation only.
     Some functional restrictions apply.
 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip
+Look for the 7Z compression/decomopression utility
+
+Found following program file paths: {'C:\Program Files','C:\Program Files (x86)'}
+ - 7z.exe Zip-utility found in {'C:\Program Files\7-Zip\7z.exe'} (OK)
 Hello World
 Done - Press ENTER key
+	+++,
+    "Output 04:Outcome if this is not the very first run:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
 
+Version 8.00 Candidate (2020-11-12)
+Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
+
+*** No valid license found. For demos, education and evaluation only.
+    Some functional restrictions apply.
+
+Hello World
+Done - Press ENTER key
 username@domain:~/b4p$ 
     +++,
-    "Description 04:Starting B4P Without a B4P Program Name"::
+    "Description 05:Starting B4P Without a B4P Program Name"::
 
 	You can also start B4P without specifying a file name.  In this case, it will look for the
 	B4P program called "main.b4p" in the currently configured starting directory.  After the
@@ -372,41 +383,29 @@ username@domain:~/b4p$
 	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.
 
 	+++,
-    "Examples 04:"::
+    "Examples 05:"::
 username@domain:~/b4p$ b4p
 	+++,
-    "Output 04:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
+    "Output 05:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
 B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-08)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
 *** No valid license found. For demos, education and evaluation only.
     Some functional restrictions apply.
 
-Following B4P file has been found:
-main.b4p
+Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.
+Main.b4p in C:\Users\Zur Bonsen Georg\Documents\Programs\B4P completed execution.
+Feel free to add or change the code in this file.
 
-Press 'S' to start, or any other key to go into interactive mode: 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip
-
-Started Main.b4p.
-This is the main program
-Feel free to add some code here ...
-interactive (); called
-
-Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
+Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
 >> exit
 exit (); called
-Code execution will stop.  Exiting program.
-_______________________________________________________________________________
 Done - Press ENTER key
     +++,
-    "Description 05:Accessing the Reference Manual"::
+    "Description 06:Accessing the Reference Manual"::
 	Congratulations.  You have been able to get your first B4P programs running.
 	You also find the file "B4P Reference Manual.b4p". Type one of the following commands
 	to open the on-line manual  

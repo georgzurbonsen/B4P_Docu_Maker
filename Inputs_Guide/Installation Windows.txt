@@ -338,7 +338,7 @@ Done - Press ENTER key
 	The Microsoft editor will open and show the source code:
 	+++,
     "Examples 01:"::
-#!/usr/local/bin/b4p
+#!/usr/local/bin/b4p -x
 
 // The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a "Shebang".
 // It specifies the language interpreter to use when started as an executable file.
@@ -359,26 +359,41 @@ echo(Hello World);
 	<br><br>
 	The program will start and you will see the following output:
 	+++,
-    "Output 02:"::
-4P - Beyond Former Performance
+    "Output 02:In the very first run, B4P searches the 7-Zip utility and memorizes its whereabouts:"::
+B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-04)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
-Licensed (local machine) with standard privileges for (Your user name).
 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to 7z.exe already memorized (OK): C:\Program Files\7-Zip\7z.exe
+*** No valid license found. For demos, education and evaluation only.
+    Some functional restrictions apply.
+
+Look for the 7Z compression/decomopression utility
+
+Found following program file paths: {'C:\Program Files','C:\Program Files (x86)'}
+ - 7z.exe Zip-utility found in {'C:\Program Files\7-Zip\7z.exe'} (OK)
 Hello World
 Done - Press ENTER key
 	+++,
-    "Description 03:"::
+    "Output 03:Outcome if this is not the very first run:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 8.00 Candidate (2020-11-12)
+Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
+
+*** No valid license found. For demos, education and evaluation only.
+    Some functional restrictions apply.
+
+Hello World
+Done - Press ENTER key
+	+++,
+    "Description 04:"::
 	Congratulations.  B4P has successfully started. Press [Enter] to close the console window.  This is the easiest
 	way to run B4P program files.
 
-    "Description 04:Starting B4P from Start Menu"::
+    "Description 05:Starting B4P from Start Menu"::
 
 	As a next step, you will learn how to start B4P directly without specifying a program file.
 	In this case, it will look for the
@@ -406,35 +421,23 @@ Done - Press ENTER key
 	The following output will occur:
 
     +++,
-    "Output 04:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
+    "Output 05:Wait 2 seconds and main.b4p starts, or hit any key to interrupt and enter interative mode"::
 B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-08)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
 *** No valid license found. For demos, education and evaluation only.
     Some functional restrictions apply.
 
-Following B4P file has been found:
-main.b4p
+Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.
+Main.b4p in C:\Users\Zur Bonsen Georg\Documents\Programs\B4P completed execution.
+Feel free to add or change the code in this file.
 
-Press 'S' to start, or any other key to go into interactive mode: 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to zip program already memorized (OK): /bin/zip
-
-Started Main.b4p.
-This is the main program
-Feel free to add some code here ...
-interactive (); called
-
-Type 'help' for help, 'docs' for B4P docs, 'web docs' for online docs.
+Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
 >> exit
 exit (); called
-Code execution will stop.  Exiting program.
-_______________________________________________________________________________
 Done - Press ENTER key
     +++,
     "Description 06:Starting B4P from the Windows Desk Top"::
@@ -474,20 +477,17 @@ Mode                LastWriteTime         Length Name
 
 
 PS C:\Users\Your user name\Documents\Programs\B4P> b4p -x "Hello World.b4p"                                           
-B4P - Beyond Former Performance
+BB4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-04)
+Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
-Licensed (local machine) with standard privileges for Georg zur Bonsen.
 
-Included: Support Library  2.03
-Included: Utility Library  2.01
-Included: Office Libarary  2.01
-Included: Zip Library  2.20    Path to 7z.exe already memorized (OK): C:\Program Files\7-Zip\7z.exe
+*** No valid license found. For demos, education and evaluation only.
+    Some functional restrictions apply.
+
 Hello World
-PS C:\Users\Your user name\Documents\Programs\B4P>                      
-
+PS C:\Users\Your user name\Documents\Programs\B4P>
 	+++,
     "Description 08:Accessing the Reference Manual"::
 	Congratulations.  You have been able to get your first B4P programs running.
