@@ -1,32 +1,66 @@
 //
 B4PDOCU.START
 
-"Table of Contents" :
+
+"The Run-Time Machine" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Table of Contents" ],
-    "Keywords":			[ "Reference Manual" ],
-    "Description 01:Table of Contents"::
+    "Feature Names":		[ "The Run-Time Machine" ],
+    "Description 01:Introduction"::
 
-	See the navigator bar for full table of contents.
+	The B4P run-time machine, including some library files written in B4P langauge, is the key software you need to install in order to make full use of the
+	language.  The machine contains a poweful <b>language interpreter</b> which understands and executes the B4P source code directly and without cluttering up your
+	drive with additional files.  A wide spectrum of high-performing functions to handle large data structures such as tables and variable trees are integrated
+	in the run-time machine.
+
+    "Description 02:Lean and Simple"::
+
+	Intentionally, the B4P run-time machine is exceptionally lean (few megabytes). Its compactness make it so powerful, i.e. starting immediately after the 
+	mouse click and no waiting time until your B4P program starts processing.
+
+    "Description 03:Intentionally no Graphic User Interface"::
+
+	The B4P run-time machine is a (probably old-fashioned) console application.  For a good reason, we have left out the nice Windows user interface features,
+	and there are some very good rasons for that:
+
+	* <b>Unparalleled start-up performance</b>: The B4P program runs instantaneouly after the mouse click or pushing [Enter].
+	* <b>Cross-Platform Portability</b>: B4P runs equally well under Windows, Linux and MacOS.  Additional operating systems can be included in the future.
+	* <b>On-line documentation</b> is fully integrated in the B4P run-time machineand is available on your fingertips any time.
+
+	GUI features are in most cases more platform-dependent than you are thinking and may slow down overall start-up and execution performance.  
+	This pretended disadvantage is compensated by its superior machine processing performance. Long story short:<br>
+	<b>We minimize our footprint to provide highest performance, and you maximize from these benefits to get your work done quickly!</b>
+
+    "Description 04:Excel with Excel"::
+
+	For visualization purposes, powerful and highly standardized tools existing today such as Microsoft Excel providie all features to do the visual parts
+	such as creating all the charts you need for your presentations.  It makes no sense to let B4P compete against such tools.  The philosophy of B4P is
+	to focus on performing all data processing with <i>bare metal</i> machine performance and creating all Excel files (and other file formats like HTML)
+	which you can open with such tools to complete the visualization tasks.
+
+	<br><br>
+
+	B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already included 
+	(e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.).
 
 	+++
 },
 
 
-
-"Starting B4P" :
+"Installing and Starting Up" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "starting B4P" ],
-    "Description 01:Installation and Launching B4P"::
-	Please refer to __Installation and Setup__ section in the User's Guide which summarizes installing B4P run-time machine and the different ways how to start them up.
-	This section will elaborate more on the starting behavior of the B4P run-time machine and how __command line switches__ influence this staring behavior.
+    "Feature Names":		[ "Installting and starting up" ],
+    "Description 01:Introduction"::
 
-	+++,
-     "See also": [ "Interactive Mode" ]
+	Please refer to __Installation and Setup__ section in the User's Guide which summarizes installing B4P run-time machine and the different ways how to start up
+	on the different system platforms.
 
+	<br><br>
+	The following sections elaborate on the starting procedure and execution behavior of the B4P run-time machine and how applied __command line switches__ influence this staring behavior.
+	+++
 },
+
 
 
 "Command Line Switches":
@@ -36,25 +70,29 @@ B4PDOCU.START
     "Keywords":			[ "Command line switch", "Command line options", "switches" ],
     "Description 01:Introduction"::
 
-	Following command line switches (or options)influence B4P startup behavior. These options are not added to the global variable array <b>command line arguments[]</b>, and they
-	will not be visible in any other variable or parameter inside the running B4P program..
+	If B4P is started with typed commands, then command line switches (options) can be provided along with other command line arguments such as the B4P program.
+	While regular command line parameters will be added to the __system variable__ called <b>command line arguments[]</b> and are visible to the running
+	B4P program, the command line switches are not.  They are provided to influence the start-up, run-time and existing procedure of B4P.  The available
+	run-time parameters are described in the table below.
+
+	<br>
 
 	=== 100, 900, bold_column_1
 	Swtich	| Description
-	-d	| Normally, at start-up, B4P sets the working directory to the directory where the B4P program to execute is located. <br>\
-		  This command line switch suppresses this and leaves the current dierctory where B4P has been started.
-	-i	| Start B4P and enter __interactive mode__ immediately.  Even if a B4P program has been specified, the program will not be loaded and started</b>.
-	-I	| MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for normal applicaction use.
+	-d	| Normally, at start-up, B4P changes the working directory to the directory where the B4P program file to execute is located. <br>\
+		  This command line switch suppresses this and leaves the working directory unchanged.
+	-i	| (lower-case i) Start B4P and enter __interactive mode__ immediately.  Even if a B4P program has been specified, the program will not be loaded and started</b>.
+	-I	| (upper-case i) MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for regular B4P program use.
 	-w	| Suppress B4P welcome text. <br>\
 		  <u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br>\
-		  <u>Attention 2:</u> The B4P initialization program "B4P Init.b4p" will not be started.  This file would otherwise load the default important B4P library files (e.g. "Support Library").<br>\
+		  <u>Attention 2:</u> The B4P initialization program "B4P Init.b4p" will not be started.  This file would otherwise load the default B4P library files (e.g. "Support Library").<br>\
 		  The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.
 	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.<br>\
 		  To suppress the welcome text, too, use teh command lie swtich -w, too.
 	-x	| Skip the "<i>Press [Enter] to end the program</i>" before B4P is exiting.  Useful for running B4P programs from batch scripts without user interaction
 	===
 
-	Invalid command line parameters will provide descriptive error messages and stop B4P.<br><br>
+	Invalid command line parameters will provide descriptive error messages and stop the B4P run-time machine.<br><br>
 	Command line arguments may be freely ordered and specified as combined or individual parameters.  See the example below.
 	+++,
 
@@ -96,7 +134,7 @@ B4PDOCU.START
 	* "Office Library": Ability to access Microsoft office meta data and load Excel files
 	* "Support Library": Comprehensive help and support features
 
-	The intialization prgraom <b>B4P Init.b4p</b> will also call <b>My B4P Init.b4p</b>, a user customizable initialization program twice (before and after including
+	The intialization prgraom <b>B4P Init.b4p</b> will also call the user initialization program __My B4P Init.b4p__, a user customizable initialization program twice (before and after including
 	the library files), as long the file is available in the user application directory.  For more details, see the section on __user initialization program__
 
 
@@ -105,7 +143,7 @@ B4PDOCU.START
 	<br/><img src="Images/REF_Starting_Behavior.png" alt="B4P Starting Behavior"><br/>
 
 	+++,
-     "See also": [ "Interactive mode" ]
+     "See also": [ "Interactive mode", "User initialization program" ]
 },
 
 
@@ -113,7 +151,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "User initialization program" ],
-    "Keywords":			[ "custom initialization program","My B4P Init" ],
+    "Keywords":			[ "custom initialization program","My B4P Init.b4p" ],
     "Description 01:Introduction"::
 
 	If a file called <b>My B4P Init.b4p</b> is avaiable in the directory for user application data, then it will be loadeod executed:
@@ -125,9 +163,9 @@ B4PDOCU.START
 	in this file makes use of the __once(__) {...} __else__ {...} clause where the first code block after <b>once</b> is executed at the first
 	instance, and the code block after <b>else</b> is executed at the 2nd instance.
 
-	<br><br>
+	<br><br/><img src="Images/REF_Starting_Behavior_2.png" alt="B4P Starting Behavior"><br/><br>
 
-	The factory contents of this file <b>My B4P Init.b4p</b> contains the following simple contents:  Silencing output messages while loading
+	The original file <b>My B4P Init.b4p</b> provided to you contains the following simple contents:  Silencing output messages while loading
 	the libraries by setting <b>system info[verbose]</b> to <b>quiet</b>, and in the 2nd call back to <b>low</b> to allow minimum messages
 	and progress information to occur. See __verbose__ for more information about this.
 
@@ -173,6 +211,7 @@ else // Following code is executed at the 2nd call after all library files have 
 
 	+++
 }
+
 
 B4PDOCU.STOP
 

@@ -2,56 +2,33 @@
 B4PDOCU.START
 
 
-"Introduction" :
+
+"The Language" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "introduction" ],
-    "Description 01:Introduction to B4P"::
+    "Feature Names":		[ "The Language" ],
+    "Description 01:Overview"::
 
-	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
-	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, 
-	complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
+	The B4P language is a very compact and powerful programming language aiming to solve challenging data processing problems involving
+	large amounts of data.  The language contains specific syntax and semantic structures which are key enablers for rapid programming,
+	high comprehensibility and exceptionally high performance.  Your key benefits are:
 
-	<br><br>
-
-	<br/><img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
-
-
-	=== 150, 120, 700, noframe_1stcolbold, noheader
-			| <b> data files </b>:  | Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..
-			| <b> databases </b>:   | Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)
-			| <b> web data </b>:    | Any source of structured data on the web(Wikipedia, ...)
-			| <b> other data </b>:  | PDF (via Tabula), Statistical data sets (R, SAS, SPPSS, Stata)
-	===
-
-	+++
-},
-
-
-
-"Why a New Programming Language" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Why a New Programming Language" ],
-    "Description 01:Key Benefits"::
-
-	The overall intention is to provide a tool for you which helps to solve sophisticated problems with large amounts of data involved:
 	* <b>Simple</b> procedural language.
-	* Very easy to read and understand the code.
-	* Very <b>easy to learn</b> programming.
-	* Powerful langauge semantics <b>minimizes the number of statements</b> needed to solve the problem.
+	* Very easy to read and understand the code, therfore <b>very easy to learn</b> programming.
+	* Powerful language semantics <b>minimizes the number of statements</b> needed to solve the problem.
 	* <b>Very quickly</b> to get your code running
-	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this
-	* <b>No programming bureaucracy</b> such as declaring all the variables you need.
+	* <b>Be natural</b> and less cryptic.  Giver your variables, tables, functions, etc. natural names (spaces are allowed)
+	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this.
+	* <b>No programming bureaucracy</b> such as type definitions, declaring all the variables and doing memory management on your own.
 	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.
 	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly
-	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).
 	* The run-time machine and all libary files are very lean, very robust and start quickly.
-	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same code on different platforms.
+	* High focus on <b>cross-platform portability</b> (Windows, Linux, MacOS, etc.), enabling to run the same code on different platforms.
+	* B4P output files for Excel can contain <b>style and formatting</b> like colors, row widths, etc.
 
 	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro
 	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage
-	big data (e.g. indexing).  The syntax is, even though looking differently from other langauges, incredibly easy to understand and to use.
+	big data (e.g. indexing, memory management).  The syntax is, even though looking differently from other languages, incredibly easy to understand and to use.
 	In contrast to other programming langages, much fewer statements and time are needed, no additional libraries need to be installed 
 	separately (like Panda for Python) and you experience unparalleled machine performance, forgetting the fact that B4P is an interpreted language.
 
@@ -66,17 +43,6 @@ B4PDOCU.START
 	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem
 	and a lot of money saved.
 
-	+++,
-    "Description 02:No Graphic Gadgets"::
-
-	Intentionally, B4P does not make use of any visual features such as graphical user interfaces.  For visualization purposes, powerful
-	and highly standardized tools such as Microsoft Excel providie all features to do the visualziation, creating all required charts, etc.
-	to round up you presentation.   The philosophy of B4P is to do all data processing first and very rapidly, and creating final Excel files
-	for visualization purposes.
-
-	<br><br>
-	However, B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already
-	included (e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.).
 	+++
 },
 
@@ -92,15 +58,16 @@ B4PDOCU.START
 	a small number of building blocks:
 
 	=== 200, 600, 200, bold_column_1 bold_column_3
-	Feature			| Description										| Example
+	Language Features	| Description																| Examples
 	Statements		| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
-				  Multiple statements are separated with semiclons <b>;</b>				|
-	Procedure calls		| A B4P function is called as a procedure						| echo( Hello World );
-	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry		| a[] = 3 * 3;
-	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment		| a[]++;
-	__Transactions__	| Smart assignments among variables including their hierarchical member variables and table rows | b[] <== a[];
-	__Expressions__		| Values (constants), variables, table entries, functions, or calculated combination of them using operators and parentheses	| a[] + 2*abs(b[])
-	Blocks			| One or more statements contained in braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions.	| { a[] = 1; b[] = 2; }
+				  Multiple statements are separated with semiclons <b>;</b>										|
+	Procedure calls		| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );
+	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry								| a[] = 3 * 3;
+	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment								| a[]++;
+	__Transactions__	| Smart assignments among variables including their hierarchical member variables and table rows 					| b[] <== a[];
+	__Expressions__		| Values (constants), variables, table entries, functions called, or calculated combination of them using operators and parentheses	| a[] + 2*abs(b[])
+	Blocks			| One or more statements contained in braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions \
+				  and in control flow statements such as loops.												| { a[] = 1; b[] = 2; }
 	===
 	<br><br>
 	Like in other programming languages, long statements may take multiple lines of text becase the semicolon is delimiting the statements.
