@@ -14,18 +14,24 @@ B4PDOCU.START
 
 	<br><br>
 	<b>System requirements:</b>
-	* Personal computer running MacOS using a common distribution (e.g. Ubuntu)
-	* 64 bit CPU (we are not supporting legacy platforms)
-	* You have elevated privileges to do installations (e.g. allowed to run commands with 'sudo' in front)
-	* Min 2 GB, but more memory is stronly recommended espeically when working with large data
-	* B4P requires less than 20 MB disk space
-	* Internet connectivity is required to access documentation, but not during normal program execution
+	* Computer: Macintosh laptop, iMac, or Mac Mini running the latest version of MacOS
+	* Processor: 64 bit
+	* Memory: Minimum 2 GB; More memory is strongly recommended especially when working with large data
+	* Disk space:  20 MB 
+	* Internet connectivity: Required to access documentation, but not during normal program execution
+	* Administrator privileges: You have privileges to do software installations (e.g. allowed to run commands with 'sudo' in front)
+	
+	<b>Software requirements:</b>
+	Download, install, and verify that the following applications are working:
+	* Code editor:  Visual Studio Code: https://code.visualstudio.com/
+	* Terminal application: iTerm:  https://iterm2.com
+	* Web browser: Firefox (www.mozilla.orgfirefox), Chrome (www.google.com/chrome), or the built-in Apple Safari
 
-	<b>Special software requirements:</b>
-	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.
-	* Ensure that the MacOS command <b>wget</b> is available.  If not, then install it according to MacOS-specific procedures (e.g. using <b>apt-get install wget</b>, commands vary among different MacOS variants and versions)
-	* Ensure that the Linux command <b>zip</b> and <b>unzip</b> are available.  If not, then install it according to Linux-specific procedures (e.g. using <b>apt-get install zip unzip</b>, commands vary among different MacOS variants and versions)
-	* Web browser installed: Firefox or Google Chrome or Brave or Safari
+	<b>Terminal application requirements</b>
+	Open the Terminal application (iTerm) and install the following terminal commands
+	* Add the terminal package manager 'homebrew'.  Instructions: https://brew.sh
+	* Add the terminal command 'wget'.  Instructions: https://www.maketecheasier.com/install-wget-mac
+	
 
 	<br><br>
 	Continue with __MacOS Download__.
