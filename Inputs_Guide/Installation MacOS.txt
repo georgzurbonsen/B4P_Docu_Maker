@@ -19,10 +19,10 @@ B4PDOCU.START
 	* Memory: Minimum 2 GB; More memory is strongly recommended especially when working with large data
 	* Disk space:  20 MB 
 	* Internet connectivity: Required to access documentation, but not during normal program execution
-	* Administrator privileges: You have privileges to do software installations (e.g. allowed to run commands with 'sudo' in front)
+	* Administrator privileges: You must have privileges to do software installations (e.g. allowed to run commands with 'sudo' in front)
 	
 	<b>Software requirements:</b>
-	Download, install, and verify that the following applications are working:
+	Download, install, and verify that the following applications are available and working:
 	* Code editor:  Visual Studio Code: https://code.visualstudio.com/
 	* Terminal application: iTerm:  https://iterm2.com
 	* Web browser: Firefox (www.mozilla.orgfirefox), Chrome (www.google.com/chrome), or the built-in Apple Safari
@@ -30,7 +30,7 @@ B4PDOCU.START
 	<b>Terminal application requirements</b>
 	Open the Terminal application (iTerm) and install the following terminal commands
 	* Add the terminal package manager 'homebrew'.  Instructions: https://brew.sh
-	* Add the terminal command 'wget'.  Instructions: https://www.maketecheasier.com/install-wget-mac
+	* Add the terminal command 'wget' using homebrew.  Instructions: https://www.maketecheasier.com/install-wget-mac
 	
 
 	<br><br>
