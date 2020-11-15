@@ -472,10 +472,10 @@ B4PDOCU.START
 	  as variable name		|	|   as variable member name		|
 	===
 	<br>
+	* Existing structures may be index like arrays where the indexing reflects the alphabetic order of the member names.
 	* Numeric indexing (like in arrays) is allowed to access <u>existing</u> members, e.g. 0..9 (and -1..-10 with __negative indexing__).
 
 
-	<br><br>
 	Similar to arrays, existing structures may also be referenced with numeric <i>index</i> values.  This is useful when using loops to process
 	through the structure rapidly.  Please note that the structure is always held in an alphabetic order.  Negative indexing is also supported, where
 	-1 refers to the last element (last in alphabetical order), and -2, etc., to the next ones above.
@@ -658,7 +658,7 @@ B4PDOCU.START
 "References to Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "references to variables", "variable references", "variable reference" ],
+    "Feature Names":		[ "references to variables", "variable references", "variable reference", "reference", "references" ],
     "Description 01:Introduction"::
 
 

@@ -1778,7 +1778,7 @@
 "	<br><br>",
 "",
 "	In B4P, __for(__) is treated like a __procedure call__ where parameters are separated with commas and not with semicolons.  This function accepts",
-"	__code pices__ as parameters.  Multiple statements inside a parameter are separated with semicolons. Right formulation: <b>for ( a[]=1, a[]<10, a[]++)</b>.",
+"	__code pieces__ as parameters.  Multiple statements inside a parameter are separated with semicolons. Right formulation: <b>for ( a[]=1, a[]<10, a[]++)</b>.",
 "" ],
 "Description 04:Comparison Operators Hijack Parameters" : [
 "",
@@ -1791,10 +1791,20 @@
 "	parameters in the parameter set.  Add parenthese to avoid this, e.g. <b>a[] = { 1, (b[]=5), 6, 7, 8 }</b> which returns <b>{1, false, 6, 7, 8}</b>.",
 "	Note that the same hijacking ",
 "" ],
-"Description 05:Memory Effect on table headers" : [
+"Description 05:Memory Effect on Table Headers" : [
 "",
 "	Please see the details on the __Memory Effect__	when referencing table heades with string values as they are normally",
 "	checked once and the column number will be memorized for future use in order accelerate performance significantly.",
+"",
+"" ],
+"Description 06:Forgetting colon before 'else'" : [
+"",
+"	Since B4P's unique cababilties of supporting multi-word identifiers for variables, tables and function names, one drawback needs to be covercome:",
+"	Whenever single __statements__ follows __else__, then a colon is needed to keep them separated.  ",
+"	* Correct: <b>... else : a[] = 1;</b>",
+"	* Misleading: <b>... else a[] = 1;</b> Here, 1 is assigned to a variable called <b>else a</b>.",
+"	* No issues with __blocks__: <b>... else { a[] = 1; } </b>",
+"",
 ""
  ]
 	
@@ -11460,10 +11470,10 @@
 "	  as variable name		|	|   as variable member name		|",
 "	===",
 "	<br>",
+"	* Existing structures may be index like arrays where the indexing reflects the alphabetic order of the member names.",
 "	* Numeric indexing (like in arrays) is allowed to access <u>existing</u> members, e.g. 0..9 (and -1..-10 with __negative indexing__).",
 "",
 "",
-"	<br><br>",
 "	Similar to arrays, existing structures may also be referenced with numeric <i>index</i> values.  This is useful when using loops to process",
 "	through the structure rapidly.  Please note that the structure is always held in an alphabetic order.  Negative indexing is also supported, where",
 "	-1 refers to the last element (last in alphabetical order), and -2, etc., to the next ones above.",
@@ -11657,7 +11667,7 @@
 "References to Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "references to variables", "variable references", "variable reference" ],
+    "Feature Names":		[ "references to variables", "variable references", "variable reference", "reference", "references" ],
 "Description 01:Introduction" : [
 "",
 "",
