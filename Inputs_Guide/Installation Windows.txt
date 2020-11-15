@@ -1,27 +1,6 @@
 //
 B4PDOCU.START
 
-
-
-"Installation and Setup" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Installation and Setup" ],
-    "Description 01:Introduction"::
-
-	The following pages describe the installation procdure for the following target systems:
-
-	* Windows (at least Windows 7)
-	* Linux
-	* MacOS
-
-	Since the installation script has also been implemented in B4P, the installation procedure 
-	appears a bit differently as compared to installing other software, however you will be
-	experiencing a very fast installation procedure.
-
-	+++
-},
-
 "Windows" :
 {
     "Documentation":		"General Description", // Required value
