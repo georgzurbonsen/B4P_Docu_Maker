@@ -5,48 +5,60 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Functions and Procedures" ],
-    "Keywords":			[ "Procedures", "Functions" ],
+    "Keywords":			[ "Procedures", "Functions", "Function call", "Function calls", "Procedure call", "Procedure calls" ],
     "Description 01:Introduction"::
 
-	B4P provides an extensive library of standard functions with an emphasis on processing complex tables and data structures.  In addition, you can define your own __user functions__ or even create own libraries containing user functions.  
-	<br>
-	<br>
-	Functions and procedures are subroutines that can be called up using their name.  For simplicity, all such subroutines are referred to as <i>functions</i> throughout the B4P documentation, regardless of whether they provide a return value (as functions) or not (as procedures).
-	
-	<br>
-	<br>
-	<b>FUNCTION NAMING FEATURES AND CONVENTIONS</b>
-	<br>
-	Unlike virtually any other programming language, <b>B4P function names may consist of multiple words with spaces and special characters inbetween</b>, allowing natural, intuitive, and readable naming of highly complex functions in plain, clear language. This allows specialized functions to be easily remembered, understood, and shared by members of a team for future use.
+	B4P provides an extensive library of standard functions with an emphasis on processing complex tables and data structures.  
+	In addition, you can define your own __user functions__ or even create own libraries containing user functions.  
 
-	Function names are <b>case sensitive</b> and specified as as <b>unquoted literals</b>, i.e. quotation marks are not used when referring to a multi-word function name. The number of spaces (or tabs) between the individual words is irrelevant, but must be at least one.
+	<br><br>
+
+	Functions and procedures are subroutines that can be called up using their name.  For simplicity, all such subroutines are referred to
+	as <i>functions</i> throughout the B4P documentation, regardless of whether they provide a return value (as functions) or not (as procedures).
 	
-	<br>
-	<br>
-	<b>EXAMPLES</b>
-	<br>
+    "Description 02:Function Naming Conventions"::
+
+	Unlike virtually any other programming language, B4P function names are unquoted literals which may consist of multiple words with spaces and special characters inbetween.
+	This scheme allows specifying even sophisticated functions in a normal language, e.g. __table lookup ignore case(__) and makes the language much more readable
+	than using special symbols or upper/lower case scheme to code long function names.  Memorizing such names is much easier for you and your team members.
+
+	<br><br>
+	Please note the following rules for function names:
+	* Function names are always specified as __unquoted literals__, i.e. always without quotation marks
+	* Function names are case sensitive
+	* Function names do not interfere with variable names and table names, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>
+	* The formulation rules for unquoted literals apply, which include:
+	** Spaces are allowed
+	** Multiple consecutive spaces and/or tabs collapse to 1 space.
+	** Spaces before the beginning and after the end of the names are irrelevant
+	* Names may consist of words and numbers, or even mulitple numbers separated with spaces.
+	* Special symbols are allowed as long they do not inteferee with the B4P language syntax.  E.g. <b>my_function</b> is OK, but <b>my-function</b> does not work because the hyphen is interpreted as a minus sign, attempting to text-subtract 'function' from 'my'.
+
+
+    "Description 03:Function Naming Examples"::
+
 	The first two function names listed below are equivalent, but all the remaining ones are not.
+	
+	===  200, 800, bold_column_1
+	Function call	| Explanation
+	table process(...)						| Calls __table process(__) which is a valid function in this B4P library
+	&nbsp;&nbsp;table&nbsp;&nbsp;&nbsp;process&nbsp;&nbsp;(...);	| Same function as above: Multiple spaces collapse to 1 space, leading and trailing spaces are ignored
+	Table process(...)						| Function names are case sensitive.  This is a different funtion name.
+	table_process(...)						| <i>Snake-case</i> formulation: Underscore and other symbols differ from spaces.
+	table-process(...)						| <u>Attention</u>: <i>Kebab-case</i> does not work.  It attempts to execute 'process(...)', then do a text subtraction of 'table' minus return value of process(...).
+	tableprocess(...)						| Single-word 'tableprocess' differs from double-word 'table process'
+	TableProcess(...)						| <i>Camel case</i> formulation: Capitalized letter for each word makes it a distinct function name from 'tableprocess'
+	'table process'(...)						| Syntax error (only unquoted literals are allowed)
+	"table process"(...)						| Syntax error (see above)
+	===
 
-	* <b>table process(...)</b>
-	* <b>table&nbsp;&nbsp;&nbsp;process&nbsp;&nbsp;(...);</b>    // Multiple spaces is equivalent to a single space between the words 'table process'
-	* <b>Table process(...)</b>     // Upper case letter makes this distinct
-	* <b>table_process(...)</b>     // <i>Snake-case</i>: Underscore and other symbols differ from spaces.
-	* <b>table-process(...)</b>     // <i>Kebab-case: avoid dashes as separators </i>:  A dash will return value of <b>process(...)</b> substracted from the string 'table'. 
-	* <b>tableprocess(...)</b>     // Single-word 'tableprocess' differs from double-word 'table process'
-	* <b>TableProcess(...)</b>     // <i>Camel case</i>: Capitalized letter for each word makes it a distinct function name from 'tableprocess'
+    "Description 04:Procedure and Function Calls"::
 
-	CAUTION: Avoid using the dash symbol ('-') as a word separator, as this will be interpreted as a subtraction sign and result in the mathematical operation being carried out. 
-	<br>
-	<br>
+	Various B4P functions can only be called as functions in __expressions__, standalone <b>procedure calls</b>, or both are allowed.
+	In procedure calls, no return values are made use of.
+	Functions may require either none, a fixed number, or a variable number of __function parameters__ with different __function parameter directions__.
 
-	<br>
-	<b>FUNCTION PARAMETERS</b>
-	<br>
-
-	Functions may require either none, a fixed number,  or a variable number of __function parameters__ with different __function parameter directions__.
-	<br>
-	<br>
-	The difference between procedures and functions is that procedures do not provide return values but functions do.  Where allowed, functions can also be called as procedures.  
+	<br><br>
 
 	=== 200, 600, 200, bold_column_1 bold_column_3
 	Function Nature		| Description					| Examples

@@ -1,7 +1,7 @@
 ﻿#!/usr/local/bin/b4p
   b[Red] = Rot;
-  b[Green,light] = Hellgrün;
-  b[Green,dark] = Dunkelgrün;
+  b[Green,light] = HellgrÃ¼n;
+  b[Green,dark] = DunkelgrÃ¼n;
   b[Blue,light] = Hellblau;
   b[Blue,dark] = Dunkelblau;
 

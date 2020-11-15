@@ -5,7 +5,7 @@ B4PDOCU.START
 "The Run-Time Machine" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "The Run-Time Machine" ],
+    "Feature Names":		[ "Run-Time Machine" ],
     "Description 01:Introduction"::
 
 	The B4P run-time machine, including some library files written in B4P langauge, is the key software you need to install in order to make full use of the

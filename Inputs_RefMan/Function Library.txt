@@ -8,9 +8,14 @@ B4PDOCU.START
     "Feature Names":		[ "Function Library" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides a large and comprehenisve library of different functions.¨
-	Use the navigator bar to deep-dive into them.
+	Beyond4P provides a large and comprehenisve library of different functions.
+	Use the navigator bar to deep-dive into them.  Various fucntions can be called as <b>procedures</b>, others as
+	functions in __expressions__ only, or in both.
 
+	<br><br>
+
+	Control flow functions are a variant of functions called as procedures which will then determineif the
+	subsequent __statement__ or __block__ will be executed once, repeatedly, or not.
 
 	+++
    },

@@ -51,7 +51,8 @@ B4PDOCU.START
 "Basic Language Structure" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Basic Language Structure" ],
+    "Feature Names":		"Basic Language Structure",
+    "Keywords":			"Blocks",
     "Description 01:Introduction"::
 
 	The B4P language is designed to solve problems with as few clearly understandable statements as possible.  The language consists of 
@@ -59,15 +60,15 @@ B4PDOCU.START
 
 	=== 200, 600, 200, bold_column_1 bold_column_3
 	Language Features	| Description																| Examples
-	Statements		| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
+	<b>Blocks</b>		| The contain 1 or more statements inside braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions \
+				  and in control flow statements such as loops.	 											| { a[] = 1; b[] = 2; }
+	__Statements__		| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
 				  Multiple statements are separated with semiclons <b>;</b>										|
-	Procedure calls		| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );
+	__Procedure calls__	| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );
 	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry								| a[] = 3 * 3;
 	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment								| a[]++;
 	__Transactions__	| Smart assignments among variables including their hierarchical member variables and table rows 					| b[] <== a[];
 	__Expressions__		| Values (constants), variables, table entries, functions called, or calculated combination of them using operators and parentheses	| a[] + 2*abs(b[])
-	Blocks			| One or more statements contained in braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions \
-				  and in control flow statements such as loops.												| { a[] = 1; b[] = 2; }
 	===
 	<br><br>
 	Like in other programming languages, long statements may take multiple lines of text becase the semicolon is delimiting the statements.
@@ -1440,7 +1441,56 @@ B4PDOCU.START
 	echo( [t:-1,-1] ); // Last row, last column.  It's 'UK'.	
 	+++,
     "Output 01:Outcome": "automatic"
+},
+
+
+
+"Language Pitfalls" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Language pitfalls", "Hijacking parameters" ],
+    "Description 01:Introduction"::
+
+	The syntactic and semantic structure of B4P allow powerful features such as multiple-word naming for variables, functions and tables, as well as
+	other benefits.  However, even experienced programmers trip into some pitfalls.  This section makes you aware of the most the most common pitfalls.
+
+    "Description 02:Brackets follow Variable Names"::
+
+	In regular programming languages, keywords are treated as reserved keywords or variables.  In B4P, they are unquoted literals.  To use these literals
+	to access variables, do not forget to add <b>[]</b> behind it.  No differnece applies if you access a subscript of an array or a structure, e.g. <b>a[10]</b>.
+
+
+    "Description 03:For loops - Different from C/C++ and Java"::
+
+	In conventional languages, the three key statements inside for loops are separated by semicolons, e.g. <b>for( a = 1; a < 10; a++ )</b>.  To make things
+	even wordse, multiple statements inside the three statements are separted by commas.
+
+	<br><br>
+
+	In B4P, __for(__) is treated like a __procedure call__ where parameters are separated with commas and not with semicolons.  This function accepts
+	__code pices__ as parameters.  Multiple statements inside a parameter are separated with semicolons. Right formulation: <b>for ( a[]=1, a[]<10, a[]++)</b>.
+
+    "Description 04:Comparison Operators Hijack Parameters"::
+
+	If you are comparing things using the <b>=</b> or <b>&lt;&gt;</b> symbols, note that these two __comparison operators__ (but not <b>==</b> and <b>!=</b>) can expect
+	more than 1 operand.  For example, <b>a[] = 2,3,5,7,11 </b> is a legitimate expression to compare a[] with five different prime numbers.
+
+	<br><br>
+
+	With b[] = 6, the expression <b>a[] = { 1, b[]=5, 6, 7, 8 }</b> is actually resulting <b>{ 1, true }</b> because the comparison has hijacke the remaining
+	parameters in the parameter set.  Add parenthese to avoid this, e.g. <b>a[] = { 1, (b[]=5), 6, 7, 8 }</b> which returns <b>{1, false, 6, 7, 8}</b>.
+	Note that the same hijacking 
+
+    "Description 05:Memory Effect on table headers"::
+
+	Please see the details on the __Memory Effect__	when referencing table heades with string values as they are normally
+	checked once and the column number will be memorized for future use in order accelerate performance significantly.
+
+	+++
 }
+
+
+
 
 
 
