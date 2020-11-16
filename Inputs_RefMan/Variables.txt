@@ -61,7 +61,7 @@ B4PDOCU.START
 	Declaring variables:
 	* No explicit variable declarations are required, unless you want to fully initialize arrays or structures using __dim(__), __array(__), __structure(__) or similar functions.
 	* Variables are declared with their first assignment
-	* If no __variable protections__ apply, the values of different (i.e. changing) __types__ can be written.
+	* If no __variable protections__ apply, the values of different (i.e. changing) __basic data types__ can be written.
 
 	See also next section on variable scops (global, local, etc.).
 
@@ -145,7 +145,7 @@ B4PDOCU.START
 	    if (a[] < 4) // If a[] exists a local variable, then the local variable will be used preferentially.
 	    {
 	        foo( 4 ); // Recursive call
-		a[] = 5;
+	        a[] = 5;
 	        echo( a[] ); // Called 3rd: 5
 	    }
 
@@ -197,7 +197,9 @@ B4PDOCU.START
 	command line arguments[]		| numeral	| read only		| Number of command line arguments, at least 1
 	&nbsp;&nbsp;...[0]			| literal	| full access		| 1st command line argument (typically the name of the B4P program file)
 	&nbsp;&nbsp;...[1, 2, ...]		| literal	| full access		| Additional command line arguments if available
-						|		|			|
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
 	local settings[]			| void		| locked		| <b>Following variables refer to local settings</b>
 	&nbsp;&nbsp;...[locale]			| literal	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.
 	&nbsp;&nbsp;...[country name]		| literal	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.
@@ -211,9 +213,13 @@ B4PDOCU.START
 	&nbsp;&nbsp;...[time format]		| literal	| limited access	| E.g. "HH:II:SS" Note the "I" for minute digits. See __date to literal formatting parameters__.
 	&nbsp;&nbsp;...[time separator]		| literal	| limited access	| Typically 1 chracter, e.g. ':'
 	&nbsp;&nbsp;...[list separator]		| literal	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.
-						|		|			|
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
 	libraries[]				| boolean	| prevent deleting	| This system variable is reserved for libraries to add structured info such as version and other important info.  It helps to unclutter the global variable space.
-						|		|			|
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
 	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>
 	&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS \
 											  releases, this variable is true, for Windows it is false.
@@ -229,7 +235,9 @@ B4PDOCU.START
 	&nbsp;&nbsp;...[registry my space]	| literal	| limited access	| Obsolete.
 	&nbsp;&nbsp;...[verbose]		| literal	| limited access	| Verbose levels.  See __verbose__ for more details.
 	&nbsp;&nbsp;...[found main]		| boolean	| read only		| true if B4P was started without a specified B4P program file, but has found 'main.b4p' in the current or starting directory.
-						|		|			|
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
 	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>
 	&nbsp;&nbsp;...[app data directory]	| literal	| read only		| Local machine application data directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
 	&nbsp;&nbsp;...[app data directory b4p]	| literal	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
@@ -251,7 +259,9 @@ B4PDOCU.START
 											  <b>elevated</b>: Enhanced privileges, entitled to install software <br>\
 											  <b>administrator</b>: Administrator privileges.  Applicable if program is started with administration rights (e.g. 'sudo' added in front in Linux/MACOS systems)
 	&nbsp;&nbsp;...[operating system version] | literal	| read only		| Version number of installed operating system
-						|		|			|
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
 	time stamp[]				| void		| read only		| Provides date and time at start-up. Example under Windows: "Sat Oct 10 10:17:34 2020"
 	version info[]				| void		| read only		| Provides B4P version and release info
 	===

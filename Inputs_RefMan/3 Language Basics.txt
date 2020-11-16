@@ -62,7 +62,7 @@ B4PDOCU.START
 	Language Features	| Description																| Examples
 	<b>Blocks</b>		| The contain 1 or more statements inside braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions \
 				  and in control flow statements such as loops.	 											| { a[] = 1; b[] = 2; }
-	__Statements__		| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
+	<b>Statements</b>	| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
 				  Multiple statements are separated with semiclons <b>;</b>										|
 	__Procedure calls__	| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );
 	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry								| a[] = 3 * 3;
@@ -177,7 +177,7 @@ B4PDOCU.START
 	+++,
     "Output 01:":		"automatic",
 
-    "Description 02:Github Markdown files"::
+    "Description 02:Github Markdown Files"::
 	B4P <i>understands</i> markdown files (with filenames ending '.md') where it only executes code lines which inside the code blocks.  All other contents
 	outside the code blocks are treated like comments.  Code blocks must be delimited with three accent-grave symbols ```. Multiple such code blocks in one
 	markdown file are supported.

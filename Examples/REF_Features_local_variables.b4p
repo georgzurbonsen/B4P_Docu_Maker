@@ -4,7 +4,7 @@
       if (a[] < 4) // If a[] exists a local variable, then the local variable will be used preferentially.
       {
           foo( 4 ); // Recursive call
-      a[] = 5;
+          a[] = 5;
           echo( a[] ); // Called 3rd: 5
       }
 

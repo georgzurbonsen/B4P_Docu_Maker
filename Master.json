@@ -324,7 +324,7 @@
 "	=== 200, 600, 200, bold_column_1 bold_column_3",
 "	Language Features	| Description																| Examples",
 "<b>Blocks</b>		| The contain 1 or more statements inside braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions  				  and in control flow statements such as loops.	 											| { a[] = 1; b[] = 2; }",
-"__Statements__		| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br> 				  Multiple statements are separated with semiclons <b>;</b>										|",
+"<b>Statements</b>	| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br> 				  Multiple statements are separated with semiclons <b>;</b>										|",
 "	__Procedure calls__	| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );",
 "	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry								| a[] = 3 * 3;",
 "	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment								| a[]++;",
@@ -433,7 +433,7 @@
 	,
     "Output 01:":		"automatic",
 
-"Description 02:Github Markdown files" : [
+"Description 02:Github Markdown Files" : [
 "	B4P <i>understands</i> markdown files (with filenames ending '.md') where it only executes code lines which inside the code blocks.  All other contents",
 "	outside the code blocks are treated like comments.  Code blocks must be delimited with three accent-grave symbols ```. Multiple such code blocks in one",
 "	markdown file are supported.",
@@ -5093,15 +5093,41 @@
 "",
 "	Functions and procedures are subroutines that can be called up using their name.  For simplicity, all such subroutines are referred to",
 "	as <i>functions</i> throughout the B4P documentation, regardless of whether they provide a return value (as functions) or not (as procedures).",
-"	" ],
-"Description 02:Function Naming Conventions" : [
+"	",
+"" ],
+"Description 04:Procedure and Function Calls" : [
+"",
+"	Various B4P functions can only be called as functions in __expressions__, standalone <b>procedure calls</b>, or both are allowed.",
+"	In procedure calls, no return values are made use of.",
+"	Functions may require either none, a fixed number, or a variable number of __function parameters__ with different __function parameter directions__.",
+"",
+"	<br><br>",
+"",
+"	=== 200, 600, 200, bold_column_1 bold_column_3",
+"	Function Nature		| Description					| Examples",
+"	Function		| * Always provides a return value <br) * Must be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );",
+"	Procedure		| * Does not provide return values  <br> * Must be called as procedures. <br> * If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);",
+"	Procedure or function	| * The function can be called as procedrues or functions. <br> * Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);",
+"	Control flow functions	| __Control flow functions__ require a succeeding statement or code block which will be executed as specified by these functions.  The __if(__) statement is one of them. | if (a[]=1) echo(\"is 1\");",
+"	===	",
+""
+ ]
+	
+   },
+
+
+"Function Naming" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function Naming" ],
+"Description 01:Introduction" : [
 "",
 "	Unlike virtually any other programming language, B4P function names are unquoted literals which may consist of multiple words with spaces and special characters inbetween.",
 "	This scheme allows specifying even sophisticated functions in a normal language, e.g. __table lookup ignore case(__) and makes the language much more readable",
 "	than using special symbols or upper/lower case scheme to code long function names.  Memorizing such names is much easier for you and your team members.",
 "",
 "	<br><br>",
-"	Please note the following rules for function names:",
+"	Please note the following rules for function names, especially when creating __user-defined functions__ on your own:",
 "	* Function names are always specified as __unquoted literals__, i.e. always without quotation marks",
 "	* Function names are case sensitive",
 "	* Function names do not interfere with variable names and table names, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>",
@@ -5129,30 +5155,16 @@
 "	'table process'(...)						| Syntax error (only unquoted literals are allowed)",
 "	\"table process\"(...)						| Syntax error (see above)",
 "	===",
-"" ],
-"Description 04:Procedure and Function Calls" : [
-"",
-"	Various B4P functions can only be called as functions in __expressions__, standalone <b>procedure calls</b>, or both are allowed.",
-"	In procedure calls, no return values are made use of.",
-"	Functions may require either none, a fixed number, or a variable number of __function parameters__ with different __function parameter directions__.",
-"",
-"	<br><br>",
-"",
-"	=== 200, 600, 200, bold_column_1 bold_column_3",
-"	Function Nature		| Description					| Examples",
-"	Function		| * Always provides a return value <br) * Must be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );",
-"	Procedure		| * Does not provide return values  <br> * Must be called as procedures. <br> * If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);",
-"	Procedure or function	| * The function can be called as procedrues or functions. <br> * Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);",
-"	Control flow functions	| __Control flow functions__ require a succeeding statement or code block which will be executed as specified by these functions.  The __if(__) statement is one of them. | if (a[]=1) echo(\"is 1\");",
-"	===	",
 ""
  ]
 	
-   },
+
+},
 
 
-  "Function Parameters" :
-  {
+
+"Function Parameters" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Parameters" ],
     "Keywords":			[ "Function parameter" ],
@@ -5188,12 +5200,12 @@
 ""
  ]
 	
-   },
+},
 
 
 
-  "Function Parameter Directions" :
-  {
+"Function Parameter Directions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function parameter directions", "parameter directions" ],
 "Description 01:Introduction" : [
@@ -5297,7 +5309,7 @@
 "	See section on __code pieces__ for further details."
  ]
 	
-  },
+},
 
 
 
@@ -5761,6 +5773,7 @@
 "	Start B4P alone			| B4P will give you the choice to enter interactive mode or start 'main.b4p' if one is available",
 "	Call 'interactive' function	| Add 'interactive;' in your B4P program to enter interactive mode.  Type 'return' to continue executing from there",
 "	Exceptions (errors) happened	| In most exceptions (e.g. syntax errors, wrong parameters, etc.), interactive mode is entered so you can inspect your code, variables and loaded tables",
+"B4P waiting before starting \"Main.b4p\" | If B4P is started without B4P program file specified (i.e. <b>b4p</b> typed as sole command or started form desktop or start menu), then  					  \"Main.b4P\" will start running after waiting for 2 seconds.  If a key is pressed, then this program will not start and interactive mode is entered.",
 "	===",
 ""
  ]
@@ -5813,7 +5826,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Execute B4P statements interactively" ],
     "Keywords":			[ "interactive statements" ],
-"Description 01:Interactive Mode" : [
+"Description 01:Introduction" : [
 "",
 "	In interactive mode, you can enter any valid B4P program statement which will be executed immediately after pressing the [Enter] key.",
 "	You are able to specfify multiple statements (example: <b>for (a[]=1, a[]<5, a[]++) echo(a[]); echo(Done.)</b>) in one line and they will",
@@ -5848,7 +5861,7 @@
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Execute B4P expressions interactively" ],
     "Keywords":			[ "interactive expressions" ],
-"Description 01:Interactive Mode" : [
+"Description 01:Introduction" : [
 "",
 "	You can calculate expressions and see the outcome (value and data type) on the console directly.  The simple syntax",
 "	consists of an equal sign (<b>=</b>) followed by the expression.",
@@ -11047,7 +11060,7 @@
 "	Declaring variables:",
 "	* No explicit variable declarations are required, unless you want to fully initialize arrays or structures using __dim(__), __array(__), __structure(__) or similar functions.",
 "	* Variables are declared with their first assignment",
-"	* If no __variable protections__ apply, the values of different (i.e. changing) __types__ can be written.",
+"	* If no __variable protections__ apply, the values of different (i.e. changing) __basic data types__ can be written.",
 "",
 "	See also next section on variable scops (global, local, etc.).",
 ""
@@ -11136,7 +11149,7 @@
 "	    if (a[] < 4) // If a[] exists a local variable, then the local variable will be used preferentially.",
 "	    {",
 "	        foo( 4 ); // Recursive call",
-"		a[] = 5;",
+"	        a[] = 5;",
 "	        echo( a[] ); // Called 3rd: 5",
 "	    }",
 "",
@@ -11191,7 +11204,9 @@
 "	command line arguments[]		| numeral	| read only		| Number of command line arguments, at least 1",
 "	&nbsp;&nbsp;...[0]			| literal	| full access		| 1st command line argument (typically the name of the B4P program file)",
 "	&nbsp;&nbsp;...[1, 2, ...]		| literal	| full access		| Additional command line arguments if available",
-"						|		|			|",
+"	===",
+"	<br>",
+"	=== 300, 100, 100, 500, bold_column_1, noheader",
 "	local settings[]			| void		| locked		| <b>Following variables refer to local settings</b>",
 "	&nbsp;&nbsp;...[locale]			| literal	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.",
 "	&nbsp;&nbsp;...[country name]		| literal	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.",
@@ -11205,9 +11220,13 @@
 "	&nbsp;&nbsp;...[time format]		| literal	| limited access	| E.g. \"HH:II:SS\" Note the \"I\" for minute digits. See __date to literal formatting parameters__.",
 "	&nbsp;&nbsp;...[time separator]		| literal	| limited access	| Typically 1 chracter, e.g. ':'",
 "	&nbsp;&nbsp;...[list separator]		| literal	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.",
-"						|		|			|",
+"	===",
+"	<br>",
+"	=== 300, 100, 100, 500, bold_column_1, noheader",
 "	libraries[]				| boolean	| prevent deleting	| This system variable is reserved for libraries to add structured info such as version and other important info.  It helps to unclutter the global variable space.",
-"						|		|			|",
+"	===",
+"	<br>",
+"	=== 300, 100, 100, 500, bold_column_1, noheader",
 "	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>",
 "&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS  											  releases, this variable is true, for Windows it is false.",
 "	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| __Epsilon__ as numeric tolerance value used for comparisons.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.",
@@ -11220,7 +11239,9 @@
 "	&nbsp;&nbsp;...[registry my space]	| literal	| limited access	| Obsolete.",
 "	&nbsp;&nbsp;...[verbose]		| literal	| limited access	| Verbose levels.  See __verbose__ for more details.",
 "	&nbsp;&nbsp;...[found main]		| boolean	| read only		| true if B4P was started without a specified B4P program file, but has found 'main.b4p' in the current or starting directory.",
-"						|		|			|",
+"	===",
+"	<br>",
+"	=== 300, 100, 100, 500, bold_column_1, noheader",
 "	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>",
 "	&nbsp;&nbsp;...[app data directory]	| literal	| read only		| Local machine application data directory<br>Windows: \"C:\\ProgramData\\b4p\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config\"",
 "	&nbsp;&nbsp;...[app data directory b4p]	| literal	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: \"C:\\ProgramData\\b4p\"<br>Linux/MACOS: \"/home/<i>user name</i>/.config/b4p\"",
@@ -11239,7 +11260,9 @@
 "	&nbsp;&nbsp;...[host name]		| literal	| read only		| Name of your system",
 "&nbsp;&nbsp;...[privileges]		| literal	| read only		| Your privilege level for the operating system: <br> <b>standard</b>: Standard user privileges <br> <b>elevated</b>: Enhanced privileges, entitled to install software <br> 											  <b>administrator</b>: Administrator privileges.  Applicable if program is started with administration rights (e.g. 'sudo' added in front in Linux/MACOS systems)",
 "	&nbsp;&nbsp;...[operating system version] | literal	| read only		| Version number of installed operating system",
-"						|		|			|",
+"	===",
+"	<br>",
+"	=== 300, 100, 100, 500, bold_column_1, noheader",
 "	time stamp[]				| void		| read only		| Provides date and time at start-up. Example under Windows: \"Sat Oct 10 10:17:34 2020\"",
 "	version info[]				| void		| read only		| Provides B4P version and release info",
 "	===",

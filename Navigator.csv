@@ -155,9 +155,11 @@
 "<li class=""navi""><a href=""REF_Features_comparison_options.html""><div class=""navi"">6.2.3 Comparison Options </div></a></li>";3;REF_Features_comparison_options.html;Comparison Options
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""REF_Features_wildcards.html""><div class=""navi"">6.2.3.1 Wildcards </div></a></li>";4;REF_Features_wildcards.html;Wildcards
-"<li class=""navi""><a href=""REF_Features_logical_operators.html""><div class=""navi"">6.2.3.2 Logical Operators </div></a></li>";4;REF_Features_logical_operators.html;Logical Operators
-"<li class=""navi""><a href=""REF_Features_logical_and.html""><div class=""navi"">6.2.3.3 Logical And </div></a></li>";4;REF_Features_logical_and.html;Logical And
-"<li class=""navi""><a href=""REF_Features_logical_or.html""><div class=""navi"">6.2.3.4 Logical Or </div></a></li>";4;REF_Features_logical_or.html;Logical Or
+</ul></li>;4
+"<li class=""navi""><a href=""REF_Features_logical_operators.html""><div class=""navi"">6.2.4 Logical Operators </div></a></li>";3;REF_Features_logical_operators.html;Logical Operators
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""REF_Features_logical_and.html""><div class=""navi"">6.2.4.1 Logical And </div></a></li>";4;REF_Features_logical_and.html;Logical And
+"<li class=""navi""><a href=""REF_Features_logical_or.html""><div class=""navi"">6.2.4.2 Logical Or </div></a></li>";4;REF_Features_logical_or.html;Logical Or
 </ul></li>;4
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_deep_operators.html""><div class=""navi"">6.3 Deep Operators </div></a></li>";2;REF_Features_deep_operators.html;Deep Operators
@@ -207,22 +209,23 @@
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_Functions_and_Procedures.html""><div class=""navi"">8 Functions and Procedures </div></a></li>";1;REF_Features_Functions_and_Procedures.html;Functions and Procedures
 "<li class=""navi""><ul>";2
-"<li class=""navi""><a href=""REF_Features_Function_Parameters.html""><div class=""navi"">8.1 Function Parameters </div></a></li>";2;REF_Features_Function_Parameters.html;Function Parameters
-"<li class=""navi""><a href=""REF_Features_Function_parameter_directions.html""><div class=""navi"">8.2 Function Parameter Directions </div></a></li>";2;REF_Features_Function_parameter_directions.html;Function Parameter Directions
-"<li class=""navi""><a href=""REF_Features_Function_parameter_types.html""><div class=""navi"">8.3 Function Parameter Types </div></a></li>";2;REF_Features_Function_parameter_types.html;Function Parameter Types
+"<li class=""navi""><a href=""REF_Features_Function_Naming.html""><div class=""navi"">8.1 Function Naming </div></a></li>";2;REF_Features_Function_Naming.html;Function Naming
+"<li class=""navi""><a href=""REF_Features_Function_Parameters.html""><div class=""navi"">8.2 Function Parameters </div></a></li>";2;REF_Features_Function_Parameters.html;Function Parameters
+"<li class=""navi""><a href=""REF_Features_Function_parameter_directions.html""><div class=""navi"">8.3 Function Parameter Directions </div></a></li>";2;REF_Features_Function_parameter_directions.html;Function Parameter Directions
+"<li class=""navi""><a href=""REF_Features_Function_parameter_types.html""><div class=""navi"">8.4 Function Parameter Types </div></a></li>";2;REF_Features_Function_parameter_types.html;Function Parameter Types
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""REF_Features_parameter_set_or_literal.html""><div class=""navi"">8.3.1 Parameter Set or Literal (Func. Param. Type) </div></a></li>";3;REF_Features_parameter_set_or_literal.html;Parameter Set or Literal (Func. Param. Type)
-"<li class=""navi""><a href=""REF_Features_Table_columns.html""><div class=""navi"">8.3.2 Table Columns (Func. Param. Type) </div></a></li>";3;REF_Features_Table_columns.html;Table Columns (Func. Param. Type)
-"<li class=""navi""><a href=""REF_Features_Code_Piece.html""><div class=""navi"">8.3.3 Code Pieces (Func. Param. Type) </div></a></li>";3;REF_Features_Code_Piece.html;Code Pieces (Func. Param. Type)
+"<li class=""navi""><a href=""REF_Features_parameter_set_or_literal.html""><div class=""navi"">8.4.1 Parameter Set or Literal (Func. Param. Type) </div></a></li>";3;REF_Features_parameter_set_or_literal.html;Parameter Set or Literal (Func. Param. Type)
+"<li class=""navi""><a href=""REF_Features_Table_columns.html""><div class=""navi"">8.4.2 Table Columns (Func. Param. Type) </div></a></li>";3;REF_Features_Table_columns.html;Table Columns (Func. Param. Type)
+"<li class=""navi""><a href=""REF_Features_Code_Piece.html""><div class=""navi"">8.4.3 Code Pieces (Func. Param. Type) </div></a></li>";3;REF_Features_Code_Piece.html;Code Pieces (Func. Param. Type)
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""REF_Features_Comparison_Expression_(func._params).html""><div class=""navi"">8.3.3.1 Comparison Expressions (func. params) </div></a></li>";4;REF_Features_Comparison_Expression_(func._params).html;Comparison Expressions (func. params)
-"<li class=""navi""><a href=""REF_Features_Expressions_(func_params).html""><div class=""navi"">8.3.3.2 Expressions (func. params) </div></a></li>";4;REF_Features_Expressions_(func_params).html;Expressions (func. params)
-"<li class=""navi""><a href=""REF_Features_Variables_(func_params).html""><div class=""navi"">8.3.3.3 Variables (func. params) </div></a></li>";4;REF_Features_Variables_(func_params).html;Variables (func. params)
-"<li class=""navi""><a href=""REF_Features_Statements_(func_params).html""><div class=""navi"">8.3.3.4 Statements (func. params) </div></a></li>";4;REF_Features_Statements_(func_params).html;Statements (func. params)
+"<li class=""navi""><a href=""REF_Features_Comparison_Expression_(func._params).html""><div class=""navi"">8.4.3.1 Comparison Expressions (func. params) </div></a></li>";4;REF_Features_Comparison_Expression_(func._params).html;Comparison Expressions (func. params)
+"<li class=""navi""><a href=""REF_Features_Expressions_(func_params).html""><div class=""navi"">8.4.3.2 Expressions (func. params) </div></a></li>";4;REF_Features_Expressions_(func_params).html;Expressions (func. params)
+"<li class=""navi""><a href=""REF_Features_Variables_(func_params).html""><div class=""navi"">8.4.3.3 Variables (func. params) </div></a></li>";4;REF_Features_Variables_(func_params).html;Variables (func. params)
+"<li class=""navi""><a href=""REF_Features_Statements_(func_params).html""><div class=""navi"">8.4.3.4 Statements (func. params) </div></a></li>";4;REF_Features_Statements_(func_params).html;Statements (func. params)
 </ul></li>;4
-"<li class=""navi""><a href=""REF_Features_Expressions_to_select_rows.html""><div class=""navi"">8.3.4 Expressions to Select Rows </div></a></li>";3;REF_Features_Expressions_to_select_rows.html;Expressions to Select Rows
+"<li class=""navi""><a href=""REF_Features_Expressions_to_select_rows.html""><div class=""navi"">8.4.4 Expressions to Select Rows </div></a></li>";3;REF_Features_Expressions_to_select_rows.html;Expressions to Select Rows
 </ul></li>;3
-"<li class=""navi""><a href=""REF_Features_Indirect_parameter_passing.html""><div class=""navi"">8.4 Indirect Parameter Passing </div></a></li>";2;REF_Features_Indirect_parameter_passing.html;Indirect Parameter Passing
+"<li class=""navi""><a href=""REF_Features_Indirect_parameter_passing.html""><div class=""navi"">8.5 Indirect Parameter Passing </div></a></li>";2;REF_Features_Indirect_parameter_passing.html;Indirect Parameter Passing
 </ul></li>;2
 "<li class=""navi""><a href=""REF_Features_Function_Library.html""><div class=""navi"">9 Function Library </div></a></li>";1;REF_Features_Function_Library.html;Function Library
 "<li class=""navi""><ul>";2

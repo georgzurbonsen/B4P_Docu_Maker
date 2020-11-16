@@ -16,14 +16,39 @@ B4PDOCU.START
 	Functions and procedures are subroutines that can be called up using their name.  For simplicity, all such subroutines are referred to
 	as <i>functions</i> throughout the B4P documentation, regardless of whether they provide a return value (as functions) or not (as procedures).
 	
-    "Description 02:Function Naming Conventions"::
+
+    "Description 04:Procedure and Function Calls"::
+
+	Various B4P functions can only be called as functions in __expressions__, standalone <b>procedure calls</b>, or both are allowed.
+	In procedure calls, no return values are made use of.
+	Functions may require either none, a fixed number, or a variable number of __function parameters__ with different __function parameter directions__.
+
+	<br><br>
+
+	=== 200, 600, 200, bold_column_1 bold_column_3
+	Function Nature		| Description					| Examples
+	Function		| * Always provides a return value <br) * Must be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );
+	Procedure		| * Does not provide return values  <br> * Must be called as procedures. <br> * If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);
+	Procedure or function	| * The function can be called as procedrues or functions. <br> * Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);
+	Control flow functions	| __Control flow functions__ require a succeeding statement or code block which will be executed as specified by these functions.  The __if(__) statement is one of them. | if (a[]=1) echo("is 1");
+	===	
+
+	+++
+   },
+
+
+"Function Naming" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function Naming" ],
+    "Description 01:Introduction"::
 
 	Unlike virtually any other programming language, B4P function names are unquoted literals which may consist of multiple words with spaces and special characters inbetween.
 	This scheme allows specifying even sophisticated functions in a normal language, e.g. __table lookup ignore case(__) and makes the language much more readable
 	than using special symbols or upper/lower case scheme to code long function names.  Memorizing such names is much easier for you and your team members.
 
 	<br><br>
-	Please note the following rules for function names:
+	Please note the following rules for function names, especially when creating __user-defined functions__ on your own:
 	* Function names are always specified as __unquoted literals__, i.e. always without quotation marks
 	* Function names are case sensitive
 	* Function names do not interfere with variable names and table names, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>
@@ -52,28 +77,14 @@ B4PDOCU.START
 	"table process"(...)						| Syntax error (see above)
 	===
 
-    "Description 04:Procedure and Function Calls"::
-
-	Various B4P functions can only be called as functions in __expressions__, standalone <b>procedure calls</b>, or both are allowed.
-	In procedure calls, no return values are made use of.
-	Functions may require either none, a fixed number, or a variable number of __function parameters__ with different __function parameter directions__.
-
-	<br><br>
-
-	=== 200, 600, 200, bold_column_1 bold_column_3
-	Function Nature		| Description					| Examples
-	Function		| * Always provides a return value <br) * Must be called inside expressions where the return value is used further. | a[] = abs( 1.5 );<br>echo( sqrt( 81 ) );
-	Procedure		| * Does not provide return values  <br> * Must be called as procedures. <br> * If no parameters are supplied, then the function name can be used alone with semicolon at the end. | echo;<br>echo();<br>echo(Hello);
-	Procedure or function	| * The function can be called as procedrues or functions. <br> * Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);
-	Control flow functions	| __Control flow functions__ require a succeeding statement or code block which will be executed as specified by these functions.  The __if(__) statement is one of them. | if (a[]=1) echo("is 1");
-	===	
-
 	+++
-   },
+
+},
 
 
-  "Function Parameters" :
-  {
+
+"Function Parameters" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Parameters" ],
     "Keywords":			[ "Function parameter" ],
@@ -108,12 +119,12 @@ B4PDOCU.START
 
 
 	+++
-   },
+},
 
 
 
-  "Function Parameter Directions" :
-  {
+"Function Parameter Directions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function parameter directions", "parameter directions" ],
     "Description 01:Introduction"::
@@ -208,7 +219,7 @@ B4PDOCU.START
 	<br><br>
 	See section on __code pieces__ for further details.
 	+++
-  },
+},
 
 
 

@@ -36,6 +36,8 @@ B4PDOCU.START
 	Start B4P alone			| B4P will give you the choice to enter interactive mode or start 'main.b4p' if one is available
 	Call 'interactive' function	| Add 'interactive;' in your B4P program to enter interactive mode.  Type 'return' to continue executing from there
 	Exceptions (errors) happened	| In most exceptions (e.g. syntax errors, wrong parameters, etc.), interactive mode is entered so you can inspect your code, variables and loaded tables
+	B4P waiting before starting "Main.b4p" | If B4P is started without B4P program file specified (i.e. <b>b4p</b> typed as sole command or started form desktop or start menu), then \
+					  "Main.b4P" will start running after waiting for 2 seconds.  If a key is pressed, then this program will not start and interactive mode is entered.
 	===
 
 	+++,
@@ -103,7 +105,7 @@ Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Execute B4P statements interactively" ],
     "Keywords":			[ "interactive statements" ],
-    "Description 01:Interactive Mode"::
+    "Description 01:Introduction"::
 
 	In interactive mode, you can enter any valid B4P program statement which will be executed immediately after pressing the [Enter] key.
 	You are able to specfify multiple statements (example: <b>for (a[]=1, a[]<5, a[]++) echo(a[]); echo(Done.)</b>) in one line and they will
@@ -136,7 +138,7 @@ Massachusetts
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Execute B4P expressions interactively" ],
     "Keywords":			[ "interactive expressions" ],
-    "Description 01:Interactive Mode"::
+    "Description 01:Introduction"::
 
 	You can calculate expressions and see the outcome (value and data type) on the console directly.  The simple syntax
 	consists of an equal sign (<b>=</b>) followed by the expression.

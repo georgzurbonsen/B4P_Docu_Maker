@@ -109,9 +109,9 @@ OK;Body;4;B 6.2.2.5;Smaller than (or Equal to);REF_Features_smaller_than_or_equa
 OK;Body;4;B 6.2.2.6;Greater than (or Equal to);REF_Features_greater_than_or_equal_to.html;greater than or equal to;greater than or equal to;
 OK;Body;3;B 6.2.3;Comparison Options;REF_Features_comparison_options.html;comparison options;comparison options,Epsilon;
 OK;Body;4;B 6.2.3.1;Wildcards;REF_Features_wildcards.html;wildcards;wildcards,wildcard symbols;
-OK;Body;4;B 6.2.3.2;Logical Operators;REF_Features_logical_operators.html;logical operators;logical operators;
-OK;Body;4;B 6.2.3.3;Logical And;REF_Features_logical_and.html;logical and;logical and;
-OK;Body;4;B 6.2.3.4;Logical Or;REF_Features_logical_or.html;logical or;logical or;
+OK;Body;3;B 6.2.4;Logical Operators;REF_Features_logical_operators.html;logical operators;logical operators;
+OK;Body;4;B 6.2.4.1;Logical And;REF_Features_logical_and.html;logical and;logical and;
+OK;Body;4;B 6.2.4.2;Logical Or;REF_Features_logical_or.html;logical or;logical or;
 OK;Body;2;B 6.3;Deep Operators;REF_Features_deep_operators.html;deep operators;deep operators;
 OK;Body;3;B 6.3.1;Deep Unary Operators;REF_Features_deep_unary_operators.html;deep unary operators;deep unary operators;
 OK;Body;3;B 6.3.2;Deep Binary Operators;REF_Features_deep_binary_operators.html;deep binary operators;deep binary operators;
@@ -143,6 +143,7 @@ OK;Body;3;B 7.4.2;"&#43; Transactions from Tables to Variables";REF_Features_ADD
 OK;Body;3;B 7.4.3;"&#43; Transactions from Variables to Tables";REF_Features_ADD_Transactions_from_variables_to_tables.html;ADD Transactions from variables to tables;ADD Transactions from variables to tables;
 OK;Body;3;B 7.4.4;"&#43; Transactions between Tables";REF_Features_ADD_Transactions_between_tables.html;ADD Transactions between tables;ADD Transactions between tables;
 OK;Body;1;B 8;Functions and Procedures;REF_Features_Functions_and_Procedures.html;Functions and Procedures;Functions and Procedures,Function call,Function calls,Procedure call,Procedure calls;
+;Body;2;;Function Naming;;;;
 OK;Body;2;B 8.1;Function Parameters;REF_Features_Function_Parameters.html;Function Parameters;Function Parameters,Function parameter;
 OK;Body;2;B 8.2;Function Parameter Directions;REF_Features_Function_parameter_directions.html;Function parameter directions;Function parameter directions;
 OK;Body;2;B 8.3;Function Parameter Types;REF_Features_Function_parameter_types.html;Function parameter types;Function parameter types;
