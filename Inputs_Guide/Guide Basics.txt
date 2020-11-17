@@ -151,21 +151,12 @@ B4PDOCU.START
 
 
 
-  "B4P Concepts" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P concepts" ],
-//  "Keywords":			[ "add unique keywords" ],
-    "Description 01:Use case 1: Merging two football clubs"::
-
-	Add text here
-
-	+++
-  },
 
 
 
 
+
+// ------------------------------------------------------------------------------------------------
   "Getting Started" :
   {
     "Documentation":		"General Description", // Required value
@@ -227,6 +218,8 @@ B4PDOCU.START
 
 
 
+
+// ------------------------------------------------------------------------------------------------
   "Getting Help" :
   {
     "Documentation":		"General Description", // Required value
@@ -289,6 +282,9 @@ B4PDOCU.START
 
 
 
+
+
+// ------------------------------------------------------------------------------------------------
   "Tutorials" :
   {
     "Documentation":		"General Description", // Required value
