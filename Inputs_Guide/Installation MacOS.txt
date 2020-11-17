@@ -3,42 +3,53 @@ B4PDOCU.START
 
 
 
-"MacOS" :
+"MacOS Installation and Setup" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Installation on MacOS" ],
+    "Feature Names":		[ "Installation and Setup on MacOS" ],
     "Description 01:Introduction"::
 
 	The following pages provide step-by-step instructions for downloading and installing
-	the B4P applications for MacOS.  In the example documented here, the UBUNTU distribution has been used.
-
+	the B4P applications for MacOS.  
+	
 	<br><br>
-	<b>System requirements:</b>
+
+	"Description 02:Computer Requirements"::
+
 	* Computer: Macintosh laptop, iMac, or Mac Mini running the latest version of MacOS
 	* Processor: 64 bit
-	* Memory: Minimum 2 GB; More memory is recommended especially when working with large data
+	* Memory: Minimum 2 GB (More memory is recommended especially when working with large data)
 	* Disk space:  20 MB 
-	* Internet connectivity: Required to access documentation, but not during normal program execution
+	* Internet connectivity: Required to access documentation (but required for program use)
 	* Administrator privileges: You must have privileges to install software on your computer (e.g. allowed to run commands with 'sudo' in front)
 	
-	<b>Software requirements:</b>
-	Download, install, and verify that a code editor, terminal application, and web browser is available and working. Recommended editor, terminal application, and web browsers are as follows:
-	* Code editor:  
-		** Visual Studio Code:  https://code.visualstudio.com/docs/setup/mac
-	* Terminal application: 
-		** iTerm:    https://iterm2.com
-	* Web browser:
-		** Firefox:  https://www.mozilla.orgfirefox
-		** Chrome:   https://www.google.com/chrome
-		** Safari:   https://support.apple.com/downloads/safari
 
-	<b>Terminal application requirements</b>
-	Open the Terminal application (iTerm) and install the following terminal commands as follows:
-	* Add the terminal package manager 'homebrew'.  
+	"Description 03:Software Requirements"::
+
+	Verify that a code editor, terminal application, and web browser are available and working. 
+	Recommended editor, terminal application, and web browsers are as follows:
+
+	* <b>Code editor:</b>  Visual Studio Code.  Download here:
+		**  https://code.visualstudio.com/docs/setup/mac
+
+	* <b> Terminal application:</b>  iTerm   Download here:
+		**  https://iterm2.com
+
+	* <b> Web browser: </b>  Firefox, Chrome, or Safari. Download  here:
+		** https://www.mozilla.orgfirefox
+		** https://www.google.com/chrome
+		** https://support.apple.com/downloads/safari
+
+	<br><br>
+
+	"Description 04:Terminal Application Requirements"::
+
+	Open the Terminal application (iTerm) and install the following terminal commands:
+	* 'brew'.  This provides a capability to install packages
 		** Instructions: https://brew.sh
-	* Add the terminal command 'wget' using homebrew.  
+	* 'wget'.  This provides capability to download any files from the internet.
 		** Instructions: https://www.maketecheasier.com/install-wget-mac
-	* Add the terminal command 'code' to open any file or folder from the terminal
+	* 'code'. This provides capability to open any text file with Visual Studio Code
 		** Instructions: https://code.visualstudio.com/docs/setup/mac
 
 	<br><br>
@@ -46,6 +57,12 @@ B4PDOCU.START
 
 	+++
 },
+
+
+
+
+
+
 
 
 "MacOS - Download" :
@@ -101,6 +118,7 @@ B4PDOCU.START
 	===	
 
 	+++,
+
 	"Description 03:Adjust File Mode Flags (Applicable only if .zip file chosen and extracted)"::
 
 	If you have chosen to use the <b>... .tar.gz</b> file, then the mode flag settings (B4P files executable) are already preserved and you can skip the last step
@@ -260,10 +278,7 @@ chmod: -R: No such file or directory
     31 rows, max 28 columns, 28 columns in 1st row, 868 fields, list separator: ;
 
 
-
-...
 	+++,
-
 
     "Description 03:Select Country and Language Settings"::
 	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules
