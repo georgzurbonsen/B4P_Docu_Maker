@@ -1,6 +1,759 @@
 ﻿
 {
 
+  "Football team merger" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "merging two football clubs" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
+
+
+
+"Description 01:Merging two footbal teams" : [
+"An example of merging and consolidating two sources of data describing football teams.",
+"",
+"<br/><img src=\"Images/GUI_workflow-soccer-merger.png\" alt=\"Guide-Tutorial-Merging Football teams\"><br/>",
+""
+ ]
+,
+
+"Examples 01: 1.Start B4P in the command shell to use interactively" : [
+"> b4p"
+ ]
+,
+
+
+"Output 01:" : [
+"B4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"Version 8.00 Candidate (2020-08-08) 'Wilhelm Tell'",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"Licensed (current user) with standard privileges for Rafael Richards.",
+"",
+"Entering interactive mode.",
+"",
+"Type 'help' for help, 'docs' for pdf manual,  'web docs' for online manual.",
+">>",
+""
+ ]
+,
+
+
+
+"Examples 02: Set the working directory to the data file directory, and list the files" : [
+">> $ cd /b4p/Examples",
+">> $ ls"
+ ]
+,
+
+"Output 02:" : [
+"Current directory changed to '/b4p/Examples/'",
+"",
+"Directory Listing:",
+"Football Membership List.xlsx		",
+"Soccer Membership List.csv		",
+"Example.xml				  ",
+"Example1.json",
+"Tennis and Golf Players.csv",
+"test.csv",
+".",
+".",
+".",
+"...",
+"",
+""
+ ]
+,
+
+
+
+
+"Examples 03: 2. Load Football Membership List (Excel file), and list contents" : [
+">> table load excel file ( football club, Football Membership List.xlsx )",
+">> table list( football club )"
+ ]
+,
+
+
+"Output 03:" : [
+"    Load Excel file 'Football Membership List.xlsx'.",
+"    Done. Table contains 12 rows and up to 4 columns.",
+"",
+"    0 : First Name | Family Name | City         | Level",
+"    1 : Abel       | Amberstone  | Amsterdam    | Beginner",
+"    2 : Beata      | Berghill    | Barcelona    | Experienced",
+"    3 : Corinne    | Carlson     | Copenhagen   | Beginner",
+"    4 : Dietmar    | Davis       | Dublin       | Beginner",
+"    5 : Ellen      | Evans       | Essen        | Beginner",
+"    6 : Fred       | Fisher      | Frankfurt    | Experienced",
+"    7 : Gregory    | Green       | Gaza City    | Experienced",
+"    8 : Henry      | Hansson     | Hamburg      | Experienced",
+"    9 : Ida        | Ingelberg   | Ingolstadt   | Beginner",
+"   10 : John       | Janssen     | Johannesburg | Beginner",
+"   11 : Karl       | Karlsson    | Kansas City  | Experienced",
+""
+ ]
+,
+
+
+
+"Examples 04: Load Soccer Membership List (CSV file), and list contents" : [
+">> table load ( soccer club,   Soccer Membership List.csv );",
+">> table list( soccer club )",
+""
+ ]
+,
+
+
+"Output 04:" : [
+"    Loaded CSV/TSV file 'Soccer Membership List.csv':",
+"    13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;",
+"",
+"    0 : Level        | Town        | Last Name  | First Name",
+"    1 : Questionable | Kyoto       | Karlsson   | Karl",
+"    2 : Novice       | London      | Lee        | Linda",
+"    3 : Experienced  | Morristown  | Miller     | Mike",
+"    4 : Experienced  | New York    | Nguyen     | Nathali",
+"    5 : Experienced  | Oslo        | Oliveiro   | Oscar",
+"    6 : Novice       | Phoenix     | Paulsson   | Petra",
+"    7 : Novice       | Quebec City | Quarles    | Quincy",
+"    8 : Experienced  | Riga        | Richardson | Richard",
+"    9 : Experienced  | San Diego   | Stewart    | Sandra",
+"   10 : Experienced  | Tahoma      | Turner     | Tim",
+"   11 : Questionable | Ulm         | Ufford     | Uwe",
+"   12 : Novice       | Venice      | Viking     | Victor",
+"   "
+ ]
+,
+
+
+
+
+"Description 05: " : [
+"Note that the football club and soccer club use different header names for the same thing ",
+"(Family Name and Last Name; City and Town). ",
+"In preparation to merge the football club table with the soccer club table, replace Family Name with Last Name,  and City with Town."
+ ]
+,
+
+
+
+"Examples 05: 3. Rename column headers to the same names for Last Name and Town" : [
+">> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );",
+">> table list( football club )"
+ ]
+,
+
+
+"Output 05:" : [
+"    0 : First Name | Last Name  | Town         | Level",
+"    1 : Abel       | Amberstone | Amsterdam    | Beginner",
+"    2 : Beata      | Berghill   | Barcelona    | Experienced",
+"    3 : Corinne    | Carlson    | Copenhagen   | Beginner",
+"    4 : Dietmar    | Davis      | Dublin       | Beginner",
+"    5 : Ellen      | Evans      | Essen        | Beginner",
+"    6 : Fred       | Fisher     | Frankfurt    | Experienced",
+"    7 : Gregory    | Green      | Gaza City    | Experienced",
+"    8 : Henry      | Hansson    | Hamburg      | Experienced",
+"    9 : Ida        | Ingelberg  | Ingolstadt   | Beginner",
+"   10 : John       | Janssen    | Johannesburg | Beginner",
+"   11 : Karl       | Karlsson   | Kansas City  | Experienced"
+ ]
+,
+
+
+
+
+
+"Description 06: " : [
+"Note that the football club table and soccer club table use different names for the same basic skill Level (Beginner and Novice). ",
+"In preparation for merging the soccer club table with the football club table,  find all instances of Level that is Novice, and replace with Beginner  "
+ ]
+,
+
+
+
+"Examples 06: 4. Rename Level to Beginner wherever it appears as Novice" : [
+">> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );",
+">> table list( soccer club )"
+ ]
+,
+
+
+"Output 06:" : [
+"    0 : Level        | Town        | Last Name  | First Name",
+"    1 : Questionable | Kyoto       | Karlsson   | Karl",
+"    2 : Beginner     | London      | Lee        | Linda",
+"    3 : Experienced  | Morristown  | Miller     | Mike",
+"    4 : Experienced  | New York    | Nguyen     | Nathali",
+"    5 : Experienced  | Oslo        | Oliveiro   | Oscar",
+"    6 : Beginner     | Phoenix     | Paulsson   | Petra",
+"    7 : Beginner     | Quebec City | Quarles    | Quincy",
+"    8 : Experienced  | Riga        | Richardson | Richard",
+"    9 : Experienced  | San Diego   | Stewart    | Sandra",
+"   10 : Experienced  | Tahoma      | Turner     | Tim",
+"   11 : Questionable | Ulm         | Ufford     | Uwe",
+"   12 : Beginner     | Venice      | Viking     | Victor"
+ ]
+,
+
+
+
+
+"Examples 07: 5. Merge the football club table to the soccer club table (via appending) " : [
+">> table merge ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, \" or \" );",
+">> table list( soccer club )"
+ ]
+,
+
+
+
+"Output 07:" : [
+"",
+"Merged soccer club has 22 members.",
+"",
+"",
+"    0 : Level                       | Town                 | Last Name  | First Name",
+"    1 : Questionable or Experienced | Kyoto or Kansas City | Karlsson   | Karl",
+"    2 : Beginner                    | London               | Lee        | Linda",
+"    3 : Experienced                 | Morristown           | Miller     | Mike",
+"    4 : Experienced                 | New York             | Nguyen     | Nathali",
+"    5 : Experienced                 | Oslo                 | Oliveiro   | Oscar",
+"    6 : Beginner                    | Phoenix              | Paulsson   | Petra",
+"    7 : Beginner                    | Quebec City          | Quarles    | Quincy",
+"    8 : Experienced                 | Riga                 | Richardson | Richard",
+"    9 : Experienced                 | San Diego            | Stewart    | Sandra",
+"   10 : Experienced                 | Tahoma               | Turner     | Tim",
+"   11 : Questionable                | Ulm                  | Ufford     | Uwe",
+"   12 : Beginner                    | Venice               | Viking     | Victor",
+"   13 : Beginner                    | Amsterdam            | Amberstone | Abel",
+"   14 : Experienced                 | Barcelona            | Berghill   | Beata",
+"   15 : Beginner                    | Copenhagen           | Carlson    | Corinne",
+"   16 : Beginner                    | Dublin               | Davis      | Dietmar",
+"   17 : Beginner                    | Essen                | Evans      | Ellen",
+"   18 : Experienced                 | Frankfurt            | Fisher     | Fred",
+"   19 : Experienced                 | Gaza City            | Green      | Gregory",
+"   20 : Experienced                 | Hamburg              | Hansson    | Henry",
+"   21 : Beginner                    | Ingolstadt           | Ingelberg  | Ida",
+"   22 : Beginner                    | Johannesburg         | Janssen    | John",
+""
+ ]
+,
+
+
+
+
+"Examples 08: Sort the rows based on Level and Name" : [
+">> table sort rows ( soccer club,   { Level, Last Name,  First Name });",
+">> table list( soccer club )"
+ ]
+,
+
+
+
+"Output 08:" : [
+"    0 : Level                       | Town                 | Last Name  | First Name",
+"    1 : Beginner                    | Amsterdam            | Amberstone | Abel",
+"    2 : Beginner                    | Copenhagen           | Carlson    | Corinne",
+"    3 : Beginner                    | Dublin               | Davis      | Dietmar",
+"    4 : Beginner                    | Essen                | Evans      | Ellen",
+"    5 : Beginner                    | Ingolstadt           | Ingelberg  | Ida",
+"    6 : Beginner                    | Johannesburg         | Janssen    | John",
+"    7 : Beginner                    | London               | Lee        | Linda",
+"    8 : Beginner                    | Phoenix              | Paulsson   | Petra",
+"    9 : Beginner                    | Quebec City          | Quarles    | Quincy",
+"   10 : Beginner                    | Venice               | Viking     | Victor",
+"   11 : Experienced                 | Barcelona            | Berghill   | Beata",
+"   12 : Experienced                 | Frankfurt            | Fisher     | Fred",
+"   13 : Experienced                 | Gaza City            | Green      | Gregory",
+"   14 : Experienced                 | Hamburg              | Hansson    | Henry",
+"   15 : Experienced                 | Morristown           | Miller     | Mike",
+"   16 : Experienced                 | New York             | Nguyen     | Nathali",
+"   17 : Experienced                 | Oslo                 | Oliveiro   | Oscar",
+"   18 : Experienced                 | Riga                 | Richardson | Richard",
+"   19 : Experienced                 | San Diego            | Stewart    | Sandra",
+"   20 : Experienced                 | Tahoma               | Turner     | Tim",
+"   21 : Questionable                | Ulm                  | Ufford     | Uwe",
+"   22 : Questionable or Experienced | Kyoto or Kansas City | Karlsson   | Karl"
+ ]
+,
+
+
+
+
+
+"Examples 09: Rearrange column order" : [
+">> table rearrange columns ( soccer club, { Level, First Name, Last Name, Town } );",
+">> table list( soccer club )"
+ ]
+,
+
+
+"Output 09:" : [
+"    0 : Level                       | First Name | Last Name  | Town",
+"    1 : Beginner                    | Abel       | Amberstone | Amsterdam",
+"    2 : Beginner                    | Corinne    | Carlson    | Copenhagen",
+"    3 : Beginner                    | Dietmar    | Davis      | Dublin",
+"    4 : Beginner                    | Ellen      | Evans      | Essen",
+"    5 : Beginner                    | Ida        | Ingelberg  | Ingolstadt",
+"    6 : Beginner                    | John       | Janssen    | Johannesburg",
+"    7 : Beginner                    | Linda      | Lee        | London",
+"    8 : Beginner                    | Petra      | Paulsson   | Phoenix",
+"    9 : Beginner                    | Quincy     | Quarles    | Quebec City",
+"   10 : Beginner                    | Victor     | Viking     | Venice",
+"   11 : Experienced                 | Beata      | Berghill   | Barcelona",
+"   12 : Experienced                 | Fred       | Fisher     | Frankfurt",
+"   13 : Experienced                 | Gregory    | Green      | Gaza City",
+"   14 : Experienced                 | Henry      | Hansson    | Hamburg",
+"   15 : Experienced                 | Mike       | Miller     | Morristown",
+"   16 : Experienced                 | Nathali    | Nguyen     | New York",
+"   17 : Experienced                 | Oscar      | Oliveiro   | Oslo",
+"   18 : Experienced                 | Richard    | Richardson | Riga",
+"   19 : Experienced                 | Sandra     | Stewart    | San Diego",
+"   20 : Experienced                 | Tim        | Turner     | Tahoma",
+"   21 : Questionable                | Uwe        | Ufford     | Ulm",
+"   22 : Questionable or Experienced | Karl       | Karlsson   | Kyoto or Kansas City"
+ ]
+,
+
+
+
+"Examples 10: 6. Save table as a new, merged club list in an Excel file" : [
+">> table save ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );"
+ ]
+,
+
+
+"Output 10:" : [
+"Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' containing 1 sheets."
+ ]
+,
+
+
+
+
+
+"Description 15: B4P program": "",
+"Examples 15: Interactive code combined as single B4P program" : [
+"    runtime settings[verbose] = low;",
+"    include ( Support Library );",
+"    include ( Office Library );",
+"    working directory ( Examples );",
+"",
+"    table load excel file       ( football club, Football Membership List.xlsx ); ",
+"    table list                  ( football club );",
+"    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here",
+"    table list                  ( soccer club );",
+"",
+"    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );",
+"    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );",
+"    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, \" or \" );",
+"    echo                        (\"Merged soccer club has \", table length( soccer club )-1, \" members.\");",
+"",
+"    table sort rows             ( soccer club,   { Level, Last Name,  First Name });",
+"    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );",
+"    table list                  ( soccer club );",
+"    table save                  ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );"
+ ]
+	,
+
+"Output 15:B4P Program execution": "automatic"
+
+
+  }
+
+
+,
+
+
+"Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "overview" ],
+"Description 01:Introduction to B4P" : [
+"",
+"	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  ",
+"	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for ingestion, ",
+"	integration, and analysis of many large complex data sources, generating rapid results in easily understood form for immediate use in",
+"	Excel and other business intelligence tools. ",
+"",
+"	<br><br>",
+"",
+"	<br/><img src=\"Images/B4P_General_Overview.jpg\" alt=\"B4P Overview\"><br/>",
+"",
+"",
+"	=== 150, 120, 700, noframe_1stcolbold, noheader",
+"			| <b> data files </b>:  | Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..",
+"			| <b> databases </b>:   | Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)",
+"			| <b> web data </b>:    | Any source of structured data on the web(Wikipedia, ...)",
+"	===",
+""
+ ]
+	
+},
+
+
+
+"Key Benefits" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Key Benefits" ],
+"Description 01:Introduction" : [
+"",
+"	B4P, with its full name <b>Beyond Former Expectations</b> is a language which builds on long-lasting experience focussing on handling large amounts of data",
+"	from different sources and providing efficient means to gather, align an analyze the data quickly and efficiently.  The language is based on ",
+"	following key principles aiming to delivering performance, productivity and professionalism:",
+"",
+"	* Learn the language quickly",
+"	* Minimize the number of statements needed to solve challenging data processing problems",
+"	* No advanced programming skills required (e.g. object oriented programming)",
+"	* Minimize the time required to find solutions for your problems",
+"	* B4P delivers maximum processing performance, especially with large data",
+"	* The language is easy to read and understand",
+"	* Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.",
+"	* The language and run-time machine requires no further installation of external libraries",
+"	* Focus on the problem to solve, without wasting time coding algorithic details",
+"	* A respectable library of procedures and functions, with focus on table data processing, is available",
+"",
+"	<b>Focus on solving the problems and nothing else:</b>",
+"",
+"	<br/><img src=\"Images/Description_Introduction_Flowchart.png\" alt=\"B4P Typical Data Processing Steps\">",
+"",
+"	<br><br>",
+"	By experience, successful solutions have been provided already <b>during the first consultation</b> with colleagues who needed solutions for",
+"	their data processing needs.  They originally expected a cost and time estimation and a project plan for the project in order to approve the ",
+"	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem",
+"	and a lot of money saved.",
+"",
+"	<br><br>",
+"	The full web documentation has been compiled with a B4P program which extracts embedded raw documentation from source code and text files,",
+"	creates one master file (JSON) and generates all pages including tables of contents, illustrations, and code examples which are automatically executed",
+"	and their results included in the documentation.",
+""
+ ]
+	
+},
+
+"Key Features":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Key Features" ],
+"Description 01:Key Benefits" : [
+"",
+"	The overall intention is to provide a tool for you which helps to solve sophisticated problems with large amounts of data involved:",
+"	* <b>Simple</b> procedural language easy to read, understand and lear.",
+"	* Powerful langauge semantics <b>minimizes the number of statements</b> needed to solve the problem.",
+"	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this",
+"	* <b>No programming bureaucracy</b> such as declaring all the variables you need.",
+"	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.",
+"	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly",
+"	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).",
+"	* The run-time machine and all libary files are very lean, very robust and start quickly.",
+"	** Powerful table processing functions available such as merging, consolidating and applying pivots on tables",
+"	** Powerful vector and matrix operations available for high-performance calculations on your tables and data",
+"	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same B4P program on different platforms.",
+"",
+"	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro",
+"	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage",
+"	big data (e.g. indexing).  The syntax is, even though looking differently from other langauges, incredibly easy to understand and to use.",
+"	In contrast to other programming langages, much fewer statements and time are needed, no additional libraries need to be installed ",
+"	separately (like Panda for Python) and you experience unparalleled machine performance, forgetting the fact that B4P is an interpreted language.",
+"",
+""
+ ]
+	,
+"Description 02:No Graphic Gadgets" : [
+"",
+"	Intentionally, B4P does not make use of any visual features such as graphical user interfaces.  For visualization purposes, powerful",
+"	and highly standardized tools such as Microsoft Excel providie all features to do the visualziation, creating all required charts, etc.",
+"	to round up you presentation.   The philosophy of B4P is to do all data processing first and very rapidly, and creating final Excel files",
+"	for visualization purposes.",
+"",
+"	<br><br>",
+"	However, B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already",
+"	included (e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.)."
+ ]
+	
+},
+
+
+
+
+"Use Cases" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "use cases" ],
+//  "Keywords":			[ "add unique keyowrds" ],
+"Description 01:Merging information from different sources" : [
+"",
+"	<b>Problem Statement</b><br>",
+"	Your organization with branch offices in various countries are executing projects in their local markets, but need to",
+"	provide forecasts for parts and semi-finished goods from you.  Because every office is using different systems to manage",
+"	their demand and supply forecasts, and even follow different philosophies (e.g. weekly or monthly forecasting intervals),",
+"	you want to find a solution to merge the decentrally generated information and generate one common supply and demand",
+"	foreasting file.",
+"",
+"",
+"",
+"	Add text here",
+"",
+"	Consider table, or itemization like below",
+"	* Item 1",
+"	* Item 2",
+""
+ ]
+	,
+"Description 02:Features" : [
+"",
+"	Add text here.",
+"	Consider table, or itemization like below",
+"	* Item 1",
+"	* Item 2",
+""
+ ]
+	,
+"Description 03:Use case 2: Presidents from Wikipedia" : [
+"",
+"	Add text here",
+""
+ ]
+	
+  },
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+  "Getting Started" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Getting started" ],
+//  "Keywords":			[ "add unique keywords" ],
+"Description 01:Overview" : [
+"",
+"	Add text here",
+"	"
+ ]
+	
+  },
+
+
+
+
+  "Interactive Mode Workflow" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Interactive mode workflow" ],
+//  "Keywords":			[ "add unique keywords" ],
+"Description 01:Overview" : [
+"",
+"	Add text here",
+"	Note: Interactive commands, e.g. $ ls command, cannot be automated.",
+"	You need to formulate the output contents by hand.  Same applies if you provoke exceptions (error messages).",
+"" ],
+"Examples 01:Directory listing command" : [
+"		$ ls"
+ ]
+	,
+"Output 01:Output is shown manually" : [
+"	.config         b4p          setup          abc.pdf         def.xls",
+"        5 Files."
+ ]
+	
+  },
+
+
+  "Programming Mode Workflow" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Programming mode workflow" ],
+//  "Keywords":			[ "add unique keywords" ],
+"Description 01:Overview" : [
+"",
+"	Add text here",
+"	"
+ ]
+	,
+"Examples 01" : [
+"	echo(\"Hello World\");"
+ ]
+	,
+    "Output 01:This output is generated automatically.": "automatic",
+
+"Description 02:Overview" : [
+"",
+"	Add text here",
+""
+ ]
+	
+  },
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+  "Getting Help" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Getting started" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+""
+ ]
+	,
+"Description 02:Calling an Ambulance" : [
+"",
+"	Add text here",
+"	"
+ ]
+	,
+"Description 03:Calling the Fire Dept." : [
+"",
+"	Add text here",
+"	"
+ ]
+	,
+"Description 04:Calling the Cops" : [
+"",
+"	Add text here",
+"	"
+ ]
+	,
+"Description 05:Calling the Pizza Restaurant" : [
+"",
+"	Add text here",
+"	"
+ ]
+	
+
+  },
+
+
+
+  "Interactive Mode - Help Options" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Interactive mode help options" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"",
+"	"
+ ]
+	
+
+  },
+
+
+  "Access web documentation" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "access web docs" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"	"
+ ]
+	
+
+  },
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+  "Tutorials" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Tutorials" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"	"
+ ]
+	
+
+  },
+
+
+
+  "Introduction to Programming in B4P" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Introduction to programming in B4P" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"	"
+ ]
+	
+
+  },
+
+
+  "B4P Program Examples" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P Program Examples" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"	"
+ ]
+	
+
+  },
+
+
+
+  "Example - Analyzing data from web" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P example analzing data from web" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"	"
+ ]
+	,
+
+"Description 02:Overview" : [
+""
+ ]
+	
+
+  },
+
+
+  "Example - Consolidating data from mulitple spreadsheets" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "B4P example consolidating data" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+"Description 01:Overview" : [
+"	"
+ ]
+	,
+
+"Description 02:Overview" : [
+""
+ ]
+	
+
+  }
+
+
+
+
+,
+
 
 
 "Linux" :
@@ -445,1021 +1198,6 @@
  ]
 	
 }
-
-
-
-,
-
-
-"Terms and Conditions" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Terms and Conditions" ],
-"Description 01:Introduction" : [
-"",
-"	Updated on November 07, 2020 and effective immediately.<br><br>",
-"",
-"	<b>Copyright (C) 2007 - 2020 by Georg zur Bonsen, All rights reserved.</b>",
-"	<br>Hereinafter referred to as \"Owner\".",
-"",
-"	<br><br>",
-"",
-"	The following contents (hereinafter referred to as \"Software\"), are protected by the copyright laws and/or are property of the Owner as stated above:",
-"	* The B4P program package including the B4P run-time machine for all supported target platforms",
-"	* The B4P programming language, including all language constructs and syntactic and semantic language features which are unique to B4P.",
-"	* All B4P library files and B4P library functions which are either part of the installation packages or optionally available from B4P to enhance the functionality.",
-"* The trademark names \"Beyond Former Performance\" and the abbreviation \"B4P\" under the Nice Classification (#42) of <i>\"Scientific and technological services and research and design relating thereto;  	  industrial analysis and research services; design and development of computer hardware and software; legal services.\"</i> are property of the Owner.",
-"",
-"",
-"	By accepting this agreement or by downloading and/or installing any Software offered by the Owner or by ",
-"	clicking or typing \"Install\" or \"Setup\" or similar terms or relate terms in other languages, you agree to the following terms, notwithstanding anything",
-"	to the contrary in this agreement. If you do not agree with any term or condition, do not download, order, install, run or use the Software, and/or ",
-"	irrevocably delete any related contents already downloaded or obtained.",
-""
- ]
-	,
-"Description 02:B4P Runtime Engine - Free Demo Usage" : [
-"",
-"	The Software (here more precisely the installation package) can be downloaded, installed and used at free of charge for the following",
-"	<u>personal and non-commercial purposes</u> such as:",
-"",
-"	* Evaluation,",
-"	* Demonstration, and",
-"	* Education.",
-"",
-"	The Software available as in the free-of-charge configuration runs in <u>demo mode</u> where the following functional restrictions are applying:",
-"",
-"	* B4P tables can only be saved if they contain at most 300 rows and 40 columns.",
-"	* During on B4P session, at most 5 tables can be saved.  The same applies to number of tables and not number of files if using the functions which save multiple tables in one file.",
-"",
-"	The Owner reserves the right to alter the limitations of the Software for the free-of-charge demonstration package any time and without prior notice.",
-"	Please contact the Owner for obtaining a license for unrestricted and/or commercial purposes.",
-"",
-""
- ]
-	,
-"Description 03:Restrictions" : [
-"",
-"	The intellectual property inside the Software, particularly the unique syntactic and semantic language features, the Software (including, but not limited to the run-time engine and all libraries provided), are trade secrets.",
-"	With the download of the Software, you agree not to do any of the following:",
-"	* Make duplicates of the Software to third parties except for passing original and unaltered downloaded B4P installation packages for approved non-commercial uses such as evaluation, demonstration and education.",
-"	* Make any modifications on the Software such as, but not limited to, manipulating the run-time engine or altering the standard library files.",
-"	* Transfer, lease out, lend or otherwise distribute the Software or purchased or obtained B4P licences which have been granted to you to any third party.",
-"* Reverse-engineer, decompile or disassemble the Software (including, but not limited to, the B4P run-time engine and/or any other files in whole or in part inside the B4P Software package),  	  aiming to access trade secrets, obtaining competitive advantages, intending to copy functional contents for other purposes and/or committing any other actions with illegal or fraudulent intentions.",
-"* The Software contains license security functions which prevent unauthorized use.  You are not permitted to make any manipulations on these functions intending to circumvent any restrictions or license management functions  	  and/or implement or execute any kind of software aiming to fraudulently generate functioning license activation keys with the intention to unlock applicable restrictions and make full use of B4P functionality without holding a valid license issued by the Owner.",
-"	* Use the Software (including, but not limited to the B4P run-time engine and/or B4P library files) or the B4P programming language for benchmarking and/or for competitive analysis purposes with the intention to develop a competing product and/or similar programming language.",
-"	* Intending to alter the Software and/or the B4P programming language in order to make it operational on other system platforms not yet supported without written approval by the Owner.",
-"	* Any attempt to rebrand the Software and/or the B4P programming language in any aspects or illegally assume ownership of the Software and/or the programming language.",
-"	* Using the Software and/or the B4P programming language for any illegal and/or unethical purposes, including, but not limited to,",
-"	** initiating actions to download or import illegal and/or unethical contents to be processed by the Software,",
-"	** accessing illegal or unethical websites or other data sources or attaining data illegally or with unethical methods to be processed by the Software,",
-"	** and/or generating output data intended for illegal and/or unethical purposes of any kind.",
-""
- ]
-	,
-"Description 04:Disclaimer" : [
-"	The Owner does not warrant and disclaims any responsibility",
-"",
-"	* That the Software, including the programming language and the libraries, will function, sound, or appear as offered or hoped, or be complete, accurate, reliable, free from interruptions, or free from bugs, errors, viruses, or other harmful content. ",
-"	* From any harm on your target systems resulting from downloading, installing and running the B4P package,",
-"	* That the Software is perfectly running in order to fulfill your requirements,",
-"	* That all reported and known software errors will be corrected.",
-"",
-"	The Owner expressly disclaims any warranties and conditions, express or implied, including but not limited to any implied warranties and conditions of",
-"	merchanatability, fitness for a particular purpose and non-infringement, and any warranties and conditions arising out of course of dealing or usage of trade",
-"	regarding the Software and/or any other related software or files downloaded.",
-"",
-"	<br><br>",
-"",
-"	No advice or information, whether spoken or written, obtained from the Owner or elsewhere will create any liability, warranty or condition not expressly stated in this agreement.",
-"	Some jurisdictions do not allow certain limitations on implied warranties, so the above limitation may not apply to you to its full extent.",
-""
- ]
-	,
-"Description 05:Limitation of Liability" : [
-"",
-"	For free Software downloads, the Owner assumes no liabilities resulting from any harms caused while downloading, installing and/or using the B4P program package and/or",
-"	using the B4P programming language.  In no event and under no theory of liability will the Owner be liable to you for any special, incidental, exemplary, legal or consequential damages",
-"	arising out of or in connection with this agreement or the Software or the programming language whether or not the Owner has been advised of the possibility of such damages. ",
-"	This includes but is not limited to, procurement of substitute goods or services, loss of use, loss data or loss of profits, or business interruption.",
-"	The foregoing limitations will survive even if any limited remedy specified is found to have failed of its essential purpose. ",
-"	Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, ",
-"	so the above limitation or exclusion may not apply to you to its full extent.",
-"",
-"" ],
-"Description 06:Contact" : [
-"",
-"	To be disclosed.",
-""
- ]
-	
-
-  }
-
-
-
-
-,
-
-"Windows" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Installation on Windows" ],
-"Description 01:Introduction" : [
-"",
-"	The following pages provide step-by-step instructions for downloading and installing",
-"	the B4P applications for Windows.",
-"",
-"	<br><br>",
-"	<b>System requirements:</b>",
-"	* Personal computer running Windows 7.0 or higher",
-"	* 64 bit CPU (we are not supporting legacy platforms)",
-"	* You have elevated privileges to do installations (e.g. admin rights on your local machine)",
-"	* Min 2 GB, but more memory is stronly recommended espeically when working with large data",
-"	* B4P requires less than 20 MB disk space",
-"	* Internet connectivity is required to access documentation, but not during normal program execution",
-"",
-"	<b>Special software requirements:</b>",
-"	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.",
-"	* Web browser installed: Microsoft Explorer, Microsoft Edge or Google Chrome",
-"* Install <b>7-ZIP</b>, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.   	  Without this tool, some functions, including file compression/decompression functions and loading Excel files, will not work.",
-"",
-"	Click on the following link: <a href=\"https://www.7-zip.org/download.html\" target=\"_blank\"><b>https://www.7-zip.org/download.html</b></a> to download aind install 7-ZIP.",
-"",
-"	<br><br>",
-"	Continue with __Windows Download__.",
-""
- ]
-	
-},
-
-
-"Windows - Download" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Windows Download" ],
-"Description 01:Introduction" : [
-"",
-"	B4P for Windows can be downloaded by clicking on the following link:",
-"",
-"	<br><br>",
-"",
-"	( Placeholder for a link to download the file )",
-"",
-"	<br><br>",
-"",
-"	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all",
-"	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.",
-"",
-"	<br><br>",
-"" ],
-"Description 02:Extracting the Files" : [
-"",
-"	The downloaded file is a compressed <b>.zip</b> file.",
-"	* Move the .zip file into a directory where you want to extract it",
-"	* Then use the right mouse key to click on the file.  A pop-up menu occurs and use the the decompression option provided by Windows or 7-ZIP.",
-"",
-"	<br><br>",
-"	You should see the following extracted files and directories:",
-"",
-"	=== 300, 700, noheader, bold_column_1",
-"	B4P.exe			| B4P run-time machine including the language interpreter. A link to this file will be included in the start menu and added to the desktop if requested.",
-"	Setup.exe		| B4P installation program",
-"	Install.txt		| Installation script, open source, written in B4P.  This program is protected from modifications.",
-"	vcruntime140_1.dll	| Dynamic link library used by B4P.exe",
-"	b4picon.ico		| Windows icon for B4P files (.b4p filetype)",
-"	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)",
-"	lib\\			| Directory containing B4P library files",
-"	weblib\\			| Directory containing Web-specific library features written in JavaScript",
-"	===",
-"	<br>",
-"	The contents in 'weblib' contain some CSS files and Javascript codes files which are provided by SpryMedia Ltd, Scottland, and are in use under the MIT license.",
-"",
-"	<br><br>",
-"	Included B4P programs:",
-"	=== 300, 700, noheader, bold_column_1",
-"	main.b4p			| A default B4P program which can start automatically if declared so",
-"	interactive.b4p			| A 1-statement B4P program going to interactive mode directly",
-"	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.",
-"	hello world.b4p			| Self-explanatory",
-"start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P  					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.",
-"	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.",
-"	===	",
-"",
-"	<br><br>",
-"	Continue with __Windows Installation__.",
-""
- ]
-	
-},
-
-
-
-"Windows - Installation" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Windows Installation" ],
-"Description 01:Introduction" : [
-"",
-"	To start the installation, click on \"setup.exe\" which is a console-driven installation program. ",
-"",
-"	* You will be asked whether you want to let the software do changes on the system.  Click on Yes",
-"",
-"	The follwoing contents will appear:"
- ]
-	,
-"Examples 01:" : [
-"B4P - Installation Program",
-"_______________________________________________________________________________",
-"",
-"Version 8.00 Candidate (2020-11-04)",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"",
-"Info: Enhanced access privileges activated for this B4P script.",
-"",
-"",
-"B4P installation program is starting ...",
-"",
-"1 >> Check the B4P privileges to run installation program ...",
-"",
-"",
-"2 >> Installation program - Main Menu ...",
-"",
-"     M :  Do Machine installation for all users",
-"     U :  Do User installation (your user name only)",
-"     D :  De-install B4P",
-"     I :  Do Identification for acquiring a license",
-"     E :  Exit installer without actions",
-"Please select:"
- ]
-	,
-"Description 02:" : [
-"	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\\Program Files\\B4P</b>.  ",
-"	However, Choice 'U' puts the file into a directory owned by you only and will not be visible by other users sharing the same machine.",
-"	If no specific issues apply, choice 'M' is strongly recommended.",
-"",
-"	<br><br>",
-"	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.",
-""
- ]
-	,
-"Examples 02:" : [
-"",
-"2 >> Installation program - Main Menu ...",
-"",
-"     M :  Do Machine installation for all users",
-"     U :  Do User installation (your user name only)",
-"     D :  De-install B4P",
-"     I :  Do Identification for acquiring a license",
-"     E :  Exit installer without actions",
-"Please select: M",
-"",
-"3 >> Check that all required files are available for installation ...",
-"...",
-"4.1 >> Remove legacy files ...",
-"...",
-"4.2 >> Identify locations for the program files ...",
-"...",
-"5 >> Deleting B4P program and application data subdirectories (if existing) ...",
-"...",
-"6 >> Windows - Identify desktop and start menu locations ...",
-"...",
-"7 >> Windows - Delete old contents in desktop and start menu locations ...",
-"...",
-"8 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...",
-"...",
-"9 >> Create new folders for B4P program ...",
-"...",
-"10 >> Copy all files to destination directory 'C:\\Program Files\\B4P ...",
-"..."
- ]
-	,
-"Description 03:Select Country and Language Settings" : [
-"	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules",
-"	things like number and date format, currency symbols, month and weekday names in the specified language, etc.",
-"",
-"	<br><br>",
-"",
-"	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as",
-"	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, ",
-"	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or ",
-"	more parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.",
-""
- ]
-	,
-"Examples 03:" : [
-"11 >> Restore user and locale settings (if available) ...",
-"",
-"    User settings file: skipped.",
-"",
-"    No locale settings have been defined yet.",
-"",
-"    Step 1 - Choose language:",
-"     A :  none",
-"     B :  English",
-"     C :  Hindi",
-"     D :  German",
-"     E :  French",
-"     F :  Italian",
-"     G :  Spanish",
-"     H :  Swedish",
-"Please select: D",
-"",
-"    Step 2 - Choose country:",
-"     A :  Germany",
-"     B :  Switzerland",
-"     C :  Austria",
-"     D :  Italy",
-"Please select: B",
-"    Locale chosen: de_CH",
-"    Done setting locale.",
-""
- ]
-	,
-"Description 04:Add Shortcut on the Windows Desktop" : [
-"	If you reply positively, then two icons will be added to your desktop: The B4P run-time machine, and the link to the B4P online documentation.",
-""
- ]
-	,
-"Examples 04:" : [
-"12 >> Adding B4P shortcut on the desktop ...",
-"",
-"",
-"    Do you want to create a shortcut on the desktop (N,Y)?",
-"    Create shortcut on the desktop",
-"",
-"13 >> Adding B4P shortcut in the main menu ...",
-"...",
-"14.1 >> Windows - Assign file type '.b4p' to B4P (start) and Editor (edit) and to an icon ...",
-"...",
-"14.2 >> Windows - Include B4P in path environment variable.",
-"..."
- ]
-	,
-"Description 05:Activating B4P with License File or in Demo Mode" : [
-"	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,",
-"	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have",
-"	received in order to deactivate all restrictions.",
-"",
-"	<br><br>",
-"	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path",
-"	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.",
-"	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.",
-""
- ]
-	,
-
-"Examples 05:" : [
-"",
-"15 >> Program Licensing ...",
-"",
-"",
-"License activation ...",
-"",
-"    Specify the license file (typically called 'B4P Licsense File.json'), or",
-"    press [Enter] to skip this and run B4P in demo mode with some restrictions.",
-"    Enter path + file name or press [Enter] to skip",
-"    -->",
-"    Nothing entered.  B4P will be activated in demo mode.",
-"",
-">>  Congratulations! Installation has been completed.",
-""
- ]
-	,
-"Description 06:Option - Create a personal folder" : [
-"	This is a nice feature especially for beginners. Highly recommended.",
-"	A directory called <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b> will be created",
-"	and contains the following files: ",
-"	* hello world.b4p",
-"	* interacctive b4p",
-"	* main.b4p",
-"	* start B4P here.b4p",
-"",
-"	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.",
-""
- ]
-	,
-"Examples 06:" : [
-"    Do you want to create a personal B4P program folder ?  Y",
-"    Creating directory: C:\\Users\\Zur Bonsen Georg\\Documents\\Programs\\B4P",
-"    If directory or files already exist, then existing files will not be overwritten.",
-"",
-"    Done creating this directory.",
-"    When you start B4P from start menu or desktop without file specified, the 'Main.b4p'",
-"    in this directory will be started.",
-"",
-"",
-"    Highly advisable to restart your machine so all configuration settings for this installation are in effect.",
-"",
-"",
-"Done - Press ENTER key",
-""
- ]
-    ,
-"Description 07:Concluding the Installation" : [
-"	Press [Enter] to close the console window.  Now you are ready to start working with B4P.",
-"",
-"	<br><br>Consider a __Windows Getting Started__ first to see if your installation is fine.",
-""
- ]
-    
-},
-
-
-
-
-"Windows - Getting Started" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Windows Getting Started" ],
-"Description 01:Introduction" : [
-"",
-"	As a general advice, restart your machine because various graphic icons will not show up immediately and",
-"	the paths needed to start B4P from command line will be effective after the restart only.",
-"",
-"	<br><br>",
-"",
-"	As a first step, go to <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b>.",
-"	Using the Microsoft file explorer, right-click on the file <b>Hello World.b4p</b> and choose <b>Edit</b> in the",
-"	pop-up menu. Depending on your country and language settings in Windows, it may be in a different language, ",
-"	but typically it's the 2nd menu entry after <b>Open</b>:",
-"",
-"	<br/><br/><img src=\"Images/GUI_Windows_Example_Files_Edit.png\" alt=\"Windows Open in Explorer\"><br/>",
-"",
-"	<br><br>",
-"	The Microsoft editor will open and show the source code:"
- ]
-	,
-"Examples 01:" : [
-"#!/usr/local/bin/b4p -x",
-"",
-"// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a \"Shebang\".",
-"// It specifies the language interpreter to use when started as an executable file.",
-"// You can delete this line it if you plan to use B4P under Windows only.",
-"",
-"",
-"echo(Hello World);",
-""
- ]
-	,
-"Description 02:" : [
-"",
-"	Close the editor.  You have two choices to run this program:",
-"	* Double-click on the file \"Hello World.b4p\" using the left mouse button",
-"	* Click the file \"Hello World.b4p\" with the right mouse button and choose the 1st menu entry <b>Open</b>.",
-"",
-"	<br/><img src=\"Images/GUI_Windows_Example_Files.png\" alt=\"Windows Start in Explorer\"><br/>",
-"",
-"	<br><br>",
-"	The program will start and you will see the following output:"
- ]
-	,
-"Output 02:In the very first run, B4P searches the 7-Zip utility and memorizes its whereabouts:" : [
-"B4P - Beyond Former Performance",
-"_______________________________________________________________________________",
-"",
-"Version 8.00 Candidate (2020-11-12)",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"",
-"*** No valid license found. For demos, education and evaluation only.",
-"    Some functional restrictions apply.",
-"",
-"Look for the 7Z compression/decomopression utility",
-"",
-"Found following program file paths: {'C:\\Program Files','C:\\Program Files (x86)'}",
-" - 7z.exe Zip-utility found in {'C:\\Program Files\\7-Zip\\7z.exe'} (OK)",
-"Hello World",
-"Done - Press ENTER key"
- ]
-	,
-"Output 03:Outcome if this is not the very first run:" : [
-"B4P - Beyond Former Performance",
-"_______________________________________________________________________________",
-"",
-"Version 8.00 Candidate (2020-11-12)",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"",
-"*** No valid license found. For demos, education and evaluation only.",
-"    Some functional restrictions apply.",
-"",
-"Hello World",
-"Done - Press ENTER key"
- ]
-	,
-"Description 04:" : [
-"	Congratulations.  B4P has successfully started. Press [Enter] to close the console window.  This is the easiest",
-"	way to run B4P program files.",
-"" ],
-"Description 05:Starting B4P from Start Menu" : [
-"",
-"	As a next step, you will learn how to start B4P directly without specifying a program file.",
-"	In this case, it will look for the",
-"	B4P program called \"main.b4p\" in the currently configured starting directory.  After the",
-"	installation with the personal folder created, the directory <b>C:\\Users\\Your user name\\Documents\\Programs\\B4P</b>",
-"	the memorized starting directory.",
-"",
-"	<br><br>",
-"",
-"	You can change the starting directory to a different location by making a copy of <b>start B4P here.b4p</b>",
-"	into a different directory and click on it to execute it.  Don't do it for this first example yet.",
-"",
-"	<br><br>",
-"	In the starting directory, B4P will look for the file 'main.b4p'.  If the file is available, then you",
-"	will be asked whether to start that one or enter interactive mode instead.  Start the program.",
-"	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.",
-"",
-"	<br><br>",
-"	Start B4P using the start menu:",
-"",
-"	<br/><img src=\"Images/GUI_Windows_Start_Menu.png\" alt=\"Windows Start Menu\"><br/>",
-"",
-"	<br><br>",
-"	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start the run-time machine.",
-"	The following output will occur:",
-""
- ]
-    ,
-"Output 05:Wait 2 seconds and main.b4p starts, or hit any key to interrupt and enter interative mode" : [
-"B4P - Beyond Former Performance",
-"_______________________________________________________________________________",
-"",
-"Version 8.00 Candidate (2020-11-12)",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"",
-"*** No valid license found. For demos, education and evaluation only.",
-"    Some functional restrictions apply.",
-"",
-"Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.",
-"Main.b4p in C:\\Users\\Zur Bonsen Georg\\Documents\\Programs\\B4P completed execution.",
-"Feel free to add or change the code in this file.",
-"",
-"Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.",
-">> exit",
-"exit (); called",
-"Done - Press ENTER key"
- ]
-    ,
-"Description 06:Starting B4P from the Windows Desk Top" : [
-"	The actual statement in this file is to output 'Test', similar as the 'Hello World.b4p' program is doing.",
-"	If you have also installed shortcuts on the desktop, click on the following symbol and you will get the same output.",
-"",
-"	<br/><img src=\"Images/GUI_Windows_Desktop.png\" alt=\"Windows Desktop Icons\"><br/>",
-"	",
-"	As of now, you are ready to start. <br>",
-"	<u>Hint</u>: To access the documentation, click on the icon \"B4P Manual\" on the desktop or in the start menu.  For the first time,",
-"	you will be asked to select the favorite browser (must exist on your PC).  Following this, the starting page will open up.",
-"	Internet connectivitiy is required for this."
- ]
-	,
-
-"Description 07:Starting B4P from Command Line" : [
-"	Start <b>cmd</b> or alternatively <b>powershell</b> and type <b>b4p</b> or <b>B4P</b>.",
-"	After the command, you can provide additional command line arguments such as the B4P program file to start, further command line",
-"	parameters proiding additional information to the B4P program, and/or command options (switches) which begin with a minus sign.",
-"	<br><br>",
-"",
-"	The following example uses the switch <b>-x</b> which exits B4P immediatly without asking to press [Enter] when the B4P",
-"	program has finished running.  You can try it on both Microsoft Powershell and the CMD console."
- ]
-	,
-"Output 07:" : [
-"PS C:\\Users\\Your user name> cd \"C:\\Users\\Your user name\\Documents\\Programs\\B4P\"                     ",
-"PS C:\\Users\\Your user name\\Documents\\Programs\\B4P> ls *.b4p                                                           ",
-"",
-"    Verzeichnis: C:\\Users\\Your user name\\Documents\\Programs\\B4P",
-"",
-"",
-"Mode                LastWriteTime         Length Name",
-"----                -------------         ------ ----",
-"-a----         06.11.20     22:18            482 Hello World.b4p",
-"-a----         02.10.20     21:52             12 interactive.b4p",
-"-a----         15.08.20     23:52             11 Main.b4p",
-"-a----         06.11.20     22:34            555 Start B4P here.b4p",
-"",
-"",
-"PS C:\\Users\\Your user name\\Documents\\Programs\\B4P> b4p -x \"Hello World.b4p\"                                           ",
-"BB4P - Beyond Former Performance",
-"_______________________________________________________________________________",
-"",
-"Version 8.00 Candidate (2020-11-12)",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"",
-"*** No valid license found. For demos, education and evaluation only.",
-"    Some functional restrictions apply.",
-"",
-"Hello World",
-"PS C:\\Users\\Your user name\\Documents\\Programs\\B4P>"
- ]
-	,
-"Description 08:Accessing the Reference Manual" : [
-"	Congratulations.  You have been able to get your first B4P programs running.",
-"	You also find the file \"B4P Reference Manual.b4p\". You have three possibilites to access the on-line documentation:",
-"	* <b>\"./B4P Reference Manual.b4p\"</b> (Command fully spelled out)",
-"	* <b>./*Manual*</b> (More convenient if you use wildcard symbols)",
-"	* Inside B4P running in interactive mode, you can type <b>docs</b> to access the documentation, too.",
-"	At the first time, you will be asked for the browser you wish (currently Edge, Explorer and Chrome are supported),",
-"	following this the on-line documentation opens up.",
-""
- ]
-	
-}
-
-
-
-
-
-
-,
-
-
-"Overview" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "overview" ],
-"Description 01:Introduction to B4P" : [
-"",
-"	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  ",
-"	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, ",
-"	complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. ",
-"",
-"	<br><br>",
-"",
-"	<br/><img src=\"Images/B4P_General_Overview.jpg\" alt=\"B4P Overview\"><br/>",
-"",
-"",
-"	=== 150, 120, 700, noframe_1stcolbold, noheader",
-"			| <b> data files </b>:  | Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..",
-"			| <b> databases </b>:   | Exports from corporate databases (Salesforce, Oracle, SAP, Access, ..)",
-"			| <b> web data </b>:    | Any source of structured data on the web(Wikipedia, ...)",
-"	===",
-""
- ]
-	
-},
-
-
-
-"Key Benefits" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Key Benefits" ],
-"Description 01:Introduction" : [
-"",
-"	B4P, with its full name <b>Beyond Former Expectations</b> is a language which builds on long-lasting experience focussing on handling large amounts of data",
-"	from different sources and providing efficient means to gather, align an analyze the data quickly and efficiently.  The language is based on ",
-"	following key principles aiming to delivering performance, productivity and professionalism:",
-"",
-"	* Learn the language quickly",
-"	* Minimize the number of statements needed to solve challenging data processing problems",
-"	* No advanced programming skills required (e.g. object oriented programming)",
-"	* Minimize the time required to find solutions for your problems",
-"	* B4P delivers maximum processing performance, especially with large data",
-"	* The language is easy to read and understand",
-"	* Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.",
-"	* The language and run-time machine requires no further installation of external libraries",
-"	* Focus on the problem to solve, without wasting time coding algorithic details",
-"	* A respectable library of procedures and functions, with focus on table data processing, is available",
-"",
-"	<b>Focus on solving the problems and nothing else:</b>",
-"",
-"	<br/><img src=\"Images/Description_Introduction_Flowchart.png\" alt=\"B4P Typical Data Processing Steps\">",
-"",
-"	<br><br>",
-"	By experience, successful solutions have been provided already <b>during the first consultation</b> with colleagues who needed solutions for",
-"	their data processing needs.  They originally expected a cost and time estimation and a project plan for the project in order to approve the ",
-"	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem",
-"	and a lot of money saved.",
-"",
-"	<br><br>",
-"	The full web documentation has been compiled with a B4P program which extracts embedded raw documentation from source code and text files,",
-"	creates one master file (JSON) and generates all pages including tables of contents, illustrations, and code examples which are automatically executed",
-"	and their results included in the documentation.",
-""
- ]
-	
-},
-
-"Key Features":
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Key Features" ],
-"Description 01:Key Benefits" : [
-"",
-"	The overall intention is to provide a tool for you which helps to solve sophisticated problems with large amounts of data involved:",
-"	* <b>Simple</b> procedural language easy to read, understand and lear.",
-"	* Powerful langauge semantics <b>minimizes the number of statements</b> needed to solve the problem.",
-"	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this",
-"	* <b>No programming bureaucracy</b> such as declaring all the variables you need.",
-"	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.",
-"	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly",
-"	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).",
-"	* The run-time machine and all libary files are very lean, very robust and start quickly.",
-"	** Powerful table processing functions available such as merging, consolidating and applying pivots on tables",
-"	** Powerful vector and matrix operations available for high-performance calculations on your tables and data",
-"	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same B4P program on different platforms.",
-"",
-"	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro",
-"	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage",
-"	big data (e.g. indexing).  The syntax is, even though looking differently from other langauges, incredibly easy to understand and to use.",
-"	In contrast to other programming langages, much fewer statements and time are needed, no additional libraries need to be installed ",
-"	separately (like Panda for Python) and you experience unparalleled machine performance, forgetting the fact that B4P is an interpreted language.",
-"",
-""
- ]
-	,
-"Description 02:No Graphic Gadgets" : [
-"",
-"	Intentionally, B4P does not make use of any visual features such as graphical user interfaces.  For visualization purposes, powerful",
-"	and highly standardized tools such as Microsoft Excel providie all features to do the visualziation, creating all required charts, etc.",
-"	to round up you presentation.   The philosophy of B4P is to do all data processing first and very rapidly, and creating final Excel files",
-"	for visualization purposes.",
-"",
-"	<br><br>",
-"	However, B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already",
-"	included (e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.)."
- ]
-	
-},
-
-
-
-
-"Use Cases" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "use cases" ],
-//  "Keywords":			[ "add unique keyowrds" ],
-"Description 01:Merging information from different sources" : [
-"",
-"	<b>Problem Statement</b><br>",
-"	Your organization with branch offices in various countries are executing projects in their local markets, but need to",
-"	provide forecasts for parts and semi-finished goods from you.  Because every office is using different systems to manage",
-"	their demand and supply forecasts, and even follow different philosophies (e.g. weekly or monthly forecasting intervals),",
-"	you want to find a solution to merge the decentrally generated information and generate one common supply and demand",
-"	foreasting file.",
-"",
-"",
-"",
-"	Add text here",
-"",
-"	Consider table, or itemization like below",
-"	* Item 1",
-"	* Item 2",
-""
- ]
-	,
-"Description 02:Features" : [
-"",
-"	Add text here.",
-"	Consider table, or itemization like below",
-"	* Item 1",
-"	* Item 2",
-""
- ]
-	,
-"Description 03:Use case 2: Presidents from Wikipedia" : [
-"",
-"	Add text here",
-""
- ]
-	
-  },
-
-
-
-  "B4P Concepts" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P concepts" ],
-//  "Keywords":			[ "add unique keywords" ],
-"Description 01:Use case 1: Merging two football clubs" : [
-"",
-"	Add text here",
-""
- ]
-	
-  },
-
-
-
-
-  "Getting Started" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Getting started" ],
-//  "Keywords":			[ "add unique keywords" ],
-"Description 01:Overview" : [
-"",
-"	Add text here",
-"	"
- ]
-	
-  },
-
-
-
-
-  "Interactive Mode Workflow" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Interactive mode workflow" ],
-//  "Keywords":			[ "add unique keywords" ],
-"Description 01:Overview" : [
-"",
-"	Add text here",
-"	Note: Interactive commands, e.g. $ ls command, cannot be automated.",
-"	You need to formulate the output contents by hand.  Same applies if you provoke exceptions (error messages).",
-"" ],
-"Examples 01:Directory listing command" : [
-"		$ ls"
- ]
-	,
-"Output 01:Output is shown manually" : [
-"	.config         b4p          setup          abc.pdf         def.xls",
-"        5 Files."
- ]
-	
-  },
-
-
-  "Programming Mode Workflow" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Programming mode workflow" ],
-//  "Keywords":			[ "add unique keywords" ],
-"Description 01:Overview" : [
-"",
-"	Add text here",
-"	"
- ]
-	,
-"Examples 01" : [
-"	echo(\"Hello World\");"
- ]
-	,
-    "Output 01:This output is generated automatically.": "automatic",
-
-"Description 02:Overview" : [
-"",
-"	Add text here",
-""
- ]
-	
-  },
-
-
-
-
-  "Getting Help" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Getting started" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-""
- ]
-	,
-"Description 02:Calling an Ambulance" : [
-"",
-"	Add text here",
-"	"
- ]
-	,
-"Description 03:Calling the Fire Dept." : [
-"",
-"	Add text here",
-"	"
- ]
-	,
-"Description 04:Calling the Cops" : [
-"",
-"	Add text here",
-"	"
- ]
-	,
-"Description 05:Calling the Pizza Restaurant" : [
-"",
-"	Add text here",
-"	"
- ]
-	
-
-  },
-
-
-
-  "Interactive Mode - Help Options" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Interactive mode help options" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"",
-"	"
- ]
-	
-
-  },
-
-
-  "Access web documentation" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "access web docs" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"	"
- ]
-	
-
-  },
-
-
-
-  "Tutorials" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Tutorials" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"	"
- ]
-	
-
-  },
-
-
-
-  "Introduction to Programming in B4P" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Introduction to programming in B4P" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"	"
- ]
-	
-
-  },
-
-
-  "B4P Program Examples" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P Program Examples" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"	"
- ]
-	
-
-  },
-
-
-
-  "Example - Analyzing data from web" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P example analzing data from web" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"	"
- ]
-	,
-
-"Description 02:Overview" : [
-""
- ]
-	
-
-  },
-
-
-  "Example - Consolidating data from mulitple spreadsheets" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P example consolidating data" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-"Description 01:Overview" : [
-"	"
- ]
-	,
-
-"Description 02:Overview" : [
-""
- ]
-	
-
-  }
-
 
 
 
@@ -2039,6 +1777,516 @@
 
 ,
 
+"Windows" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on Windows" ],
+"Description 01:Introduction" : [
+"",
+"	The following pages provide step-by-step instructions for downloading and installing",
+"	the B4P applications for Windows.",
+"",
+"	<br><br>",
+"	<b>System requirements:</b>",
+"	* Personal computer running Windows 7.0 or higher",
+"	* 64 bit CPU (we are not supporting legacy platforms)",
+"	* You have elevated privileges to do installations (e.g. admin rights on your local machine)",
+"	* Min 2 GB, but more memory is stronly recommended espeically when working with large data",
+"	* B4P requires less than 20 MB disk space",
+"	* Internet connectivity is required to access documentation, but not during normal program execution",
+"",
+"	<b>Special software requirements:</b>",
+"	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.",
+"	* Web browser installed: Microsoft Explorer, Microsoft Edge or Google Chrome",
+"* Install <b>7-ZIP</b>, a free of charge compression and decompression tool.  This tool is needed because standard Windows installations provide no command level ZIP tool.   	  Without this tool, some functions, including file compression/decompression functions and loading Excel files, will not work.",
+"",
+"	Click on the following link: <a href=\"https://www.7-zip.org/download.html\" target=\"_blank\"><b>https://www.7-zip.org/download.html</b></a> to download aind install 7-ZIP.",
+"",
+"	<br><br>",
+"	Continue with __Windows Download__.",
+""
+ ]
+	
+},
+
+
+"Windows - Download" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Windows Download" ],
+"Description 01:Introduction" : [
+"",
+"	B4P for Windows can be downloaded by clicking on the following link:",
+"",
+"	<br><br>",
+"",
+"	( Placeholder for a link to download the file )",
+"",
+"	<br><br>",
+"",
+"	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all",
+"	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.",
+"",
+"	<br><br>",
+"" ],
+"Description 02:Extracting the Files" : [
+"",
+"	The downloaded file is a compressed <b>.zip</b> file.",
+"	* Move the .zip file into a directory where you want to extract it",
+"	* Then use the right mouse key to click on the file.  A pop-up menu occurs and use the the decompression option provided by Windows or 7-ZIP.",
+"",
+"	<br><br>",
+"	You should see the following extracted files and directories:",
+"",
+"	=== 300, 700, noheader, bold_column_1",
+"	B4P.exe			| B4P run-time machine including the language interpreter. A link to this file will be included in the start menu and added to the desktop if requested.",
+"	Setup.exe		| B4P installation program",
+"	Install.txt		| Installation script, open source, written in B4P.  This program is protected from modifications.",
+"	vcruntime140_1.dll	| Dynamic link library used by B4P.exe",
+"	b4picon.ico		| Windows icon for B4P files (.b4p filetype)",
+"	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)",
+"	lib\\			| Directory containing B4P library files",
+"	weblib\\			| Directory containing Web-specific library features written in JavaScript",
+"	===",
+"	<br>",
+"	The contents in 'weblib' contain some CSS files and Javascript codes files which are provided by SpryMedia Ltd, Scottland, and are in use under the MIT license.",
+"",
+"	<br><br>",
+"	Included B4P programs:",
+"	=== 300, 700, noheader, bold_column_1",
+"	main.b4p			| A default B4P program which can start automatically if declared so",
+"	interactive.b4p			| A 1-statement B4P program going to interactive mode directly",
+"	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.",
+"	hello world.b4p			| Self-explanatory",
+"start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P  					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.",
+"	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.",
+"	===	",
+"",
+"	<br><br>",
+"	Continue with __Windows Installation__.",
+""
+ ]
+	
+},
+
+
+
+"Windows - Installation" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Windows Installation" ],
+"Description 01:Introduction" : [
+"",
+"	To start the installation, click on \"setup.exe\" which is a console-driven installation program. ",
+"",
+"	* You will be asked whether you want to let the software do changes on the system.  Click on Yes",
+"",
+"	The follwoing contents will appear:"
+ ]
+	,
+"Examples 01:" : [
+"B4P - Installation Program",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-04)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"Info: Enhanced access privileges activated for this B4P script.",
+"",
+"",
+"B4P installation program is starting ...",
+"",
+"1 >> Check the B4P privileges to run installation program ...",
+"",
+"",
+"2 >> Installation program - Main Menu ...",
+"",
+"     M :  Do Machine installation for all users",
+"     U :  Do User installation (your user name only)",
+"     D :  De-install B4P",
+"     I :  Do Identification for acquiring a license",
+"     E :  Exit installer without actions",
+"Please select:"
+ ]
+	,
+"Description 02:" : [
+"	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\\Program Files\\B4P</b>.  ",
+"	However, Choice 'U' puts the file into a directory owned by you only and will not be visible by other users sharing the same machine.",
+"	If no specific issues apply, choice 'M' is strongly recommended.",
+"",
+"	<br><br>",
+"	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.",
+""
+ ]
+	,
+"Examples 02:" : [
+"",
+"2 >> Installation program - Main Menu ...",
+"",
+"     M :  Do Machine installation for all users",
+"     U :  Do User installation (your user name only)",
+"     D :  De-install B4P",
+"     I :  Do Identification for acquiring a license",
+"     E :  Exit installer without actions",
+"Please select: M",
+"",
+"3 >> Check that all required files are available for installation ...",
+"...",
+"4.1 >> Remove legacy files ...",
+"...",
+"4.2 >> Identify locations for the program files ...",
+"...",
+"5 >> Deleting B4P program and application data subdirectories (if existing) ...",
+"...",
+"6 >> Windows - Identify desktop and start menu locations ...",
+"...",
+"7 >> Windows - Delete old contents in desktop and start menu locations ...",
+"...",
+"8 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...",
+"...",
+"9 >> Create new folders for B4P program ...",
+"...",
+"10 >> Copy all files to destination directory 'C:\\Program Files\\B4P ...",
+"..."
+ ]
+	,
+"Description 03:Select Country and Language Settings" : [
+"	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules",
+"	things like number and date format, currency symbols, month and weekday names in the specified language, etc.",
+"",
+"	<br><br>",
+"",
+"	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as",
+"	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, ",
+"	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or ",
+"	more parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.",
+""
+ ]
+	,
+"Examples 03:" : [
+"11 >> Restore user and locale settings (if available) ...",
+"",
+"    User settings file: skipped.",
+"",
+"    No locale settings have been defined yet.",
+"",
+"    Step 1 - Choose language:",
+"     A :  none",
+"     B :  English",
+"     C :  Hindi",
+"     D :  German",
+"     E :  French",
+"     F :  Italian",
+"     G :  Spanish",
+"     H :  Swedish",
+"Please select: D",
+"",
+"    Step 2 - Choose country:",
+"     A :  Germany",
+"     B :  Switzerland",
+"     C :  Austria",
+"     D :  Italy",
+"Please select: B",
+"    Locale chosen: de_CH",
+"    Done setting locale.",
+""
+ ]
+	,
+"Description 04:Add Shortcut on the Windows Desktop" : [
+"	If you reply positively, then two icons will be added to your desktop: The B4P run-time machine, and the link to the B4P online documentation.",
+""
+ ]
+	,
+"Examples 04:" : [
+"12 >> Adding B4P shortcut on the desktop ...",
+"",
+"",
+"    Do you want to create a shortcut on the desktop (N,Y)?",
+"    Create shortcut on the desktop",
+"",
+"13 >> Adding B4P shortcut in the main menu ...",
+"...",
+"14.1 >> Windows - Assign file type '.b4p' to B4P (start) and Editor (edit) and to an icon ...",
+"...",
+"14.2 >> Windows - Include B4P in path environment variable.",
+"..."
+ ]
+	,
+"Description 05:Activating B4P with License File or in Demo Mode" : [
+"	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,",
+"	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have",
+"	received in order to deactivate all restrictions.",
+"",
+"	<br><br>",
+"	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path",
+"	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.",
+"	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.",
+""
+ ]
+	,
+
+"Examples 05:" : [
+"",
+"15 >> Program Licensing ...",
+"",
+"",
+"License activation ...",
+"",
+"    Specify the license file (typically called 'B4P Licsense File.json'), or",
+"    press [Enter] to skip this and run B4P in demo mode with some restrictions.",
+"    Enter path + file name or press [Enter] to skip",
+"    -->",
+"    Nothing entered.  B4P will be activated in demo mode.",
+"",
+">>  Congratulations! Installation has been completed.",
+""
+ ]
+	,
+"Description 06:Option - Create a personal folder" : [
+"	This is a nice feature especially for beginners. Highly recommended.",
+"	A directory called <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b> will be created",
+"	and contains the following files: ",
+"	* hello world.b4p",
+"	* interacctive b4p",
+"	* main.b4p",
+"	* start B4P here.b4p",
+"",
+"	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.",
+""
+ ]
+	,
+"Examples 06:" : [
+"    Do you want to create a personal B4P program folder ?  Y",
+"    Creating directory: C:\\Users\\Zur Bonsen Georg\\Documents\\Programs\\B4P",
+"    If directory or files already exist, then existing files will not be overwritten.",
+"",
+"    Done creating this directory.",
+"    When you start B4P from start menu or desktop without file specified, the 'Main.b4p'",
+"    in this directory will be started.",
+"",
+"",
+"    Highly advisable to restart your machine so all configuration settings for this installation are in effect.",
+"",
+"",
+"Done - Press ENTER key",
+""
+ ]
+    ,
+"Description 07:Concluding the Installation" : [
+"	Press [Enter] to close the console window.  Now you are ready to start working with B4P.",
+"",
+"	<br><br>Consider a __Windows Getting Started__ first to see if your installation is fine.",
+""
+ ]
+    
+},
+
+
+
+
+"Windows - Getting Started" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Windows Getting Started" ],
+"Description 01:Introduction" : [
+"",
+"	As a general advice, restart your machine because various graphic icons will not show up immediately and",
+"	the paths needed to start B4P from command line will be effective after the restart only.",
+"",
+"	<br><br>",
+"",
+"	As a first step, go to <b>C:\\Users\\<i>Your user name</i>\\Documents\\Programs\\B4P</b>.",
+"	Using the Microsoft file explorer, right-click on the file <b>Hello World.b4p</b> and choose <b>Edit</b> in the",
+"	pop-up menu. Depending on your country and language settings in Windows, it may be in a different language, ",
+"	but typically it's the 2nd menu entry after <b>Open</b>:",
+"",
+"	<br/><br/><img src=\"Images/GUI_Windows_Example_Files_Edit.png\" alt=\"Windows Open in Explorer\"><br/>",
+"",
+"	<br><br>",
+"	The Microsoft editor will open and show the source code:"
+ ]
+	,
+"Examples 01:" : [
+"#!/usr/local/bin/b4p -x",
+"",
+"// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a \"Shebang\".",
+"// It specifies the language interpreter to use when started as an executable file.",
+"// You can delete this line it if you plan to use B4P under Windows only.",
+"",
+"",
+"echo(Hello World);",
+""
+ ]
+	,
+"Description 02:" : [
+"",
+"	Close the editor.  You have two choices to run this program:",
+"	* Double-click on the file \"Hello World.b4p\" using the left mouse button",
+"	* Click the file \"Hello World.b4p\" with the right mouse button and choose the 1st menu entry <b>Open</b>.",
+"",
+"	<br/><img src=\"Images/GUI_Windows_Example_Files.png\" alt=\"Windows Start in Explorer\"><br/>",
+"",
+"	<br><br>",
+"	The program will start and you will see the following output:"
+ ]
+	,
+"Output 02:In the very first run, B4P searches the 7-Zip utility and memorizes its whereabouts:" : [
+"B4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-12)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Look for the 7Z compression/decomopression utility",
+"",
+"Found following program file paths: {'C:\\Program Files','C:\\Program Files (x86)'}",
+" - 7z.exe Zip-utility found in {'C:\\Program Files\\7-Zip\\7z.exe'} (OK)",
+"Hello World",
+"Done - Press ENTER key"
+ ]
+	,
+"Output 03:Outcome if this is not the very first run:" : [
+"B4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-12)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Hello World",
+"Done - Press ENTER key"
+ ]
+	,
+"Description 04:" : [
+"	Congratulations.  B4P has successfully started. Press [Enter] to close the console window.  This is the easiest",
+"	way to run B4P program files.",
+"" ],
+"Description 05:Starting B4P from Start Menu" : [
+"",
+"	As a next step, you will learn how to start B4P directly without specifying a program file.",
+"	In this case, it will look for the",
+"	B4P program called \"main.b4p\" in the currently configured starting directory.  After the",
+"	installation with the personal folder created, the directory <b>C:\\Users\\Your user name\\Documents\\Programs\\B4P</b>",
+"	the memorized starting directory.",
+"",
+"	<br><br>",
+"",
+"	You can change the starting directory to a different location by making a copy of <b>start B4P here.b4p</b>",
+"	into a different directory and click on it to execute it.  Don't do it for this first example yet.",
+"",
+"	<br><br>",
+"	In the starting directory, B4P will look for the file 'main.b4p'.  If the file is available, then you",
+"	will be asked whether to start that one or enter interactive mode instead.  Start the program.",
+"	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.",
+"",
+"	<br><br>",
+"	Start B4P using the start menu:",
+"",
+"	<br/><img src=\"Images/GUI_Windows_Start_Menu.png\" alt=\"Windows Start Menu\"><br/>",
+"",
+"	<br><br>",
+"	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start the run-time machine.",
+"	The following output will occur:",
+""
+ ]
+    ,
+"Output 05:Wait 2 seconds and main.b4p starts, or hit any key to interrupt and enter interative mode" : [
+"B4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-12)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.",
+"Main.b4p in C:\\Users\\Zur Bonsen Georg\\Documents\\Programs\\B4P completed execution.",
+"Feel free to add or change the code in this file.",
+"",
+"Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.",
+">> exit",
+"exit (); called",
+"Done - Press ENTER key"
+ ]
+    ,
+"Description 06:Starting B4P from the Windows Desk Top" : [
+"	The actual statement in this file is to output 'Test', similar as the 'Hello World.b4p' program is doing.",
+"	If you have also installed shortcuts on the desktop, click on the following symbol and you will get the same output.",
+"",
+"	<br/><img src=\"Images/GUI_Windows_Desktop.png\" alt=\"Windows Desktop Icons\"><br/>",
+"	",
+"	As of now, you are ready to start. <br>",
+"	<u>Hint</u>: To access the documentation, click on the icon \"B4P Manual\" on the desktop or in the start menu.  For the first time,",
+"	you will be asked to select the favorite browser (must exist on your PC).  Following this, the starting page will open up.",
+"	Internet connectivitiy is required for this."
+ ]
+	,
+
+"Description 07:Starting B4P from Command Line" : [
+"	Start <b>cmd</b> or alternatively <b>powershell</b> and type <b>b4p</b> or <b>B4P</b>.",
+"	After the command, you can provide additional command line arguments such as the B4P program file to start, further command line",
+"	parameters proiding additional information to the B4P program, and/or command options (switches) which begin with a minus sign.",
+"	<br><br>",
+"",
+"	The following example uses the switch <b>-x</b> which exits B4P immediatly without asking to press [Enter] when the B4P",
+"	program has finished running.  You can try it on both Microsoft Powershell and the CMD console."
+ ]
+	,
+"Output 07:" : [
+"PS C:\\Users\\Your user name> cd \"C:\\Users\\Your user name\\Documents\\Programs\\B4P\"                     ",
+"PS C:\\Users\\Your user name\\Documents\\Programs\\B4P> ls *.b4p                                                           ",
+"",
+"    Verzeichnis: C:\\Users\\Your user name\\Documents\\Programs\\B4P",
+"",
+"",
+"Mode                LastWriteTime         Length Name",
+"----                -------------         ------ ----",
+"-a----         06.11.20     22:18            482 Hello World.b4p",
+"-a----         02.10.20     21:52             12 interactive.b4p",
+"-a----         15.08.20     23:52             11 Main.b4p",
+"-a----         06.11.20     22:34            555 Start B4P here.b4p",
+"",
+"",
+"PS C:\\Users\\Your user name\\Documents\\Programs\\B4P> b4p -x \"Hello World.b4p\"                                           ",
+"BB4P - Beyond Former Performance",
+"_______________________________________________________________________________",
+"",
+"Version 8.00 Candidate (2020-11-12)",
+"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
+"",
+"*** No valid license found. For demos, education and evaluation only.",
+"    Some functional restrictions apply.",
+"",
+"Hello World",
+"PS C:\\Users\\Your user name\\Documents\\Programs\\B4P>"
+ ]
+	,
+"Description 08:Accessing the Reference Manual" : [
+"	Congratulations.  You have been able to get your first B4P programs running.",
+"	You also find the file \"B4P Reference Manual.b4p\". You have three possibilites to access the on-line documentation:",
+"	* <b>\"./B4P Reference Manual.b4p\"</b> (Command fully spelled out)",
+"	* <b>./*Manual*</b> (More convenient if you use wildcard symbols)",
+"	* Inside B4P running in interactive mode, you can type <b>docs</b> to access the documentation, too.",
+"	At the first time, you will be asked for the browser you wish (currently Edge, Explorer and Chrome are supported),",
+"	following this the on-line documentation opens up.",
+""
+ ]
+	
+}
+
+
+
+
+
+
+,
+
 
 
 "Installation and Setup" :
@@ -2422,365 +2670,113 @@
 
 ,
 
-  "Football team merger" :
-  {
+
+"Terms and Conditions" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "merging two football clubs" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
-
-
-
-"Description 01:Merging two footbal teams" : [
-"An example of merging and consolidating two sources of data describing football teams.",
+    "Feature Names":		[ "Terms and Conditions" ],
+"Description 01:Introduction" : [
 "",
-"<br/><img src=\"Images/GUI_workflow-soccer-merger.png\" alt=\"Guide-Tutorial-Merging Football teams\"><br/>",
+"	Updated on November 07, 2020 and effective immediately.<br><br>",
+"",
+"	<b>Copyright (C) 2007 - 2020 by Georg zur Bonsen, All rights reserved.</b>",
+"	<br>Hereinafter referred to as \"Owner\".",
+"",
+"	<br><br>",
+"",
+"	The following contents (hereinafter referred to as \"Software\"), are protected by the copyright laws and/or are property of the Owner as stated above:",
+"	* The B4P program package including the B4P run-time machine for all supported target platforms",
+"	* The B4P programming language, including all language constructs and syntactic and semantic language features which are unique to B4P.",
+"	* All B4P library files and B4P library functions which are either part of the installation packages or optionally available from B4P to enhance the functionality.",
+"* The trademark names \"Beyond Former Performance\" and the abbreviation \"B4P\" under the Nice Classification (#42) of <i>\"Scientific and technological services and research and design relating thereto;  	  industrial analysis and research services; design and development of computer hardware and software; legal services.\"</i> are property of the Owner.",
+"",
+"",
+"	By accepting this agreement or by downloading and/or installing any Software offered by the Owner or by ",
+"	clicking or typing \"Install\" or \"Setup\" or similar terms or relate terms in other languages, you agree to the following terms, notwithstanding anything",
+"	to the contrary in this agreement. If you do not agree with any term or condition, do not download, order, install, run or use the Software, and/or ",
+"	irrevocably delete any related contents already downloaded or obtained.",
 ""
- ]
-,
-
-"Examples 01: 1.Start B4P in the command shell to use interactively" : [
-"> b4p"
- ]
-,
-
-
-"Output 01:" : [
-"B4P - Beyond Former Performance",
-"_______________________________________________________________________________",
-"Version 8.00 Candidate (2020-08-08) 'Wilhelm Tell'",
-"Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.",
-"Licensed (current user) with standard privileges for Rafael Richards.",
-"",
-"Entering interactive mode.",
-"",
-"Type 'help' for help, 'docs' for pdf manual,  'web docs' for online manual.",
-">>",
-""
- ]
-,
-
-
-
-"Examples 02: Set the working directory to the data file directory, and list the files" : [
-">> $ cd /b4p/Examples",
-">> $ ls"
- ]
-,
-
-"Output 02:" : [
-"Current directory changed to '/b4p/Examples/'",
-"",
-"Directory Listing:",
-"Football Membership List.xlsx		",
-"Soccer Membership List.csv		",
-"Example.xml				  ",
-"Example1.json",
-"Tennis and Golf Players.csv",
-"test.csv",
-".",
-".",
-".",
-"...",
-"",
-""
- ]
-,
-
-
-
-
-"Examples 03: 2. Load Football Membership List (Excel file), and list contents" : [
-">> table load excel file ( football club, Football Membership List.xlsx )",
-">> table list( football club )"
- ]
-,
-
-
-"Output 03:" : [
-"    Load Excel file 'Football Membership List.xlsx'.",
-"    Done. Table contains 12 rows and up to 4 columns.",
-"",
-"    0 : First Name | Family Name | City         | Level",
-"    1 : Abel       | Amberstone  | Amsterdam    | Beginner",
-"    2 : Beata      | Berghill    | Barcelona    | Experienced",
-"    3 : Corinne    | Carlson     | Copenhagen   | Beginner",
-"    4 : Dietmar    | Davis       | Dublin       | Beginner",
-"    5 : Ellen      | Evans       | Essen        | Beginner",
-"    6 : Fred       | Fisher      | Frankfurt    | Experienced",
-"    7 : Gregory    | Green       | Gaza City    | Experienced",
-"    8 : Henry      | Hansson     | Hamburg      | Experienced",
-"    9 : Ida        | Ingelberg   | Ingolstadt   | Beginner",
-"   10 : John       | Janssen     | Johannesburg | Beginner",
-"   11 : Karl       | Karlsson    | Kansas City  | Experienced",
-""
- ]
-,
-
-
-
-"Examples 04: Load Soccer Membership List (CSV file), and list contents" : [
-">> table load ( soccer club,   Soccer Membership List.csv );",
-">> table list( soccer club )",
-""
- ]
-,
-
-
-"Output 04:" : [
-"    Loaded CSV/TSV file 'Soccer Membership List.csv':",
-"    13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;",
-"",
-"    0 : Level        | Town        | Last Name  | First Name",
-"    1 : Questionable | Kyoto       | Karlsson   | Karl",
-"    2 : Novice       | London      | Lee        | Linda",
-"    3 : Experienced  | Morristown  | Miller     | Mike",
-"    4 : Experienced  | New York    | Nguyen     | Nathali",
-"    5 : Experienced  | Oslo        | Oliveiro   | Oscar",
-"    6 : Novice       | Phoenix     | Paulsson   | Petra",
-"    7 : Novice       | Quebec City | Quarles    | Quincy",
-"    8 : Experienced  | Riga        | Richardson | Richard",
-"    9 : Experienced  | San Diego   | Stewart    | Sandra",
-"   10 : Experienced  | Tahoma      | Turner     | Tim",
-"   11 : Questionable | Ulm         | Ufford     | Uwe",
-"   12 : Novice       | Venice      | Viking     | Victor",
-"   "
- ]
-,
-
-
-
-
-"Description 05: " : [
-"Note that the football club and soccer club use different header names for the same thing ",
-"(Family Name and Last Name; City and Town). ",
-"In preparation to merge the football club table with the soccer club table, replace Family Name with Last Name,  and City with Town."
- ]
-,
-
-
-
-"Examples 05: 3. Rename column headers to the same names for Last Name and Town" : [
-">> table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );",
-">> table list( football club )"
- ]
-,
-
-
-"Output 05:" : [
-"    0 : First Name | Last Name  | Town         | Level",
-"    1 : Abel       | Amberstone | Amsterdam    | Beginner",
-"    2 : Beata      | Berghill   | Barcelona    | Experienced",
-"    3 : Corinne    | Carlson    | Copenhagen   | Beginner",
-"    4 : Dietmar    | Davis      | Dublin       | Beginner",
-"    5 : Ellen      | Evans      | Essen        | Beginner",
-"    6 : Fred       | Fisher     | Frankfurt    | Experienced",
-"    7 : Gregory    | Green      | Gaza City    | Experienced",
-"    8 : Henry      | Hansson    | Hamburg      | Experienced",
-"    9 : Ida        | Ingelberg  | Ingolstadt   | Beginner",
-"   10 : John       | Janssen    | Johannesburg | Beginner",
-"   11 : Karl       | Karlsson   | Kansas City  | Experienced"
- ]
-,
-
-
-
-
-
-"Description 06: " : [
-"Note that the football club table and soccer club table use different names for the same basic skill Level (Beginner and Novice). ",
-"In preparation for merging the soccer club table with the football club table,  find all instances of Level that is Novice, and replace with Beginner  "
- ]
-,
-
-
-
-"Examples 06: 4. Rename Level to Beginner wherever it appears as Novice" : [
-">> table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );",
-">> table list( soccer club )"
- ]
-,
-
-
-"Output 06:" : [
-"    0 : Level        | Town        | Last Name  | First Name",
-"    1 : Questionable | Kyoto       | Karlsson   | Karl",
-"    2 : Beginner     | London      | Lee        | Linda",
-"    3 : Experienced  | Morristown  | Miller     | Mike",
-"    4 : Experienced  | New York    | Nguyen     | Nathali",
-"    5 : Experienced  | Oslo        | Oliveiro   | Oscar",
-"    6 : Beginner     | Phoenix     | Paulsson   | Petra",
-"    7 : Beginner     | Quebec City | Quarles    | Quincy",
-"    8 : Experienced  | Riga        | Richardson | Richard",
-"    9 : Experienced  | San Diego   | Stewart    | Sandra",
-"   10 : Experienced  | Tahoma      | Turner     | Tim",
-"   11 : Questionable | Ulm         | Ufford     | Uwe",
-"   12 : Beginner     | Venice      | Viking     | Victor"
- ]
-,
-
-
-
-
-"Examples 07: 5. Merge the football club table to the soccer club table (via appending) " : [
-">> table merge ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, \" or \" );",
-">> table list( soccer club )"
- ]
-,
-
-
-
-"Output 07:" : [
-"",
-"Merged soccer club has 22 members.",
-"",
-"",
-"    0 : Level                       | Town                 | Last Name  | First Name",
-"    1 : Questionable or Experienced | Kyoto or Kansas City | Karlsson   | Karl",
-"    2 : Beginner                    | London               | Lee        | Linda",
-"    3 : Experienced                 | Morristown           | Miller     | Mike",
-"    4 : Experienced                 | New York             | Nguyen     | Nathali",
-"    5 : Experienced                 | Oslo                 | Oliveiro   | Oscar",
-"    6 : Beginner                    | Phoenix              | Paulsson   | Petra",
-"    7 : Beginner                    | Quebec City          | Quarles    | Quincy",
-"    8 : Experienced                 | Riga                 | Richardson | Richard",
-"    9 : Experienced                 | San Diego            | Stewart    | Sandra",
-"   10 : Experienced                 | Tahoma               | Turner     | Tim",
-"   11 : Questionable                | Ulm                  | Ufford     | Uwe",
-"   12 : Beginner                    | Venice               | Viking     | Victor",
-"   13 : Beginner                    | Amsterdam            | Amberstone | Abel",
-"   14 : Experienced                 | Barcelona            | Berghill   | Beata",
-"   15 : Beginner                    | Copenhagen           | Carlson    | Corinne",
-"   16 : Beginner                    | Dublin               | Davis      | Dietmar",
-"   17 : Beginner                    | Essen                | Evans      | Ellen",
-"   18 : Experienced                 | Frankfurt            | Fisher     | Fred",
-"   19 : Experienced                 | Gaza City            | Green      | Gregory",
-"   20 : Experienced                 | Hamburg              | Hansson    | Henry",
-"   21 : Beginner                    | Ingolstadt           | Ingelberg  | Ida",
-"   22 : Beginner                    | Johannesburg         | Janssen    | John",
-""
- ]
-,
-
-
-
-
-"Examples 08: Sort the rows based on Level and Name" : [
-">> table sort rows ( soccer club,   { Level, Last Name,  First Name });",
-">> table list( soccer club )"
- ]
-,
-
-
-
-"Output 08:" : [
-"    0 : Level                       | Town                 | Last Name  | First Name",
-"    1 : Beginner                    | Amsterdam            | Amberstone | Abel",
-"    2 : Beginner                    | Copenhagen           | Carlson    | Corinne",
-"    3 : Beginner                    | Dublin               | Davis      | Dietmar",
-"    4 : Beginner                    | Essen                | Evans      | Ellen",
-"    5 : Beginner                    | Ingolstadt           | Ingelberg  | Ida",
-"    6 : Beginner                    | Johannesburg         | Janssen    | John",
-"    7 : Beginner                    | London               | Lee        | Linda",
-"    8 : Beginner                    | Phoenix              | Paulsson   | Petra",
-"    9 : Beginner                    | Quebec City          | Quarles    | Quincy",
-"   10 : Beginner                    | Venice               | Viking     | Victor",
-"   11 : Experienced                 | Barcelona            | Berghill   | Beata",
-"   12 : Experienced                 | Frankfurt            | Fisher     | Fred",
-"   13 : Experienced                 | Gaza City            | Green      | Gregory",
-"   14 : Experienced                 | Hamburg              | Hansson    | Henry",
-"   15 : Experienced                 | Morristown           | Miller     | Mike",
-"   16 : Experienced                 | New York             | Nguyen     | Nathali",
-"   17 : Experienced                 | Oslo                 | Oliveiro   | Oscar",
-"   18 : Experienced                 | Riga                 | Richardson | Richard",
-"   19 : Experienced                 | San Diego            | Stewart    | Sandra",
-"   20 : Experienced                 | Tahoma               | Turner     | Tim",
-"   21 : Questionable                | Ulm                  | Ufford     | Uwe",
-"   22 : Questionable or Experienced | Kyoto or Kansas City | Karlsson   | Karl"
- ]
-,
-
-
-
-
-
-"Examples 09: Rearrange column order" : [
-">> table rearrange columns ( soccer club, { Level, First Name, Last Name, Town } );",
-">> table list( soccer club )"
- ]
-,
-
-
-"Output 09:" : [
-"    0 : Level                       | First Name | Last Name  | Town",
-"    1 : Beginner                    | Abel       | Amberstone | Amsterdam",
-"    2 : Beginner                    | Corinne    | Carlson    | Copenhagen",
-"    3 : Beginner                    | Dietmar    | Davis      | Dublin",
-"    4 : Beginner                    | Ellen      | Evans      | Essen",
-"    5 : Beginner                    | Ida        | Ingelberg  | Ingolstadt",
-"    6 : Beginner                    | John       | Janssen    | Johannesburg",
-"    7 : Beginner                    | Linda      | Lee        | London",
-"    8 : Beginner                    | Petra      | Paulsson   | Phoenix",
-"    9 : Beginner                    | Quincy     | Quarles    | Quebec City",
-"   10 : Beginner                    | Victor     | Viking     | Venice",
-"   11 : Experienced                 | Beata      | Berghill   | Barcelona",
-"   12 : Experienced                 | Fred       | Fisher     | Frankfurt",
-"   13 : Experienced                 | Gregory    | Green      | Gaza City",
-"   14 : Experienced                 | Henry      | Hansson    | Hamburg",
-"   15 : Experienced                 | Mike       | Miller     | Morristown",
-"   16 : Experienced                 | Nathali    | Nguyen     | New York",
-"   17 : Experienced                 | Oscar      | Oliveiro   | Oslo",
-"   18 : Experienced                 | Richard    | Richardson | Riga",
-"   19 : Experienced                 | Sandra     | Stewart    | San Diego",
-"   20 : Experienced                 | Tim        | Turner     | Tahoma",
-"   21 : Questionable                | Uwe        | Ufford     | Ulm",
-"   22 : Questionable or Experienced | Karl       | Karlsson   | Kyoto or Kansas City"
- ]
-,
-
-
-
-"Examples 10: 6. Save table as a new, merged club list in an Excel file" : [
-">> table save ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );"
- ]
-,
-
-
-"Output 10:" : [
-"Saved table(s) to EXCEL-XML2003 file 'New Soccer Club Membership List.xls' containing 1 sheets."
- ]
-,
-
-
-
-
-
-"Description 15: B4P program": "",
-"Examples 15: Interactive code combined as single B4P program" : [
-"    runtime settings[verbose] = low;",
-"    include ( Support Library );",
-"    include ( Office Library );",
-"    working directory ( Examples );",
-"",
-"    table load excel file       ( football club, Football Membership List.xlsx ); ",
-"    table list                  ( football club );",
-"    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here",
-"    table list                  ( soccer club );",
-"",
-"    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );",
-"    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );",
-"    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, \" or \" );",
-"    echo                        (\"Merged soccer club has \", table length( soccer club )-1, \" members.\");",
-"",
-"    table sort rows             ( soccer club,   { Level, Last Name,  First Name });",
-"    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );",
-"    table list                  ( soccer club );",
-"    table save                  ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );"
  ]
 	,
-
-"Output 15:B4P Program execution": "automatic"
-
+"Description 02:B4P Runtime Engine - Free Demo Usage" : [
+"",
+"	The Software (here more precisely the installation package) can be downloaded, installed and used at free of charge for the following",
+"	<u>personal and non-commercial purposes</u> such as:",
+"",
+"	* Evaluation,",
+"	* Demonstration, and",
+"	* Education.",
+"",
+"	The Software available as in the free-of-charge configuration runs in <u>demo mode</u> where the following functional restrictions are applying:",
+"",
+"	* B4P tables can only be saved if they contain at most 300 rows and 40 columns.",
+"	* During on B4P session, at most 5 tables can be saved.  The same applies to number of tables and not number of files if using the functions which save multiple tables in one file.",
+"",
+"	The Owner reserves the right to alter the limitations of the Software for the free-of-charge demonstration package any time and without prior notice.",
+"	Please contact the Owner for obtaining a license for unrestricted and/or commercial purposes.",
+"",
+""
+ ]
+	,
+"Description 03:Restrictions" : [
+"",
+"	The intellectual property inside the Software, particularly the unique syntactic and semantic language features, the Software (including, but not limited to the run-time engine and all libraries provided), are trade secrets.",
+"	With the download of the Software, you agree not to do any of the following:",
+"	* Make duplicates of the Software to third parties except for passing original and unaltered downloaded B4P installation packages for approved non-commercial uses such as evaluation, demonstration and education.",
+"	* Make any modifications on the Software such as, but not limited to, manipulating the run-time engine or altering the standard library files.",
+"	* Transfer, lease out, lend or otherwise distribute the Software or purchased or obtained B4P licences which have been granted to you to any third party.",
+"* Reverse-engineer, decompile or disassemble the Software (including, but not limited to, the B4P run-time engine and/or any other files in whole or in part inside the B4P Software package),  	  aiming to access trade secrets, obtaining competitive advantages, intending to copy functional contents for other purposes and/or committing any other actions with illegal or fraudulent intentions.",
+"* The Software contains license security functions which prevent unauthorized use.  You are not permitted to make any manipulations on these functions intending to circumvent any restrictions or license management functions  	  and/or implement or execute any kind of software aiming to fraudulently generate functioning license activation keys with the intention to unlock applicable restrictions and make full use of B4P functionality without holding a valid license issued by the Owner.",
+"	* Use the Software (including, but not limited to the B4P run-time engine and/or B4P library files) or the B4P programming language for benchmarking and/or for competitive analysis purposes with the intention to develop a competing product and/or similar programming language.",
+"	* Intending to alter the Software and/or the B4P programming language in order to make it operational on other system platforms not yet supported without written approval by the Owner.",
+"	* Any attempt to rebrand the Software and/or the B4P programming language in any aspects or illegally assume ownership of the Software and/or the programming language.",
+"	* Using the Software and/or the B4P programming language for any illegal and/or unethical purposes, including, but not limited to,",
+"	** initiating actions to download or import illegal and/or unethical contents to be processed by the Software,",
+"	** accessing illegal or unethical websites or other data sources or attaining data illegally or with unethical methods to be processed by the Software,",
+"	** and/or generating output data intended for illegal and/or unethical purposes of any kind.",
+""
+ ]
+	,
+"Description 04:Disclaimer" : [
+"	The Owner does not warrant and disclaims any responsibility",
+"",
+"	* That the Software, including the programming language and the libraries, will function, sound, or appear as offered or hoped, or be complete, accurate, reliable, free from interruptions, or free from bugs, errors, viruses, or other harmful content. ",
+"	* From any harm on your target systems resulting from downloading, installing and running the B4P package,",
+"	* That the Software is perfectly running in order to fulfill your requirements,",
+"	* That all reported and known software errors will be corrected.",
+"",
+"	The Owner expressly disclaims any warranties and conditions, express or implied, including but not limited to any implied warranties and conditions of",
+"	merchanatability, fitness for a particular purpose and non-infringement, and any warranties and conditions arising out of course of dealing or usage of trade",
+"	regarding the Software and/or any other related software or files downloaded.",
+"",
+"	<br><br>",
+"",
+"	No advice or information, whether spoken or written, obtained from the Owner or elsewhere will create any liability, warranty or condition not expressly stated in this agreement.",
+"	Some jurisdictions do not allow certain limitations on implied warranties, so the above limitation may not apply to you to its full extent.",
+""
+ ]
+	,
+"Description 05:Limitation of Liability" : [
+"",
+"	For free Software downloads, the Owner assumes no liabilities resulting from any harms caused while downloading, installing and/or using the B4P program package and/or",
+"	using the B4P programming language.  In no event and under no theory of liability will the Owner be liable to you for any special, incidental, exemplary, legal or consequential damages",
+"	arising out of or in connection with this agreement or the Software or the programming language whether or not the Owner has been advised of the possibility of such damages. ",
+"	This includes but is not limited to, procurement of substitute goods or services, loss of use, loss data or loss of profits, or business interruption.",
+"	The foregoing limitations will survive even if any limited remedy specified is found to have failed of its essential purpose. ",
+"	Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, ",
+"	so the above limitation or exclusion may not apply to you to its full extent.",
+"",
+"" ],
+"Description 06:Contact" : [
+"",
+"	To be disclosed.",
+""
+ ]
+	
 
   }
+
+
 
 
 ,
