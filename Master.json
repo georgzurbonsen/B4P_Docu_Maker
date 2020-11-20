@@ -756,7 +756,7 @@
 
 
 
-"Linux" :
+"Linux Installation and Setup" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation on Linux" ],
@@ -1777,7 +1777,7 @@
 
 ,
 
-"Windows" :
+"Windows Installation and Setup" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation on Windows" ],
