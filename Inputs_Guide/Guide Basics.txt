@@ -2,6 +2,7 @@
 B4PDOCU.START
 
 
+// ------------------------------------------------------------------------------------------------
 "Overview" :
 {
     "Documentation":		"General Description", // Required value
@@ -28,7 +29,7 @@ B4PDOCU.START
 },
 
 
-
+// ------------------------------------------------------------------------------------------------
 "Key Benefits" :
 {
     "Documentation":		"General Description", // Required value
@@ -68,6 +69,7 @@ B4PDOCU.START
 	+++
 },
 
+// ------------------------------------------------------------------------------------------------
 "Key Features":
 {
     "Documentation":		"General Description", // Required value
@@ -110,7 +112,7 @@ B4PDOCU.START
 
 
 
-
+// ------------------------------------------------------------------------------------------------
 "Use Cases" :
   {
     "Documentation":		"General Description", // Required value
@@ -171,8 +173,8 @@ B4PDOCU.START
 
 
 
-
-  "Interactive Mode Workflow" :
+// ------------------------------------------------------------------------------------------------
+  "Interactive Mode" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Interactive mode workflow" ],
@@ -193,7 +195,9 @@ B4PDOCU.START
   },
 
 
-  "Programming Mode Workflow" :
+
+// ------------------------------------------------------------------------------------------------
+  "Programming Mode" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Programming mode workflow" ],
@@ -223,63 +227,13 @@ B4PDOCU.START
   "Getting Help" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Getting started" ],
+    "Feature Names":		[ "Getting help" ],
 //  "Keywords":			[ "add unique keywords" ],
 
     "Description 01:Overview"::
 
-	+++,
-    "Description 02:Calling an Ambulance"::
-
-	Add text here
-	
-	+++,
-    "Description 03:Calling the Fire Dept."::
-
-	Add text here
-	
-	+++,
-    "Description 04:Calling the Cops"::
-
-	Add text here
-	
-	+++,
-    "Description 05:Calling the Pizza Restaurant"::
-
-	Add text here
-	
-	+++
-
++++
   },
-
-
-
-  "Interactive Mode - Help Options" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Interactive mode help options" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-
-	
-	+++
-
-  },
-
-
-  "Access web documentation" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "access web docs" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-	
-	+++
-
-  },
-
 
 
 
@@ -295,71 +249,7 @@ B4PDOCU.START
 	
 	+++
 
-  },
-
-
-
-  "Introduction to Programming in B4P" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Introduction to programming in B4P" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-	
-	+++
-
-  },
-
-
-  "B4P Program Examples" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P Program Examples" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-	
-	+++
-
-  },
-
-
-
-  "Example - Analyzing data from web" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P example analzing data from web" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-	
-	+++,
-
-    "Description 02:Overview"::
-
-	+++
-
-  },
-
-
-  "Example - Consolidating data from mulitple spreadsheets" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "B4P example consolidating data" ],
-//  "Keywords":			[ "add unique keywords" ],
-
-    "Description 01:Overview"::
-	
-	+++,
-
-    "Description 02:Overview"::
-
-	+++
-
   }
-
-
 
 
 B4PDOCU.STOP

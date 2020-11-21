@@ -3,7 +3,7 @@ B4PDOCU.START
 
 
 
-"MacOS Installation and Setup" :
+"MacOS" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Installation and Setup on MacOS" ],
@@ -12,8 +12,22 @@ B4PDOCU.START
 	The following pages provide step-by-step instructions for downloading and installing
 	the B4P applications for MacOS.  
 	
-	<br><br>
+	Continue with __MacOS Download__.
+	+++
+},
 
+
+"MacOS - Prerequisites" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Prerequisites for  MacOS" ],
+    "Description 01:Introduction"::
+
+
+
+    
+    The following are pre-requisites for installation and use of B4P for MacOS
+	
 	"Description 02:Computer Requirements"::
 
 	* Computer: Macintosh laptop, iMac, or Mac Mini running the latest version of MacOS
@@ -24,23 +38,24 @@ B4PDOCU.START
 	* Administrator privileges: You must have privileges to install software on your computer (e.g. allowed to run commands with 'sudo' in front)
 	
 
+
 	"Description 03:Software Requirements"::
 
 	Verify that a code editor, terminal application, and web browser are available and working. 
 	Recommended editor, terminal application, and web browsers are as follows:
 
-	* <b>Code editor:</b>  Visual Studio Code.  Download here:
-		**  https://code.visualstudio.com/docs/setup/mac
+	* <b>Code editor:</b>  Visual Studio Code. 
+		** Download: <a href="https://code.visualstudio.com/docs/setup/mac" target="_blank"><b>https://code.visualstudio.com/docs/setup/mac</b></a>
 
-	* <b> Terminal application:</b>  iTerm   Download here:
-		**  https://iterm2.com
+
+	* <b> Terminal application:</b>  <b>iTerm<b>   
+		** Download: <a href="https://iterm2.com" target="_blank"><b>https://iterm2.com/b></a>
+
 
 	* <b> Web browser: </b>  Firefox, Chrome, or Safari. Download  here:
 		** https://www.mozilla.orgfirefox
 		** https://www.google.com/chrome
 		** https://support.apple.com/downloads/safari
-
-	<br><br>
 
 	"Description 04:Terminal Application Requirements"::
 
@@ -52,15 +67,10 @@ B4PDOCU.START
 	* 'code'. This provides capability to open any text file with Visual Studio Code
 		** Instructions: https://code.visualstudio.com/docs/setup/mac
 
-	<br><br>
-	Continue with __MacOS Download__.
 
 	+++
 },
-
-
-
-
+	
 
 
 
@@ -77,7 +87,7 @@ B4PDOCU.START
 
 	( Placeholder for a link to download the file )
 
-	<br><br>
+	<br>
 
 	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all
 	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.
@@ -151,6 +161,7 @@ B4PDOCU.START
 
 
 
+
 "MacOS - Installation" :
 {
     "Documentation":		"General Description", // Required value
@@ -191,6 +202,8 @@ B4P installation program is starting (Linux and MacOS platforms) ...
 Please select: M
 
 	+++,
+
+
 
 
 
