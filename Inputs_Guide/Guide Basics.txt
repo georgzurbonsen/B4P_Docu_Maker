@@ -178,7 +178,7 @@ B4PDOCU.START
 
 
 // ------------------------------------------------------------------------------------------------
-  "Interactive Mode" :
+  "Interactive Mode Workflow" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Interactive mode workflow" ],
@@ -201,7 +201,7 @@ B4PDOCU.START
 
 
 // ------------------------------------------------------------------------------------------------
-  "Programming Mode" :
+  "Programming Mode Workflow" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Programming mode workflow" ],
@@ -243,10 +243,10 @@ B4PDOCU.START
 
 
 // ------------------------------------------------------------------------------------------------
-  "Tutorials" :
+  "Examples" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Tutorials" ],
+    "Feature Names":		[ "Examples" ],
 //  "Keywords":			[ "add unique keywords" ],
 
     "Description 01:Overview"::
