@@ -1,10 +1,11 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
 GUI;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
+GUI;Examples;GUI_Features_Examples.html;General Description;Examples
 GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
 GUI;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
 GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
 GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;Interactive Mode;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
+GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
 GUI;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
 GUI;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
 GUI;Licensing;GUI_Features_Licensing.html;General Description;Licensing
@@ -18,17 +19,17 @@ GUI;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Desc
 GUI;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
 GUI;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
 GUI;Overview;GUI_Features_overview.html;General Description;overview
-GUI;Programming Mode;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
+GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
 GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
 GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
 GUI;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;Tutorials;GUI_Features_Tutorials.html;General Description;Tutorials
 GUI;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
 GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
 GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
 GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
 GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
 GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
+MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 REF;"&#43; Transaction Assignment Operators";REF_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 REF;"&#43; Transactions between Tables";REF_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 REF;"&#43; Transactions between Variables";REF_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -1380,4 +1381,3 @@ REF;year, quarter, month, day;REF_Function_year.html;Function Description;;Date 
 REF;zip compress;REF_Function_zip_compress.html;Function Description;zip compress
 REF;zip extract all;REF_Function_zip_extract_all.html;Function Description;zip extract all
 REF;zip extract files;REF_Function_zip_extract_files.html;Function Description;zip extract files
-MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
