@@ -22,20 +22,13 @@ B4PDOCU.START
     "Description 01:Introduction to B4P"::
 
 	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
-	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for high speed processing and analysis of large, 
-	complex data sets (tens of millions of rows) from multiple diverse data sources to produce rapid insights in easily understood form in Excel or other standard visualization tools. 
+	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for ingestion, 
+	integration, and analysis of diverse complex data sources, generating rapid results in easily understood form for immediate use in
+	Excel and other business intelligence tools. 
 
 	<br><br>
 
 	<br/><img src="Images/B4P_General_Overview.jpg" alt="B4P Overview"><br/>
-
-
-	=== 150, 120, 700, noframe_1stcolbold, noheader
-			| <b> data files </b>:  | Excel, XLS, CSV, XML, JSON, HTML, Zip, Text, others..
-			| <b> databases </b>:   | Exports from corporate databases (Salesforce, Oracle, SAP, Access, ...)
-			| <b> web data </b>:    | Any source of structured data on the web (Wikipedia, Worldbank, stock market data, ...)
-			| <b> other data </b>:  | PDF (via Tabula), Statistical data sets (R, SAS, SPPSS, Stata)
-	===
 
 	+++
 }
