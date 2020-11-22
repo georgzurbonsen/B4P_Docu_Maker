@@ -27,14 +27,13 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "MacOS Prerequisites" ],
+   
+   
     "Description 01:Introduction"::
-
-    
     The following are pre-requisites for installation and use of B4P for MacOS
 	
 
 	"Description 02:Computer Requirements"::
-
 	=== 175, 600, noheader, bold_column_1
 	Computer			| Any Macintosh laptop, iMac, or Mac Mini running MacOS
 	Processor			| 64 bit
@@ -43,7 +42,6 @@ B4PDOCU.START
 	Internet Access		| B4P runs securely offline with no internet connection required.  <br> Internet connection is necessary only to access the online documentation. 
 	Administrator Privileges |   An administrator can add and manage other users, install apps, and change settings. The new user you create when you first set up your Mac is an administrator. To verify your priveleges: On your Mac, choose Apple menu  > System Preferences, then click Users & Groups. Your user account should appear as 'Admin'. For further help, see: <a href="https://support.apple.com/guide/mac-help/set-up-other-users-on-your-mac-mtusr001/mac" target="_blank"> macOS User Guide  </a> 
 	===
-
 
 	"Description 03: Software Requirements"::
 	Download and install the code editor, terminal emulator, and (one of the three) web browsers listed below. 
@@ -54,7 +52,6 @@ B4PDOCU.START
 	Terminal Emulator 	| <a href="https://iterm2.com" target="_blank"> <b>iTerm</b>  </a>
 	Web browser				| <a href="https://www.mozilla.orgfirefox" target="_blank">  <b>Firefox</b> </a>  or <a href="https://www.google.com/chrome" target="_blank">   <b>Chrome</b>   </a> or  <a href="https://support.apple.com/downloads/safari" target="_blank"> <b>Safari</b>  </a> <br>
 	===
-
 	<b>Verify that the above code editor, terminal emulator. and web browser(s) are installed and working. </b>
 	<br>
 
@@ -62,16 +59,13 @@ B4PDOCU.START
 	"Description 04:Terminal Command Requirements"::
 	Install the terminal commands 'brew', 'wget', and 'code' using the installation links below. 
 	<br>
-
 	=== 175, 600, noheader, bold_column_1
 	Terminal Command | Function and installation link
 	'brew'			| The package manager for MacOS commands. Allows one to install or remove terminal commands.  <br> Installation: <a href="https://brew.sh" target="_blank"> https://brew.sh </a> 
 	'wget' 			| Downloads files from the internet.  <br>  Installation: 'brew install wget'.  See:  <a href="https://www.maketecheasier.com/install-wget-mac" target="_blank"> https://www.maketecheasier.com/install-wget-mac </a>  
 	'code'			| Launches your code editor from the command line. Example: 'code myprogram.b4p'  <br>  Installation:  <a href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line" target="_blank"> https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line </a> 
 	===
-
 	<b>Verify that the the above commands are working by typing on the command line:  'brew --version', 'wget --version' and 'code --version'.</b>
-
 	<br>
 	<br>
 	<br>
@@ -84,15 +78,13 @@ B4PDOCU.START
 
 
 
-
-
 //---------------------------------------------------------------------------------------
 "MacOS - Download" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "MacOS Download" ],
 
-"Description 01:Download"::
+	"Description 01:Download"::
 	1. <b>Download</b> B4P for MacOS by clicking:  
 	<a href="https://github.com/b4papp/downloads/b4p_nstallation.tar.gz" target="_blank"> <b>https://b4p.app/downloads/b4p_installation.tar.gz</b>  </a>
 	<br>
@@ -101,12 +93,11 @@ B4PDOCU.START
 	3. <b>Extract</b> the contents of b4p_installation.tar.gz by double-clicking the file. 
 	This will create the <b>b4p_installation</b> folder.
 
-"Description 02:Installation Files"::
 
+	"Description 02:Installation Files"::
 	<b>Open</b> the b4p_installation folder in your Downloads folder by double-clicking it.
 	<br>
 	<b>Review</b> the contents of the b4p_installation as follows:
-
 	=== 200, 500, noheader, bold_column_1
 	b4p			| B4P run-time machine including the language interpreter.
 	setup			| B4P installation program
@@ -115,14 +106,13 @@ B4PDOCU.START
 	weblib\			| Directory containing Web-specific library features written in JavaScript.
 	===
 	The contents of 'weblib' contain some CSS and Javascript files which are provided by SpryMedia Ltd, Scotland, and are in use under the MIT license.
-
-
 	<br><br>
-"Description 03:Program files"::
-	The following files in the b4p_installation folder are B4P program files.
-	<br>
-	These will be copied to the user's B4P folder for use after installation. 
 
+
+	"Description 03:Program files"::
+	The following B4P program files are also contained in the b4p_installation folder. 
+	<br>
+	These will be copied to the user's B4P folder for use immediately after after installation. 
 	=== 200, 500, noheader, bold_column_1
 	hello world.b4p			| Your very first b4p program
 	My B4P Init.b4p			| A user-customizable B4P initialization file and template. 
@@ -130,23 +120,19 @@ B4PDOCU.START
 	interactive.b4p			| A 1-statement B4P program to enter interactive mode
 	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as the starting directory. 
 	===	
-Note: If B4P is started without a B4P program file, then B4P will look in the user's B4P directory for 'main.b4p'.  
-<br>
-If 'main.b4p' is not found, then it will go into interactive mode. 
-<br> For information on the B4P startup sequence, see __Starting Behavior__
-
-
-"Description 04:Terms and Conditions"::
-
-	Note that by installing and using B4P you agree to accept the __Terms and Conditions__ 
+	Note: If B4P is started without a B4P program file, then B4P will look in the user's B4P directory for 'main.b4p'.  
 	<br>
+	If 'main.b4p' is not found, then it will go into interactive mode. 
+	For information on the B4P startup sequence, see __Starting Behavior__
+
+
+	"Description 04:Terms and Conditions"::
+	Note that by installing and using B4P you agree to accept the __Terms and Conditions__ 
 	for use of the B4P run-time machine and all asscociated files and libraries.
 
-	+++,
 
-
-"Description 05:Ready for installation"::
-
+	"Description 05:Ready for installation"::
+	<br>
 	Continue to __MacOS Installation__ to start the installation process.
 
 	+++
@@ -162,48 +148,57 @@ If 'main.b4p' is not found, then it will go into interactive mode.
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "MacOS Installation" ],
 
-"Description 01:Introduction"::
-This describes the installation procedure of B4P for MacOS.
-
-+++
-
-
-"Description 02:Installation Setup"::
-
-	To begin the installation:
-	<br>
-	* <b> Open the terminal emulator</b>
-		** Double-click on the iTerm application. 
-	* <b>Change directory </b> (cd) to the b4p_installation folder.
-		** Type: "cd /Users/username/Downloads/b4p_installation".
-	* <b>Confirm the present working directory </b> (pwd) is the is the b4p_installation folder.
-		** Type:  "pwd"
-	* <b>Start the installation</b> using superuser (administrator) privileges.
-		** Type: "sudo ./setup".   
-	* <b> Enter administrator password</b> to continue with installation.
-		**  Type: (password)
-	
-	The following shows these sequences of commands within the terminal emulator (iTerm):
+	"Description 01:Introduction"::
+	An overview of the installation procedure follows below.
 	<br>
 	+++,
 
-"Examples 01:"::
-[~]$
+	"Description 02:Installation Startup"::
+	Start B4P installation with the following four steps. 
+	<br>
+	=== 40, 300, 400
+	Step	| Action | Terminal Commands
+	A	| Open the terminal by double-clicking the iTerm application |  <i> none </i>
+	B	| Change to the b4p_installation directory | <b>cd /Users/username/Downloads/b4p_installation </b>
+	C	| Confirm the present working directory is the b4p installation directory		|  pwd
+	D	| Start b4p installation		|  <b>sudo ./setup </b>
+	E	| Enter administrator password	|  <i>password</i>
+	===
+	Note: replace "username" and "password" by the user's login name and password. 
 
-[~]$ cd /Users/myusername/Downloads/b4p_installation
-
-[~]$ pwd
-
-[~]$ sudo ./setup
-Password:
-
-+++,
+	+++,
 
 
+	"Examples 02:"::
 
-"Description 03:Installation Program"::
+	[~]: cd /Users/username/Downloads/b4p_installation
 
-"Examples 01:"::
+	[~]: pwd
+	/Users/username/Downloads/b4p_installation
+
+	[~]: sudo ./setup
+	Password: *******
+
+	+++,
+
+
+"Description 03:"::
+The B4P installation program is now started, and will guide you through the remainder of the installation as follows:
+<br>
+
+	=== 40, 300, 400
+	Step	| Action | Terminal Commands
+	E	| Choose installation type: 'Machine' 	| M 
+	F	| Select language and country settings 	| B (English); A (USA)
+	G	| License activation file				| (optional)
+	H	| Create personal B4P folder: 'Yes'		| Y
+	===
+
+
+"Description 04: Installation Type "::
+
+
+"Examples 04:"::
 B4P - Installation Program
 _______________________________________________________________________________
 
@@ -226,49 +221,42 @@ Please select: M
 	+++,
 
 
-"Description 04:"::
-	Choice 'M' makes the installation visible for all users and puts the executable file  
-	into a subdirectory of <b> /usr/local/bin/b4p </b>.  
+"Description 05:"::
+	Choice 'M' is the preferred choice, as it makes the B4P application available to all users of the computer.
 
-	<br><br>
+
+"Description 06:Informational "::
 	In steps 3 through 7 the installer will list all working steps and files processed.
 	This is purely informational and may be safely ignored. 
-
-	+++,
-
-"Examples 02:"::
-3 >> Check that all required files are available for installation ...
-
-4 >> Identify locations for the program files ...
-
-5 >> Deleting B4P program and application data subdirectories (if existing) ...
-
-6 >> Create new folders for B4P program ...
-
-7 >> Copy all files to destination directory '/usr/local/etc/b4p ...
-
 	+++,
 
 
+"Examples 06:"::
+	3 >> Check that all required files are available for installation ...
 
-"Description 05:Select Country and Language Settings"::
+	4 >> Identify locations for the program files ...
+
+	5 >> Deleting B4P program and application data subdirectories (if existing) ...
+
+	6 >> Create new folders for B4P program ...
+
+	7 >> Copy all files to destination directory '/usr/local/etc/b4p ...
+	+++,
+
+
+"Description 07:Select Country and Language Settings"::
 	The B4P installaion program asks for both language and country. 
-	This combination is a <i>locale</i> information which governs things like number 
-	and date format, currency symbols, month and weekday names in the specified language, etc.
+	<br>
+	This is <i>locale</i> information which specifies how numbers and dates are formatted, 
+	what currency symbols to use, and what language month and weekday names are displayed.
 	<br><br>
 
-	In order to avoid any trouble with your Microsoft Excel installation, 
-	I advise you to use the same country and language settings as configured for 
-	Excel so the CSV file format is compatible and not simply a choice you do personally favor.  
+	To avoid any trouble with your Microsoft Excel installation,  you should use the same 
+	country and language settings as configured for Excel so the CSV file format is compatible. 
 	
-	Depending on the settings, the CSV files may either use commas or 
-	semicolons as separators (In excel, take a look at a formula containing a 
-	function with 2 or more parameters and check how the parameters are separated), 
-	and numbers may either make use of decimal points or commas.
-	<br>
 	+++,
 
-"Examples 03:"::
+"Examples 07:"::
 8 >> Restore user and locale settings (if available) ...
 
     Info: User settings file not found. Skipped copying
@@ -306,22 +294,15 @@ Please select: A
 
 	+++,
 
-"Description 06:Activating B4P with License File or in Demo Mode"::
-	If you do not have a license file and you plan to use B4P for demonstration, 
-	evaluation and/or educational purposes, then press [Enter] to continue.  
-	Otherwise, specify the full path an file name of the license file you have 
-	received in order to deactivate all restrictions.
-
-	<br><br>
-	<u>Hint</u>: Instead of typing the full path and file name: if you see the 
-	license file in an explorer file, copy the path from the address bar, paste 
-	it into the line, and then copy the file name (not the whole file) and paste 
-	it here, with a directory separator inbetween. B4P will verify if the file is 
-	available and the license code is valid.  If not, the query will be repeated.
-
+"Description 08:Optional: Activating B4P with License File"::
+	If you have a B4P License file, specify the full path to the file to inactivate
+	any restrictions. 
+	<br>
+	Otherwise, press [Enter] to continue without a license file  and use 
+	B4P for evaluation and demonstration purposes with some restrictions.
 	+++,
 
-"Examples 04:"::
+"Examples 08:"::
 9 >> Program Licensing ...
 
 License activation ...
@@ -337,7 +318,7 @@ License activation ...
 
 
 
-"Description 07:Option - Create a personal folder"::
+"Description 09:Optional: Create a personal folder"::
 	This is a very useful feature and is highly recommended to create this. 
 	A directory called <b>Users\<i>Your user name</i>\b4p</b> will be created 
 	and contain the following files: 
@@ -352,7 +333,7 @@ License activation ...
 	
 	+++,
 
-"Examples 06:"::
+"Examples 09:"::
 	Do you want to create a personal B4P program folder ?  Y
     Creating directory: /Users/rafael/b4p
     If directory or files already exist, then existing files
@@ -367,7 +348,7 @@ License activation ...
 Done - Press ENTER key
     +++,
 
-"Description 08:Concluding the Installation"::
+"Description 10:Concluding the Installation"::
 	Press [Enter] to close the installer.  Now you are ready to start working with B4P.
 
 	<br><br>
@@ -376,6 +357,9 @@ Done - Press ENTER key
 	
     +++
 },
+
+
+
 
 
 
@@ -393,26 +377,21 @@ Done - Press ENTER key
     "Description 01:Introduction"::
 
 	B4P under MacOS is operational immediately after installation.  No system reboot is necessary.
-
 	<br><br>
-
 	First, using the terminal application change directory from the home directory 
 	to the B4P directory at <b>/home/username/b4p</b>  using the 'cd' command.
-
 	<br>
 	Then, list all the files in the B4P directory using the 'ls' command
     +++,
 
-
 	
     "Examples 01:"::
-[~]$ cd b4p
-[b4p]$ ls
-'B4P Reference Manual.b4p'   interactive.b4p  'start B4P here.b4p'
-'hello world.b4p'            main.b4p
-[b4p]$
+	[~]$ cd b4p
+	[b4p]$ ls
+	'B4P Reference Manual.b4p'   interactive.b4p  'start B4P here.b4p'
+	'hello world.b4p'            main.b4p
+	[b4p]$
     +++,
-
 
     "Description 02:Try Hello World"::
 	First, take a look at the B4P code in 'hello world.b4p' by opening this file in your code editor.
@@ -420,49 +399,49 @@ Done - Press ENTER key
 
 
     "Examples 02: Open B4P program 'hello world' in your code editor (Visual Studio Code) using the 'code' command"::
-[b4p]$ code hello world.b4p
+	[b4p]$ code hello world.b4p
 	+++,
 
+
     "Output 02:"::
-#!/usr/local/bin/b4p
+	#!/usr/local/bin/b4p
 
-// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a "Shebang".
-// It specifies the language interpreter to use when started as an executable file.
-// You can delete this line it if you plan to use B4P under Windows only.
+	// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a "Shebang".
+	// It specifies the language interpreter to use when started as an executable file.
+	// You can delete this line it if you plan to use B4P under Windows only.
 
-// Shebangs are ignored in Microsoft Windows environments.
-
-echo(Hello World);
+	// Shebangs are ignored in Microsoft Windows environments.
+	
+	echo(Hello World);
 	+++,
 
 
     "Description 03:"::
-
 	Close the code editor. The following three commands do the same: Start b4p and run the B4P program "hello world.b4p".
 	* <b>b4p "hello world.b4p"</b> starts B4P explicitly with the B4P program provided as command line parameter,
 	* <b>./"hello world.b4p"</b> starts the B4P file like any other system executable program,
 	* <b>./hello*</b>, wildcard symboles allowing you to specify a part of the file name which is unique in the current directory.
-
 	+++,
 
 
 
     "Examples 03:"::
-[b4p]$ ./hello*
+	[b4p]$ ./hello*
 	+++,
+
+
     "Output 03:"::
+	B4P - Beyond Former Performance
+	_______________________________________________________________________________
 
-B4P - Beyond Former Performance
-_______________________________________________________________________________
+	Version 8.00 Candidate (2020-11-12)
+	Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
+	Licensed (current user) with standard privileges for Rafael Richards.
 
-Version 8.00 Candidate (2020-11-12)
-Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
-Licensed (current user) with standard privileges for Rafael Richards.
+	Hello World
+	Done - Press ENTER key
 
-Hello World
-Done - Press ENTER key
-
-[b4p]$
+	[b4p]$
 	+++,
 
 
@@ -484,10 +463,13 @@ Done - Press ENTER key
 	In case no 'main.b4p' is available, then B4P enters into interactive mode directly.
 
 	+++,
+
     "Examples 05:"::
-[b4p]$ b4p
+	[b4p]$ b4p
 	+++,
-    "Output 05:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
+    
+	
+	"Output 05:(User interaction: Press 'S' to start the program, and type 'exit' to leave interactive mode)"::
 
 B4P - Beyond Former Performance
 _______________________________________________________________________________
@@ -507,8 +489,6 @@ Done - Press ENTER key
 [b4p]$
 
     +++,
-
-
 
 
     "Description 06:Accessing the Reference Manual"::
