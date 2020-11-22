@@ -3,18 +3,6 @@
       {{ Name, Class, Number of Legs,Surface},
        { Dog, Mammal, 4, Hair }, { Snake, Reptile, 0, Skin }, { Parrot, Bird, 2, Feathers }} );
 
-  // Choose all columns with headers containing 's'. The list results for row 2.
-
-  with table ( animals, 2 )
-  {
-      for all current table selected columns( ('*s*'), column[], header[], i[] )
-      {
-      echo( column[],": Column ", column[], " (", header[], ") = ", [column[]] );
-      }
-  }
-
-  echo;
-
   // The simplified approach: [.] = current table, row and column. [.,0] = current table, column, and row 0
 
   with table ( animals, 2 )

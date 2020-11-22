@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( animals, { {Animal, Group, Special abilities},
+      { parakeet, bird, can fly },  { moose, mammal },  { ape, mammal, quite samrt },  { sparrow, bird } , { trout, fish }, { bass, fish },
+      { canary, bird }, { penguin, bird }, { beluga, mammal, submarine sonar} } );
+
+  table process cells               ( animals, [.] += '!' );                      // Add an exclamation to text in every existing cell
+  table process cells selected rows ( animals, [Group]=='mammal!', [.] = +[.] );  // Convert all contents (except header row) to upper case.
+
+  table list ( animals );

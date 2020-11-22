@@ -1,11 +1,25 @@
 ﻿#!/usr/local/bin/b4p
-      table initialize( animals,
-          {{ Name, Class, Number of Legs},
-           { Dog, Mammal, 4 }, { Snake, Reptile, 0 }, { Human, Mammal, 2 }} );
+  table initialize( animals,
+      {{ Name, Class, Number of Legs,Surface},
+       { Dog, Mammal, 4, Hair }, { Snake, Reptile, 0, Skin }, { Parrot, Bird, 2, Feathers }} );
 
-      // Choose all columns with headers containing 'a'. The list results for row 2.
-      for all table selected columns( animals, ('*a*'), 2, column[], header[], i[] )
-      {
-          echo( i[],": Column ", column[], " (", header[], ") = ", [column[]] );
-      }
+  // Choose all columns with headers containing 's'. The list results for row 2.
 
+  for all table selected columns( animals, ('*s*'), 2, column[], header[], i[] ) // Leg count skipped
+  {
+      echo( i[],": Column ", column[], " (", header[], ") = ", [column[]] );
+  }
+
+  echo;
+
+  for all table selected columns( animals, ('*s*'), 2, column[]) // Leg count skipped
+  {
+      echo( "Column ", column[], " (", [.,0], ") = ", [.] );
+  }
+
+  echo;
+
+  for all table selected columns( animals, ('*s*') ) // Leg count skipped
+  {
+      echo( " (", [.], ") = ", [.,2] );
+  }
