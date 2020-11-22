@@ -9,68 +9,83 @@ B4PDOCU.START
     "Feature Names":		[ "Installation and Setup on MacOS" ],
     "Description 01:Introduction"::
 
-	The following pages provide step-by-step instructions for downloading and installing
-	the B4P applications for MacOS.  
+	<br>
+	The following pages provide step-by-step instructions for downloading, installing, and 
+	getting started using B4P for MacOS.  
 	
-	Continue with __MacOS Download__.
+	<br><br>
+
+	Continue to __MacOS Prerequisites__.
 	+++
 },
+
+
 
 
 "MacOS - Prerequisites" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Prerequisites for  MacOS" ],
+    "Feature Names":		[ "MacOS Prerequisites" ],
     "Description 01:Introduction"::
-
-
 
     
     The following are pre-requisites for installation and use of B4P for MacOS
 	
+
 	"Description 02:Computer Requirements"::
 
-	* Computer: Macintosh laptop, iMac, or Mac Mini running the latest version of MacOS
-	* Processor: 64 bit
-	* Memory: Minimum 2 GB (More memory is recommended especially when working with large data)
-	* Disk space:  20 MB 
-	* Internet connectivity: Required to access documentation (but required for program use)
-	* Administrator privileges: You must have privileges to install software on your computer (e.g. allowed to run commands with 'sudo' in front)
+	=== 175, 600, noheader, bold_column_1
+	Computer			| Any Macintosh laptop, iMac, or Mac Mini running MacOS
+	Processor			| 64 bit
+	Memory				| Minimum 2 Gb. <br> More memory is recommended  if working with large data
+	Disk space			| 20 Mb 
+	Internet Access		| B4P runs securely offline with no internet connection required.  <br> Internet connection is necessary only to access the online documentation. 
+	Administrator Privileges |   An administrator can add and manage other users, install apps, and change settings. The new user you create when you first set up your Mac is an administrator. To verify your priveleges: On your Mac, choose Apple menu  > System Preferences, then click Users & Groups. Your user account should appear as 'Admin'. For further help, see: <a href="https://support.apple.com/guide/mac-help/set-up-other-users-on-your-mac-mtusr001/mac" target="_blank"> macOS User Guide  </a> 
+	===
+
+
+
+
+
 	
 
 
-	"Description 03:Software Requirements"::
+	"Description 03: Software Requirements"::
+	Download and install the code editor, terminal emulator, and (one of the three) web browsers listed below. 
+	<br>
+	=== 175, 600, noheader, bold_column_1
+	Application			| Download Link
+	Code Editor			| <a href="https://code.visualstudio.com/" target="_blank"> <b>Visual Studio Code</b></a>
+	Terminal Emulator 	| <a href="https://iterm2.com" target="_blank"> <b>iTerm</b>  </a>
+	Web browser				| <a href="https://www.mozilla.orgfirefox" target="_blank">  <b>Firefox</b> </a>  or <a href="https://www.google.com/chrome" target="_blank">   <b>Chrome</b>   </a> or  <a href="https://support.apple.com/downloads/safari" target="_blank"> <b>Safari</b>  </a> <br>
+	===
 
-	Verify that a code editor, terminal application, and web browser are available and working. 
-	Recommended editor, terminal application, and web browsers are as follows:
-
-	* <b>Code editor:</b>  Visual Studio Code. 
-		** Download: <a href="https://code.visualstudio.com/docs/setup/mac" target="_blank"><b>https://code.visualstudio.com/docs/setup/mac</b></a>
-
-
-	* <b> Terminal application:</b>  <b>iTerm<b>   
-		** Download: <a href="https://iterm2.com" target="_blank"><b>https://iterm2.com/b></a>
-
-
-	* <b> Web browser: </b>  Firefox, Chrome, or Safari. Download  here:
-		** https://www.mozilla.orgfirefox
-		** https://www.google.com/chrome
-		** https://support.apple.com/downloads/safari
-
-	"Description 04:Terminal Application Requirements"::
-
-	Open the Terminal application (iTerm) and install the following terminal commands:
-	* 'brew'.  This provides a capability to install packages
-		** Instructions: https://brew.sh
-	* 'wget'.  This provides capability to download any files from the internet.
-		** Instructions: https://www.maketecheasier.com/install-wget-mac
-	* 'code'. This provides capability to open any text file with Visual Studio Code
-		** Instructions: https://code.visualstudio.com/docs/setup/mac
+	<b>Verify that the above code editor, terminal emulator. and web browser(s) are installed and working. </b>
+	<br>
 
 
+
+	"Description 04:Terminal Command Requirements"::
+	Install the terminal commands 'brew', 'wget', and 'code' using the installation links below. 
+	<br>
+
+	=== 175, 600, noheader, bold_column_1
+	Terminal Command | Function and installation link
+	'brew'			| The package manager for MacOS commands. Allows one to install or remove terminal commands.  <br> Installation: <a href="https://brew.sh" target="_blank"> https://brew.sh </a> 
+	'wget' 			| Downloads files from the internet.  <br>  Installation: 'brew install wget'.  See:  <a href="https://www.maketecheasier.com/install-wget-mac" target="_blank"> https://www.maketecheasier.com/install-wget-mac </a>  
+	'code'			| Launches your code editor from the command line. Example: 'code myprogram.b4p'  <br>  Installation:  <a href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line" target="_blank"> https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line </a> 
+	===
+
+	<b>Verify that the the above commands are working by typing on the command line:  'brew --version', 'wget --version' and 'code --version'.</b>
+
+	<br>
+	<br>
+	<br>
+
+	Continue to  __MacOS Download__.
 	+++
 },
-	
+
 
 
 
@@ -104,7 +119,7 @@ B4PDOCU.START
 
 	You should see the following files and directory in a new directory called <b>b4p installation</b>:
 
-	=== 300, 700, noheader, bold_column_1
+	=== 200, 500, noheader, bold_column_1
 	b4p			| B4P run-time machine including the language interpreter.
 	setup			| B4P installation program
 	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)
@@ -117,7 +132,7 @@ B4PDOCU.START
 
 	<br><br>
 	Included B4P programs:
-	=== 300, 700, noheader, bold_column_1
+	=== 200, 500, noheader, bold_column_1
 	main.b4p			| A default B4P program which can start automatically if declared so
 	interactive.b4p			| A 1-statement B4P program going to interactive mode directly
 	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.
@@ -408,8 +423,10 @@ Done - Press ENTER key
     "Description 07:Concluding the Installation"::
 	Press [Enter] to close the installer.  Now you are ready to start working with B4P.
 
-	<br><br>Consider a __MacOS Getting Started__ first to see if your installation is fine.
-
+	<br><br>
+	
+	Next go to __MacOS Getting Started__ to try out your first B4P application
+	
     +++
 },
 
@@ -432,8 +449,11 @@ Done - Press ENTER key
 
 	<br><br>
 
-	As a first step, go to the directory <b>/home/username/b4p</b> (b4p is a sub-directory created in your personal home directory.  The path stated above may vary among MacOS variants and versions)  In that directory, you will see the folowing files:
+	First, using the terminal application change directory from the home directory 
+	to the B4P directory at <b>/home/username/b4p</b>  using the 'cd' command.
 
+	<br>
+	Then, list all the files in the B4P directory using the 'ls' command
     +++,
 
 
@@ -452,7 +472,7 @@ Done - Press ENTER key
 	+++,
 
 
-    "Examples 02: Open B4P program 'hello world' using code editor Visual Studio Code"::
+    "Examples 02: Open B4P program 'hello world' in your code editor (Visual Studio Code) using the 'code' command"::
 [b4p]$ code hello world.b4p
 	+++,
 
