@@ -22,7 +22,6 @@ B4PDOCU.START
 
 
 
-
 //---------------------------------------------------------------------------------------
 "MacOS - Prerequisites" :
 {
@@ -93,22 +92,20 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "MacOS Download" ],
 
-"Description 01:Download B4P"::
-	Download B4P for MacOS by clicking on the following link:
+"Description 01:Download"::
+	1. <b>Download</b> B4P for MacOS by clicking:  
+	<a href="https://github.com/b4papp/downloads/b4p_nstallation.tar.gz" target="_blank"> <b>https://b4p.app/downloads/b4p_installation.tar.gz</b>  </a>
 	<br>
-	<a href="https://github.com/b4papp/downloads/b4p_nstallation.tar.gz" target="_blank"> <b>https://github.com/b4papp/downloads/b4p_installation.tar.gz</b>  </a>
+	2. <b>Save</b> the file <b>b4p_installation.tar.gz</b> to your 'Downloads' folder. 
+	<br>
+	3. <b>Extract</b> the contents of b4p_installation.tar.gz by double-clicking the file. 
+	This will create the <b>b4p_installation</b> folder.
 
-	<br><br>
-	Save this file <b>b4p_installation.tar.gz</b> to your 'Downloads' folder. 
-	<br>
-	
-"Description 02:Extract and Review Installation Files"::
+"Description 02:Installation Files"::
 
-	Double click on the downloaded <b>b4p_installation.tar.gz</b> file to decompress and extract the contents. 
+	<b>Open</b> the b4p_installation folder in your Downloads folder by double-clicking it.
 	<br>
-	The folder 'b4p_installation' will appear in the Downloads folder.
-	<br>
-	You should see the following files and folders within <b>b4p_installation</b> folder:
+	<b>Review</b> the contents of the b4p_installation as follows:
 
 	=== 200, 500, noheader, bold_column_1
 	b4p			| B4P run-time machine including the language interpreter.
@@ -121,17 +118,22 @@ B4PDOCU.START
 
 
 	<br><br>
-"Description 03:Additional B4P Program files"::
-	The following addtional B4P program files are contained in the installation folder, and will be available for use after installation:
+"Description 03:Program files"::
+	The following files in the b4p_installation folder are B4P program files.
+	<br>
+	These will be copied to the user's B4P folder for use after installation. 
 
 	=== 200, 500, noheader, bold_column_1
-	main.b4p			| A default B4P program which can start automatically if desired
-	interactive.b4p			| A 1-statement B4P program going to interactive mode directly
-	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.
 	hello world.b4p			| Your very first b4p program
-	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as the starting directory. If B4P is started without a B4P program file, then B4P will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.
-	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.
+	My B4P Init.b4p			| A user-customizable B4P initialization file and template. 
+	main.b4p				| A default B4P program which can start automatically if desired
+	interactive.b4p			| A 1-statement B4P program to enter interactive mode
+	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as the starting directory. 
 	===	
+Note: If B4P is started without a B4P program file, then B4P will look in the user's B4P directory for 'main.b4p'.  
+<br>
+If 'main.b4p' is not found, then it will go into interactive mode. 
+<br> For information on the B4P startup sequence, see __Starting Behavior__
 
 
 "Description 04:Terms and Conditions"::
@@ -161,30 +163,47 @@ B4PDOCU.START
     "Feature Names":		[ "MacOS Installation" ],
 
 "Description 01:Introduction"::
+This describes the installation procedure of B4P for MacOS.
 
-	To begin the installation, first open the terminal emulator (iTerm) and then change directory ("cd" command) to the b4p_installation folder within the Downloads folder by typing "cd /Downloads/b4p_installation".
-	<br>
-	Then confirm that the all the installation files are present by listing the contents of the b4p_installation folder ("ls" command).
-	<br>
-	Finally, type "sudo ./setup".   You will then be asked to enter the administrator password to run the B4P installation program as a <i>super user</i>.
++++
 
-	<br>
-	The follwoing shows these sequences of commands:
-	<br>
 
+"Description 02:Installation Setup"::
+
+	To begin the installation:
+	<br>
+	* <b> Open the terminal emulator</b>
+		** Double-click on the iTerm application. 
+	* <b>Change directory </b> (cd) to the b4p_installation folder.
+		** Type: "cd /Users/username/Downloads/b4p_installation".
+	* <b>Confirm the present working directory </b> (pwd) is the is the b4p_installation folder.
+		** Type:  "pwd"
+	* <b>Start the installation</b> using superuser (administrator) privileges.
+		** Type: "sudo ./setup".   
+	* <b> Enter administrator password</b> to continue with installation.
+		**  Type: (password)
+	
+	The following shows these sequences of commands within the terminal emulator (iTerm):
+	<br>
 	+++,
-
 
 "Examples 01:"::
 [~]$
 
-[~]$ cd /Downloads/b4p_installation
+[~]$ cd /Users/myusername/Downloads/b4p_installation
 
-[b4p_installation]$ ls
+[~]$ pwd
 
-[b4p_installation]$ sudo ./setup
+[~]$ sudo ./setup
 Password:
 
++++,
+
+
+
+"Description 03:Installation Program"::
+
+"Examples 01:"::
 B4P - Installation Program
 _______________________________________________________________________________
 
@@ -207,12 +226,12 @@ Please select: M
 	+++,
 
 
-"Description 02:"::
+"Description 04:"::
 	Choice 'M' makes the installation visible for all users and puts the executable file  
 	into a subdirectory of <b> /usr/local/bin/b4p </b>.  
 
 	<br><br>
-	The installer will list all working steps and files processed.
+	In steps 3 through 7 the installer will list all working steps and files processed.
 	This is purely informational and may be safely ignored. 
 
 	+++,
@@ -220,87 +239,32 @@ Please select: M
 "Examples 02:"::
 3 >> Check that all required files are available for installation ...
 
-    Check lib
-    Check weblib
-    Check List of Locales.csv
-    Check setup
-    Check B4P Reference Manual.b4p
-    Check b4p
-
 4 >> Identify locations for the program files ...
-
-Identified following directories:
-
-    For executable program:                     /usr/local/bin
-    For program related files (e.g. libraries): /usr/local/etc/b4p
-    For user application data:                  /Users/rafael/.config/b4p
-
-    Found following settings files:
-
-    User   settings :  Yes: /Users/rafael/.config/b4p/B4P User Settings.json
-    Locale settings :  Yes: /Users/rafael/.config/b4p/B4P Locale Settings.json
-    License file    :  Yes: /Users/rafael/.config/b4p/B4P License File.json
-    My B4P init file:  Yes: /Users/rafael/.config/b4p/My B4P Init.b4p
-
-    The user settings file contains starting directory name.
-    user defined prompt, and other user specific data.
-
-    Do you want to keep the user settings from the previous installation ? N
-
-    The locale settings file contains language and country specific
-    number and date formats.
-
-    Do you want to keep the locale settings from the previous installation ? N
-
-    The file 'My B4P Init File.b4p' contains your personalized B4P initialization program.
-    Do you want to keep the this file (if no: A new plain file will be provided) ? N
-
-    The license file contains the authentication info to run B4P
-    with given license rights.  With few exceptions, the license file
-    continues to be valid for the next release.
-    License holder: Rafael Richards
-    Do you want to keep the license file from the previous installation ? N
 
 5 >> Deleting B4P program and application data subdirectories (if existing) ...
 
-    Deleted /usr/local/etc/b4p
-    Deleted /Users/rafael/.config/b4p
-    Done.
-
 6 >> Create new folders for B4P program ...
-
-    Created /usr/local/etc/b4p/lib.
-    Created /Users/rafael/.config/b4p.
 
 7 >> Copy all files to destination directory '/usr/local/etc/b4p ...
 
-    Copying file List of Locales.csv ...
-    Copying directory lib ...
-chmod: -R: No such file or directory
-    Copying directory weblib ...
-chmod: -R: No such file or directory
-   Copying b4p to /usr/local/bin ...
-
-8 >> Restore user and locale settings (if available) ...
-
-    Info: User settings file not found. Skipped copying
-
-    Info: No locale settings have been defined yet.
-
-    Loaded CSV/TSV file 'List of Locales.csv':
-    31 rows, max 28 columns, 28 columns in 1st row, 868 fields, list separator: ;
-
-
 	+++,
 
-"Description 03:Select Country and Language Settings"::
-	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which governs things like number and date format, currency symbols, month and weekday names in the specified language, etc.
 
+
+"Description 05:Select Country and Language Settings"::
+	The B4P installaion program asks for both language and country. 
+	This combination is a <i>locale</i> information which governs things like number 
+	and date format, currency symbols, month and weekday names in the specified language, etc.
 	<br><br>
 
-	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  
+	In order to avoid any trouble with your Microsoft Excel installation, 
+	I advise you to use the same country and language settings as configured for 
+	Excel so the CSV file format is compatible and not simply a choice you do personally favor.  
 	
-	Depending on the settings, vthe CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or vmore parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.
+	Depending on the settings, the CSV files may either use commas or 
+	semicolons as separators (In excel, take a look at a formula containing a 
+	function with 2 or more parameters and check how the parameters are separated), 
+	and numbers may either make use of decimal points or commas.
 	<br>
 	+++,
 
@@ -342,15 +306,22 @@ Please select: A
 
 	+++,
 
-"Description 05:Activating B4P with License File or in Demo Mode"::
-	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes, then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have received in order to deactivate all restrictions.
+"Description 06:Activating B4P with License File or in Demo Mode"::
+	If you do not have a license file and you plan to use B4P for demonstration, 
+	evaluation and/or educational purposes, then press [Enter] to continue.  
+	Otherwise, specify the full path an file name of the license file you have 
+	received in order to deactivate all restrictions.
 
 	<br><br>
-	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween. B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.
+	<u>Hint</u>: Instead of typing the full path and file name: if you see the 
+	license file in an explorer file, copy the path from the address bar, paste 
+	it into the line, and then copy the file name (not the whole file) and paste 
+	it here, with a directory separator inbetween. B4P will verify if the file is 
+	available and the license code is valid.  If not, the query will be repeated.
 
 	+++,
 
-"Examples 05:"::
+"Examples 04:"::
 9 >> Program Licensing ...
 
 License activation ...
@@ -364,22 +335,24 @@ License activation ...
 >>  Congratulations! Installation has been completed.
 	+++,
 
-"Description 06:Option - Create a personal folder"::
-	This is a nice feature especially for beginners. Highly recommended.
-	A directory called <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b> will be created
-	and contains the following files: 
+
+
+"Description 07:Option - Create a personal folder"::
+	This is a very useful feature and is highly recommended to create this. 
+	A directory called <b>Users\<i>Your user name</i>\b4p</b> will be created 
+	and contain the following files: 
 	* hello world.b4p
 	* interacctive b4p
 	* main.b4p
 	* start B4P here.b4p
 	* B4P Reference Manual.b4p
 
-	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.
-
+	In the case you are re-installing B4P and the folder already exists, 
+	only the missing files will be overwritten.  
+	
 	+++,
 
 "Examples 06:"::
-
 	Do you want to create a personal B4P program folder ?  Y
     Creating directory: /Users/rafael/b4p
     If directory or files already exist, then existing files
@@ -388,14 +361,13 @@ License activation ...
     Done creating this directory.
     When you start B4P without file specified, 'Main.b4p' in this directory will be started.
 
-
     Highly advisable to restart your machine so all configuration settings for this installation are in effect.
 
 
 Done - Press ENTER key
     +++,
 
-"Description 07:Concluding the Installation"::
+"Description 08:Concluding the Installation"::
 	Press [Enter] to close the installer.  Now you are ready to start working with B4P.
 
 	<br><br>
