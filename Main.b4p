@@ -1,9 +1,14 @@
 	include ( Support Library );
-	table initialize ( animals, { {Animal, Group, Special abilities},
-	    { parakeet, bird, can fly },  { moose, mammal },  { ape, mammal, quite samrt },  { sparrow, bird } , { trout, fish }, { bass, fish },
-	    { canary, bird }, { penguin, bird }, { beluga, mammal, submarine sonar} } );
+	table load( cities, "Examples\Cities.csv" );
 
-	table process cells in columns	             ( animals, { Group, Special abilities}, [.] += '!' );    // 2 named columns affected
-	table process cells in columns selected rows ( animals, { 0, -1 }, [Group]=='mammal!', [.] = +[.] );  // 1st and last column affected, mammals only
+	table process columns          ( cities, 4, if (!is numeric([.])) [.] += '!' ); // Row 4: ! after text items
 
-	table list ( animals );
+	table process selected columns ( cities, 4, [.,0]=="City", [.] = +[.] );     // City upper case
+	table process selected columns ( cities, 5, {0..2},        [col()] = +[.] ); // Row 5, coluns 0..2 upper case
+
+	// Note: [col()] is same as [.]
+
+	// Copies 'Eiffel Tower' (next row above) from Paris to Davos
+	table process selected columns ( cities, -1, Famous attraction, [.] = [.,row()-1] ); 
+							
+	table list ( cities );
