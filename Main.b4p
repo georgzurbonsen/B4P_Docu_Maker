@@ -1,14 +1,21 @@
-	include ( Support Library );
-	table load( cities, "Examples\Cities.csv" );
+	include( Support Library );
+	table initialize( t1, { { Name, Score }, { Angela, 10 }, { Bob, 12 } } );
 
-	table process columns          ( cities, 4, if (!is numeric([.])) [.] += '!' ); // Row 4: ! after text items
+	table initialize( t2, { { Name, Town }, { Bob,  Denver }, { Angela, Chicago }, { Dan, Albany } } );
 
-	table process selected columns ( cities, 4, [.,0]=="City", [.] = +[.] );     // City upper case
-	table process selected columns ( cities, 5, {0..2},        [col()] = +[.] ); // Row 5, coluns 0..2 upper case
+	with table( t1, 2, Name )
+	{
+	    echo("From t1: ", [.] ); // Bob
+	    with table( t2, 3, Town )
+	    {
+		echo("Name in t2: ", [Name], " and t1: ", [^Name] ); // Dan, Bob
+		echo;
+		echo("From t2: ", [.] ); // Albany
+		echo("From t1: ", [^col(1)] ); // Bob  (Note: [^.] would access t1, but use column number in t2)
+		echo;
+		echo("t2: Row: ", row(),  " Column: ", col()  ); // Row 3, column 1
+		echo("t1: Row: ", row(1), " Column: ", col(1) ); // Row 2, column 0
+	    }
 
-	// Note: [col()] is same as [.]
+	}
 
-	// Copies 'Eiffel Tower' (next row above) from Paris to Davos
-	table process selected columns ( cities, -1, Famous attraction, [.] = [.,row()-1] ); 
-							
-	table list ( cities );

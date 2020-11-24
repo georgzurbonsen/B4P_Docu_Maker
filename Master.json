@@ -5664,7 +5664,7 @@
 "Description 01:Introduction" : [
 "",
 "	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions",
-"	are typically used in funtions with names containing <b>... selected rows ... </b> where expressions are applied to chosses specifc rows to",
+"	are typically used in functions with names containing <b>... selected rows ... </b> where expressions are applied to chosses specifc rows to",
 "	include in the data processing.",
 "",
 "	<br><br>",
@@ -5673,12 +5673,10 @@
 "	<br><br>",
 "	The expressions may return values of following types:",
 "	=== 200, 800, noheader, noframe bold_column_1",
-"	boolean		| Row will be included if the result is <b>true</b> for the corresponding row.",
-"	numeral		| One specific row, addressed with the row number, will be addressed.  __Negative indexing__ is allowed, e.g. -1 refers to the last row.",
-"	parameter set	| The parameter set must contain numerals (row nubmers) or may be an empty set if no rows shall be selected.  __Negative indexing__ is allowed, i.e. -1 refers to the last row.",
+"boolean		| If it is an expression returning boolean values, then this expression will be calculated for every row, starting with row 1 (excluding the header row).   			  Typically, processing will be done on the corresponding rows if the outcome is <b>true</b>.",
+"	numeral		| If the expression returns a numeral, then one single row number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last row.",
+"parameter set	| If the expression returns a parameter set, the the row numbers inside the parameter sets will be used.  Negative indexing is allowed.  The parameter set must contain numerals (row numbers) or may be an empty set if no rows shall be selected.  __Negative indexing__ is allowed, i.e. -1 refers to the last row. <br> 			  <u>Note</u>: Even if row numbers are specified in different orders or multiple times, the table will be processed from top to bottom, and every matching row will processed only once.",
 "	===",
-"",
-"	<u>Note:</u>The expression will be calculated only once and not for every row if it has returned a numeral or parameter set.",
 ""
  ]
 	,
@@ -5704,6 +5702,62 @@
     "Output 01:": "automatic"
 
   },
+
+
+  "Expressions to Select Columns" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions to select columns" ],
+"Description 01:Introduction" : [
+"",
+"	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions",
+"	are typically used in funtions with names containing <b>... selected columns ... </b> where expressions are applied to chosses specifc columns to",
+"	include in the data processing.",
+"",
+"",
+"	<br><br>",
+"	Like expressions specified as code pieces, these expressions can be coded directly or provided as strings wiht preceding colon (:) symbols.",
+"",
+"	<br><br>",
+"	The expressions may return values of following types:",
+"	=== 200, 800, noheader, noframe bold_column_1",
+"boolean		| If it is an expression returning boolean values, then this expression will be calculated for every column, starting from the left with column 0.   			  Typically, processing will be done on the corresponding columns if the outcome is <b>true</b>.",
+"	literal		| if the expression returns a literal, then a header name is assumed.  Only existing header names will be accepted.",
+"	numeral		| If the expression returns a numeral, then one single column number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last column with respect to the header row.",
+"parameter set	| If the expression returns a parameter set, the the column  numbers inside the parameter sets will be used.  Negative indexing is allowed as described above.  			  The parameter set may also contain existing header names.  No columns will be processed if an empty set is provided.",
+"	===",
+"",
+"	<br>",
+"	<u>Note</u>: Execution of selected columns will always be from left to right.  Every column will be executed at most once, even if specified multiple times.",
+"	Example: <b>{5,2,1,2,4}</b> will execute columns 1, 2, 4 and finally 5 in this order only once.",
+""
+ ]
+	,
+"Examples 01:" : [
+"	include ( Support Library );",
+"	table initialize ( animals,",
+"	{ { Animal,    Snake, Bird, Dog, Fly, Lobster, Decapod, Woodlice, Centipede },",
+"	  { Leg count, 0,     2,    4,   6,   8,       10,      14,       100       },",
+"	    Result 1,",
+"	    Result 2,",
+"	    Result 3 } );",
+"",
+"	counter[] = 0; // Process columns in specified order. (9..8..5 is from right to left)",
+"	table process selected columns  ( animals, 2, {1..3, 10, 5..7}, [.] = ++counter[], [.] = '-' );",
+"",
+"	counter[] = 0; // Process columns in specified order",
+"	table process selected columns  ( animals, 3, {Decapod, Bird, Fly, Dog, Dog, Dog}, [.] = ++counter[], [.] = '-' );",
+"",
+"	counter[] = 0; // From left to right: All animals beginning with A..D, excl. 1st column",
+"	table process selected columns  ( animals, 4, col()>0 & [.,0] < 'E', [.] = ++counter[], [.] = '-' ); ",
+"",
+"	table list( animals );"
+ ]
+	,
+    "Output 01:": "automatic"
+
+  },
+
 
   "Indirect Parameter Passing" :
   {
@@ -8781,13 +8835,20 @@
 "Description 01:Introduction" : [
 "",
 "	If a context for partial __partial table specification__ is provided, then the table name and/or row numbers are optionaland and can be left out.",
-"	The context refers refers to a specific table and a <i>current</i> row number.",
+"	Some functions do even include the current column number.",
+"	The context refers refers to a specific table, the <i>current</i> row number, and optionally the <i>current</i> column number.",
 "",
 "	The function names listed below are the common ones which support partial table specification:",
 "	* __with table(__) to provide a context (table name and row number) directly.",
 "	* __for all table rows(__)",
 "	* __table process(__) and __table process selected rows(__)",
 "	* All standard table functions which contain the term <b>selected rows</b> at the end.  In this case, partial table specifciation is allowed in the __expression__ calculated for every row",
+"",
+"	Following functions do also involve the column number:",
+"	* __with table(__) with 3 parameters to provide a context (table name, row number and column number) directly.",
+"	* __table process cells(__) and likes",
+"	* __table process columns(__) and  __table process selected columns(__)",
+"	",
 "",
 "	With such a context available, the row number can also be retrieved directly with the function __row(__).",
 ""
@@ -8834,18 +8895,16 @@
 "		| - : Wildcards			|	| : Wildcards				|	| - : Wildcards	",
 "		| - Ranges			|	| - Ranges				|	| - Ranges	",
 "	===",
-"",
 ""
  ]
 	,
-
 "Description 03:Principle" : [
 "",
 "	<br/><img src=\"Images/Description_Table_Simple_Access_Partial.jpg\" alt=\"Simple table access, partial table specification\"><br/>",
 ""
  ]
 	,
-"Examples 03:Programming xamples" : [
+"Examples 03:Programming Examples" : [
 "	table load( table, \"Examples\\Cities.csv\");",
 "	with table( table, 5 ) // Row 5",
 "	{",
@@ -8875,8 +8934,50 @@
 "	}	"
  ]
 	,
-	"Output 03:Output - Staying in San Francisco": "automatic",
-	"See also": "Nested partial table specifications"
+    "Output 03:Output - Staying in San Francisco": "automatic",
+"Description 04:Specifying Current Columns" : [
+"",
+"	If the context information is also providig the current column number, then the lone point (<b>.</b>) acts as a shortcut",
+"	to reference the current column.  Please note that the lone point is interpreted as a literal string consisting of 1 ",
+"	character (unless it is part of a numeral acting as a decimal point) and not a programming language specific symbol.",
+"	This does even apply if the point is a softquoted or quoted literal ( <b>'.'</b> or <b>\".\"</b> ).",
+"	Alternatively, you can use the function __col(__) to get the current column number.",
+"",
+"	<br><br>",
+"",
+"	If you use the point in single quotation marks, then __shifted table column specifications__ are also supported here.",
+"	For example '<.' refers to the next column to the left of the current column.",
+"",
+""
+ ]
+	,
+"Examples 04:Programming Examples" : [
+"	include ( Support Library );",
+"	table load( table, \"Examples\\Cities.csv\");",
+"",
+"	[ table: -2, 0] = '>.'; // Change header in 2nd last column to '>.' for test below",
+"	table list( table );",
+"",
+"	with table( table, 5, City ) // Row 5",
+"	{",
+"	    echo( [.] );",
+"	    echo( ['.'], \" and \", ['>.'] );  // Next column after current one is referenced",
+"	    echo( [\".\"], \" and \", [\">.\"] );  // Note: Header \">.\" is referenced instead",
+"	}",
+"",
+"	[ table: -2, 0] = '.'; // Change header in 2nd last column to '.' for test below",
+"",
+"	// Do the same without column context.  Lookig fore header called '.':",
+"",
+"	with table( table, 5 ) // Row 5",
+"	{",
+"	    echo( [.] );",
+"	    echo( ['.'], \" and \", ['>.'] );  // museum and moving along.",
+"	}"
+ ]
+	,
+    "Output 04:Output:": "automatic",
+    "See also": [ "Nested partial table specifications", "shifted table column specifications" ]
 },
 
 
@@ -8919,8 +9020,38 @@
 "	}"
  ]
 	,
-	"Output 01:Output:Output": "automatic"
+    "Output 01:Output": "automatic",
+"Description 02:Specifying Current Columns" : [
+"",
+"	At present, this symbol cannot be used to sepecify current columns in superior tables like '^.'.",
+"	Please use the function __col(__) with a non-zero parameter instead, e.g. <b>[^col(1)]</b>",
+"	to get current row and current column of the superior table.  See the example below."
+ ]
+	,
 
+"Examples 02:Example" : [
+"	include( Support Library );",
+"	table initialize( t1, { { Name, Score }, { Angela, 10 }, { Bob, 12 } } );",
+"",
+"	table initialize( t2, { { Name, Town }, { Bob,  Denver }, { Angela, Chicago }, { Dan, Albany } } );",
+"",
+"	with table( t1, 2, Name )",
+"	{",
+"	    echo(\"From t1: \", [.] ); // Bob",
+"	    with table( t2, 3, Town )",
+"	    {",
+"		echo(\"Name in t2: \", [Name], \" and t1: \", [^Name] ); // Dan, Bob",
+"		echo;",
+"		echo(\"From t2: \", [.] ); // Albany",
+"		echo(\"From t1: \", [^col(1)] ); // Bob  (Note: [^.] would access t1, but use column number in t2)",
+"		echo;",
+"		echo(\"t2: Row: \", row(),  \" Column: \", col()  ); // Row 3, column 1",
+"		echo(\"t1: Row: \", row(1), \" Column: \", col(1) ); // Row 2, column 0",
+"	    }",
+"	}"
+ ]
+	,
+    "Output 02:Output:Output": "automatic"
 },
 
 
@@ -29968,6 +30099,10 @@
 "	This feature works very similarly as __table process selected rows(__), but in the horizontal direction from left to right.",
 "",
 "	<br><br>",
+"	The width of the header row does primarily determine the loop from left to right to process the columns.  The loop may be extended if",
+"	column numbers beyond the last header are specified.",
+"",
+"	<br><br>",
 "",
 "	For this function, the enabled __partial table references__ also includes referencing the current column number by simply specifying a '.' (point)",
 "	and you can use the function __col(__) to retrieve the current column number.",
@@ -29976,7 +30111,7 @@
  ]
 	,
 	"Call as":			"procedure or function",
-	"Parameter count":	"2-4",
+	"Parameter count":	"3-5",
 	"Restrictions":		["Indirect parameter passing is disabled" ],
 	"Parameters":
 	[
@@ -30003,6 +30138,9 @@
 "				Applicable to <b>table process selected columnss</b> only:<br>",
 "",
 "				Specify the conditions or rules to select the rows.  See __expressions to select columns__.<br>",
+"				You have the choice between boolean expressions (calculated for every column), a single column number or header name, or a parameter set containing",
+"				column header names and/or numbers.  Note that processing will always happen from left to right with all columns affected.  It makes no differnce whether",
+"				a column is referenced once or more.<br><br>",
 "				__Partial table specification__ is supported here to reference table columns easily using the point '.' to describe the current column.  Example: <b>[.]>=5</b>.<br>",
 "				<u>Attention</u>: If you are using comparison operators = and <> (instead of == and !=) which allow more than 1 operand on the righ hand side , then make sure you put the entire expression into parentheses.  Otherwise the operators will hijack subsequent function parameters as part of their operands."
  ]
@@ -30030,7 +30168,7 @@
 "Description" : [
 "				<b>table process columns</b>: Not applicable. This function accepts 3 parameters only.",
 "				<b>table process selected columns</b>: The statements provided will be executed once for every cell in every row where the condition calculated for that row returned <b>false</b>.<br><br>",
-"				__Partial table specification__ is supported here to reference table columns easily.  Example: <b>[Full Name] = [First Name] + ' ' + [Family Name];<br>",
+"				__Partial table specification__ is supported here to reference table columns easily.<br>",
 "				<br><br>",
 "				<u>Hint</u>: If you encounter an error message at the very end of the program after you worked on a statement, you may proabably have forgotton to add the closing parentheses to close the function call."
  ]

@@ -1,0 +1,22 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  [ table: -2, 0] = '>.'; // Change header in 2nd last column to '>.' for test below
+  table list( table );
+
+  with table( table, 5, City ) // Row 5
+  {
+      echo( [.] );
+      echo( ['.'], " and ", ['>.'] );  // Next column after current one is referenced
+      echo( ["."], " and ", [">."] );  // Note: Header ">." is referenced instead
+  }
+
+  [ table: -2, 0] = '.'; // Change header in 2nd last column to '.' for test below
+
+  // Do the same without column context.  Lookig fore header called '.':
+
+  with table( table, 5 ) // Row 5
+  {
+      echo( [.] );
+      echo( ['.'], " and ", ['>.'] );  // museum and moving along.
+  }

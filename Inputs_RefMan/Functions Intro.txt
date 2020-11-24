@@ -557,7 +557,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions
-	are typically used in funtions with names containing <b>... selected rows ... </b> where expressions are applied to chosses specifc rows to
+	are typically used in functions with names containing <b>... selected rows ... </b> where expressions are applied to chosses specifc rows to
 	include in the data processing.
 
 	<br><br>
@@ -566,12 +566,13 @@ B4PDOCU.START
 	<br><br>
 	The expressions may return values of following types:
 	=== 200, 800, noheader, noframe bold_column_1
-	boolean		| Row will be included if the result is <b>true</b> for the corresponding row.
-	numeral		| One specific row, addressed with the row number, will be addressed.  __Negative indexing__ is allowed, e.g. -1 refers to the last row.
-	parameter set	| The parameter set must contain numerals (row nubmers) or may be an empty set if no rows shall be selected.  __Negative indexing__ is allowed, i.e. -1 refers to the last row.
+	boolean		| If it is an expression returning boolean values, then this expression will be calculated for every row, starting with row 1 (excluding the header row).  \
+			  Typically, processing will be done on the corresponding rows if the outcome is <b>true</b>.
+	numeral		| If the expression returns a numeral, then one single row number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last row.
+	parameter set	| If the expression returns a parameter set, the the row numbers inside the parameter sets will be used.  Negative indexing is allowed. \
+			  The parameter set must contain numerals (row numbers) or may be an empty set if no rows shall be selected.  __Negative indexing__ is allowed, i.e. -1 refers to the last row. <br>\
+			  <u>Note</u>: Even if row numbers are specified in different orders or multiple times, the table will be processed from top to bottom, and every matching row will processed only once.
 	===
-
-	<u>Note:</u>The expression will be calculated only once and not for every row if it has returned a numeral or parameter set.
 
 	+++,
     "Examples 01:"::
@@ -595,6 +596,62 @@ B4PDOCU.START
     "Output 01:": "automatic"
 
   },
+
+
+  "Expressions to Select Columns" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions to select columns" ],
+    "Description 01:Introduction"::
+
+	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions
+	are typically used in funtions with names containing <b>... selected columns ... </b> where expressions are applied to chosses specifc columns to
+	include in the data processing.
+
+
+	<br><br>
+	Like expressions specified as code pieces, these expressions can be coded directly or provided as strings wiht preceding colon (:) symbols.
+
+	<br><br>
+	The expressions may return values of following types:
+	=== 200, 800, noheader, noframe bold_column_1
+	boolean		| If it is an expression returning boolean values, then this expression will be calculated for every column, starting from the left with column 0.  \
+			  Typically, processing will be done on the corresponding columns if the outcome is <b>true</b>.
+	literal		| if the expression returns a literal, then a header name is assumed.  Only existing header names will be accepted.
+	numeral		| If the expression returns a numeral, then one single column number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last column with respect to the header row.
+	parameter set	| If the expression returns a parameter set, the the column  numbers inside the parameter sets will be used.  Negative indexing is allowed as described above. \
+			  The parameter set may also contain existing header names.  No columns will be processed if an empty set is provided.
+	===
+
+	<br>
+	<u>Note</u>: Execution of selected columns will always be from left to right.  Every column will be executed at most once, even if specified multiple times.
+	Example: <b>{5,2,1,2,4}</b> will execute columns 1, 2, 4 and finally 5 in this order only once.
+
+	+++,
+    "Examples 01:"::
+	include ( Support Library );
+	table initialize ( animals,
+	{ { Animal,    Snake, Bird, Dog, Fly, Lobster, Decapod, Woodlice, Centipede },
+	  { Leg count, 0,     2,    4,   6,   8,       10,      14,       100       },
+	    Result 1,
+	    Result 2,
+	    Result 3 } );
+
+	counter[] = 0; // Process columns in specified order. (9..8..5 is from right to left)
+	table process selected columns  ( animals, 2, {1..3, 10, 5..7}, [.] = ++counter[], [.] = '-' );
+
+	counter[] = 0; // Process columns in specified order
+	table process selected columns  ( animals, 3, {Decapod, Bird, Fly, Dog, Dog, Dog}, [.] = ++counter[], [.] = '-' );
+
+	counter[] = 0; // From left to right: All animals beginning with A..D, excl. 1st column
+	table process selected columns  ( animals, 4, col()>0 & [.,0] < 'E', [.] = ++counter[], [.] = '-' ); 
+
+	table list( animals );
+	+++,
+    "Output 01:": "automatic"
+
+  },
+
 
   "Indirect Parameter Passing" :
   {

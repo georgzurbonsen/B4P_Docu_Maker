@@ -224,6 +224,7 @@
 "<li class=""navi""><a href=""REF_Features_Statements_(func_params).html""><div class=""navi"">8.4.3.4 Statements (func. params) </div></a></li>";4;REF_Features_Statements_(func_params).html;Statements (func. params)
 </ul></li>;4
 "<li class=""navi""><a href=""REF_Features_Expressions_to_select_rows.html""><div class=""navi"">8.4.4 Expressions to Select Rows </div></a></li>";3;REF_Features_Expressions_to_select_rows.html;Expressions to Select Rows
+"<li class=""navi""><a href=""REF_Features_Expressions_to_select_columns.html""><div class=""navi"">8.4.5 Expressions to Select Columns </div></a></li>";3;REF_Features_Expressions_to_select_columns.html;Expressions to Select Columns
 </ul></li>;3
 "<li class=""navi""><a href=""REF_Features_Indirect_parameter_passing.html""><div class=""navi"">8.5 Indirect Parameter Passing </div></a></li>";2;REF_Features_Indirect_parameter_passing.html;Indirect Parameter Passing
 </ul></li>;2
@@ -582,21 +583,21 @@
 "<li class=""navi""><ul>";4
 "<li class=""navi""><a href=""REF_Function_table_process.html""><div class=""navi"">9.9.5.1 table process (selected rows) </div></a></li>";4;REF_Function_table_process.html;table process (selected rows)
 "<li class=""navi""><a href=""REF_Function_table_process_selected_rows_fast.html""><div class=""navi"">9.9.5.2 table process selected rows fast </div></a></li>";4;REF_Function_table_process_selected_rows_fast.html;table process selected rows fast
-"<li class=""navi""><a href=""REF_Function_table_process_columns.html""><div class=""navi""> table process (selected) columns </div></a></li>";4;REF_Function_table_process_columns.html;table process (selected) columns
-"<li class=""navi""><a href=""REF_Function_table_process_cells.html""><div class=""navi"">9.9.5.3 table process cells (selected rows) </div></a></li>";4;REF_Function_table_process_cells.html;table process cells (selected rows)
-"<li class=""navi""><a href=""REF_Function_table_process_cells_in_columns.html""><div class=""navi"">9.9.5.4 table process cells in columns (selected rows) </div></a></li>";4;REF_Function_table_process_cells_in_columns.html;table process cells in columns (selected rows)
+"<li class=""navi""><a href=""REF_Function_table_process_columns.html""><div class=""navi"">9.9.5.3 table process (selected) columns </div></a></li>";4;REF_Function_table_process_columns.html;table process (selected) columns
+"<li class=""navi""><a href=""REF_Function_table_process_cells.html""><div class=""navi"">9.9.5.4 table process cells (selected rows) </div></a></li>";4;REF_Function_table_process_cells.html;table process cells (selected rows)
+"<li class=""navi""><a href=""REF_Function_table_process_cells_in_columns.html""><div class=""navi"">9.9.5.5 table process cells in columns (selected rows) </div></a></li>";4;REF_Function_table_process_cells_in_columns.html;table process cells in columns (selected rows)
 "<li class=""navi""><ul>";5
-"<li class=""navi""><a href=""REF_Features_Additional_info_on_fast_processing_of_rows.html""><div class=""navi"">9.9.5.4.1 Addt'l Info on fast rows processing </div></a></li>";5;REF_Features_Additional_info_on_fast_processing_of_rows.html;Addt'l Info on fast rows processing
+"<li class=""navi""><a href=""REF_Features_Additional_info_on_fast_processing_of_rows.html""><div class=""navi"">9.9.5.5.1 Addt'l Info on fast rows processing </div></a></li>";5;REF_Features_Additional_info_on_fast_processing_of_rows.html;Addt'l Info on fast rows processing
 </ul></li>;5
-"<li class=""navi""><a href=""REF_Function_table_manipulate.html""><div class=""navi"">9.9.5.5 table manipulate </div></a></li>";4;REF_Function_table_manipulate.html;table manipulate
-"<li class=""navi""><a href=""REF_Function_table_fill_vertically.html""><div class=""navi"">9.9.5.6 table fill vertically ... </div></a></li>";4;REF_Function_table_fill_vertically.html;table fill vertically ...
-"<li class=""navi""><a href=""REF_Function_table_fill_horizontally.html""><div class=""navi"">9.9.5.7 table fill horizontally ... </div></a></li>";4;REF_Function_table_fill_horizontally.html;table fill horizontally ...
-"<li class=""navi""><a href=""REF_Function_table_substitute_vertically.html""><div class=""navi"">9.9.5.8 table substitute vertically ... </div></a></li>";4;REF_Function_table_substitute_vertically.html;table substitute vertically ...
-"<li class=""navi""><a href=""REF_Function_table_substitute_horizontally.html""><div class=""navi"">9.9.5.9 table substitute horizontally ... </div></a></li>";4;REF_Function_table_substitute_horizontally.html;table substitute horizontally ...
-"<li class=""navi""><a href=""REF_Function_table_delete_cells_selected_rows.html""><div class=""navi"">9.9.5.10 table delete cells selected rows </div></a></li>";4;REF_Function_table_delete_cells_selected_rows.html;table delete cells selected rows
-"<li class=""navi""><a href=""REF_Function_table_delete_cells_selected_columns.html""><div class=""navi"">9.9.5.11 table delete cells selected columns </div></a></li>";4;REF_Function_table_delete_cells_selected_columns.html;table delete cells selected columns
-"<li class=""navi""><a href=""REF_Function_table_format_numbers.html""><div class=""navi"">9.9.5.12 table format numbers </div></a></li>";4;REF_Function_table_format_numbers.html;table format numbers
-"<li class=""navi""><a href=""REF_Function_table_fit.html""><div class=""navi"">9.9.5.13 table fit </div></a></li>";4;REF_Function_table_fit.html;table fit
+"<li class=""navi""><a href=""REF_Function_table_manipulate.html""><div class=""navi"">9.9.5.6 table manipulate </div></a></li>";4;REF_Function_table_manipulate.html;table manipulate
+"<li class=""navi""><a href=""REF_Function_table_fill_vertically.html""><div class=""navi"">9.9.5.7 table fill vertically ... </div></a></li>";4;REF_Function_table_fill_vertically.html;table fill vertically ...
+"<li class=""navi""><a href=""REF_Function_table_fill_horizontally.html""><div class=""navi"">9.9.5.8 table fill horizontally ... </div></a></li>";4;REF_Function_table_fill_horizontally.html;table fill horizontally ...
+"<li class=""navi""><a href=""REF_Function_table_substitute_vertically.html""><div class=""navi"">9.9.5.9 table substitute vertically ... </div></a></li>";4;REF_Function_table_substitute_vertically.html;table substitute vertically ...
+"<li class=""navi""><a href=""REF_Function_table_substitute_horizontally.html""><div class=""navi"">9.9.5.10 table substitute horizontally ... </div></a></li>";4;REF_Function_table_substitute_horizontally.html;table substitute horizontally ...
+"<li class=""navi""><a href=""REF_Function_table_delete_cells_selected_rows.html""><div class=""navi"">9.9.5.11 table delete cells selected rows </div></a></li>";4;REF_Function_table_delete_cells_selected_rows.html;table delete cells selected rows
+"<li class=""navi""><a href=""REF_Function_table_delete_cells_selected_columns.html""><div class=""navi"">9.9.5.12 table delete cells selected columns </div></a></li>";4;REF_Function_table_delete_cells_selected_columns.html;table delete cells selected columns
+"<li class=""navi""><a href=""REF_Function_table_format_numbers.html""><div class=""navi"">9.9.5.13 table format numbers </div></a></li>";4;REF_Function_table_format_numbers.html;table format numbers
+"<li class=""navi""><a href=""REF_Function_table_fit.html""><div class=""navi"">9.9.5.14 table fit </div></a></li>";4;REF_Function_table_fit.html;table fit
 </ul></li>;4
 "<li class=""navi""><a href=""REF_Features_Copying_and_spitting_tables.html""><div class=""navi"">9.9.6 Renaming, Copying and Splitting Tables </div></a></li>";3;REF_Features_Copying_and_spitting_tables.html;Renaming, Copying and Splitting Tables
 "<li class=""navi""><ul>";4
