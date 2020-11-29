@@ -692,10 +692,10 @@ B4PDOCU.START
 
 
 
-"Introduction to User-defined functions" :
+"Introduction to User-Defined Functions" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Introduction to user-defined functions" ],
+    "Feature Names":		[ "Introduction to User-Defined Functions" ],
     "Description 01:Introduction"::
 
 	B4P provides means to define your own procedures and functions, assign plausible names for them and call them up like
@@ -728,7 +728,7 @@ B4PDOCU.START
 
 	say hello;
 	echo( hypotenuse(3,4) );  //  5
-	echo( hypotenuse(5,12) ); // 12
+	echo( hypotenuse(5,12) ); // 13
 	echo( hypotenuse(8,15) ); // 17
 	echo( hypotenuse(1,1) );  //  1.41...	
 	+++,

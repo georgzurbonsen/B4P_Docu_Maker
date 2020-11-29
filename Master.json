@@ -5808,10 +5808,10 @@
 
 
 
-"Introduction to User-defined functions" :
+"Introduction to User-Defined Functions" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Introduction to user-defined functions" ],
+    "Feature Names":		[ "Introduction to User-Defined Functions" ],
 "Description 01:Introduction" : [
 "",
 "	B4P provides means to define your own procedures and functions, assign plausible names for them and call them up like",
@@ -11030,6 +11030,55 @@
 
 
 
+"create own temp directory" :
+{
+	"Function Names":	[ "create own temp directory" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+"Description" : [
+"",
+"		This function will create a dedicated temporary directory, located as a subdirectory where all othe other temp files ",
+"		are located in your system.  Under Windows, the new directory is created in <b>C:\\Users\\Zur Bonsen Georg\\AppData\\Local\\Temp\\b4p\\B4P_XXXXXX\\</b>",
+"		where XXXXXX stands for six random capital letters. Under Linux and MacOS, the new directory is created in <b>/tmp/b4p/B4P_XXXXXX/</b>.",
+"",
+"		<br><br>",
+"		<u>Advice</u>: It is recommended to remove that directory including all contents when you are done using it.  Do not count on referring to that",
+"		directory in a later B4P session and do not use it to store your valuable data for later use.  The temp directory is likely cleaned up in regular time intervals.",
+""
+ ]
+	,
+	"Call as":		"function",
+	"Parameter count":	"0",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Return value":
+	[
+		{ "Name": "Path name",
+		  "Types": [ "literal" ],
+"Description" : [
+"			This is the full path name to the directory name just created.  A directory separator symbol (slash or backslash) has already been added at the end."
+ ]
+			
+		}
+	],
+"Examples" : [
+"	include ( Utility Library );",
+"	dir[] = create own temp directory();",
+"	echo(\"Created temp directory '\", dir[], \"'.\");",
+"",
+"	// Do something",
+"	table initialize ( little table, { Name, Andy, Beata, Charly, Daniela } );",
+"	table save( little table, dir[] + \"Little Table.csv\"  );",
+"",
+"	// pause; // Remove comment symbols so you can look where the file has been saved.",
+"",
+"	directory delete recursive( dir[] ); // Clean up: Remove the temp directory"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "directory create", "directory delete" ]
+},
+
+
 
 "choose recent file" :
 {
@@ -11146,6 +11195,10 @@
 	,
 	"See also": "directory listing"
 },
+
+
+
+
 
 
 
