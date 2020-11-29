@@ -631,19 +631,27 @@
 "	* The literals must fit on the same line",
 "	* Leading and trailing spaces are ignored",
 "* All characters are allowed, as long they do not interfere with the B4P programmin syntax. Example: The hyphen in <b>Baden-Baden</b> (a spa city in Germany) is interpreted  	  as a minus sign and does a text subtraction of <b>Baden</b> and the outcome is an empty string.  In this case, specify <b>'Baden-Baden'</b> or <b>\"Baden-Baden\"</b> instead.",
+"* A lone point (<b>.</b>) specified without quotation marks is also interpreted as a string containg this one character as long it is not part of a numeral serving as decimal point.  In some cases, the lone point used as substitute header name will refer to the current table headers if __partial table specifications__ are enabled.  Note that two consecutive  	  points is a B4P range symbol.  Use quotation marks around them to output two consecutive points.",
 "	* Reserved keywords are automatically treated as such, e.g. <b>true</b> as Boolean <i>true</i> and not as a string.",
-"",
-"",
 ""
  ]
 	,
 "Examples 01:" : [
 "	echo( Hello World );",
-"	echo( Hello   World   );	// Same as above",
-"	echo( One + One );		// + sign is an operator, or specify 'One + One'",
+"	echo(   Hello   World   );  // Same as above",
+"	echo( One + One );          // + sign is an operator, result is 'OneOne'",
+"	echo( 'One + One' );        // This one is OK.",
+"	echo( Baden-Baden );        // Empty string.  Hyphen is treated as minus sign (subtraction of literals)",
+"	echo( 'Baden-Baden' );      // This one is OK.",
+"	echo( 1. 23 );              // This is a literal because a space is inside.",
+"	echo( 1 200 );              // Same here.  Use function 'clean numeral' to extract 1200 as a number from here",
 "	echo( Dial 555 1212 );",
 "	echo( this is on, new line, the next line );  // new line is a reserved keyword",
-"	echo( Café in Zürich );		// Foreign characters inside"
+"	echo( Café in Zürich );     // Foreign characters inside",
+"	echo( . );                  // Lone point",
+"	echo( .   . . );            // A string containing 3 lone points (. . .), also showing how spaces are collapsing",
+"	// echo( .. );              // Would cause an error because .. is a b4p language symbol.",
+"	echo( '..' );               // This one is OK"
  ]
 	,
     "Output 01:": "automatic"
@@ -5090,7 +5098,6 @@
 "Description 01:Introduction" : [
 "",
 "	B4P provides an extensive library of standard functions with an emphasis on processing complex tables and data structures.  ",
-"	In addition, you can define your own __user functions__ or even create own libraries containing user functions.  ",
 "",
 "	<br><br>",
 "",
@@ -5098,7 +5105,7 @@
 "	as <i>functions</i> throughout the B4P documentation, regardless of whether they provide a return value (as functions) or not (as procedures).",
 "	",
 "" ],
-"Description 04:Procedure and Function Calls" : [
+"Description 02:Procedure and Function Calls" : [
 "",
 "	Various B4P functions can only be called as functions in __expressions__, standalone <b>procedure calls</b>, or both are allowed.",
 "	In procedure calls, no return values are made use of.",
@@ -5113,6 +5120,12 @@
 "	Procedure or function	| * The function can be called as procedrues or functions. <br> * Use of return value is voluntary. | table rename headers(...);<br>a[] = table rename headers(...);",
 "	Control flow functions	| __Control flow functions__ require a succeeding statement or code block which will be executed as specified by these functions.  The __if(__) statement is one of them. | if (a[]=1) echo(\"is 1\");",
 "	===	",
+"" ],
+"Description 03:User-Defined Procedures and Functions" : [
+"",
+"	B4P provide a convenient method to create __user-defined procedures__ and __user-defined functions__ and call them up as if they would be part of the standard B4P function library. ",
+"	You can even create you own B4P library files containing your frequently used functions you have written so they are available at your discretion whenever",
+"	you need them.  See __Introduction to user-defined functions__ for details.",
 ""
  ]
 	
@@ -5130,7 +5143,7 @@
 "	than using special symbols or upper/lower case scheme to code long function names.  Memorizing such names is much easier for you and your team members.",
 "",
 "	<br><br>",
-"	Please note the following rules for function names, especially when creating __user-defined functions__ on your own:",
+"	Please note the following rules for function names, especially when creating __user-defined procedures__ and __user-defined functions__ on your own:",
 "	* Function names are always specified as __unquoted literals__, i.e. always without quotation marks",
 "	* Function names are case sensitive",
 "	* Function names do not interfere with variable names and table names, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>",
@@ -5279,7 +5292,7 @@
 "",
 "	Some functions take over the reference to the variables provided in the function parameters.  References provide following benefits:",
 "	* Higher performance (no payload data, e.g. big parameter sets, are copied in before the call and copied back after the call)",
-"	* Direct access to the variable contents, especially in __user procedures__ and __user functions__",
+"	* Direct access to the variable contents, especially applicable in __user-defined procedures__ and __user-defined functions__",
 "	* Access to member variables (__structure__ and __array__ members and their sub-members if available)",
 "	* Access to variable properties, e.g. __variable protection__ settings.",
 "",
@@ -5318,8 +5331,8 @@
 
 
 
-  "Function Parameter Types" :
-  {
+"Function Parameter Types" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function parameter types" ],
 "Description 01:Introduction" : [
@@ -5350,11 +5363,11 @@
 ""
  ]
 	
-   },
+},
 
 
-  "Parameter Set or Literal (Func. Param. Type)":
-  {
+"Parameter Set or Literal (Func. Param. Type)":
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "parameter set or literal" ],
     "Keywords":			[ "parameter set or literal" ],
@@ -5413,12 +5426,12 @@
  ]
 	,
     "Output 01:": "automatic"
-   },
+},
 
 
 
-  "Table Columns (Func. Param. Type)" :
-  {
+"Table Columns (Func. Param. Type)" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
     "Keywords":			[ "table columns as function parameters" ],
@@ -5456,12 +5469,12 @@
 "	Otherwise, the contents are treated literally as they are."
  ]
 	
-   },
+},
 
 
 
-  "Code Pieces (Func. Param. Type)" :
-  {
+"Code Pieces (Func. Param. Type)" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Code Piece" ],
     "Keywords":			[ "code pieces" ],
@@ -5488,10 +5501,10 @@
 ""
  ]
 	
-  },
+},
 
-  "Comparison Expressions (func. params)" :
-  {
+"Comparison Expressions (func. params)" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Comparison Expression (func. params)" ],
     "Keywords":			[ "Comparison Expressions", "Comparison Expression" ],
@@ -5546,10 +5559,10 @@
  ]
 	,
     "Output 01:": "automatic"
-  },
+},
 
-  "Expressions (func. params)" :
-  {
+"Expressions (func. params)" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Expressions (func params)" ],
 "Description 01:Introduction" : [
@@ -5594,12 +5607,12 @@
  ]
 	,
     "Output 01:": "automatic"
-  },
+},
 
 
 
-  "Variables (func. params)":
-  {
+"Variables (func. params)":
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Variables (func params)" ],
 "Description 01:Introduction" : [
@@ -5654,11 +5667,11 @@
  ]
 	,
     "Output 01:": "automatic"
-  },
+},
 
 
-  "Expressions to Select Rows" :
-  {
+"Expressions to Select Rows" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Expressions to select rows" ],
 "Description 01:Introduction" : [
@@ -5701,11 +5714,11 @@
 	,
     "Output 01:": "automatic"
 
-  },
+},
 
 
-  "Expressions to Select Columns" :
-  {
+"Expressions to Select Columns" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Expressions to select columns" ],
 "Description 01:Introduction" : [
@@ -5756,11 +5769,11 @@
 	,
     "Output 01:": "automatic"
 
-  },
+},
 
 
-  "Indirect Parameter Passing" :
-  {
+"Indirect Parameter Passing" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Indirect parameter passing" ],
 "Description 01:Introduction" : [
@@ -5777,7 +5790,9 @@
 "	In general indirect parameter passing is not enabled whenever the functions include output parameters, ",
 "	input/output parameters, references and/or code pieces.  Indirect parameter passing is also not allowed for",
 "	__control flow functions__ and __user-defined functions__.",
-"" ],
+""
+ ]
+	,
 "Examples 01:" : [
 "	table create( table1, table 2 ); // The direct way",
 "",
@@ -5789,8 +5804,54 @@
 	,
     "Output 01:": "automatic"
 
-  }
+},
 
+
+
+"Introduction to User-defined functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Introduction to user-defined functions" ],
+"Description 01:Introduction" : [
+"",
+"	B4P provides means to define your own procedures and functions, assign plausible names for them and call them up like",
+"	standard B4P functions.  Following __control flow functions__ are available to define your own functions:",
+"",
+"	* __define procedure(__): The user-defined function can only be called as a procedure in statements.  Even if provided, return values are discarded.",
+"	* __define function(__): The user-defined function can only be called inside expressions where the returned value is used.",
+"	* __define procedure and function(__): The user-defined function can be called as both procedure in statements and functions inside expressions.",
+"",
+"	All three functions expect a block (inside braces) containing the code.  Variables created inside are local variables.  Parameters are available",
+"	as pure input parameters, output parameters, bi-directional I/O parameters, and references to variables so the whole sub-structure containing thee",
+"	the members can be accessed.  Return values can be provided with the __return(__) function call.",
+"",
+"	<br><br>",
+"	Additional procedure and function names can be defined on the same implementation.  The local variable <b>function name[]</b> is visible inside the code block and",
+"	can be used to provide distinguished functionality for every additional procedure and function name.  For more info, see",
+"",
+"	* __define additional procedure(__): Assign an additional procedure name to an existing user-specific procedure or function.",
+"	* __define additional function(__): Assign an additional function name to an existing user-specific procedure or function.",
+"	* __define additional procedure and function(__): Assign an additional name, which can be used as as procedure and function calls, to an existing user-specific procedure or function.",
+"",
+"	Fore more details, see the section on __user-defined functions__." ],
+"Examples 01:" : [
+"	define function( hypotenuse, { { x, numeral }, { y, numeral } } )",
+"	{",
+"	    return( sqrt( x[]*x[] + y[]*y[] ) );",
+"	}",
+"",
+"	define procedure( say hello ) { echo(\"Hello !\"); }",
+"",
+"	say hello;",
+"	echo( hypotenuse(3,4) );  //  5",
+"	echo( hypotenuse(5,12) ); // 12",
+"	echo( hypotenuse(8,15) ); // 17",
+"	echo( hypotenuse(1,1) );  //  1.41...	"
+ ]
+	,
+    "Output 01:": "automatic"
+
+}
 
 ,
 
@@ -15117,17 +15178,17 @@
 		  "Description": "The value provided in the 1st function parameter will be compared with the comparison expresssions in the following odd-numbered parameters."
 	  },
 	  { "Number": "2",
-		  "Name": "Value to select",
+		  "Name": "Default Value",
 		  "Direction": "input",
 		  "Types": [ "boolean" ],
-		  "Description":  "Applicable to <b>compare select</b>: This is the default value to be returned if all comparisons resulted in false."
+		  "Description":  "Applicable to <b>compare select</b>: This is the default value to be returned if all comparisons specified in the following function parameters turned out false."
 	  },
 	  {
 		  "Number":		"Alt. 2",
-		  "Name":		"Expression to select",
+		  "Name":		"Default Expression",
 		  "Direction":	"code",
 		  "Types":		["expression", ":literal"],
-		  "Description": "Applicable to <b>compare pick</b>: This is the default expression to be calculated and the value returned if all comparisons resulted in false.."
+		  "Description": "Applicable to <b>compare pick</b>: This is the default expression to be calculated if all comparisons in the following function parameters turned out false."
 	  },
 	  {
 		 "Number":		"3, 5, ...",
@@ -15139,13 +15200,13 @@
 "			function parameters.  Once a positive match (comparison returns true) has been found, then comparison will stop and the value from the next",
 "			function aparameter will be returned.",
 "		 ",
-"		    This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '<>'.  Single values,",
+"		    This parameter is a piece of code typically found on the right-hand side of a comparison with '=' or '&lt;&gt;'.  Single values,",
 "			ranges (e.g. 3..5), multiple values separated by commas are supported.  For text comparison, __wildcards__ are supported if the",
 "			literal is of type __softquoted literal__.  ",
 "			",
 "			<br><br>",
 "			<u>Attention</u>: To avoid hijacking further function parameters as additional values to be compared, put the expression into parentheses",
-"			if no operators, = or <> have been used.  Not an issue if <, >, == or != operators are used."
+"			if no operators, = or &lt;&gt; have been used.  This hijacking issues does not apply if the following operators are used: <b>&lt;, &gt;, ==, !=</b> ."
  ]
 		  
 	  },
@@ -20990,7 +21051,7 @@
 "			allow new line inside quotations | Normally, line breaks in texts inside specified quotation marks will generate exceptions with error messages.  This option will suppress exceptions and treat new lines like part of text.",
 "			include quotations in text	| The text returned will also include the quotation symbol.  Quotations may consist of more than 1 character, e.g. &lt;&lt; ... &gt;&gt;.",
 "			include quotations as tokens | The quotation symbols will be returned as dedicated tokens",
-"			read numeral				| Tokenized contents looking like numbers will be included as tokens of numeral type",
+"			read numerals				| Tokenized contents looking like numbers will be included as tokens of numeral type",
 "			scientific notation			| Tokenized contents looking like numbers with or without scientific notation will be included as tokens of numeral type",
 "			read date					| Tokenized contents looking like dates will be read as dates",
 "			read boolean				| Tokenized contents looking like booleans (true, false) will be read as boolean values",
@@ -21002,7 +21063,7 @@
 	  },
 	  {
 		 "Number":		"Opt. 3",
-		 "Name":		"Separator strings",
+		 "Name":		"Token separator strings",
 		 "Direction":	"input",
 		 "Types":		["parameter set or literal"],
 		 "Default value": "{' ', new line } (blank and new line)",
@@ -22932,7 +22993,7 @@
  ]
 	,
 	"Call as":			"function",
-	"Parameter count":	"Min 1",
+	"Parameter count":	"1",
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
@@ -22964,6 +23025,59 @@
 "		echo(c[],\": \", excel column number( c[] ) );",
 "		// Note: 0 is returned if no appropriate letter is recognized.",
 "	}"
+ ]
+	,
+	"Output": "automatic"
+}
+
+
+,
+
+"excel check sheet name" :
+{
+	"Function Names":	[ "excel check sheet name" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"		This function checks if the sheet name proposed can be used in Microsoft Excel.  The sheet name must not contain ",
+"		at least 1 character and not more than 31 characters, and the following characters must not be used: <b>* / ? [ ] : \\</b>",
+""
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Proposed sheet name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+"Description" : [
+"			  This sheet name will be checked"
+ ]
+			  
+		}
+	],
+	"Return value":
+	[
+	  { "Name": "Check OK",
+		"Types": [ "boolean" ],
+"Description" : [
+"			<b>true</b> is returned if the proposed sheet name is OK for Excel."
+ ]
+			
+	  }
+	],
+"Examples" : [
+"	good examples[] = { \"Table 1\", \"T.1\", \"It contains 31 Characters .....\", \"1\", \"Section §1 - About Cafés\" };",
+"	bad  examples[] = { \"\", \"a/b\", \"Section 1:1\", \"It contains 32 Characters ......\", Two + new line + lines };",
+"",
+"	for all parameters( good examples[], st[] ) print( excel check sheet name( st[] ), \"  \" );",
+"	echo;",
+"",
+"	for all parameters( bad examples[], st[] )  print( excel check sheet name( st[] ), \" \" );",
+"	echo;"
  ]
 	,
 	"Output": "automatic"
@@ -26186,9 +26300,10 @@
 "",
 "			=== 150, 600, bold_column_1",
 "			Value		| Description",
-"			,			| CSV with comma as separator",
-"			;			| CSV with semicolon as separator",
-"			?			| CSV with automatic detection of either comma, semicolon or tab.  The first occurence of these symbols will be used as separators.",
+"			,			| CSV with comma as separator. (Put it into quotation marks ',' when specifying it in the function parameter)",
+"			;			| CSV with semicolon as separator. (Put it into quotation marks ';' when specifying it in the function parameter)",
+"			?			| CSV with automatic detection of either comma, semicolon or tab.  The first occurence of these symbols will be used as separators. (Put it into quotation marks '?' when specifying it in the function parameter)",
+"			tab			| TSV using tab as separator (Do not use quotation marks here because tab is a reserved B4P keyword representing a single tab character)",
 "			CSV			| Same functionaliy as '?' with automatic dection of separator symbol",
 "			1 character	| CSV with any other single character, e.g. \"/\" as separator",
 "			TEXT		| Text file.  The resulting table contains only one column where the column in every row contains the whole line of text.",
@@ -26513,9 +26628,9 @@
 "",
 "		  === 150, 600, bold_column_1",
 "			Value		| Description",
-"			,			| CSV using comma as separator",
-"			;			| CSV using semicolon as separator",
-"			tab			| CSV using tab as separator",
+"			,			| CSV using comma as separator. (Put it into quotation marks ',' when specifying it in the function parameter)",
+"			;			| CSV using semicolon as separator. (Put it into quotation marks ';' when specifying it in the function parameter)",
+"			tab			| TSV using tab as separator (Do not use quotation marks here because tab is a reserved B4P keyword representing a single tab character)",
 "			CSV			| CSV using comma as separator",
 "			LOCAL		| CSV using decimal symbol according to locale settings, semicolon is several European countries, commas in N. America",
 "			1 character	| CSV format using any other single character, e.g. \"/\" as separator symbol",
@@ -26525,7 +26640,7 @@
 "			JSON arrays	| Save table(s) as 2-dimensional JSON arrays",
 "			JSON objects| Save table(s) as 1-dimensional JSON arrays containing JSON object(s) where object names correspond to header names and object values to the data.",
 "			JSON lean	| Similar to jSON objects, but blank table contents are skipped.",
-"			===5"
+"			==="
  ]
 			
 		},

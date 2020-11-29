@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+  good examples[] = { "Table 1", "T.1", "It contains 31 Characters .....", "1", "Section §1 - About Cafés" };
+  bad  examples[] = { "", "a/b", "Section 1:1", "It contains 32 Characters ......", Two + new line + lines };
+
+  for all parameters( good examples[], st[] ) print( excel check sheet name( st[] ), "  " );
+  echo;
+
+  for all parameters( bad examples[], st[] )  print( excel check sheet name( st[] ), " " );
+  echo;

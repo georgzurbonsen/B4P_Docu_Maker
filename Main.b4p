@@ -1,21 +1,15 @@
-	include( Support Library );
-	table initialize( t1, { { Name, Score }, { Angela, 10 }, { Bob, 12 } } );
+define function( hypotenuse, { { x, numeral }, { y, numeral } } )
+{
+    return( sqrt( x[]*x[] + y[]*y[] ) );
+}
 
-	table initialize( t2, { { Name, Town }, { Bob,  Denver }, { Angela, Chicago }, { Dan, Albany } } );
+define procedure( say hello ) { echo("Hello !"); }
 
-	with table( t1, 2, Name )
-	{
-	    echo("From t1: ", [.] ); // Bob
-	    with table( t2, 3, Town )
-	    {
-		echo("Name in t2: ", [Name], " and t1: ", [^Name] ); // Dan, Bob
-		echo;
-		echo("From t2: ", [.] ); // Albany
-		echo("From t1: ", [^col(1)] ); // Bob  (Note: [^.] would access t1, but use column number in t2)
-		echo;
-		echo("t2: Row: ", row(),  " Column: ", col()  ); // Row 3, column 1
-		echo("t1: Row: ", row(1), " Column: ", col(1) ); // Row 2, column 0
-	    }
+say hello;
+echo( hypotenuse(3,4) );  //  5
+echo( hypotenuse(5,12) ); // 12
+echo( hypotenuse(8,15) ); // 17
+echo( hypotenuse(1,1) );  //  1.41...
 
-	}
+
 
