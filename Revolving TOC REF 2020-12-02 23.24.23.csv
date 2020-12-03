@@ -251,7 +251,8 @@ OK;Body;3;B 9.3.10;join ...;REF_Function_join.html;join,join ignore blanks,join 
 OK;Body;3;B 9.3.11;type, type detailed;REF_Function_type.html;type,typd detailed;type,typd detailed,Identify variable types;
 OK;Body;3;B 9.3.12;hash signature;REF_Function_hash_signature.html;hash signature;hash signature;
 OK;Body;3;B 9.3.13;excel column number;REF_Function_excel_column_number.html;excel column number;excel column number;
-OK;Body;3;B 9.3.14;excel check sheet name;REF_Function_excel_check_sheet_name.html;excel check sheet name;excel check sheet name;
+OK;Body;3;B 9.3.14;excel coordinates;REF_Function_excel_coordinates.html;excel coordinates;excel coordinates;
+OK;Body;3;B 9.3.15;excel check sheet name;REF_Function_excel_check_sheet_name.html;excel check sheet name;excel check sheet name;
 OK;Body;2;B 9.4;Mathematics and Statistics;REF_Features_Mathematics_and_Statistics.html;Mathematics and Statistics;Mathematics and Statistics;
 OK;Body;3;B 9.4.1;Basic Math Functions;REF_Features_basic_math_functions.html;basic math functions;basic math functions;
 OK;Body;4;B 9.4.1.1;is numeric / integer - Functions;REF_Function_is_numeric.html;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank,checking numbers;
@@ -549,7 +550,7 @@ OK;Body;4;B 9.13.2.6;resolve path/directory/file name;REF_Function_resolve_path_
 OK;Body;4;B 9.13.2.7;office document properties;REF_Function_office_document_properties.html;office document properties;office document properties;
 OK;Body;3;B 9.13.3;Manipulating Directories and Files;REF_Features_manipulating_directories_and_files.html;manipulating directories and files;manipulating directories and files;
 OK;Body;4;B 9.13.3.1;directory create ...;REF_Function_directory_create.html;directory create,directory create all,directory create silently;directory create,directory create all,directory create silently,directory create ... Functions;
-OK;Body;4;B 9.13.3.2;directory create temp;REF_Function_create_own_temp_directory.html;create own temp directory;create own temp directory;
+OK;Body;4;B 9.13.3.2;directory create temp;REF_Function_directory_create_temp.html;directory create temp;directory create temp;
 OK;Body;4;B 9.13.3.3;file delete ...;REF_Function_file_delete.html;file delete,file delete all,file delete silently;file delete,file delete all,file delete silently,file delete ... Functions;
 OK;Body;4;B 9.13.3.4;file delete multiple/recursive ...;REF_Function_file_delete_multiple.html;file delete multiple,file delete multiple all,file delete recursive,file delete recursive all;file delete multiple,file delete multiple all,file delete recursive,file delete recursive all,file delete multiple/recursive ... Functions;
 OK;Body;4;B 9.13.3.5;directory delete ...;REF_Function_directory_delete.html;directory delete,directory delete all,directory delete silently;directory delete,directory delete all,directory delete silently,directory delete ... Functions;

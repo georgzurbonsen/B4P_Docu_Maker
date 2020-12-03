@@ -7,9 +7,9 @@ B4PDOCU.START
 
 
 
-"create own temp directory" :
+"directory create temp" :
 {
-	"Function Names":	[ "create own temp directory" ],
+	"Function Names":	[ "directory create temp" ],
 	"Documentation":	"Function Description",
 	"Library":		"Utility Library",
 	"Description"::
@@ -37,7 +37,7 @@ B4PDOCU.START
 	],
 	"Examples"::
 	include ( Utility Library );
-	dir[] = create own temp directory();
+	dir[] = directory create temp();
 	echo("Created temp directory '", dir[], "'.");
 
 	// Do something
@@ -49,7 +49,7 @@ B4PDOCU.START
 	directory delete recursive( dir[] ); // Clean up: Remove the temp directory
 	+++,
 	"Output": "automatic",
-	"See also": [ "directory create", "directory delete" ]
+	"See also": [ "directory create", "directory delete recursive" ]
 },
 
 

@@ -8,6 +8,6 @@
 
   say hello;
   echo( hypotenuse(3,4) );  //  5
-  echo( hypotenuse(5,12) ); // 12
+  echo( hypotenuse(5,12) ); // 13
   echo( hypotenuse(8,15) ); // 17
   echo( hypotenuse(1,1) );  //  1.41...   

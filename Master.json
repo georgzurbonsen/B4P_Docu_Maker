@@ -5844,7 +5844,7 @@
 "",
 "	say hello;",
 "	echo( hypotenuse(3,4) );  //  5",
-"	echo( hypotenuse(5,12) ); // 12",
+"	echo( hypotenuse(5,12) ); // 13",
 "	echo( hypotenuse(8,15) ); // 17",
 "	echo( hypotenuse(1,1) );  //  1.41...	"
  ]
@@ -11030,9 +11030,9 @@
 
 
 
-"create own temp directory" :
+"directory create temp" :
 {
-	"Function Names":	[ "create own temp directory" ],
+	"Function Names":	[ "directory create temp" ],
 	"Documentation":	"Function Description",
 	"Library":		"Utility Library",
 "Description" : [
@@ -11062,7 +11062,7 @@
 	],
 "Examples" : [
 "	include ( Utility Library );",
-"	dir[] = create own temp directory();",
+"	dir[] = directory create temp();",
 "	echo(\"Created temp directory '\", dir[], \"'.\");",
 "",
 "	// Do something",
@@ -11075,7 +11075,7 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "directory create", "directory delete" ]
+	"See also": [ "directory create", "directory delete recursive" ]
 },
 
 
@@ -23086,6 +23086,87 @@
 
 ,
 
+"excel coordinates" :
+{
+	"Function Names":	[ "excel coordinates" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"	This function converts row nand column numbers into Microsoft Excel coordinates.  Please note the following nuances:",
+"	* B4P table column 0 is A, columns 25 - 27 are Z, AA and AB respectively.  And so forth. ",
+"	* B4P table row 0 translates to Excel row 1",
+"* If no parameters are applied, then the function looks for current row and column numbers in the context for __partial table specifications__.  	  Exception will be asserted if no context info for partial table specifciaton is available.",
+"	* Exceptions will also be flagged if the row and column numbers are out of Excel range",
+"",
+"	<br>",
+"	<u>Attention</u>: No negative indexing is allowed here."
+ ]
+	,
+	"Call as":			"function",
+	"Parameter count":	"1-2",
+	"Restrictions":		"Indirect parameter passing is enabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Column number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+"Description" : [
+"				The column number will translate to 1 or more letters.  Valid range: 0..16383"
+ ]
+			  
+		},
+		{ "Number": "2",
+		  "Name": "Row number",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "No row number will be specified in the output",
+"Description" : [
+"				The column number will be incremented by 1 and added after the column designation.  Valid range: 0..1048575"
+ ]
+			  
+		}
+	],
+	"Return value":
+	[
+	  { "Name": "Excel coordinate",
+		"Types": [ "literal" ],
+"Description" : [
+"			If 1 parameter is provided, then the column designation will be provided.  If 2 parameters are provided, then the",
+"			Excel coordinates contain both column and row information."
+ ]
+			
+	  }
+	],
+"Examples" : [
+"	coord[A1] = { 0, 0 };",
+"	coord[B]  = { 1 };",
+"	coord[Z10]  = { 25, 9 };",
+"	coord[AA4]  = { 26, 3 };",
+"	coord[AZ4]  = { 51, 3 };",
+"	coord[BA14]  = { 52, 13 };",
+"	coord[ZZ]    = { 701 };",
+"	coord[AAA]   = { 702 };",
+"	coord[XFD1048576]   = { 16383, 1048575 };",
+"",
+"	for all variables( coord[], val[], i[], name[] )",
+"	{",
+"		coord[] = excel coordinates( val[] ); // Makes use of indirect parameter passing",
+"		echo(\"Input {col,row}: \", val[], \"  Result: \", coord[], \" (Expected: \", name[], \")\" );",
+"	}",
+"",
+"",
+"	echo( new line, \"Apply the function with 0 parameters on a table:\" );",
+"	table initialize ( blank table, {{ Name, Age }, { Zoe, 30 }, { Nic, 40 }} );",
+"",
+"	table process cells( blank table, echo( \"Row: \", row(), \"  Column: \", col(), \"  Value: \", [.], \"  Excel coordinates: \", excel coordinates() ) );"
+ ]
+	,
+	"Output": "automatic"
+}
+
+
+,
+
 "excel check sheet name" :
 {
 	"Function Names":	[ "excel check sheet name" ],
@@ -24655,7 +24736,7 @@
  ]
 	  ,
 	"Output": "automatic",
-	"See also": [ "directory delete ... Functions" ]
+	"See also": [ "directory create temp", "directory delete ... Functions" ]
 }
 
 

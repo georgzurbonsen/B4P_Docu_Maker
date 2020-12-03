@@ -666,7 +666,6 @@ REF;count files ...;REF_Function_count_files.html;Function Description;count fil
 REF;covariance, correlation;REF_Function_covariance.html;Function Description;covariance
 REF;covariance, correlation;REF_Function_covariance.html;Function Description;correlation
 REF;covariance, correlation;REF_Function_covariance.html;Function Description;;covariance and correlation
-REF;create own temp directory;REF_Function_create_own_temp_directory.html;Function Description;create own temp directory
 REF;cursor;REF_Function_cursor.html;Function Description;cursor
 REF;cursor;REF_Function_cursor.html;Function Description;;cursor position
 REF;cursor;REF_Function_cursor.html;Function Description;;move cursor
@@ -704,6 +703,7 @@ REF;directory create ...;REF_Function_directory_create.html;Function Description
 REF;directory create ...;REF_Function_directory_create.html;Function Description;directory create all
 REF;directory create ...;REF_Function_directory_create.html;Function Description;directory create silently
 REF;directory create ...;REF_Function_directory_create.html;Function Description;;directory create ... Functions
+REF;directory create temp;REF_Function_directory_create_temp.html;Function Description;directory create temp
 REF;directory delete ...;REF_Function_directory_delete.html;Function Description;directory delete
 REF;directory delete ...;REF_Function_directory_delete.html;Function Description;directory delete all
 REF;directory delete ...;REF_Function_directory_delete.html;Function Description;directory delete silently
@@ -748,6 +748,7 @@ REF;even, odd, whole;REF_Function_even.html;Function Description;;odd numbers
 REF;even, odd, whole;REF_Function_even.html;Function Description;;whole numbers
 REF;excel check sheet name;REF_Function_excel_check_sheet_name.html;Function Description;excel check sheet name
 REF;excel column number;REF_Function_excel_column_number.html;Function Description;excel column number
+REF;excel coordinates;REF_Function_excel_coordinates.html;Function Description;excel coordinates
 REF;excel list sheets;REF_Function_excel_list_sheets.html;Function Description;excel list sheets
 REF;exception;REF_Function_exception.html;Function Description;exception
 REF;exchange;REF_Function_exchange.html;Function Description;exchange

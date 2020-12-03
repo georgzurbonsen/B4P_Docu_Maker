@@ -1,15 +1,23 @@
-define function( hypotenuse, { { x, numeral }, { y, numeral } } )
-{
-    return( sqrt( x[]*x[] + y[]*y[] ) );
-}
 
-define procedure( say hello ) { echo("Hello !"); }
+	coord[A1] = { 0, 0 };
+	coord[B]  = { 1 };
+	coord[Z10]  = { 25, 9 };
+	coord[AA4]  = { 26, 3 };
+	coord[AZ4]  = { 51, 3 };
+	coord[BA14]  = { 52, 13 };
+	coord[ZZ]    = { 701 };
+	coord[AAA]   = { 702 };
+	coord[XFD1048576]   = { 16383, 1048575 }; 
 
-say hello;
-echo( hypotenuse(3,4) );  //  5
-echo( hypotenuse(5,12) ); // 12
-echo( hypotenuse(8,15) ); // 17
-echo( hypotenuse(1,1) );  //  1.41...
+	for all variables( coord[], val[], i[], name[] )
+	{
+	    coord[] = excel coordinates( val[] ); // Makes use of indirect parameter passing
+	    echo("Input {col,row}: ", val[], "  Result: ", coord[], " (Expected: ", name[], ")" );
+	}
 
 
+	echo( new line, "Apply the function with 0 parameters on a table:" );
+	table initialize ( blank table, {{ Name, Age }, { Zoe, 30 }, { Nic, 40 }} );
 
+	echo( excel coordinates() );
+	table process cells( blank table, echo( "Row: ", row(), "  Column: ", col(), "  Value: ", [.], "  Excel coordinates: ", excel coordinates() ) );
