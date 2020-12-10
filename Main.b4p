@@ -1,23 +1,16 @@
 
-	coord[A1] = { 0, 0 };
-	coord[B]  = { 1 };
-	coord[Z10]  = { 25, 9 };
-	coord[AA4]  = { 26, 3 };
-	coord[AZ4]  = { 51, 3 };
-	coord[BA14]  = { 52, 13 };
-	coord[ZZ]    = { 701 };
-	coord[AAA]   = { 702 };
-	coord[XFD1048576]   = { 16383, 1048575 }; 
+	values[] =
+	   { 1.2, date(today), true, { 1,2,{3,a} }, "Hello",  // No conversions
+	     "true", "True",         // Only 'true' will be converted
+	     "false", "False",       // Only 'false' will be converted
+	     "2020-04-17", "2020-04-07 22:30:00", "2020-04-07 22:30", // Time conversion if fully specified.  3rd exmaple si not converted
+	     "{1,2,{3,A} }",         // Converts to parameter set 
+	     "1.2", "1E+3",          // Converts to numbers
+	     "0000-00-00" };         // Converts to blank date
 
-	for all variables( coord[], val[], i[], name[] )
+	for all parameters( values[], v[] )
 	{
-	    coord[] = excel coordinates( val[] ); // Makes use of indirect parameter passing
-	    echo("Input {col,row}: ", val[], "  Result: ", coord[], " (Expected: ", name[], ")" );
+	    n[] = best type( v[] );
+	    echo("Value: ", n[],  "   Type: ", type(n[]) );
 	}
 
-
-	echo( new line, "Apply the function with 0 parameters on a table:" );
-	table initialize ( blank table, {{ Name, Age }, { Zoe, 30 }, { Nic, 40 }} );
-
-	echo( excel coordinates() );
-	table process cells( blank table, echo( "Row: ", row(), "  Column: ", col(), "  Value: ", [.], "  Excel coordinates: ", excel coordinates() ) );

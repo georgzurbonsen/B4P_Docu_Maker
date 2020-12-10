@@ -22132,10 +22132,11 @@
 "	Various appraoches are available to convert value to dates:",
 "",
 "	=== 200, 200, 600, bold_column_1",
-"	Input Form				| # Parmeters required	| Description",
+"	Input Form				| # Parameters required	| Description",
 "	Literal input			| 1 or 2				| Converts a literal to date.  Locale settings (referring to system variable 'local settings[date format short]' rule the year/month/day sequence if the date is ambiguous, e.g. \"10.11.12\".  Change that value prior to the call if dates are ambiguous and need to use a different format assumption. See __Date and Time Detection Rules__ for details.",
-"	today					| 1						| Uses today's date",
-"	now						| 1						| Uses today's date and time",
+"	today					| 1						| Uses today's date (local time zone)",
+"	now						| 1						| Uses today's date and time (local time zone)",
+"	utc						| 1						| Uses today's date and time (UTC)",
 "	numeric date			| 1						| Numeric date in YYYYMMDD format with range 19000101 ... 99993112.  Values behind decimal commas are ignored, i.e. not converted to time info",
 "	serial date				| 1						| Microsoft serial date and time, as used in Excel.  E.g. 44000.75 translates to 2020-06-18 18:00:00. ",
 "	numeric time			| 1						| Values between 0 and 1/(24+60+60), i.e. below 1, convert to time-only information.  The function <b>pure date</b>() returns blank date.",
@@ -22220,9 +22221,10 @@
 		}
 	],
 "Examples" : [
-"		echo( date ( now ) );		// Date and time",
+"		echo( date ( now ) );		// Date and time (local time zone)",
 "		echo( date ( today ) );   	// Date only",
-"		echo( pure date ( now ) );   	// Date only",
+"		echo( date ( utc ) );   	// Date and time (UTC)",
+"		echo( pure date ( now ) );   	// Date only (local time zone)",
 "		a[] = { 2020, 07, 14 };",
 "		echo( date ( a[] ));		// Quatorze Juillet",
 "		a[] += { 22, 33, 44 };		// Add time",
@@ -22270,7 +22272,7 @@
 "	Input Formats						| Examples							| Outputs															| Remarks",
 "	Blank								| '' (e.g. in date(''))				| Blank date														| ",
 "	Irrelvant information				| Hello (e.g. in date(Hello))		| Blank date														| Wrong contents ignored",
-"	Reserved keywords: today, now		| today, now						| Today's date														| Allowed to combine with time, e.g. 'today 13:30'.<br>Various languages supported.",
+"	Reserved keywords: today, now, utc	| today, now, utc					| Today's date, full date and time, and full date and time in UTC	| Allowed to combine with time, e.g. 'today 13:30'.<br>Various languages supported.",
 "	xx									| 1, 04, 2020						| Error																| Date is incomplete",
 "	xx xx								| 10-11, 10.11, 10 11, 10/11		| Depends on local settings<br>MDY: 2020-10-11<br>else: 2020-11-10	| Assumes current year",
 "	xx xx MMM							| 10-11 April						| Error																| Invalid date format",
@@ -22376,10 +22378,11 @@
 "	<br><br>",
 "",
 "	=== 200, 200, 600, bold_column_1",
-"	Input Form				| # Parmeters required	| Description",
+"	Input Form				| # Parameters required	| Description",
 "	Literal input			| 1 or 2				| Converts a literal to date.  Locale settings (referring to system variable 'local settings[date format short]' rule the year/month/day sequence if the date is ambiguous, e.g. \"10.11.12\".  Change that value prior to the call if dates are ambiguous and need to use a different format assumption. See __Date and Time Detection Rules__ for details.",
 "	today					| 1						| Meaningless, because it contains no time info.",
-"	now						| 1						| Uses today's time (today's date is ignored)",
+"	now						| 1						| Uses today's time (local time, today's date is ignored)",
+"	utc						| 1						| Uses today's date and time (UTC)",
 "	numeric date			| 1						| Meaningless, because it contains no time info",
 "	serial date				| 1						| Microsoft serial date and time, as used in Excel.  Only the fraction is used E.g. 44000.75 translates to 18:00:00.",
 "	numeric time			| 1						| Values between 0 and 1/(24+60+60), i.e. below 1, convert to time-only information",
@@ -22831,6 +22834,85 @@
 
 ,
 
+"best type" :
+{
+	"Function Names":	[ "best type" ],
+	"Keywords":			[ "best type" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"",
+"	In case the input parameter is a literal, then it will be converted to the best type, depending on the contents.  ",
+"	All non-literal types (numerals, parameter sets, dates, booleans voids) will be passed through without modifications ",
+"	Following rules apply for literals provided as parameters",
+"	* If the contents look like number, e.g. \"123.45\", then a conversion to numerals takes plae.",
+"	* If the contents equals <i>true</i> or <i>false</i>, then a converion to boolean takes place.",
+"	* Followng rules apply if unabiguous dates and/or times are provided:",
+"	** \"YYYY-MM-DD\":	Dates",
+"	** \"hh:mm:ss\":		Times",
+"	** \"YYYY-MM-DD hh:mm:ss\":	Dates with times",
+"	** \"0000-00-00\"		Blank dates",
+"	** Any other characters, including spaces before or after dates, will suppress date conversion.",
+"** If the 2nd parameter is true, then strings will be converted to parameters sets if the contents look like parameter sets, e.g. contents inside braces <b>{ ... }</b>.  	  The elements must be separated with commas.",
+"	* In all other cases, the string contents are passed through without changes.",
+"",
+""
+ ]
+	,
+
+	"Call as":			"function",
+	"Parameter count":	"1-2",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Value",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+"Description" : [
+"			Contents to be converted to best type."
+ ]
+		  
+		},
+		{ "Number": "2",
+		  "Name": "Do parameter sets",
+		  "Direction": "input",
+		  "Types": [ "boolean" ],
+		  "Default value": "false", 
+"Description" : [
+"			If 'true', then string contents looking like parameter set descriptions will be converted to parameter sets"
+ ]
+		  
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Result",
+		  "Types": [ "parameter set" ],
+		  "Description": "Value converted into best type"
+		}
+	],
+"Examples" : [
+"	values[] =",
+"	   { 1.2, date(today), true, { 1,2,{3,a} }, \"Hello\",  // No conversions",
+"		 \"true\", \"True\",         // Only 'true' will be converted",
+"		 \"false\", \"False\",       // Only 'false' will be converted",
+"		 \"2020-04-17\", \"2020-04-07 22:30:00\", \"2020-04-07 22:30\", // Time conversion if fully specified.  3rd exmaple si not converted",
+"		 \"{1,2,{3,A} }\",         // Converts to parameter set",
+"		 \"1.2\", \"1E+3\",          // Converts to numbers",
+"		 \"0000-00-00\" };         // Converts to blank date",
+"",
+"	for all parameters( values[], v[] )",
+"	{",
+"		n[] = best type( v[], true ); // 2nd parameter set also asks to convert strings containing parameter sets to parameter sets.",
+"		echo(\"Value: \", n[],  \"   Type: \", type(n[]) );",
+"	}"
+ ]
+	,
+	"Output": "automatic"
+}
+
+,
+
 "type, type detailed" :
 {
 	"Function Names":	[ "type", "typd detailed" ],
@@ -23035,13 +23117,13 @@
 
 ,
 
-"excel column number" :
+"excel column" :
 {
-	"Function Names":	[ "excel column number" ],
+	"Function Names":	[ "excel column" ],
 	"Documentation":	"Function Description",
 "Description" : [
 "	This function converts an Excel column designtor (combination of 1-3 letters) to a column number.  <br>",
-"	<u>Note</u>: <b>A</b> translates to 1 (and not 0).",
+"	<u>Note</u>: Excel column A translates to 0, B to 1, Z to 25, AA to 26, etc.",
 ""
  ]
 	,
@@ -23066,8 +23148,7 @@
 	  { "Name": "Column number",
 		"Types": [ "numeral" ],
 "Description" : [
-"			Valid column numbers begin with 1. 0 is returned for invalid column specifiers, e.g. missing letters.<br>",
-"			<u>Note:</u> B4P tables begin with column 0, so don't forget to subtract 1 from the number if needed."
+"			Valid column numbers begin with 0. -1 is returned for invalid column specifiers, e.g. missing letters.<br>"
  ]
 			
 	  }
@@ -23075,8 +23156,8 @@
 "Examples" : [
 "	for all parameters( { A, B5, Z23, AA1, ZZ, AAA, AAB, XFD, C A, '123 D', '123', ' B', '...' }, c[] )",
 "	{",
-"		echo(c[],\": \", excel column number( c[] ) );",
-"		// Note: 0 is returned if no appropriate letter is recognized.",
+"		echo(c[],\": \", excel column ( c[] ) );",
+"		// Note: -1 is returned if no appropriate letter is recognized.",
 "	}"
  ]
 	,
@@ -30114,7 +30195,7 @@
 
 "table process cells (selected rows)" :
 {
-	"Function Names":	[ "table process cells", "table process cells selected rows" ],
+	"Function Names":	[ "table process cells", "table process all cells", "table process cells selected rows" ],
 	"Documentation":	"Function Description",
 "Description" : [
 "",
@@ -30123,6 +30204,9 @@
 "	in every cell are provided as function parameters.  For this function, the enabled __partial table references__ also",
 "	includes referencing the current column number by simply specifying a '.' (point) and you can use the function __col(__) to retrieve",
 "	the current column number.",
+"",
+"	<br><br>",
+"	<b>table process all cells</b> will also process all elements in row 0 (header row), too, whereas the other funnctions skip the header row.",
 "",
 "	<br><br>",
 "	This feature allows simple formulation of instructions wihtout writinng a 2-dimensional loop.",
@@ -31505,7 +31589,7 @@
  ]
 	,
 	"Call as":			"procedure",
-	"Parameter count":	"2",
+	"Parameter count":	"3-4",
 	"Restrictions":		["Indirect parameter passing is disabled" ],
 	"Parameters":
 	[
@@ -31532,7 +31616,7 @@
  ]
 			
 		},
-		{   "Number":		"4.",
+		{   "Number":		"Opt. 4.",
 			"Name" :		"Expression to select rows to copy",
 			"Direction" :	"code",
 			"Types" :		[ "expression", ":literal" ] ,

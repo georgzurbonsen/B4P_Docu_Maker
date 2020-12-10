@@ -1,7 +1,8 @@
 ﻿#!/usr/local/bin/b4p
-      echo( date ( now ) );       // Date and time
+      echo( date ( now ) );       // Date and time (local time zone)
       echo( date ( today ) );     // Date only
-      echo( pure date ( now ) );      // Date only
+      echo( date ( utc ) );       // Date and time (UTC)
+      echo( pure date ( now ) );      // Date only (local time zone)
       a[] = { 2020, 07, 14 };
       echo( date ( a[] ));        // Quatorze Juillet
       a[] += { 22, 33, 44 };      // Add time

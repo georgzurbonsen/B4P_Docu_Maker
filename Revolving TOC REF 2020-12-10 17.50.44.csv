@@ -250,8 +250,9 @@ OK;Body;3;B 9.3.9;parameter set;REF_Function_parameter_set.html;parameter set;pa
 OK;Body;3;B 9.3.10;join ...;REF_Function_join.html;join,join ignore blanks,join unique,join unique ignore blanks;join,join ignore blanks,join unique,join unique ignore blanks;
 OK;Body;3;B 9.3.11;type, type detailed;REF_Function_type.html;type,typd detailed;type,typd detailed,Identify variable types;
 OK;Body;3;B 9.3.12;hash signature;REF_Function_hash_signature.html;hash signature;hash signature;
-OK;Body;3;B 9.3.13;excel column number;REF_Function_excel_column_number.html;excel column number;excel column number;
-OK;Body;3;B 9.3.14;excel check sheet name;REF_Function_excel_check_sheet_name.html;excel check sheet name;excel check sheet name;
+OK;Body;3;B 9.3.13;excel column;REF_Function_excel_column.html;excel column;excel column;
+OK;Body;3;B 9.3.14;excel coordinates;REF_Function_excel_coordinates.html;excel coordinates;excel coordinates;
+OK;Body;3;B 9.3.15;excel check sheet name;REF_Function_excel_check_sheet_name.html;excel check sheet name;excel check sheet name;
 OK;Body;2;B 9.4;Mathematics and Statistics;REF_Features_Mathematics_and_Statistics.html;Mathematics and Statistics;Mathematics and Statistics;
 OK;Body;3;B 9.4.1;Basic Math Functions;REF_Features_basic_math_functions.html;basic math functions;basic math functions;
 OK;Body;4;B 9.4.1.1;is numeric / integer - Functions;REF_Function_is_numeric.html;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank;is numeric,is integer,is numeric or blank,is integer or blank,is strictly numeric,is strictly integer,is strictly numeric or blank,is strictly integer or blank,checking numbers;
@@ -420,7 +421,7 @@ OK;Body;3;B 9.9.5;Processing Table Contents;REF_Features_Processing_table_conten
 OK;Body;4;B 9.9.5.1;table process (selected rows);REF_Function_table_process.html;table process,table process rows,table process selected rows;table process,table process rows,table process selected rows;
 OK;Body;4;B 9.9.5.2;table process selected rows fast;REF_Function_table_process_selected_rows_fast.html;table process selected rows fast;table process selected rows fast;
 OK;Body;4;B 9.9.5.3;table process (selected) columns;REF_Function_table_process_columns.html;table process columns,table process selected columns;table process columns,table process selected columns;
-OK;Body;4;B 9.9.5.4;table process cells (selected rows);REF_Function_table_process_cells.html;table process cells,table process cells selected rows;table process cells,table process cells selected rows;
+OK;Body;4;B 9.9.5.4;table process cells (selected rows);REF_Function_table_process_cells.html;table process cells,table process all cells,table process cells selected rows;table process cells,table process all cells,table process cells selected rows;
 OK;Body;4;B 9.9.5.5;table process cells in columns (selected rows);REF_Function_table_process_cells_in_columns.html;table process cells in columns,table process cells in columns selected rows;table process cells in columns,table process cells in columns selected rows;
 OK;Body;5;B 9.9.5.5.1;Addt'l Info on fast rows processing;REF_Features_Additional_info_on_fast_processing_of_rows.html;Additional info on fast processing of rows;Additional info on fast processing of rows;
 OK;Body;4;B 9.9.5.6;table manipulate;REF_Function_table_manipulate.html;table manipulate;table manipulate;
@@ -549,7 +550,7 @@ OK;Body;4;B 9.13.2.6;resolve path/directory/file name;REF_Function_resolve_path_
 OK;Body;4;B 9.13.2.7;office document properties;REF_Function_office_document_properties.html;office document properties;office document properties;
 OK;Body;3;B 9.13.3;Manipulating Directories and Files;REF_Features_manipulating_directories_and_files.html;manipulating directories and files;manipulating directories and files;
 OK;Body;4;B 9.13.3.1;directory create ...;REF_Function_directory_create.html;directory create,directory create all,directory create silently;directory create,directory create all,directory create silently,directory create ... Functions;
-OK;Body;4;B 9.13.3.2;create own temp directory;REF_Function_create_own_temp_directory.html;create own temp directory;create own temp directory;
+OK;Body;4;B 9.13.3.2;directory create temp;REF_Function_directory_create_temp.html;directory create temp;directory create temp;
 OK;Body;4;B 9.13.3.3;file delete ...;REF_Function_file_delete.html;file delete,file delete all,file delete silently;file delete,file delete all,file delete silently,file delete ... Functions;
 OK;Body;4;B 9.13.3.4;file delete multiple/recursive ...;REF_Function_file_delete_multiple.html;file delete multiple,file delete multiple all,file delete recursive,file delete recursive all;file delete multiple,file delete multiple all,file delete recursive,file delete recursive all,file delete multiple/recursive ... Functions;
 OK;Body;4;B 9.13.3.5;directory delete ...;REF_Function_directory_delete.html;directory delete,directory delete all,directory delete silently;directory delete,directory delete all,directory delete silently,directory delete ... Functions;
@@ -585,3 +586,4 @@ OK;Body;3;B 9.15.7;function dump;REF_Function_function_dump.html;function dump;f
 OK;Body;2;B 9.16;Cross-Functional Info;REF_Features_Cross-functional_info.html;Cross-functional info;Cross-functional info;
 OK;Body;3;B 9.16.1;Sorting and Ranking Options;REF_Features_Sorting_options.html;Sorting options,Ranking options;Sorting options,Ranking options;
 OK;Body;3;B 9.16.2;Consolidation Actions;REF_Features_consolidation_actions.html;consolidation actions;consolidation actions;
+New, (Assign right Category);;;;best type;REF_Function_best_type.html;best type;best type
