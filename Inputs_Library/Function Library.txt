@@ -2,8 +2,21 @@
 
 B4PDOCU.START
 
-  "Function Library" :
-  {
+
+"Table of Contents" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table of Contents" ],
+    "Keywords":			[ "Reference Manual" ],
+    "Description 01:Table of Contents"::
+
+	See the navigator bar for full table of contents.
+
+	+++
+},
+
+"Function Library" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Function Library" ],
     "Description 01:Introduction"::
@@ -15,10 +28,10 @@ B4PDOCU.START
 	<br><br>
 
 	Control flow functions are a variant of functions called as procedures which will then determineif the
-	subsequent __statement__ or __block__ will be executed once, repeatedly, or not.
+	subsequent __statements__ or __blocks__ will be executed once, repeatedly, or not.
 
 	+++
-   },
+},
 
 
   "Control Flow Functions" :
@@ -207,7 +220,7 @@ B4PDOCU.START
 
 
 
-"Type Conversion and Formatting Functions" :
+"Type Conversion and Formatting" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Type Conversion Functions" ],
@@ -840,7 +853,7 @@ B4PDOCU.START
 
 
 
-"Table Functions - Formatting and Styling":
+"Table Functions - Format and Style":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Formatting and Styling Tables" ],

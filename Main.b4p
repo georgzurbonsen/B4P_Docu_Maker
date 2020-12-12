@@ -1,16 +1,27 @@
+	table initialize( t1,  { Name, Amy, Bea, Colin, Daniela, Emily, Fabian } );
+	table initialize( t2,  { Names, Richard, Sam, Tim, Udo, Victor, Xavier, Yoel, Zoe } );
 
-	values[] =
-	   { 1.2, date(today), true, { 1,2,{3,a} }, "Hello",  // No conversions
-	     "true", "True",         // Only 'true' will be converted
-	     "false", "False",       // Only 'false' will be converted
-	     "2020-04-17", "2020-04-07 22:30:00", "2020-04-07 22:30", // Time conversion if fully specified.  3rd exmaple si not converted
-	     "{1,2,{3,A} }",         // Converts to parameter set 
-	     "1.2", "1E+3",          // Converts to numbers
-	     "0000-00-00" };         // Converts to blank date
+	echo(  new line, "Original tables");
+	echo(  "t1: ", [t1:Name,..] );
+	echo(  "t2: ", [t2:Names,..] );
 
-	for all parameters( values[], v[] )
-	{
-	    n[] = best type( v[] );
-	    echo("Value: ", n[],  "   Type: ", type(n[]) );
-	}
+	table move selected rows ( t1, t2, -1, [Name]{}=5 ); // Move Colin and Emily (5 letters)
 
+	echo(  new line, "Move all names from t1 to end of t2");
+	echo(  "t1: ", [t1:Name,..] );
+	echo(  "t2: ", [t2:Names,..] );
+
+/*
+	table move rows( t2, t1, -1, 9 );
+
+	echo(  new line, "Move the same names back to t1");
+	echo(  "t1: ", [t1:Name,..] );
+	echo(  "t2: ", [t2:Names,..] );
+
+	table move rows( t2, t1, 4, 3, 5 );
+
+	echo(  new line, "Move 3 names (Tim, Udo, Victor) in t2 to t1 before Daniela");
+	echo(  "t1: ", [t1:Name,..] );
+	echo(  "t2: ", [t2:Names,..] );
+
+*/

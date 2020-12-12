@@ -992,6 +992,25 @@ define procedure ( create all general and function descriptions in HTML )
 }
 
 
+define procedure ( create combined TOC )
+{
+	table sort rows			( books, Main TOC Order, numeric );
+	abbreviations[] 		= trim([ books: Abbreviation, .. ]) - {''};
+	echo("Available abbreviations: ", abbreviations[]);
+
+	for all parameters( abbreviations[], abbreviation[] )
+	{
+		TOC name[]	= "Revolving TOC " + abbreviation[];
+		file name[] 	= choose recent file( "", "", TOC name[] + "*.csv", newest, 1 );
+		if (file name[] != '') 
+		{
+			table load( toc, file name[] );
+			table merge( toc, master toc );
+		}
+	}
+	table save( master toc, destination path[] + "TOC.csv" );
+}
+
 
 {	// Main program part
 
@@ -1010,7 +1029,9 @@ define procedure ( create all general and function descriptions in HTML )
 	create all general and function descriptions in HTML;
 
 	table save( RTOC, TOC file name[] + literal( date(now), " YYYY-MM-DD HH.II.SS" ) + ".csv" );
-	if (chosen book[abbr]=REF) table save( RTOC, destination path[] + "TOC.csv" ); // Applicable for reference manual only
+
+
+	create combined TOC;
 
 	directory delete recursive all( destination path[] + Images );
 	sleep(0.3); // OS works in background, need to wait a bit
