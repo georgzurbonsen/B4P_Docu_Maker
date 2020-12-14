@@ -399,7 +399,7 @@ B4PDOCU.START
 "Comparison Expressions (func. params)" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Comparison Expression (func. params)" ],
+    "Feature Names":		[ "Comparison Expression [func. params]" ],
     "Keywords":			[ "Comparison Expressions", "Comparison Expression" ],
     "Description 01:Introduction"::
 
@@ -455,7 +455,7 @@ B4PDOCU.START
 "Expressions (func. params)" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Expressions (func params)" ],
+    "Feature Names":		[ "Expressions [func params]" ],
     "Description 01:Introduction"::
 
 	A expression is a a value, a fuction call or a calculation which returns a value.
@@ -503,7 +503,7 @@ B4PDOCU.START
 "Variables (func. params)":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Variables (func params)" ],
+    "Feature Names":		[ "Variables [func params]" ],
     "Description 01:Introduction"::
 
 	Variable are expressions which must refer directly to a variable.  Any other forms of expressions such as constants, calculations,
@@ -530,7 +530,7 @@ B4PDOCU.START
   "Statements (func. params)":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Statements (func params)" ],
+    "Feature Names":		[ "Statements [func params]" ],
     "Description 01:Introduction"::
 
 	Statements may consist of one single statement, multiple statements separated with semicolons, and blocks.  Blocks are one or more

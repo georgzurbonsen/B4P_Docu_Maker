@@ -1008,6 +1008,7 @@ define procedure ( create combined TOC )
 			table merge( toc, master toc );
 		}
 	}
+	table save( master toc, "TOC.csv" );
 	table save( master toc, destination path[] + "TOC.csv" );
 }
 
@@ -1045,12 +1046,19 @@ define procedure ( create combined TOC )
 		file copy overwrite ( destination path[] + index html file name [], destination path[] + index.html );
 	}
 
+
+	// Update index file, will be used in next run.
+
+	start( "Make_Index.b4p" );
+
+
 	// Put all the code examples into a ZIP file and stage it on the website, too.
 
 	echo(new line, "Compress all code examples into B4P_Examples.zip" );
 	working directory ( Examples );
 	file delete silently( destination path[] + "B4P_Examples.zip" ); sleep( 0.3 ); // OS works in background, need to wait a bit
-	zip compress( "*.*", destination path[] + "B4P_Examples.zip" );
+	zip compress( "*.*", destination path[] + "B4P_Examples.zip" );	
+
 
 }
 

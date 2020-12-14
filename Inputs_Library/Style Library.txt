@@ -460,7 +460,7 @@ B4PDOCU.START
 	autofilter			| Numeral: row number				| table			| Use 0 for header row. No pre-filtering made	|
 	freeze rows			| Numeral: row count				| table			| Number of top row frozen and always visible when scrolling		| Used by Excel
 	freeze columns			| Numeral: column count				| table			| Number of left columns frozen and always visible when scrolling	| Used by Excel
-	hidden				| Boolean: true, false				| row, column		| Hides a specifci row or column		| In HTML, column width 0 is used
+	hidden				| Boolean: true, false				| row, column		| Hides a specific row or column		| In HTML, column width 0 is used
 	hidden row			| Boolean: true, false				| row			| Like above, appliable to rows only		|
 	hidden column			| Boolean: true, false				| column		| Like above, appliable to columns only		| In HTML, column width 0 is used
 	===
