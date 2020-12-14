@@ -1,16 +1,13 @@
-﻿  
-  echo("Distinguish between simple and zero members variables");
-  a[] = Hi;
-  echo(identify(a[0])); // simple
+﻿      include( Support Library );
+      include( Zip Library );
 
-  a[0] = Ho;
-  echo(identify(a[0])); // array
+      zip compress( "Examples\*.csv", "All csv.zip" );
+      zip extract files( "All csv.zip", "Examples\Cities.csv", "My Dir" );
 
-  delete(a[0]);
-  echo(identify(a[0])); // not found
-  echo(identify(a[])); // zero members
+      echo("List the extracted file from 'All csv.zip':", new line);
+      directory listing recursive( d, "My Dir" );
+      table keep columns( d, 'Path,Name,Date Created,Directory,Size' );
+      table list( d );
 
-  a[dog] = Hund;
-  echo(identify(a[])); // structure
-
-
+      directory delete recursive ( "", "My Dir" );
+      file delete( "All csv.zip" );
