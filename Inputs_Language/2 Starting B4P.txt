@@ -2,30 +2,30 @@
 B4PDOCU.START
 
 
-"The Run-Time Machine" :
+"Execution Engine" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Run-Time Machine" ],
+    "Feature Names":		[ "Execution Engine" ],
     "Description 01:Introduction"::
 
-	The B4P run-time machine, including some library files written in B4P langauge, is the key software you need to install in order to make full use of the
-	language.  The machine contains a poweful <b>language interpreter</b> which understands and executes the B4P source code directly and without cluttering up your
+	The B4P execution engine, including some library files written in B4P langauge, is the key software you need to install in order to make full use of the
+	language.  The engine contains a poweful <b>language interpreter</b> which understands and executes the B4P source code directly and without cluttering up your
 	drive with additional files.  A wide spectrum of high-performing functions to handle large data structures such as tables and variable trees are integrated
-	in the run-time machine.
+	in the execution engine.
 
     "Description 02:Lean and Simple"::
 
-	Intentionally, the B4P run-time machine is exceptionally lean (few megabytes). Its compactness make it so powerful, i.e. starting immediately after the 
+	Intentionally, the B4P execution engine is exceptionally lean (few megabytes). Its compactness make it so powerful, i.e. starting immediately after the 
 	mouse click and no waiting time until your B4P program starts processing.
 
     "Description 03:Intentionally no Graphic User Interface"::
 
-	The B4P run-time machine is a (probably old-fashioned) console application.  For a good reason, we have left out the nice Windows user interface features,
+	The B4P execution engine is a (probably old-fashioned) console application.  For a good reason, we have left out the nice Windows user interface features,
 	and there are some very good rasons for that:
 
 	* <b>Unparalleled start-up performance</b>: The B4P program runs instantaneouly after the mouse click or pushing [Enter].
 	* <b>Cross-Platform Portability</b>: B4P runs equally well under Windows, Linux and MacOS.  Additional operating systems can be included in the future.
-	* <b>On-line documentation</b> is fully integrated in the B4P run-time machineand is available on your fingertips any time.
+	* <b>On-line documentation</b> is fully integrated in the B4P execution engineand is available on your fingertips any time.
 
 	GUI features are in most cases more platform-dependent than you are thinking and may slow down overall start-up and execution performance.  
 	This pretended disadvantage is compensated by its superior machine processing performance. Long story short:<br>
@@ -53,11 +53,11 @@ B4PDOCU.START
     "Feature Names":		[ "Installting and starting up" ],
     "Description 01:Introduction"::
 
-	Please refer to __Installation and Setup__ section in the User's Guide which summarizes installing B4P run-time machine and the different ways how to start up
+	Please refer to __Installation and Setup__ section in the User's Guide which summarizes installing B4P execution engine and the different ways how to start up
 	on the different system platforms.
 
 	<br><br>
-	The following sections elaborate on the starting procedure and execution behavior of the B4P run-time machine and how applied __command line switches__ influence this staring behavior.
+	The following sections elaborate on the starting procedure and execution behavior of the B4P execution engine and how applied __command line switches__ influence this staring behavior.
 	+++
 },
 
@@ -92,7 +92,7 @@ B4PDOCU.START
 	-x	| Skip the "<i>Press [Enter] to end the program</i>" before B4P is exiting.  Useful for running B4P programs from batch scripts without user interaction
 	===
 
-	Invalid command line parameters will provide descriptive error messages and stop the B4P run-time machine.<br><br>
+	Invalid command line parameters will provide descriptive error messages and stop the B4P execution engine.<br><br>
 	Command line arguments may be freely ordered and specified as combined or individual parameters.  See the example below.
 	+++,
 
@@ -115,7 +115,7 @@ B4PDOCU.START
     "Feature Names":		[ "Starting Behavior" ],
     "Description 01:Introduction"::
 
-	The B4P run-time machine undertakes a few steps before the specified B4P is started up.  The flow chart shown below illustrates this.
+	The B4P execution engine undertakes a few steps before the specified B4P is started up.  The flow chart shown below illustrates this.
 	Start-up begins with a common initialzation procedure, beginnign with identifying __command line switches__ if they are provided, and then
 	show a welcome-text (if not disabled with <b>-q</b> or <b>-w</b>), initialize all system variables and retrieve the locale settings from <b>B4P Locale Settings.json</b>
 	located in the application data directory.  The locale settings has originally been selected during installation, and the function __set locale(__) 

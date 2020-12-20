@@ -48,7 +48,7 @@ B4PDOCU.START
 
 	<br><br>
 
-	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P run-time machine and all
+	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P executing engine and all
 	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.
 
     "Description 02:Extracting the Files"::
@@ -64,7 +64,7 @@ B4PDOCU.START
 	You should see the following files and directory in a new directory called <b>b4p installation</b>:
 
 	=== 300, 700, noheader, bold_column_1
-	b4p			| B4P run-time machine including the language interpreter.
+	b4p			| B4P execution engine including the language interpreter.
 	setup			| B4P installation program
 	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)
 	lib\			| Directory containing B4P library files

@@ -22,7 +22,7 @@ B4PDOCU.START
 	* <b>No programming bureaucracy</b> such as type definitions, declaring all the variables and doing memory management on your own.
 	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.
 	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly
-	* The run-time machine and all libary files are very lean, very robust and start quickly.
+	* The execution engine and all libary files are very lean, very robust and start quickly.
 	* High focus on <b>cross-platform portability</b> (Windows, Linux, MacOS, etc.), enabling to run the same code on different platforms.
 	* B4P output files for Excel can contain <b>style and formatting</b> like colors, row widths, etc.
 
@@ -98,7 +98,7 @@ B4PDOCU.START
 	<br><br>
 
 	=== 200, 800, noframe_1stcolbold, noheader
-	Interpreted				| The __run-time machine__ is designed to interpret and process the code with very high performance. \
+	Interpreted				| The __execution engine__ is designed to interpret and process the code with very high performance. \
 						  Two factors contribute to high execution performance despite being an interpreted language: <br>\
 						  1. The code is checked and fully tokenized before starting to run<br>\
 						  2. The language provides an extensive library to manage large tables, variable structures and parameter sets (i.e. vectors and matrices).

@@ -40,7 +40,7 @@ B4PDOCU.START
     "Feature Names":		[ "Updates and Upgrades" ],
     "Description 01:Update Installations"::
 
-	B4P update installations using the same version of the B4P run-time machine can be carried out by starting
+	B4P update installations using the same version of the B4P execution engine can be carried out by starting
 	the same installation program.  Typical cases are repeating installations with different settings such as changed
 	locale settings, or including an approved license in order to lift the applicable restrictions.
 

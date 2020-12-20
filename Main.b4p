@@ -1,27 +1,12 @@
-	table initialize( t1,  { Name, Amy, Bea, Colin, Daniela, Emily, Fabian } );
-	table initialize( t2,  { Names, Richard, Sam, Tim, Udo, Victor, Xavier, Yoel, Zoe } );
+	include ( Support Library );
 
-	echo(  new line, "Original tables");
-	echo(  "t1: ", [t1:Name,..] );
-	echo(  "t2: ", [t2:Names,..] );
+	table initialize ( t,
+	{ { Animal, leg count, size,         intelligence }, 
+	  { Worm,   0,         very small,   low},
+	  { Fox,    4,         quite small,  medium } });
 
-	table move selected rows ( t1, t2, -1, [Name]{}=5 ); // Move Colin and Emily (5 letters)
+	table write row( t, { size, Animal, leg count, skin }, 1, { tiny, null(), no legs }, { null(), Dog, four, haired } );
 
-	echo(  new line, "Move all names from t1 to end of t2");
-	echo(  "t1: ", [t1:Name,..] );
-	echo(  "t2: ", [t2:Names,..] );
+	table add   row( t, { Animal, size, intelligence }, { Ape, quite big, smart }, { Jellyfish, small } );
 
-/*
-	table move rows( t2, t1, -1, 9 );
-
-	echo(  new line, "Move the same names back to t1");
-	echo(  "t1: ", [t1:Name,..] );
-	echo(  "t2: ", [t2:Names,..] );
-
-	table move rows( t2, t1, 4, 3, 5 );
-
-	echo(  new line, "Move 3 names (Tim, Udo, Victor) in t2 to t1 before Daniela");
-	echo(  "t1: ", [t1:Name,..] );
-	echo(  "t2: ", [t2:Names,..] );
-
-*/
+	table list ( t );

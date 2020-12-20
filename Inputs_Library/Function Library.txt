@@ -30,6 +30,8 @@ B4PDOCU.START
 	Control flow functions are a variant of functions called as procedures which will then determineif the
 	subsequent __statements__ or __blocks__ will be executed once, repeatedly, or not.
 
+	<br/><img src="Images/LIB_Function_Overview.png" alt="Function overview"><br/><br/>
+
 	+++
 },
 
@@ -166,10 +168,10 @@ B4PDOCU.START
 
 
 
-"Input / Output Functions":
+"Console I/O Functions":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "input output functions" ],
+    "Feature Names":		[ "Console I/O Functions" ],
     "Description 01:Introduction"::
 
 	This subsection describes various functions text and console input / output features such as __echo(__) considered as a common
@@ -522,10 +524,28 @@ B4PDOCU.START
 
 
 
-"Table Functions - Basics":
+"Table Functions":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions" ],
+    "Description 01:Introduction"::
+
+	The chapter on table functions covers following four sections
+	* Table I/O and Access
+	* Search and Processing
+	* Multi-Table Integration
+	* Formatting and Styling Tables
+
+	+++
+},
+
+
+
+
+"Table I/O and Access":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "table functions I/O and Access" ],
     "Description 01:Introduction"::
 
 	This section summarizes the basic fuctions which include the following:
@@ -539,7 +559,19 @@ B4PDOCU.START
 },
 
 
-"Table Functions - Processing":
+"Loading and Saving Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loading and saving tables" ],
+    "Description 01:Introduction"::
+
+	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.
+
+	+++
+  },
+
+
+"Search and Processing":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions processing" ],
@@ -555,10 +587,10 @@ B4PDOCU.START
 	+++
 },
 
-"Table Functions - Advanced":
+"Multi-Table Integration":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "advanced table functions" ],
+    "Feature Names":		[ "Multi-table integration" ],
     "Description 01:Introduction"::
 
 	This section summarizes the basic fuctions which include the following:
@@ -614,22 +646,11 @@ B4PDOCU.START
   },
 
 
-"Loading and Saving Tables":
+
+"Console I/O with Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Loading and saving tables" ],
-    "Description 01:Introduction"::
-
-	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.
-
-	+++
-  },
-
-
-"Input/Output with Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Input output wtih tables" ],
+    "Feature Names":		[ "Console I/O with Tables" ],
     "Description 01:Introduction"::
 
 	The following functions relate to table-specific input / output features. They include:
@@ -710,10 +731,10 @@ B4PDOCU.START
   },
 
 
-"Renaming, Copying and Splitting Tables":
+"Copying, Renaming and Splitting Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Copying and spitting tables" ],
+    "Feature Names":		[ "Copying, renaming and spitting tables" ],
     "Description 01:Introduction"::
 
 	The functions described next provide efficient means to copy and split tables.
@@ -853,7 +874,7 @@ B4PDOCU.START
 
 
 
-"Table Functions - Format and Style":
+"Formatting and Styling Tables":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Formatting and Styling Tables" ],

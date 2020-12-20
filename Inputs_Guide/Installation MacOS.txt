@@ -98,7 +98,7 @@ B4PDOCU.START
 	<br>
 	<b>Review</b> the contents of the b4p_installation as follows:
 	=== 200, 500, noheader, bold_column_1
-	b4p			| B4P run-time machine including the language interpreter.
+	b4p			| B4P run-time execution engine including the language interpreter.
 	setup			| B4P installation program
 	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)
 	lib\			| Directory containing B4P library files
@@ -127,7 +127,7 @@ B4PDOCU.START
 
 	"Description 04:Terms and Conditions"::
 	Note that by installing and using B4P you agree to accept the __Terms and Conditions__ 
-	for use of the B4P run-time machine and all asscociated files and libraries.
+	for use of the B4P run-time execution engine and all asscociated files and libraries.
 
 
 	"Description 05:Ready for installation"::
@@ -341,7 +341,7 @@ License activation ...
     Done creating this directory.
     When you start B4P without file specified, 'Main.b4p' in this directory will be started.
 
-    Highly advisable to restart your machine so all configuration settings for this installation are in effect.
+    Highly advisable to restart your execution engine so all configuration settings for this installation are in effect.
 
 
 Done - Press ENTER key

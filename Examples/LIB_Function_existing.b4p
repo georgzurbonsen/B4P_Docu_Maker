@@ -8,3 +8,5 @@
 
   echo( existing ( a[1] ), ", ", existing ( b[me] ), ", ", existing ( b[he] ), ", ", existing ( b[0] ) );
   // false, true, false, true
+
+  for (i[] = 0, i[] <= 3, i[]++) echo("c[",i[],"] existing: ", existing(c[i[]]), "   valid: ", existing and valid(c[i[]]) );

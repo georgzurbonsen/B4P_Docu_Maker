@@ -51,7 +51,7 @@ B4PDOCU.START
 	* B4P delivers maximum processing performance, especially with large data
 	* The language is easy to read and understand
 	* Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.
-	* The language and run-time machine requires no further installation of external libraries
+	* The language and execution engine requires no further installation of external libraries
 	* Focus on the problem to solve, without wasting time coding algorithic details
 	* A respectable library of procedures and functions, with focus on table data processing, is available
 
@@ -88,7 +88,7 @@ B4PDOCU.START
 	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.
 	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly
 	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).
-	* The run-time machine and all libary files are very lean, very robust and start quickly.
+	* The execution engine and all libary files are very lean, very robust and start quickly.
 	** Powerful table processing functions available such as merging, consolidating and applying pivots on tables
 	** Powerful vector and matrix operations available for high-performance calculations on your tables and data
 	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same B4P program on different platforms.

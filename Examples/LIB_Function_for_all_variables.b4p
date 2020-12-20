@@ -1,11 +1,47 @@
 ﻿#!/usr/local/bin/b4p
-      structure( a[], { Animal, Plant, Alien }, { Ape, Tulip, Chewbacca } );
-      for all variables( a[], value[], i[] , name[])
-      {
-          echo( i[],": ", name[]," = ", value[] );
-      }
-      array( a[], { Charles, Dave, Abel, Birgit, } );
-      for all variables( a[], value[], i[] , name[])
-      {
-          echo( i[],": ", name[]," = ", value[] );
-      }
+  structure( a[], { Animal, Plant, Alien, Nothing }, { Ape, Tulip, Chewbacca, null() } );
+
+  echo(new line, "Output all structure members: ");
+  for all variables( a[], value[], i[] , name[])
+  {
+      echo( i[],": ", name[]," = ", value[] );
+  }
+
+  echo(new line, "Output all valid structure members: ");
+  for all variables if existing and valid( a[], value[], i[] , name[])
+  {
+      echo( i[],": ", name[]," = ", value[] );
+  }
+
+  array( a[], { Charles, Dave, Abel, null(), Paul, Birgit, } ); // One void value inside
+
+  echo(new line, "Output all array members: ");
+  for all variables( a[], value[], i[] , name[])
+  {
+      echo( i[],": ", name[]," = ", value[] );
+  }
+
+  echo(new line, "Output all valid array members: ");
+  for all variables if existing and valid( a[], value[], i[] , name[])
+  {
+      echo( i[],": ", name[]," = ", value[] );
+  }
+
+  echo(new line, "Attempt to output a non-existing variable: ");
+  for all variables if existing and valid( nonexising name[], value[], i[] , name[])
+  {
+      echo( i[],": ", name[]," = ", value[] );  // Nothing listed.
+  }
+
+  echo(new line, "Output array members with few of them defined: ");
+
+  a[1] = 33;
+  a[9] = Hello;
+  a[20] = 1;
+  a[40] = true;
+  a[2] = null();
+
+  for all variables if existing and valid( a[], val[], cnt[] )
+  {
+      echo( cnt[],": ", val[] );  // Only valid values listed.
+  }
