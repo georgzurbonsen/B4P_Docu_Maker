@@ -5,17 +5,17 @@
       table initialize( reference, { Gender, male, female }  );
       echo("Reference table:"); table list ( reference );
 
-      res[] = table check( target, reference, Gender );
+      res[] = table validate( target, reference, Gender );
 
-      echo("Target table after checking (result = ", res[], "):");
+      echo("Target table after validation (result = ", res[], "):");
       table list ( target );
 
       echo("Add a mistake.");
       [target:Name,Philippe,Gender] = "Male"; // Upper case deviates
 
-      res[] = table check( target, reference, Gender );
+      res[] = table validate( target, reference, Gender );
 
-      echo("Target table after checking (result = ", res[], "):");
+      echo("Target table after validation (result = ", res[], "):");
       table list ( target );
 
       // See following sub-sections for more sophisticated examples.

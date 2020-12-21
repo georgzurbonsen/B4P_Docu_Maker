@@ -1,6 +1,5 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
-LIB;Accessing Table Contents;LIB_Features_Accessing_table_contents.html;General Description;Accessing table contents
-LIB;Accessing Table Information;LIB_Features_accessing_table_info.html;General Description;accessing table info
+LIB;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
 LIB;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;sub
@@ -39,22 +38,21 @@ LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;su
 LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;parallel
 LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;harmonic mean
 LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;;basic statistics functions
+LIB;Basic Table Access;LIB_Features_Basic_table_access.html;General Description;Basic table access
 LIB;Basic Variables Functions;LIB_Features_basic_variables_functions.html;General Description;basic variables functions
 LIB;Boolean to Literal Formatting;LIB_Features_boolean_to_literal_conversion_and_formatting.html;General Description;boolean to literal conversion and formatting
 LIB;Boolean to Literal Formatting;LIB_Features_boolean_to_literal_conversion_and_formatting.html;General Description;;Boolean to Literal Formatting Parameters
 LIB;Branches;LIB_Features_Branches.html;General Description;Branches
 LIB;Change Indication Function;LIB_Function_(This_is_a_user-defined_function_you_need_to_create).html;Function Description;(This is a user-defined function you need to create)
 LIB;Character Encoding and Decoding;LIB_Features_character_coding.html;General Description;character coding
-LIB;Checking Tables - Examples;LIB_Features_checking_tables_examples.html;General Description;checking tables examples
-LIB;Checking Tables - Row and Group Results;LIB_Features_checking_tables_row_results.html;General Description;checking tables row results
-LIB;Checking Tables - Row and Group Results;LIB_Features_checking_tables_row_results.html;General Description;checking tables group results
-LIB;Checking and Comparing Tables;LIB_Features_Checking_and_comparing_tables.html;General Description;Checking and comparing tables
 LIB;Checking and Processing Headers;LIB_Features_Checking_headers.html;General Description;Checking headers
 LIB;Checking and Processing Headers;LIB_Features_Checking_headers.html;General Description;Processing headers
+LIB;Clearing and Deleting Tables;LIB_Features_Clearing_and_deleting_tables.html;General Description;Clearing and deleting tables
 LIB;Code Execution Functions;LIB_Features_Code_Execution_Functions.html;General Description;Code Execution Functions
 LIB;Color Palettes;LIB_Features_Color_Palettes.html;General Description;Color Palettes
 LIB;Color Palettes;LIB_Features_Color_Palettes.html;General Description;;Color Palette
-LIB;Combining Multiple Tables;LIB_Features_Combining_Multiple_Tables.html;General Description;Combining Multiple Tables
+LIB;Combining Multiple Tables;LIB_Features_Combining_multiple_tables.html;General Description;Combining multiple tables
+LIB;Comparing and Validating Tables;LIB_Features_Comparing_and_validating_tables.html;General Description;Comparing and validating tables
 LIB;Comparison and Selection Functions;LIB_Features_Comparison_and_selection_functions.html;General Description;Comparison and selection functions
 LIB;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;sum if
 LIB;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;sum if any
@@ -172,12 +170,12 @@ LIB;Conditional Combination Functions;LIB_Function_sum_if.html;Function Descript
 LIB;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;join ignore blanks if any
 LIB;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;;conditional combination functions
 LIB;Console I/O Functions;LIB_Features_Console_I_O_Functions.html;General Description;Console I/O Functions
-LIB;Console I/O with Tables;LIB_Features_Console_I_O_with_Tables.html;General Description;Console I/O with Tables
+LIB;Console I/O with Tables;LIB_Features_Console_I_O_with_tables.html;General Description;Console I/O with tables
 LIB;Console Special Effects;LIB_Features_Console_special_effects.html;General Description;Console special effects
 LIB;Consolidation Actions;LIB_Features_consolidation_actions.html;General Description;consolidation actions
 LIB;Control Flow Functions;LIB_Features_Control_Flow_Functions.html;General Description;Control Flow Functions
 LIB;Copying, Renaming and Splitting Tables;LIB_Features_Copying__renaming_and_spitting_tables.html;General Description;Copying, renaming and spitting tables
-LIB;Creating and Deleting Tables;LIB_Features_table_creating_deleting.html;General Description;table creating deleting
+LIB;Creating Tables and Adding Contents;LIB_Features_Creating_tables_and_adding_contents.html;General Description;Creating tables and adding contents
 LIB;Cross-Functional Info;LIB_Features_Cross-functional_info.html;General Description;Cross-functional info
 LIB;Date Functions;LIB_Features_date_functions.html;General Description;date functions
 LIB;Date and Time Detection Rules;LIB_Features_Detects_dates_correctly_in_literals.html;General Description;Detects dates correctly in literals
@@ -190,7 +188,7 @@ LIB;Defining User Specific Colors;LIB_Features_Defining_User_Specific_Colors.htm
 LIB;Directory and File System Functions;LIB_Features_directory_and_file_system_functions.html;General Description;directory and file system functions
 LIB;Exception Functions;LIB_Features_Exception_Functions.html;General Description;Exception Functions
 LIB;Executing System Commands;LIB_Features_executing_system_commands.html;General Description;executing system commands
-LIB;Exploring and Extracting Tables;LIB_Features_Exploring_and_Extracting_Tables.html;General Description;Exploring and Extracting Tables
+LIB;Explore, Filter, Extract Sub-Tables;LIB_Features_Explore_and_filter_and_extract_sub-tables.html;General Description;Explore and filter and extract sub-tables
 LIB;Exponential Functions;LIB_Function_exp.html;Function Description;exp
 LIB;Exponential Functions;LIB_Function_exp.html;Function Description;10p
 LIB;Exponential Functions;LIB_Function_exp.html;Function Description;;exponential functions
@@ -200,7 +198,7 @@ LIB;Finance and Business Functions;LIB_Features_finance_functions.html;General D
 LIB;Finishing up formatting;LIB_Features_Finishing_up_formatting.html;General Description;Finishing up formatting
 LIB;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Precedences
 LIB;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Coverages
-LIB;Formatting and Styling Tables;LIB_Features_Formatting_and_Styling_Tables.html;General Description;Formatting and Styling Tables
+LIB;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
 LIB;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
@@ -241,7 +239,7 @@ LIB;Loading and Saving Variables;LIB_Features_Loading_and_saving_variables.html;
 LIB;Logarithmic Functions;LIB_Function_ln.html;Function Description;ln
 LIB;Logarithmic Functions;LIB_Function_ln.html;Function Description;log
 LIB;Logarithmic Functions;LIB_Function_ln.html;Function Description;;logarithmic functions
-LIB;Looking up Other Tables;LIB_Features_Looking_up_Other_Tables.html;General Description;Looking up Other Tables
+LIB;Looking up Other Tables;LIB_Features_Looking_up_other_tables.html;General Description;Looking up other tables
 LIB;Loops;LIB_Features_Loops.html;General Description;Loops
 LIB;Manipulating Directories and Files;LIB_Features_manipulating_directories_and_files.html;General Description;manipulating directories and files
 LIB;Mathematics and Statistics;LIB_Features_Mathematics_and_Statistics.html;General Description;Mathematics and Statistics
@@ -262,11 +260,13 @@ LIB;Pivoting and Conosolidating Tables;LIB_Features_Pivoting_and_consolidating_t
 LIB;Processing Table Columns;LIB_Features_Processing_table_columns.html;General Description;Processing table columns
 LIB;Processing Table Contents;LIB_Features_Processing_table_contents.html;General Description;Processing table contents
 LIB;Processing Table Rows;LIB_Features_Processing_table_rows.html;General Description;Processing table rows
+LIB;Processing Tables;LIB_Features_Processing_tables.html;General Description;Processing tables
+LIB;Reading and Writing Tables;LIB_Features_Reading_and_writing_tables.html;General Description;Reading and writing tables
 LIB;Registry Access Functions;LIB_Features_registry_access_functions.html;General Description;registry access functions
 LIB;Resident Attributes Functions;LIB_Features_Resident_attributes_functions.html;General Description;Resident attributes functions
 LIB;Saving JSON files;LIB_Features_Saving_JSON_files.html;General Description;Saving JSON files
-LIB;Search and Processing;LIB_Features_table_functions_processing.html;General Description;table functions processing
-LIB;Searching Tables;LIB_Features_Searching_tables.html;General Description;Searching tables
+LIB;Search Functions;LIB_Features_Search_functions.html;General Description;Search functions
+LIB;Searching and Exploring Tables;LIB_Features_Searching_and_exploring_tables.html;General Description;Searching and exploring tables
 LIB;Series Functions;LIB_Features_series_functions.html;General Description;series functions
 LIB;Set Search and Extraction Functions;LIB_Features_parameter_set_search_and_extraction.html;General Description;parameter set search and extraction
 LIB;Set Search and Extraction Functions;LIB_Features_parameter_set_search_and_extraction.html;General Description;;parameter set search functions
@@ -295,8 +295,8 @@ LIB;Styling Functions;LIB_Features_Formatting_the_Tables.html;General Descriptio
 LIB;System Functions;LIB_Features_system_functions.html;General Description;system functions
 LIB;Table Comparison Reports;LIB_Features_Table_comparison_reports.html;General Description;Table comparison reports
 LIB;Table Comparison Strategy;LIB_Features_Table_comparison_strategy.html;General Description;Table comparison strategy
+LIB;Table File and Console I/O;LIB_Features_Table_file_and_console_IO.html;General Description;Table file and console IO
 LIB;Table Functions;LIB_Features_table_functions.html;General Description;table functions
-LIB;Table I/O and Access;LIB_Features_table_functions_I_O_and_Access.html;General Description;table functions I/O and Access
 LIB;Table Integration Operation Identifiers;LIB_Features_Table_integration_operation_identifiers.html;General Description;Table integration operation identifiers
 LIB;Table of Contents;LIB_Features_Table_of_Contents.html;General Description;Table of Contents
 LIB;Table of Contents;LIB_Features_Table_of_Contents.html;General Description;;Reference Manual
@@ -477,10 +477,10 @@ LIB;even, odd, whole;LIB_Function_even.html;Function Description;whole
 LIB;even, odd, whole;LIB_Function_even.html;Function Description;;even numbers
 LIB;even, odd, whole;LIB_Function_even.html;Function Description;;odd numbers
 LIB;even, odd, whole;LIB_Function_even.html;Function Description;;whole numbers
-LIB;excel check sheet name;LIB_Function_excel_check_sheet_name.html;Function Description;excel check sheet name
 LIB;excel column;LIB_Function_excel_column.html;Function Description;excel column
 LIB;excel coordinates;LIB_Function_excel_coordinates.html;Function Description;excel coordinates
 LIB;excel list sheets;LIB_Function_excel_list_sheets.html;Function Description;excel list sheets
+LIB;excel validate sheet name;LIB_Function_excel_validate_sheet_name.html;Function Description;excel validate sheet name
 LIB;exception;LIB_Function_exception.html;Function Description;exception
 LIB;exchange;LIB_Function_exchange.html;Function Description;exchange
 LIB;existing (and valid);LIB_Function_existing.html;Function Description;existing
@@ -814,12 +814,13 @@ LIB;switch, check;LIB_Function_switch.html;Function Description;switch
 LIB;switch, check;LIB_Function_switch.html;Function Description;check
 LIB;switch, check;LIB_Function_switch.html;Function Description;;alternative execution of code blocks
 LIB;system;LIB_Function_system.html;Function Description;system
+LIB;table (write or) add missing row;LIB_Function_table_add_missing_row.html;Function Description;table add missing row
+LIB;table (write or) add missing row;LIB_Function_table_add_missing_row.html;Function Description;table write or add missing row
 LIB;table add / write row;LIB_Function_table_add_row.html;Function Description;table add row
 LIB;table add / write row;LIB_Function_table_add_row.html;Function Description;table write row
 LIB;table append blank rows;LIB_Function_table_append_blank_rows.html;Function Description;table append blank rows
 LIB;table arrange ...;LIB_Function_table_arrange.html;Function Description;table arrange
 LIB;table arrange ...;LIB_Function_table_arrange.html;Function Description;table arrange with spacing
-LIB;table check;LIB_Function_table_check.html;Function Description;table check
 LIB;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates
 LIB;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates ignore case
 LIB;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates ignore blanks
@@ -1028,6 +1029,10 @@ LIB;table subtract ...;LIB_Function_table_subtract.html;Function Description;tab
 LIB;table subtract ...;LIB_Function_table_subtract.html;Function Description;table subtract columns
 LIB;table subtract ...;LIB_Function_table_subtract.html;Function Description;table subtract exclusive columns
 LIB;table transpose;LIB_Function_table_transpose.html;Function Description;table transpose
+LIB;table validate;LIB_Function_table_validate.html;Function Description;table validate
+LIB;table validate - Examples;LIB_Features_table_validate_-_examples.html;General Description;table validate - examples
+LIB;table validate - Row and Group Results;LIB_Features_table_validate_-_row_results.html;General Description;table validate - row results
+LIB;table validate - Row and Group Results;LIB_Features_table_validate_-_row_results.html;General Description;table validate - group results
 LIB;table write column selected rows;LIB_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
 LIB;text / background color;LIB_Function_text_color.html;Function Description;text color
 LIB;text / background color;LIB_Function_text_color.html;Function Description;background color

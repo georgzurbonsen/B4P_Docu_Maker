@@ -1,6 +1,6 @@
 ﻿#!/usr/local/bin/b4p
   table load( target, "Tennis and Golf Players.csv" );
-  table list( target );
+  // table list( target ); // See previous section. It's the same table.
 
   table keep columns( target, {Name, Sport, Hcp, NTRP} ); // Look how skilled they are
   table initialize( ref,
@@ -11,6 +11,5 @@
       { Golf,     '0..54', ''                 }
   } );
 
-  table check( target, ref, {Hcp, NTRP} );
+  table validate( target, ref, {Hcp, NTRP}, Sport );
   table list( target );
-

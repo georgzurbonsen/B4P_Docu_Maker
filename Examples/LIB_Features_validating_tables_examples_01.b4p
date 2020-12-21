@@ -11,5 +11,5 @@
       { Golf,     '0..54', ''                 }
   } );
 
-  table check( target, ref, {Hcp, NTRP}, Sport );
+  table validate( target, ref, {Hcp, NTRP}, Sport );
   table list( target );

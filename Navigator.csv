@@ -127,7 +127,7 @@
 "<li class=""navi""><a href=""LIB_Function_hash_signature.html""><div class=""navi"">4.13 hash signature </div></a></li>";2;LIB_Function_hash_signature.html;hash signature
 "<li class=""navi""><a href=""LIB_Function_excel_column.html""><div class=""navi"">4.14 excel column </div></a></li>";2;LIB_Function_excel_column.html;excel column
 "<li class=""navi""><a href=""LIB_Function_excel_coordinates.html""><div class=""navi"">4.15 excel coordinates </div></a></li>";2;LIB_Function_excel_coordinates.html;excel coordinates
-"<li class=""navi""><a href=""LIB_Function_excel_check_sheet_name.html""><div class=""navi"">4.16 excel check sheet name </div></a></li>";2;LIB_Function_excel_check_sheet_name.html;excel check sheet name
+"<li class=""navi""><a href=""LIB_Function_excel_validate_sheet_name.html""><div class=""navi"">4.16 excel validate sheet name </div></a></li>";2;LIB_Function_excel_validate_sheet_name.html;excel validate sheet name
 </ul></li>;2
 "<li class=""navi""><a href=""LIB_Features_Mathematics_and_Statistics.html""><div class=""navi"">5 Mathematics and Statistics </div></a></li>";1;LIB_Features_Mathematics_and_Statistics.html;Mathematics and Statistics
 "<li class=""navi""><ul>";2
@@ -266,7 +266,7 @@
 </ul></li>;2
 "<li class=""navi""><a href=""LIB_Features_table_functions.html""><div class=""navi"">9 Table Functions </div></a></li>";1;LIB_Features_table_functions.html;Table Functions
 "<li class=""navi""><ul>";2
-"<li class=""navi""><a href=""LIB_Features_table_functions_I_O_and_Access.html""><div class=""navi"">9.1 Table I/O and Access </div></a></li>";2;LIB_Features_table_functions_I_O_and_Access.html;Table I/O and Access
+"<li class=""navi""><a href=""LIB_Features_Table_file_and_console_IO.html""><div class=""navi"">9.1 Table File and Console I/O </div></a></li>";2;LIB_Features_Table_file_and_console_IO.html;Table File and Console I/O
 "<li class=""navi""><ul>";3
 "<li class=""navi""><a href=""LIB_Features_Loading_and_saving_tables.html""><div class=""navi"">9.1.1 Loading and Saving Tables </div></a></li>";3;LIB_Features_Loading_and_saving_tables.html;Loading and Saving Tables
 "<li class=""navi""><ul>";4
@@ -276,206 +276,216 @@
 "<li class=""navi""><a href=""LIB_Features_Loading_XML_files.html""><div class=""navi"">9.1.1.1.2 Loading XML files </div></a></li>";5;LIB_Features_Loading_XML_files.html;Loading XML files
 "<li class=""navi""><a href=""LIB_Features_Loading_JSON_files.html""><div class=""navi"">9.1.1.1.3 Loading JSON files </div></a></li>";5;LIB_Features_Loading_JSON_files.html;Loading JSON files
 </ul></li>;5
-"<li class=""navi""><a href=""LIB_Function_table_save.html""><div class=""navi"">9.1.1.2 table save ... </div></a></li>";4;LIB_Function_table_save.html;table save ...
+"<li class=""navi""><a href=""LIB_Function_excel_list_sheets.html""><div class=""navi"">9.1.1.2 excel list sheets </div></a></li>";4;LIB_Function_excel_list_sheets.html;excel list sheets
+"<li class=""navi""><a href=""LIB_Function_table_load_excel_file.html""><div class=""navi"">9.1.1.3 table load excel file </div></a></li>";4;LIB_Function_table_load_excel_file.html;table load excel file
+"<li class=""navi""><a href=""LIB_Function_table_save.html""><div class=""navi"">9.1.1.4 table save ... </div></a></li>";4;LIB_Function_table_save.html;table save ...
 "<li class=""navi""><ul>";5
-"<li class=""navi""><a href=""LIB_Features_Saving_JSON_files.html""><div class=""navi"">9.1.1.2.1 Saving JSON files </div></a></li>";5;LIB_Features_Saving_JSON_files.html;Saving JSON files
+"<li class=""navi""><a href=""LIB_Features_Saving_JSON_files.html""><div class=""navi"">9.1.1.4.1 Saving JSON files </div></a></li>";5;LIB_Features_Saving_JSON_files.html;Saving JSON files
 </ul></li>;5
-"<li class=""navi""><a href=""LIB_Function_excel_list_sheets.html""><div class=""navi"">9.1.1.3 excel list sheets </div></a></li>";4;LIB_Function_excel_list_sheets.html;excel list sheets
-"<li class=""navi""><a href=""LIB_Function_table_load_excel_file.html""><div class=""navi"">9.1.1.4 table load excel file </div></a></li>";4;LIB_Function_table_load_excel_file.html;table load excel file
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_table_creating_deleting.html""><div class=""navi"">9.1.2 Creating and Deleting Tables </div></a></li>";3;LIB_Features_table_creating_deleting.html;Creating and Deleting Tables
+"<li class=""navi""><a href=""LIB_Features_Console_I_O_with_tables.html""><div class=""navi"">9.1.2 Console I/O with Tables </div></a></li>";3;LIB_Features_Console_I_O_with_tables.html;Console I/O with Tables
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_create.html""><div class=""navi"">9.1.2.1 table create ... </div></a></li>";4;LIB_Function_table_create.html;table create ...
-"<li class=""navi""><a href=""LIB_Function_table_initialize.html""><div class=""navi"">9.1.2.2 table initialize/append ... </div></a></li>";4;LIB_Function_table_initialize.html;table initialize/append ...
-"<li class=""navi""><a href=""LIB_Function_table_append_blank_rows.html""><div class=""navi"">9.1.2.3 table append blank rows </div></a></li>";4;LIB_Function_table_append_blank_rows.html;table append blank rows
-"<li class=""navi""><a href=""LIB_Function_table_add_row.html""><div class=""navi"">9.1.2.4 table add / write row </div></a></li>";4;LIB_Function_table_add_row.html;table add / write row
-"<li class=""navi""><a href=""LIB_Function_table_configure.html""><div class=""navi"">9.1.2.5 table configure </div></a></li>";4;LIB_Function_table_configure.html;table configure
-"<li class=""navi""><a href=""LIB_Function_table_clear.html""><div class=""navi"">9.1.2.6 table clear ... </div></a></li>";4;LIB_Function_table_clear.html;table clear ...
-"<li class=""navi""><a href=""LIB_Function_table_delete.html""><div class=""navi"">9.1.2.7 table delete ... </div></a></li>";4;LIB_Function_table_delete.html;table delete ...
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_accessing_table_info.html""><div class=""navi"">9.1.3 Accessing Table Information </div></a></li>";3;LIB_Features_accessing_table_info.html;Accessing Table Information
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_existing.html""><div class=""navi"">9.1.3.1 table existing </div></a></li>";4;LIB_Function_table_existing.html;table existing
-"<li class=""navi""><a href=""LIB_Function_table_length.html""><div class=""navi"">9.1.3.2 table length </div></a></li>";4;LIB_Function_table_length.html;table length
-"<li class=""navi""><a href=""LIB_Function_table_row_width.html""><div class=""navi"">9.1.3.3 table row width </div></a></li>";4;LIB_Function_table_row_width.html;table row width
-"<li class=""navi""><a href=""LIB_Function_table_min_width.html""><div class=""navi"">9.1.3.4 table min/max width </div></a></li>";4;LIB_Function_table_min_width.html;table min/max width
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Accessing_table_contents.html""><div class=""navi"">9.1.4 Accessing Table Contents </div></a></li>";3;LIB_Features_Accessing_table_contents.html;Accessing Table Contents
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_row.html""><div class=""navi"">9.1.4.1 row </div></a></li>";4;LIB_Function_row.html;row
-"<li class=""navi""><a href=""LIB_Function_col.html""><div class=""navi"">9.1.4.2 col </div></a></li>";4;LIB_Function_col.html;col
-"<li class=""navi""><a href=""LIB_Function_forget_memorized_table_columns.html""><div class=""navi"">9.1.4.3 forget memorized table columns </div></a></li>";4;LIB_Function_forget_memorized_table_columns.html;forget memorized table columns
-"<li class=""navi""><a href=""LIB_Function_table_read_column_selected_rows.html""><div class=""navi"">9.1.4.4 table read column selected rows </div></a></li>";4;LIB_Function_table_read_column_selected_rows.html;table read column selected rows
-"<li class=""navi""><a href=""LIB_Function_table_write_column_selected_rows.html""><div class=""navi"">9.1.4.5 table write column selected rows </div></a></li>";4;LIB_Function_table_write_column_selected_rows.html;table write column selected rows
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Exploring_and_Extracting_Tables.html""><div class=""navi"">9.1.5 Exploring and Extracting Tables </div></a></li>";3;LIB_Features_Exploring_and_Extracting_Tables.html;Exploring and Extracting Tables
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_explore.html""><div class=""navi"">9.1.5.1 table explore </div></a></li>";4;LIB_Function_table_explore.html;table explore
-"<li class=""navi""><a href=""LIB_Function_table_filter.html""><div class=""navi"">9.1.5.2 table filter ... </div></a></li>";4;LIB_Function_table_filter.html;table filter ...
-"<li class=""navi""><a href=""LIB_Function_table_extract.html""><div class=""navi"">9.1.5.3 table extract ... </div></a></li>";4;LIB_Function_table_extract.html;table extract ...
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Console_I_O_with_Tables.html""><div class=""navi"">9.1.6 Console I/O with Tables </div></a></li>";3;LIB_Features_Console_I_O_with_Tables.html;Console I/O with Tables
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_list.html""><div class=""navi"">9.1.6.1 table list </div></a></li>";4;LIB_Function_table_list.html;table list
-"<li class=""navi""><a href=""LIB_Function_table_menu.html""><div class=""navi"">9.1.6.2 table menu ... </div></a></li>";4;LIB_Function_table_menu.html;table menu ...
+"<li class=""navi""><a href=""LIB_Function_table_list.html""><div class=""navi"">9.1.2.1 table list </div></a></li>";4;LIB_Function_table_list.html;table list
+"<li class=""navi""><a href=""LIB_Function_table_menu.html""><div class=""navi"">9.1.2.2 table menu ... </div></a></li>";4;LIB_Function_table_menu.html;table menu ...
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""LIB_Features_table_functions_processing.html""><div class=""navi"">9.2 Search and Processing </div></a></li>";2;LIB_Features_table_functions_processing.html;Search and Processing
+"<li class=""navi""><a href=""LIB_Features_Basic_table_access.html""><div class=""navi"">9.2 Basic Table Access </div></a></li>";2;LIB_Features_Basic_table_access.html;Basic Table Access
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""LIB_Features_Searching_tables.html""><div class=""navi"">9.2.1 Searching Tables </div></a></li>";3;LIB_Features_Searching_tables.html;Searching Tables
+"<li class=""navi""><a href=""LIB_Features_Creating_tables_and_adding_contents.html""><div class=""navi"">9.2.1 Creating Tables and Adding Contents </div></a></li>";3;LIB_Features_Creating_tables_and_adding_contents.html;Creating Tables and Adding Contents
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_search.html""><div class=""navi"">9.2.1.1 table search ... </div></a></li>";4;LIB_Function_table_search.html;table search ...
-"<li class=""navi""><a href=""LIB_Function_table_search_row.html""><div class=""navi"">9.2.1.2 table search row </div></a></li>";4;LIB_Function_table_search_row.html;table search row
-"<li class=""navi""><a href=""LIB_Function_table_find_row.html""><div class=""navi"">9.2.1.3 table find row </div></a></li>";4;LIB_Function_table_find_row.html;table find row
-"<li class=""navi""><a href=""LIB_Function_table_selected_rows.html""><div class=""navi"">9.2.1.4 table selected rows </div></a></li>";4;LIB_Function_table_selected_rows.html;table selected rows
-"<li class=""navi""><a href=""LIB_Function_table_selected_columns.html""><div class=""navi"">9.2.1.5 table selected columns/headers ... </div></a></li>";4;LIB_Function_table_selected_columns.html;table selected columns/headers ...
-"<li class=""navi""><a href=""LIB_Function_table_search_header_row.html""><div class=""navi"">9.2.1.6 table search header row </div></a></li>";4;LIB_Function_table_search_header_row.html;table search header row
+"<li class=""navi""><a href=""LIB_Function_table_create.html""><div class=""navi"">9.2.1.1 table create ... </div></a></li>";4;LIB_Function_table_create.html;table create ...
+"<li class=""navi""><a href=""LIB_Function_table_initialize.html""><div class=""navi"">9.2.1.2 table initialize/append ... </div></a></li>";4;LIB_Function_table_initialize.html;table initialize/append ...
+"<li class=""navi""><a href=""LIB_Function_table_append_blank_rows.html""><div class=""navi"">9.2.1.3 table append blank rows </div></a></li>";4;LIB_Function_table_append_blank_rows.html;table append blank rows
+"<li class=""navi""><a href=""LIB_Function_table_add_row.html""><div class=""navi"">9.2.1.4 table add / write row </div></a></li>";4;LIB_Function_table_add_row.html;table add / write row
+"<li class=""navi""><a href=""LIB_Function_table_add_missing_row.html""><div class=""navi"">9.2.1.5 table (write or) add missing row </div></a></li>";4;LIB_Function_table_add_missing_row.html;table (write or) add missing row
+"<li class=""navi""><a href=""LIB_Function_table_configure.html""><div class=""navi"">9.2.1.6 table configure </div></a></li>";4;LIB_Function_table_configure.html;table configure
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Copying__renaming_and_spitting_tables.html""><div class=""navi"">9.2.2 Copying, Renaming and Splitting Tables </div></a></li>";3;LIB_Features_Copying__renaming_and_spitting_tables.html;Copying, Renaming and Splitting Tables
+"<li class=""navi""><a href=""LIB_Features_Reading_and_writing_tables.html""><div class=""navi"">9.2.2 Reading and Writing Tables </div></a></li>";3;LIB_Features_Reading_and_writing_tables.html;Reading and Writing Tables
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_rename.html""><div class=""navi"">9.2.2.1 table rename </div></a></li>";4;LIB_Function_table_rename.html;table rename
-"<li class=""navi""><a href=""LIB_Function_table_copy_table.html""><div class=""navi"">9.2.2.2 table copy table </div></a></li>";4;LIB_Function_table_copy_table.html;table copy table
-"<li class=""navi""><a href=""LIB_Function_table_copy_table_selected_rows.html""><div class=""navi"">9.2.2.3 table copy/split table selected rows </div></a></li>";4;LIB_Function_table_copy_table_selected_rows.html;table copy/split table selected rows
-"<li class=""navi""><a href=""LIB_Function_table_copy_table_columns.html""><div class=""navi"">9.2.2.4 table copy table columns ... </div></a></li>";4;LIB_Function_table_copy_table_columns.html;table copy table columns ...
-"<li class=""navi""><a href=""LIB_Function_table_split_table_columns.html""><div class=""navi"">9.2.2.5 table split table columns ... </div></a></li>";4;LIB_Function_table_split_table_columns.html;table split table columns ...
+"<li class=""navi""><a href=""LIB_Function_row.html""><div class=""navi"">9.2.2.1 row </div></a></li>";4;LIB_Function_row.html;row
+"<li class=""navi""><a href=""LIB_Function_col.html""><div class=""navi"">9.2.2.2 col </div></a></li>";4;LIB_Function_col.html;col
+"<li class=""navi""><a href=""LIB_Function_forget_memorized_table_columns.html""><div class=""navi"">9.2.2.3 forget memorized table columns </div></a></li>";4;LIB_Function_forget_memorized_table_columns.html;forget memorized table columns
+"<li class=""navi""><a href=""LIB_Function_table_read_column_selected_rows.html""><div class=""navi"">9.2.2.4 table read column selected rows </div></a></li>";4;LIB_Function_table_read_column_selected_rows.html;table read column selected rows
+"<li class=""navi""><a href=""LIB_Function_table_write_column_selected_rows.html""><div class=""navi"">9.2.2.5 table write column selected rows </div></a></li>";4;LIB_Function_table_write_column_selected_rows.html;table write column selected rows
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Checking_headers.html""><div class=""navi"">9.2.3 Checking and Processing Headers </div></a></li>";3;LIB_Features_Checking_headers.html;Checking and Processing Headers
+"<li class=""navi""><a href=""LIB_Features_Clearing_and_deleting_tables.html""><div class=""navi"">9.2.3 Clearing and Deleting Tables </div></a></li>";3;LIB_Features_Clearing_and_deleting_tables.html;Clearing and Deleting Tables
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_check_header.html""><div class=""navi"">9.2.3.1 table check header </div></a></li>";4;LIB_Function_table_check_header.html;table check header
-"<li class=""navi""><a href=""LIB_Function_table_column_number.html""><div class=""navi"">9.2.3.2 table column number </div></a></li>";4;LIB_Function_table_column_number.html;table column number
-"<li class=""navi""><a href=""LIB_Function_table_check_headers.html""><div class=""navi"">9.2.3.3 table check headers ... </div></a></li>";4;LIB_Function_table_check_headers.html;table check headers ...
-"<li class=""navi""><a href=""LIB_Function_table_rename_headers.html""><div class=""navi"">9.2.3.4 table rename ... headers </div></a></li>";4;LIB_Function_table_rename_headers.html;table rename ... headers
-"<li class=""navi""><a href=""LIB_Function_table_correct_headers.html""><div class=""navi"">9.2.3.5 table correct headers ... </div></a></li>";4;LIB_Function_table_correct_headers.html;table correct headers ...
-"<li class=""navi""><a href=""LIB_Function_table_lift_header_row.html""><div class=""navi"">9.2.3.6 table lift ... </div></a></li>";4;LIB_Function_table_lift_header_row.html;table lift ...
+"<li class=""navi""><a href=""LIB_Function_table_clear.html""><div class=""navi"">9.2.3.1 table clear ... </div></a></li>";4;LIB_Function_table_clear.html;table clear ...
+"<li class=""navi""><a href=""LIB_Function_table_delete.html""><div class=""navi"">9.2.3.2 table delete ... </div></a></li>";4;LIB_Function_table_delete.html;table delete ...
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Processing_table_columns.html""><div class=""navi"">9.2.4 Processing Table Columns </div></a></li>";3;LIB_Features_Processing_table_columns.html;Processing Table Columns
+"<li class=""navi""><a href=""LIB_Features_Accessing_table_information.html""><div class=""navi"">9.2.4 Accessing Table Information </div></a></li>";3;LIB_Features_Accessing_table_information.html;Accessing Table Information
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_insert_columns.html""><div class=""navi"">9.2.4.1 table insert (missing) columns </div></a></li>";4;LIB_Function_table_insert_columns.html;table insert (missing) columns
-"<li class=""navi""><a href=""LIB_Function_table_copy_columns.html""><div class=""navi"">9.2.4.2 table copy columns ... </div></a></li>";4;LIB_Function_table_copy_columns.html;table copy columns ...
-"<li class=""navi""><a href=""LIB_Function_table_duplicate_columns.html""><div class=""navi"">9.2.4.3 table duplicate columns ... </div></a></li>";4;LIB_Function_table_duplicate_columns.html;table duplicate columns ...
-"<li class=""navi""><a href=""LIB_Function_table_sort_columns.html""><div class=""navi"">9.2.4.4 table sort columns </div></a></li>";4;LIB_Function_table_sort_columns.html;table sort columns
-"<li class=""navi""><a href=""LIB_Function_table_rearrange_columns.html""><div class=""navi"">9.2.4.5 table rearrange ... columns </div></a></li>";4;LIB_Function_table_rearrange_columns.html;table rearrange ... columns
-"<li class=""navi""><a href=""LIB_Function_table_keep_columns.html""><div class=""navi"">9.2.4.6 table keep ... columns </div></a></li>";4;LIB_Function_table_keep_columns.html;table keep ... columns
-"<li class=""navi""><a href=""LIB_Function_table_delete_columns.html""><div class=""navi"">9.2.4.7 table delete columns </div></a></li>";4;LIB_Function_table_delete_columns.html;table delete columns
-"<li class=""navi""><a href=""LIB_Function_table_delete_remaining_columns.html""><div class=""navi"">9.2.4.8 table delete remaining columns </div></a></li>";4;LIB_Function_table_delete_remaining_columns.html;table delete remaining columns
-"<li class=""navi""><a href=""LIB_Function_table_delete_blank_columns.html""><div class=""navi"">9.2.4.9 table delete blank/empty/unnamed columns </div></a></li>";4;LIB_Function_table_delete_blank_columns.html;table delete blank/empty/unnamed columns
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Processing_table_rows.html""><div class=""navi"">9.2.5 Processing Table Rows </div></a></li>";3;LIB_Features_Processing_table_rows.html;Processing Table Rows
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_insert_rows.html""><div class=""navi"">9.2.5.1 table insert rows </div></a></li>";4;LIB_Function_table_insert_rows.html;table insert rows
-"<li class=""navi""><a href=""LIB_Function_table_insert_selected_rows.html""><div class=""navi"">9.2.5.2 table insert ... selected rows </div></a></li>";4;LIB_Function_table_insert_selected_rows.html;table insert ... selected rows
-"<li class=""navi""><a href=""LIB_Function_table_delete_rows.html""><div class=""navi"">9.2.5.3 table delete rows </div></a></li>";4;LIB_Function_table_delete_rows.html;table delete rows
-"<li class=""navi""><a href=""LIB_Function_table_delete_remaining_rows.html""><div class=""navi"">9.2.5.4 table delete remaining rows </div></a></li>";4;LIB_Function_table_delete_remaining_rows.html;table delete remaining rows
-"<li class=""navi""><a href=""LIB_Function_table_delete_selected_rows.html""><div class=""navi"">9.2.5.5 table delete selected rows </div></a></li>";4;LIB_Function_table_delete_selected_rows.html;table delete selected rows
-"<li class=""navi""><a href=""LIB_Function_table_keep_selected_rows.html""><div class=""navi"">9.2.5.6 table keep selected rows </div></a></li>";4;LIB_Function_table_keep_selected_rows.html;table keep selected rows
-"<li class=""navi""><a href=""LIB_Function_table_delete_blank_rows.html""><div class=""navi"">9.2.5.7 table delete blank rows </div></a></li>";4;LIB_Function_table_delete_blank_rows.html;table delete blank rows
-"<li class=""navi""><a href=""LIB_Function_table_check_row.html""><div class=""navi"">9.2.5.8 table check row </div></a></li>";4;LIB_Function_table_check_row.html;table check row
-"<li class=""navi""><a href=""LIB_Function_table_move_rows.html""><div class=""navi"">9.2.5.9 table move rows </div></a></li>";4;LIB_Function_table_move_rows.html;table move rows
-"<li class=""navi""><a href=""LIB_Function_table_move_selected_rows.html""><div class=""navi"">9.2.5.10 table move selected rows </div></a></li>";4;LIB_Function_table_move_selected_rows.html;table move selected rows
-"<li class=""navi""><a href=""LIB_Function_table_rearrange_selected_rows.html""><div class=""navi"">9.2.5.11 table rearrange selected rows </div></a></li>";4;LIB_Function_table_rearrange_selected_rows.html;table rearrange selected rows
-"<li class=""navi""><a href=""LIB_Function_table_sort_rows.html""><div class=""navi"">9.2.5.12 table sort (selected) rows </div></a></li>";4;LIB_Function_table_sort_rows.html;table sort (selected) rows
-"<li class=""navi""><a href=""LIB_Function_table_rank_rows.html""><div class=""navi"">9.2.5.13 table rank (selected) rows </div></a></li>";4;LIB_Function_table_rank_rows.html;table rank (selected) rows
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Processing_table_contents.html""><div class=""navi"">9.2.6 Processing Table Contents </div></a></li>";3;LIB_Features_Processing_table_contents.html;Processing Table Contents
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_process.html""><div class=""navi"">9.2.6.1 table process (selected rows) </div></a></li>";4;LIB_Function_table_process.html;table process (selected rows)
-"<li class=""navi""><a href=""LIB_Function_table_process_selected_rows_fast.html""><div class=""navi"">9.2.6.2 table process selected rows fast </div></a></li>";4;LIB_Function_table_process_selected_rows_fast.html;table process selected rows fast
-"<li class=""navi""><a href=""LIB_Function_table_process_columns.html""><div class=""navi"">9.2.6.3 table process (selected) columns </div></a></li>";4;LIB_Function_table_process_columns.html;table process (selected) columns
-"<li class=""navi""><a href=""LIB_Function_table_process_cells.html""><div class=""navi"">9.2.6.4 table process cells (selected rows) </div></a></li>";4;LIB_Function_table_process_cells.html;table process cells (selected rows)
-"<li class=""navi""><a href=""LIB_Function_table_process_cells_in_columns.html""><div class=""navi"">9.2.6.5 table process cells in columns (selected rows) </div></a></li>";4;LIB_Function_table_process_cells_in_columns.html;table process cells in columns (selected rows)
-"<li class=""navi""><ul>";5
-"<li class=""navi""><a href=""LIB_Features_Additional_info_on_fast_processing_of_rows.html""><div class=""navi"">9.2.6.5.1 Addt'l Info on fast rows processing </div></a></li>";5;LIB_Features_Additional_info_on_fast_processing_of_rows.html;Addt'l Info on fast rows processing
-</ul></li>;5
-"<li class=""navi""><a href=""LIB_Function_table_manipulate.html""><div class=""navi"">9.2.6.6 table manipulate </div></a></li>";4;LIB_Function_table_manipulate.html;table manipulate
-"<li class=""navi""><a href=""LIB_Function_table_fill_vertically.html""><div class=""navi"">9.2.6.7 table fill vertically ... </div></a></li>";4;LIB_Function_table_fill_vertically.html;table fill vertically ...
-"<li class=""navi""><a href=""LIB_Function_table_fill_horizontally.html""><div class=""navi"">9.2.6.8 table fill horizontally ... </div></a></li>";4;LIB_Function_table_fill_horizontally.html;table fill horizontally ...
-"<li class=""navi""><a href=""LIB_Function_table_substitute_vertically.html""><div class=""navi"">9.2.6.9 table substitute vertically ... </div></a></li>";4;LIB_Function_table_substitute_vertically.html;table substitute vertically ...
-"<li class=""navi""><a href=""LIB_Function_table_substitute_horizontally.html""><div class=""navi"">9.2.6.10 table substitute horizontally ... </div></a></li>";4;LIB_Function_table_substitute_horizontally.html;table substitute horizontally ...
-"<li class=""navi""><a href=""LIB_Function_table_delete_cells_selected_rows.html""><div class=""navi"">9.2.6.11 table delete cells selected rows </div></a></li>";4;LIB_Function_table_delete_cells_selected_rows.html;table delete cells selected rows
-"<li class=""navi""><a href=""LIB_Function_table_delete_cells_selected_columns.html""><div class=""navi"">9.2.6.12 table delete cells selected columns </div></a></li>";4;LIB_Function_table_delete_cells_selected_columns.html;table delete cells selected columns
-"<li class=""navi""><a href=""LIB_Function_table_format_numbers.html""><div class=""navi"">9.2.6.13 table format numbers </div></a></li>";4;LIB_Function_table_format_numbers.html;table format numbers
-"<li class=""navi""><a href=""LIB_Function_table_fit.html""><div class=""navi"">9.2.6.14 table fit </div></a></li>";4;LIB_Function_table_fit.html;table fit
+"<li class=""navi""><a href=""LIB_Function_table_existing.html""><div class=""navi"">9.2.4.1 table existing </div></a></li>";4;LIB_Function_table_existing.html;table existing
+"<li class=""navi""><a href=""LIB_Function_table_length.html""><div class=""navi"">9.2.4.2 table length </div></a></li>";4;LIB_Function_table_length.html;table length
+"<li class=""navi""><a href=""LIB_Function_table_row_width.html""><div class=""navi"">9.2.4.3 table row width </div></a></li>";4;LIB_Function_table_row_width.html;table row width
+"<li class=""navi""><a href=""LIB_Function_table_min_width.html""><div class=""navi"">9.2.4.4 table min/max width </div></a></li>";4;LIB_Function_table_min_width.html;table min/max width
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""LIB_Features_Multi-table_integration.html""><div class=""navi"">9.3 Multi-Table Integration </div></a></li>";2;LIB_Features_Multi-table_integration.html;Multi-Table Integration
+"<li class=""navi""><a href=""LIB_Features_Searching_and_exploring_tables.html""><div class=""navi"">9.3 Searching and Exploring Tables </div></a></li>";2;LIB_Features_Searching_and_exploring_tables.html;Searching and Exploring Tables
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""LIB_Features_Checking_and_comparing_tables.html""><div class=""navi"">9.3.1 Checking and Comparing Tables </div></a></li>";3;LIB_Features_Checking_and_comparing_tables.html;Checking and Comparing Tables
+"<li class=""navi""><a href=""LIB_Features_Search_functions.html""><div class=""navi"">9.3.1 Search Functions </div></a></li>";3;LIB_Features_Search_functions.html;Search Functions
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_compare.html""><div class=""navi"">9.3.1.1 table compare ... </div></a></li>";4;LIB_Function_table_compare.html;table compare ...
-"<li class=""navi""><ul>";5
-"<li class=""navi""><a href=""LIB_Features_Table_comparison_strategy.html""><div class=""navi"">9.3.1.1.1 Table Comparison Strategy </div></a></li>";5;LIB_Features_Table_comparison_strategy.html;Table Comparison Strategy
-"<li class=""navi""><a href=""LIB_Features_Table_comparison_reports.html""><div class=""navi"">9.3.1.1.2 Table Comparison Reports </div></a></li>";5;LIB_Features_Table_comparison_reports.html;Table Comparison Reports
-"<li class=""navi""><a href=""LIB_Function_(This_is_a_user-defined_function_you_need_to_create).html""><div class=""navi"">9.3.1.1.3 Change Indication Function </div></a></li>";5;LIB_Function_(This_is_a_user-defined_function_you_need_to_create).html;Change Indication Function
-</ul></li>;5
-"<li class=""navi""><a href=""LIB_Function_table_check.html""><div class=""navi"">9.3.1.2 table check </div></a></li>";4;LIB_Function_table_check.html;table check
-"<li class=""navi""><ul>";5
-"<li class=""navi""><a href=""LIB_Features_checking_tables_row_results.html""><div class=""navi"">9.3.1.2.1 Checking Tables - Row and Group Results </div></a></li>";5;LIB_Features_checking_tables_row_results.html;Checking Tables - Row and Group Results
-"<li class=""navi""><a href=""LIB_Features_checking_tables_examples.html""><div class=""navi"">9.3.1.2.2 Checking Tables - Examples </div></a></li>";5;LIB_Features_checking_tables_examples.html;Checking Tables - Examples
-</ul></li>;5
-"<li class=""navi""><a href=""LIB_Function_table_check_duplicates.html""><div class=""navi"">9.3.1.3 table check duplicates ... </div></a></li>";4;LIB_Function_table_check_duplicates.html;table check duplicates ...
+"<li class=""navi""><a href=""LIB_Function_table_search.html""><div class=""navi"">9.3.1.1 table search ... </div></a></li>";4;LIB_Function_table_search.html;table search ...
+"<li class=""navi""><a href=""LIB_Function_table_search_row.html""><div class=""navi"">9.3.1.2 table search row </div></a></li>";4;LIB_Function_table_search_row.html;table search row
+"<li class=""navi""><a href=""LIB_Function_table_find_row.html""><div class=""navi"">9.3.1.3 table find row </div></a></li>";4;LIB_Function_table_find_row.html;table find row
+"<li class=""navi""><a href=""LIB_Function_table_selected_rows.html""><div class=""navi"">9.3.1.4 table selected rows </div></a></li>";4;LIB_Function_table_selected_rows.html;table selected rows
+"<li class=""navi""><a href=""LIB_Function_table_selected_columns.html""><div class=""navi"">9.3.1.5 table selected columns/headers ... </div></a></li>";4;LIB_Function_table_selected_columns.html;table selected columns/headers ...
+"<li class=""navi""><a href=""LIB_Function_table_search_header_row.html""><div class=""navi"">9.3.1.6 table search header row </div></a></li>";4;LIB_Function_table_search_header_row.html;table search header row
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Looking_up_Other_Tables.html""><div class=""navi"">9.3.2 Looking up Other Tables </div></a></li>";3;LIB_Features_Looking_up_Other_Tables.html;Looking up Other Tables
+"<li class=""navi""><a href=""LIB_Features_Explore_and_filter_and_extract_sub-tables.html""><div class=""navi"">9.3.2 Explore, Filter, Extract Sub-Tables </div></a></li>";3;LIB_Features_Explore_and_filter_and_extract_sub-tables.html;Explore, Filter, Extract Sub-Tables
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_lookup.html""><div class=""navi"">9.3.2.1 table lookup ... </div></a></li>";4;LIB_Function_table_lookup.html;table lookup ...
-"<li class=""navi""><a href=""LIB_Function_table_lookup_once.html""><div class=""navi"">9.3.2.2 table lookup once ... </div></a></li>";4;LIB_Function_table_lookup_once.html;table lookup once ...
-"<li class=""navi""><a href=""LIB_Function_table_lookup_fast.html""><div class=""navi"">9.3.2.3 table lookup fast ... </div></a></li>";4;LIB_Function_table_lookup_fast.html;table lookup fast ...
-"<li class=""navi""><a href=""LIB_Function_table_lookup_smart.html""><div class=""navi"">9.3.2.4 table lookup smart ... </div></a></li>";4;LIB_Function_table_lookup_smart.html;table lookup smart ...
-"<li class=""navi""><a href=""LIB_Function_table_lookup_smart_once.html""><div class=""navi"">9.3.2.5 table lookup smart once ... </div></a></li>";4;LIB_Function_table_lookup_smart_once.html;table lookup smart once ...
-"<li class=""navi""><a href=""LIB_Function_table_integrate.html""><div class=""navi"">9.3.2.6 table integrate ... </div></a></li>";4;LIB_Function_table_integrate.html;table integrate ...
-"<li class=""navi""><a href=""LIB_Function_table_integrate_once.html""><div class=""navi"">9.3.2.7 table integrate once ... </div></a></li>";4;LIB_Function_table_integrate_once.html;table integrate once ...
-"<li class=""navi""><a href=""LIB_Function_table_integrate_fast.html""><div class=""navi"">9.3.2.8 table integrate fast ... </div></a></li>";4;LIB_Function_table_integrate_fast.html;table integrate fast ...
-"<li class=""navi""><a href=""LIB_Function_table_integrate_smart.html""><div class=""navi"">9.3.2.9 table integrate smart ... </div></a></li>";4;LIB_Function_table_integrate_smart.html;table integrate smart ...
-"<li class=""navi""><a href=""LIB_Function_table_integrate_smart_once.html""><div class=""navi"">9.3.2.10 table integrate smart once ... </div></a></li>";4;LIB_Function_table_integrate_smart_once.html;table integrate smart once ...
-"<li class=""navi""><a href=""LIB_Function_table_expand.html""><div class=""navi"">9.3.2.11 table expand ... </div></a></li>";4;LIB_Function_table_expand.html;table expand ...
-"<li class=""navi""><a href=""LIB_Function_table_expand_fast.html""><div class=""navi"">9.3.2.12 table expand fast ... </div></a></li>";4;LIB_Function_table_expand_fast.html;table expand fast ...
-"<li class=""navi""><a href=""LIB_Function_table_expand_smart.html""><div class=""navi"">9.3.2.13 table expand smart ... </div></a></li>";4;LIB_Function_table_expand_smart.html;table expand smart ...
-"<li class=""navi""><a href=""LIB_Function_table_expand_fast_smart.html""><div class=""navi"">9.3.2.14 table expand fast smart ... </div></a></li>";4;LIB_Function_table_expand_fast_smart.html;table expand fast smart ...
-"<li class=""navi""><a href=""LIB_Features_Table_integration_operation_identifiers.html""><div class=""navi"">9.3.2.15 Table Integration Operation Identifiers </div></a></li>";4;LIB_Features_Table_integration_operation_identifiers.html;Table Integration Operation Identifiers
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Pivoting_and_consolidating_tables.html""><div class=""navi"">9.3.3 Pivoting and Conosolidating Tables </div></a></li>";3;LIB_Features_Pivoting_and_consolidating_tables.html;Pivoting and Conosolidating Tables
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_transpose.html""><div class=""navi"">9.3.3.1 table transpose </div></a></li>";4;LIB_Function_table_transpose.html;table transpose
-"<li class=""navi""><a href=""LIB_Function_table_serialize.html""><div class=""navi"">9.3.3.2 table serialize ... </div></a></li>";4;LIB_Function_table_serialize.html;table serialize ...
-"<li class=""navi""><a href=""LIB_Function_table_spread.html""><div class=""navi"">9.3.3.3 table spread ... </div></a></li>";4;LIB_Function_table_spread.html;table spread ...
-"<li class=""navi""><a href=""LIB_Function_table_spread_given_headers.html""><div class=""navi"">9.3.3.4 table spread given headers ... </div></a></li>";4;LIB_Function_table_spread_given_headers.html;table spread given headers ...
-"<li class=""navi""><a href=""LIB_Function_table_consolidate.html""><div class=""navi"">9.3.3.5 table consolidate ... </div></a></li>";4;LIB_Function_table_consolidate.html;table consolidate ...
-"<li class=""navi""><a href=""LIB_Function_table_distribute.html""><div class=""navi"">9.3.3.6 table distribute ... </div></a></li>";4;LIB_Function_table_distribute.html;table distribute ...
-</ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Combining_Multiple_Tables.html""><div class=""navi"">9.3.4 Combining Multiple Tables </div></a></li>";3;LIB_Features_Combining_Multiple_Tables.html;Combining Multiple Tables
-"<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_merge.html""><div class=""navi"">9.3.4.1 table merge ... </div></a></li>";4;LIB_Function_table_merge.html;table merge ...
-"<li class=""navi""><a href=""LIB_Function_table_overlay.html""><div class=""navi"">9.3.4.2 table overlay/subtract ... </div></a></li>";4;LIB_Function_table_overlay.html;table overlay/subtract ...
-"<li class=""navi""><a href=""LIB_Function_table_intersect.html""><div class=""navi"">9.3.4.3 table intersect ... </div></a></li>";4;LIB_Function_table_intersect.html;table intersect ...
-"<li class=""navi""><a href=""LIB_Function_table_subtract.html""><div class=""navi"">9.3.4.4 table subtract ... </div></a></li>";4;LIB_Function_table_subtract.html;table subtract ...
-"<li class=""navi""><a href=""LIB_Function_table_exclude.html""><div class=""navi"">9.3.4.5 table exclude ... </div></a></li>";4;LIB_Function_table_exclude.html;table exclude ...
-"<li class=""navi""><a href=""LIB_Function_table_multiply.html""><div class=""navi"">9.3.4.6 table multiply ... </div></a></li>";4;LIB_Function_table_multiply.html;table multiply ...
-"<li class=""navi""><a href=""LIB_Function_table_divide.html""><div class=""navi"">9.3.4.7 table divide ... </div></a></li>";4;LIB_Function_table_divide.html;table divide ...
-"<li class=""navi""><a href=""LIB_Function_table_arrange.html""><div class=""navi"">9.3.4.8 table arrange ... </div></a></li>";4;LIB_Function_table_arrange.html;table arrange ...
+"<li class=""navi""><a href=""LIB_Function_table_explore.html""><div class=""navi"">9.3.2.1 table explore </div></a></li>";4;LIB_Function_table_explore.html;table explore
+"<li class=""navi""><a href=""LIB_Function_table_filter.html""><div class=""navi"">9.3.2.2 table filter ... </div></a></li>";4;LIB_Function_table_filter.html;table filter ...
+"<li class=""navi""><a href=""LIB_Function_table_extract.html""><div class=""navi"">9.3.2.3 table extract ... </div></a></li>";4;LIB_Function_table_extract.html;table extract ...
 </ul></li>;4
 </ul></li>;3
-"<li class=""navi""><a href=""LIB_Features_Formatting_and_Styling_Tables.html""><div class=""navi"">9.4 Formatting and Styling Tables </div></a></li>";2;LIB_Features_Formatting_and_Styling_Tables.html;Formatting and Styling Tables
+"<li class=""navi""><a href=""LIB_Features_Processing_tables.html""><div class=""navi"">9.4 Processing Tables </div></a></li>";2;LIB_Features_Processing_tables.html;Processing Tables
 "<li class=""navi""><ul>";3
-"<li class=""navi""><a href=""LIB_Features_Defining_User_Specific_Colors.html""><div class=""navi"">9.4.1 Defining User Specific Colors </div></a></li>";3;LIB_Features_Defining_User_Specific_Colors.html;Defining User Specific Colors
+"<li class=""navi""><a href=""LIB_Features_Checking_headers.html""><div class=""navi"">9.4.1 Checking and Processing Headers </div></a></li>";3;LIB_Features_Checking_headers.html;Checking and Processing Headers
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Features_Color_Palettes.html""><div class=""navi"">9.4.1.1 Color Palettes </div></a></li>";4;LIB_Features_Color_Palettes.html;Color Palettes
-"<li class=""navi""><a href=""LIB_Function_add_color.html""><div class=""navi"">9.4.1.2 add color </div></a></li>";4;LIB_Function_add_color.html;add color
-"<li class=""navi""><a href=""LIB_Function_lighten_colors.html""><div class=""navi"">9.4.1.3 lighten colors </div></a></li>";4;LIB_Function_lighten_colors.html;lighten colors
-"<li class=""navi""><a href=""LIB_Function_darken_colors.html""><div class=""navi"">9.4.1.4 darken colors </div></a></li>";4;LIB_Function_darken_colors.html;darken colors
-"<li class=""navi""><a href=""LIB_Function_weaken_colors.html""><div class=""navi"">9.4.1.5 weaken colors </div></a></li>";4;LIB_Function_weaken_colors.html;weaken colors
+"<li class=""navi""><a href=""LIB_Function_table_check_header.html""><div class=""navi"">9.4.1.1 table check header </div></a></li>";4;LIB_Function_table_check_header.html;table check header
+"<li class=""navi""><a href=""LIB_Function_table_column_number.html""><div class=""navi"">9.4.1.2 table column number </div></a></li>";4;LIB_Function_table_column_number.html;table column number
+"<li class=""navi""><a href=""LIB_Function_table_check_headers.html""><div class=""navi"">9.4.1.3 table check headers ... </div></a></li>";4;LIB_Function_table_check_headers.html;table check headers ...
+"<li class=""navi""><a href=""LIB_Function_table_rename_headers.html""><div class=""navi"">9.4.1.4 table rename ... headers </div></a></li>";4;LIB_Function_table_rename_headers.html;table rename ... headers
+"<li class=""navi""><a href=""LIB_Function_table_correct_headers.html""><div class=""navi"">9.4.1.5 table correct headers ... </div></a></li>";4;LIB_Function_table_correct_headers.html;table correct headers ...
+"<li class=""navi""><a href=""LIB_Function_table_lift_header_row.html""><div class=""navi"">9.4.1.6 table lift ... </div></a></li>";4;LIB_Function_table_lift_header_row.html;table lift ...
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Formatting_the_Tables.html""><div class=""navi"">9.4.2 Styling Functions </div></a></li>";3;LIB_Features_Formatting_the_Tables.html;Styling Functions
+"<li class=""navi""><a href=""LIB_Features_Processing_table_columns.html""><div class=""navi"">9.4.2 Processing Table Columns </div></a></li>";3;LIB_Features_Processing_table_columns.html;Processing Table Columns
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_table_style_table.html""><div class=""navi"">9.4.2.1 table style table </div></a></li>";4;LIB_Function_table_style_table.html;table style table
-"<li class=""navi""><a href=""LIB_Function_table_style_rows.html""><div class=""navi"">9.4.2.2 table style rows </div></a></li>";4;LIB_Function_table_style_rows.html;table style rows
-"<li class=""navi""><a href=""LIB_Function_table_style_columns.html""><div class=""navi"">9.4.2.3 table style columns </div></a></li>";4;LIB_Function_table_style_columns.html;table style columns
-"<li class=""navi""><a href=""LIB_Function_table_style_cells.html""><div class=""navi"">9.4.2.4 table style cells </div></a></li>";4;LIB_Function_table_style_cells.html;table style cells
-"<li class=""navi""><a href=""LIB_Features_Generic_Formatting_Attributes.html""><div class=""navi"">9.4.2.5 Generic Formatting Attributes </div></a></li>";4;LIB_Features_Generic_Formatting_Attributes.html;Generic Formatting Attributes
-"<li class=""navi""><a href=""LIB_Features_Formatting_Precedences.html""><div class=""navi"">9.4.2.6 Formatting Coverages and Precedences </div></a></li>";4;LIB_Features_Formatting_Precedences.html;Formatting Coverages and Precedences
+"<li class=""navi""><a href=""LIB_Function_table_insert_columns.html""><div class=""navi"">9.4.2.1 table insert (missing) columns </div></a></li>";4;LIB_Function_table_insert_columns.html;table insert (missing) columns
+"<li class=""navi""><a href=""LIB_Function_table_copy_columns.html""><div class=""navi"">9.4.2.2 table copy columns ... </div></a></li>";4;LIB_Function_table_copy_columns.html;table copy columns ...
+"<li class=""navi""><a href=""LIB_Function_table_duplicate_columns.html""><div class=""navi"">9.4.2.3 table duplicate columns ... </div></a></li>";4;LIB_Function_table_duplicate_columns.html;table duplicate columns ...
+"<li class=""navi""><a href=""LIB_Function_table_sort_columns.html""><div class=""navi"">9.4.2.4 table sort columns </div></a></li>";4;LIB_Function_table_sort_columns.html;table sort columns
+"<li class=""navi""><a href=""LIB_Function_table_rearrange_columns.html""><div class=""navi"">9.4.2.5 table rearrange ... columns </div></a></li>";4;LIB_Function_table_rearrange_columns.html;table rearrange ... columns
+"<li class=""navi""><a href=""LIB_Function_table_keep_columns.html""><div class=""navi"">9.4.2.6 table keep ... columns </div></a></li>";4;LIB_Function_table_keep_columns.html;table keep ... columns
+"<li class=""navi""><a href=""LIB_Function_table_delete_columns.html""><div class=""navi"">9.4.2.7 table delete columns </div></a></li>";4;LIB_Function_table_delete_columns.html;table delete columns
+"<li class=""navi""><a href=""LIB_Function_table_delete_remaining_columns.html""><div class=""navi"">9.4.2.8 table delete remaining columns </div></a></li>";4;LIB_Function_table_delete_remaining_columns.html;table delete remaining columns
+"<li class=""navi""><a href=""LIB_Function_table_delete_blank_columns.html""><div class=""navi"">9.4.2.9 table delete blank/empty/unnamed columns </div></a></li>";4;LIB_Function_table_delete_blank_columns.html;table delete blank/empty/unnamed columns
 </ul></li>;4
-"<li class=""navi""><a href=""LIB_Features_Finishing_up_formatting.html""><div class=""navi"">9.4.3 Finishing up formatting </div></a></li>";3;LIB_Features_Finishing_up_formatting.html;Finishing up formatting
+"<li class=""navi""><a href=""LIB_Features_Processing_table_rows.html""><div class=""navi"">9.4.3 Processing Table Rows </div></a></li>";3;LIB_Features_Processing_table_rows.html;Processing Table Rows
 "<li class=""navi""><ul>";4
-"<li class=""navi""><a href=""LIB_Function_translate_style_attributes_for_excel.html""><div class=""navi"">9.4.3.1 translate style attributes ... </div></a></li>";4;LIB_Function_translate_style_attributes_for_excel.html;translate style attributes ...
-"<li class=""navi""><a href=""LIB_Function_table_style_reset.html""><div class=""navi"">9.4.3.2 table style reset </div></a></li>";4;LIB_Function_table_style_reset.html;table style reset
+"<li class=""navi""><a href=""LIB_Function_table_insert_rows.html""><div class=""navi"">9.4.3.1 table insert rows </div></a></li>";4;LIB_Function_table_insert_rows.html;table insert rows
+"<li class=""navi""><a href=""LIB_Function_table_insert_selected_rows.html""><div class=""navi"">9.4.3.2 table insert ... selected rows </div></a></li>";4;LIB_Function_table_insert_selected_rows.html;table insert ... selected rows
+"<li class=""navi""><a href=""LIB_Function_table_delete_rows.html""><div class=""navi"">9.4.3.3 table delete rows </div></a></li>";4;LIB_Function_table_delete_rows.html;table delete rows
+"<li class=""navi""><a href=""LIB_Function_table_delete_remaining_rows.html""><div class=""navi"">9.4.3.4 table delete remaining rows </div></a></li>";4;LIB_Function_table_delete_remaining_rows.html;table delete remaining rows
+"<li class=""navi""><a href=""LIB_Function_table_delete_selected_rows.html""><div class=""navi"">9.4.3.5 table delete selected rows </div></a></li>";4;LIB_Function_table_delete_selected_rows.html;table delete selected rows
+"<li class=""navi""><a href=""LIB_Function_table_keep_selected_rows.html""><div class=""navi"">9.4.3.6 table keep selected rows </div></a></li>";4;LIB_Function_table_keep_selected_rows.html;table keep selected rows
+"<li class=""navi""><a href=""LIB_Function_table_delete_blank_rows.html""><div class=""navi"">9.4.3.7 table delete blank rows </div></a></li>";4;LIB_Function_table_delete_blank_rows.html;table delete blank rows
+"<li class=""navi""><a href=""LIB_Function_table_check_row.html""><div class=""navi"">9.4.3.8 table check row </div></a></li>";4;LIB_Function_table_check_row.html;table check row
+"<li class=""navi""><a href=""LIB_Function_table_move_rows.html""><div class=""navi"">9.4.3.9 table move rows </div></a></li>";4;LIB_Function_table_move_rows.html;table move rows
+"<li class=""navi""><a href=""LIB_Function_table_move_selected_rows.html""><div class=""navi"">9.4.3.10 table move selected rows </div></a></li>";4;LIB_Function_table_move_selected_rows.html;table move selected rows
+"<li class=""navi""><a href=""LIB_Function_table_rearrange_selected_rows.html""><div class=""navi"">9.4.3.11 table rearrange selected rows </div></a></li>";4;LIB_Function_table_rearrange_selected_rows.html;table rearrange selected rows
+"<li class=""navi""><a href=""LIB_Function_table_sort_rows.html""><div class=""navi"">9.4.3.12 table sort (selected) rows </div></a></li>";4;LIB_Function_table_sort_rows.html;table sort (selected) rows
+"<li class=""navi""><a href=""LIB_Function_table_rank_rows.html""><div class=""navi"">9.4.3.13 table rank (selected) rows </div></a></li>";4;LIB_Function_table_rank_rows.html;table rank (selected) rows
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Processing_table_contents.html""><div class=""navi"">9.4.4 Processing Table Contents </div></a></li>";3;LIB_Features_Processing_table_contents.html;Processing Table Contents
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_process.html""><div class=""navi"">9.4.4.1 table process (selected rows) </div></a></li>";4;LIB_Function_table_process.html;table process (selected rows)
+"<li class=""navi""><a href=""LIB_Function_table_process_selected_rows_fast.html""><div class=""navi"">9.4.4.2 table process selected rows fast </div></a></li>";4;LIB_Function_table_process_selected_rows_fast.html;table process selected rows fast
+"<li class=""navi""><a href=""LIB_Function_table_process_columns.html""><div class=""navi"">9.4.4.3 table process (selected) columns </div></a></li>";4;LIB_Function_table_process_columns.html;table process (selected) columns
+"<li class=""navi""><a href=""LIB_Function_table_process_cells.html""><div class=""navi"">9.4.4.4 table process cells (selected rows) </div></a></li>";4;LIB_Function_table_process_cells.html;table process cells (selected rows)
+"<li class=""navi""><a href=""LIB_Function_table_process_cells_in_columns.html""><div class=""navi"">9.4.4.5 table process cells in columns (selected rows) </div></a></li>";4;LIB_Function_table_process_cells_in_columns.html;table process cells in columns (selected rows)
+"<li class=""navi""><ul>";5
+"<li class=""navi""><a href=""LIB_Features_Additional_info_on_fast_processing_of_rows.html""><div class=""navi"">9.4.4.5.1 Addt'l Info on fast rows processing </div></a></li>";5;LIB_Features_Additional_info_on_fast_processing_of_rows.html;Addt'l Info on fast rows processing
+</ul></li>;5
+"<li class=""navi""><a href=""LIB_Function_table_manipulate.html""><div class=""navi"">9.4.4.6 table manipulate </div></a></li>";4;LIB_Function_table_manipulate.html;table manipulate
+"<li class=""navi""><a href=""LIB_Function_table_fill_vertically.html""><div class=""navi"">9.4.4.7 table fill vertically ... </div></a></li>";4;LIB_Function_table_fill_vertically.html;table fill vertically ...
+"<li class=""navi""><a href=""LIB_Function_table_fill_horizontally.html""><div class=""navi"">9.4.4.8 table fill horizontally ... </div></a></li>";4;LIB_Function_table_fill_horizontally.html;table fill horizontally ...
+"<li class=""navi""><a href=""LIB_Function_table_substitute_vertically.html""><div class=""navi"">9.4.4.9 table substitute vertically ... </div></a></li>";4;LIB_Function_table_substitute_vertically.html;table substitute vertically ...
+"<li class=""navi""><a href=""LIB_Function_table_substitute_horizontally.html""><div class=""navi"">9.4.4.10 table substitute horizontally ... </div></a></li>";4;LIB_Function_table_substitute_horizontally.html;table substitute horizontally ...
+"<li class=""navi""><a href=""LIB_Function_table_delete_cells_selected_rows.html""><div class=""navi"">9.4.4.11 table delete cells selected rows </div></a></li>";4;LIB_Function_table_delete_cells_selected_rows.html;table delete cells selected rows
+"<li class=""navi""><a href=""LIB_Function_table_delete_cells_selected_columns.html""><div class=""navi"">9.4.4.12 table delete cells selected columns </div></a></li>";4;LIB_Function_table_delete_cells_selected_columns.html;table delete cells selected columns
+"<li class=""navi""><a href=""LIB_Function_table_format_numbers.html""><div class=""navi"">9.4.4.13 table format numbers </div></a></li>";4;LIB_Function_table_format_numbers.html;table format numbers
+"<li class=""navi""><a href=""LIB_Function_table_fit.html""><div class=""navi"">9.4.4.14 table fit </div></a></li>";4;LIB_Function_table_fit.html;table fit
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Pivoting_and_consolidating_tables.html""><div class=""navi"">9.4.5 Pivoting and Conosolidating Tables </div></a></li>";3;LIB_Features_Pivoting_and_consolidating_tables.html;Pivoting and Conosolidating Tables
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_transpose.html""><div class=""navi"">9.4.5.1 table transpose </div></a></li>";4;LIB_Function_table_transpose.html;table transpose
+"<li class=""navi""><a href=""LIB_Function_table_serialize.html""><div class=""navi"">9.4.5.2 table serialize ... </div></a></li>";4;LIB_Function_table_serialize.html;table serialize ...
+"<li class=""navi""><a href=""LIB_Function_table_spread.html""><div class=""navi"">9.4.5.3 table spread ... </div></a></li>";4;LIB_Function_table_spread.html;table spread ...
+"<li class=""navi""><a href=""LIB_Function_table_spread_given_headers.html""><div class=""navi"">9.4.5.4 table spread given headers ... </div></a></li>";4;LIB_Function_table_spread_given_headers.html;table spread given headers ...
+"<li class=""navi""><a href=""LIB_Function_table_consolidate.html""><div class=""navi"">9.4.5.5 table consolidate ... </div></a></li>";4;LIB_Function_table_consolidate.html;table consolidate ...
+"<li class=""navi""><a href=""LIB_Function_table_distribute.html""><div class=""navi"">9.4.5.6 table distribute ... </div></a></li>";4;LIB_Function_table_distribute.html;table distribute ...
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Copying__renaming_and_spitting_tables.html""><div class=""navi"">9.4.6 Copying, Renaming and Splitting Tables </div></a></li>";3;LIB_Features_Copying__renaming_and_spitting_tables.html;Copying, Renaming and Splitting Tables
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_rename.html""><div class=""navi"">9.4.6.1 table rename </div></a></li>";4;LIB_Function_table_rename.html;table rename
+"<li class=""navi""><a href=""LIB_Function_table_copy_table.html""><div class=""navi"">9.4.6.2 table copy table </div></a></li>";4;LIB_Function_table_copy_table.html;table copy table
+"<li class=""navi""><a href=""LIB_Function_table_copy_table_selected_rows.html""><div class=""navi"">9.4.6.3 table copy/split table selected rows </div></a></li>";4;LIB_Function_table_copy_table_selected_rows.html;table copy/split table selected rows
+"<li class=""navi""><a href=""LIB_Function_table_copy_table_columns.html""><div class=""navi"">9.4.6.4 table copy table columns ... </div></a></li>";4;LIB_Function_table_copy_table_columns.html;table copy table columns ...
+"<li class=""navi""><a href=""LIB_Function_table_split_table_columns.html""><div class=""navi"">9.4.6.5 table split table columns ... </div></a></li>";4;LIB_Function_table_split_table_columns.html;table split table columns ...
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""LIB_Features_Multi-table_integration.html""><div class=""navi"">9.5 Multi-Table Integration </div></a></li>";2;LIB_Features_Multi-table_integration.html;Multi-Table Integration
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""LIB_Features_Comparing_and_validating_tables.html""><div class=""navi"">9.5.1 Comparing and Validating Tables </div></a></li>";3;LIB_Features_Comparing_and_validating_tables.html;Comparing and Validating Tables
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_compare.html""><div class=""navi"">9.5.1.1 table compare ... </div></a></li>";4;LIB_Function_table_compare.html;table compare ...
+"<li class=""navi""><ul>";5
+"<li class=""navi""><a href=""LIB_Features_Table_comparison_strategy.html""><div class=""navi"">9.5.1.1.1 Table Comparison Strategy </div></a></li>";5;LIB_Features_Table_comparison_strategy.html;Table Comparison Strategy
+"<li class=""navi""><a href=""LIB_Features_Table_comparison_reports.html""><div class=""navi"">9.5.1.1.2 Table Comparison Reports </div></a></li>";5;LIB_Features_Table_comparison_reports.html;Table Comparison Reports
+"<li class=""navi""><a href=""LIB_Function_(This_is_a_user-defined_function_you_need_to_create).html""><div class=""navi"">9.5.1.1.3 Change Indication Function </div></a></li>";5;LIB_Function_(This_is_a_user-defined_function_you_need_to_create).html;Change Indication Function
+</ul></li>;5
+"<li class=""navi""><a href=""LIB_Function_table_validate.html""><div class=""navi"">9.5.1.2 table validate </div></a></li>";4;LIB_Function_table_validate.html;table validate
+"<li class=""navi""><ul>";5
+"<li class=""navi""><a href=""LIB_Features_table_validate_-_row_results.html""><div class=""navi"">9.5.1.2.1 table validate - Row and Group Results </div></a></li>";5;LIB_Features_table_validate_-_row_results.html;table validate - Row and Group Results
+"<li class=""navi""><a href=""LIB_Features_table_validate_-_examples.html""><div class=""navi"">9.5.1.2.2 table validate - Examples </div></a></li>";5;LIB_Features_table_validate_-_examples.html;table validate - Examples
+</ul></li>;5
+"<li class=""navi""><a href=""LIB_Function_table_check_duplicates.html""><div class=""navi"">9.5.1.3 table check duplicates ... </div></a></li>";4;LIB_Function_table_check_duplicates.html;table check duplicates ...
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Looking_up_other_tables.html""><div class=""navi"">9.5.2 Looking up Other Tables </div></a></li>";3;LIB_Features_Looking_up_other_tables.html;Looking up Other Tables
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_lookup.html""><div class=""navi"">9.5.2.1 table lookup ... </div></a></li>";4;LIB_Function_table_lookup.html;table lookup ...
+"<li class=""navi""><a href=""LIB_Function_table_lookup_once.html""><div class=""navi"">9.5.2.2 table lookup once ... </div></a></li>";4;LIB_Function_table_lookup_once.html;table lookup once ...
+"<li class=""navi""><a href=""LIB_Function_table_lookup_fast.html""><div class=""navi"">9.5.2.3 table lookup fast ... </div></a></li>";4;LIB_Function_table_lookup_fast.html;table lookup fast ...
+"<li class=""navi""><a href=""LIB_Function_table_lookup_smart.html""><div class=""navi"">9.5.2.4 table lookup smart ... </div></a></li>";4;LIB_Function_table_lookup_smart.html;table lookup smart ...
+"<li class=""navi""><a href=""LIB_Function_table_lookup_smart_once.html""><div class=""navi"">9.5.2.5 table lookup smart once ... </div></a></li>";4;LIB_Function_table_lookup_smart_once.html;table lookup smart once ...
+"<li class=""navi""><a href=""LIB_Function_table_integrate.html""><div class=""navi"">9.5.2.6 table integrate ... </div></a></li>";4;LIB_Function_table_integrate.html;table integrate ...
+"<li class=""navi""><a href=""LIB_Function_table_integrate_once.html""><div class=""navi"">9.5.2.7 table integrate once ... </div></a></li>";4;LIB_Function_table_integrate_once.html;table integrate once ...
+"<li class=""navi""><a href=""LIB_Function_table_integrate_fast.html""><div class=""navi"">9.5.2.8 table integrate fast ... </div></a></li>";4;LIB_Function_table_integrate_fast.html;table integrate fast ...
+"<li class=""navi""><a href=""LIB_Function_table_integrate_smart.html""><div class=""navi"">9.5.2.9 table integrate smart ... </div></a></li>";4;LIB_Function_table_integrate_smart.html;table integrate smart ...
+"<li class=""navi""><a href=""LIB_Function_table_integrate_smart_once.html""><div class=""navi"">9.5.2.10 table integrate smart once ... </div></a></li>";4;LIB_Function_table_integrate_smart_once.html;table integrate smart once ...
+"<li class=""navi""><a href=""LIB_Function_table_expand.html""><div class=""navi"">9.5.2.11 table expand ... </div></a></li>";4;LIB_Function_table_expand.html;table expand ...
+"<li class=""navi""><a href=""LIB_Function_table_expand_fast.html""><div class=""navi"">9.5.2.12 table expand fast ... </div></a></li>";4;LIB_Function_table_expand_fast.html;table expand fast ...
+"<li class=""navi""><a href=""LIB_Function_table_expand_smart.html""><div class=""navi"">9.5.2.13 table expand smart ... </div></a></li>";4;LIB_Function_table_expand_smart.html;table expand smart ...
+"<li class=""navi""><a href=""LIB_Function_table_expand_fast_smart.html""><div class=""navi"">9.5.2.14 table expand fast smart ... </div></a></li>";4;LIB_Function_table_expand_fast_smart.html;table expand fast smart ...
+"<li class=""navi""><a href=""LIB_Features_Table_integration_operation_identifiers.html""><div class=""navi"">9.5.2.15 Table Integration Operation Identifiers </div></a></li>";4;LIB_Features_Table_integration_operation_identifiers.html;Table Integration Operation Identifiers
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Combining_multiple_tables.html""><div class=""navi"">9.5.3 Combining Multiple Tables </div></a></li>";3;LIB_Features_Combining_multiple_tables.html;Combining Multiple Tables
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_merge.html""><div class=""navi"">9.5.3.1 table merge ... </div></a></li>";4;LIB_Function_table_merge.html;table merge ...
+"<li class=""navi""><a href=""LIB_Function_table_overlay.html""><div class=""navi"">9.5.3.2 table overlay/subtract ... </div></a></li>";4;LIB_Function_table_overlay.html;table overlay/subtract ...
+"<li class=""navi""><a href=""LIB_Function_table_intersect.html""><div class=""navi"">9.5.3.3 table intersect ... </div></a></li>";4;LIB_Function_table_intersect.html;table intersect ...
+"<li class=""navi""><a href=""LIB_Function_table_subtract.html""><div class=""navi"">9.5.3.4 table subtract ... </div></a></li>";4;LIB_Function_table_subtract.html;table subtract ...
+"<li class=""navi""><a href=""LIB_Function_table_exclude.html""><div class=""navi"">9.5.3.5 table exclude ... </div></a></li>";4;LIB_Function_table_exclude.html;table exclude ...
+"<li class=""navi""><a href=""LIB_Function_table_multiply.html""><div class=""navi"">9.5.3.6 table multiply ... </div></a></li>";4;LIB_Function_table_multiply.html;table multiply ...
+"<li class=""navi""><a href=""LIB_Function_table_divide.html""><div class=""navi"">9.5.3.7 table divide ... </div></a></li>";4;LIB_Function_table_divide.html;table divide ...
+"<li class=""navi""><a href=""LIB_Function_table_arrange.html""><div class=""navi"">9.5.3.8 table arrange ... </div></a></li>";4;LIB_Function_table_arrange.html;table arrange ...
+</ul></li>;4
+</ul></li>;3
+"<li class=""navi""><a href=""LIB_Features_Formatting_and_styling_tables.html""><div class=""navi"">9.6 Formatting and Styling Tables </div></a></li>";2;LIB_Features_Formatting_and_styling_tables.html;Formatting and Styling Tables
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""LIB_Features_Defining_User_Specific_Colors.html""><div class=""navi"">9.6.1 Defining User Specific Colors </div></a></li>";3;LIB_Features_Defining_User_Specific_Colors.html;Defining User Specific Colors
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Features_Color_Palettes.html""><div class=""navi"">9.6.1.1 Color Palettes </div></a></li>";4;LIB_Features_Color_Palettes.html;Color Palettes
+"<li class=""navi""><a href=""LIB_Function_add_color.html""><div class=""navi"">9.6.1.2 add color </div></a></li>";4;LIB_Function_add_color.html;add color
+"<li class=""navi""><a href=""LIB_Function_lighten_colors.html""><div class=""navi"">9.6.1.3 lighten colors </div></a></li>";4;LIB_Function_lighten_colors.html;lighten colors
+"<li class=""navi""><a href=""LIB_Function_darken_colors.html""><div class=""navi"">9.6.1.4 darken colors </div></a></li>";4;LIB_Function_darken_colors.html;darken colors
+"<li class=""navi""><a href=""LIB_Function_weaken_colors.html""><div class=""navi"">9.6.1.5 weaken colors </div></a></li>";4;LIB_Function_weaken_colors.html;weaken colors
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Formatting_the_Tables.html""><div class=""navi"">9.6.2 Styling Functions </div></a></li>";3;LIB_Features_Formatting_the_Tables.html;Styling Functions
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_table_style_table.html""><div class=""navi"">9.6.2.1 table style table </div></a></li>";4;LIB_Function_table_style_table.html;table style table
+"<li class=""navi""><a href=""LIB_Function_table_style_rows.html""><div class=""navi"">9.6.2.2 table style rows </div></a></li>";4;LIB_Function_table_style_rows.html;table style rows
+"<li class=""navi""><a href=""LIB_Function_table_style_columns.html""><div class=""navi"">9.6.2.3 table style columns </div></a></li>";4;LIB_Function_table_style_columns.html;table style columns
+"<li class=""navi""><a href=""LIB_Function_table_style_cells.html""><div class=""navi"">9.6.2.4 table style cells </div></a></li>";4;LIB_Function_table_style_cells.html;table style cells
+"<li class=""navi""><a href=""LIB_Features_Generic_Formatting_Attributes.html""><div class=""navi"">9.6.2.5 Generic Formatting Attributes </div></a></li>";4;LIB_Features_Generic_Formatting_Attributes.html;Generic Formatting Attributes
+"<li class=""navi""><a href=""LIB_Features_Formatting_Precedences.html""><div class=""navi"">9.6.2.6 Formatting Coverages and Precedences </div></a></li>";4;LIB_Features_Formatting_Precedences.html;Formatting Coverages and Precedences
+</ul></li>;4
+"<li class=""navi""><a href=""LIB_Features_Finishing_up_formatting.html""><div class=""navi"">9.6.3 Finishing up formatting </div></a></li>";3;LIB_Features_Finishing_up_formatting.html;Finishing up formatting
+"<li class=""navi""><ul>";4
+"<li class=""navi""><a href=""LIB_Function_translate_style_attributes_for_excel.html""><div class=""navi"">9.6.3.1 translate style attributes ... </div></a></li>";4;LIB_Function_translate_style_attributes_for_excel.html;translate style attributes ...
+"<li class=""navi""><a href=""LIB_Function_table_style_reset.html""><div class=""navi"">9.6.3.2 table style reset </div></a></li>";4;LIB_Function_table_style_reset.html;table style reset
 </ul></li>;4
 </ul></li>;3
 </ul></li>;2

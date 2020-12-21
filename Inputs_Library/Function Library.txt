@@ -525,16 +525,18 @@ B4PDOCU.START
 
 
 "Table Functions":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "table functions" ],
     "Description 01:Introduction"::
 
 	The chapter on table functions covers following four sections
-	* Table I/O and Access
-	* Search and Processing
-	* Multi-Table Integration
-	* Formatting and Styling Tables
+	* Table file and console I/O
+	* Basic table access (creating, writing, reading, deleting)
+	* Searching and expoorig tables
+	* Processing tables with powerful functions
+	* Multi-Table Integration (comparing, validating, lookups, merging, etc.)
+	* Formatting and Styling Tables (color, column widths, fonts, borders, setting autofilters, etc.)
 
 	+++
 },
@@ -542,10 +544,10 @@ B4PDOCU.START
 
 
 
-"Table I/O and Access":
-  {
+"Table File and Console I/O":
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "table functions I/O and Access" ],
+    "Feature Names":		[ "Table file and console IO" ],
     "Description 01:Introduction"::
 
 	This section summarizes the basic fuctions which include the following:
@@ -560,97 +562,27 @@ B4PDOCU.START
 
 
 "Loading and Saving Tables":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Loading and saving tables" ],
     "Description 01:Introduction"::
 
-	The procedures and functions described next cover loading and saving tables with a broad variety of data formats.
+	The procedures and functions described next cover loading and saving tables with a broad variety of data formats such as
+	* CSV (with various separation symbols like tabs, commas, semicolons)
+	* HTML
+	* XML
+	* Text files
+	* Excel file (.xlsx / .xlsm)
+	* JSON
 
 	+++
   },
-
-
-"Search and Processing":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "table functions processing" ],
-    "Description 01:Introduction"::
-
-	This section summarizes the basic fuctions which include the following:
-	* Checking and processing headers
-	* Searching tables
-	* Processing table columns
-	* Processing table rows
-	* Processing table contents
-	* Renaming, copying and splitting tables
-	+++
-},
-
-"Multi-Table Integration":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Multi-table integration" ],
-    "Description 01:Introduction"::
-
-	This section summarizes the basic fuctions which include the following:
-	* Comparing two tables
-	* Checkng tables according to rules provided
-	* Looking up data from toehr tables
-	* Pivoting adn consolidating tables
-	* Combining multiple tables (e.g. merging data)
-	* Exploring and extracting tables
-
-	+++
-},
-
-
-
-	
-"Creating and Deleting Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "table creating deleting" ],
-    "Description 01:Introduction"::
-
-	This subsection contains basic functions to create and delete tables.
-
-	+++
-  },
-
-
-"Accessing Table Information":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "accessing table info" ],
-    "Description 01:Introduction"::
-
-	This subsection contains basic table functions to access following information
-
-	* Existence of specified table
-	* Lengths
-	* Widths
-
-	+++
-  },
-
-"Accessing Table Contents":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Accessing table contents" ],
-    "Description 01:Introduction"::
-
-	This subsection contains basic table functions to access contents.
-
-	+++
-  },
-
 
 
 "Console I/O with Tables":
-  {
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Console I/O with Tables" ],
+    "Feature Names":		[ "Console I/O with tables" ],
     "Description 01:Introduction"::
 
 	The following functions relate to table-specific input / output features. They include:
@@ -658,11 +590,186 @@ B4PDOCU.START
 	* Listing tables
 	* Using tables as menus and asking for choices
 	+++
-  },
+},
+
+
+
+"Basic Table Access":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Basic table access" ],
+    "Description 01:Introduction"::
+
+	The following functions basic functions to create and access tables:
+
+	* Creating tables and adding contents
+	* Writing and writing tables
+	* Clearing and deleting tables
+	* Accessing table information
+
+	+++
+},
+
+
+	
+"Creating Tables and Adding Contents":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Creating tables and adding contents" ],
+    "Description 01:Introduction"::
+
+	This subsection contains basic functions to create tables and add first contents:
+
+	* Create blank tables
+	* Initialize tables with first contents
+	* Adding further rows with contents
+
+	See the chapter on __tables__ to take advantage of various ways to read and write table contents effectively.
+	+++
+},
+
+
+"Reading and Writing Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Reading and writing tables" ],
+    "Description 01:Introduction"::
+
+	See the chapter on __tables__  to explore the various means to read and write contents directly without function calls.
+	<br>
+	This subsection contains some advanced table functions to access table contents effectively:
+
+	* Accessing row and column numbers if context for __partial table references__ is available
+	* Reading and writing table contents in selected rows using algorithmic expressions
+	* Forget memorized table columns during program execution
+
+	+++
+},
+
+
+
+"Clearing and Deleting Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Clearing and deleting tables" ],
+    "Description 01:Introduction"::
+
+	This subsection contains basic functions to clear and delete tables
+
+	* Clear tables (remove all contents, but keep the table existing)
+	* Delete tables entirely
+	+++
+},
+
+
+
+"Accessing Table Information":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Accessing table information" ],
+    "Description 01:Introduction"::
+
+	This subsection contains basic table functions to access following information:
+
+	* Does the specified table exist?
+	* Table lengths
+	* Table widths in specific rows and overall table widths
+	+++
+},
+
+
+
+"Searching and Exploring Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Searching and exploring tables" ],
+    "Description 01:Introduction"::
+
+	This subsection contains various search and exploration functions.
+
+	* Search functions across rows, columns and the entire table using different comparing methods
+	* Exploration: explore - filter - extract sub-tables
+	* Table widths in specific rows and overall table widths
+	+++
+},
+
+
+
+"Search Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Search functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes the basic fuctions which include the following:
+
+	* Search entire table for specific values
+	* Search rows
+	* Identify all rows with selection criteria met
+	* Identify all columns or headers with selection criteria met
+	* Search the header row
+
+	+++
+},
+
+
+
+"Explore, Filter, Extract Sub-Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Explore and filter and extract sub-tables" ],
+    "Description 01:Introduction"::
+
+	A new powerful B4P feature, consisting of three functions, is to identify, select and extract one or more sub-tables located inside a table.
+	This becomes very useful when dealing with sophisticated tables created by external sources where you cannot advise them how to
+	structure the data so you can use them easily.  Following three functions need to be called in sequence:
+
+	<br><br>
+
+	__table explore(__): This function identifies all sub-tables inside a table where a few criteria settings are available to identify tables and keep them 
+	separate from other contents, e.g. title texts.
+
+	<br><br>
+
+	This function returns a parameter set containing 0, 1 or more coordinates for every sub-table found.
+	The sub-tables beginning on the same row must contain a spacing of 1 column.  Direct neighboring is possible if the next table begins at a different tow (Illustration: See sub-table 2 and 3).
+
+	<br><br>
+
+	__table filter(__): The collection of coordinates can be narrowed down by matching header contents with given patterns and specifying minimum 
+	table widths and heights.  This function also returns the same kind of parameter set, but probably with fewer coordinates.
+
+	<br><br>
+
+	__table extract(__): This final function will extract a selected sub-table based on the coordinates and sub-table chosen.  
+	Tables can be extracted either into new blank tables or added to existing tables, allowing to arrange them horizontally and/or vertically.
+
+	<br/><br/><img src="Images/Description_Exploring_and_Extracting_Tables.jpg" alt="Exploring and Extracting Tables"><br/><br/>
+	+++
+},
+
+
+"Processing Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to process tables effectively, including:
+	
+	* Checking and processing headers
+	* Processing table columns
+	* Processing table rows, and
+	* Processing table contents
+	* Pivoting and consolidating tables
+	* Copying, renaming and splitting tables
+
+	+++
+},
 
 
 "Checking and Processing Headers":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Checking headers", "Processing headers" ],
     "Description 01:Introduction"::
@@ -672,26 +779,11 @@ B4PDOCU.START
 	are available and error messages can be issued very early rather than somewhere in the middle of data processing steps.
 
 	+++
-  },
-
-
-"Searching Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Searching tables" ],
-    "Description 01:Introduction"::
-
-	The functions described next provide efficient means to search for data inside tables.
-
-
-
-	+++
-  },
-
+},
 
 
 "Processing Table Columns":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Processing table columns" ],
     "Description 01:Introduction"::
@@ -699,14 +791,12 @@ B4PDOCU.START
 	The functions described next provide efficient means to process table columns, i.e. 
 	inserting, deleting, rearranging, processing, etc.
 
-
-
 	+++
-  },
+},
 
 
 "Processing Table Rows":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Processing table rows" ],
     "Description 01:Introduction"::
@@ -715,12 +805,12 @@ B4PDOCU.START
 	inserting, deleting, rearranging, manipulating, etc.
 
 	+++
-  },
+},
 
 
 
 "Processing Table Contents":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Processing table contents" ],
     "Description 01:Introduction"::
@@ -728,48 +818,11 @@ B4PDOCU.START
 	The functions described next provide efficient means process table contents.
 
 	+++
-  },
+},
 
-
-"Copying, Renaming and Splitting Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Copying, renaming and spitting tables" ],
-    "Description 01:Introduction"::
-
-	The functions described next provide efficient means to copy and split tables.
-
-	+++
-  },
-
-
-"Checking and Comparing Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Checking and comparing tables" ],
-    "Description 01:Introduction"::
-
-	The functions described next provide efficient means to check tables for consistency and duplications as well
-	as a simple-to-use function to compare tables and generate comparison reports.
-
-	+++
-  },
-
-
-"Looking up Other Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Looking up Other Tables" ],
-    "Description 01:Introduction"::
-
-	The functions described next provide efficient lookup features to retrieve selected information from other
-	tables.
-
-	+++
-  },
 
 "Pivoting and Conosolidating Tables":
-  {
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Pivoting and consolidating tables" ],
     "Description 01:Introduction"::
@@ -784,14 +837,71 @@ B4PDOCU.START
 	* Consolidating tables (boiling tables down to fewer rows with specific consolidation actions serving as ingredients)
 
 	+++
-  },
+},
 
+
+"Copying, Renaming and Splitting Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Copying, renaming and spitting tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to copy and split tables.
+
+	+++
+},
+
+
+
+"Multi-Table Integration":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Multi-table integration" ],
+    "Description 01:Introduction"::
+
+	This section summarizes the basic fuctions which include the following:
+	* Comparing two tables
+	* Checking tables according to rules provided
+	* Looking up data from other tables
+	* Combining multiple tables (e.g. merging data)
+	* Exploring and extracting tables
+
+	+++
+},
+
+
+
+"Comparing and Validating Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparing and validating tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to check tables for consistency and duplications 
+	as well as a simple-to-use function to compare tables and generate comparison reports.
+
+	+++
+},
+
+
+
+"Looking up Other Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Looking up other tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient lookup features to retrieve selected information from other
+	tables.
+
+	+++
+},
 
 
 "Combining Multiple Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Combining Multiple Tables" ],
+    "Feature Names":		[ "Combining multiple tables" ],
     "Description 01:Introduction"::
 
 	The functions described next cover the art of combining two (or more) tables using the fine arts of <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank">relational algebra</a>
@@ -840,44 +950,10 @@ B4PDOCU.START
 
 
 
-
-"Exploring and Extracting Tables":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Exploring and Extracting Tables" ],
-    "Description 01:Introduction"::
-
-	A new powerful B4P feature, consisting of three functions, is to identify, select and extract one or more sub-tables located inside a table.
-	This becomes very useful when dealing with sophisticated tables created by external sources where you cannot advise them how to
-	structure the data so you can use them easily.  Following three functions need to be called in sequence:
-
-	__table explore(__): This function identifies all sub-tables inside a table where a few criteria settings are available to identify tables and keep them 
-	separate from other contents, e.g. title texts.
-	<br><br>
-	This function returns a parameter set containing 0, 1 or more coordinates for every sub-table found.
-	The sub-tables beginning on the same row must contain a spacing of 1 column.  Direct neighboring is possible if the next table begins at a different tow (Illustration: See sub-table 2 and 3).
-	<br><br>
-	__table filter(__): The collection of coordinates can be narrowed down by matching header contents with given patterns and specifying minimum 
-	table widths and heights.  This function also returns the same kind of parameter set, but probably with fewer coordinates.
-	<br><br>
-	__table extract(__): This final function will extract a selected sub-table based on the coordinates and sub-table chosen.  
-	Tables can be extracted either into new blank tables or added to existing tables, allowing to arrange them horizontally and/or vertically.
-
-
-	
-		<br/><img src="Images/Description_Exploring_and_Extracting_Tables.jpg" alt="Exploring and Extracting Tables"><br/><br/>
-
-
-	+++
-  },
-
-
-
-
 "Formatting and Styling Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Formatting and Styling Tables" ],
+    "Feature Names":		[ "Formatting and styling tables" ],
     "Description 01:Introduction"::
 
 	B4P provides a generic set of functions for giving a final touch to your tables.  They include:
@@ -952,6 +1028,12 @@ B4PDOCU.START
 },
 
 // See "Style Library.txt" for further documentation on styles.
+
+
+
+
+
+
 
 
 "Variables Functions":
