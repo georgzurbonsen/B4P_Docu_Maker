@@ -324,12 +324,12 @@ define procedure( check all descriptions )
 		        check descriptions( literal(para_counter[]+1) + ". " + keyword[], parameter[], select if ( keyword[]==Parameters, table of parameter descriptors, table of return value descriptors ) );
 		    }
 		}
-		item[HTML File Name] = chosen book[abbr] + "_Function_" + replace all( item[Function Names,0], {" ","/",":"}, {"_","_","_"} ) + ".html"; // Assign HTML file name
+		item[HTML File Name] = chosen book[abbr] + "_Function_" + replace all( item[Function Names,0], {" ","/",":",","}, {"_","_","_","_"} ) + ".html"; // Assign HTML file name
 	    }
 	    else: if ( item [ Documentation ] == "General Description" )
 	    {
 		check descriptions( name[], item[], table of general descriptors );
-		item[HTML File Name] = chosen book[abbr] + "_Features_" + replace all( item[Feature Names,0], {" ","/",":"}, {"_","_","_"} ) + ".html"; // Assign HTML file name
+		item[HTML File Name] = chosen book[abbr] + "_Features_" + replace all( item[Feature Names,0], {" ","/",":",","}, {"_","_","_","_"} ) + ".html"; // Assign HTML file name
 	    }
 	    else: throw( "Docu title '" + name[] + "':" + new line + "Tag 'Documentation' is '" + item[Documentation] + "'. ('General Description' or 'Function Description' expected.)" );
 	}
@@ -873,11 +873,11 @@ define procedure ( create all general and function descriptions in HTML )
 
 	    if (content type[] == Function Names)
 	    {
-		plain file name[]= chosen book[abbr] + "_Function_" + replace all( item[Function Names,0], {" ","/",":"}, {"_","_","_"} ) + ".html";
+		plain file name[]= chosen book[abbr] + "_Function_" + replace all( item[Function Names,0], {" ","/",":",","}, {"_","_","_","_"} ) + ".html";
 	    }
 	    else
 	    {
-		plain file name[]= chosen book[abbr] + "_Features_" + replace all( item[Feature Names,0], {" ","/",":"}, {"_","_","_"} ) + ".html";
+		plain file name[]= chosen book[abbr] + "_Features_" + replace all( item[Feature Names,0], {" ","/",":",","}, {"_","_","_","_"} ) + ".html";
 	    }
 	    file name[] = destination path[] + plain file name[];
 
@@ -896,7 +896,10 @@ define procedure ( create all general and function descriptions in HTML )
 		// ***************** SIMPLIFY ************************
 	    applicable row[] = table search row( HTML navigator, [0] = '*"' + softquoted literal(plain file name[]) + '"*' );
 	    applicable row 2[] = applicable row[];
-	    if ( [HTML navigator:0,applicable row[] ] = '*Table of Contents*' ) applicable row[]= -1; // Skip on table of contents
+	    if ( [HTML navigator:0,applicable row[] ] = '*Table of Contents*' ) 
+		{
+			applicable row[]= -1; // Skip on table of contents
+		}
 
 	// The following rules determin which of the navigator orws to show and to hide.	
 
