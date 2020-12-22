@@ -6,8 +6,8 @@ B4PDOCU.START
 "Assignments and Expressions" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "assignments", "expressions" ],
-    "Keywords":			[ "assignment", "expression" ],
+    "Feature Names":		[ "assignments" ],
+    "Keywords":			[ "assignment", "expressions", "B4P expression", "B4P expressions" ],
     "Description 01:Assignments"::
 
 	Assignments are one of the key building blocks in B4P and most other programming languages where a value is written (i.e. assigned) 
@@ -34,10 +34,10 @@ B4PDOCU.START
 
 	Like in common programming languages, the pexression is a syntactic entity to calculate its value.  It can be one of the following, or a combination of the following:
 	* __Literal constants__ and __numeric constants__ to describe numbers, string values and boolean values
-	* __Parameter sets_ (e.g. constants in braces and separated with commas, nested parameter sets)
+	* __Parameter sets__ (e.g. constants in braces and separated with commas, nested parameter sets)
 	* __Variables__
 	* __Table references__
-	* __Functions_ (with or without function parameters which are also expressions)
+	* __Functions__ (with or without function parameters which are also expressions)
 	* Calculations which combine the above with
 	** __Unary operators__
 	** __Binary operators__

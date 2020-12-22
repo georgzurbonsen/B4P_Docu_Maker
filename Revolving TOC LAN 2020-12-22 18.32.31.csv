@@ -19,7 +19,7 @@ OK;Body;3;B 2.6.6;Inspecting Variables Interactively;LAN_Features_Inspect_Variab
 OK;Body;3;B 2.6.7;Basic Commands;LAN_Features_Basic_Commands.html;Basic Commands;Basic Commands;
 OK;Body;3;B 2.6.8;Operating System Commands;LAN_Features_Operating_System_Commands.html;Operating System Commands;Operating System Commands,OS Commands;
 OK;Body;1;B 3;The Language;LAN_Features_The_Language.html;The Language;The Language;
-OK;Body;2;B 3.1;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;Basic Language Structure;Basic Language Structure,Blocks;
+OK;Body;2;B 3.1;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;Basic Language Structure;Basic Language Structure,Blocks,statement,B4P statements;
 OK;Body;2;B 3.2;Distinct Language Features;LAN_Features_Distinct_Language_Features.html;Distinct Language Features;Distinct Language Features;
 OK;Body;2;B 3.3;Comments;LAN_Features_comments.html;comments;comments;
 OK;Body;2;B 3.4;Characters;LAN_Features_Characters.html;Characters;Characters;
@@ -87,13 +87,13 @@ OK;Body;4;B 5.1.3.1;Vertical Table Access w. Param. Sets;LAN_Features_Vertical_t
 OK;Body;4;B 5.1.3.2;Vertical Table Access w. Wildcards;LAN_Features_Vertical_table_access_using_wildcards.html;Vertical table access using wildcards;Vertical table access using wildcards;
 OK;Body;4;B 5.1.3.3;Vertical Table Access w. Ranges;LAN_Features_Vertical_table_access_using_ranges.html;Vertical table access using ranges;Vertical table access using ranges;
 OK;Body;3;B 5.1.4;Matrix Table Access;LAN_Features_matrix_table_access.html;matrix table access;matrix table access,matrix table accesses;
-OK;Body;3;B 5.1.5;Partial Table Specifications;LAN_Features_partial_table_specification.html;partial table specification;partial table specification,partial table specifications,partial table references,partial table referencee;
+OK;Body;3;B 5.1.5;Partial Table Specifications;LAN_Features_partial_table_specifications.html;partial table specifications;partial table specifications;
 OK;Body;3;B 5.1.6;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;nested partial table specification;nested partial table specification,nested partial table specifications;
 OK;Body;3;B 5.1.7;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;shifted table column specification,shifted table column specifications;shifted table column specification,shifted table column specifications;
 OK;Body;3;B 5.1.8;Header Name Exception Handling;LAN_Features_header_name_exception_handling.html;header name exception handling;header name exception handling;
 OK;Body;3;B 5.1.9;Lookup Access Exception Handling;LAN_Features_lookup_access_exception_handling.html;lookup access exception handling;lookup access exception handling;
 OK;Body;2;B 5.2;Header Names - Memory Effect;LAN_Features_memory_effect.html;memory effect;memory effect;
-OK;Body;1;B 6;Assignments and Expressions;LAN_Features_assignments.html;assignments,expressions;assignments,expressions;
+OK;Body;1;B 6;Assignments and Expressions;LAN_Features_assignments.html;assignments;assignments,expressions,B4P expression,B4P expressions;
 OK;Body;2;B 6.1;Unary Operators;LAN_Features_unary_operators.html;unary operators;unary operators;
 OK;Body;2;B 6.2;Binary Operators;LAN_Features_binary_operators.html;binary operators;binary operators;
 OK;Body;3;B 6.2.1;Arithmetic Operators;LAN_Features_arithmetic_operators.html;arithmetic operators;arithmetic operators;

@@ -21,7 +21,7 @@ B4PDOCU.START
     "Feature Names":		[ "Function library" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides a large and comprehenisve library of different functions.
+	B4P provides a large and comprehenisve library of different functions.
 	Use the navigator bar to deep-dive into them.  Various fucntions can be called as <b>procedures</b>, others as
 	functions in __expressions__ only, or in both.
 
@@ -42,14 +42,29 @@ B4PDOCU.START
     "Feature Names":		[ "Control flow functions" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.
-	In contrast to other programming languages, trivial features such as the __if(__) statement is actually
-	a Beyond4P function which influences execution the next statement or block.
+	Flow control covers programming language features like branches (if ... lese), loops, etc.
+	Unlike in other common programming langauges, control flow in B4P is implmented as functions which are then
+	called as procedures which will then determine whether to execute the subsequent statements or blocks or not.
 
 	<br><br>
 
+	For example, a keyword as simple as __if(__) is a B4P function called as a procedure taking one Boolean parameter. It decides whether to execute the
+	next statement or block or not.
+
+	<br><br>
+
+	B4P provides a large variety of control flow functions, covering:
+	* __Branches__
+	* __Loops__
+	* __User-defined procedures and functions__
+	* __Launch other B4P programs__
+	* __Exception Functions__ (e.g. stop, exit, interactive, throw - catch)
+	* __Code execution functions__
+
 	In case you miss the <b>goto</b> statement, there is a good reason for this.  The highly structured
-	Beyond4P interpreter would have faced risky challenge if that statement would have been impleemented.
+	B4P interpreter would have faced risky challenge if that statement would have been impleemented.
+
+	Further more, see the seeparate section on __control flow functions for tables__ where the following functions, mostly loops, are defined:
 
 	+++
 },
@@ -104,6 +119,54 @@ B4PDOCU.START
 },
 
 
+"User-Defined Procedures and Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User-defined procedures and functions" ],
+    "Keywords":			[ "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
+    "Description 01:Introduction"::
+
+	B4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
+	Procedures are defined as functions which do not provide a return value and must be called as a procedure.
+	Functions are defined to always provide return values and must be called as functions where the return value must be used further.
+	A combination of both is allowed which provides flexibility to use defined code either as a procedure or function.
+
+	<br><br>
+	Additional function names may be defined for the same user code.  In this case, the local variable <b>function name[]</b> will be
+	available to identify the function name used.
+
+
+	<br><br>
+	Inside the user-defined procedures and functions, following local variables are available, but cannot be deleted using __delete(__) function:
+
+	=== 300, 700, bold_column_1
+	Name of local variable | Description
+	function name[] | Name of called function.  This is insofar useful if __additional function names__ have been defined for the same code
+	<i>parameter name</i>[] | Name of parameter provided.  Example: <b>hello[]</b> is defined if one of the parameters is called <b>hello</b>.
+	parameter <i>n</i>[] | Numbered parameter provided.  If the number of parameter is not limited, then all remaining parameters are numbered, with 1 as 1st parameter.
+	parameter count[] | Contains the number of parameters passed.  This is useful if the defined function allows for flexibility regarding number of parameters passed.
+	===
+
+	+++
+},
+
+
+
+
+
+"Launch other B4P programs" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Launch other B4P programs" ],
+    "Description 01:Introduction"::
+
+	B4P provides __start(__) to start other B4P programs.  Execution of this calling program continues when the B4P program has ended.
+	The __include(__) behaves similarly like __start(__), but memorizes the loaded program including the defined functions.  This features is useful
+	to define and include user specific function libraries which can be re-used in different B4P programs.
+
+	+++
+},
+
 
 "Exception Functions" :
 {
@@ -128,68 +191,60 @@ B4PDOCU.START
 },
 
 
-
-  "Code Execution Functions" :
+"Comparison and Selection Functions":
   {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison and selection functions" ],
+    "Description 01:Introduction"::
+
+	Common programming languages use standard constructs like <b>if ... else</b> or condensed statements
+	such as <i>[condition]</i> <b>?</b> <i>[expression if true]</i> <b>?</b> <i>[expression if false]</i>,
+	Aiming to allow for more dense and efficient coding, B4P provides a set of effective comparison and
+	selection functions.  The functions come in two fragrances:
+
+	+++,
+    "Description 02:select ... ()"::
+	In these functions all parameters are fully calculated regardless of the condition and/or if the values are finally selected or discarded.
+	This approach is most efficient if the values are constants or simple expression (e.g. a constant, referring to variable, a table entry,
+	a simple calculation, etc.) or if manipulations must be made in any case, e.g. doing a function call or incrementing/decrementing variables.
+	+++,
+    "Examples 02:Program example - all expressions are calculated:"::
+	a[] = select if( true, echo(yes), echo(no) ); // Note. Both 'yes' and 'no' are printed here
+	echo("Result is ", a[] );
+	+++,
+    "Output 02:Result:": "automatic",
+    "Description 03:pick ... ()"::
+	In these functions, the expressions for the values to select are only calculated if the results are needed.  Otherwise, these expressions
+	will be skipped.  This approach saves a lot of computation effort if more sophisticated expressions are contained.  In addition, if a variable
+	in an expression not selected is not defined, this does not matter because that expression is skipped.
+	+++,
+    "Examples 03:Program example - 'echo(no)' is not executed:"::
+	a[] = pick if( true, echo(yes), echo(no) ); // Note: Only 'yes' if printed
+	echo("Result is ", a[] );
+	+++,
+    "Output 03:Output": "automatic"
+},
+
+
+"Code Execution Functions" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Code Execution Functions" ],
     "Description 01:Introduction"::
 
-	The functions enable translation of code fragments in string format and execute them directly.
-	In addition, the __deep(__) function family allows to apply selected functions not only on single values
-	but repeatedly across all values in parameter sets.
+	The following functions provide additional flexibility in code execution, e.g. calling functions with function names provided
+	as strings, or ad-hoc execution of B4P code provided as strings.
+
+	* __call(__): Call a B4P procedure or function with function name provided in a string
+	* __deep(__): Call a B4P procedure or function repeatedly on a parameter set
+	* __statements(__): Execute one or more __B4P statements__ provided directly or in a string
+	* __expression(__): Execute a __B4P expression__ provided directly or in a string
+	* __compare(__): Compare a value with a __comparison expression__ provided directly or in a string
+	* __assign(__): Assign a value to a B4P variable where the varialbe name (including members if needed) are provided directly or in a string.
 
 	+++
-   },
+},
 
-
-
-
-  "User-Defined Procedures and Functions" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "User-defined procedures and functions" ],
-    "Keywords":			[ "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
-    "Description 01:Introduction"::
-
-	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
-	Procedures are defined as functions which do not provide a return value and must be called as a procedure.
-	Functions are defined to always provide return values and must be called as functions where the return value must be used further.
-	A combination of both is allowed which provides flexibility to use defined code either as a procedure or function.
-
-	<br><br>
-	Additional function names may be defined for the same user code.  In this case, the local variable <b>function name[]</b> will be
-	available to identify the function name used.
-
-
-	<br><br>
-	Inside the user-defined procedures and functions, following local variables are available, but cannot be deleted using __delete(__) function:
-
-	=== 300, 700, bold_column_1
-	Name of local variable | Description
-	function name[] | Name of called function.  This is insofar useful if __additional function names__ have been defined for the same code
-	<i>parameter name</i>[] | Name of parameter provided.  Example: <b>hello[]</b> is defined if one of the parameters is called <b>hello</b>.
-	parameter <i>n</i>[] | Numbered parameter provided.  If the number of parameter is not limited, then all remaining parameters are numbered, with 1 as 1st parameter.
-	parameter count[] | Contains the number of parameters passed.  This is useful if the defined function allows for flexibility regarding number of parameters passed.
-	===
-
-	+++
-   },
-
-
-  "Start or include Beyond4P Programs" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Start or include Beyond4P Programs" ],
-    "Keywords":			[ "start programs", "include programs" ],
-    "Description 01:Introduction"::
-
-	Beyond4P provides __start(__) to start other Beyond4P programs.  Execution of this calling program continues when the Beyond4P program has ended.
-	The __include(__) behaves similarly like __start(__), but memorizes the loaded program including the defined functions.  This features is useful
-	to define and include user specific function libraries which can be re-used in different Beyond4P programs.
-
-	+++
-   },
 
 
 
@@ -200,8 +255,10 @@ B4PDOCU.START
     "Feature Names":		[ "Console I/O Functions" ],
     "Description 01:Introduction"::
 
-	This subsection describes various functions text and console input / output features such as __echo(__) considered as a common
-	building-block for text output, but also __console special effects__ like clearing screens (__cls(__)) and changing text colors.
+	The following functions deal with basic input/output using the console.
+	* __Text input/output__ covers basic functions like __input(__) and __echo(__).
+	* __Console special effects__ adds clear screen, cursor control and some color to the console.
+	* __Inspection and debugging__ contain functions which are helpful for interactive use, e.g. to __inspect__ variables.
 
 	+++
 },
@@ -210,7 +267,7 @@ B4PDOCU.START
 "Text Input / Output":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "text input output" ],
+    "Feature Names":		[ "text input/output" ],
     "Description 01:Introduction"::
 
 	This subsection covers text-based input/output such as __input(__), __echo(__), __print(__) and so forth.
@@ -271,7 +328,7 @@ B4PDOCU.START
     "Feature Names":		[ "Mathematics and Statistics" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides a broad range of advanced mathematics and statistics functions.
+	B4P provides a broad range of advanced mathematics and statistics functions.
 
 	+++
 },
@@ -284,7 +341,7 @@ B4PDOCU.START
     "Feature Names":		[ "basic math functions" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides various functions to check numeric values and carry out basic mathematis functions.
+	B4P provides various functions to check numeric values and carry out basic mathematis functions.
 
 	+++
    },
@@ -322,7 +379,7 @@ B4PDOCU.START
     "Feature Names":		[ "matrix functions" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
+	B4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
 	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
 
 	Example: <b>{{ 1, 2, 3 }, { 4, 5, 6 }}</b> is a matrix consisting of 2 rows and 3 columns:<br><br>
@@ -332,14 +389,29 @@ B4PDOCU.START
 
 	<br>
 
-	These matrix functions are a supplement to __matrix arithmetics__ which make use of so called __deep operators__.
-	You won't find a matrix addition function (like <i>madd(a[],b[])</i>) because it is realized with <b>a[] +^^ b[]</b>.
+	* __mmul__:	Matrix multiplication
+	* __minv__: Matrix inversion
+	* __mdiv__: Matrix division
+	* __mdet__: Calculates determinant
+	* __linear__: Solves a set of linear equations (Gaussian elimination)
 
-	<br><br>
+	You may possibly be missing the functions like <b>madd</b> and <b>msub</b> for addition and subtraction.  These two operations can be
+	implmented with direct __matrix mathematics__ using __deep operators__ as shown below:
 
-	In addition to Matrix Functions which are part of the mathematical function library, __Matrix Manipulations__ provide additional
-	matrix functions where the contents may be of any data type.  These functions do not apply any arithmetics on the values.
+	* Matrix addition: <b>a[] +^^ b[]</b>
+	* Matrix subtraction: <b>a[] -^^ b[]</b>
+	* Scalar multiplication: <b>a[] *^^ b[]</b>
+	* Scalar division: <b>a[] /^^ b[]</b>
 
+	<br>
+
+	Following functions, also described in this section, allow any types in their matrices because contents are only moved and not calculated:
+
+	* __horizontal__:  Converts a flat or vertical matrix to a horizontal matrix (1 row, several column elements)
+	* __vertical__: Converts a flat or horizontal matrix to a vertical matrix (1 column, several row elements)
+	* __flat__: Flattens the matrix to all values arranged in a simple parameter set
+	* __diagonal__: Creates a matrix with values along the diagonal and zero in the remaining fields
+	* __transpose__: Transposes a matrix
 
 	+++
    },	
@@ -401,30 +473,6 @@ B4PDOCU.START
 
 
 
- "Matrix Manipulation Functions":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "matrix manipulation functions" ],
-    "Keywords":			[ "matrix manipulations" ],
-    "Description 01:Introduction"::
-
-	Beyond4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
-	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
-
-	Example: <b>{{ 1, A, 3 }, { B, 5, F }}</b> is a matrix consisting of 2 rows and 3 columns:<br><br>
-
-	| 1  A  3 |<br>
-	| B  5  F |<br>
-
-	<br>
-
-	In addition to these functions, a different section called __Matrix Functions__ provide arithmetic functions on matrixes containing
-	numerals, for example matrix multiplication, inversion and calculating determinants.
-
-	+++
-  },
-
-
 
 "Date and Time Functions":
   {
@@ -433,7 +481,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 
-	Beyond4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.
+	B4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.
 
 	The sections are:
 	* __Date functions__
@@ -457,7 +505,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 
-	Beyond4P provides some powerful functions to process date .
+	B4P provides some powerful functions to process date .
 
 	<br><br>
 
@@ -479,7 +527,7 @@ B4PDOCU.START
     "Keywords":			[ "time functions", "stopwatch functions" ],
     "Description 01:Introduction"::
 
-	Beyond4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
+	B4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
 	as well as stopwatch functions to measure the performance of your applications.
 
 	+++
@@ -493,7 +541,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	The following functions suspend program execution for a specified time or until a specific time has been reached.
-	The delay will pause Beyond4P's process and lets other application run at full speed.
+	The delay will pause B4P's process and lets other application run at full speed.
 
 	+++
   },
@@ -543,7 +591,7 @@ B4PDOCU.START
     "Feature Names":		[ "Other string functions" ],
     "Description 01:Introduction"::
 
-	All other string functions, including random string generation, are explained next.
+	All other string functions, including random string generation, are summarized next.
 
 	+++
   },
@@ -557,7 +605,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	The chapter on table functions covers following four sections
-	* Table file and console I/O
+	* Loading, saving and console I/O
 	* Basic table access (creating, writing, reading, deleting)
 	* Searching and expoorig tables
 	* Processing tables with powerful functions
@@ -567,24 +615,6 @@ B4PDOCU.START
 	+++
 },
 
-
-
-
-"Table File and Console I/O":
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Table file and console IO" ],
-    "Description 01:Introduction"::
-
-	This section summarizes the basic fuctions which include the following:
-	* Creating and deleting tables
-	* Accessing table information (like sizes)
-	* Accessing table contents
-	* Loading and saving tables
-	* Inputting and outputting tables (listing them, menu operations)
-
-	+++
-},
 
 
 "Loading and Saving Tables":
@@ -602,7 +632,7 @@ B4PDOCU.START
 	* JSON
 
 	+++
-  },
+},
 
 
 "Console I/O with Tables":
@@ -1177,9 +1207,9 @@ B4PDOCU.START
 	<br><br>
 
 	Following rules will be applied when saving variables into JSON text. 
-	These rules are insofar important because the Beyond4P can consist of both base variables, array and structure members and sub-members, 
+	These rules are insofar important because the B4P can consist of both base variables, array and structure members and sub-members, 
 	and the simple JSON representation focuses on leaf data, meaning the final members and sub-members without the intermediate one.  
-	In addition, special rules are applied to save Beyond4P specific formats such as dates (and times) and parameter sets.
+	In addition, special rules are applied to save B4P specific formats such as dates (and times) and parameter sets.
 
 	Following special rules apply
 	=== 200, 800, noframe_1stcolbold, noheader
@@ -1271,40 +1301,6 @@ B4PDOCU.START
 
 
 
-"Comparison and Selection Functions":
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Comparison and selection functions" ],
-    "Description 01:Introduction"::
-
-	Common programming languages use standard constructs like <b>if ... else</b> or condensed statements
-	such as <i>[condition]</i> <b>?</b> <i>[expression if true]</i> <b>?</b> <i>[expression if false]</i>,
-	Aiming to allow for more dense and efficient coding, B4P provides a set of effective comparison and
-	selection functions.  The functions come in two fragrances:
-
-	+++,
-    "Description 02:select ... ()"::
-	In these functions all parameters are fully calculated regardless of the condition and/or if the values are finally selected or discarded.
-	This approach is most efficient if the values are constants or simple expression (e.g. a constant, referring to variable, a table entry,
-	a simple calculation, etc.) or if manipulations must be made in any case, e.g. doing a function call or incrementing/decrementing variables.
-	+++,
-    "Examples 02:Program example - all expressions are calculated:"::
-	a[] = select if( true, echo(yes), echo(no) ); // Note. Both 'yes' and 'no' are printed here
-	echo("Result is ", a[] );
-	+++,
-    "Output 02:Result:": "automatic",
-    "Description 03:pick ... ()"::
-	In these functions, the expressions for the values to select are only calculated if the results are needed.  Otherwise, these expressions
-	will be skipped.  This approach saves a lot of computation effort if more sophisticated expressions are contained.  In addition, if a variable
-	in an expression not selected is not defined, this does not matter because that expression is skipped.
-	+++,
-    "Examples 03:Program example - 'echo(no)' is not executed:"::
-	a[] = pick if( true, echo(yes), echo(no) ); // Note: Only 'yes' if printed
-	echo("Result is ", a[] );
-	+++,
-    "Output 03:Output": "automatic"
-},
-
 
 
 "Directory and File System Functions":
@@ -1331,9 +1327,9 @@ B4PDOCU.START
 
 	<br><br>
 
-	Beyond4P tolerates both slash symbols and does the operating system conversions automatically. Even a mix of both symbols are OK. Following examples are valid:
-	* C:/Program Files\Beyond4P.exe
-	* \usr\local/bin\Beyond4P
+	B4P tolerates both slash symbols and does the operating system conversions automatically. Even a mix of both symbols are OK. Following examples are valid:
+	* C:/Program Files\B4P.exe
+	* \usr\local/bin\B4P
 
 	<br><br>
 
@@ -1347,7 +1343,7 @@ B4PDOCU.START
     "Description 03:Exception Handling"::
 
 	Various procedures and functions contain <b>... silently</b> as ending part of their names.  This suffix
-	lets Beyond4P to issue return values which are either "OK" or contain a short error message.  Without the
+	lets B4P to issue return values which are either "OK" or contain a short error message.  Without the
 	suffix, an exception happens, program execution will stop and enters __interactive mode__.
 
 	=== 250, 250, 500

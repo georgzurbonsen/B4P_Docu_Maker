@@ -222,6 +222,7 @@ LIB;Interpolation Functions;LIB_Function_linear_interpolation.html;Function Desc
 LIB;Interpolation Functions;LIB_Function_linear_interpolation.html;Function Description;spline interpolation
 LIB;Interpolation Functions;LIB_Function_linear_interpolation.html;Function Description;polynomial interpolation
 LIB;Interpolation Functions;LIB_Function_linear_interpolation.html;Function Description;;interpolation
+LIB;Launch other B4P programs;LIB_Features_Launch_other_B4P_programs.html;General Description;Launch other B4P programs
 LIB;Licensing and Privileges;LIB_Features_licensing_and_privileges.html;General Description;licensing and privileges
 LIB;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;regression
 LIB;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;;linear regression
@@ -245,8 +246,6 @@ LIB;Loops;LIB_Features_Loops.html;General Description;Loops
 LIB;Manipulating Directories and Files;LIB_Features_manipulating_directories_and_files.html;General Description;manipulating directories and files
 LIB;Mathematics and Statistics;LIB_Features_Mathematics_and_Statistics.html;General Description;Mathematics and Statistics
 LIB;Matrix Functions;LIB_Features_matrix_functions.html;General Description;matrix functions
-LIB;Matrix Manipulation Functions;LIB_Features_matrix_manipulation_functions.html;General Description;matrix manipulation functions
-LIB;Matrix Manipulation Functions;LIB_Features_matrix_manipulation_functions.html;General Description;;matrix manipulations
 LIB;Miscellaneous String Functions;LIB_Features_Other_string_functions.html;General Description;Other string functions
 LIB;Multi-Table Integration;LIB_Features_Multi-table_integration.html;General Description;Multi-table integration
 LIB;Numeral to Literal Formatting;LIB_Features_numeral_to_literal_conversion_and_formatting.html;General Description;numeral to literal conversion and formatting
@@ -277,9 +276,6 @@ LIB;Smart Formatting;LIB_Features_smart_conversion_and_formatting.html;General D
 LIB;Smart Formatting;LIB_Features_smart_conversion_and_formatting.html;General Description;;smart formatting
 LIB;Sorting and Ranking Options;LIB_Features_Sorting_options.html;General Description;Sorting options
 LIB;Sorting and Ranking Options;LIB_Features_Sorting_options.html;General Description;Ranking options
-LIB;Start or include Beyond4P Programs;LIB_Features_Start_or_include_Beyond4P_Programs.html;General Description;Start or include Beyond4P Programs
-LIB;Start or include Beyond4P Programs;LIB_Features_Start_or_include_Beyond4P_Programs.html;General Description;;start programs
-LIB;Start or include Beyond4P Programs;LIB_Features_Start_or_include_Beyond4P_Programs.html;General Description;;include programs
 LIB;Statistics Functions;LIB_Features_statistics_functions.html;General Description;statistics functions
 LIB;Stopwatch Functions;LIB_Function_watch_start.html;Function Description;watch start
 LIB;Stopwatch Functions;LIB_Function_watch_start.html;Function Description;watch stop
@@ -295,12 +291,11 @@ LIB;Styling Functions;LIB_Features_Formatting_the_Tables.html;General Descriptio
 LIB;System Functions;LIB_Features_system_functions.html;General Description;system functions
 LIB;Table Comparison Reports;LIB_Features_Table_comparison_reports.html;General Description;Table comparison reports
 LIB;Table Comparison Strategy;LIB_Features_Table_comparison_strategy.html;General Description;Table comparison strategy
-LIB;Table File and Console I/O;LIB_Features_Table_file_and_console_IO.html;General Description;Table file and console IO
 LIB;Table Functions;LIB_Features_table_functions.html;General Description;table functions
 LIB;Table Integration Operation Identifiers;LIB_Features_Table_integration_operation_identifiers.html;General Description;Table integration operation identifiers
 LIB;Table of Contents;LIB_Features_Table_of_Contents.html;General Description;Table of Contents
 LIB;Table of Contents;LIB_Features_Table_of_Contents.html;General Description;;Reference Manual
-LIB;Text Input / Output;LIB_Features_text_input_output.html;General Description;text input output
+LIB;Text Input / Output;LIB_Features_text_input_output.html;General Description;text input/output
 LIB;Time and Stopwatch Functions;LIB_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
 LIB;Time and Stopwatch Functions;LIB_Features_time_and_stopwatch_functions.html;General Description;;time functions
 LIB;Time and Stopwatch Functions;LIB_Features_time_and_stopwatch_functions.html;General Description;;stopwatch functions
@@ -1122,13 +1117,16 @@ LAN;Arrays;LAN_Features_arrays.html;General Description;;array members
 LAN;Arrays;LAN_Features_arrays.html;General Description;;spontaneous array creation
 LAN;Assignment operators;LAN_Features_Assignment_operators.html;General Description;Assignment operators
 LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;assignments
-LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;expressions
 LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;;assignment
-LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;;expression
+LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;;expressions
+LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;;B4P expression
+LAN;Assignments and Expressions;LAN_Features_assignments.html;General Description;;B4P expressions
 LAN;Basic Commands;LAN_Features_Basic_Commands.html;General Description;Basic Commands
 LAN;Basic Data Types;LAN_Features_basic_data_types.html;General Description;basic data types
 LAN;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;Basic Language Structure
 LAN;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Blocks
+LAN;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;statement
+LAN;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;B4P statements
 LAN;Binary Operators;LAN_Features_binary_operators.html;General Description;binary operators
 LAN;Booleans;LAN_Features_data_types_booleans.html;General Description;data types booleans
 LAN;Booleans;LAN_Features_data_types_booleans.html;General Description;;boolean
@@ -1362,7 +1360,6 @@ LAN;Wildcards;LAN_Features_wildcards.html;General Description;wildcards
 LAN;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
-MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 GUI;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
 GUI;Examples;GUI_Features_Examples.html;General Description;Examples
 GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
@@ -1394,3 +1391,4 @@ GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Instal
 GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
 GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
 GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
+MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
