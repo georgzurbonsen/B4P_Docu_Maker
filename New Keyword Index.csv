@@ -38,7 +38,6 @@ LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;su
 LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;parallel
 LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;harmonic mean
 LIB;Basic Statistics Functions;LIB_Function_average.html;Function Description;;basic statistics functions
-LIB;Basic Table Access;LIB_Features_Basic_table_access.html;General Description;Basic table access
 LIB;Basic Variables Functions;LIB_Features_basic_variables_functions.html;General Description;basic variables functions
 LIB;Boolean to Literal Formatting;LIB_Features_boolean_to_literal_conversion_and_formatting.html;General Description;boolean to literal conversion and formatting
 LIB;Boolean to Literal Formatting;LIB_Features_boolean_to_literal_conversion_and_formatting.html;General Description;;Boolean to Literal Formatting Parameters
@@ -47,7 +46,6 @@ LIB;Change Indication Function;LIB_Function_(This_is_a_user-defined_function_you
 LIB;Character Encoding and Decoding;LIB_Features_character_coding.html;General Description;character coding
 LIB;Checking and Processing Headers;LIB_Features_Checking_headers.html;General Description;Checking headers
 LIB;Checking and Processing Headers;LIB_Features_Checking_headers.html;General Description;Processing headers
-LIB;Clearing and Deleting Tables;LIB_Features_Clearing_and_deleting_tables.html;General Description;Clearing and deleting tables
 LIB;Code Execution Functions;LIB_Features_Code_Execution_Functions.html;General Description;Code Execution Functions
 LIB;Color Palettes;LIB_Features_Color_Palettes.html;General Description;Color Palettes
 LIB;Color Palettes;LIB_Features_Color_Palettes.html;General Description;;Color Palette
@@ -173,9 +171,11 @@ LIB;Console I/O Functions;LIB_Features_Console_I_O_Functions.html;General Descri
 LIB;Console I/O with Tables;LIB_Features_Console_I_O_with_tables.html;General Description;Console I/O with tables
 LIB;Console Special Effects;LIB_Features_Console_special_effects.html;General Description;Console special effects
 LIB;Consolidation Actions;LIB_Features_consolidation_actions.html;General Description;consolidation actions
-LIB;Control Flow Functions;LIB_Features_Control_Flow_Functions.html;General Description;Control Flow Functions
+LIB;Control Flow Functions;LIB_Features_Control_flow_functions.html;General Description;Control flow functions
+LIB;Control Flow Functions for Tables;LIB_Features_Control_Flow_Functions_for_Tables.html;General Description;Control Flow Functions for Tables
 LIB;Copying, Renaming and Splitting Tables;LIB_Features_Copying__renaming_and_spitting_tables.html;General Description;Copying, renaming and spitting tables
-LIB;Creating Tables and Adding Contents;LIB_Features_Creating_tables_and_adding_contents.html;General Description;Creating tables and adding contents
+LIB;Creating and Building up Tables;LIB_Features_Creating_tables_and_building_up_tables.html;General Description;Creating tables and building up tables
+LIB;Creating, Writing, Reading, Deleting;LIB_Features_Create___read___write___delete_tables.html;General Description;Create / read / write / delete tables
 LIB;Cross-Functional Info;LIB_Features_Cross-functional_info.html;General Description;Cross-functional info
 LIB;Date Functions;LIB_Features_date_functions.html;General Description;date functions
 LIB;Date and Time Detection Rules;LIB_Features_Detects_dates_correctly_in_literals.html;General Description;Detects dates correctly in literals
@@ -185,8 +185,9 @@ LIB;Date to Literal Formatting;LIB_Features_date_to_literal_conversion_and_forma
 LIB;Date to Literal Formatting;LIB_Features_date_to_literal_conversion_and_formatting.html;General Description;;Date to Literal Formatting Parameters
 LIB;Defining User Specific Colors;LIB_Features_Defining_User_Specific_Colors.html;General Description;Defining User Specific Colors
 LIB;Defining User Specific Colors;LIB_Features_Defining_User_Specific_Colors.html;General Description;;Color Specification
+LIB;Deleting Tables;LIB_Features_Clearing_and_deleting_tables.html;General Description;Clearing and deleting tables
 LIB;Directory and File System Functions;LIB_Features_directory_and_file_system_functions.html;General Description;directory and file system functions
-LIB;Exception Functions;LIB_Features_Exception_Functions.html;General Description;Exception Functions
+LIB;Exception Functions;LIB_Features_Exception_functions.html;General Description;Exception functions
 LIB;Executing System Commands;LIB_Features_executing_system_commands.html;General Description;executing system commands
 LIB;Explore, Filter, Extract Sub-Tables;LIB_Features_Explore_and_filter_and_extract_sub-tables.html;General Description;Explore and filter and extract sub-tables
 LIB;Exponential Functions;LIB_Function_exp.html;Function Description;exp
@@ -199,7 +200,7 @@ LIB;Finishing up formatting;LIB_Features_Finishing_up_formatting.html;General De
 LIB;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Precedences
 LIB;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Coverages
 LIB;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
-LIB;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
+LIB;Function Library;LIB_Features_Function_library.html;General Description;Function library
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Values
@@ -250,7 +251,6 @@ LIB;Miscellaneous String Functions;LIB_Features_Other_string_functions.html;Gene
 LIB;Multi-Table Integration;LIB_Features_Multi-table_integration.html;General Description;Multi-table integration
 LIB;Numeral to Literal Formatting;LIB_Features_numeral_to_literal_conversion_and_formatting.html;General Description;numeral to literal conversion and formatting
 LIB;Numeral to Literal Formatting;LIB_Features_numeral_to_literal_conversion_and_formatting.html;General Description;;Numeral to Literal Formatting Parameters
-LIB;Other Control Flow Functions;LIB_Features_Other_Control_Flow_Functions.html;General Description;Other Control Flow Functions
 LIB;Parameter Set Functions;LIB_Features_parameter_set_functions.html;General Description;parameter set functions
 LIB;Parameter Set to Literal Formatting;LIB_Features_Parameter_Set_to_literal_conversion_and_formatting.html;General Description;Parameter Set to literal conversion and formatting
 LIB;Parameter Set to Literal Formatting;LIB_Features_Parameter_Set_to_literal_conversion_and_formatting.html;General Description;;Parameter Set to Literal Formatting Parameters
@@ -261,7 +261,7 @@ LIB;Processing Table Columns;LIB_Features_Processing_table_columns.html;General 
 LIB;Processing Table Contents;LIB_Features_Processing_table_contents.html;General Description;Processing table contents
 LIB;Processing Table Rows;LIB_Features_Processing_table_rows.html;General Description;Processing table rows
 LIB;Processing Tables;LIB_Features_Processing_tables.html;General Description;Processing tables
-LIB;Reading and Writing Tables;LIB_Features_Reading_and_writing_tables.html;General Description;Reading and writing tables
+LIB;Reading Tables;LIB_Features_Functions_for_reading_tables.html;General Description;Functions for reading tables
 LIB;Registry Access Functions;LIB_Features_registry_access_functions.html;General Description;registry access functions
 LIB;Resident Attributes Functions;LIB_Features_Resident_attributes_functions.html;General Description;Resident attributes functions
 LIB;Saving JSON files;LIB_Features_Saving_JSON_files.html;General Description;Saving JSON files
@@ -320,16 +320,16 @@ LIB;Trigonometric Functions;LIB_Function_sin.html;Function Description;atan deg
 LIB;Trigonometric Functions;LIB_Function_sin.html;Function Description;;trigonometric functions
 LIB;Type Conversion and Formatting;LIB_Features_Type_Conversion_Functions.html;General Description;Type Conversion Functions
 LIB;Type Conversion and Formatting;LIB_Features_Type_Conversion_Functions.html;General Description;;type conversion
-LIB;User-Defined Procedures and Functions;LIB_Features_User_Defined_Procedures_and_Functiions.html;General Description;User Defined Procedures and Functiions
-LIB;User-Defined Procedures and Functions;LIB_Features_User_Defined_Procedures_and_Functiions.html;General Description;;User-defined procedures and functions
-LIB;User-Defined Procedures and Functions;LIB_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user-defined procedures
-LIB;User-Defined Procedures and Functions;LIB_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user-defined functions
-LIB;User-Defined Procedures and Functions;LIB_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user procedures
-LIB;User-Defined Procedures and Functions;LIB_Features_User_Defined_Procedures_and_Functiions.html;General Description;;user functions
+LIB;User-Defined Procedures and Functions;LIB_Features_User-defined_procedures_and_functions.html;General Description;User-defined procedures and functions
+LIB;User-Defined Procedures and Functions;LIB_Features_User-defined_procedures_and_functions.html;General Description;;user-defined procedures
+LIB;User-Defined Procedures and Functions;LIB_Features_User-defined_procedures_and_functions.html;General Description;;user-defined functions
+LIB;User-Defined Procedures and Functions;LIB_Features_User-defined_procedures_and_functions.html;General Description;;user procedures
+LIB;User-Defined Procedures and Functions;LIB_Features_User-defined_procedures_and_functions.html;General Description;;user functions
 LIB;Variable References Functions;LIB_Features_Variable_references_functions.html;General Description;Variable references functions
 LIB;Variables Functions;LIB_Features_variables_functions.html;General Description;variables functions
 LIB;Void to Literal Formatting;LIB_Features_void_to_literal_conversion_and_formatting.html;General Description;void to literal conversion and formatting
 LIB;Void to Literal Formatting;LIB_Features_void_to_literal_conversion_and_formatting.html;General Description;;Void to Literal Formatting Parameters
+LIB;Writing Tables;LIB_Features_Functions_for_writing_tables.html;General Description;Functions for writing tables
 LIB;abbreviate name;LIB_Function_abbreviate_name.html;Function Description;abbreviate name
 LIB;abort;LIB_Function_abort.html;Function Description;abort
 LIB;abs - Absolute Value;LIB_Function_abs.html;Function Description;abs
@@ -983,6 +983,7 @@ LIB;table process selected rows fast;LIB_Function_table_process_selected_rows_fa
 LIB;table rank (selected) rows;LIB_Function_table_rank_rows.html;Function Description;table rank rows
 LIB;table rank (selected) rows;LIB_Function_table_rank_rows.html;Function Description;table rank selected rows
 LIB;table read column selected rows;LIB_Function_table_read_column_selected_rows.html;Function Description;table read column selected rows
+LIB;table read row;LIB_Function_table_read_row.html;Function Description;table read row
 LIB;table rearrange ... columns;LIB_Function_table_rearrange_columns.html;Function Description;table rearrange columns
 LIB;table rearrange ... columns;LIB_Function_table_rearrange_columns.html;Function Description;table rearrange existing columns
 LIB;table rearrange selected rows;LIB_Function_table_rearrange_selected_rows.html;Function Description;table rearrange selected rows
@@ -1087,38 +1088,6 @@ LIB;year, quarter, month, day;LIB_Function_year.html;Function Description;;Date 
 LIB;zip compress;LIB_Function_zip_compress.html;Function Description;zip compress
 LIB;zip extract all;LIB_Function_zip_extract_all.html;Function Description;zip extract all
 LIB;zip extract files;LIB_Function_zip_extract_files.html;Function Description;zip extract files
-MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
-GUI;Examples;GUI_Features_Examples.html;General Description;Examples
-GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
-GUI;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
-GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;Index;GUI_Features_Index.html;General Description;Index
-GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
-GUI;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
-GUI;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
-GUI;Licensing;GUI_Features_Licensing.html;General Description;Licensing
-GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
-GUI;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
-GUI;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
-GUI;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
-GUI;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
-GUI;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
-GUI;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
-GUI;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
-GUI;Overview;GUI_Features_overview.html;General Description;overview
-GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
-GUI;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
-GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
-GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
-GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
-GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
 LAN;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 LAN;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 LAN;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -1273,8 +1242,8 @@ LAN;Matrix Table Access;LAN_Features_matrix_table_access.html;General Descriptio
 LAN;Miscellaneous Features;LAN_Features_Miscellaneous_Features.html;General Description;Miscellaneous Features
 LAN;Multiplications;LAN_Features_multiplication.html;General Description;multiplication
 LAN;Negative Indexing;LAN_Features_negative_indexing.html;General Description;negative indexing
-LAN;Nested Partial Table Specification;LAN_Features_nested_partial_table_specification.html;General Description;nested partial table specification
-LAN;Nested Partial Table Specification;LAN_Features_nested_partial_table_specification.html;General Description;;nested partial table specifications
+LAN;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;nested partial table specification
+LAN;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;;nested partial table specifications
 LAN;Not Equal to;LAN_Features_not_equal_to.html;General Description;not equal to
 LAN;Numerals;LAN_Features_data_types_numerals.html;General Description;data types numerals
 LAN;Numerals;LAN_Features_data_types_numerals.html;General Description;;numeral
@@ -1302,10 +1271,8 @@ LAN;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_va
 LAN;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;parameter set value repetitions
 LAN;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetition
 LAN;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetitions
-LAN;Partial Table Specification;LAN_Features_partial_table_specification.html;General Description;partial table specification
-LAN;Partial Table Specification;LAN_Features_partial_table_specification.html;General Description;;partial table specifications
-LAN;Partial Table Specification;LAN_Features_partial_table_specification.html;General Description;;partial table references
-LAN;Partial Table Specification;LAN_Features_partial_table_specification.html;General Description;;partial table referencee
+LAN;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;partial table specifications
+LAN;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;;partial table specification
 LAN;Path and File Names;LAN_Features_path_names.html;General Description;path names
 LAN;Path and File Names;LAN_Features_path_names.html;General Description;;path name
 LAN;Path and File Names;LAN_Features_path_names.html;General Description;;path names
@@ -1395,3 +1362,35 @@ LAN;Wildcards;LAN_Features_wildcards.html;General Description;wildcards
 LAN;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
+MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
+GUI;Examples;GUI_Features_Examples.html;General Description;Examples
+GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
+GUI;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
+GUI;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;Index;GUI_Features_Index.html;General Description;Index
+GUI;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
+GUI;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
+GUI;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
+GUI;Licensing;GUI_Features_Licensing.html;General Description;Licensing
+GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
+GUI;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
+GUI;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
+GUI;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
+GUI;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
+GUI;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
+GUI;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
+GUI;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
+GUI;Overview;GUI_Features_overview.html;General Description;overview
+GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
+GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
+GUI;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
+GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
+GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
+GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation

@@ -18,7 +18,7 @@ B4PDOCU.START
 "Function Library" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Function Library" ],
+    "Feature Names":		[ "Function library" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a large and comprehenisve library of different functions.
@@ -36,10 +36,10 @@ B4PDOCU.START
 },
 
 
-  "Control Flow Functions" :
-  {
+"Control Flow Functions" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Control Flow Functions" ],
+    "Feature Names":		[ "Control flow functions" ],
     "Description 01:Introduction"::
 
 	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.
@@ -52,56 +52,82 @@ B4PDOCU.START
 	Beyond4P interpreter would have faced risky challenge if that statement would have been impleemented.
 
 	+++
-   },
-
-  "Loops" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Loops" ],
-    "Description 01:Introduction"::
-
-	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all
-	common programming languages.  In addition, various <b>for all...</b> loops are available to work through
-	tables and/or parameter sets.
-
-	+++
-   },
+},
 
 
-  "Branches" :
-  {
+"Branches" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Branches" ],
     "Description 01:Introduction"::
 
-	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.
+	Branches are control flow functions which rule whether following statements or blocks shall be executed or not.
+
+	* __if(__) ... __else__: Conditional branches
+	* __once(__) ... __else__: Following statement or block is executed once only
+	* __switch(__) ... __case(__): Branches to statements or blocks where the condition is met.  Only 1 case where the expression matches will be executed.
+	* __check(__) ... __case(__): Branches to statements or blocks where the condition is met.  All cases where the expression matches will be executed.
+
+	See also the exception functions __throw(__) / __catch(__) for skipping the remaining code inbetween.
 
 	+++
-   },
+},
 
-
-  "Exception Functions" :
-  {
+"Loops" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Exception Functions" ],
+    "Feature Names":		[ "Loops" ],
     "Description 01:Introduction"::
 
-	Exception functions include the following: __pause__, __stop__, __end__, __exit__, __abort__, __throw__, __catch__ / __catch if__ and __interactive__.
+	Loops are control flow functions where the following statements or blocks are executed repeatedly until a condition to stop repeating is met.
+
+	* __while(__) / __until(__): The subsequent statements or block are exected repeatedly as long the condition inside the while-function call is met.
+	* __do__ ... __while(__) / __until(__): Checking the condition whether to continue the loop is done after the loop is executed for the first time.
+	* __for(__): Loop statement where an interator variable is initialized, then repeatedly checked and updated (typically incremented) at the end over every loop.
+
+	In addition, a sesries of <b>for all ...()</b> statements exist which loop throgh __parameter sets__, __variables__
+
+	* __for all parameters(__)
+	* __for all variables(__)
+
+	Further more, see the seeparate section on __control flow functions for tables__ where the following functions, mostly loops, are defined:
+
+	* __with table(__)<br>
+	* __for all table rows(__)
+	* __for all table selected rows(__)
+	* __for all table columns(__)
+	* __for all table selected columns(__)
+	* __for all current table columns(__)
+	* __for all current table selected columns(__)
 
 	+++
-   },
+},
 
 
-  "Other Control Flow Functions" :
-  {
+
+"Exception Functions" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Other Control Flow Functions" ],
+    "Feature Names":		[ "Exception functions" ],
     "Description 01:Introduction"::
 
-	Inclcudes: __with table(__) to provide a context allowing partial table references.
+	Exception functions include the following: 
+
+	* __pause__: Pauses program execution.  User can choose whether to continue or stop running
+	* __stop__: Progam execution stops entirely
+	* __end__: Current program ends.  If called by a superior program, then the superior program continues running.
+	* __exit__: Exit program execution
+	* __abort__: Exit program execution
+	* __throw__: Skips following code until __catch__ or __catch if__ is encountered. Values thrown are referred as frisbees.
+	* __catch__: Arrival point for frisbees thrown.  Execution continues here with the values picked up
+	* __catch if__ : The frisbee will only be caught if the value matches with the condition expression specified.  Otherwise the frisbee keeps flying.
+	* __interactive__: Enters interactive mode so you can inspect variables, tables, and do other works interactively.  Type <b>return</b> to continue program execution.<br>
+	* __null__: Null function. Does nothing, returns void value.  Suitable as placeholder function calls.
 
 	+++
-   },
+},
+
+
 
   "Code Execution Functions" :
   {
@@ -122,8 +148,8 @@ B4PDOCU.START
   "User-Defined Procedures and Functions" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "User Defined Procedures and Functiions" ],
-    "Keywords":			[ "User-defined procedures and functions", "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
+    "Feature Names":		[ "User-defined procedures and functions" ],
+    "Keywords":			[ "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
     "Description 01:Introduction"::
 
 	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
@@ -594,10 +620,10 @@ B4PDOCU.START
 
 
 
-"Basic Table Access":
+"Creating, Writing, Reading, Deleting":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Basic table access" ],
+    "Feature Names":		[ "Create / read / write / delete tables" ],
     "Description 01:Introduction"::
 
 	The following functions basic functions to create and access tables:
@@ -612,10 +638,10 @@ B4PDOCU.START
 
 
 	
-"Creating Tables and Adding Contents":
+"Creating and Building up Tables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Creating tables and adding contents" ],
+    "Feature Names":		[ "Creating tables and building up tables" ],
     "Description 01:Introduction"::
 
 	This subsection contains basic functions to create tables and add first contents:
@@ -629,18 +655,24 @@ B4PDOCU.START
 },
 
 
-"Reading and Writing Tables":
+
+"Writing Tables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Reading and writing tables" ],
+    "Feature Names":		[ "Functions for writing tables" ],
     "Description 01:Introduction"::
 
-	See the chapter on __tables__  to explore the various means to read and write contents directly without function calls.
-	<br>
-	This subsection contains some advanced table functions to access table contents effectively:
+	See the chapter on __tables__  to explore the various simple features to write contents to tables without function calls:
+	* __Simple table access__ to access individual table cells
+	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.
+	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.
+	* __Matrix table access__ to access multiple cells in different rows and columns as well.
 
-	* Accessing row and column numbers if context for __partial table references__ is available
-	* Reading and writing table contents in selected rows using algorithmic expressions
+	<br><br>
+
+	The functions described next provide additional powerful ways to write data to the tables such as:
+	* Accessing row and column numbers if context for __partial table specifications__ is available
+	* Writing  data from table rows selected with an algorithmic expression
 	* Forget memorized table columns during program execution
 
 	+++
@@ -648,7 +680,28 @@ B4PDOCU.START
 
 
 
-"Clearing and Deleting Tables":
+"Reading Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Functions for reading tables" ],
+    "Description 01:Introduction"::
+
+	See the chapter on __tables__  to explore the various simple features read write contents from tables without function calls:
+	* __Simple table access__ to access individual table cells
+	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.
+	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.
+	* __Matrix table access__ to access multiple cells in different rows and columns as well.
+
+	<br><br>
+
+	The functions described next provide additional powerful ways to read data from the tables such as:
+	* Reading data from table rows selected with an algorithmic expression
+
+	+++
+},
+
+
+"Deleting Tables":
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Clearing and deleting tables" ],
@@ -747,6 +800,38 @@ B4PDOCU.START
 	<br/><br/><img src="Images/Description_Exploring_and_Extracting_Tables.jpg" alt="Exploring and Extracting Tables"><br/><br/>
 	+++
 },
+
+
+
+
+
+
+"Control Flow Functions for Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Control Flow Functions for Tables" ],
+    "Description 01:Introduction"::
+
+	This section describes special-purpose __control flow functions__ specifically developed to process table contents.
+
+	* __with table(__): Provides context information of a specified table in order to enable __partial table specifications__ inside the following statement or block
+
+	Loops through the rows (top down):
+
+	* __for all table rows(__)
+	* __for all table selected rows(__)
+
+	Loops across the columns:
+
+	* __for all table columns(__)
+	* __for all table selected columns(__)
+	* __for all current table columns(__)
+	* __for all current table selected columns(__)
+
+	+++
+},
+
+
 
 
 "Processing Tables":

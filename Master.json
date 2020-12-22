@@ -18,7 +18,7 @@
 "Function Library" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Function Library" ],
+    "Feature Names":		[ "Function library" ],
 "Description 01:Introduction" : [
 "",
 "	Beyond4P provides a large and comprehenisve library of different functions.",
@@ -37,10 +37,10 @@
 },
 
 
-  "Control Flow Functions" :
-  {
+"Control Flow Functions" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Control Flow Functions" ],
+    "Feature Names":		[ "Control flow functions" ],
 "Description 01:Introduction" : [
 "",
 "	Beyond4P provides a wide variety of control flow functions which include conditional branches and loops.",
@@ -54,60 +54,85 @@
 ""
  ]
 	
-   },
-
-  "Loops" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Loops" ],
-"Description 01:Introduction" : [
-"",
-"	Beyond4P provides a standard __do(__), __while(__) and __for(__) functions as they exist in quasi all",
-"	common programming languages.  In addition, various <b>for all...</b> loops are available to work through",
-"	tables and/or parameter sets.",
-""
- ]
-	
-   },
+},
 
 
-  "Branches" :
-  {
+"Branches" :
+{
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Branches" ],
 "Description 01:Introduction" : [
 "",
-"	Branches include __if(__), __once(__), and __switch(__) and __check(__) combined with __case(__) functions.",
+"	Branches are control flow functions which rule whether following statements or blocks shall be executed or not.",
+"",
+"	* __if(__) ... __else__: Conditional branches",
+"	* __once(__) ... __else__: Following statement or block is executed once only",
+"	* __switch(__) ... __case(__): Branches to statements or blocks where the condition is met.  Only 1 case where the expression matches will be executed.",
+"	* __check(__) ... __case(__): Branches to statements or blocks where the condition is met.  All cases where the expression matches will be executed.",
+"",
+"	See also the exception functions __throw(__) / __catch(__) for skipping the remaining code inbetween.",
 ""
  ]
 	
-   },
+},
 
-
-  "Exception Functions" :
-  {
+"Loops" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Exception Functions" ],
+    "Feature Names":		[ "Loops" ],
 "Description 01:Introduction" : [
 "",
-"	Exception functions include the following: __pause__, __stop__, __end__, __exit__, __abort__, __throw__, __catch__ / __catch if__ and __interactive__.",
+"	Loops are control flow functions where the following statements or blocks are executed repeatedly until a condition to stop repeating is met.",
+"",
+"	* __while(__) / __until(__): The subsequent statements or block are exected repeatedly as long the condition inside the while-function call is met.",
+"	* __do__ ... __while(__) / __until(__): Checking the condition whether to continue the loop is done after the loop is executed for the first time.",
+"	* __for(__): Loop statement where an interator variable is initialized, then repeatedly checked and updated (typically incremented) at the end over every loop.",
+"",
+"	In addition, a sesries of <b>for all ...()</b> statements exist which loop throgh __parameter sets__, __variables__",
+"",
+"	* __for all parameters(__)",
+"	* __for all variables(__)",
+"",
+"	Further more, see the seeparate section on __control flow functions for tables__ where the following functions, mostly loops, are defined:",
+"",
+"	* __with table(__)<br>",
+"	* __for all table rows(__)",
+"	* __for all table selected rows(__)",
+"	* __for all table columns(__)",
+"	* __for all table selected columns(__)",
+"	* __for all current table columns(__)",
+"	* __for all current table selected columns(__)",
 ""
  ]
 	
-   },
+},
 
 
-  "Other Control Flow Functions" :
-  {
+
+"Exception Functions" :
+{
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Other Control Flow Functions" ],
+    "Feature Names":		[ "Exception functions" ],
 "Description 01:Introduction" : [
 "",
-"	Inclcudes: __with table(__) to provide a context allowing partial table references.",
+"	Exception functions include the following: ",
+"",
+"	* __pause__: Pauses program execution.  User can choose whether to continue or stop running",
+"	* __stop__: Progam execution stops entirely",
+"	* __end__: Current program ends.  If called by a superior program, then the superior program continues running.",
+"	* __exit__: Exit program execution",
+"	* __abort__: Exit program execution",
+"	* __throw__: Skips following code until __catch__ or __catch if__ is encountered. Values thrown are referred as frisbees.",
+"	* __catch__: Arrival point for frisbees thrown.  Execution continues here with the values picked up",
+"	* __catch if__ : The frisbee will only be caught if the value matches with the condition expression specified.  Otherwise the frisbee keeps flying.",
+"	* __interactive__: Enters interactive mode so you can inspect variables, tables, and do other works interactively.  Type <b>return</b> to continue program execution.<br>",
+"	* __null__: Null function. Does nothing, returns void value.  Suitable as placeholder function calls.",
 ""
  ]
 	
-   },
+},
+
+
 
   "Code Execution Functions" :
   {
@@ -129,8 +154,8 @@
   "User-Defined Procedures and Functions" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "User Defined Procedures and Functiions" ],
-    "Keywords":			[ "User-defined procedures and functions", "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
+    "Feature Names":		[ "User-defined procedures and functions" ],
+    "Keywords":			[ "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
 "Description 01:Introduction" : [
 "",
 "	Beyond4P supports standard procedures which are in fact used to defined user-specific procedures and functions. ",
@@ -630,10 +655,10 @@
 
 
 
-"Basic Table Access":
+"Creating, Writing, Reading, Deleting":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Basic table access" ],
+    "Feature Names":		[ "Create / read / write / delete tables" ],
 "Description 01:Introduction" : [
 "",
 "	The following functions basic functions to create and access tables:",
@@ -649,10 +674,10 @@
 
 
 	
-"Creating Tables and Adding Contents":
+"Creating and Building up Tables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Creating tables and adding contents" ],
+    "Feature Names":		[ "Creating tables and building up tables" ],
 "Description 01:Introduction" : [
 "",
 "	This subsection contains basic functions to create tables and add first contents:",
@@ -667,18 +692,24 @@
 },
 
 
-"Reading and Writing Tables":
+
+"Writing Tables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Reading and writing tables" ],
+    "Feature Names":		[ "Functions for writing tables" ],
 "Description 01:Introduction" : [
 "",
-"	See the chapter on __tables__  to explore the various means to read and write contents directly without function calls.",
-"	<br>",
-"	This subsection contains some advanced table functions to access table contents effectively:",
+"	See the chapter on __tables__  to explore the various simple features to write contents to tables without function calls:",
+"	* __Simple table access__ to access individual table cells",
+"	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.",
+"	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.",
+"	* __Matrix table access__ to access multiple cells in different rows and columns as well.",
 "",
-"	* Accessing row and column numbers if context for __partial table references__ is available",
-"	* Reading and writing table contents in selected rows using algorithmic expressions",
+"	<br><br>",
+"",
+"	The functions described next provide additional powerful ways to write data to the tables such as:",
+"	* Accessing row and column numbers if context for __partial table specifications__ is available",
+"	* Writing  data from table rows selected with an algorithmic expression",
 "	* Forget memorized table columns during program execution",
 ""
  ]
@@ -687,7 +718,29 @@
 
 
 
-"Clearing and Deleting Tables":
+"Reading Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Functions for reading tables" ],
+"Description 01:Introduction" : [
+"",
+"	See the chapter on __tables__  to explore the various simple features read write contents from tables without function calls:",
+"	* __Simple table access__ to access individual table cells",
+"	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.",
+"	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.",
+"	* __Matrix table access__ to access multiple cells in different rows and columns as well.",
+"",
+"	<br><br>",
+"",
+"	The functions described next provide additional powerful ways to read data from the tables such as:",
+"	* Reading data from table rows selected with an algorithmic expression",
+""
+ ]
+	
+},
+
+
+"Deleting Tables":
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Clearing and deleting tables" ],
@@ -791,6 +844,39 @@
  ]
 	
 },
+
+
+
+
+
+
+"Control Flow Functions for Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Control Flow Functions for Tables" ],
+"Description 01:Introduction" : [
+"",
+"	This section describes special-purpose __control flow functions__ specifically developed to process table contents.",
+"",
+"	* __with table(__): Provides context information of a specified table in order to enable __partial table specifications__ inside the following statement or block",
+"",
+"	Loops through the rows (top down):",
+"",
+"	* __for all table rows(__)",
+"	* __for all table selected rows(__)",
+"",
+"	Loops across the columns:",
+"",
+"	* __for all table columns(__)",
+"	* __for all table selected columns(__)",
+"	* __for all current table columns(__)",
+"	* __for all current table selected columns(__)",
+""
+ ]
+	
+},
+
+
 
 
 "Processing Tables":
@@ -4548,7 +4634,7 @@
 		 "Types":		["variable", ":literal"],
 "Description" : [
 "			This variable is updated by this function in order to provide the current value taken from the specified table column and referenced row.  ",
-"			The interator value can also be referenced with the partial table reference <b>[.]</b>, meaning specified row and current column.  Here, the 'quoted literal' rule specified above does not apply."
+"			The interator value can also be referenced using a __partial table specification__ <b>[.]</b>, meaning specified row and current column.  Here, the 'quoted literal' rule specified above does not apply."
  ]
 			
 	  },
@@ -4626,7 +4712,7 @@
 "Description" : [
 "			This variable is updated by this function in order to provide the current value taken from the specified table column and referenced row.",
 "			The variable is always of type 'quoted literal', even if containing numbers or dates.  You need to convert the type by hand if needed.",
-"			The interator value can also be referenced with the partial table reference <b>[.]</b>, meaning specified row and current column.  Here, the 'quoted literal' rule specified above does not apply."
+"			The interator value can also be referenced using the __partial table specification__ <b>[.]</b>, meaning specified row and current column.  Here, the 'quoted literal' rule specified above does not apply."
  ]
 			
 	  },
@@ -17245,12 +17331,85 @@
 
 ,
 
+"table read row" :
+{
+	"Function Names":	[ "table read row" ],
+	"Documentation":	"Function Description",
+"Description" : [
+"		These simple functions reads data from a table where the row number and the header names are specified.  ",
+"		Type conversions rules apply according to the settings done with __table configure(__).  By default, numbers will be read as numbers.",
+"		<br><br>",
+"		The function call <b>table read row( table name, { Name, Phone }, 5 );</b> is equivalent to <b>[ table name: { Name, Phone }, 5 ]</b>.",
+""
+ ]
+		,
+	"Call as":			"function",
+	"Parameter count":	"3",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "name of new or existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description":
+			[ "Table must be existing when using <b>table append...</b> functions.  Otherwise, it does not matter." ]
+		},
+		{ "Number": "2.",
+		  "Name": "Header names and/or column numbers",
+		  "Direction": "input",
+		  "Types": [ "table columns" ],
+"Description" : [
+"			See __table columns as function parameters__ for general ruling for this parameter.<br>",
+"			Specific rules apply for this function:",
+"			* Any number of header names and column numbers may be specified"
+ ]
+			
+		},
+		{ "Number": "3.",
+		  "Name": "Row number",
+		  "Direction": "input",
+		  "Types": "numeral",
+		  "Default value": "",
+"Description" : [
+"			Negative indexing is supported.  Accessing empty rows or rows below the table end return blank contents in the parameter set."
+ ]
+				
+		}
+		],
+	"Return value":
+	[
+		{ "Name": "data read",
+		  "Types": [ "parameter set" ],
+		  "Description": "The parameter set contains the data read in the order of the headers and columns are specified, even if only one header name is specified."
+		}
+	],
+"Examples" : [
+"	table initialize ( t,",
+"	{ { City,  Country, Climate Zone, Average Temperature },",
+"	  { Rome,  Italy,        Mediterranean,  22.3  },",
+"	  { Medina, S. Arabia,   Desert,  30  },",
+"	  { Thule, Greenland,    Arctic, -5 } } );",
+"",
+"	echo( table read row ( t, { Country, City, 3, Climate Zone }, 1 ) ); // Rome",
+"	echo( table read row ( t, { Country, City, 3, Climate Zone }, -1 ) ); // Last row: Thule",
+"	echo( table read row ( t, { City, 24 }, 2 ) ); // Medina, and blank data (beyond last column)",
+"	echo( table read row ( t, { Country, City, 3, Climate Zone }, 10 ) ); // Blank data (outside table)"
+ ]
+	,
+	"Output": "automatic",
+	"See also": [ "table write row" ]
+}
+
+
+,
+
 "table add / write row" :
 {
 	"Function Names":	[ "table add row", "table write row" ],
 	"Documentation":	"Function Description",
 "Description" : [
-"		These simple functions write data into a table where the header names and correponding values are specified.  The function call",
+"		These simple functions write data into a table where the row number, header names and correponding values are specified.  The function call",
 "		may be extended with additional parameters in order to write the rows below, too.",
 "		",
 "		<br><br>",
@@ -17260,7 +17419,7 @@
  ]
 		,
 	"Call as":			"procedure or function",
-	"Parameter count":	"Min 2",
+	"Parameter count":	"Min 3 (table add row) / Min 4 (table write row)",
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
@@ -17309,8 +17468,7 @@
  ]
 			
 		}
-
-		],
+	],
 	"Return value":
 	[
 		{ "Name": "Number of rows written",
@@ -17327,14 +17485,13 @@
 "	  { Fox,    4,         quite small,  medium } });",
 "",
 "	table write row( t, { size, Animal, leg count, skin }, 1, { tiny, null(), no legs }, { null(), Dog, four, haired } );",
-"",
 "	table add row  ( t, { Animal, size, intelligence }, { Ape, quite big, smart }, { Jellyfish, small } );",
 "",
 "	table list ( t );"
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "table append" ]
+	"See also": [ "table read row", "table append", "table add missing row" ]
 }
 
 
@@ -17467,7 +17624,7 @@
  ]
 	,
 	"Output": "automatic",
-	"See also": [ "table append" ]
+	"See also": [ "table add row", "table find row" ]
 }
 
 
@@ -17839,7 +17996,7 @@
 		  "Default value": "0",
 		  "Types": [ "numeral" ],
 		  "Description":
-			[ "Specifies the depth in case nested partial table references is activated.  0 refers to the current table, 1 and bigger values to superior tables.  0 is assumed if no parameter is specified." ]
+			[ "Specifies the depth in case nested partial table specifications is activated.  0 refers to the current table, 1 and bigger values to superior tables.  0 is assumed if no parameter is specified." ]
 		}
 		],
 	"Return value":
@@ -17893,7 +18050,7 @@
 		  "Default value": "0",
 		  "Types": [ "numeral" ],
 		  "Description":
-			[ "Specifies the depth in case nested partial table references is activated.  0 refers to the current table, 1 and bigger values to superior tables.  0 is assumed if no parameter is specified." ]
+			[ "Specifies the depth in case nested partial table specifications is activated.  0 refers to the current table, 1 and bigger values to superior tables.  0 is assumed if no parameter is specified." ]
 		}
 		],
 	"Return value":
@@ -18083,7 +18240,7 @@
 	"Documentation":	"Function Description",
 "Description" : [
 "",
-"	Table columns referenced with fixed column names, e.g. <b>[table:Last Name,1]</b>, or simply <b>[Last Name]</b> where context infor are available for __partial table references__,",
+"	Table columns referenced with fixed column names, e.g. <b>[table:Last Name,1]</b>, or simply <b>[Last Name]</b> where context infor are available for __partial table specifications__,",
 "	B4P will automatically memorize the matching column number for the name provided in order to accelerate performance significantly when additional references are made, e.g. in",
 "	loops or procedures processing table rows such aslike <b>table process</b>.  The acceleration is achieved by checking the column position for the header name provided only once,",
 "	memorize the column number and use it afterwards. ",
@@ -21740,7 +21897,7 @@
 "",
 "	These are one of the most powerful functions in the B4P language: The ability to process the contents in tables row-by-row",
 "	without formulating loops or complex algorithms.  The statements for processing the data in every row are provided",
-"	as function parameters and will be executed for every single row selected.  Combined with __partial table references__,",
+"	as function parameters and will be executed for every single row selected.  Combined with __partial table specifications__,",
 "	you can do powerful algorithms with minimum amount of simple code text.  See code examples further below.",
 "",
 "	<br><br>",
@@ -22082,7 +22239,7 @@
 "",
 "	Slightly different from the the functions __table process(__) and __table process selected rows(__), the specified ",
 "	statements are applied on every existing table cell (from left to right) and not only once per row.  The statements for processing the data ",
-"	in every cell are provided as function parameters.  For this function, the enabled __partial table references__ also",
+"	in every cell are provided as function parameters.  For this function, the enabled __partial table specifications__ also",
 "	includes referencing the current column number by simply specifying a '.' (point) and you can use the function __col(__) to retrieve",
 "	the current column number.",
 "",
@@ -22194,7 +22351,7 @@
 "	",
 "	<br><br>",
 "	",
-"	For this function, the enabled __partial table references__ also includes referencing the current column number by simply specifying a '.' (point) ",
+"	For this function, the enabled __partial table specifications__ also includes referencing the current column number by simply specifying a '.' (point) ",
 "	and you can use the function __col(__) to retrieve the current column number.",
 "",
 "	<br><br>",
@@ -22318,7 +22475,7 @@
 "",
 "	<br><br>",
 "",
-"	For this function, the enabled __partial table references__ also includes referencing the current column number by simply specifying a '.' (point)",
+"	For this function, the enabled __partial table specifications__ also includes referencing the current column number by simply specifying a '.' (point)",
 "	and you can use the function __col(__) to retrieve the current column number.",
 "",
 ""
@@ -24399,7 +24556,7 @@
 "			* Specify '' (softquoted blank) or {} (empty set) to skip this parameter.",
 "			The contents below this header contains B4P __expressions __ which must reurn boolean results.",
 "			These expressions allow more advanced validation schemes and may reference to all columns in the target table using",
-"			__partial table references__.",
+"			__partial table specifications__.",
 ""
  ]
 			
@@ -30207,7 +30364,7 @@
 "__abs__, __absolute value__<br>",
 "Function Library Guide: 5.1.3 abs - Absolute Value<br><br>",
 "__Accessing table information__<br>",
-"Function Library Guide: 9.2.4 Accessing Table Information<br><br>",
+"Function Library Guide: 9.3 Accessing Table Information<br><br>",
 "__accessing tables__<br>",
 "Language Guide: 5.1 Accessing Tables<br><br>",
 "__acos__, __acos deg__<br>",
@@ -30221,7 +30378,7 @@
 "__add__<br>",
 "Function Library Guide: 5.3.1 Arithmetic and Boolean Series Functions<br><br>",
 "__add color__<br>",
-"Function Library Guide: 9.6.1.2 add color<br><br>",
+"Function Library Guide: 9.8.1.2 add color<br><br>",
 "__ADD Transactions between tables__<br>",
 "Language Guide: 7.4.4 &#43; Transactions between Tables<br><br>",
 "__ADD Transactions between variables__<br>",
@@ -30235,7 +30392,7 @@
 "__additional function names__<br>",
 "Function Library Guide: 2.3.2 define additional procedure / function<br><br>",
 "__Additional info on fast processing of rows__<br>",
-"Function Library Guide: 9.4.4.5.1 Addt'l Info on fast rows processing<br><br>",
+"Function Library Guide: 9.6.4.5.1 Addt'l Info on fast rows processing<br><br>",
 "__advanced directory listing__, __advanced directory listing recursive__<br>",
 "Function Library Guide: 11.2.2 advanced directory listing ...<br><br>",
 "__alternative execution of code blocks__<br>",
@@ -30311,8 +30468,6 @@
 "Function Library Guide: 5.1 Basic Math Functions<br><br>",
 "__basic statistics functions__<br>",
 "Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>",
-"__Basic table access__<br>",
-"Function Library Guide: 9.2 Basic Table Access<br><br>",
 "__basic variables functions__<br>",
 "Function Library Guide: 10.1 Basic Variables Functions<br><br>",
 "__best type__<br>",
@@ -30355,7 +30510,7 @@
 "__check__<br>",
 "Function Library Guide: 2.1.4 switch, check<br><br>",
 "__Checking headers__<br>",
-"Function Library Guide: 9.4.1 Checking and Processing Headers<br><br>",
+"Function Library Guide: 9.6.1 Checking and Processing Headers<br><br>",
 "__checking numbers__<br>",
 "Function Library Guide: 5.1.1 is numeric / integer - Functions<br><br>",
 "__choose recent file__<br>",
@@ -30367,7 +30522,7 @@
 "__clear the screen__<br>",
 "Function Library Guide: 3.2.1 cls<br><br>",
 "__Clearing and deleting tables__<br>",
-"Function Library Guide: 9.2.3 Clearing and Deleting Tables<br><br>",
+"Function Library Guide: 9.2.4 Deleting Tables<br><br>",
 "__cls__<br>",
 "Function Library Guide: 3.2.1 cls<br><br>",
 "__code__<br>",
@@ -30377,13 +30532,13 @@
 "__Code Piece__, __code pieces__<br>",
 "Language Guide: 8.4.3 Code Pieces (Func. Param. Type)<br><br>",
 "__col__<br>",
-"Function Library Guide: 9.2.2.2 col<br><br>",
+"Function Library Guide: 9.3.6 col<br><br>",
 "__Color Palettes__<br>",
-"Function Library Guide: 9.6.1.1 Color Palettes<br><br>",
+"Function Library Guide: 9.8.1.1 Color Palettes<br><br>",
 "__Color Specification__<br>",
-"Function Library Guide: 9.6.1 Defining User Specific Colors<br><br>",
+"Function Library Guide: 9.8.1 Defining User Specific Colors<br><br>",
 "__Combining multiple tables__<br>",
-"Function Library Guide: 9.5.3 Combining Multiple Tables<br><br>",
+"Function Library Guide: 9.7.3 Combining Multiple Tables<br><br>",
 "__Command line options__, __Command line switches__<br>",
 "Language Guide: 2.2 Command Line Switches<br><br>",
 "__comments__<br>",
@@ -30395,7 +30550,7 @@
 "__compare [function]__<br>",
 "Function Library Guide: 2.7.5 compare<br><br>",
 "__Comparing and validating tables__<br>",
-"Function Library Guide: 9.5.1 Comparing and Validating Tables<br><br>",
+"Function Library Guide: 9.7.1 Comparing and Validating Tables<br><br>",
 "__Comparison and selection functions__<br>",
 "Function Library Guide: 2.6 Comparison and Selection Functions<br><br>",
 "__comparison expression__<br>",
@@ -30426,10 +30581,12 @@
 "Function Library Guide: 14.2 Consolidation Actions<br><br>",
 "__continue case__, __continue loop__, __continue with next case__<br>",
 "Function Library Guide: 2.1.6 break, continue<br><br>",
-"__Control Flow Functions__<br>",
+"__Control flow functions__<br>",
 "Function Library Guide: 2 Control Flow Functions<br><br>",
+"__Control Flow Functions for Tables__<br>",
+"Function Library Guide: 9.5 Control Flow Functions for Tables<br><br>",
 "__Copying__<br>",
-"Function Library Guide: 9.4.6 Copying, Renaming and Splitting Tables<br><br>",
+"Function Library Guide: 9.6.6 Copying, Renaming and Splitting Tables<br><br>",
 "__copying references__<br>",
 "Language Guide: 4.4.4 Copying References<br><br>",
 "__correlation__<br>",
@@ -30462,8 +30619,10 @@
 "Function Library Guide: 5.6 Conditional Combination Functions<br><br>",
 "__covariance__, __covariance and correlation__<br>",
 "Function Library Guide: 5.5.2 covariance, correlation<br><br>",
-"__Creating tables and adding contents__<br>",
-"Function Library Guide: 9.2.1 Creating Tables and Adding Contents<br><br>",
+"__Create / read / write / delete tables__<br>",
+"Function Library Guide: 9.2 Creating, Writing, Reading, Deleting<br><br>",
+"__Creating tables and building up tables__<br>",
+"Function Library Guide: 9.2.1 Creating and Building up Tables<br><br>",
 "__Cross-functional info__<br>",
 "Function Library Guide: 14 Cross-Functional Info<br><br>",
 "__CSV__<br>",
@@ -30474,7 +30633,7 @@
 "Language Guide: 2.4 User Initialization Program<br><br>" ],
 "Description 05:D" : [
 "__darken colors__<br>",
-"Function Library Guide: 9.6.1.4 darken colors<br><br>",
+"Function Library Guide: 9.8.1.4 darken colors<br><br>",
 "__data types booleans__<br>",
 "Language Guide: 3.7.4 Booleans<br><br>",
 "__data types dates__<br>",
@@ -30544,7 +30703,7 @@
 "__define function__, __define procedure__, __define procedure and function__, __defining user procedures and user functions__<br>",
 "Function Library Guide: 2.3.1 define procedure / function<br><br>",
 "__Defining User Specific Colors__<br>",
-"Function Library Guide: 9.6.1 Defining User Specific Colors<br><br>",
+"Function Library Guide: 9.8.1 Defining User Specific Colors<br><br>",
 "__delete__, __delete members__<br>",
 "Function Library Guide: 10.1.7 delete ...<br><br>",
 "__delete user function__<br>",
@@ -30642,7 +30801,7 @@
 "Function Library Guide: 4.16 excel validate sheet name<br><br>",
 "__exception__<br>",
 "Function Library Guide: 2.5.9 exception<br><br>",
-"__Exception Functions__<br>",
+"__Exception functions__<br>",
 "Function Library Guide: 2.5 Exception Functions<br><br>",
 "__exchange__<br>",
 "Function Library Guide: 10.1.5 exchange<br><br>",
@@ -30661,7 +30820,7 @@
 "__exp__<br>",
 "Function Library Guide: 5.2.3 Exponential Functions<br><br>",
 "__Explore and filter and extract sub-tables__<br>",
-"Function Library Guide: 9.3.2 Explore, Filter, Extract Sub-Tables<br><br>",
+"Function Library Guide: 9.4.2 Explore, Filter, Extract Sub-Tables<br><br>",
 "__exponential functions__<br>",
 "Function Library Guide: 5.2.3 Exponential Functions<br><br>",
 "__exponential regression__<br>",
@@ -30730,7 +30889,7 @@
 "__find [string function]__<br>",
 "Function Library Guide: 6.1.1 find ... (string function)<br><br>",
 "__Finishing up formatting__<br>",
-"Function Library Guide: 9.6.3 Finishing up formatting<br><br>",
+"Function Library Guide: 9.8.3 Finishing up formatting<br><br>",
 "__flat__<br>",
 "Function Library Guide: 8.2.3 flat<br><br>",
 "__font color__<br>",
@@ -30738,51 +30897,51 @@
 "__for__<br>",
 "Function Library Guide: 2.2.2 for<br><br>",
 "__for all current table columns__<br>",
-"Function Library Guide: 2.2.5 for all current table columns<br><br>",
+"Function Library Guide: 9.5.6 for all current table columns<br><br>",
 "__for all current table selected columns__<br>",
-"Function Library Guide: 2.2.10 for all current table selected columns<br><br>",
+"Function Library Guide: 9.5.7 for all current table selected columns<br><br>",
 "__for all parameters__<br>",
-"Function Library Guide: 2.2.6 for all parameters<br><br>",
+"Function Library Guide: 2.2.4 for all parameters<br><br>",
 "__for all table columns__<br>",
-"Function Library Guide: 2.2.4 for all table columns<br><br>",
+"Function Library Guide: 9.5.4 for all table columns<br><br>",
 "__for all table rows__<br>",
-"Function Library Guide: 2.2.7 for all table rows<br><br>",
+"Function Library Guide: 9.5.2 for all table rows<br><br>",
 "__for all table selected columns__<br>",
-"Function Library Guide: 2.2.11 for all table selected columns<br><br>",
+"Function Library Guide: 9.5.5 for all table selected columns<br><br>",
 "__for all table selected rows__<br>",
-"Function Library Guide: 2.2.8 for all table selected rows<br><br>",
+"Function Library Guide: 9.5.3 for all table selected rows<br><br>",
 "__for all variables__, __for all variables if existing__, __for all variables if existing and valid__<br>",
-"Function Library Guide: 2.2.9 for all variables<br><br>",
+"Function Library Guide: 2.2.5 for all variables<br><br>",
 "__for-loop__<br>",
 "Function Library Guide: 2.2.2 for<br><br>",
 "__for-loop through current table columns__<br>",
-"Function Library Guide: 2.2.5 for all current table columns<br><br>",
+"Function Library Guide: 9.5.6 for all current table columns<br><br>",
 "__for-loop through parameter elements__<br>",
-"Function Library Guide: 2.2.6 for all parameters<br><br>",
+"Function Library Guide: 2.2.4 for all parameters<br><br>",
 "__for-loop through selected table rows__<br>",
-"Function Library Guide: 2.2.8 for all table selected rows<br><br>",
+"Function Library Guide: 9.5.3 for all table selected rows<br><br>",
 "__for-loop through table columns__<br>",
-"Function Library Guide: 2.2.4 for all table columns<br><br>",
+"Function Library Guide: 9.5.4 for all table columns<br><br>",
 "__for-loop through table rows__<br>",
-"Function Library Guide: 2.2.7 for all table rows<br><br>",
+"Function Library Guide: 9.5.2 for all table rows<br><br>",
 "__for-loop through table selected columns__<br>",
-"Function Library Guide: 2.2.10 for all current table selected columns<br><br>",
+"Function Library Guide: 9.5.5 for all table selected columns<br><br>",
 "__for-loop through table selected columns__<br>",
-"Function Library Guide: 2.2.11 for all table selected columns<br><br>",
+"Function Library Guide: 9.5.7 for all current table selected columns<br><br>",
 "__for-loop through variables__<br>",
-"Function Library Guide: 2.2.9 for all variables<br><br>",
+"Function Library Guide: 2.2.5 for all variables<br><br>",
 "__foreground color__<br>",
 "Function Library Guide: 3.2.3 text / background color<br><br>",
 "__forget memorized table columns__<br>",
-"Function Library Guide: 9.2.2.3 forget memorized table columns<br><br>",
+"Function Library Guide: 9.2.1.5 forget memorized table columns<br><br>",
 "__Formatting and styling tables__<br>",
-"Function Library Guide: 9.6 Formatting and Styling Tables<br><br>",
+"Function Library Guide: 9.8 Formatting and Styling Tables<br><br>",
 "__Formatting Coverages__, __Formatting Precedences__<br>",
-"Function Library Guide: 9.6.2.6 Formatting Coverages and Precedences<br><br>",
+"Function Library Guide: 9.8.2.6 Formatting Coverages and Precedences<br><br>",
 "__formatting template__<br>",
 "Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>",
 "__Formatting the Tables__<br>",
-"Function Library Guide: 9.6.2 Styling Functions<br><br>",
+"Function Library Guide: 9.8.2 Styling Functions<br><br>",
 "__Function call__, __Function calls__<br>",
 "Language Guide: 8 Functions and Procedures<br><br>",
 "__function dump__<br>",
@@ -30791,7 +30950,7 @@
 "Function Library Guide: 2.3.5 function / user function existing<br><br>",
 "__function explain__<br>",
 "Function Library Guide: 13.6 function list / explain<br><br>",
-"__Function Library__<br>",
+"__Function library__<br>",
 "Function Library Guide: 1 Function Library<br><br>",
 "__function list__<br>",
 "Function Library Guide: 13.6 function list / explain<br><br>",
@@ -30806,10 +30965,14 @@
 "__Function Parameters__<br>",
 "Language Guide: 8.2 Function Parameters<br><br>",
 "__Functions and Procedures__<br>",
-"Language Guide: 8 Functions and Procedures<br><br>" ],
+"Language Guide: 8 Functions and Procedures<br><br>",
+"__Functions for reading tables__<br>",
+"Function Library Guide: 9.2.3 Reading Tables<br><br>",
+"__Functions for writing tables__<br>",
+"Function Library Guide: 9.2.2 Writing Tables<br><br>" ],
 "Description 08:G" : [
 "__Generic Attribute Names__, __Generic Attribute Values__, __Generic Formatting Attributes__<br>",
-"Function Library Guide: 9.6.2.5 Generic Formatting Attributes<br><br>",
+"Function Library Guide: 9.8.2.5 Generic Formatting Attributes<br><br>",
 "__geometric mean__<br>",
 "Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>",
 "__geometric mean if__, __geometric mean if any__<br>",
@@ -31004,7 +31167,7 @@
 "__licensing and privileges__<br>",
 "Function Library Guide: 12.4 Licensing and Privileges<br><br>",
 "__lighten colors__<br>",
-"Function Library Guide: 9.6.1.3 lighten colors<br><br>",
+"Function Library Guide: 9.8.1.3 lighten colors<br><br>",
 "__linear__, __linear equation__<br>",
 "Function Library Guide: 5.4.4 linear - Solve Linear Equations<br><br>",
 "__linear interpolation__<br>",
@@ -31070,7 +31233,7 @@
 "__logical or__<br>",
 "Language Guide: 6.2.4.2 Logical Or<br><br>",
 "__Looking up other tables__<br>",
-"Function Library Guide: 9.5.2 Looking up Other Tables<br><br>",
+"Function Library Guide: 9.7.2 Looking up Other Tables<br><br>",
 "__lookup access exception handling__<br>",
 "Language Guide: 5.1.9 Lookup Access Exception Handling<br><br>",
 "__Loops__<br>",
@@ -31261,7 +31424,7 @@
 "__mul__<br>",
 "Function Library Guide: 5.3.1 Arithmetic and Boolean Series Functions<br><br>",
 "__Multi-table integration__<br>",
-"Function Library Guide: 9.5 Multi-Table Integration<br><br>",
+"Function Library Guide: 9.7 Multi-Table Integration<br><br>",
 "__multiplication__<br>",
 "Language Guide: 6.2.1.3 Multiplications<br><br>",
 "__My B4P Init.b4p__<br>",
@@ -31274,11 +31437,11 @@
 "__negative indexing__<br>",
 "Language Guide: 3.10.2 Negative Indexing<br><br>",
 "__nested partial table specification__, __nested partial table specifications__<br>",
-"Language Guide: 5.1.6 Nested Partial Table Specification<br><br>",
+"Language Guide: 5.1.6 Nested Partial Table Specifications<br><br>",
 "__not equal to__<br>",
 "Language Guide: 6.2.2.2 Not Equal to<br><br>",
 "__null__, __null function__<br>",
-"Function Library Guide: 2.8.1 null - Function<br><br>",
+"Function Library Guide: 2.5.10 null - Function<br><br>",
 "__numeral__, __numeral conversion function__<br>",
 "Function Library Guide: 4.2 numeral<br><br>",
 "__numeral to literal conversion and formatting__, __Numeral to Literal Formatting Parameters__<br>",
@@ -31310,8 +31473,6 @@
 "Language Guide: 7.3.3 &vert; Transactions from Variables to Tables<br><br>",
 "__OS Commands__<br>",
 "Language Guide: 2.6.8 Operating System Commands<br><br>",
-"__Other Control Flow Functions__<br>",
-"Function Library Guide: 2.8 Other Control Flow Functions<br><br>",
 "__Other string functions__<br>",
 "Function Library Guide: 6.3 Miscellaneous String Functions<br><br>",
 "__outside__<br>",
@@ -31340,7 +31501,7 @@
 "__parallel if__, __parallel if any__<br>",
 "Function Library Guide: 5.6 Conditional Combination Functions<br><br>",
 "__parameter set__<br>",
-"Function Library Guide: 2.2.6 for all parameters<br><br>",
+"Function Library Guide: 2.2.4 for all parameters<br><br>",
 "__parameter set__, __parameter set conversion function__<br>",
 "Function Library Guide: 4.9 parameter set<br><br>",
 "__parameter set extraction functions__<br>",
@@ -31359,8 +31520,8 @@
 "Language Guide: 3.7.6.3 Parameter sets - Value Ranges<br><br>",
 "__parameter set value repetitions__<br>",
 "Language Guide: 3.7.6.4 Parameter sets - Value Repetitions<br><br>",
-"__partial table referencee__, __partial table references__, __partial table specification__, __partial table specifications__<br>",
-"Language Guide: 5.1.5 Partial Table Specification<br><br>",
+"__partial table specifications__<br>",
+"Language Guide: 5.1.5 Partial Table Specifications<br><br>",
 "__path names__<br>",
 "Language Guide: 3.8.1 Path and File Names<br><br>",
 "__pause__<br>",
@@ -31374,7 +31535,7 @@
 "__pick ifs__<br>",
 "Function Library Guide: 2.6.3 select ifs, pick ifs<br><br>",
 "__Pivoting and consolidating tables__<br>",
-"Function Library Guide: 9.4.5 Pivoting and Conosolidating Tables<br><br>",
+"Function Library Guide: 9.6.5 Pivoting and Conosolidating Tables<br><br>",
 "__plain date__, __plain dates__<br>",
 "Language Guide: 3.7.3 Dates<br><br>",
 "__plain numeral__, __plain numerals__<br>",
@@ -31388,15 +31549,15 @@
 "__Procedure call__, __Procedure calls__<br>",
 "Language Guide: 8 Functions and Procedures<br><br>",
 "__Processing headers__<br>",
-"Function Library Guide: 9.4.1 Checking and Processing Headers<br><br>",
+"Function Library Guide: 9.6.1 Checking and Processing Headers<br><br>",
 "__Processing table columns__<br>",
-"Function Library Guide: 9.4.2 Processing Table Columns<br><br>",
+"Function Library Guide: 9.6.2 Processing Table Columns<br><br>",
 "__Processing table contents__<br>",
-"Function Library Guide: 9.4.4 Processing Table Contents<br><br>",
+"Function Library Guide: 9.6.4 Processing Table Contents<br><br>",
 "__Processing table rows__<br>",
-"Function Library Guide: 9.4.3 Processing Table Rows<br><br>",
+"Function Library Guide: 9.6.3 Processing Table Rows<br><br>",
 "__Processing tables__<br>",
-"Function Library Guide: 9.4 Processing Tables<br><br>",
+"Function Library Guide: 9.6 Processing Tables<br><br>",
 "__product__<br>",
 "Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>",
 "__product if__, __product if any__<br>",
@@ -31437,8 +31598,6 @@
 "Function Library Guide: 14.1 Sorting and Ranking Options<br><br>",
 "__read access__, __read access repeat if locked__<br>",
 "Function Library Guide: 11.1.2 read access ..., write access ...<br><br>",
-"__Reading and writing tables__<br>",
-"Function Library Guide: 9.2.2 Reading and Writing Tables<br><br>",
 "__redim__<br>",
 "Function Library Guide: 10.2.1 dim / redim<br><br>",
 "__redim protect__<br>",
@@ -31460,7 +31619,7 @@
 "__Releasing references__<br>",
 "Language Guide: 4.4.5 Releasing References<br><br>",
 "__renaming and spitting tables__<br>",
-"Function Library Guide: 9.4.6 Copying, Renaming and Splitting Tables<br><br>",
+"Function Library Guide: 9.6.6 Copying, Renaming and Splitting Tables<br><br>",
 "__replace__, __replace all__<br>",
 "Function Library Guide: 6.1.2 replace, replace all<br><br>",
 "__reschedule__<br>",
@@ -31506,7 +31665,7 @@
 "__round__, __round down__, __round up__, __rounding functions__<br>",
 "Function Library Guide: 5.1.4 round, round up / down<br><br>",
 "__row__<br>",
-"Function Library Guide: 9.2.2.1 row<br><br>" ],
+"Function Library Guide: 9.3.5 row<br><br>" ],
 "Description 20:S" : [
 "__saving files__<br>",
 "Language Guide: 3.8.3 Saving Files - Character sets<br><br>",
@@ -31521,9 +31680,9 @@
 "__search files__, __search files recursive__<br>",
 "Function Library Guide: 11.2.3 search files ...<br><br>",
 "__Search functions__<br>",
-"Function Library Guide: 9.3.1 Search Functions<br><br>",
+"Function Library Guide: 9.4.1 Search Functions<br><br>",
 "__Searching and exploring tables__<br>",
-"Function Library Guide: 9.3 Searching and Exploring Tables<br><br>",
+"Function Library Guide: 9.4 Searching and Exploring Tables<br><br>",
 "__second__<br>",
 "Function Library Guide: 7.2.1 hour, minute, second<br><br>",
 "__select__<br>",
@@ -31646,9 +31805,9 @@
 "__table access methods__<br>",
 "Language Guide: 5.1 Accessing Tables<br><br>",
 "__table add missing row__<br>",
-"Function Library Guide: 9.2.1.5 table (write or) add missing row<br><br>",
+"Function Library Guide: 9.2.2.2 table (write or) add missing row<br><br>",
 "__table add row__<br>",
-"Function Library Guide: 9.2.1.4 table add / write row<br><br>",
+"Function Library Guide: 9.2.2.1 table add / write row<br><br>",
 "__table append__<br>",
 "Function Library Guide: 9.2.1.2 table initialize/append ...<br><br>",
 "__table append blank rows__<br>",
@@ -31656,145 +31815,145 @@
 "__table append on same field__, __table append on same row__<br>",
 "Function Library Guide: 9.2.1.2 table initialize/append ...<br><br>",
 "__table arrange__, __table arrange with spacing__<br>",
-"Function Library Guide: 9.5.3.8 table arrange ...<br><br>",
+"Function Library Guide: 9.7.3.8 table arrange ...<br><br>",
 "__table check duplicates__, __table check duplicates ignore blanks__, __table check duplicates ignore blanks selected rows__, __table check duplicates ignore case__, __table check duplicates ignore case selected rows__, __table check duplicates ingore both__, __table check duplicates ingore both selected rows__, __table check duplicates selected rows__<br>",
-"Function Library Guide: 9.5.1.3 table check duplicates ...<br><br>",
+"Function Library Guide: 9.7.1.3 table check duplicates ...<br><br>",
 "__table check header__<br>",
-"Function Library Guide: 9.4.1.1 table check header<br><br>",
+"Function Library Guide: 9.6.1.1 table check header<br><br>",
 "__table check headers__, __table check headers silently__<br>",
-"Function Library Guide: 9.4.1.3 table check headers ...<br><br>",
+"Function Library Guide: 9.6.1.3 table check headers ...<br><br>",
 "__table check row__<br>",
-"Function Library Guide: 9.4.3.8 table check row<br><br>",
+"Function Library Guide: 9.6.3.8 table check row<br><br>",
 "__table clear__<br>",
-"Function Library Guide: 9.2.3.1 table clear ...<br><br>",
+"Function Library Guide: 9.2.4.1 table clear ...<br><br>",
 "__table column number__<br>",
-"Function Library Guide: 9.4.1.2 table column number<br><br>",
+"Function Library Guide: 9.6.1.2 table column number<br><br>",
 "__Table columns__, __table columns as function parameters__<br>",
 "Language Guide: 8.4.2 Table Columns (Func. Param. Type)<br><br>",
 "__table compare__, __table compare ignore blanks__, __table compare ignore both__, __table compare ignore case__<br>",
-"Function Library Guide: 9.5.1.1 table compare ...<br><br>",
+"Function Library Guide: 9.7.1.1 table compare ...<br><br>",
 "__Table comparison reports__<br>",
-"Function Library Guide: 9.5.1.1.2 Table Comparison Reports<br><br>",
+"Function Library Guide: 9.7.1.1.2 Table Comparison Reports<br><br>",
 "__Table comparison strategy__<br>",
-"Function Library Guide: 9.5.1.1.1 Table Comparison Strategy<br><br>",
+"Function Library Guide: 9.7.1.1.1 Table Comparison Strategy<br><br>",
 "__table configure__<br>",
-"Function Library Guide: 9.2.1.6 table configure<br><br>",
+"Function Library Guide: 9.2.1.4 table configure<br><br>",
 "__table consolidate__, __table consolidate selected rows__<br>",
-"Function Library Guide: 9.4.5.5 table consolidate ...<br><br>",
+"Function Library Guide: 9.6.5.5 table consolidate ...<br><br>",
 "__table copy columns__, __table copy columns selected rows__<br>",
-"Function Library Guide: 9.4.2.2 table copy columns ...<br><br>",
+"Function Library Guide: 9.6.2.2 table copy columns ...<br><br>",
 "__table copy table__<br>",
-"Function Library Guide: 9.4.6.2 table copy table<br><br>",
+"Function Library Guide: 9.6.6.2 table copy table<br><br>",
 "__table copy table columns__, __table copy table columns selected rows__<br>",
-"Function Library Guide: 9.4.6.4 table copy table columns ...<br><br>",
+"Function Library Guide: 9.6.6.4 table copy table columns ...<br><br>",
 "__table copy table selected rows__<br>",
-"Function Library Guide: 9.4.6.3 table copy/split table selected rows<br><br>",
+"Function Library Guide: 9.6.6.3 table copy/split table selected rows<br><br>",
 "__table correct headers__, __table correct headers ignore case__<br>",
-"Function Library Guide: 9.4.1.5 table correct headers ...<br><br>",
+"Function Library Guide: 9.6.1.5 table correct headers ...<br><br>",
 "__table create__, __table create if not existing__<br>",
 "Function Library Guide: 9.2.1.1 table create ...<br><br>",
 "__table delete__<br>",
-"Function Library Guide: 9.2.3.2 table delete ...<br><br>",
+"Function Library Guide: 9.2.4.2 table delete ...<br><br>",
 "__table delete all blank columns__, __table delete all empty columns__, __table delete all unnamed columns__, __table delete blank columns__<br>",
-"Function Library Guide: 9.4.2.9 table delete blank/empty/unnamed columns<br><br>",
+"Function Library Guide: 9.6.2.9 table delete blank/empty/unnamed columns<br><br>",
 "__table delete blank rows__<br>",
-"Function Library Guide: 9.4.3.7 table delete blank rows<br><br>",
+"Function Library Guide: 9.6.3.7 table delete blank rows<br><br>",
 "__table delete cells selected columns__<br>",
-"Function Library Guide: 9.4.4.12 table delete cells selected columns<br><br>",
+"Function Library Guide: 9.6.4.12 table delete cells selected columns<br><br>",
 "__table delete cells selected rows__<br>",
-"Function Library Guide: 9.4.4.11 table delete cells selected rows<br><br>",
+"Function Library Guide: 9.6.4.11 table delete cells selected rows<br><br>",
 "__table delete columns__<br>",
-"Function Library Guide: 9.4.2.7 table delete columns<br><br>",
+"Function Library Guide: 9.6.2.7 table delete columns<br><br>",
 "__table delete empty columns__<br>",
-"Function Library Guide: 9.4.2.9 table delete blank/empty/unnamed columns<br><br>",
+"Function Library Guide: 9.6.2.9 table delete blank/empty/unnamed columns<br><br>",
 "__table delete remaining columns__<br>",
-"Function Library Guide: 9.4.2.8 table delete remaining columns<br><br>",
+"Function Library Guide: 9.6.2.8 table delete remaining columns<br><br>",
 "__table delete remaining rows__<br>",
-"Function Library Guide: 9.4.3.4 table delete remaining rows<br><br>",
+"Function Library Guide: 9.6.3.4 table delete remaining rows<br><br>",
 "__table delete rows__<br>",
-"Function Library Guide: 9.4.3.3 table delete rows<br><br>",
+"Function Library Guide: 9.6.3.3 table delete rows<br><br>",
 "__table delete selected rows__<br>",
-"Function Library Guide: 9.4.3.5 table delete selected rows<br><br>",
+"Function Library Guide: 9.6.3.5 table delete selected rows<br><br>",
 "__table delete silently__<br>",
-"Function Library Guide: 9.2.3.2 table delete ...<br><br>",
+"Function Library Guide: 9.2.4.2 table delete ...<br><br>",
 "__table delete unnamed columns__<br>",
-"Function Library Guide: 9.4.2.9 table delete blank/empty/unnamed columns<br><br>",
+"Function Library Guide: 9.6.2.9 table delete blank/empty/unnamed columns<br><br>",
 "__table distribute__, __table distribute accumulate__, __table distribute advance__, __table distribute advance accumulate__<br>",
-"Function Library Guide: 9.4.5.6 table distribute ...<br><br>",
+"Function Library Guide: 9.6.5.6 table distribute ...<br><br>",
 "__table divide__, __table divide selected rows__<br>",
-"Function Library Guide: 9.5.3.7 table divide ...<br><br>",
+"Function Library Guide: 9.7.3.7 table divide ...<br><br>",
 "__table duplicate columns__<br>",
-"Function Library Guide: 9.4.2.3 table duplicate columns ...<br><br>",
+"Function Library Guide: 9.6.2.3 table duplicate columns ...<br><br>",
 "__table exclude__, __table exclude columns__, __table exclude exclude columns__, __table exclude exclusive columns__, __table exclude extend columns__<br>",
-"Function Library Guide: 9.5.3.5 table exclude ...<br><br>",
+"Function Library Guide: 9.7.3.5 table exclude ...<br><br>",
 "__table existing__<br>",
-"Function Library Guide: 9.2.4.1 table existing<br><br>",
+"Function Library Guide: 9.3.1 table existing<br><br>",
 "__table expand__<br>",
-"Function Library Guide: 9.5.2.11 table expand ...<br><br>",
+"Function Library Guide: 9.7.2.11 table expand ...<br><br>",
 "__table expand fast__, __table expand fast ignore case__<br>",
-"Function Library Guide: 9.5.2.12 table expand fast ...<br><br>",
+"Function Library Guide: 9.7.2.12 table expand fast ...<br><br>",
 "__table expand fast smart__, __table expand fast smart ignore case__<br>",
-"Function Library Guide: 9.5.2.14 table expand fast smart ...<br><br>",
+"Function Library Guide: 9.7.2.14 table expand fast smart ...<br><br>",
 "__table expand ignore case__<br>",
-"Function Library Guide: 9.5.2.11 table expand ...<br><br>",
+"Function Library Guide: 9.7.2.11 table expand ...<br><br>",
 "__table expand smart__, __table expand smart ignore case__<br>",
-"Function Library Guide: 9.5.2.13 table expand smart ...<br><br>",
+"Function Library Guide: 9.7.2.13 table expand smart ...<br><br>",
 "__table explore__<br>",
-"Function Library Guide: 9.3.2.1 table explore<br><br>",
+"Function Library Guide: 9.4.2.1 table explore<br><br>",
 "__table extract__<br>",
-"Function Library Guide: 9.3.2.3 table extract ...<br><br>",
+"Function Library Guide: 9.4.2.3 table extract ...<br><br>",
 "__Table file and console IO__<br>",
 "Function Library Guide: 9.1 Table File and Console I/O<br><br>",
 "__table fill horizontally__, __table fill horizontally selected rows__<br>",
-"Function Library Guide: 9.4.4.8 table fill horizontally ...<br><br>",
+"Function Library Guide: 9.6.4.8 table fill horizontally ...<br><br>",
 "__table fill vertically__, __table fill vertically selected rows__<br>",
-"Function Library Guide: 9.4.4.7 table fill vertically ...<br><br>",
+"Function Library Guide: 9.6.4.7 table fill vertically ...<br><br>",
 "__table filter__, __table filter ignore case__<br>",
-"Function Library Guide: 9.3.2.2 table filter ...<br><br>",
+"Function Library Guide: 9.4.2.2 table filter ...<br><br>",
 "__table find row__<br>",
-"Function Library Guide: 9.3.1.3 table find row<br><br>",
+"Function Library Guide: 9.4.1.3 table find row<br><br>",
 "__table fit__<br>",
-"Function Library Guide: 9.4.4.14 table fit<br><br>",
+"Function Library Guide: 9.6.4.14 table fit<br><br>",
 "__table format numbers__<br>",
-"Function Library Guide: 9.4.4.13 table format numbers<br><br>",
+"Function Library Guide: 9.6.4.13 table format numbers<br><br>",
 "__table functions__<br>",
 "Function Library Guide: 9 Table Functions<br><br>",
 "__table initialize__<br>",
 "Function Library Guide: 9.2.1.2 table initialize/append ...<br><br>",
 "__table insert above selected rows__<br>",
-"Function Library Guide: 9.4.3.2 table insert ... selected rows<br><br>",
+"Function Library Guide: 9.6.3.2 table insert ... selected rows<br><br>",
 "__table insert columns__, __table insert missing columns__<br>",
-"Function Library Guide: 9.4.2.1 table insert (missing) columns<br><br>",
+"Function Library Guide: 9.6.2.1 table insert (missing) columns<br><br>",
 "__table insert rows__<br>",
-"Function Library Guide: 9.4.3.1 table insert rows<br><br>",
+"Function Library Guide: 9.6.3.1 table insert rows<br><br>",
 "__table insert selected rows__<br>",
-"Function Library Guide: 9.4.3.2 table insert ... selected rows<br><br>",
+"Function Library Guide: 9.6.3.2 table insert ... selected rows<br><br>",
 "__table integrate__<br>",
-"Function Library Guide: 9.5.2.6 table integrate ...<br><br>",
+"Function Library Guide: 9.7.2.6 table integrate ...<br><br>",
 "__table integrate fast__, __table integrate fast ignore case__<br>",
-"Function Library Guide: 9.5.2.8 table integrate fast ...<br><br>",
+"Function Library Guide: 9.7.2.8 table integrate fast ...<br><br>",
 "__table integrate ignore case__<br>",
-"Function Library Guide: 9.5.2.6 table integrate ...<br><br>",
+"Function Library Guide: 9.7.2.6 table integrate ...<br><br>",
 "__table integrate once__, __table integrate once ignore case__<br>",
-"Function Library Guide: 9.5.2.7 table integrate once ...<br><br>",
+"Function Library Guide: 9.7.2.7 table integrate once ...<br><br>",
 "__table integrate smart__<br>",
-"Function Library Guide: 9.5.2.9 table integrate smart ...<br><br>",
+"Function Library Guide: 9.7.2.9 table integrate smart ...<br><br>",
 "__table integrate smart once__, __table integrate smart once ignore case__<br>",
-"Function Library Guide: 9.5.2.10 table integrate smart once ...<br><br>",
+"Function Library Guide: 9.7.2.10 table integrate smart once ...<br><br>",
 "__table integrate top down__, __table integratetop down ignore case__<br>",
-"Function Library Guide: 9.5.2.6 table integrate ...<br><br>",
+"Function Library Guide: 9.7.2.6 table integrate ...<br><br>",
 "__Table integration operation identifiers__<br>",
-"Function Library Guide: 9.5.2.15 Table Integration Operation Identifiers<br><br>",
+"Function Library Guide: 9.7.2.15 Table Integration Operation Identifiers<br><br>",
 "__table intersect__, __table intersect columns__, __table intersect exclusive columns__, __table intersect extend columns__, __table intersect intersect columns__<br>",
-"Function Library Guide: 9.5.3.3 table intersect ...<br><br>",
+"Function Library Guide: 9.7.3.3 table intersect ...<br><br>",
 "__table keep columns__, __table keep existing columns__<br>",
-"Function Library Guide: 9.4.2.6 table keep ... columns<br><br>",
+"Function Library Guide: 9.6.2.6 table keep ... columns<br><br>",
 "__table keep selected rows__<br>",
-"Function Library Guide: 9.4.3.6 table keep selected rows<br><br>",
+"Function Library Guide: 9.6.3.6 table keep selected rows<br><br>",
 "__table length__<br>",
-"Function Library Guide: 9.2.4.2 table length<br><br>",
+"Function Library Guide: 9.3.2 table length<br><br>",
 "__table lift contents__, __table lift header row__, __table lift headers__<br>",
-"Function Library Guide: 9.4.1.6 table lift ...<br><br>",
+"Function Library Guide: 9.6.1.6 table lift ...<br><br>",
 "__table list__<br>",
 "Function Library Guide: 9.1.2.1 table list<br><br>",
 "__table load__<br>",
@@ -31804,131 +31963,133 @@
 "__table load unchanged__<br>",
 "Function Library Guide: 9.1.1.1 table load ...<br><br>",
 "__table lookup__<br>",
-"Function Library Guide: 9.5.2.1 table lookup ...<br><br>",
+"Function Library Guide: 9.7.2.1 table lookup ...<br><br>",
 "__table lookup fast__, __table lookup fast ignore case__<br>",
-"Function Library Guide: 9.5.2.3 table lookup fast ...<br><br>",
+"Function Library Guide: 9.7.2.3 table lookup fast ...<br><br>",
 "__table lookup ignore case__<br>",
-"Function Library Guide: 9.5.2.1 table lookup ...<br><br>",
+"Function Library Guide: 9.7.2.1 table lookup ...<br><br>",
 "__table lookup integrate ignore case__<br>",
-"Function Library Guide: 9.5.2.9 table integrate smart ...<br><br>",
+"Function Library Guide: 9.7.2.9 table integrate smart ...<br><br>",
 "__table lookup once__, __table lookup once ignore case__<br>",
-"Function Library Guide: 9.5.2.2 table lookup once ...<br><br>",
+"Function Library Guide: 9.7.2.2 table lookup once ...<br><br>",
 "__table lookup smart__, __table lookup smart ignore case__<br>",
-"Function Library Guide: 9.5.2.4 table lookup smart ...<br><br>",
+"Function Library Guide: 9.7.2.4 table lookup smart ...<br><br>",
 "__table lookup smart once__, __table lookup smart once ignore case__<br>",
-"Function Library Guide: 9.5.2.5 table lookup smart once ...<br><br>",
+"Function Library Guide: 9.7.2.5 table lookup smart once ...<br><br>",
 "__table lookup top down__, __table lookup top down ignore case__<br>",
-"Function Library Guide: 9.5.2.1 table lookup ...<br><br>",
+"Function Library Guide: 9.7.2.1 table lookup ...<br><br>",
 "__table manipulate__<br>",
-"Function Library Guide: 9.4.4.6 table manipulate<br><br>",
+"Function Library Guide: 9.6.4.6 table manipulate<br><br>",
 "__table max width__<br>",
-"Function Library Guide: 9.2.4.4 table min/max width<br><br>",
+"Function Library Guide: 9.3.4 table min/max width<br><br>",
 "__table menu__, __table menu quick__<br>",
 "Function Library Guide: 9.1.2.2 table menu ...<br><br>",
 "__table merge__, __table merge exclusive columns__, __table merge extend columns__, __table merge intersect columns__, __table merge subtract columns__<br>",
-"Function Library Guide: 9.5.3.1 table merge ...<br><br>",
+"Function Library Guide: 9.7.3.1 table merge ...<br><br>",
 "__table min width__<br>",
-"Function Library Guide: 9.2.4.4 table min/max width<br><br>",
+"Function Library Guide: 9.3.4 table min/max width<br><br>",
 "__table move rows__<br>",
-"Function Library Guide: 9.4.3.9 table move rows<br><br>",
+"Function Library Guide: 9.6.3.9 table move rows<br><br>",
 "__table move selected rows__<br>",
-"Function Library Guide: 9.4.3.10 table move selected rows<br><br>",
+"Function Library Guide: 9.6.3.10 table move selected rows<br><br>",
 "__table multiply__, __table multiply selected rows__<br>",
-"Function Library Guide: 9.5.3.6 table multiply ...<br><br>",
+"Function Library Guide: 9.7.3.6 table multiply ...<br><br>",
 "__table overlay__, __table overlay columns__, __table overlay exclusive columns__, __table overlay extend columns__, __table overlay intersect columns__<br>",
-"Function Library Guide: 9.5.3.2 table overlay/subtract ...<br><br>",
+"Function Library Guide: 9.7.3.2 table overlay/subtract ...<br><br>",
 "__table process__<br>",
-"Function Library Guide: 9.4.4.1 table process (selected rows)<br><br>",
+"Function Library Guide: 9.6.4.1 table process (selected rows)<br><br>",
 "__table process all cells__, __table process cells__<br>",
-"Function Library Guide: 9.4.4.4 table process cells (selected rows)<br><br>",
+"Function Library Guide: 9.6.4.4 table process cells (selected rows)<br><br>",
 "__table process cells in columns__, __table process cells in columns selected rows__<br>",
-"Function Library Guide: 9.4.4.5 table process cells in columns (selected rows)<br><br>",
+"Function Library Guide: 9.6.4.5 table process cells in columns (selected rows)<br><br>",
 "__table process cells selected rows__<br>",
-"Function Library Guide: 9.4.4.4 table process cells (selected rows)<br><br>",
+"Function Library Guide: 9.6.4.4 table process cells (selected rows)<br><br>",
 "__table process columns__<br>",
-"Function Library Guide: 9.4.4.3 table process (selected) columns<br><br>",
+"Function Library Guide: 9.6.4.3 table process (selected) columns<br><br>",
 "__table process rows__<br>",
-"Function Library Guide: 9.4.4.1 table process (selected rows)<br><br>",
+"Function Library Guide: 9.6.4.1 table process (selected rows)<br><br>",
 "__table process selected columns__<br>",
-"Function Library Guide: 9.4.4.3 table process (selected) columns<br><br>",
+"Function Library Guide: 9.6.4.3 table process (selected) columns<br><br>",
 "__table process selected rows__<br>",
-"Function Library Guide: 9.4.4.1 table process (selected rows)<br><br>",
+"Function Library Guide: 9.6.4.1 table process (selected rows)<br><br>",
 "__table process selected rows fast__<br>",
-"Function Library Guide: 9.4.4.2 table process selected rows fast<br><br>",
+"Function Library Guide: 9.6.4.2 table process selected rows fast<br><br>",
 "__table rank rows__, __table rank selected rows__<br>",
-"Function Library Guide: 9.4.3.13 table rank (selected) rows<br><br>",
+"Function Library Guide: 9.6.3.13 table rank (selected) rows<br><br>",
 "__table read column selected rows__<br>",
-"Function Library Guide: 9.2.2.4 table read column selected rows<br><br>",
+"Function Library Guide: 9.2.3.2 table read column selected rows<br><br>",
+"__table read row__<br>",
+"Function Library Guide: 9.2.3.1 table read row<br><br>",
 "__table rearrange columns__, __table rearrange existing columns__<br>",
-"Function Library Guide: 9.4.2.5 table rearrange ... columns<br><br>",
+"Function Library Guide: 9.6.2.5 table rearrange ... columns<br><br>",
 "__table rearrange selected rows__<br>",
-"Function Library Guide: 9.4.3.11 table rearrange selected rows<br><br>",
+"Function Library Guide: 9.6.3.11 table rearrange selected rows<br><br>",
 "__table references__<br>",
 "Language Guide: 5.1 Accessing Tables<br><br>",
 "__table rename__<br>",
-"Function Library Guide: 9.4.6.1 table rename<br><br>",
+"Function Library Guide: 9.6.6.1 table rename<br><br>",
 "__table rename column headers__, __table rename existing headers__, __table rename headers__<br>",
-"Function Library Guide: 9.4.1.4 table rename ... headers<br><br>",
+"Function Library Guide: 9.6.1.4 table rename ... headers<br><br>",
 "__table row width__<br>",
-"Function Library Guide: 9.2.4.3 table row width<br><br>",
+"Function Library Guide: 9.3.3 table row width<br><br>",
 "__table save__, __table save multiple__, __table save with decimal comma__, __table save with local decimal separator__<br>",
 "Function Library Guide: 9.1.1.4 table save ...<br><br>",
 "__table search__<br>",
-"Function Library Guide: 9.3.1.1 table search ...<br><br>",
+"Function Library Guide: 9.4.1.1 table search ...<br><br>",
 "__table search header row__<br>",
-"Function Library Guide: 9.3.1.6 table search header row<br><br>",
+"Function Library Guide: 9.4.1.6 table search header row<br><br>",
 "__table search row__<br>",
-"Function Library Guide: 9.3.1.2 table search row<br><br>",
+"Function Library Guide: 9.4.1.2 table search row<br><br>",
 "__table search vertically__<br>",
-"Function Library Guide: 9.3.1.1 table search ...<br><br>",
+"Function Library Guide: 9.4.1.1 table search ...<br><br>",
 "__table selected column numbers__, __table selected columns__, __table selected headers__<br>",
-"Function Library Guide: 9.3.1.5 table selected columns/headers ...<br><br>",
+"Function Library Guide: 9.4.1.5 table selected columns/headers ...<br><br>",
 "__table selected rows__<br>",
-"Function Library Guide: 9.3.1.4 table selected rows<br><br>",
+"Function Library Guide: 9.4.1.4 table selected rows<br><br>",
 "__table serialize__, __table serialize all__, __table serialize ignore zero__<br>",
-"Function Library Guide: 9.4.5.2 table serialize ...<br><br>",
+"Function Library Guide: 9.6.5.2 table serialize ...<br><br>",
 "__table sort columns__<br>",
-"Function Library Guide: 9.4.2.4 table sort columns<br><br>",
+"Function Library Guide: 9.6.2.4 table sort columns<br><br>",
 "__table sort rows__, __table sort selected rows__<br>",
-"Function Library Guide: 9.4.3.12 table sort (selected) rows<br><br>",
+"Function Library Guide: 9.6.3.12 table sort (selected) rows<br><br>",
 "__table split table columns__<br>",
-"Function Library Guide: 9.4.6.5 table split table columns ...<br><br>",
+"Function Library Guide: 9.6.6.5 table split table columns ...<br><br>",
 "__table split table selected rows__<br>",
-"Function Library Guide: 9.4.6.3 table copy/split table selected rows<br><br>",
+"Function Library Guide: 9.6.6.3 table copy/split table selected rows<br><br>",
 "__table spread__, __table spread accumulating__<br>",
-"Function Library Guide: 9.4.5.3 table spread ...<br><br>",
+"Function Library Guide: 9.6.5.3 table spread ...<br><br>",
 "__table spread given headers__, __table spread given headers accumulating__<br>",
-"Function Library Guide: 9.4.5.4 table spread given headers ...<br><br>",
+"Function Library Guide: 9.6.5.4 table spread given headers ...<br><br>",
 "__table style cells__<br>",
-"Function Library Guide: 9.6.2.4 table style cells<br><br>",
+"Function Library Guide: 9.8.2.4 table style cells<br><br>",
 "__table style columns__<br>",
-"Function Library Guide: 9.6.2.3 table style columns<br><br>",
+"Function Library Guide: 9.8.2.3 table style columns<br><br>",
 "__table style reset__<br>",
-"Function Library Guide: 9.6.3.2 table style reset<br><br>",
+"Function Library Guide: 9.8.3.2 table style reset<br><br>",
 "__table style rows__<br>",
-"Function Library Guide: 9.6.2.2 table style rows<br><br>",
+"Function Library Guide: 9.8.2.2 table style rows<br><br>",
 "__table style table__<br>",
-"Function Library Guide: 9.6.2.1 table style table<br><br>",
+"Function Library Guide: 9.8.2.1 table style table<br><br>",
 "__table substitute horizontally__, __table substitute horizontally selected rows__<br>",
-"Function Library Guide: 9.4.4.10 table substitute horizontally ...<br><br>",
+"Function Library Guide: 9.6.4.10 table substitute horizontally ...<br><br>",
 "__table substitute vertically__, __table substitute vertically selected rows__<br>",
-"Function Library Guide: 9.4.4.9 table substitute vertically ...<br><br>",
+"Function Library Guide: 9.6.4.9 table substitute vertically ...<br><br>",
 "__table subtract__, __table subtract columns__, __table subtract exclusive columns__, __table subtract extend columns__, __table subtract subtract columns__<br>",
-"Function Library Guide: 9.5.3.4 table subtract ...<br><br>",
+"Function Library Guide: 9.7.3.4 table subtract ...<br><br>",
 "__table transpose__<br>",
-"Function Library Guide: 9.4.5.1 table transpose<br><br>",
+"Function Library Guide: 9.6.5.1 table transpose<br><br>",
 "__table validate__<br>",
-"Function Library Guide: 9.5.1.2 table validate<br><br>",
+"Function Library Guide: 9.7.1.2 table validate<br><br>",
 "__table validate - examples__<br>",
-"Function Library Guide: 9.5.1.2.2 table validate - Examples<br><br>",
+"Function Library Guide: 9.7.1.2.2 table validate - Examples<br><br>",
 "__table validate - group results__, __table validate - row results__<br>",
-"Function Library Guide: 9.5.1.2.1 table validate - Row and Group Results<br><br>",
+"Function Library Guide: 9.7.1.2.1 table validate - Row and Group Results<br><br>",
 "__table write column selected rows__<br>",
-"Function Library Guide: 9.2.2.5 table write column selected rows<br><br>",
+"Function Library Guide: 9.2.2.3 table write column selected rows<br><br>",
 "__table write or add missing row__<br>",
-"Function Library Guide: 9.2.1.5 table (write or) add missing row<br><br>",
+"Function Library Guide: 9.2.2.2 table (write or) add missing row<br><br>",
 "__table write row__<br>",
-"Function Library Guide: 9.2.1.4 table add / write row<br><br>",
+"Function Library Guide: 9.2.2.1 table add / write row<br><br>",
 "__tables__<br>",
 "Language Guide: 5 Tables<br><br>",
 "__tan__, __tan deg__<br>",
@@ -31980,7 +32141,7 @@
 "__transcendental functions__<br>",
 "Function Library Guide: 5.2 Transcendental Functions<br><br>",
 "__translate style attributes for excel__, __translate style attributes for html__<br>",
-"Function Library Guide: 9.6.3.1 translate style attributes ...<br><br>",
+"Function Library Guide: 9.8.3.1 translate style attributes ...<br><br>",
 "__transpose__, __transpose matrices__, __transpose matrix__<br>",
 "Function Library Guide: 8.2.5 transpose<br><br>",
 "__trigonometric functions__<br>",
@@ -32018,8 +32179,6 @@
 "User Guide: 2.4 Updates and Upgrades<br><br>",
 "__use cases__<br>",
 "User Guide: 1.3 Use Cases<br><br>",
-"__User Defined Procedures and Functiions__<br>",
-"Function Library Guide: 2.3 User-Defined Procedures and Functions<br><br>",
 "__user function existing__<br>",
 "Function Library Guide: 2.3.5 function / user function existing<br><br>",
 "__user functions__<br>",
@@ -32101,7 +32260,7 @@
 "__watch continue__, __watch read__, __watch reset__, __watch start__, __watch stop__<br>",
 "Function Library Guide: 7.2.2 Stopwatch Functions<br><br>",
 "__weaken colors__<br>",
-"Function Library Guide: 9.6.1.5 weaken colors<br><br>",
+"Function Library Guide: 9.8.1.5 weaken colors<br><br>",
 "__week__<br>",
 "Function Library Guide: 7.1.6 week<br><br>",
 "__weekday__, __weekday from date__<br>",
@@ -32119,7 +32278,7 @@
 "__Windows Installation__<br>",
 "User Guide: 2.1.2 Windows - Installation<br><br>",
 "__with table__<br>",
-"Function Library Guide: 2.8.2 with table<br><br>",
+"Function Library Guide: 9.5.1 with table<br><br>",
 "__Without Transaction Assignment Operators__<br>",
 "Language Guide: 7.1 Without Transaction Assignment Operators<br><br>",
 "__working directory__<br>",

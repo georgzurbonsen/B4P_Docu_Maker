@@ -1,25 +1,12 @@
-	include ( Support Library );
-
 	table initialize ( t,
-	{ { Animal, leg count, size,             intelligence },
-	  { Worm,       0,     very small,       low},
-	  { Worm,       0,     very small too,   low},
-	  { Fox,        4,     quite small,      medium } });
+	{ { City,  Country, Climate Zone, Average Temperature },
+	  { Rome,  Italy,        Mediterranean,  22.3  },
+	  { Medina, S. Arabia,   Desert,  30  },
+	  { Thule, Greenland,    Arctic, -5 } } );
 
+	echo( table read row ( t, { Country, City, 3, Climate Zone }, 1 ) ); // Rome
+	echo( table read row ( t, { Country, City, 3, Climate Zone }, -1 ) ); // Last row: Thule
 
-	row[] = table write or add missing row( t, { Animal, size }, { Worm, very small too }, intelligence, { negligible } );
-	echo("Worm updated in row ", row[] );
+	echo( table read row ( t, { City, 24 }, 2 ) ); // Medina, and blank data (beyond last column)
 
-	row[] = table write or add missing row( t, { Animal, size }, { Wahle, huge }, intelligence, { quite high } );
-	echo("Whale added in row ", row[] );
-
-	row[] = table write or add missing row( t, Animal, { Fox } ); // 
-	echo("Fox is in row ", row[] );
-
-	row[] = table add missing row( t, { Animal, leg count}, { Fox, 4 } ); // Already existing
-	echo("Fox with 4 legs already exists in in row ", row[] );
-
-	row[] = table add missing row( t, { Animal, leg count}, { Fly, 6 }, { size }, { little } ); // Already existing
-	echo("Fly added in row ", row[] );
-
-	table list ( t );
+	echo( table read row ( t, { Country, City, 3, Climate Zone }, 10 ) ); // Blank data (outside table)
