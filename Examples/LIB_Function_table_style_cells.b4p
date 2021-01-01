@@ -7,9 +7,11 @@
   table style cells( t, {City,3,5}, {3,5,7,9}, matrix, fill color, green );
   table style cells( t, {Famous cultural place, Moving along}, {0,8}, field, fill color, cyan );
 
-  translate style attributes for excel(t);
-  table save( t, "Images/Style_Function_table_style_cells.xls", EXCEL );
-
   translate style attributes for html(t);
   table save( t, "Images/Style_Function_table_style_cells.html", HTML );
+  translate style attributes for excel xml 2003(t);
+  table save( t, "Images/Style_Function_table_style_cells.xls", EXCEL );
+  translate style attributes for excel (t);
+  table save excel file( t, Contents, "Images/Style_Function_table_style_cells.xlsx" );
   echo("Done.");
+

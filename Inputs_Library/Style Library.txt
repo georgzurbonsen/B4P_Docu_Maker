@@ -170,6 +170,8 @@ B4PDOCU.START
 	],
 	"Examples"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
 
 	add color( crème, natural shades, 245,238, 222 );
 
@@ -178,15 +180,17 @@ B4PDOCU.START
 	table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );
 
 	translate style attributes for html(t);
-	table save( t, "Images/Custom_Colors.html", HTML );
-	translate style attributes for excel(t);
-	table save( t, "Images/Custom_Colors.xls", EXCEL );
-	echo("Done. Open the file Custom_Colors.html with a web browser.");
+	table save( t, "Images/Style_Custom_Colors.html", HTML );
+	translate style attributes for excel xml 2003(t);
+	table save( t, "Images/Style_Custom_Colors.xls", EXCEL );
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Custom_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Custom_Colors.html" target="_blank">Style_Custom_Colors.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Custom_Colors.xls" >Style_Custom_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Custom_Colors.xls" >Style_Custom_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Custom_Colors.xlsx" >Style_Custom_Colors.xlsx</a> (Excel .xlsx format).	
 	+++
 },
 
@@ -236,8 +240,10 @@ B4PDOCU.START
 		}
 	],
 	"Examples"::
-	include( Support Library );
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+	include( Support Library );
 
 	lighten colors( table selected rows( global color table, [Cat 2]==primary), X, 3 );
 
@@ -248,16 +254,18 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Lightened_Colors.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Lightened_Colors.xls", EXCEL );
-	echo("Done.");
-
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Lightened_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Lightened_Colors.html" target="_blank">Style_Lightened_Colors.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Lightened_Colors.xls" >Style_Lightened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Lightened_Colors.xls" >Style_Lightened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Lightened_Colors.xlsx" >Style_Lightened_Colors.xlsx</a> (Excel .xlsx format).	
 	+++
+
 },
 
 
@@ -304,8 +312,10 @@ B4PDOCU.START
 		}
 	],
 	"Examples"::
-	include( Support Library );
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+	include( Support Library );
 
 	darken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
 
@@ -316,15 +326,16 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Darkened_Colors.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
-	echo("Done.");
-
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Darkened_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Darkened_Colors.html" target="_blank">Style_Darkened_Colors.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Darkened_Colors.xls" >Style_Darkened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Darkened_Colors.xls" >Style_Darkened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Darkened_Colors.xlsx" >Style_Darkened_Colors.xlsx</a> (Excel .xlsx format).	
 	+++
 },
 
@@ -372,8 +383,10 @@ B4PDOCU.START
 		}
 	],
 	"Examples"::
-	include( Support Library );
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+	include( Support Library );
 
 	weaken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
 
@@ -384,20 +397,18 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Weakened_Colors.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Weakened_Colors.xls", EXCEL );
-	echo("Done.");
-
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Weakened_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Weakened_Colors.html" target="_blank">Style_Weakened_Colors.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Weakened_Colors.xls" >Style_Weakened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Weakened_Colors.xls" >Style_Weakened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Weakened_Colors.xlsx" >Style_Weakened_Colors.xlsx</a> (Excel .xlsx format).	
 	+++
 },
-
-
-
 
 
 
@@ -427,6 +438,8 @@ B4PDOCU.START
 
 
 
+
+
 "Generic Formatting Attributes":
   {
     "Documentation":		"General Description", // Required value
@@ -444,7 +457,7 @@ B4PDOCU.START
 					| border specificaction<sup>1</sup>	| "				| Applies cell borders				| HTML: 'hairline' thickness is same as 'thin' thickness
 	underscore<br>boldface<br>italic| Boolean: true / false			| "				| Applies text formatting			|
 	wrap text			| Boolean: true / false			| "				| Text inside the cell will wrap to next row if too long | 
-	comment				| Literal: text contents		| cell				| Adds comments which are visible in Excel when holding the mouse cursor above the red triangle symbol | See <sup>2</sup>
+	comment				| Literal: text contents		| cell				| Adds comments which are visible in Excel when holding the mouse cursor above the red triangle symbol | See <sup>2</sup><br>Not yet supported for Excel (.xlsx).
 	font name			| Literal: font name			| table, row, column, cell	| Sets the font name				| The font name must be known to Excel or the web browser
 	font size			| Numeral: size in points		| "				| Sets the font size				| 
 	number format			| Literal: Excel number format		| "				| Applies Excel number format			| See <sup>3</sup>. It differs from B4P formatting.  Web browsers do not support this. Output the values as text if they should contain formatting.
@@ -463,6 +476,7 @@ B4PDOCU.START
 	hidden				| Boolean: true, false				| row, column		| Hides a specific row or column		| In HTML, column width 0 is used
 	hidden row			| Boolean: true, false				| row			| Like above, appliable to rows only		|
 	hidden column			| Boolean: true, false				| column		| Like above, appliable to columns only		| In HTML, column width 0 is used
+	gridlines			| Boolean: true, false				| table			| Shows or hides Excel gridlines		| Excel (.xlsx) only
 	===
 
 	<sup>1</sup>Parameter set with two values: thickness (literal) and __color specification__, e.g. <b>{ thin, red }</b>.  Valid thicknesses: hairline, thin, medium, thick<br>
@@ -491,6 +505,9 @@ B4PDOCU.START
 	+++,
 	"Examples 01:Different interpretation of numeric, date and boolean values"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+
 	echo("Test various date, numeric and boolean representations");
 
 	table initialize( t, 
@@ -509,14 +526,16 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Number_Formats.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Number_Formats.xls", EXCEL );
-	echo("Done.");
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Number_Formats.xlsx" );
 	+++,
 	"Output 01:": "automatic",
 	"Description 02:"::
 	Test Click on the file name view the result: <a href="Images/Style_Number_Formats.html" target="_blank">Style_Number_Formats.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Number_Formats.xls" >Style_Number_Formats.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Number_Formats.xls" >Style_Number_Formats.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Number_Formats.xlsx" >Style_Number_Formats.xlsx</a> (Excel .xlsx format).	
 
 	<br><br>
 
@@ -531,6 +550,7 @@ B4PDOCU.START
 	+++
 
 },
+
 
 
 "Formatting Coverages and Precedences":
@@ -552,6 +572,8 @@ B4PDOCU.START
 	+++,
 	"Examples 01:Precedence example with the 'Cities' table"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
 
 	echo("Demonstrate precedences in formatting sheets / rows / columns / cells");
 
@@ -573,14 +595,17 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Precedences.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Precedences.xls", EXCEL );
-	echo("Done.");
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Precedences.xlsx" );
 	+++,
 	"Output 01:": "automatic",
 	"Description 02:"::
 	Test Click on the file name view the result: <a href="Images/Style_Precedences.html" target="_blank">Style_Precedences.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Precedences.xls" >Style_Precedences.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Precedences.xls" >Style_Precedences.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Precedences.xlsx" >Style_Precedences.xlsx</a> (Excel .xlsx format).	
+
 
 	<br><br>
 
@@ -595,8 +620,6 @@ B4PDOCU.START
 	+++
 	
 },
-
-
 
 
 
@@ -650,6 +673,9 @@ B4PDOCU.START
 	],
 	"Examples"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+
 	table load( t, "Examples\Cities.csv" );
 
 	table style table( t, sheet, column width, 24, wrap text, true );
@@ -657,15 +683,18 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_sheet.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_sheet.xls", EXCEL );
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Function_table_style_sheet.xlsx" );
 	echo("Done.");
 
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_sheet.html" target="_blank">Style_Function_table_style_sheet.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_sheet.xls" >Style_Function_table_style_sheet.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_sheet.xls" >Style_Function_table_style_sheet.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_sheet.xlsx" >Style_Function_table_style_sheet.xlsx</a> (Excel .xlsx format).	
 	+++
 },
 
@@ -728,6 +757,8 @@ B4PDOCU.START
 	],
 	"Examples"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
 	table load( t, "Examples\Cities.csv" );
 
 	table style rows( t, 0, body, boldface, true, row height, 30 );
@@ -743,14 +774,18 @@ B4PDOCU.START
 
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_rows.html", HTML );
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_rows.xls", EXCEL );
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Function_table_style_rows.xlsx" );
 	echo("Done.");
+
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
-	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_columns.html" target="_blank">Style_Function_table_style_columns.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_columns.xls" >Style_Function_table_style_columns.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_rows.html" target="_blank">Style_Function_table_style_rows.html</a>.<br>
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_rows.xls" >Style_Function_table_style_rows.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_rows.xlsx" >Style_Function_table_style_rows.xlsx</a> (Excel .xlsx format).	
 	+++
 },
 
@@ -812,6 +847,8 @@ B4PDOCU.START
 	],
 	"Examples"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
 	table load( t, "Examples\Cities.csv" );
 
 	table style columns( t, {City,"State/Province"}, sheet, boldface, true, text color, burgundy, fill color, champagne );
@@ -821,8 +858,11 @@ B4PDOCU.START
 	// Number format is supported in Excel only
 	table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_columns.xls", EXCEL );
+
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Function_table_style_columns.xlsx" );
 
 	// How to apply number formats in HTML for browsers
 
@@ -837,9 +877,13 @@ B4PDOCU.START
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_columns.html" target="_blank">Style_Function_table_style_columns.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_columns.xls" >Style_Function_table_style_columns.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_columns.xls" >Style_Function_table_style_columns.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_columns.xlsx" >Style_Function_table_style_columns.xlsx</a> (Excel .xlsx format).	
 	+++
 },
+
+
+
 
 
 "table style cells" :
@@ -905,6 +949,8 @@ B4PDOCU.START
 	],
 	"Examples"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
 	table load( t, "Examples\Cities.csv" );
 
 	table style cells( t, {City,City,Moving along},{1, 12, -2}, single, fill color, yellow );
@@ -912,17 +958,20 @@ B4PDOCU.START
 	table style cells( t, {City,3,5}, {3,5,7,9}, matrix, fill color, green );
 	table style cells( t, {Famous cultural place, Moving along}, {0,8}, field, fill color, cyan );
 
-	translate style attributes for excel(t);
-	table save( t, "Images/Style_Function_table_style_cells.xls", EXCEL );
-
 	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_cells.html", HTML );
+	translate style attributes for excel xml 2003(t);
+	table save( t, "Images/Style_Function_table_style_cells.xls", EXCEL );
+	translate style attributes for excel (t);
+	table save excel file( t, Contents, "Images/Style_Function_table_style_cells.xlsx" );
 	echo("Done.");
+
 	+++,
 	"Output": "automatic",
 	"Details 02:Viewing the Results:"::
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_cells.html" target="_blank">Style_Function_table_style_cells.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_cells.xls" >Style_Function_table_style_cells.xls</a> (Excel XML 2003 format - confirm the message box query).	
+	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_cells.xls" >Style_Function_table_style_cells.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_cells.xlsx" >Style_Function_table_style_cells.xlsx</a> (Excel .xlsx format).	
 	+++
 },
 
@@ -954,6 +1003,8 @@ B4PDOCU.START
 	+++,
 	"Examples 01:The 'Cities' table in a nice and professional appearance"::
 	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
 	table load( t, "Examples\Cities.csv" );
 
 	// Freeze panes and apply an autofilter
@@ -981,8 +1032,11 @@ B4PDOCU.START
 	// Number format is supported in Excel only
 	table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
-	translate style attributes for excel(t);
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_professionally.xls", EXCEL );
+
+	translate style attributes for excel(t);
+	table save excel file( t, Contents, "Images/Style_Function_table_style_professionally.xlsx"  );
 
 	// How to apply number formats in HTML for browsers
 
@@ -998,8 +1052,9 @@ B4PDOCU.START
 	"Output 01:": "automatic",
 	"Description 02:"::
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_professionally.html" target="_blank">Style_Function_table_style_professionally.html</a>.<br>
-	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_professionally.xls" >Style_Function_table_style_professionally.xls</a> (Excel XML 2003 format - confirm the message box query).	
-	Test Click on the file name open the HTML file with Excel: <a href="Images/Style_Function_table_style_professionally_in_html.xls" >Style_Function_table_style_professionally_in_html.xls</a> (Note: HTML file opened with Excel).	
+	Test Click on the file name open the file with Excel: <a href="Images/Style_Function_table_style_professionally.xls" >Style_Function_table_style_professionally.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
+	Test Click on the file name open the HTML file with Excel: <a href="Images/Style_Function_table_style_professionally_in_html.xls" >Style_Function_table_style_professionally_in_html.xls</a> (Note: HTML file opened with Excel).<br>	
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_professionally_in_html.xlsx" >Style_Function_table_style_professionally_in_html.xlsx</a> (Excel .xlsx format).	
 	+++
 
 
@@ -1009,13 +1064,18 @@ B4PDOCU.START
 
 "translate style attributes ..." :
 {
-	"Function Names":	[ "translate style attributes for excel", "translate style attributes for html" ],
+	"Function Names":	[ "translate style attributes for excel", "translate style attributes for excel xml 2003", "translate style attributes for html" ],
 	"Documentation":	"Function Description",
 	"Library":		"Style Library",
 	"Description"::
 
 		The generic formatting attributes will be translated to the target-specific format and will then be included when saving the
 		file in the corresponding file format.
+
+		* <b>translate style attributes for excel</b>: Needed before __table save excel file(__) for the modern Excel .xlsx file format
+		* <b>translate style attributes for excel xml 2003</b>: Needed before __table save__(..., EXCEL) for the old Excel XML 2003 file format 
+		* <b>translate style attributes for html</b>: Needed before __table save__(..., HTML) for HTML format, can be opened in web browsers and Excel (if renamed from .html to .xls)
+
 	+++,
 	"Call as":		"procedure",
 	"Parameter count":	"1",

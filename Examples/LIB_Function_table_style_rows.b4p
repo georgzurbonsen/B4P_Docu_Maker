@@ -15,6 +15,9 @@
 
   translate style attributes for html(t);
   table save( t, "Images/Style_Function_table_style_rows.html", HTML );
-  translate style attributes for excel(t);
+  translate style attributes for excel xml 2003(t);
   table save( t, "Images/Style_Function_table_style_rows.xls", EXCEL );
+  translate style attributes for excel (t);
+  table save excel file( t, Contents, "Images/Style_Function_table_style_rows.xlsx" );
   echo("Done.");
+

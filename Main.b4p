@@ -1,12 +1,14 @@
-	table initialize ( t,
-	{ { City,  Country, Climate Zone, Average Temperature },
-	  { Rome,  Italy,        Mediterranean,  22.3  },
-	  { Medina, S. Arabia,   Desert,  30  },
-	  { Thule, Greenland,    Arctic, -5 } } );
+include( Style Library );
 
-	echo( table read row ( t, { Country, City, 3, Climate Zone }, 1 ) ); // Rome
-	echo( table read row ( t, { Country, City, 3, Climate Zone }, -1 ) ); // Last row: Thule
+  table load( t, "Examples\Cities.csv" );
 
-	echo( table read row ( t, { City, 24 }, 2 ) ); // Medina, and blank data (beyond last column)
+  table style table( t, sheet, column width, 24, wrap text, true );
+  table style table( t, body, text color, navy );
 
-	echo( table read row ( t, { Country, City, 3, Climate Zone }, 10 ) ); // Blank data (outside table)
+  translate style attributes for html(t);
+  table save( t, "Images/Style_Function_table_style_sheet.html", HTML );
+  translate style attributes for excel xml 2003(t);
+  table save( t, "Images/Style_Function_table_style_sheet.xls", EXCEL );
+  translate style attributes for excel (t);
+  table save excel file( t, Contents, "Style_Function_table_style_sheet.xlsx" );
+  echo("Done.");

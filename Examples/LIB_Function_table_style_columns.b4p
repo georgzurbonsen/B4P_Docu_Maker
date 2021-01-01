@@ -9,8 +9,11 @@
   // Number format is supported in Excel only
   table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
-  translate style attributes for excel(t);
+  translate style attributes for excel xml 2003(t);
   table save( t, "Images/Style_Function_table_style_columns.xls", EXCEL );
+
+  translate style attributes for excel (t);
+  table save excel file( t, Contents, "Images/Style_Function_table_style_columns.xlsx" );
 
   // How to apply number formats in HTML for browsers
 

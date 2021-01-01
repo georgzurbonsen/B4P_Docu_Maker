@@ -1,5 +1,6 @@
 ﻿#!/usr/local/bin/b4p
   include( Style Library );
+
   echo("Test various date, numeric and boolean representations");
 
   table initialize( t, 
@@ -18,6 +19,7 @@
 
   translate style attributes for html(t);
   table save( t, "Images/Style_Number_Formats.html", HTML );
-  translate style attributes for excel(t);
+  translate style attributes for excel xml 2003(t);
   table save( t, "Images/Style_Number_Formats.xls", EXCEL );
-  echo("Done.");
+  translate style attributes for excel (t);
+  table save excel file( t, Contents, "Images/Style_Number_Formats.xlsx" );

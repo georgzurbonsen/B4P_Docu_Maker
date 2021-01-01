@@ -155,7 +155,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "comments" ],
-    "Keywords":			[ "comments" ],
+    "Keywords":			[ "markdown", "github markdown" ],
     "Description 01:Introduction to Comments"::
 	Documenting comments is very similar as in C/C++. The language supports following comment symbols:
 
@@ -651,8 +651,8 @@ B4PDOCU.START
   "Literals - Extracting Substrings" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "data types literals extracting substrings" ],
-    "Keywords":			[ "literals extracting substrings" ],
+    "Feature Names":		[ "Extracting substrings" ],
+    "Keywords":			[ "Slicing strings" ],
 
 
     "Description 01:Literals - Extracting Substrings"::
@@ -942,8 +942,8 @@ B4PDOCU.START
   "Parameter sets - Extracting Subsets" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "data types parameter sets extracting subsets" ],
-    "Keywords":			[ "parameter sets extracting subsets", "extracting subsets" ],
+    "Feature Names":		[ "Extracting Subsets" ],
+    "Keywords":			[ "Slicing parameter sets" ],
 
 
     "Description 01:Parameter Sets - Extracting Subsets"::

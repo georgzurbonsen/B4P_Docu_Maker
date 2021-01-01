@@ -8,7 +8,8 @@
   table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );
 
   translate style attributes for html(t);
-  table save( t, "Images/Custom_Colors.html", HTML );
-  translate style attributes for excel(t);
-  table save( t, "Images/Custom_Colors.xls", EXCEL );
-  echo("Done. Open the file Custom_Colors.html with a web browser.");
+  table save( t, "Images/Style_Custom_Colors.html", HTML );
+  translate style attributes for excel xml 2003(t);
+  table save( t, "Images/Style_Custom_Colors.xls", EXCEL );
+  translate style attributes for excel (t);
+  table save excel file( t, Contents, "Images/Style_Custom_Colors.xlsx" );

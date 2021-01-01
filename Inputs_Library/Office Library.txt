@@ -282,7 +282,92 @@ B4PDOCU.START
 		+++,
 	"Output": "automatic",
 	"See also": [ "excel list sheets", "table load" ]
+},
+
+
+
+
+//	table laod excel file
+//  ________________________________________________________________________________________________________________________
+
+
+"table save excel file" :
+{
+	"Function Names":	[ "table save excel file" ],
+	"Documentation":	"Function Description",
+	"Description"::
+
+		This function saves 1 or more tables into an Excel file (.xlsx) based on Open Office format.  In addition to the contents,
+		defined styles will also be included.  In order include the defined style information, call __translate style attributes for excel(__)
+		immediately before saving.
+
+		<br><br>
+		The following type conversions will be made unless forced to literal contents using <b>table style(..., type, literal)</b> on selected
+		table contents.
+		* 'true' and 'false' will be saved as Boolean values
+		* Dates (YYYY-MM-DD) times (hh:mm:ss) or combination of both (YYYY-MM-DD hh:mm:ss) will be saved as dates
+		* Text wrappen will be activated if contents contain line breaks
+		* All numbers will be saved as numeric data.
+		* Numbers containing scientific notation (e.g. 1E3 for 1000) will be saved using scientific notation format.
+			
+
+		+++,
+	"Call as":		"procedure",
+	"Parameter count":	"3-4",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "name(s) of table(s)",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Description"::
+			Specify the table name directly, or to specify multiple tables:
+			* Use parameter sets containing table names
+			* Use softquoted literal containing the table names separated with commas
+			+++
+		},
+		{ "Number": "2",
+		  "Name": "Corresonding sheet names",
+		  "Direction": "input",
+		  "Types": [ "parameter set or literal" ],
+		  "Description"::
+			Specify the sheet names (as seen on the bottom tabs when opened in Excel).  The number of sheet names must
+			match with the number of tables specified in the 1st function parameter.
+			+++
+		},
+		{ "Number": "3",
+		  "Name": "name of Excel file name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			The file name must contain the file type ending '.xlsx'.
+			+++
+		},
+		{ "Number": "Opt. 4",
+		  "Name": "Active sheet name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "(1st sheet specified)",
+		  "Description"::
+			You can specify the active sheet name which shall appear on the screen after opening the file in Excel.
+			If no sheet name is specfied, then the first table specified will be opened.
+			+++
+		}
+
+	],
+	"Examples"::
+		include( Support Library );
+		include( Office Library );
+		table load excel file( football, "Examples\Football Membership List.xlsx" );
+		table list( football );
+		+++,
+	"Output": "automatic",
+	"See also": [ "table save load file", "table save" ]
 }
+
+
+
 
 
 

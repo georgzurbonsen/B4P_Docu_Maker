@@ -187,7 +187,7 @@ Function Library Guide: 2.7 Code Execution Functions<br><br>
 __Code Piece__, __code pieces__<br>
 Language Guide: 8.4.3 Code Pieces (Func. Param. Type)<br><br>
 __col__<br>
-Function Library Guide: 9.4.6 col<br><br>
+Function Library Guide: 9.4.7 col<br><br>
 __Color Palettes__<br>
 Function Library Guide: 9.9.1.1 Color Palettes<br><br>
 __Color Specification__<br>
@@ -295,14 +295,10 @@ __data types dates__<br>
 Language Guide: 3.7.3 Dates<br><br>
 __data types literals__<br>
 Language Guide: 3.7.1 Literals<br><br>
-__data types literals extracting substrings__<br>
-Language Guide: 3.7.1.2 Literals - Extracting Substrings<br><br>
 __data types numerals__<br>
 Language Guide: 3.7.2 Numerals<br><br>
 __data types parameter sets__<br>
 Language Guide: 3.7.6 Parameter sets<br><br>
-__data types parameter sets extracting subsets__<br>
-Language Guide: 3.7.6.2 Parameter sets - Extracting Subsets<br><br>
 __data types parameter sets indexing__<br>
 Language Guide: 3.7.6.1 Parameter sets - Indexing<br><br>
 __data types parameter sets value ranges__<br>
@@ -490,6 +486,10 @@ __Expressions to select rows__<br>
 Language Guide: 8.4.4 Expressions to Select Rows<br><br>
 __Expressions [func params]__<br>
 Language Guide: 8.4.3.2 Expressions (func. params)<br><br>
+__Extracting Subsets__<br>
+Language Guide: 3.7.6.2 Parameter sets - Extracting Subsets<br><br>
+__Extracting substrings__<br>
+Language Guide: 3.7.1.2 Literals - Extracting Substrings<br><br>
 "Description 07:F"::
 __file compression decompression__<br>
 Function Library Guide: 11.4 File Compression and Decompression<br><br>
@@ -650,6 +650,8 @@ __Getting started__<br>
 User Guide: 3 Getting Started<br><br>
 __gini__, __gini coefficient__, __gini ignore blanks__, __gini ignore zero__<br>
 Function Library Guide: 5.5.3 gini Coefficient Functions<br><br>
+__github markdown__<br>
+Language Guide: 3.3 Comments<br><br>
 __global__<br>
 Function Library Guide: 10.1.8 global<br><br>
 __global privileges__<br>
@@ -843,7 +845,11 @@ __list of parameter types in user functions__<br>
 Function Library Guide: 2.3.3 Parameter Types in User-Defined Functions<br><br>
 __list of system variables__<br>
 Language Guide: 4.1.3.1 List of System Variables<br><br>
-__list system variables__, __list variables__<br>
+__list system variables__<br>
+Function Library Guide: 3.3.3 list variables ...<br><br>
+__list tables__<br>
+Function Library Guide: 9.4.1 list tables<br><br>
+__list variables__<br>
 Function Library Guide: 3.3.3 list variables ...<br><br>
 __listing directories and files__<br>
 Function Library Guide: 11.2 Listing and Searching Directories and Files<br><br>
@@ -906,6 +912,8 @@ __MacOS Prerequisites__<br>
 User Guide: 2.3.1 MacOS - Prerequisites<br><br>
 __manipulating directories and files__<br>
 Function Library Guide: 11.3 Manipulating Directories and Files<br><br>
+__markdown__<br>
+Language Guide: 3.3 Comments<br><br>
 __Mathematics and Statistics__<br>
 Function Library Guide: 5 Mathematics and Statistics<br><br>
 __matrix determinant__<br>
@@ -1318,12 +1326,12 @@ Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __round__, __round down__, __round up__, __rounding functions__<br>
 Function Library Guide: 5.1.4 round, round up / down<br><br>
 __row__<br>
-Function Library Guide: 9.4.5 row<br><br>
+Function Library Guide: 9.4.6 row<br><br>
 "Description 20:S"::
 __saving files__<br>
 Language Guide: 3.8.3 Saving Files - Character sets<br><br>
 __Saving JSON files__<br>
-Function Library Guide: 9.1.4.1 Saving JSON files<br><br>
+Function Library Guide: 9.1.5.1 Saving JSON files<br><br>
 __scope__<br>
 Function Library Guide: 10.1.3 scope<br><br>
 __screen color__<br>
@@ -1376,6 +1384,10 @@ __sleep countdown__<br>
 Function Library Guide: 7.3.1 sleep, sleep countdown<br><br>
 __sleep until__, __sleep until countdown__<br>
 Function Library Guide: 7.3.2 sleep until, sleep until countdown<br><br>
+__Slicing parameter sets__<br>
+Language Guide: 3.7.6.2 Parameter sets - Extracting Subsets<br><br>
+__Slicing strings__<br>
+Language Guide: 3.7.1.2 Literals - Extracting Substrings<br><br>
 __smaller than or equal to__<br>
 Language Guide: 6.2.2.5 Smaller than (or Equal to)<br><br>
 __smart conversion and formatting__, __smart formatting__, __Smart Formatting Parameters__<br>
@@ -1531,6 +1543,8 @@ __table delete silently__<br>
 Function Library Guide: 9.3.4.2 table delete ...<br><br>
 __table delete unnamed columns__<br>
 Function Library Guide: 9.7.2.9 table delete blank/empty/unnamed columns<br><br>
+__Table directory__<br>
+Function Library Guide: 9.4.1 list tables<br><br>
 __table distribute__, __table distribute accumulate__, __table distribute advance__, __table distribute advance accumulate__<br>
 Function Library Guide: 9.7.5.6 table distribute ...<br><br>
 __table divide__, __table divide selected rows__<br>
@@ -1540,7 +1554,7 @@ Function Library Guide: 9.7.2.3 table duplicate columns ...<br><br>
 __table exclude__, __table exclude columns__, __table exclude exclude columns__, __table exclude exclusive columns__, __table exclude extend columns__<br>
 Function Library Guide: 9.8.3.5 table exclude ...<br><br>
 __table existing__<br>
-Function Library Guide: 9.4.1 table existing<br><br>
+Function Library Guide: 9.4.2 table existing<br><br>
 __table expand__<br>
 Function Library Guide: 9.8.2.11 table expand ...<br><br>
 __table expand fast__, __table expand fast ignore case__<br>
@@ -1602,7 +1616,7 @@ Function Library Guide: 9.7.2.6 table keep ... columns<br><br>
 __table keep selected rows__<br>
 Function Library Guide: 9.7.3.6 table keep selected rows<br><br>
 __table length__<br>
-Function Library Guide: 9.4.2 table length<br><br>
+Function Library Guide: 9.4.3 table length<br><br>
 __table lift contents__, __table lift header row__, __table lift headers__<br>
 Function Library Guide: 9.7.1.6 table lift ...<br><br>
 __table list__<br>
@@ -1632,13 +1646,13 @@ Function Library Guide: 9.8.2.1 table lookup ...<br><br>
 __table manipulate__<br>
 Function Library Guide: 9.7.4.6 table manipulate<br><br>
 __table max width__<br>
-Function Library Guide: 9.4.4 table min/max width<br><br>
+Function Library Guide: 9.4.5 table min/max width<br><br>
 __table menu__, __table menu quick__<br>
 Function Library Guide: 9.2.2 table menu ...<br><br>
 __table merge__, __table merge exclusive columns__, __table merge extend columns__, __table merge intersect columns__, __table merge subtract columns__<br>
 Function Library Guide: 9.8.3.1 table merge ...<br><br>
 __table min width__<br>
-Function Library Guide: 9.4.4 table min/max width<br><br>
+Function Library Guide: 9.4.5 table min/max width<br><br>
 __table move rows__<br>
 Function Library Guide: 9.7.3.9 table move rows<br><br>
 __table move selected rows__<br>
@@ -1682,9 +1696,13 @@ Function Library Guide: 9.7.6.1 table rename<br><br>
 __table rename column headers__, __table rename existing headers__, __table rename headers__<br>
 Function Library Guide: 9.7.1.4 table rename ... headers<br><br>
 __table row width__<br>
-Function Library Guide: 9.4.3 table row width<br><br>
-__table save__, __table save multiple__, __table save with decimal comma__, __table save with local decimal separator__<br>
-Function Library Guide: 9.1.4 table save ...<br><br>
+Function Library Guide: 9.4.4 table row width<br><br>
+__table save__<br>
+Function Library Guide: 9.1.5 table save ...<br><br>
+__table save excel file__<br>
+Function Library Guide: 9.1.4 table save excel file<br><br>
+__table save multiple__, __table save with decimal comma__, __table save with local decimal separator__<br>
+Function Library Guide: 9.1.5 table save ...<br><br>
 __table search__<br>
 Function Library Guide: 9.5.1.1 table search ...<br><br>
 __table search header row__<br>
@@ -1791,7 +1809,7 @@ __Transactions with OR assignment operator__<br>
 Language Guide: 7.3 &vert; Transaction Assignment Operators<br><br>
 __transcendental functions__<br>
 Function Library Guide: 5.2 Transcendental Functions<br><br>
-__translate style attributes for excel__, __translate style attributes for html__<br>
+__translate style attributes for excel__, __translate style attributes for excel xml 2003__, __translate style attributes for html__<br>
 Function Library Guide: 9.9.3.1 translate style attributes ...<br><br>
 __transpose__, __transpose matrices__, __transpose matrix__<br>
 Function Library Guide: 5.4.9 transpose<br><br>
