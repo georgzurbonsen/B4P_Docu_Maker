@@ -1,13 +1,1 @@
-﻿      include( Support Library );
-      include( Zip Library );
-
-      zip compress( "Examples\*.csv", "All csv.zip" );
-      zip extract files( "All csv.zip", "Examples\Cities.csv", "My Dir" );
-
-      echo("List the extracted file from 'All csv.zip':", new line);
-      directory listing recursive( d, "My Dir" );
-      table keep columns( d, 'Path,Name,Date Created,Directory,Size' );
-      table list( d );
-
-      directory delete recursive ( "", "My Dir" );
-      file delete( "All csv.zip" );
+﻿  echo("Hello World");
