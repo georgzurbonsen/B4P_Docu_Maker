@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+  ex[] = "sqrt( x[]*x[] + y[]*y[] )";
+  x[] = 3;
+  y[] = 4;
+
+  r[] = calc( sqrt( x[]*x[] + y[]*y[] ) );
+  echo("Output r[] = ", r[] );
+
+  r[] = calc( : ex[] );
+  echo("Output r[] = ", r[] );
+
+  // Note the required colon.  Otherwise ex[] as variable is returned.

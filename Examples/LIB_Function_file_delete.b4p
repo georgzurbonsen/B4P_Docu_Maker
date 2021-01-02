@@ -7,3 +7,4 @@
       files[] = { Test123.txt, Test456.txt, Test789.txt };
       file copy ( {3 : Example_Program.b4p}, files[] );
       echo( file delete all ( files[] ) ); // Returns 3
+

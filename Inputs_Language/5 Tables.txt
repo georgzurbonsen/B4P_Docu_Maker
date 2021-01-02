@@ -62,11 +62,11 @@ B4PDOCU.START
 
     "Description 05:Table used for examples throughout this chapter"::
 
-	The table "cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
+	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
 	+++,
     "Examples 05:"::
 	include( Support Library );
-	table load( table, "Examples\cities.csv" );
+	table load( table, "Examples\Cities.csv" );
 	table list( table );
 	+++,
     "Output 05:": "automatic"

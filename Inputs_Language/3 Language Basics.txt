@@ -655,9 +655,10 @@ B4PDOCU.START
     "Keywords":			[ "Slicing strings" ],
 
 
-    "Description 01:Literals - Extracting Substrings"::
+    "Description 01:Introduction"::
 
 	Instead of specifying single index values to retrieve single characters, substrings can be retrieved by listing muliple values and/or ranges.
+	In some other programming langauges, this feature is known as slicing.
 	The range operator '..' is available to specify a range.  The result will always be a literal.
 	
     "Examples 01:"::
@@ -949,6 +950,7 @@ B4PDOCU.START
     "Description 01:Parameter Sets - Extracting Subsets"::
 
 	Instead of specifying single index values to retrieve single elements, subsets can be retrieved by listing muliple values and/or ranges.
+	In some other programming langauges, this feature is known as slicing.
 	The range operator '..' is available to specify a range.  The result will always be returned in a parameter set, even if the subset
 	specified results in just one element.
 

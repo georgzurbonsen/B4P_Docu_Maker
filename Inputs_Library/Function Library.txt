@@ -18,7 +18,7 @@ B4PDOCU.START
 "Function Library" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Function library" ],
+    "Feature Names":		[ "Function Library" ],
     "Description 01:Introduction"::
 
 	B4P provides a large and comprehenisve library of different functions.
@@ -1068,7 +1068,7 @@ B4PDOCU.START
 "Formatting and Styling Tables":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Formatting and styling tables" ],
+    "Feature Names":		[ "Formatting and styling tables", "Styles" ],
     "Description 01:Introduction"::
 
 	B4P provides a generic set of functions for giving a final touch to your tables.  They include:
@@ -1104,7 +1104,7 @@ B4PDOCU.START
 	=== 50, 950, noheader, noframe_1stcolbold
 	1.	| <b>Finalize the table with all necessary contents.</b>  You may want to have some helper columns on the right hand side which you \
 		  can delete after adding formatting features, but the formatted table contents must not move in any direction because the formatting info will not move along with them.
-	2.	| A broad pallette of named colors is already available. Optionally, you can __define user-specific colors__ so you can reference them conveniently by color name and not by red-green-blue codes: <br>\
+	2.	| A broad pallette of named colors is already available. Optionally, you can define __user-specific colors__ so you can reference them conveniently by color name and not by red-green-blue codes: <br>\
 		  __add color(__): Add user-defined colors<br>\
 		  __lighten colors(__): Lighten the set of standard colors according to your specifications<br>\
 		  __darken colors(__): Darken the set of standard colors according to your specifications<br>\

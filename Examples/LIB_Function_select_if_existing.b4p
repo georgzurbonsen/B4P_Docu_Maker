@@ -1,0 +1,24 @@
+﻿#!/usr/local/bin/b4p
+  a[] = 123;
+  b[] = null(); // Void value
+
+  o0[] = select if existing           ( o[] ); // Variable does not exist, return void value
+  o1[] = select if existing           ( o[], "Alternative value 1" ); // Variable does not exist
+  a1[] = select if existing           ( a[], "Alternative value 2" ); // It exists
+  a2[] = select if existing and valid ( a[], "Alternative value 2" ); // It exists
+  b1[] = select if existing           ( b[], "Alternative value 3" ); // It exists
+  b2[] = select if existing and valid ( b[], "Alternative value 4" ); // but contains no valid value
+
+  echo("o0: ", o0[] );
+  echo("o1: ", o1[] );
+  echo("a1: ", a1[] );
+  echo("a2: ", a2[] );
+  echo("b1: ", b1[] );
+  echo("b2: ", b2[] );
+
+  // In the example below, o[] does not exist.  Since a[] is valid, the 2nd parameter will
+  // not be evaluated by the 'pick if ...' function, and therefore a possible error message telling
+  // that o[] is missing will not occur.  However, this does happen if you use 'select if ...'.
+
+  a3[] = pick if existing ( a[], o[] ); // Note: 2nd variable does not exist
+  echo("a3: ", a3[] );

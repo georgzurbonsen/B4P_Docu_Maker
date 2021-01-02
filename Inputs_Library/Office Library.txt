@@ -305,11 +305,15 @@ B4PDOCU.START
 		The following type conversions will be made unless forced to literal contents using <b>table style(..., type, literal)</b> on selected
 		table contents.
 		* 'true' and 'false' will be saved as Boolean values
-		* Dates (YYYY-MM-DD) times (hh:mm:ss) or combination of both (YYYY-MM-DD hh:mm:ss) will be saved as dates
-		* Text wrappen will be activated if contents contain line breaks
+		* Dates (YYYY-MM-DD) times (hh:mm:ss) or combination of both (YYYY-MM-DD hh:mm:ss) will be saved as dates.
+		** Dates and times in other formats (e.g. DD.MMM.YYYY, or YYYY-MM-DD hh:mm) will be treated as text.
+		** B4P date variables (regardless if with or without time included) written to tables will be written in the correct as specified above so the conversion takes place automatically.
+		* Text wrapping will be activated if contents contain line breaks so the whole text is visible
 		* All numbers will be saved as numeric data.
-		* Numbers containing scientific notation (e.g. 1E3 for 1000) will be saved using scientific notation format.
-			
+		** Numbers containing scientific notation (e.g. 1E3 for 1000) will be saved using scientific notation format.
+		** Other number formats like percentages: Save the numbers as they are (e.g. 0.15 for 15%), then apply __style__ functions such as __table style columns(__) with the attribute name <b>number format</b> \
+		   followed by the attribute value as understood by Excel, e.g. <b>"0.00%"</b>.
+	
 
 		+++,
 	"Call as":		"procedure",
@@ -357,13 +361,23 @@ B4PDOCU.START
 
 	],
 	"Examples"::
-		include( Support Library );
-		include( Office Library );
-		table load excel file( football, "Examples\Football Membership List.xlsx" );
-		table list( football );
+	include ( Office Library );
+	include ( Utility Library );
+	include ( Support Library );
+
+	table load( c, "Examples/Cities.csv" );
+
+	echo("Original table: ");	
+	table list ( c );
+
+	table save excel file( c, Cities, "Examples/Cities.xlsx" );
+	table load excel file( d, "Examples/Cities.xlsx" );
+
+	echo("Table save in Excel format and loaded again: ");	
+	table list ( d );
 		+++,
 	"Output": "automatic",
-	"See also": [ "table save load file", "table save" ]
+	"See also": [ "table load excel file", "table save" ]
 }
 
 

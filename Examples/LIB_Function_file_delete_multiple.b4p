@@ -8,3 +8,4 @@
       echo(file delete recursive all ( ".", "Test???.txt" ) ); // Returns 3
 
       directory delete( My Folder );
+
