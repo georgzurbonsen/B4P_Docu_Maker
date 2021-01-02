@@ -1,4 +1,5 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 GUI;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
 GUI;Examples;GUI_Features_Examples.html;General Description;Examples
 GUI;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
@@ -307,7 +308,6 @@ LAN;Wildcards;LAN_Features_wildcards.html;General Description;wildcards
 LAN;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
-MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 LIB;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
