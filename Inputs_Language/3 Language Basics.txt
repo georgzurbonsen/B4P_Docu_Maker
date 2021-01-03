@@ -52,7 +52,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		"Basic Language Structure",
-    "Keywords":			[ "Blocks", "statement", "B4P statements" ],
+    "Keywords":			[ "Blocks", "Statement", "Statements" ],
     "Description 01:Introduction"::
 
 	The B4P language is designed to solve problems with as few clearly understandable statements as possible.  The language consists of 
@@ -65,7 +65,7 @@ B4PDOCU.START
 	<b>Statements</b>	| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
 				  Multiple statements are separated with semiclons <b>;</b>										|
 	__Procedure calls__	| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );
-	__Assignments__		| A value or calculated __B4P expression__ is assigned to a variable or table entry								| a[] = 3 * 3;
+	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry								| a[] = 3 * 3;
 	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment								| a[]++;
 	__Transactions__	| Smart assignments among variables including their hierarchical member variables and table rows 					| b[] <== a[];
 	__Expressions__		| Values (constants), variables, table entries, functions called, or calculated combination of them using operators and parentheses	| a[] + 2*abs(b[])
@@ -1411,7 +1411,7 @@ B4PDOCU.START
 	<b>high</b>: in addition to 'medium':
 
 	* In addition to the function names printed out, all parameters provided will also be shown.
-	* Further information on intermediate processing steps inside selected functions, e.g. __table merge (__)
+	* Further information on intermediate processing steps inside selected functions, e.g. __table merge(__)
 
 	+++
 },

@@ -81,19 +81,19 @@ Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
 					  <b>for all</b> is not an existing keyword, but various keywords begin with 'for all' which will be listed.<br>\
 					  <b>*abc*</b> looks up all keywords containing 'abc'.<br>\
 					  For more info, see detailed description of __docs search(__).
-	function list<br>\
-	function list( 'max*' )		| List all function names, but without descriptions.<br>\
+	list functions<br>\
+	list functions( 'max*' )		| List all function names, but without descriptions.<br>\
 					  <b>max*</b> limits the list to all functions beginning with 'max'.<br>\
-					  For more info, see detailed description of __function list(__).
-	function explain<br>\
-	function explain( 'max*' )<br> \
-	function explain( max )		| Explains all paraters required for listed functions (Very long output generated!).<br>\
+					  For more info, see detailed description of __list functions(__).
+	explain functions<br>\
+	explain functions( 'max*' )<br> \
+	explain functions( max )		| Explains all paraters required for listed functions (Very long output generated!).<br>\
 					  <b>max*</b> limits the explainations to all functions beginning with 'max'.<br>\
 					  <b>max</b> explains the parameters for function __max(__) only.<br>\
-					  <br>For more info, see detailed description of __function explain(__).
-	function dump( table name )	| Dumps all available functions and their descriptions into a B4P table.  <br>\
+					  <br>For more info, see detailed description of __explain functions(__).
+	dump functions( table name )	| Dumps all available functions and their descriptions into a B4P table.  <br>\
 					  As a next step, type 'table save( table name, file name.csv )' or 'view ( table name, excel )' to view the table.<br>\
-					  <br>For more info, see detailed description of __function dump(__).
+					  <br>For more info, see detailed description of __dump functions(__).
 	===
 	+++
 },

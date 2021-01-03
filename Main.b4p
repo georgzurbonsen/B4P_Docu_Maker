@@ -1,4 +1,15 @@
 
 
-	function dump( x );
-	table save excel file ( x, Functions, "C:\Users\Zur Bonsen Georg\Documents\Programme\Beyond4P\B4P_Docu_Maker\Functions.xlsx" );
+	table initialize ( table, {{ Last Name, First Name}, 120:{ Mack, Nick }} );
+
+	table save excel file( table, Table, Test.xlsx );
+
+	table save excel file( table, Table, Test.xlsx );
+
+	table save excel file( table, Table, Test.xlsx );
+
+	table save excel file( table, Table, Test.xlsx );
+
+	table save excel file( table, Table, Test.xlsx );
+
+	table save excel file( table, Table, Test.xlsx );

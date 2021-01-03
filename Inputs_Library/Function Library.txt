@@ -1306,7 +1306,7 @@ B4PDOCU.START
 "Directory and File System Functions":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "directory and file system functions" ],
+    "Feature Names":		[ "directory and file system functions", "Short error messages on directories and files" ],
     "Description 01:Introduction"::
 
 	This subsection describes various functions to access and process files and directories.  Following key features 
@@ -1343,7 +1343,7 @@ B4PDOCU.START
     "Description 03:Exception Handling"::
 
 	Various procedures and functions contain <b>... silently</b> as ending part of their names.  This suffix
-	lets B4P to issue return values which are either "OK" or contain a short error message.  Without the
+	lets B4P to issue return values which are either "OK" or contain <b>short error messages on directoies and files</b>.  Without the
 	suffix, an exception happens, program execution will stop and enters __interactive mode__.
 
 	=== 250, 250, 500

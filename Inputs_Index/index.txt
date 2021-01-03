@@ -103,10 +103,6 @@ Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __average ignore zero if__, __average ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 "Description 03:B"::
-__B4P expression__, __B4P expressions__<br>
-Language Guide: 6 Assignments and Expressions<br><br>
-__B4P statements__<br>
-Language Guide: 3.1 Basic Language Structure<br><br>
 __background color__<br>
 Function Library Guide: 3.2.3 text / background color<br><br>
 __base variable__, __base variables__<br>
@@ -480,7 +476,7 @@ __exponential functions__<br>
 Function Library Guide: 5.2.3 Exponential Functions<br><br>
 __exponential regression__<br>
 Function Library Guide: 5.5.4 Linear and Exponential Regression<br><br>
-__expressions__<br>
+__expression__, __expressions__<br>
 Language Guide: 6 Assignments and Expressions<br><br>
 __Expressions to select columns__<br>
 Language Guide: 8.4.5 Expressions to Select Columns<br><br>
@@ -601,16 +597,10 @@ __Formatting the Tables__<br>
 Function Library Guide: 9.9.2 Styling Functions<br><br>
 __Function call__, __Function calls__<br>
 Language Guide: 8 Functions and Procedures<br><br>
-__function dump__<br>
-Function Library Guide: 13.7 function dump<br><br>
 __function existing__<br>
 Function Library Guide: 2.3.5 function / user function existing<br><br>
-__function explain__<br>
-Function Library Guide: 13.6 function list / explain<br><br>
 __Function Library__<br>
 Function Library Guide: 1 Function Library<br><br>
-__function list__<br>
-Function Library Guide: 13.6 function list / explain<br><br>
 __Function Naming__<br>
 Language Guide: 8.1 Function Naming<br><br>
 __Function parameter__<br>
@@ -1372,6 +1362,8 @@ __set names__<br>
 Function Library Guide: 10.2.8 set, set names<br><br>
 __shifted table column specification__, __shifted table column specifications__<br>
 Language Guide: 5.1.7 Shifted Table Column Specifications<br><br>
+__Short error messages on directories and files__<br>
+Function Library Guide: 11 Directory and File System Functions<br><br>
 __simple references to variables__<br>
 Language Guide: 4.4.1 Simple References<br><br>
 __simple table access__<br>
@@ -1420,7 +1412,7 @@ __Starting Behavior__<br>
 Language Guide: 2.3 Starting Behavior<br><br>
 __starting directory__<br>
 Function Library Guide: 11.1.4 starting directory<br><br>
-__statement__<br>
+__Statement__, __Statements__<br>
 Language Guide: 3.1 Basic Language Structure<br><br>
 __Statements [func params]__<br>
 Language Guide: 8.4.3.4 Statements (func. params)<br><br>

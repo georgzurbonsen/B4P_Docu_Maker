@@ -1,0 +1,17 @@
+﻿#!/usr/local/bin/b4p
+    define procedure( mode, {{ meaningful text, literal }} )
+    {
+        echo("Test");
+    }
+
+    dump functions( table );
+
+    // table save( table, "All functions.csv" ); // Advisable for you to use.
+
+    table keep selected rows( table, [Function Name]='mo*' );
+    table transpose ( table ); // fits better in the output (wide table)
+    table list( table );
+
+    // The bottom paramters are blank because they are not listed on the
+    // same row as the function name.
+

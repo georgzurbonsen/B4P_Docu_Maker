@@ -7,7 +7,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "assignments" ],
-    "Keywords":			[ "assignment", "expressions", "B4P expression", "B4P expressions" ],
+    "Keywords":			[ "assignment", "expression", "expressions" ],
     "Description 01:Assignments"::
 
 	Assignments are one of the key building blocks in B4P and most other programming languages where a value is written (i.e. assigned) 
