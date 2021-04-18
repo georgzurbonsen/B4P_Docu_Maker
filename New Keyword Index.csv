@@ -1,4 +1,9 @@
 ﻿Abbreviation;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+MAS;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
+MAS;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
+MAS;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
+MAS;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
+MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 LIB;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
@@ -173,7 +178,7 @@ LIB;Console Special Effects;LIB_Features_Console_special_effects.html;General De
 LIB;Consolidation Actions;LIB_Features_consolidation_actions.html;General Description;consolidation actions
 LIB;Control Flow Functions;LIB_Features_Control_flow_functions.html;General Description;Control flow functions
 LIB;Control Flow Functions for Tables;LIB_Features_Control_Flow_Functions_for_Tables.html;General Description;Control Flow Functions for Tables
-LIB;Copying, Renaming and Splitting Tables;LIB_Features_Copying__renaming_and_spitting_tables.html;General Description;Copying, renaming and spitting tables
+LIB;Copying, Renaming and Splitting Tables;LIB_Features_Copying_and_renaming_and_spitting_tables.html;General Description;Copying and renaming and spitting tables
 LIB;Creating and Building up Tables;LIB_Features_Creating_tables_and_building_up_tables.html;General Description;Creating tables and building up tables
 LIB;Creating, Writing, Reading, Deleting;LIB_Features_Create___read___write___delete_tables.html;General Description;Create / read / write / delete tables
 LIB;Cross-Functional Info;LIB_Features_Cross-functional_info.html;General Description;Cross-functional info
@@ -204,6 +209,7 @@ LIB;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.htm
 LIB;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
 LIB;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Styles
 LIB;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
+LIB;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
 LIB;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Values
@@ -297,7 +303,6 @@ LIB;Table Comparison Strategy;LIB_Features_Table_comparison_strategy.html;Genera
 LIB;Table Functions;LIB_Features_table_functions.html;General Description;table functions
 LIB;Table Integration Operation Identifiers;LIB_Features_Table_integration_operation_identifiers.html;General Description;Table integration operation identifiers
 LIB;Table of Contents;LIB_Features_Table_of_Contents.html;General Description;Table of Contents
-LIB;Table of Contents;LIB_Features_Table_of_Contents.html;General Description;;Reference Manual
 LIB;Text Input / Output;LIB_Features_text_input_output.html;General Description;text input/output
 LIB;Time and Stopwatch Functions;LIB_Features_time_and_stopwatch_functions.html;General Description;time and stopwatch functions
 LIB;Time and Stopwatch Functions;LIB_Features_time_and_stopwatch_functions.html;General Description;;time functions
@@ -382,6 +387,7 @@ LIB;compare select / pick;LIB_Function_compare_select.html;Function Description;
 LIB;compare select / pick;LIB_Function_compare_select.html;Function Description;compare pick
 LIB;compose ...;LIB_Function_compose.html;Function Description;compose
 LIB;compose ...;LIB_Function_compose.html;Function Description;compose line
+LIB;copy;LIB_Function_copy.html;Function Description;copy
 LIB;count Functions;LIB_Function_count.html;Function Description;count
 LIB;count Functions;LIB_Function_count.html;Function Description;count ignore zero
 LIB;count Functions;LIB_Function_count.html;Function Description;count ignore blanks
@@ -399,6 +405,7 @@ LIB;covariance, correlation;LIB_Function_covariance.html;Function Description;;c
 LIB;cursor;LIB_Function_cursor.html;Function Description;cursor
 LIB;cursor;LIB_Function_cursor.html;Function Description;;cursor position
 LIB;cursor;LIB_Function_cursor.html;Function Description;;move cursor
+LIB;darken color;LIB_Function_darken_color.html;Function Description;darken color
 LIB;darken colors;LIB_Function_darken_colors.html;Function Description;darken colors
 LIB;date inside, time inside;LIB_Function_date_inside.html;Function Description;date inside
 LIB;date inside, time inside;LIB_Function_date_inside.html;Function Description;time inside
@@ -423,6 +430,7 @@ LIB;delete ...;LIB_Function_delete.html;Function Description;delete
 LIB;delete ...;LIB_Function_delete.html;Function Description;delete members
 LIB;delete user function;LIB_Function_delete_user_function.html;Function Description;delete user function
 LIB;delete user function;LIB_Function_delete_user_function.html;Function Description;;delete user function
+LIB;describe;LIB_Function_describe.html;Function Description;describe
 LIB;diagonal;LIB_Function_diagonal.html;Function Description;diagonal
 LIB;diagonal;LIB_Function_diagonal.html;Function Description;;diagonal
 LIB;dim / redim;LIB_Function_dim.html;Function Description;dim
@@ -571,10 +579,17 @@ LIB;for all variables;LIB_Function_for_all_variables.html;Function Description;f
 LIB;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing and valid
 LIB;for all variables;LIB_Function_for_all_variables.html;Function Description;;for-loop through variables
 LIB;forget memorized table columns;LIB_Function_forget_memorized_table_columns.html;Function Description;forget memorized table columns
+LIB;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;fq
+LIB;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;financial quarter
+LIB;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fiscal quarter
 LIB;function / user function existing;LIB_Function_function_existing.html;Function Description;function existing
 LIB;function / user function existing;LIB_Function_function_existing.html;Function Description;user function existing
 LIB;function / user function existing;LIB_Function_function_existing.html;Function Description;;function existing
+LIB;fy - Fiscal Year;LIB_Function_fy.html;Function Description;fy
+LIB;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;financial year
+LIB;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;fiscal year
 LIB;get differences;LIB_Function_get_differences.html;Function Description;get differences
+LIB;get long options;LIB_Function_get_long_options.html;Function Description;get long options
 LIB;getch ...;LIB_Function_getch.html;Function Description;getch
 LIB;getch ...;LIB_Function_getch.html;Function Description;getch ignore case
 LIB;gini Coefficient Functions;LIB_Function_gini.html;Function Description;gini
@@ -583,11 +598,11 @@ LIB;gini Coefficient Functions;LIB_Function_gini.html;Function Description;gini 
 LIB;gini Coefficient Functions;LIB_Function_gini.html;Function Description;;gini coefficient
 LIB;gini Coefficient Functions;LIB_Function_gini.html;Function Description;;income disparity
 LIB;global;LIB_Function_global.html;Function Description;global
-LIB;global;LIB_Function_global.html;Function Description;;one-time execution
 LIB;global / script privileges;LIB_Function_global_privileges.html;Function Description;global privileges
 LIB;global / script privileges;LIB_Function_global_privileges.html;Function Description;script privileges
 LIB;hash signature;LIB_Function_hash_signature.html;Function Description;hash signature
 LIB;help;LIB_Function_help.html;Function Description;help
+LIB;hex to decimal;LIB_Function_hex_to_decimal.html;Function Description;hex to decimal
 LIB;horizontal;LIB_Function_horizontal.html;Function Description;horizontal
 LIB;horizontal;LIB_Function_horizontal.html;Function Description;;horizontal
 LIB;hour, minute, second;LIB_Function_hour.html;Function Description;hour
@@ -639,6 +654,7 @@ LIB;length ... (string function);LIB_Function_length.html;Function Description;l
 LIB;length ... (string function);LIB_Function_length.html;Function Description;;length [string function]
 LIB;license apply key;LIB_Function_license_apply_key.html;Function Description;license apply key
 LIB;license provide identification;LIB_Function_license_provide_identification.html;Function Description;license provide identification
+LIB;lighten color;LIB_Function_lighten_color.html;Function Description;lighten color
 LIB;lighten colors;LIB_Function_lighten_colors.html;Function Description;lighten colors
 LIB;linear - Solve Linear Equations;LIB_Function_linear.html;Function Description;linear
 LIB;linear - Solve Linear Equations;LIB_Function_linear.html;Function Description;;linear equation
@@ -655,6 +671,7 @@ LIB;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Functi
 LIB;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;;literal conversion
 LIB;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;;formatting template
 LIB;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;;literal conversion functions
+LIB;local;LIB_Function_local.html;Function Description;local
 LIB;locate differences;LIB_Function_locate_differences.html;Function Description;locate differences
 LIB;mdet - Matrix Determinant;LIB_Function_mdet.html;Function Description;mdet
 LIB;mdet - Matrix Determinant;LIB_Function_mdet.html;Function Description;;matrix determinant
@@ -732,15 +749,17 @@ LIB;pow - Power Function;LIB_Function_pow.html;Function Description;;power funct
 LIB;prompt;LIB_Function_prompt.html;Function Description;prompt
 LIB;protect ...;LIB_Function_protect.html;Function Description;protect
 LIB;protect ...;LIB_Function_protect.html;Function Description;protect recursive
+LIB;quantile ...;LIB_Function_quantile.html;Function Description;quantile
+LIB;quantile ...;LIB_Function_quantile.html;Function Description;quantile ignore zero
 LIB;quote path;LIB_Function_quote_path.html;Function Description;quote path
 LIB;random - Random Integers;LIB_Function_random.html;Function Description;random
-LIB;random - Random Integers;LIB_Function_random.html;Function Description;;random
 LIB;random string, random letters;LIB_Function_random_string.html;Function Description;random string
 LIB;random string, random letters;LIB_Function_random_string.html;Function Description;random letters
 LIB;read access ..., write access ...;LIB_Function_read_access.html;Function Description;read access
 LIB;read access ..., write access ...;LIB_Function_read_access.html;Function Description;read access repeat if locked
 LIB;read access ..., write access ...;LIB_Function_read_access.html;Function Description;write access
 LIB;read access ..., write access ...;LIB_Function_read_access.html;Function Description;write access repeat if locked
+LIB;regional;LIB_Function_regional.html;Function Description;regional
 LIB;release;LIB_Function_release.html;Function Description;release
 LIB;release all;LIB_Function_release_all.html;Function Description;release all
 LIB;replace, replace all;LIB_Function_replace.html;Function Description;replace
@@ -750,6 +769,7 @@ LIB;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Functio
 LIB;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;resolve directory name
 LIB;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;resolve file name
 LIB;return;LIB_Function_return.html;Function Description;return
+LIB;rgb;LIB_Function_rgb.html;Function Description;rgb
 LIB;right ... (parameter set function);LIB_Function_right_.html;Function Description;right 
 LIB;right ... (parameter set function);LIB_Function_right_.html;Function Description;right include 
 LIB;right ... (parameter set function);LIB_Function_right_.html;Function Description;right last match 
@@ -871,6 +891,10 @@ LIB;table delete remaining columns;LIB_Function_table_delete_remaining_columns.h
 LIB;table delete remaining rows;LIB_Function_table_delete_remaining_rows.html;Function Description;table delete remaining rows
 LIB;table delete rows;LIB_Function_table_delete_rows.html;Function Description;table delete rows
 LIB;table delete selected rows;LIB_Function_table_delete_selected_rows.html;Function Description;table delete selected rows
+LIB;table describe ...;LIB_Function_table_describe.html;Function Description;table describe
+LIB;table describe ...;LIB_Function_table_describe.html;Function Description;table describe ignore case
+LIB;table describe ...;LIB_Function_table_describe.html;Function Description;table describe selected rows
+LIB;table describe ...;LIB_Function_table_describe.html;Function Description;table describe selected rows ignore case
 LIB;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute
 LIB;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute advance
 LIB;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute accumulate
@@ -952,7 +976,8 @@ LIB;table lookup smart ...;LIB_Function_table_lookup_smart.html;Function Descrip
 LIB;table lookup smart ...;LIB_Function_table_lookup_smart.html;Function Description;table lookup smart ignore case
 LIB;table lookup smart once ...;LIB_Function_table_lookup_smart_once.html;Function Description;table lookup smart once
 LIB;table lookup smart once ...;LIB_Function_table_lookup_smart_once.html;Function Description;table lookup smart once ignore case
-LIB;table manipulate;LIB_Function_table_manipulate.html;Function Description;table manipulate
+LIB;table manipulate (selected rows);LIB_Function_table_manipulate.html;Function Description;table manipulate
+LIB;table manipulate (selected rows);LIB_Function_table_manipulate.html;Function Description;table manipulate selected rows
 LIB;table menu ...;LIB_Function_table_menu.html;Function Description;table menu
 LIB;table menu ...;LIB_Function_table_menu.html;Function Description;table menu quick
 LIB;table merge ...;LIB_Function_table_merge.html;Function Description;table merge
@@ -971,9 +996,11 @@ LIB;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Descript
 LIB;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay intersect columns
 LIB;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay columns
 LIB;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay exclusive columns
-LIB;table process (selected rows);LIB_Function_table_process.html;Function Description;table process
-LIB;table process (selected rows);LIB_Function_table_process.html;Function Description;table process rows
-LIB;table process (selected rows);LIB_Function_table_process.html;Function Description;table process selected rows
+LIB;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process
+LIB;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process rows
+LIB;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process all rows
+LIB;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process selected rows
+LIB;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process all selected rows
 LIB;table process (selected) columns;LIB_Function_table_process_columns.html;Function Description;table process columns
 LIB;table process (selected) columns;LIB_Function_table_process_columns.html;Function Description;table process selected columns
 LIB;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;table process cells
@@ -1007,6 +1034,7 @@ LIB;table selected columns/headers ...;LIB_Function_table_selected_columns.html;
 LIB;table selected columns/headers ...;LIB_Function_table_selected_columns.html;Function Description;table selected column numbers
 LIB;table selected columns/headers ...;LIB_Function_table_selected_columns.html;Function Description;table selected headers
 LIB;table selected rows;LIB_Function_table_selected_rows.html;Function Description;table selected rows
+LIB;table selected rows;LIB_Function_table_selected_rows.html;Function Description;table all selected rows
 LIB;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize
 LIB;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize all
 LIB;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize ignore zero
@@ -1018,11 +1046,13 @@ LIB;table spread ...;LIB_Function_table_spread.html;Function Description;table s
 LIB;table spread ...;LIB_Function_table_spread.html;Function Description;table spread accumulating
 LIB;table spread given headers ...;LIB_Function_table_spread_given_headers.html;Function Description;table spread given headers
 LIB;table spread given headers ...;LIB_Function_table_spread_given_headers.html;Function Description;table spread given headers accumulating
+LIB;table style auto width;LIB_Function_table_style_auto_width.html;Function Description;table style auto width
 LIB;table style cells;LIB_Function_table_style_cells.html;Function Description;table style cells
 LIB;table style columns;LIB_Function_table_style_columns.html;Function Description;table style columns
 LIB;table style reset;LIB_Function_table_style_reset.html;Function Description;table style reset
 LIB;table style rows;LIB_Function_table_style_rows.html;Function Description;table style rows
 LIB;table style table;LIB_Function_table_style_table.html;Function Description;table style table
+LIB;table style themes (beta);LIB_Function_table_style_themes.html;Function Description;table style themes
 LIB;table substitute horizontally ...;LIB_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally
 LIB;table substitute horizontally ...;LIB_Function_table_substitute_horizontally.html;Function Description;table substitute horizontally selected rows
 LIB;table substitute vertically ...;LIB_Function_table_substitute_vertically.html;Function Description;table substitute vertically
@@ -1062,7 +1092,7 @@ LIB;trim ... (string function);LIB_Function_trim.html;Function Description;;trim
 LIB;tv - Terminal Value;LIB_Function_tv.html;Function Description;tv
 LIB;tv - Terminal Value;LIB_Function_tv.html;Function Description;;tv
 LIB;type, type detailed;LIB_Function_type.html;Function Description;type
-LIB;type, type detailed;LIB_Function_type.html;Function Description;typd detailed
+LIB;type, type detailed;LIB_Function_type.html;Function Description;type detailed
 LIB;type, type detailed;LIB_Function_type.html;Function Description;;Identify variable types
 LIB;variable load ...;LIB_Function_variable_load.html;Function Description;variable load
 LIB;variable save ...;LIB_Function_variable_save.html;Function Description;variable save
@@ -1075,6 +1105,7 @@ LIB;wait until, wait until countdown;LIB_Function_wait_until.html;Function Descr
 LIB;wait until, wait until countdown;LIB_Function_wait_until.html;Function Description;wait until countdown
 LIB;wait, wait countdown;LIB_Function_wait.html;Function Description;wait
 LIB;wait, wait countdown;LIB_Function_wait.html;Function Description;wait countdown
+LIB;weaken color;LIB_Function_weaken_color.html;Function Description;weaken color
 LIB;weaken colors;LIB_Function_weaken_colors.html;Function Description;weaken colors
 LIB;week;LIB_Function_week.html;Function Description;week
 LIB;weekday;LIB_Function_weekday.html;Function Description;weekday
@@ -1082,6 +1113,7 @@ LIB;weekday;LIB_Function_weekday.html;Function Description;;weekday from date
 LIB;while, until;LIB_Function_while.html;Function Description;while
 LIB;while, until;LIB_Function_while.html;Function Description;until
 LIB;while, until;LIB_Function_while.html;Function Description;;Loops
+LIB;width;LIB_Function_width.html;Function Description;width
 LIB;with table;LIB_Function_with_table.html;Function Description;with table
 LIB;working directory;LIB_Function_working_directory.html;Function Description;working directory
 LIB;year, quarter, month, day;LIB_Function_year.html;Function Description;year
@@ -1089,6 +1121,7 @@ LIB;year, quarter, month, day;LIB_Function_year.html;Function Description;quarte
 LIB;year, quarter, month, day;LIB_Function_year.html;Function Description;month
 LIB;year, quarter, month, day;LIB_Function_year.html;Function Description;day
 LIB;year, quarter, month, day;LIB_Function_year.html;Function Description;;Date info functions
+LIB;zebra;LIB_Function_zebra.html;Function Description;zebra
 LIB;zip compress;LIB_Function_zip_compress.html;Function Description;zip compress
 LIB;zip extract all;LIB_Function_zip_extract_all.html;Function Description;zip extract all
 LIB;zip extract files;LIB_Function_zip_extract_files.html;Function Description;zip extract files
@@ -1149,7 +1182,9 @@ LAN;Code Pieces (Func. Param. Type);LAN_Features_Code_Piece.html;General Descrip
 LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;Command line switches
 LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Command line switch
 LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Command line options
-LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;switches
+LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Short command line options
+LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Short options
+LAN;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Switches
 LAN;Comments;LAN_Features_comments.html;General Description;comments
 LAN;Comments;LAN_Features_comments.html;General Description;;markdown
 LAN;Comments;LAN_Features_comments.html;General Description;;github markdown
@@ -1199,7 +1234,7 @@ LAN;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General 
 LAN;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function calls
 LAN;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure call
 LAN;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure calls
-LAN;Global Variables;LAN_Features_global_variables.html;General Description;global variables
+LAN;Global Variables;LAN_Features_Global_variables.html;General Description;Global variables
 LAN;Greater than (or Equal to);LAN_Features_greater_than_or_equal_to.html;General Description;greater than or equal to
 LAN;Greater than (or Equal to);LAN_Features_greater_than_or_equal_to.html;General Description;;greater than
 LAN;Header Name Exception Handling;LAN_Features_header_name_exception_handling.html;General Description;header name exception handling
@@ -1210,14 +1245,20 @@ LAN;Horizontal Table Access w. Param. Sets;LAN_Features_Horizontal_table_access_
 LAN;Horizontal Table Access w. Ranges;LAN_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
 LAN;Horizontal Table Access w. Wildcards;LAN_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
 LAN;Index;LAN_Features_Index.html;General Description;Index
+LAN;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;data types parameter sets indexing
+LAN;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;parameter set indexing
+LAN;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;length of parameter sets
+LAN;Indexing Strings;LAN_Features_literals_indexing.html;General Description;literals indexing
+LAN;Indexing Strings;LAN_Features_literals_indexing.html;General Description;;literals indexing
+LAN;Indexing Strings;LAN_Features_literals_indexing.html;General Description;;length of literals
 LAN;Indirect Parameter Passing;LAN_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
 LAN;Inspecting Tables Interactively;LAN_Features_Inspect_Tables.html;General Description;Inspect Tables
 LAN;Inspecting Variables Interactively;LAN_Features_Inspect_Variables.html;General Description;Inspect Variables
 LAN;Installing and Starting Up;LAN_Features_Installting_and_starting_up.html;General Description;Installting and starting up
 LAN;Interactive Help;LAN_Features_Interactive_help.html;General Description;Interactive help
 LAN;Interactive Mode;LAN_Features_interactive_mode.html;General Description;interactive mode
-LAN;Introduction;LAN_Features_Introduction.html;General Description;Introduction
 LAN;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
+LAN;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
 LAN;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Language pitfalls
 LAN;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijacking parameters
 LAN;Licensing;LAN_Features_licensing.html;General Description;licensing
@@ -1228,25 +1269,24 @@ LAN;Literal Constants;LAN_Features_Literal_Constants.html;General Description;Li
 LAN;Literals;LAN_Features_data_types_literals.html;General Description;data types literals
 LAN;Literals;LAN_Features_data_types_literals.html;General Description;;literal
 LAN;Literals;LAN_Features_data_types_literals.html;General Description;;literals
-LAN;Literals - Extracting Substrings;LAN_Features_Extracting_substrings.html;General Description;Extracting substrings
-LAN;Literals - Extracting Substrings;LAN_Features_Extracting_substrings.html;General Description;;Slicing strings
-LAN;Literals - Indexing;LAN_Features_literals_indexing.html;General Description;literals indexing
-LAN;Literals - Indexing;LAN_Features_literals_indexing.html;General Description;;literals indexing
-LAN;Literals - Indexing;LAN_Features_literals_indexing.html;General Description;;length of literals
 LAN;Loading Files - Character sets;LAN_Features_loading_files.html;General Description;loading files
-LAN;Local Variables;LAN_Features_local_variables.html;General Description;local variables
+LAN;Local Variables;LAN_Features_Local_variables.html;General Description;Local variables
 LAN;Locales;LAN_Features_Locales.html;General Description;Locales
 LAN;Locales;LAN_Features_Locales.html;General Description;;list of Locales
 LAN;Locales;LAN_Features_Locales.html;General Description;;locale
 LAN;Logical And;LAN_Features_logical_and.html;General Description;logical and
 LAN;Logical Operators;LAN_Features_logical_operators.html;General Description;logical operators
 LAN;Logical Or;LAN_Features_logical_or.html;General Description;logical or
+LAN;Long Options;LAN_Features_Long_Options.html;General Description;Long Options
+LAN;Long Options;LAN_Features_Long_Options.html;General Description;;Long command line options
 LAN;Lookup Access Exception Handling;LAN_Features_lookup_access_exception_handling.html;General Description;lookup access exception handling
 LAN;Matrix Operations Summary;LAN_Features_matrix_operations_summary.html;General Description;matrix operations summary
 LAN;Matrix Operations Summary;LAN_Features_matrix_operations_summary.html;General Description;;matrix mathematics
 LAN;Matrix Table Access;LAN_Features_matrix_table_access.html;General Description;matrix table access
 LAN;Matrix Table Access;LAN_Features_matrix_table_access.html;General Description;;matrix table accesses
 LAN;Miscellaneous Features;LAN_Features_Miscellaneous_Features.html;General Description;Miscellaneous Features
+LAN;Multiline Literals;LAN_Features_Multiline_literals.html;General Description;Multiline literals
+LAN;Multiline Literals;LAN_Features_Multiline_literals.html;General Description;;Multiline strings
 LAN;Multiplications;LAN_Features_multiplication.html;General Description;multiplication
 LAN;Negative Indexing;LAN_Features_negative_indexing.html;General Description;negative indexing
 LAN;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;nested partial table specification
@@ -1266,11 +1306,6 @@ LAN;Parameter Sets Specifying Members;LAN_Features_specifying_members_with_param
 LAN;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;data types parameter sets
 LAN;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter set
 LAN;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter sets
-LAN;Parameter sets - Extracting Subsets;LAN_Features_Extracting_Subsets.html;General Description;Extracting Subsets
-LAN;Parameter sets - Extracting Subsets;LAN_Features_Extracting_Subsets.html;General Description;;Slicing parameter sets
-LAN;Parameter sets - Indexing;LAN_Features_data_types_parameter_sets_indexing.html;General Description;data types parameter sets indexing
-LAN;Parameter sets - Indexing;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;parameter set indexing
-LAN;Parameter sets - Indexing;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;length of parameter sets
 LAN;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;data types parameter sets value ranges
 LAN;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;;parameter set value ranges
 LAN;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;data types parameter sets value repetitions
@@ -1298,6 +1333,7 @@ LAN;References to Variables;LAN_Features_references_to_variables.html;General De
 LAN;References to Variables;LAN_Features_references_to_variables.html;General Description;variable reference
 LAN;References to Variables;LAN_Features_references_to_variables.html;General Description;reference
 LAN;References to Variables;LAN_Features_references_to_variables.html;General Description;references
+LAN;Regional Variables;LAN_Features_Regional_variables.html;General Description;Regional variables
 LAN;Releasing References;LAN_Features_Releasing_references.html;General Description;Releasing references
 LAN;Reserved Keywords;LAN_Features_reserved_keywords.html;General Description;reserved keywords
 LAN;Reserved Keywords;LAN_Features_reserved_keywords.html;General Description;;reserved keyword
@@ -1310,6 +1346,8 @@ LAN;Simple Table Access;LAN_Features_simple_table_access.html;General Descriptio
 LAN;Simple Variables;LAN_Features_simple_variables.html;General Description;simple variables
 LAN;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variables
 LAN;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variable
+LAN;Slicing Parameter Sets;LAN_Features_Extracting_Subsets.html;General Description;Extracting Subsets
+LAN;Slicing Strings;LAN_Features_Extracting_substrings.html;General Description;Extracting substrings
 LAN;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;smaller than or equal to
 LAN;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;;smaller than
 LAN;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Softquoted Literals
@@ -1331,7 +1369,6 @@ LAN;System Variables;LAN_Features_system_variables.html;General Description;;sys
 LAN;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;Table columns
 LAN;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;;table columns as function parameters
 LAN;Table of Contents;LAN_Features_Table_of_Contents.html;General Description;Table of Contents
-LAN;Table of Contents;LAN_Features_Table_of_Contents.html;General Description;;Reference Manual
 LAN;Tables;LAN_Features_tables.html;General Description;tables
 LAN;The Language;LAN_Features_The_Language.html;General Description;The Language
 LAN;Through-Referencing;LAN_Features_through-referencing.html;General Description;through-referencing
@@ -1350,9 +1387,9 @@ LAN;Variable Attributes;LAN_Features_Variable_attributes.html;General Descriptio
 LAN;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;Variable forms
 LAN;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;base variable
 LAN;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;base variables
-LAN;Variable Scopes;LAN_Features_variable_scopes.html;General Description;variable scopes
-LAN;Variables;LAN_Features_variable.html;General Description;variable
-LAN;Variables;LAN_Features_variable.html;General Description;variables
+LAN;Variable Scopes;LAN_Features_Variable_scopes.html;General Description;Variable scopes
+LAN;Variables;LAN_Features_Variable.html;General Description;Variable
+LAN;Variables;LAN_Features_Variable.html;General Description;Variables
 LAN;Variables (func. params);LAN_Features_Variables_[func_params].html;General Description;Variables [func params]
 LAN;Verbose Levels;LAN_Features_verbose.html;General Description;verbose
 LAN;Verbose Levels;LAN_Features_verbose.html;General Description;;verbose levels
@@ -1380,23 +1417,24 @@ GUI;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
 GUI;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
 GUI;Licensing;GUI_Features_Licensing.html;General Description;Licensing
 GUI;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
 GUI;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
 GUI;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
 GUI;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
 GUI;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
+GUI;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
 GUI;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
 GUI;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
 GUI;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
 GUI;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
-GUI;Overview;GUI_Features_overview.html;General Description;overview
 GUI;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
 GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;;User Guide
 GUI;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
 GUI;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
 GUI;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
 GUI;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
 GUI;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
 GUI;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
 GUI;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
-MAS;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents

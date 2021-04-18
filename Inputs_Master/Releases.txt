@@ -1,0 +1,171 @@
+//
+B4PDOCU.START
+
+
+"Recent Releases" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Recent Releases" ],
+
+    "Description 01:Overview"::
+	The roots of B4P date back to 2007 when the first C/C++ object class library has been developed to process
+	tables, but the solutions were still coded in C/C++.  The first version of the B4P language appeared in 2013,
+	following a series of improvments and extensions aiming to solve any form of business and analytical problems
+	involving big data.
+
+	<br><br>
+	The updates made in the most recent releases are summarized in the following subsections.
+	+++
+
+},
+
+
+
+"Rel. 8.00" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 8.00" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 8.00, issued 2021-01-05, "Friedrich Dürrenmatt"</b><br>
+	<i>Commemorating the 100th anniversary of a famous author, dramatist and actor.</i>
+
+	<br><br>
+
+	Version 8.00 is a thorough overhaul of the B4P software with following major improvements:
+
+	* The documentation has been shifted from PDF to on-line contents, containing lots of examples
+	* Thorough clean-up and testing has been undergone in order to improve reliability even further
+	* B4P fully supports modern Excel format (.xlsx), both loading and saving, including adding colors, formatting and style.
+	* Some new powerful B4P functions have been added to facilitate data processing
+
+	+++
+
+},
+
+
+"Rel. 8.01" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 8.01" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 8.01, issued 2021-02-21, "Plankalkül"</b><br>
+	<i>Plankalkül (translated: planned calculation) is the oldest known high level language, introduced by Konrad Zuse in the 1940's.</i>
+
+    "Description 02:Bugfixes"::
+
+	* __exception(__) call with the function parameter <i>up in code hierarchy</i> greater than zero was showing the wrong context of local variables in __interactive mode__ invoked \
+	  subsequently, instead of the local variables as indicated by that function parameter.
+	* __table load excel file(__) tolerated lower-case filetypes (.xlsx, .xlsm), but not upper-case (.XLSX, .XLSM).  Now both lower- and upper-case letters are accepted.
+	* B4P refused saving additional Excel files if the 1st excel file was saved without stylings applied. Resolved.
+	* __table save excel file(__): Sheet names containing '<', '>' or '&' have been rejected by Excel. Resolved.
+	* __table save excel file(__) and table save(__): Error message will be raised if 2 equally-named sheets are saved in one workbook file.  Resolved.
+	* __table load excel file(__): Some excel files contain fields with multi-line contents where a sole carriage return character (without following line feed or just line feed)\
+	  marks the begin of the next line.  These variants of line breaks were ignored before and this has been resolved.
+
+    "Description 03:New Functions"::
+
+	* __width(__) identifies the width of a string, i.e. maximum number of characters between two <i>new line</i> symbols.
+	* __quantile(__) calculates the quantile of a series of values
+	* __table style auto width(__) does automatic adjustment of column width before saving (applicable to HTML, Excel, but not CSV or text files)
+	* __table style themes(__) provides a convenient 1-function-call to apply nice formatting on a tabel before saving
+	* __local(__) is a control flow function forcing to create variables locally even if equally named global variables are already existing.
+	* __regional(__) is a control flow function which enables access of the code in the called function to the local variables defined here.  See __regional variables__ for details.
+
+    "Description 04:Improvements in Existing Functions"::
+	* __table load excel file(__): Added option to the Excel formulas in an additional table
+
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	Release 8.01 supports __regional variables__ which are actually __local variables__ made visible in the code of user functions called.  It is an alternative to passing numerous
+	function parameters and without desire to define global variables as they cause unnecessary side effects.
+
+	<br><br>
+
+	Addition to __generic formatting attributes__: <b>borders</b> will cover the borders on all for sides in one: top border, bottom border, left border and right border.
+
+	<br><br>
+	Explicitly calling the function __translate style attributes for excel(__) before saving the Excel file is no longer needed.  This function will be called automatically when saving 
+	Excel files.<br>
+	<u>Note:</u> For Excel XML 2003 and HTML formats, the corresponding translate-functions need to be called first in order to use the applied style info.
+
+    "Description 06:Performance Improvements"::
+
+	* __table load excel file(__) and __table save excel file(__) are running significantly faster because time-critical codes have been implemented directly in the execution engine
+	* Some overall performance improvements in assigning values to variables
+
+    "Description 07:Depreciated and retired features"::
+
+	Please use __exec(__) instead of <b>statements</b>(), as well as __calc(__) instead of <b>expression</b>().  The implemented functionality has not changed.
+
+
+	+++
+
+},
+
+
+
+//
+"Rel. 8.02" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 8.02" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 8.02, issued 2021-04-18, "Édouard Albert Roche"</b><br>
+	<i>French Mathematican, deceased 1883-04-18, developed the mathematical theoretic model how the Saturn rings were created.</i>
+
+    "Description 02:Bugfixes"::
+
+	* [table name: column, ''] did not match rows with blank entries if the row width is shorter than column position.  Has been fixed.
+	* [table name: { column names, ... }] referring multiple column names in parameter sets was rejected when calculated for 2nd time.  Has been fixed.
+	* Comparing parameter sets with __equal to__ (=) and __not equal to__ (<>) operators: Contents were accidentally compared with the same operator, resulting in \
+	  unexpected results like <b>{a,'b,c'} = {a,'b,c'}</b> returning false, but <b>{a,'b,c'} == {a,'b,c'}</b> returning true because the softquoted literal 'b,c' \
+	  is interpreted as <i>equals to b or c</i>.   This has been fixed, i.e. contents are compared with __strictly equal to__ approach.  The same applies for the <> operator \
+	  on parameter sets.
+	* __table copy table columns(__) and similar functions: Erroneous copying happening when rows in source table are shorter than column specified leads to crashes when accessing these columns afterwards. Has been fixed.
+	* Empty blocks, e.g. <b>if (a[]=1) {}</b> have asserted syntax errors which are not.  Effective in this new release, empty blocks are allowed.
+
+    "Description 03:New Functions"::
+
+	* __fy(__) and __fq(__) to calculate fiscal years and quarters.
+	* __table manipulate selected rows(__) added, works similar like __table manipulate(__), but on selected rows only.
+	* __describe(__) describes the contents, e.g. character, word, line, paragraph, date, time, date time, integer, numeral, scientifc, white and blank.
+	* __table describe(__) describe the contents of a table, using a combination of __describe(__) and looking up descriptions in a different table.
+	* __copy(__) applies a value in multiple destinations which can be variabls and/or table entries.
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* __table manipulate(__) and __table manipulate selected rows(__): 1 optional parameter added to decide whether to stop processing \
+	  the remaining entries in the lookup table or not in case the corresponding statement has been executed.
+	* __table load excel file(__) now supports loading Excel formulas into a 2nd table
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	* __Multiline strings__ are supported where a string constant may contain multiple lines of text.
+
+    "Description 06:Performance Improvements"::
+
+	* Minor performance improvemnets when processing parameter sets (skipped and eliminated internal execution steps no longer needed).
+	* Batch-mode installation implemented.
+
+    "Description 07:Depreciated and retired features"::
+
+	* See __Release 8.01__
+
+
+	+++
+
+}
+
+
+
+
+
+
+B4PDOCU.STOP

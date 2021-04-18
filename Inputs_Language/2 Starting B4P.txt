@@ -67,13 +67,18 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Command line switches" ],
-    "Keywords":			[ "Command line switch", "Command line options", "switches" ],
+    "Keywords":			[ "Command line switch", "Command line options", "Short command line options", "Short options", "Switches" ],
     "Description 01:Introduction"::
 
-	If B4P is started with typed commands, then command line switches (options) can be provided along with other command line arguments such as the B4P program.
+	If B4P is started with typed commands, then command line switches (or short command line options) can be provided along with other command line arguments such as the B4P program.
 	While regular command line parameters will be added to the __system variable__ called <b>command line arguments[]</b> and are visible to the running
 	B4P program, the command line switches are not.  They are provided to influence the start-up, run-time and existing procedure of B4P.  The available
 	run-time parameters are described in the table below.
+
+	<br><br>
+
+	Whereas short command line options are reserved for and interpreted by the B4P execution engine, the __long options__ beginning with two consecutive
+	minus signs are solely provided for user-written B4P programs.
 
 	<br>
 
@@ -92,7 +97,7 @@ B4PDOCU.START
 	-x	| Skip the "<i>Press [Enter] to end the program</i>" before B4P is exiting.  Useful for running B4P programs from batch scripts without user interaction
 	===
 
-	Invalid command line parameters will provide descriptive error messages and stop the B4P execution engine.<br><br>
+	Invalid command line options will provide descriptive error messages and stop the B4P execution engine.<br><br>
 	Command line arguments may be freely ordered and specified as combined or individual parameters.  See the example below.
 	+++,
 
@@ -107,6 +112,28 @@ B4PDOCU.START
      "See also": [ "Starting Behavior" ]
 },
 
+
+
+
+
+"Long Options":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Long Options" ],
+    "Keywords":			[ "Long command line options" ],
+    "Description 01:Introduction"::
+
+	<i>Long options</i> are command line options beginning wtih two consecutive minus signs (--) followed by an option name.  In addition, option values
+	may be assigned to that name if immediately followed by an equal sign and further values.  For example <b>b4p test.b4p --silent --use_value=3</b>
+	specifies two long options.  The long options are passed as command line parameters to the B4P program and can be used for individual purposes.
+	In contrast to short command line options, it does not interprete the long options as they are solely provided for use by B4P programs.
+
+	<br><br>
+	See the B4P function description of __get long options(__) where some code examples are shown.
+
+	+++,
+     "See also": [ "get long options" ]
+},
 
 
 "Starting Behavior":
@@ -138,12 +165,11 @@ B4PDOCU.START
 	the library files), as long the file is available in the user application directory.  For more details, see the section on __user initialization program__
 
 
-	Once this has happend, then the laoded B4P program will be started or interactive mode is activated, depending on the parameters provided.
+	Once this has happend, then the loaded B4P program will be started or interactive mode is activated, depending on the parameters provided.
 
 	<br/><img src="Images/REF_Starting_Behavior.png" alt="B4P Starting Behavior"><br/>
 
-	+++,
-     "See also": [ "Interactive mode", "User initialization program" ]
+	+++
 },
 
 

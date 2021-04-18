@@ -7,7 +7,6 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table of Contents" ],
-    "Keywords":			[ "Reference Manual" ],
     "Description 01:Table of Contents"::
 
 	See the navigator bar for full table of contents.
@@ -18,7 +17,7 @@ B4PDOCU.START
 "Function Library" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Function Library" ],
+    "Feature Names":		[ "Function Library", "Function Library Guide" ],
     "Description 01:Introduction"::
 
 	B4P provides a large and comprehenisve library of different functions.
@@ -958,7 +957,7 @@ B4PDOCU.START
 "Copying, Renaming and Splitting Tables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Copying, renaming and spitting tables" ],
+    "Feature Names":		[ "Copying and renaming and spitting tables" ],
     "Description 01:Introduction"::
 
 	The functions described next provide efficient means to copy and split tables.
@@ -1114,16 +1113,21 @@ B4PDOCU.START
 		  __table style rows(__): E.g row height, formatting all entries in the specified rows, etc.<br>\
 		  __table style columns(__): E.g. column width, formatting all entries in the specified columns, etc.<br>\
 		  __table style cells(__): Style individual cells, a set of cells, a matrix of cells, or a rectangular area in the table, and applying Excel <i>mouse-over</i> comments.
+	3a.	| <b>Or use more convenient approaches:</b><br>\
+		  __table style auto width(__) to set the column widths automatically so all contents are fully visible and not cut off by the next columns<br>\
+		  __table style themes(__> to apply an overall style them on the table, applying formatting on the header and data rows with frames, colors, and much more.
 	4.	| If needed, <b>delete redundant contents on the right hand side or below the table</b> but without moving the final table around (e.g. with inserting / deleting \
 		  columns and/or rows. The formatting you have applied have a fixed association to the rows and columns.  If you delete a row, then the next row below will get the formatting.\
 		  The same applies to sorting and rearranging table rows and columns after the formatting.<br>\
 		  <u>General advice</u>: Finalize the table first, then do the creative artwork.
 	5.	| <b>Generate the final formatting instructions specific to the file format</b> you intend to use for saving.  You need to call one of the two functions listed below<br>\
-		  __translate style attributes for excel(__)<br>\
-		  __translate style attributes for html(__)
+		  __translate style attributes for excel xml 2003(__) - Excel legacy format <br>\
+		  __translate style attributes for html(__) - HTML format for web browsers and Excel<br>\
+		  __translate style attributes for excel(__) - Excel only: This function will be called automatically when you save the file, so you can skip calling this function explicitly.
 	6.	| <b>Save your (art-)work</b> using one of the following functions:<br>\
 		  __table save(__), and <br>\
-		  __table save multiple(__).<br>\
+		  __table save multiple(__) to save multiple sheets in 1 file,<br>\
+		  __table save excel file (__) to save one or multiple sheets in 1 contemporary Excel file.\
 		  <u>Note</u>: Make sure you choose the format as specified in step 5.  You can do the style attribute translation for multiple formats on the same table.\
 		  If you save the file in a format for which no tranlsation has been made, then the table will be saved as if no formatting has been applied at all. The CSV file format\
 		  and close relatives (e.g. tab separated files, text files) do not support any formatting.

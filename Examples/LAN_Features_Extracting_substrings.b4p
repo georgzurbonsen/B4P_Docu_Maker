@@ -7,3 +7,7 @@
   echo( abcdefg { 3..99 } );        // Returns 'defg'
   echo( abcdefg { -99..2 } );       // Returns 'abc'
   echo( abcdefg { 0..2,5,1..3 } );  // Combinations
+  echo( abcdefg { 3.. } );          // Returns 'defg'
+  echo( abcdefg { ..3 } );          // Returns 'abcd'
+  echo( abcdefg { .. } );           // Returns full string
+  echo( abcdefg { ..,.. } );        // Returns full string twice: abcdefgabcdefg

@@ -501,6 +501,66 @@ Done - Press ENTER key
 	following this the on-line documentation opens up.
 
 	+++
+},
+
+
+
+"MacOS - Batch Installation" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "MacOS - Batch Installation" ],
+    "Description 01:Introduction"::
+
+	The installation script can also be executed as a batch so all user interaction (keyboard or mouse input) during the
+	the installation process is suppressed.  The automated installation process is made possible using __long options__ when
+	starting the installation using a command typed interactively or executed from a batch file.
+
+	<br><br>
+	Example:  <b>sudo ./setup --choice=machine --locale=en-US</b><br>
+	Required super user (administrator) privileges are enabled with the 'sudo' prefix.
+
+	<br><br>
+	The example above initiates a software installation for the local machine using the locale settings "en-US" (English /
+	United States).  Using the long option '--choice' in the command will automatically treat the installation process
+	as a batch process.  The other options can be used alone in order to skip individual queries, for exmaple getting asked
+	for locale settings
+
+	<br><br>
+
+	
+	=== 300, 700, bold_column_1
+	Option				| Explanation
+	--help				| Help text about the options will be shown on the console.  No installation will be initiated, even if other options are provided.
+	--choice=machine<br>\
+	--choice=deinstall<br>\
+	--choice=info<br>\
+	--choice=exit<br>		| Do installation on local machine for all users<br>\
+					  De-install B4P<br>\
+					  Provide information for generating a license<br>\
+					  Exit installation program without any actions<br>\
+					  The option '--choice' will ensure that the whole installation process is suitable for batch processing.
+	--keep-user-settings		| The user settings from the previous installation (e.g. prompt) will be kept.
+	--keep-my-init			| Keep own 'My B4P Init.b4p' file which can carry out user-specific initialization sequences
+	--keep-my-themes		| Keep own 'B4P Style Themes.xlsx' file and do not use the newest one provided in the installation.
+	--create-personal-folder	| Create a personal folder for own programs.
+	--license=keep<br>\
+	--license=new<br>\
+	--license=no<br>\
+	--license="<i>Lic. File Name.json</i>"	| Keep the existing license from the previous installation, if applicable <br>\
+					  Use the new license file as provided in the installation directory (B4P License File.json)<br>\
+					  Do not apply the license.  B4P shall run in demo mode only<br>\
+					  Use specified path and file name (.json) containing the license information.
+	--locale=keep<br>\
+	--locale=xx_YY			| Keep the existing locale settings from the previous installation<br>\
+					  Specify the combination of ISO 2-character language and country code.  The locale will be accepted if supported \
+					  in the file "List of Locales.csv".  For a first-time batch installation on a new target, the local must be specified. <br>\
+					  <u>Note:</u> Use the locale settings as used by Excel since you want to align on number formats, date formats and list separators.
+	===	
+
+	When the installer is finalizing, then it will pause for 3 seconds, giving users the chance to see the last info shown, in case the console
+	window closes automatically after installation.
+
+	+++
 }
 
 

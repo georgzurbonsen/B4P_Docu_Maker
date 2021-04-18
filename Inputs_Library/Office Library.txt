@@ -232,14 +232,27 @@ B4PDOCU.START
 		As of now, applied number formats will not be conveyed.  As an example, one Excel field contains 1.248 and the applied Excel number format 
 		for display is "0.0", the value "1.2" is shown on the Excel sheet using Excel.  However the original value will be loaded: 1.248.
 		Beyond4P is able to distinguish properly between literals (strings), numerals, boolean values (true, false), dates, times and date-time combinations 
-		(YYYY-MM-DD  hh:mm:ss format) Other information such as formulas, cell formatting, etc. are ignored for the time being.
+		(YYYY-MM-DD  hh:mm:ss format) Other information such as formulas, cell formatting, etc. are ignored in this main table.
 
 		<br><br>
 		<u>Note</u>: Only the plain data, but no no formatting information (e.g. text color), will be loaded.
 		<u>Attention</u>: Encrypted, binary and proprietary legacy file types (e.g. .xlsb, .xls) cannot be processed.
+
+		<br><br>
+
+		<b>Loading Excel formulas:</b><br>
+		You can optionally load the underlying Excel formulas if two additional parameters are added: "formulas" followed
+		by name of table which will be initialized and populated with formulas at the corresponding coordinates to the main
+		Excel table.  For example, if row 5 / column 3 contains 10, the formula table may contain the formula "=5*2", always beginning with equal signs.<br>
+		<u>Note:</u> The excel formulas are kept as they are.  No coordinates are modified, e.g. into B4P table coordinates.<br>
+		<u>Note:</u> If formulas are entreed once in Excel and then copied and pasted horizontally or vertically across the table, the Excel
+		has the lazy habit of writing the formula only 1-3 times, followed by a <i>shared</i> notification, probably attempting to save disk space.
+		In these cases, the string value "(Shared)" will be written into the coresponding table location.
+
+
 		+++,
 	"Call as":		"procedure",
-	"Parameter count":	"2-3",
+	"Parameter count":	"2,3,5,7,9,...(odd numbers)",
 	"Restrictions":		"Indirect parameter passing is disabled",
 	"Parameters":
 	[
@@ -261,33 +274,72 @@ B4PDOCU.START
 			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported.
 			+++
 		},
-		{ "Number": "3",
+		{ "Number": "Opt 3",
 		  "Name": "Excel sheet name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "literal", "numeral" ],
+		  "Default value": "0 (Open the currently active and visible sheet in the Excel workbook)",
 		  "Description"::
 			A particular sheet will be loaded.  This function is very useful if the Excel workbook contains multiple
 			sheets.  The function __excel list sheets(__) is useful to identify all sheets, which is particularly useful
 			if all sheets need to be loaded.  Every sheet needs to be loaded separately by repeatedly calling this function.
-			<br><<br>
+			<br><br>
+			Alternatively, specify thes sheet number, starting with 1 from left to right in the Excel workbook.  Use 0 (zero)
+			to select the currently active and visibile sheet as the Excel file is loaded.
+			<br><br>
 			<u>Attention</u>: Binary (.xlsb), encrypted and legacy files (.xls) are not supported.
 			+++
+		},
+		{ "Number": "Opt 4",
+		  "Name": "Attribute name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Following attribute names are supported:
+			* <b>formulas</b>  Specify table name in <i>attribute value</i> parameter which shall be used to read all Excel formulas.
+			<u>Note</u>: Attribute value in the next function parameter is required.
+			+++
+		},
+		{ "Number": "Opt 5",
+		  "Name": "Attribute value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify the attribute value as defined by the previous function parameter <i>attribute name</i>.
+			+++
 		}
+
 	],
-	"Examples"::
+	"Examples 01:"::
 		include( Support Library );
 		include( Office Library );
 		table load excel file( football, "Examples\Football Membership List.xlsx" );
 		table list( football );
 		+++,
-	"Output": "automatic",
+	"Output 01:": "automatic",
+	"Examples 02:Excel file with formulas"::
+	include ( Office Library );
+	include ( Utility Library );
+	include ( Support Library );
+
+	table load excel file( table, "Examples\Formulas_Inside.xlsx", 0, formulas, formula table);
+
+	echo("Values: ");
+	table list( table );
+
+	echo("Formulas: ");
+	table list( formula table );
+
+	+++,
+	"Output 02:": "automatic",
+
 	"See also": [ "excel list sheets", "table load" ]
 },
 
 
 
 
-//	table laod excel file
+//	table save excel file
 //  ________________________________________________________________________________________________________________________
 
 
@@ -379,9 +431,6 @@ B4PDOCU.START
 	"Output": "automatic",
 	"See also": [ "table load excel file", "table save" ]
 }
-
-
-
 
 
 

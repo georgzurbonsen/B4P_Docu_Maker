@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+  include( Style Library );
+  for (i[] = 1, i[] <4, i[]++)
+  {
+      echo( new line, "Factor ", i[],":" );
+      echo( "  Orange: ", lighten color( orange, i[] ));
+      echo( "  Navy:   ", lighten color( {0,0,128}, i[] ));
+      echo( "  Teal:   ", lighten color( "#008080", i[] ));
+  }

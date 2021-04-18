@@ -1,0 +1,27 @@
+﻿#!/usr/local/bin/b4p
+  country[] = France;
+
+  define procedure( do locally )
+  {
+      echo("    Inside 'do locally' function before assignment: ", country[] );
+      local() country[] = Spain;                // Create a local variable, do not overwrite global variable with same name
+      local() runtime settings[epsilon] = 0.1;  // This is a system variable
+      echo("    Inside 'do locally' function after  assignment: ", country[], new line );
+  }
+
+  define procedure( do globally )
+  {
+      echo("    Inside 'do globally' function before assignment: ", country[] );
+      country[] = Portugal; // Create a local variable, do not overwrite global variable with same name
+      echo("    Inside 'do globally' function after  assignment: ", country[], new line );
+  }
+
+  echo("Outside function: ", country[] );
+  do locally;
+  echo("Outside function: ", country[] );
+  do globally;
+  echo("Outside function: ", country[] );
+
+
+  // Verify that system variables can be changed even in local-encorced code.
+  echo("Runtime settings - Epsilon: ", runtime settings[epsilon] ); // Value set to 0.1 in 'do locally()'

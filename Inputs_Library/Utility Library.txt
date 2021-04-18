@@ -7,6 +7,83 @@ B4PDOCU.START
 
 
 
+
+"get long options" :
+{
+	"Function Names":	[ "get long options" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+	"Description"::
+
+		This function identifies all <i>long options</i> specified as command line parameters when starting a B4P program and assigns their names and values into a global
+		variable called <b>long options[]</b>, provided at least one such long option has been identified.
+
+		<br><br>
+
+		Long options are defined as command line options which begin with two consecutive minus signs (--) followed by an option name.
+		The option name may optionally be completed with an option value, using an equal sign followd by a literal or numeric value.
+		By default, the values are literals, but may be converted to boolean (if "true" or "false"), dates (if "YYYY-MM-DD", "HH:MM:SS" or "YYYY-MM-DD HH:MM:SS"),
+		or numerals (if number provided).  If you need to know the ordering of the options, then check the command line arguments directly.
+
+		<br><br>
+
+		=== 300, 400, 300, bold_column_1
+		Example 		| Member Name					| Member Value
+		--test			| long options[test]				| void
+		--row=1 col="2"		| long options[row]<br>long options[col]	| 1<br>2 (both numerals)
+		--date="2020-12-31"	| long options[date]				| 2020-12-31 (date format)
+		--ans1=true ans2="false"| long options[ans1]<br>long options[ans2]	| true<br>false (both Boolean types)
+		--t1=Hi --t2="He He"	| long options[t1]<br>long options[t2]		| "Hi"<br>"He He" (both literals)
+		===
+
+		<br><br>
+
+		Please note that <i>short options</i> (e.b. '-a') are entirely reserved for starting and execution options provided by the B4P execution engine and 
+		they will not be visible to the B4P programs.
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"0",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Return value":
+	[
+		{ "Name": "Number of long options found",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			If no long options are provided, then 0 is returned, and the variable <b>long options[]</b> will not be created.
+			+++
+		}
+	],
+	"Examples"::
+	include ( Utility Library );
+	program file[] = "Example_Program.b4p";	// The own program will be called recursively. 
+	                                        // Rename this filename to name of this file
+
+	count[] = get long options();           // Identify long options with the best yield in the market
+
+	if (count[] == 0) // Program starts here
+	{
+	    echo("Test 1: Start B4P program using shell command with some long options", new line);
+	    system("b4p -x " + program file[] + ' --facts --decision=false --value=25.1 --time="18:30:15" ' );
+
+	    echo("Test 2: Start B4P program using 'start()'");
+	    start( program file[], '--myths', '--decision=true',  '--value=30', '--name="Jim"', '--date=2021-02-21' );
+	}
+	else // This part is executed in teh recursive call.
+	{
+	    echo("Number of long options found: ", count[] );
+	    inspect( long options[] );
+	    echo(new line);
+	}
+	+++,
+	"Output": "automatic",
+	"See also": [ "start", "system" ]
+},
+
+
+
+
+
+
 "directory create temp" :
 {
 	"Function Names":	[ "directory create temp" ],

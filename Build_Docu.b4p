@@ -794,8 +794,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 		        if ([Todo]='*code*','*output*') // Output example
 		        {
-			    substitute all( payloads[index[]], {"&","<",">","\","  ","&nbsp; ", tab}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;&nbsp;","&nbsp;&nbsp;","&nbsp;" } );
-			    substitute    ( payloads[index[]], {" "}, {"&nbsp;"} ); // First space must be nbsp
+			    substitute all( payloads[index[]], {"&","<",">","\","  ","&nbsp; ", tab, new line}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;&nbsp;","&nbsp;&nbsp;","&nbsp;", "<br>" } );
+			    if (payloads[index[]]{0}==' ') substitute    ( payloads[index[]], " ", "&nbsp;" ); // First space must be nbsp
 			    if (value[] =~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;')
 				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }
@@ -820,7 +820,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 				    save example program( example program, example program file name[] );
 				    payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 				}
-			        substitute all( payloads[index[]], {"&","<",">","\"," ",tab,new line,}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;","&nbsp;","<br/>" + new line } );
+			        substitute all( payloads[index[]], {"&","<",">","\","  ","&nbsp; ", tab, new line}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;&nbsp;","&nbsp;&nbsp;","&nbsp;","<br>" } );
+			        if (payloads[index[]]{0}==' ') substitute ( payloads[index[]], " ", "&nbsp;" ); // First space must be nbsp
 			}
 		    }	
 		    
@@ -1021,7 +1022,8 @@ define procedure ( create combined TOC )
 
 {	// Main program part
 
-	load catalogue of books();
+	load catalogue of books;
+	watch start;
 	gather input docu;
 	variable load( docu[], file[ collected contents json ], JSON ); // Load the JSON code into one variable (docu[])
 
@@ -1077,6 +1079,7 @@ define procedure ( create combined TOC )
 	file delete silently( destination path[] + "B4P_Examples.zip" ); sleep( 0.3 ); // OS works in background, need to wait a bit
 	zip compress( "*.*", destination path[] + "B4P_Examples.zip" );	
 
+	echo("Time elapsed: ", watch stop()/1000, " seconds." );
 
 }
 

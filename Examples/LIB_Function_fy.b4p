@@ -1,0 +1,15 @@
+﻿#!/usr/local/bin/b4p
+  date[] = "2021-05-01";
+  echo( "Date is ", date[] );
+  patterns[] = { "FY ##", "####/##", "Q# FY ##-##" };
+
+  for (month[]=1, month[]<=12, month[]++ )
+  {
+      echo( "Year ending in ", literal( date(2021,month[],1),"Mmmm" ), ": " );
+      print( "    FY: ", fy( date[], month[] ) );
+      for all parameters( patterns[], pattern[] )
+      {
+      print("    ", fy( date[], month[], pattern[] ) );
+      }
+      echo;
+  }

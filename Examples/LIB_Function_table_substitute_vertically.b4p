@@ -15,7 +15,7 @@
   table substitute vertically( t, {Name, Date}, { '"', '...' } );
   table list( t );
 
-  echo("Substitution upward, Jim only:");
+  echo("Substitution upward,  Jim only:");
   table substitute vertically selected rows ( u, [Name]==Jim, {Name, Date}, { '"', '...' }, up );
   table list( u );
 

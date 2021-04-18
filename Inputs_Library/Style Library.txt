@@ -122,7 +122,7 @@ B4PDOCU.START
 		This function adds a further color to the __color palette__.
 	+++,
 	"Call as":		"procedure",
-	"Parameter count":	"5",
+	"Parameter count":	"3",
 	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
 	"Parameters":
 	[
@@ -144,27 +144,14 @@ B4PDOCU.START
 			+++
 		},
 		{ "Number": "3.",
-		  "Name": "Red intensity",
+		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "numeral" ],
+		  "Types": [ "parameter set", "literal" ],
 		  "Description"::
-			Valid values: 0..255
-			+++
-		},
-		{ "Number": "4.",
-		  "Name": "Green intensity",
-		  "Direction": "input",
-		  "Types": [ "numeral" ],
-		  "Description"::
-			Valid values: 0..255
-			+++
-		},
-		{ "Number": "5.",
-		  "Name": "Blue intensity",
-		  "Direction": "input",
-		  "Types": [ "numeral" ],
-		  "Description"::
-			Valid values: 0..255
+			Three possibiltes to specify the color:
+			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
+			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
 			+++
 		}
 	],
@@ -173,7 +160,7 @@ B4PDOCU.START
 	include( Utility Library );
 	include( Office Library );
 
-	add color( crème, natural shades, 245,238, 222 );
+	add color( crème, natural shades, {245, 238, 222} );
 
 	table initialize( t, { { Item, Color }, { Jacket, crème }, { Trousers, gray 12 }, { scarf, teal } } );
 
@@ -196,6 +183,123 @@ B4PDOCU.START
 
 
 
+"rgb" :
+{
+	"Function Names":	[ "rgb" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function converts a specified color into RGB values in a parameter set.
+	+++,
+	"Call as":		"function",
+	"Parameter count":	"1",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Color",
+		  "Direction": "reference",
+		  "Types": [ "parameter set", "literal" ],
+		  "Description"::
+			The value must be provided in a variable which will be converted by this function to RGB colo
+			Three possibiltes to specify the color:
+			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>.  In this case, the values will be verified and, if necessary, corrected.
+			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
+			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Error message",
+		  "Types": [ "literal" ],
+		  "Description"::
+			If a blank string is returned, then the conversion is successful,  Otherwise, a comprehensible error message will be returned.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	a[0] = navy;
+	a[1] = {0,0,128};
+	a[2] = "#000080";
+	a[3] = "gnu not a color";
+
+	for all variables( a[], value[], i[] )
+	{
+	    msg[] = rgb( value[] );
+	    echo(i[], ": ", value[], ",  Message: ", msg[] );
+	}
+	+++,
+	"Output": "automatic",
+	"See also": ["lighten color", "darken color", "weaken color"]
+
+},
+
+
+
+"lighten color" :
+{
+	"Function Names":	[ "lighten color" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function derives a lightened shade of a specified color
+	+++,
+	"Call as":		"function",
+	"Parameter count":	"2",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Color",
+		  "Direction": "input",
+		  "Types": [ "parameter set", "literal" ],
+		  "Description"::
+			Three possibiltes to specify the color:
+			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
+			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Lightening up factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			e.g. factor 2 is the color precisely between white and specified color<br>
+			Example: mandarin {255,128,0} translates to {255,192,128}<br>
+			Use lower factors (e.g. 1.5) for less lighter shades, and bigger factors (e.g. 4) for significantly lighter shades.
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "RGB color",
+		  "Types": [ "parameter set" ],
+		  "Description"::
+			The color is specified in a parameter set containing 3 numbers (0..255).
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	for (i[] = 1, i[] <4, i[]++)
+	{
+	    echo( new line, "Factor ", i[],":" );
+	    echo( "  Orange: ", lighten color( orange, i[] ));
+	    echo( "  Navy:   ", lighten color( {0,0,128}, i[] ));
+	    echo( "  Teal:   ", lighten color( "#008080", i[] ));
+	}
+	+++,
+	"Output": "automatic",
+	"See also": ["lighten colors", "darken color", "weaken color"]
+
+},
+
+
 
 "lighten colors" :
 {
@@ -204,7 +308,7 @@ B4PDOCU.START
 	"Library":		"Style Library",
 	"Description"::
 
-		This function Derives lightened shades of selected colors in the __color palette__.
+		This function derives lightened shades of selected colors in the __color palette__.
 	+++,
 	"Call as":		"procedure",
 	"Parameter count":	"3",
@@ -234,7 +338,7 @@ B4PDOCU.START
 		  "Types": [ "numeral" ],
 		  "Description"::
 			e.g. factor 2 is the color precisely between white and specified color<br>
-			Example: mandarin (255,128,0) translates to (255,192,128)<br>
+			Example: mandarin {255,128,0} translates to {255,192,128}<br>
 			Use lower factors (e.g. 1.5) for less lighter shades, and bigger factors (e.g. 4) for significantly lighter shades.
 			+++
 		}
@@ -264,9 +368,75 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Lightened_Colors.html" target="_blank">Style_Lightened_Colors.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Lightened_Colors.xls" >Style_Lightened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Lightened_Colors.xlsx" >Style_Lightened_Colors.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": ["lighten color", "darken colors", "weaken colors"]
+},
+
+
+
+
+
+"darken color" :
+{
+	"Function Names":	[ "darken color" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function derives a darkened shade of a specified color
+	+++,
+	"Call as":		"function",
+	"Parameter count":	"2",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Color",
+		  "Direction": "input",
+		  "Types": [ "parameter set", "literal" ],
+		  "Description"::
+			Three possibiltes to specify the color:
+			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
+			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Darkening down factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			e.g. factor 2 is the color precisely between white and specified color<br>
+			Example: mandarin {255,128,0} translates to {128,64,0}<br>
+			Use lower factors (e.g. 1.5) for less lighter shades, and bigger factors (e.g. 4) for significantly lighter shades.
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "RGB color",
+		  "Types": [ "parameter set" ],
+		  "Description"::
+			The color is specified in a parameter set containing 3 numbers (0..255).
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	for (i[] = 1, i[] <4, i[]++)
+	{
+	    echo( new line, "Factor ", i[],":" );
+	    echo( "  Orange: ", darken color( orange, i[] ));
+	    echo( "  Navy:   ", darken color( {0,0,128}, i[] ));
+	    echo( "  Teal:   ", darken color( "#008080", i[] ));
+	}
+	+++,
+	"Output": "automatic",
+	"See also": ["darken colors", "lighten color", "weaken color"]
 
 },
+
+
 
 
 "darken colors" :
@@ -306,7 +476,7 @@ B4PDOCU.START
 		  "Types": [ "numeral" ],
 		  "Description"::
 			e.g. factor 2 is the color precisely between white and specified color<br>
-			Example: mandarin (255,128,0) translates to (255,192,128)<br>
+			Example: mandarin {255,128,0} translates to {128,64,0}<br>
 			Use lower factors (e.g. 1.5) for less darker shades, and bigger factors (e.g. 4) for significantly darker shades.
 			+++
 		}
@@ -336,8 +506,75 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Darkened_Colors.html" target="_blank">Style_Darkened_Colors.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Darkened_Colors.xls" >Style_Darkened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Darkened_Colors.xlsx" >Style_Darkened_Colors.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": ["darken color", "lighten colors", "weaken colors"]
+
 },
+
+
+
+
+"weaken color" :
+{
+	"Function Names":	[ "weaken color" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function derives a weakened shade of a specified color
+	+++,
+	"Call as":		"function",
+	"Parameter count":	"2",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Color",
+		  "Direction": "input",
+		  "Types": [ "parameter set", "literal" ],
+		  "Description"::
+			Three possibiltes to specify the color:
+			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
+			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "weakening down factor",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			e.g. factor 2 is the color precisely between white and specified color<br>
+			Example: mandarin {255,128,0} translates to {204,140,76}<br>
+			Use lower factors (e.g. 1.5) for less lighter shades, and bigger factors (e.g. 4) for significantly lighter shades.
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "RGB color",
+		  "Types": [ "parameter set" ],
+		  "Description"::
+			The color is specified in a parameter set containing 3 numbers (0..255).
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	for (i[] = 1, i[] <4, i[]++)
+	{
+	    echo( new line, "Factor ", i[],":" );
+	    echo( "  Orange: ", weaken color( orange, i[] ));
+	    echo( "  Navy:   ", weaken color( {0,0,128}, i[] ));
+	    echo( "  Teal:   ", weaken color( "#008080", i[] ));
+	}
+	+++,
+	"Output": "automatic",
+	"See also": ["weaken colors", "lighten color", "darken color"]
+
+},
+
+
 
 
 "weaken colors" :
@@ -377,7 +614,7 @@ B4PDOCU.START
 		  "Types": [ "numeral" ],
 		  "Description"::
 			e.g. factor 2 is the color precisely between white and specified color<br>
-			Example: mandarin (255,128,0) translates to (255,192,128)<br>
+			Example: mandarin {255,128,0} translates to {204,140,76}<br>
 			Use lower factors (e.g. 1.5) for less weaker saturations, and bigger factors (e.g. 4) for significantly weaker saturations.
 			+++
 		}
@@ -407,7 +644,8 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Weakened_Colors.html" target="_blank">Style_Weakened_Colors.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Weakened_Colors.xls" >Style_Weakened_Colors.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Weakened_Colors.xlsx" >Style_Weakened_Colors.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": ["weaken color", "lighten colors", "darken colors"]
 },
 
 
@@ -418,11 +656,16 @@ B4PDOCU.START
     "Feature Names":		[ "Formatting the Tables" ],
     "Description 01:Introduction"::
 
-	Four different functions are available to format the tables:
+	Four basic functions are available to format the tables:
 	* __table style table(__)
 	* __table style rows(__)
 	* __table style columns(__)
 	* __table style cells(__)
+
+	Advanced functions with ehanced styling features:
+	* __table style auto width(__)
+	* __table style theme__)
+
 
 	<br><br>
 	All four functions make use of __generic attribute names__ and __generic attribute values__, for exmple <i>font size</i> followed by a number.  These attributes
@@ -453,8 +696,8 @@ B4PDOCU.START
 	Generic Attribute Name		| Generic Attribute Value		| Scope				| Descriptions					| Restrictions, Portability
 	text color			| __color specification__		| table, row, column, cell	| Sets text color				| Excel and browsers may group slightly different colors together
 	fill color			| __color specification__		| "				| Sets background color of the table fields	|
-	top border<br>bottom border<br>left border<br>right border \
-					| border specificaction<sup>1</sup>	| "				| Applies cell borders				| HTML: 'hairline' thickness is same as 'thin' thickness
+	top border<br>bottom border<br>left border<br>right border<br>borders\
+					| border specificaction<sup>1</sup>	| "				| Applies cell borders.  The attribute name <b>borders</b> applies to all four sides. | HTML: 'hairline' thickness is same as 'thin' thickness
 	underscore<br>boldface<br>italic| Boolean: true / false			| "				| Applies text formatting			|
 	wrap text			| Boolean: true / false			| "				| Text inside the cell will wrap to next row if too long | 
 	comment				| Literal: text contents		| cell				| Adds comments which are visible in Excel when holding the mouse cursor above the red triangle symbol | See <sup>2</sup><br>Not yet supported for Excel (.xlsx).
@@ -559,7 +802,7 @@ B4PDOCU.START
     "Feature Names":		[ "Formatting Precedences", "Formatting Coverages" ],
     "Description 01:Introduction"::
 
-	The fnctiosn __table style table(__), __table style rows(__) and __table style columns(__) a parameter called <b>Coverage</b> which can take following values:
+	The fnctions __table style table(__), __table style rows(__) and __table style columns(__) a parameter called <b>Coverage</b> which can take following values:
 	=== 100, 600, 100, 100, 100, bold_column_1
 	Coverage	| Explanation
 	sheet		| Covers entire sheet. In Excel the entire sheet and not just the table saved applies.  Following precedence rules apply:<br>\
@@ -644,7 +887,7 @@ B4PDOCU.START
 		  "Description": ""
 		},
 		{ "Number": "2.",
-		  "Name": "Formatting Coerage",
+		  "Name": "Formatting Coverage",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description"::
@@ -654,7 +897,7 @@ B4PDOCU.START
 			* <b>body</b>: Covers table except header row
 			+++
 		},
-		{ "Number": "3, 5, ....",
+		{ "Number": "3, 5, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -662,7 +905,7 @@ B4PDOCU.START
 			See __generic attribute names__ for available names.
 			+++
 		},
-		{ "Number": "4, 6, ....",
+		{ "Number": "4, 6, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -695,7 +938,8 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_sheet.html" target="_blank">Style_Function_table_style_sheet.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_sheet.xls" >Style_Function_table_style_sheet.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_sheet.xlsx" >Style_Function_table_style_sheet.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": [ "table style rows", "table style columns", "table style cells" ]
 },
 
 
@@ -728,7 +972,7 @@ B4PDOCU.START
 		  "Description": "Specify 1 or more row numbers.  <br><u>Hint</u>: Use __table selected rows(__) to identify row numbers using a condition to apply on every row."
 		},
 		{ "Number": "3.",
-		  "Name": "Formatting Coerage",
+		  "Name": "Formatting Coverage",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description"::
@@ -738,7 +982,7 @@ B4PDOCU.START
 			* <b>body</b>: Same functionality as with <b>table</b>, even when applying this function on row 0 (header row).
 			+++
 		},
-		{ "Number": "4, 6, ....",
+		{ "Number": "4, 6, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -746,7 +990,7 @@ B4PDOCU.START
 			See __generic attribute names__ for available names.
 			+++
 		},
-		{ "Number": "5, 7, ....",
+		{ "Number": "5, 7, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -786,7 +1030,8 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_rows.html" target="_blank">Style_Function_table_style_rows.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_rows.xls" >Style_Function_table_style_rows.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_rows.xlsx" >Style_Function_table_style_rows.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": [ "table style table", "table style columns", "table style cells" ]
 },
 
 
@@ -818,7 +1063,7 @@ B4PDOCU.START
 		  "Description": "Specify 1 or more columns using header names and/or column numbers.  __Negative indexing__ is supported."
 		},
 		{ "Number": "3.",
-		  "Name": "Formatting Coerage",
+		  "Name": "Formatting Coverage",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description"::
@@ -828,7 +1073,7 @@ B4PDOCU.START
 			* <b>body</b>: Covers table except header row
 			+++
 		},
-		{ "Number": "4, 6, ....",
+		{ "Number": "4, 6, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -836,7 +1081,7 @@ B4PDOCU.START
 			See __generic attribute names__ for available names.
 			+++
 		},
-		{ "Number": "5, 7, ....",
+		{ "Number": "5, 7, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -879,7 +1124,8 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_columns.html" target="_blank">Style_Function_table_style_columns.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_columns.xls" >Style_Function_table_style_columns.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_columns.xlsx" >Style_Function_table_style_columns.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": [ "table style table", "table style rows", "table style cells" ]
 },
 
 
@@ -920,7 +1166,7 @@ B4PDOCU.START
 		  "Description": "Specify 1 or more row numbers.  <br><u>Hint</u>: Use __table selected rows(__) to identify row numbers using a condition to apply on every row."
 		},
 		{ "Number": "4.",
-		  "Name": "Formatting Coerage",
+		  "Name": "Formatting Coverage",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
 		  "Description"::
@@ -930,7 +1176,7 @@ B4PDOCU.START
 			* <b>field</b>: Pairs of 2 parameter set elements represent a field to format.
 			+++
 		},
-		{ "Number": "5, 7, ....",
+		{ "Number": "5, 7, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -938,7 +1184,7 @@ B4PDOCU.START
 			See __generic attribute names__ for available names.
 			+++
 		},
-		{ "Number": "6, 8, ....",
+		{ "Number": "6, 8, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
@@ -972,7 +1218,8 @@ B4PDOCU.START
 	Test Click on the file name view the result: <a href="Images/Style_Function_table_style_cells.html" target="_blank">Style_Function_table_style_cells.html</a>.<br>
 	Test Click on the file name open the file with Excel XML 2003: <a href="Images/Style_Function_table_style_cells.xls" >Style_Function_table_style_cells.xls</a> (Excel XML 2003 format - confirm the message box query).<br>
 	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Function_table_style_cells.xlsx" >Style_Function_table_style_cells.xlsx</a> (Excel .xlsx format).	
-	+++
+	+++,
+	"See also": [ "table style table", "table style rows", "table style columns" ]
 },
 
 
@@ -987,15 +1234,21 @@ B4PDOCU.START
 	is necessary before saving the tables, namely translating the generic formatting applied to target-specific formatting, i.e. HTML markups for
 	HTML files, and Excel formatting markups for the Excel (XML 2003) file format.
 
-	The following function are available:
-	* __translate style attributes for excel(__)
-	* __translate style attributes for excel(__)
+	The following functions are available:
+	* __translate style attributes for html(__) - HTML for web browsers and Excel
+	* __translate style attributes for excel xml 2003(__)   - For legacy Excel format
+	* __translate style attributes for excel(__) - For contemporary Excel Open Office format (.xlsx) - No longer required to call before saving
+
+	<u>Note:</u>: For Excel, the function __translate style attributes for excel(__) will be called automatically when saving Excel files in case
+	you have not called it explicitly, which allows you to skip this step done manually.
+
 
 	<br>
-	You can save multiple formatted tables in one files using the __table save multiple(__) function.  In this case, the translation functions need to be
-	called for every table to be included as sheets in the file.
+	You can save multiple formatted tables in one file using the __table save multiple(__) function.  In this case, the translation functions need to be
+	called for every table to be included as sheets in the file.  For Excel files (.xlsx), use __table save excel file(__) where you specify all tables
+	and sheet names in parameter sets and then save the file.
 	<br><br>
-	<u>Attention</u>: The formatting is associated to the table names.  If you make a copy of the table, then the new table has no formatting information.
+	<u>Attention</u>: The formatting is associated to the table names.  If you make a copy of the table with a different name, then the new table has no formatting information.
 
 	<br><br>
 	If you want to apply different style and formatting on the same table, then use the function __table style reset(__) and begin again with formatting.
@@ -1059,6 +1312,263 @@ B4PDOCU.START
 
 
 },
+
+
+
+
+"table style auto width" :
+{
+	"Function Names":	[ "table style auto width" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function will adjust the width the table columns automatically.  If only one function parameter, namely the table name, is provided, then
+		the column widths will be adjusted according to default settings and should be fine in most cases.  However, you can add one or more pairs of two
+		parameters which consist of <i>attribute names</i> and <i>attribute values</i> in order to refine the automatic width adjustment.  The attributes 
+		are summarized in teh table below.
+
+		=== 200, 200, 600, bold_column_1
+		Attribute Name	| Attribute Value	| Description
+		min		| Numeral: 1..255	| Defines the minimum column width. Non-integer values will be rounded up. <br>Default value: 4
+		max		| Numeral: 1..255	| Defines the maximum column width. Longer contents may either not be fully visible or do wrap. Non-integer values will be rounded up. <br>Default value: 255
+		factor		| Numeral: 0.1 - 20	| Scaling factor applied to estimate the width based on number of characters. <br>Default value: 1.2<br>\
+							  With font size 10, one character typically takes a unit width of 1.  See further info underneath the table.
+		quantile	| Numeral: 0..1		| The quantile rules the percentage of rows ordered from shortest to longest to be included to estimate the width. <br>\
+							  Example a: Quantile of 1.0 considers the widest contents checked. <br>\
+							  Example b: Quantile of 0.5 considers the median width of all contents checked<br>\
+							  Example c: Quantile of 0.9 considers 90% of the shorter contents and ignores the 10% longest contents in order to avoid providing too wide columns for a minority of long data.<br>\
+							  Default value: 1
+		wrap text	| headers<br>table<br>body<br>none | Appliy text wrapping for headers, table (headers and and body), body (without headers) or none.  <br>Default value: headers.
+		starting row	| Numeral: row number	| Starting row number to assess contents for row width (use 0 to include header row).  Negative indexing is supported. <br>Default value: 0
+		stopping row	| Numeral: row number	| Stoping row number to assess contents for row width (use 0 for header row only).  You may consider checking the whole table, but \
+							  this may require significant amount of time for very large tables.  Therefore, a representative check of a smaller number of rows makes sense. \
+							  Negative indexing is supported. <br>Default value: 50
+		starting column | Numeral: column number| Column width adjustment begins with this column.  Negative indexing is supported.  <br>Default value: 0 (first column)
+		stopping column	| Numeral: column number| Column width adjustment ends with this column.  Negative indexing is supported.  <br>Default value: -1 (last column acc. to maximum table width)
+		===		
+
+	Info on the attribute name <b>factor</b>: The width characteristics of the chosen font name, font type (monospace or not), font size and actual contents (e.g. mainly upper case text, or
+	words with more narrow typefaced letters(e.g. l) or wider typefaced letters (e.g. W) contribute to some inaccuracies.  A scaling factor of 1.0 may work fine for font size 10, but consider
+	a higher scaling factor to allow for more space for bigger text or generally more spece.  You can still apply lower and upper boundaries for the columns.
+
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1, 3, 5, 7, etc.",
+	"Restrictions":		"Don't forget to include 'Style Library' at the top of your program",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "Opt. 2, 4, ...",
+		  "Name": "Auto width attribute name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See table above for supported attribute names.
+			+++
+		},
+		{ "Number": "Opt. 3, 5, ...",
+		  "Name": "Auto width attribute value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See table above for supported attribute values.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+	table load( t1, "Examples\Cities.csv" );
+	table copy table( t1, t2 );
+
+	// Simple example
+
+	table style auto width ( t1 );
+
+	// Example with customized paramters (narrowed intentionally).
+
+	table style auto width ( t2, quantile, 0.9, wrap text, table, starting column, 0, stopping column, -3 );
+	table style auto width ( t2, min, 20, max, 30, starting column, -2 );
+
+
+	// Prepare and save the work
+
+	translate style attributes for excel (t1);
+	translate style attributes for excel (t2);
+	table save excel file  ( { t1, t2 }, { Simple, Customized }, "Images/Style_Auto_Width.xlsx" );
+
+	echo("Done.");
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results:"::
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Auto_Width.xlsx" >Style_Auto_Width.xlsx</a> (Excel .xlsx formats).
+	+++
+},
+
+
+
+
+
+
+"table style themes (beta)" :
+{
+	"Function Names":	[ "table style themes" ],
+	"Documentation":	"Function Description",
+	"Library":		"Style Library",
+	"Description"::
+
+		This function provides a nice all-in-one formatting which converts the raw table into a nicely formatted table with emphasized
+		header rows, frames and (zebra style) shading patterns, etc, whatever is requested.  This function accesses an Excel table (B4P Style Themes.xlsx, located
+		in the directory where the B4P libraries) which describes a few basic styling themes:
+
+		=== 300, 700, bold_column_1
+		Theme Name		| Brief Description
+		Plain ...		| White table
+		Gnu ...			| Headers emphasized with a fill color and white table below
+		Zebra ...		| Headers like above, and adjacent white and shaded table data rows below
+		Quagga ...		| Like Zebra, but two different shades are used for the data rows, instead of white
+		...			| Theme names used alone result in no border lines applied
+		... Horizontal Lines	| Horizontal lines are drawn above and below every row
+		... Vertical Lines	| Vertical lines are drawn on left and right side of every column
+		... Gridlines		| Combination of horizontal and verical lines
+		===
+
+		All theme names are case sensitive.  Additional theme names can be added to the theme table, but this is only advisable to
+		more experienced B4P users.  Instructions are specified in the Excel file.  (In case you don't know what <a href="http://en.wikipedia.org/wiki/Quagga" target="_blank"><b>Quaggas</b></a> are:  They are extinct horse-like
+		animals of darker colors with some zebra like fur patterns, but these patters do not fulfill the great job to keep mosquitos away by irritating
+		their limited vision. Unfortunately, humans and not the insects made them extinct.)
+
+		<br><br>
+
+		This function does not address the column widths.  Instead, call the function __table style auto width(__) in addition to this function
+		to set the column widths in an easiyl readable form.
+
+		<br><br>
+
+		A simpler alternative to editing the Excel file is to provide additional parameters to the function call, which are formulated in pairs of
+		two consecutive parameters: attribute names and attribute values.  You can add further formatting, change theme colors, and do all kind of
+		adjustments and enhancements.  Following attributes are supported where all attribute values must be provided as literals, with exception for
+		attribute name <b>pattern</b> where numerals are expected instead.
+
+
+		=== 200, 200, 600, bold_column_1
+		Attribute Name	| Attribute Value		| Description
+		border color	| Color, see <sup>1</sup>	| Defines the principial border color.  (In the Excel file, this value is available as variable 'border color[]')
+		fill color	| Numeral: 1..255		| Defines the principial fill color.  (In the Excel file, this value is available as variable 'fill color[]'). \
+								  For both border and fill color, the style theme description may use different intensities or shades of the color specified.
+		sheet		| Attribute names and values	| Put one or multiple pairs of attribute names and values, separated by commas, <u>into a string</u>.\
+								  The attributes are specified in the same way as for __table style table(__) applied on the whole sheet.  Example: "autofilter, 0, freeze rows, 1" to set autofiter row and freeze the first row.
+		table		| Attribute names and values	| Put one or multiple pairs of attribute names and values, separated by commas, <u>into a string</u>.\
+								  The attributes are specified in the same way as for __table style table(__) applied on the table.  Example: "autofilter, 0".
+		frame		| Border specification		| If you want a frame added around the whole table, then specify the attribute value for a border which is a parameter set \
+								  containing thickness and color, but must be put <u>into a string</u>.
+		pattern		| Value<br>(numeral type expected) | If used in conjunction with attribute names <b>Zebra ...</b> or <b>Quagga ...</b>, then this value rules the width of the zebra pattern, i.e. number of adjacent rows with same fill color. <br>\
+								  Example: <b>table style theme( my table, Quagga, pattern, 2 );</b> for 2 rows in one color and next 2 rows in a different color.
+		rule 0, 1, ..	| Expression returning Boolean	| Specify the condition which rules whether the corresponding <i>style 0, 1, ... </i> shall be applied or not.\
+								  Adding a " >>" (space followed by 2 greater-than symbols) indicates checking does not stop here if true, but continue checking the next rules. <br> \
+								  Highly advised to specify <b>rule 0</b> combined with <b>style 0</b> to format the header row(s).
+		style 0, 1, ..	| Attribute names and values	| Put one or multiple pairs of attribute names and values, separated by commas, <u>into a string</u>.\
+								  The attributes are specified in the same way as for __table style rows(__).
+		===
+
+		<sup>1</sup> Specify the the color either by supported color name (e.g. rad, orange, chestnut, navy, etc.), hexadecimal value (e.g. "#FF8040")
+		or parameter set containing three values, but must be converted to a literal in this case (e.g. "{255,128,64}" ).
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"2, 4, 6, 8, etc.",
+	"Restrictions":		["This function is in beta stage.  Exect further developments to happen", "Don't forget to include 'Style Library' at the top of your program"],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name fo existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": ""
+		},
+		{ "Number": "1.",
+		  "Name": "Theme name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": "A supported theme name must be specified,  Example: "Zebra", or "Zebra Vertical Lines".  Theme names are case sensitive."
+		},
+		{ "Number": "Opt. 3, 5, ...",
+		  "Name": "attribute name",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See table above for supported attribute names.
+			+++
+		},
+		{ "Number": "Opt. 4, 6, ...",
+		  "Name": "attribute value",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			See table above for supported attribute values.
+			+++
+		}
+	],
+	"Examples"::
+	include( Style Library );
+	include( Utility Library );
+	include( Office Library );
+
+	table load        	   ( t, "Examples\Cities.csv" );
+	themes[]                   = list themes();     // List will also be shown on the screen
+
+
+
+	//  Plain Vanilla approach
+
+	for all parameters( themes[], theme[], i[] )
+	{
+	    table copy table       ( t, theme[] );
+	    table style theme      ( theme[], theme[] );
+	    table style auto width ( theme[]);
+	}
+	table save excel file( themes[], themes[], "Images\Style_Themes_Examples_1.xlsx" );
+
+
+
+	table style reset;
+	some colors[]              = { burgundy, ocre, forest, navy };
+
+
+	//  Fruits and extra toppings added
+
+	for all parameters( themes[], theme[], i[] ) 
+	{
+	    color[]= some colors[]{mod(i[], 4)};
+	    table copy table       ( t, theme[] );
+	    table style theme      ( theme[], theme[],
+	                                    pattern,     2,                                    // Make zebra pattern wider
+	                                    table,       "text color, chestnut",
+	                                    fill color,  color[],                              // Vary fill colors
+	                                    frame,       "{ thick, gray 4 }",                  // Apply a frame around the table
+	                                    sheet,       "freeze rows, 1, autofilter, 0" );    // Freeze header, add autofilter feature
+	    table style columns    ( theme[], Inhabitants, body, number format, "#,###" );
+	    table style auto width ( theme[]);
+	}
+	table save excel file( themes[], themes[], "Images\Style_Themes_Examples_2.xlsx" );
+	echo("Done");
+	+++,
+	"Output": "automatic",
+	"Details 02:Viewing the Results, i.e. how the different themes are looking like:"::
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Style_Themes_Examples_1.xlsx" >Style_Themes_Examples_1.xlsx</a> (plain vanilla), and <br>
+	and <a href="Images/Style_Themes_Examples.xlsx" >Style_Themes_Examples_2.xlsx</a> (fruits and extra toppings added).
+	+++
+},
+
+
 
 
 

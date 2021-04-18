@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+  date[] = "2021-05-01";
+  echo( "Date is ", date[] );
+
+  for (month[]=1, month[]<=12, month[]++ )
+      echo( "Year ending in ", literal( date(2021,month[],1),"Mmmm" ), ": ", fq( date[], month[] ) );

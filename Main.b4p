@@ -1,15 +1,11 @@
 
+	table initialize( t, {"Header"} );
 
-	table initialize ( table, {{ Last Name, First Name}, 120:{ Mack, Nick }} );
+	copy( 15, a[], b[], b[x,y], [t:Header,1] );
+	// Copies into two base variables, into a sub-member of b[], and into a table.
 
-	table save excel file( table, Table, Test.xlsx );
+	echo( a[], ", ", b[], ", ", b[x,y], ", ", [t:Header,1] );
 
-	table save excel file( table, Table, Test.xlsx );
+	
 
-	table save excel file( table, Table, Test.xlsx );
 
-	table save excel file( table, Table, Test.xlsx );
-
-	table save excel file( table, Table, Test.xlsx );
-
-	table save excel file( table, Table, Test.xlsx );

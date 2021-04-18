@@ -4,7 +4,7 @@ B4PDOCU.START
 "Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "variable", "variables" ],
+    "Feature Names":		[ "Variable", "Variables" ],
     "Description 01:Introduction to Variables"::
 
 	B4P provides a unique storage model for variables.  
@@ -72,7 +72,7 @@ B4PDOCU.START
 "Variable Scopes" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "variable scopes" ],
+    "Feature Names":		[ "Variable scopes" ],
     "Description 01:Introduction"::
 
 	B4P variables are created (also known as <i>declared</i>) at their first assignments.  For example, <b>a[] = 1;</b> creates the variable
@@ -80,6 +80,7 @@ B4PDOCU.START
 
 	* __Global variables__: Visible througout entire program execution
 	* __Local variables__: Visible within a local context such as code inside a user-defined procedure or function
+	* __Regional variables__: Local variables made visible in the code of user-defined functions being called
 	* __System variables__: Set of variables with system-related information and configuration settings you can change
 	+++
 },
@@ -87,7 +88,7 @@ B4PDOCU.START
 "Global Variables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "global variables" ],
+    "Feature Names":		[ "Global variables" ],
     "Description 01:Introduction"::
 
 	If the variable is created in the B4P program file started first, and this happens outside user-defined procedures and functions, then it will be
@@ -118,7 +119,8 @@ B4PDOCU.START
 	echo( a[] );
 	echo( b[] );
 	+++,
-    "Output 01:": "automatic"
+    "Output 01:": "automatic",
+    "See also": "global"
 },
 
 
@@ -126,7 +128,7 @@ B4PDOCU.START
 "Local Variables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "local variables" ],
+    "Feature Names":		[ "Local variables" ],
     "Description 01:Introduction"::
 	Variables created inside __user-defined procedures__ and __user-defined functions__, as well as in B4P programs which have been started from other
 	B4P programs using __start(__) or __include(__) functions, will be local variables.  Local variables are only visible locally, i.e.
@@ -158,8 +160,62 @@ B4PDOCU.START
 	foo( 2 );
 	echo(a[] ); // Called 6th: 1 (Global variable)
 	+++,
-    "Output 01:": "automatic"
+    "Output 01:": "automatic",
+    "See also": "local"
 },
+
+
+
+"Regional Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Regional variables" ],
+    "Description 01:Introduction"::
+	Local variables created inside __user-defined procedures__ and __user-defined functions__, as well as in B4P programs can be made visible as regional
+	variable in the code of user-defined functions called from here.  This approach is useful if you want to provide numerous variables to the function, 
+	but don't want to create processing overhead for passing them as function parameters, nor using global variables as other side effects cannot be
+	avoided.
+
+	+++,
+    "Examples 01:Demonstrating regional variables"::
+	define procedure( zoo )
+	{
+	    echo('Zoo in ', city[], ' ', country[]);
+	    city[] = Cambridge;                  // city and country are regional variables
+	    country[] = United Kingdom;
+	    echo( "   Scope of country[] in 'zoo': ", scope(country[]), " and city[]: ", scope( city[]) );
+	}
+
+	define procedure( bar )
+	{
+	    country[] = USA;                     // country is a local variable, but city is not
+	    echo('Bar in ', city[], ' ', country[]);
+
+	    regional  // Alternative formulation
+	    {
+	        zoo;
+	    }
+	    echo('Bar in ', city[], ' ', country[]); // Cambridge, UK
+	    echo( "   Scope of country[] in 'bar': ", scope(country[]), " and city[]: ", scope( city[]) );
+
+	}
+
+	define procedure( foo )
+	{
+	    city[] = Boston;
+	    regional() bar;
+	    echo('Foo(d) in ', city[]); // Cambridge
+	}
+
+	// Main program
+	foo;
+	+++,
+    "Output 01:": "automatic",
+    "See also": "regional"
+},
+
+
+
 
 "System Variables":
 {

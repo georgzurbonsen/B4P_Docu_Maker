@@ -14,7 +14,7 @@ B4PDOCU.START
 	high comprehensibility and exceptionally high performance.  Your key benefits are:
 
 	* <b>Simple</b> procedural language.
-	* Very easy to read and understand the code, therfore <b>very easy to learn</b> programming.
+	* Very easy to read and understand the code, therefore <b>very easy to learn</b> programming.
 	* Powerful language semantics <b>minimizes the number of statements</b> needed to solve the problem.
 	* <b>Very quickly</b> to get your code running
 	* <b>Be natural</b> and less cryptic.  Giver your variables, tables, functions, etc. natural names (spaces are allowed)
@@ -24,7 +24,7 @@ B4PDOCU.START
 	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly
 	* The execution engine and all libary files are very lean, very robust and start quickly.
 	* High focus on <b>cross-platform portability</b> (Windows, Linux, MacOS, etc.), enabling to run the same code on different platforms.
-	* B4P output files for Excel can contain <b>style and formatting</b> like colors, row widths, etc.
+	* B4P output files for Excel with <b>style and formatting</b> like colors, row widths, etc.
 
 	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro
 	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage
@@ -405,6 +405,7 @@ B4PDOCU.START
 	* The literal constant may contain leading or trailing spaces, as long they are inside the quotation marks
 	* <b>Character entities common in HTML</b> like &amp;euro; or &amp;#x20ac; for the EURO symbol &euro; are supported here
 	* In various functions, __wildcard symbols__ in softquoted literals (e.g. *, ?, #, etc.) are used for flexible searching and comparison rules
+	* __Multiline strings__ can be specified using 3 consecutive single quotation mark symbols.
 
 	+++,
     "Examples 01:"::
@@ -416,7 +417,8 @@ B4PDOCU.START
 	echo( '3 * 2 = 6' );
 	echo( 'A cheap way to continue on&#10;the next line' ); // Not recommended. Use '...', new line, '...' instead.
 	+++,
-    "Output 01:": "automatic"
+    "Output 01:": "automatic",
+    "See also": ["quoted literals", "multiline strings" ]
 },
 
 
@@ -433,6 +435,7 @@ B4PDOCU.START
 	* The literal constant may contain leading or trailing spaces, as long they are inside the quotation marks
 	* Character entities are treated as they are, i.e. they are not converted to the specified characters.
 	* Wildcard symbols are treated as they are, i.e. no wildcard features are applied for searching and comparing strings.
+	* __Multiline strings__ can be specified using 3 consecutive double quotation mark symbols.
 
 	+++,
     "Examples 01:"::
@@ -444,7 +447,8 @@ B4PDOCU.START
 	echo( "3 * 2 = 6" );
 	echo( "A cheap way to continue on&#10;the next line" ); // No translation of entitites here
 	+++,
-    "Output 01:": "automatic"
+    "Output 01:": "automatic",
+    "See also": ["softquoted literals", "multiline strings" ]
 },
 
 
@@ -482,6 +486,98 @@ B4PDOCU.START
 
 },
 
+
+
+
+"Multiline Literals" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Multiline literals" ],
+    "Keywords":			[ "Multiline strings" ],
+    "Description 01:Introduction"::
+
+	Similar to Python and other modern programming languages, B4P supports multline strings, name both as __softquoted literals__
+	and __quoted literals__.  Softquoted multiline strings begin with three single quotation marks <b>'''</b> with contents across
+	multiple lines follinwg and deliminted with <b>'''</b>.  For quoted multiline strings, use <b>"""</b> delimiters instead.
+	The three quotation mark symbols must be written without blanksin between.
+	The string contents are treated similarly as regular string constants, for example entities like <b>&amp;szlig;</b> being
+	resolved to the sharp S in German: <b>&szlig;</b>.  The length of multi-line strings is presently limited to 200,000 
+	bytes, where (foreign) non-ANSI characters count 2..4 bytes depending on their code. Longer strings will be invalidated.
+
+	<br><br>
+	Inside the multi-line literals, 1 and 2 consecutive quotation markes are treated as regular text.  3 consecutive quotation marks
+	are also treated as text if that one is not used as the opening delimiter.  B4P comments inside multi-line strings are also
+	seen as part of the contents.
+
+	<br><br>
+	Multiline string contents can start immediately after the three quotation symbols or on the next row.  Same applies for the
+	end: The multi-line string can be ended on the same line with three quotation marks, or immediately on the following row.
+	If you want to include new line symbols at the beginning and/or at the end of the multi-line string, then include additional
+	blank rows.
+
+	<br><br>
+	<u>Attention:</u> If the multi-line string is not properly delimited with the same triple quotation marks, then an error message
+	will occur <u>at the end</u> of the B4P program file because B4P assumed all contents further down as part of the long string.
+
+
+	+++,
+    "Examples 01:"::
+special offer[] = '''
+
+    4 pounds of bananas cost &euro; 2.90.
+    """ This is today's special bargain """
+
+''';
+
+echo("Attention!", special offer[], "As long supplies last?" );
+	+++,
+    "Output 01:":		"automatic",
+    "Examples 02:"::
+code example[] = """
+    /* Comments are part of the multi-line string */
+
+    a[] = 4;
+    b[] = sqrt(a[]) + 1; // Square root calculation
+    echo( "    sqrt(4)+1 equals ", b[] );
+""";
+
+echo(  code example[] );
+echo( new line, "Code output:" );
+exec( :code example[] );
+	+++,
+    "Output 02:":		"automatic",
+    "Examples 03:"::
+example[A] = """This 1st
+text fits on
+3 rows""";
+
+example[B] = """
+This 2st
+text fits on
+3 rows""";
+
+example[C] = """
+
+This 3rd
+text fits on
+5 rows (blank rows above and below)
+
+""";
+
+example[D] = """Use Following quotation marks: "Hello" or 'Hello' or '''Hello'''.""";
+
+
+echo("--------");
+for all variables( example[], ex[] )
+{
+    echo(ex[]);
+    echo("--------");
+}
+	+++,
+    "Output 03:":		"automatic",
+    "See also":			[ "Quoted Literals", "Softquoted Literals" ]
+
+},
 
 
 "Numeric Constants" :
@@ -614,7 +710,7 @@ B4PDOCU.START
 
 
 
-  "Literals - Indexing" :
+  "Indexing Strings" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "literals indexing" ],
@@ -648,18 +744,17 @@ B4PDOCU.START
 
 
 
-  "Literals - Extracting Substrings" :
+  "Slicing Strings" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Extracting substrings" ],
-    "Keywords":			[ "Slicing strings" ],
-
-
     "Description 01:Introduction"::
 
 	Instead of specifying single index values to retrieve single characters, substrings can be retrieved by listing muliple values and/or ranges.
 	In some other programming langauges, this feature is known as slicing.
-	The range operator '..' is available to specify a range.  The result will always be a literal.
+	The range operator '..' is available to specify a range.  If no value prcedes the range operator, than 0 is assumed.  If no value follows
+	the range operator, then the last character is assumed.  The result will always be a literal.
+	Negative indexing is supported.
 	
     "Examples 01:"::
 	echo( abcdefg { 0,2,4,2,0 } );    // Returns 'aceca'
@@ -670,6 +765,10 @@ B4PDOCU.START
 	echo( abcdefg { 3..99 } );        // Returns 'defg'
 	echo( abcdefg { -99..2 } );       // Returns 'abc'
 	echo( abcdefg { 0..2,5,1..3 } );  // Combinations
+	echo( abcdefg { 3.. } );          // Returns 'defg'
+	echo( abcdefg { ..3 } );          // Returns 'abcd'
+	echo( abcdefg { .. } );           // Returns full string
+	echo( abcdefg { ..,.. } );        // Returns full string twice: abcdefgabcdefg
 	+++,
 
     "Output 01:":		"automatic"
@@ -885,7 +984,7 @@ B4PDOCU.START
   },
 
 
-  "Parameter sets - Indexing" :
+  "Indexing Elements" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets indexing" ],
@@ -940,19 +1039,20 @@ B4PDOCU.START
 
 
 
-  "Parameter sets - Extracting Subsets" :
+  "Slicing Parameter Sets" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Extracting Subsets" ],
-    "Keywords":			[ "Slicing parameter sets" ],
 
 
     "Description 01:Parameter Sets - Extracting Subsets"::
 
 	Instead of specifying single index values to retrieve single elements, subsets can be retrieved by listing muliple values and/or ranges.
 	In some other programming langauges, this feature is known as slicing.
-	The range operator '..' is available to specify a range.  The result will always be returned in a parameter set, even if the subset
-	specified results in just one element.
+	The range operator '..' is available to specify a range.  If no value prcedes the range operator, than 0 is assumed.  If no value follows
+	the range operator, then the last character is assumed.  The range operator '..' is available to specify a range.  
+	The result will always be returned in a parameter set, even if the subset specified results in just one element, e.g. <b>{a,b,c}{1..1}</b> returns <b>{b}</b> and not <b>b</b>.
+	Negative indexing is supported.
 
     "Examples 01:"::
 	a[] = { a,b,c, {d,e,f}, g };                          // Assign a parameter set to variable a[]
@@ -962,6 +1062,10 @@ B4PDOCU.START
 	echo( "2nd to 2nd last         : ", a[]{-4..3} );     // Same output (-4 = 4th last or 2nd element)
 	echo( "1st element             : ", a[]{0..0} );      // Return 1st element, but in a subset and not alone
 	echo( "Combinations            : ", a[]{2..4,1} );    // Combination of simple values and ranges
+	echo( "First three elements    : ", a[]{..2} );       // Returns first 3 elements
+	echo( "Last three elements     : ", a[]{-3..} );      // Returns last 3 elements (negative indexing used here)
+	echo( "Entire parameter set    : ", a[]{..} );        // Returns entire parameter set
+	echo( "2nd element as subset   : ", a[]{1..1} );      // Must specify 1..1 (a range) to distinguish from __parameter set indexing__.
 	+++,
 
     "Output 01:":		"automatic"

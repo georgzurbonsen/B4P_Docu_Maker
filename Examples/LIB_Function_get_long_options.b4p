@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  program file[] = "Example_Program.b4p";   // The own program will be called recursively. 
+                                          // Rename this filename to name of this file
+
+  count[] = get long options();           // Identify long options with the best yield in the market
+
+  if (count[] == 0) // Program starts here
+  {
+      echo("Test 1: Start B4P program using shell command with some long options", new line);
+      system("b4p -x " + program file[] + ' --facts --decision=false --value=25.1 --time="18:30:15" ' );
+
+      echo("Test 2: Start B4P program using 'start()'");
+      start( program file[], '--myths', '--decision=true',  '--value=30', '--name="Jim"', '--date=2021-02-21' );
+  }
+  else // This part is executed in teh recursive call.
+  {
+      echo("Number of long options found: ", count[] );
+      inspect( long options[] );
+      echo(new line);
+  }

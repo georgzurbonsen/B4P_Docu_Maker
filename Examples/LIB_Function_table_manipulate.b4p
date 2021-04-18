@@ -1,25 +1,35 @@
 ﻿#!/usr/local/bin/b4p
+
+
   table initialize( animals,
       { { Animal, Leg Count, Comment },
-        { ant, 6 }, { rat, 4 }, { octopus, 8 }, { centipede, 100 }, { parakeet, 2 },
-        { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 }, { dog, 4 },
-        { cat, 4 }, { kangaroo, 2 or 4 }, { fly, 6 }, { alien, 3 }, { worm, 0 }, { emu, 2 } }  );
+      { ant, 6 }, { rat, 4 }, { octopus, 8 }, { centipede, 100 }, { parakeet, 2 },
+      { tick, 8 }, { orang utan, 2 or 4 }, { human, 2 }, { lobster, 8 }, { snake, 0 }, { dog, 4 },
+      { cat, 4 }, { kangaroo, 2 or 4 }, { fly, 6 }, { alien, 3 }, { worm, 0 }, { emu, 2 } }  );
 
   table copy table (animals, a2 );
 
 
   table initialize( lookup, {
-        { Condition,                  Todo },
-        { "[Leg Count] = '*or*'",     "[Comment] = 'Leg count probably unclear'" },
-        { "[Leg Count] > 6",          "[Comment] = 'Many legs'" },
-        { "[Animal] = rat",           "[Animal] = 'mouse'; [Comment] += 'not a rat'" },
-        { "true",                     "[Animal] = ![Animal]" } } ); // Upper case O ALL
+      { Condition,                  Todo,                                             Stop  },
+      { "[Leg Count] = '*or*'",     "[Comment] = 'Leg count probably unclear'",       false },
+      { "[Leg Count] > 6",          "[Comment] = 'Many legs'",                        true  },
+      { "[Leg Count] > 6",          "[Comment] = 'Lots of legs'",                     false },
+      { "[Animal] = rat",           "[Animal] = 'mouse'; [Comment] += 'not a rat'",   false },
+      { "true",                     "[Animal] = ![Animal]",                           false } } ); // Upper case of ALL
 
-  table manipulate( animals, lookup, Condition, Todo );
-  table list( animals );
+
+  echo("Demonstrate 'table manipulate selected rows' on animals with 6 or more legs (stop there if condition met):");
+  table copy table( animals, a1 );
+  table manipulate selected rows( a1, [Leg Count]>=6, lookup, Condition, Todo, Stop );
+  table list ( a1 );
+
+  echo("Demonstrate 'table manipulate' on all rows:");
+  table copy table( animals, a1 );
+  table manipulate( a1, lookup, Condition, Todo );
+  table list( a1 );
 
   echo("Equivalent alternative appraoch intead of using 'table manipulate',but a bit more cryptic:" );
 
   table process( lookup, table process selected rows( a2, :[Condition], :[Todo] ) );
   table list( a2 );
-

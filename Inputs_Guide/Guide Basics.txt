@@ -3,30 +3,29 @@ B4PDOCU.START
 
 
 // ------------------------------------------------------------------------------------------------
-"Overview" :
+"User Guide - Overview" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "overview" ],
+    "Feature Names":		[ "User Guide" ],
     "Description 01:Introduction to B4P"::
 
 	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
 	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for ingestion, 
-	integration, and analysis of diverse complex data sources, generating rapid results in easily understood form for immediate use in
+	integration, and analysis of many large complex data sources, generating rapid results in easily understood form for immediate use in
 	Excel and other business intelligence tools. 
 
-	<br><br>
+	<br/><br/>
 
-	<br/><img src="Images/B4P_General_Overview.jpg" alt="B4P Overview"><br/>
-
+	<img src="Images/B4P_General_Overview.jpg" alt="B4P Overview"><br/>
+	+++,
 
 	
-    "Description 02:Getting Started"::
+    "Description 02:See also"::
 
 	=== 300, 700, noheader, noframe column_1_bold
-	__User Guide__			| Overview and getting started
-	__Reference Manual__		| Comprehensive language, features and function reference
+	__Language Guide__		| Comprehensive introduction to the feature-rich B4P language
+	__Function Library Guide__	| Library containing ca. 800 procedures and functions
 	===
-
 
 
 	+++
@@ -125,34 +124,97 @@ B4PDOCU.START
     "Description 01:Merging information from different sources"::
 
 	<b>Problem Statement</b><br>
-	Your organization with branch offices in various countries are executing projects in their local markets, but need to
-	provide forecasts for parts and semi-finished goods from you.  Because every office is using different systems to manage
-	their demand and supply forecasts, and even follow different philosophies (e.g. weekly or monthly forecasting intervals),
-	you want to find a solution to merge the decentrally generated information and generate one common supply and demand
-	foreasting file.
+	Your organization has more than 25 branch offices in various countries around the world.  You are requesting product forecasts
+	from them in regular time intervals.    Because every office is using different systems to store and manage their data,
+	you will likely receive the information in different formats.  Past attempts asking them to harmonize their systems did not
+	work because the switchover costs appeared too high.  Some are database exports, and others are hand-crafted
+	Excel tables.
+
+	<br><br>
+
+	<b>The Solution</b>
+	* Use different short B4P program routines to read the different data from every branch office
+	* Automatically check for any inconsistencies, especially if data is provided in hand-made Excel sheets
+	* Align the data using common header names, e.g. 'Customer Name', 'Deliery Date', etc.
+	* Merge the data from the different sites
+	* Notify you if two sites start dealing with the same customer
+	* Consolidate and aggregate all forecast data according to your specifications
+	* Add formatting, colors and style to make the report easy to use
+	* Save the final report.
+
+	
+    "Description 02:Transfer from Machine to Machine"::
+
+	<b>Problem Statement</b><br>
+	You want to automate the information exchange between your ERP system (Enterprise Resource Planning) and the web-base
+	CRM system (Customer Relationship Management).  Both systems provide means to upload and downlaod data with commands,
+	so you can automate the data exchange entirely.  You want to be notified on discrepancies discovered in both databases
+	which require manual alignment involving the sales managers.
+
+	<br><br>
+
+	<b>The Solution</b>
+	* Let B4P initiate the data exports from both CRM and ERP systems
+	* Check if the customer data and opportunities are matching with each other.  Inform about new customers and opportunities.
+	* Check consistencies of key dates, for example planned order date.  Consider correcting minor differences (e.g. 1 week or less) automatically or notify sales to check the data
+	* Refer to a foreign exchange information from a website in case the opportunities are valued in a different currency
+	* Do necessary format conversions, such as numeric format (One generates EUR values, the other requires them in k EUR, etc.)
+	* Initiate the data uploads into the ERP and CRM systems respectively
+	* Generate a report with transactions made and issues requiring attention by sales management.
 
 
 
-	Add text here
+    "Description 03:Analyzing Stock Market Data"::
 
-	Consider table, or itemization like below
-	* Item 1
-	* Item 2
+	<b>Problem Statement</b><br>
+	Do the best with your savings by investing your money in a smart way better than others do.  You have identified multiple web pages which provide
+	structured corporate information such as
+	* Stock market data (in HTML format)
+	* Credit rating information (e.g. from rating agencies like Standard and Poors)
+	* Financial data of selected businesses (compiled in Excel files you can download)
+	With all the infomation, you have a neat appraoch to make up you own idea whether the shares are fairly valued, overvalued
+	or undervalued, so you your own decision base available whether to intiate buying or selling shares.
 
-	+++,
-    "Description 02:Features"::
+	<br><br>
 
-	Add text here.
-	Consider table, or itemization like below
-	* Item 1
-	* Item 2
+	<b>The Solution</b>
+	* Let download all stock market data on a daily base, as well as credit rating info and othe data.
+	* Align the data to the company names, making sure no mistakes happen with similarly named businesses.  Use their symbol names as a common key.
+	* Provide som accompanying information, e.g. the market areas the businesses are active in (e.g. banking and finance, pharmaceuticals, nutrition, etc.)
+	* Do some calculation, for example if a business is doing better than the average market
+	* Condense the analytics to a list which is easy to understand
+	* Add color, formatting and style to make it even easier to read
+	* Save the file and start investing.
 
-	+++,
-    "Description 03:Use case 2: Presidents from Wikipedia"::
 
-	Add text here
+
+    "Description 04:Comparing Bill of Materials for Commonalities"::
+
+	<b>Problem Statement</b><br>
+	Your enterprise has developed lots of different products which have similarities to a certain extent.  After some time, you have sufficient sales
+	data available for the different products so you can do a cross-product analysis by checking for commonalities of the components and pre-assembly
+	units used.  The engineers have provided a large number (200+) of bill of materials (part lists) for the various products, each of them listing
+	several thousand parts.  You want to identify the commonalities (i.e. same or similar parts used)
+	among the product variants, and weigh them up with the number of products sold, in order to initiate some strategic improvements in the product portfolio
+	in order to optimize operational efficiency and profitability.
+
+	<b>The Solution</b>
+	* Use a simple statement to identify all bill of material files (do not name them individually in your program)
+	* Load one file after the other and apply relational algebraic operations (e.g. intersections) in order to spot commonalities
+	* Identify individual parts and similar pre-assembly units used frequently
+	* Consolidate the information to an abstraction level you can use a a decision base
+	* Add format, style and save the work.
+
+
+    "Description 05:Writing the Programs to Solve these Problems"::
+
+	B4P is predestined to let you <b>focus on the 'what'</b>, and hot 'how'.  The philosophy with this language is to express the
+	steps briefly, with very few smart statements and using loops and variables as little as possible.  A large __function library__ is available
+	to provide various means to solve your data processing solutions efficiently.
 
 	+++
+
+
   },
 
 

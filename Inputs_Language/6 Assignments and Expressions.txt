@@ -447,7 +447,7 @@ B4PDOCU.START
 	<sup>1</sup> If a numeral is compared with a literal, then a literal copy will be made of the numeral and both literals are compared.<br>
 	<sup>2</sup> If a date is compared with a literal, then a literal copy will be made of the date and both literals are compared.  Depending on the state of the date, the format is "YYYY-MM-DD", "HH:II:SS", or "YYYY-MM-DD HH:II:SS".<br>
 	<sup>3</sup> If a boolean value is compared with a literal, then a literal copy will be made of the boolean value and both literals are compared.<br>
-	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.
+	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.  Values (but not subsets) inside the parameter sets are compared with the __strictly equal to__ <b>==</b> operator.
 
 
 	+++,
@@ -535,7 +535,7 @@ B4PDOCU.START
 	<sup>1</sup> If a numeral is compared with a literal, then a literal copy will be made of the numeral and both literals are compared.<br>
 	<sup>2</sup> If a date is compared with a literal, then a literal copy will be made of the date and both literals are compared.  Depending on the state of the date, the format is "YYYY-MM-DD", "HH:II:SS", or "YYYY-MM-DD HH:II:SS".<br>
 	<sup>3</sup> If a boolean value is compared with a literal, then a literal copy will be made of the boolean value and both literals are compared.<br>
-	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.
+	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} <> {3,2,1} returns false, however strictly comparison {1,2,3} != {3,2,1} returns true.  Values (but not subsets) inside the parameter sets are compared with the __strictly not equal to__ <b>!=</b> operator.
 
 	+++,
     "Examples 01:"::

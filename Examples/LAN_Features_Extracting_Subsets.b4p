@@ -6,3 +6,7 @@
   echo( "2nd to 2nd last         : ", a[]{-4..3} );     // Same output (-4 = 4th last or 2nd element)
   echo( "1st element             : ", a[]{0..0} );      // Return 1st element, but in a subset and not alone
   echo( "Combinations            : ", a[]{2..4,1} );    // Combination of simple values and ranges
+  echo( "First three elements    : ", a[]{..2} );       // Returns first 3 elements
+  echo( "Last three elements     : ", a[]{-3..} );      // Returns last 3 elements (negative indexing used here)
+  echo( "Entire parameter set    : ", a[]{..} );        // Returns entire parameter set
+  echo( "2nd element as subset   : ", a[]{1..1} );      // Must specify 1..1 (a range) to distinguish from __parameter set indexing__.

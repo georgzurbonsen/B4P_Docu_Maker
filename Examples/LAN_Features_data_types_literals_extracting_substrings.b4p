@@ -1,9 +1,0 @@
-﻿#!/usr/local/bin/b4p
-  echo( abcdefg { 0,2,4,2,0 } );    // Returns 'aceca'
-  echo( abcdefg { 3..5 } );         // Returns 'def'
-  echo( abcdefg { 5..3 } );         // Empty string.  Ranges cannot be listed in reverse direction
-  echo( abcdefg { -3..-1 } );       // Returns 'efg' - Last 3 characters
-  echo( abcdefg { 4..-1 } );        // Same result
-  echo( abcdefg { 3..99 } );        // Returns 'defg'
-  echo( abcdefg { -99..2 } );       // Returns 'abc'
-  echo( abcdefg { 0..2,5,1..3 } );  // Combinations
