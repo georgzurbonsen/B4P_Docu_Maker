@@ -657,7 +657,7 @@
 "2. Clean Data" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Import source data" ],
+    "Feature Names":		[ "Clean Data" ],
 "Description 01:Overview" : [
 "",
 "	Data obtained from external sources may be named and structured differently, and the table may contain",
