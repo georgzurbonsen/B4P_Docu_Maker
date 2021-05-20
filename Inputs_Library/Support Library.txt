@@ -6,6 +6,65 @@ This text file contains all relevant function descriptions in the "Support Libra
 B4PDOCU.START
 
 
+
+
+"openweb":
+{
+	"Function Names":	[ "openweb" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function opens a web page using the the favorite browser
+
+		<br><br>
+
+		When calling this function for the very first time without providing a favorite web browser specified in the
+		1st function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
+		installed as B4P is not in charge of installing web browsers for you.
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1 or 2",
+	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "URL web page address",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify a valid URL web page address as you would type it into the address field in the web browser. <br>
+			Web access errors like non-existing pages, error 404, etc., are displayed on teh browser directly.  B4P gets no return value
+			back from this function informing about access success or failure.
+			+++
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Web browser",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			Specify a valid web browser name:
+			=== 100, 400, noframe_1stcolbold, noheader
+			Windows	| chrome, edge, explorer
+			Linux   | chrome, firefox, brave
+			MacOS   | brave, chrome, firefox, safari
+
+			===
+			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
+			The chosen browser will be memorized for the next times you are using this function if you do not specify the browser expicitly.<br><br>
+			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
+			+++
+		}
+	],
+	"Examples"::
+	openweb( "https://www.b4p.app" );
+	+++,
+	"See also": [ "docs" ]
+},
+
+
+
+
 "help" :
 {
 	"Function Names":	[ "help" ],
@@ -30,19 +89,23 @@ ________________________________________________________________________________
 
 Page Number
 
-[1]     Entering interactive mode
+        [1]   Access Online B4P Documentation
 
-[2]     Help commands (for help text and accessing B4P documentation)
+        [2]   Access Local B4P Documentation and Function Descriptions
 
-[3]     Executing B4P statements and expressions by hand
+        [3]   Interactive Statements, Expressions and Calculations
 
-[4]     Basic commands (incl. leaving interactive mode)
+        [4]   Inspecting Tables
 
-[5]     Operating system commands
+        [5]   Inspecting Variables
 
-[6]     Inspecting tables
+        [6]   Basic Commands
 
-[7]     Inspecting variables
+        [7]   Operating System Commands
+
+
+        For more information, type:     docs search ( interactive mode )
+                                        docs search (help)
 
 
 _______________________________________________________________________________
@@ -54,16 +117,28 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 
 
 
-"docs" :
+"help ... / docs":
 {
-	"Function Names":	[ "docs" ],
+	"Function Names":	[ "help welcome",  "docs" , "help user guide", "help language", "help functions", "help library","help keywords", "help index" ],
 	"Documentation":	"Function Description",
 	"Library":		"Support Library",
 	"Description"::
-		This function accesses the on-line B4P documentation.
+		These functions access the on-line B4P documentation.
+
+		=== 200, 800, noframe_1stcolbold, noheader
+		help welcome		| Opens the welcome page in <a href="www.b4p.app"><b>www.b4p.app</b></a>.
+		docs			| " (same)
+		help user guide		| On-line user guide which contains valuable <i>getting started</i> information
+		help language		| On-line language reference guide focussing on the syntax and B4P language-specific features
+		help functions		| On-line guide to the complete function library
+		help library		| " (same)
+		help keywords		| On-line documentation index listing all keywords with direct links to the document contents
+		help index		| " (same)
+		=== 
+
 		When calling this function for the very first time without providing a favorite web browser specified in the
 		1st function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
-		installed.
+		installed as B4P is not in charge of installing web browsers for you.
 
 	+++,
 	"Call as":		"procedure",
@@ -188,7 +263,7 @@ Comparison mode is equals
 Please select: D
 >>
 	+++,
-	"See also": [ "docs" ]
+	"See also": [ "help welcome", "help keywords", "help" ]
 },
 
 
@@ -255,7 +330,7 @@ Please select: D
 	table list ( t, 1st row, 2, briefly, 3, last col, -3 );
 	+++,
 	"Output": "automatic",
-	"See also": [ "view" ]
+	"See also": [ "view", "list tables" ]
 },
 
 

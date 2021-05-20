@@ -1,11 +1,20 @@
 
-	table initialize( t, {"Header"} );
 
-	copy( 15, a[], b[], b[x,y], [t:Header,1] );
-	// Copies into two base variables, into a sub-member of b[], and into a table.
+//	file download overwrite    ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
+	table load                 ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
 
-	echo( a[], ", ", b[], ", ", b[x,y], ", ", [t:Header,1] );
+	table configure            ( countries, read numerals, no ); // Read numbers as text
 
-	
+	// The statement below catches 3 flies in one strike:
+	//
+	// 1. Replaces non-break spaces (UNICODE 160) and hair spaces (8202) to regular spaces (common inconveniences in HTML files)
+	// 2. Eliminate all cross references beginning with '['
+	// 3. Do some trimming: Remove dangling spaces so all text values begin and end with visible characters
 
+	table process all cells    ( countries, [.] = trim( replace all( left([.],'['), {chr(8202), chr(160)}, {' ', ' '} ) ) );
 
+	// Move the header row to top row.  Data below shifts up.
+
+	table lift header row      ( countries, Country name );
+
+	table save                 ( countries, test.csv );

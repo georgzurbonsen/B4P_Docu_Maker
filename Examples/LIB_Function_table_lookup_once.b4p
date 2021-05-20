@@ -2,14 +2,22 @@
   table load( lookup, "Table Lookup Example 1.csv" );
   table initialize( target, { Town, Florence, Venice, Florence, Edinburgh, New York, Hamburg, Florence, Munich, New York } );
 
-  count[] = table lookup once( target, Town, { Food or Beverage, Recommended },
-                               lookup, City, { Meal or Drink, Recommendation }, true, Counter );
+  table copy table( target, t1 );
+  echo("Note: 2 matches in Florence, 3rd lookup stays blank. No matches in Venice.");
+  count[] = table lookup once ( t1    , Town, { Food or Beverage, Recommended, Row Number },
+                                lookup, City, { Meal or Drink, Recommendation, '#row' }, true, Counter );
 
-  echo("Lookup table:");
+
+  echo("Lookup table after 1st lookup, note the 'Counter' column added:");
   table list( lookup );
 
-  // Note: Florence is looked up 3 times, but only 2 entries exist.  the 3rd lookup stays blank.
 
   echo("Target table after lookup (", count[], " items found):");
-  table list( target );
+  table list( t1 );
 
+
+  count[] = table lookup once ( target    , Town, { Food or Beverage, Recommended, Row Number },
+                                lookup, City, { Meal or Drink, Recommendation, '#row' }, ([Town]=Florence,Venice), Counter );
+
+  echo("Target table after lookup (Florence and Venice only) (", count[], " items found):");
+  table list( target );

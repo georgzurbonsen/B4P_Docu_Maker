@@ -1,14 +1,56 @@
-﻿"<div class=""booktitle_field"">Welcome</div>";Level;HTML File Name;Section Name
+﻿"<div class=""booktitle_field"">User Guide</div>";Level;HTML File Name;Section Name
 <ul>
-"<li class=""navi""><a href=""MAS_Features_Table_of_Contents.html""><div class=""navi""> Welcome </div></a></li>";1;MAS_Features_Table_of_Contents.html;Welcome
-"<li class=""navi""><a href=""Images/B4P_V8.00_2021-01-07.pdf""><div class=""navi""> Presentation </div></a></li>";1;Images/B4P_V8.00_2021-01-07.pdf;Presentation
-"<li class=""navi""><a href=""GUI_Features_User_Guide.html""><div class=""navi""> User Guide </div></a></li>";1;GUI_Features_User_Guide.html;User Guide
-"<li class=""navi""><a href=""LAN_Features_Language_Guide.html""><div class=""navi""> Language Guide </div></a></li>";1;LAN_Features_Language_Guide.html;Language Guide
-"<li class=""navi""><a href=""LIB_Features_Function_Library.html""><div class=""navi""> Function Library Guide </div></a></li>";1;LIB_Features_Function_Library.html;Function Library Guide
-"<li class=""navi""><a href=""MAS_Features_Recent_Releases.html""><div class=""navi"">1 Recent Releases </div></a></li>";1;MAS_Features_Recent_Releases.html;Recent Releases
+"<li class=""navi""><a href=""LAN_Features_Language_Guide.html""><div class=""navi""> &#8594; Language Guide </div></a></li>";1;LAN_Features_Language_Guide.html;"&#8594; Language Guide"
+"<li class=""navi""><a href=""LIB_Features_Function_Library.html""><div class=""navi""> &#8594; Function Library Guide </div></a></li>";1;LIB_Features_Function_Library.html;"&#8594; Function Library Guide"
+"<li class=""navi""><a href=""GUI_Features_Table_of_Contents.html""><div class=""navi""> Table of Contents </div></a></li>";1;GUI_Features_Table_of_Contents.html;Table of Contents
+"<li class=""navi""><a href=""GUI_Features_User_Guide.html""><div class=""navi"">1 User Guide - Overview </div></a></li>";1;GUI_Features_User_Guide.html;User Guide - Overview
 "<li class=""navi""><ul>";2
-"<li class=""navi""><a href=""MAS_Features_Release_8.00.html""><div class=""navi"">1.1 Rel. 8.00 </div></a></li>";2;MAS_Features_Release_8.00.html;Rel. 8.00
-"<li class=""navi""><a href=""MAS_Features_Release_8.01.html""><div class=""navi"">1.2 Rel. 8.01 </div></a></li>";2;MAS_Features_Release_8.01.html;Rel. 8.01
-"<li class=""navi""><a href=""MAS_Features_Release_8.02.html""><div class=""navi"">1.3 Rel. 8.02 </div></a></li>";2;MAS_Features_Release_8.02.html;Rel. 8.02
-</ul></li>
+"<li class=""navi""><a href=""GUI_Features_Key_Benefits.html""><div class=""navi"">1.1 Key Benefits </div></a></li>";2;GUI_Features_Key_Benefits.html;Key Benefits
+"<li class=""navi""><a href=""GUI_Features_Key_Features.html""><div class=""navi"">1.2 Key Features </div></a></li>";2;GUI_Features_Key_Features.html;Key Features
+"<li class=""navi""><a href=""GUI_Features_use_cases.html""><div class=""navi"">1.3 Use Cases </div></a></li>";2;GUI_Features_use_cases.html;Use Cases
+</ul></li>;2
+"<li class=""navi""><a href=""GUI_Features_Installation_and_Setup.html""><div class=""navi"">2 Installation and Setup </div></a></li>";1;GUI_Features_Installation_and_Setup.html;Installation and Setup
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""GUI_Features_Installation_on_Windows.html""><div class=""navi"">2.1 Windows </div></a></li>";2;GUI_Features_Installation_on_Windows.html;Windows
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""GUI_Features_Windows_Download.html""><div class=""navi"">2.1.1 Windows - Download </div></a></li>";3;GUI_Features_Windows_Download.html;Windows - Download
+"<li class=""navi""><a href=""GUI_Features_Windows_Installation.html""><div class=""navi"">2.1.2 Windows - Installation </div></a></li>";3;GUI_Features_Windows_Installation.html;Windows - Installation
+"<li class=""navi""><a href=""GUI_Features_Windows_Getting_Started.html""><div class=""navi"">2.1.3 Windows - Getting Started </div></a></li>";3;GUI_Features_Windows_Getting_Started.html;Windows - Getting Started
+"<li class=""navi""><a href=""GUI_Features_Windows_-_Batch_Installation.html""><div class=""navi"">2.1.4 Windows - Batch Installation </div></a></li>";3;GUI_Features_Windows_-_Batch_Installation.html;Windows - Batch Installation
+</ul></li>;3
+"<li class=""navi""><a href=""GUI_Features_Installation_on_Linux.html""><div class=""navi"">2.2 Linux </div></a></li>";2;GUI_Features_Installation_on_Linux.html;Linux
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""GUI_Features_Linux_Download.html""><div class=""navi"">2.2.1 Linux - Download </div></a></li>";3;GUI_Features_Linux_Download.html;Linux - Download
+"<li class=""navi""><a href=""GUI_Features_Linux_Installation.html""><div class=""navi"">2.2.2 Linux - Installation </div></a></li>";3;GUI_Features_Linux_Installation.html;Linux - Installation
+"<li class=""navi""><a href=""GUI_Features_Linux_Getting_Started.html""><div class=""navi"">2.2.3 Linux - Getting Started </div></a></li>";3;GUI_Features_Linux_Getting_Started.html;Linux - Getting Started
+"<li class=""navi""><a href=""GUI_Features_Linux_-_Batch_Installation.html""><div class=""navi"">2.2.4 Linux - Batch Installation </div></a></li>";3;GUI_Features_Linux_-_Batch_Installation.html;Linux - Batch Installation
+</ul></li>;3
+"<li class=""navi""><a href=""GUI_Features_Installation_and_Setup_on_MacOS.html""><div class=""navi"">2.3 MacOS </div></a></li>";2;GUI_Features_Installation_and_Setup_on_MacOS.html;MacOS
+"<li class=""navi""><ul>";3
+"<li class=""navi""><a href=""GUI_Features_MacOS_Prerequisites.html""><div class=""navi"">2.3.1 MacOS - Prerequisites </div></a></li>";3;GUI_Features_MacOS_Prerequisites.html;MacOS - Prerequisites
+"<li class=""navi""><a href=""GUI_Features_MacOS_Download.html""><div class=""navi"">2.3.2 MacOS - Download </div></a></li>";3;GUI_Features_MacOS_Download.html;MacOS - Download
+"<li class=""navi""><a href=""GUI_Features_MacOS_Installation.html""><div class=""navi"">2.3.3 MacOS - Installation </div></a></li>";3;GUI_Features_MacOS_Installation.html;MacOS - Installation
+"<li class=""navi""><a href=""GUI_Features_MacOS_Getting_Started.html""><div class=""navi"">2.3.4 MacOS - Getting Started </div></a></li>";3;GUI_Features_MacOS_Getting_Started.html;MacOS - Getting Started
+"<li class=""navi""><a href=""GUI_Features_MacOS_-_Batch_Installation.html""><div class=""navi"">2.3.5 MacOS - Batch Installation </div></a></li>";3;GUI_Features_MacOS_-_Batch_Installation.html;MacOS - Batch Installation
+</ul></li>;3
+"<li class=""navi""><a href=""GUI_Features_Updates_and_Upgrades.html""><div class=""navi"">2.4 Updates and Upgrades </div></a></li>";2;GUI_Features_Updates_and_Upgrades.html;Updates and Upgrades
+"<li class=""navi""><a href=""GUI_Features_De-installing_B4P.html""><div class=""navi"">2.5 De-installing B4P </div></a></li>";2;GUI_Features_De-installing_B4P.html;De-installing B4P
+</ul></li>;2
+"<li class=""navi""><a href=""GUI_Features_Getting_started.html""><div class=""navi"">3 Getting Started </div></a></li>";1;GUI_Features_Getting_started.html;Getting Started
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""GUI_Features_Import_source_data.html""><div class=""navi"">3.1 1. Import Source Data </div></a></li>";2;GUI_Features_Import_source_data.html;1. Import Source Data
+"<li class=""navi""><a href=""GUI_Features_Import_source_data.html""><div class=""navi"">3.2 2. Clean Data </div></a></li>";2;GUI_Features_Import_source_data.html;2. Clean Data
+"<li class=""navi""><a href=""GUI_Features_Getting_help.html""><div class=""navi"">3.3 Getting Help </div></a></li>";2;GUI_Features_Getting_help.html;Getting Help
+"<li class=""navi""><a href=""GUI_Features_Interactive_mode_workflow.html""><div class=""navi"">3.4 Interactive Mode Workflow </div></a></li>";2;GUI_Features_Interactive_mode_workflow.html;Interactive Mode Workflow
+"<li class=""navi""><a href=""GUI_Features_Programming_mode_workflow.html""><div class=""navi"">3.5 Programming Mode Workflow </div></a></li>";2;GUI_Features_Programming_mode_workflow.html;Programming Mode Workflow
+</ul></li>;2
+"<li class=""navi""><a href=""GUI_Features_Examples.html""><div class=""navi"">4 Examples </div></a></li>";1;GUI_Features_Examples.html;Examples
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""GUI_Features_merging_two_football_clubs.html""><div class=""navi"">4.1 Football team merger </div></a></li>";2;GUI_Features_merging_two_football_clubs.html;Football team merger
+</ul></li>;2
+"<li class=""navi""><a href=""GUI_Features_Terms_and_Conditions.html""><div class=""navi"">5 Terms and Conditions </div></a></li>";1;GUI_Features_Terms_and_Conditions.html;Terms and Conditions
+"<li class=""navi""><ul>";2
+"<li class=""navi""><a href=""GUI_Features_Licensing.html""><div class=""navi"">5.1 Licensing </div></a></li>";2;GUI_Features_Licensing.html;Licensing
+</ul></li>;2
+"<li class=""navi""><a href=""GUI_Features_Index.html""><div class=""navi"">6 Index </div></a></li>";1;GUI_Features_Index.html;Index
 </ul>

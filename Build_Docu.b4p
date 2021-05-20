@@ -17,6 +17,8 @@ runtime settings[verbose] = quiet;
 //	3.  TOC file name[]: 		Beginning part of revolving TOC file name (without time stamp)
 //	4.  destination path[]		Path to destnation directory
 
+keyword index file[] = "New Keyword Index.csv";
+
 
 define procedure ( load catalogue of books )
 {
@@ -344,14 +346,14 @@ define procedure( check all descriptions )
 //	________________________________________________________________________________________________________________________
 
 
-keyword index file[] = "New Keyword Index.csv";
 
 
 define procedure( collect keywords )
 {
 	echo(new line, "Step 4: Collect all keywords in a table", new line );
 
-	keyword index headers[] 		= { Abbreviation, Section Name, HTML File Name, Documentation Type, Feature Names, Keywords };
+	keyword index headers[] 		= { Abbreviation, Section Nr, Section Name, HTML File Name, Documentation Type, Feature Names, Keywords };
+	// 'Section Nr' will be updated when TOC is available
 
 	if (file existing( keyword index file[] ))
 	{
@@ -367,18 +369,18 @@ define procedure( collect keywords )
 
 	    for all variables if existing	( item[ select if(item[Documentation,0]==Function Description,Function Names,Feature Names) ], value[] ) // Pick up all "Feature Names" / "Function Names"
 	    {
-		table append			( keyword index, {{ chosen book[abbr], name[], item[HTML File Name], item[Documentation,0], value[] }} );
+		table append			( keyword index, {{ chosen book[abbr], "", name[], item[HTML File Name], item[Documentation,0], value[] }} );
 	    }
 
 	    for all variables if existing	( item[ Keywords ], value[] ) // Pick up all "Keywords"
 	    {
-		table append			( keyword index, {{ chosen book[abbr], name[], item[HTML File Name], item[Documentation,0], "", value[] }} );
+		table append			( keyword index, {{ chosen book[abbr], "", name[], item[HTML File Name], item[Documentation,0], "", value[] }} );
 	    }
 	}
 
 	table rearrange selected rows		( keyword index, ([Abbreviation]==chosen book[abbr]), top ); // Own book is privileged when searching for duplicate references.
 
-	table save( keyword index, keyword index file[] );
+	table copy table			( keyword index, keyword index to save ); // Will be updated with TOC contents
 
 	table process selected rows		( keyword index, [Keywords]=='', [Keywords] += [Feature Names] ); // Feature names are also to be listed under keywords.
 						// Feature names are used in function references, etc.
@@ -465,11 +467,23 @@ define procedure( sequence revolving TOC )
 			counter[[Category]] += { [Level]-counter[[Category]]{} : 1 };
 		    }
 		}
-		[Section Nr] = [Category]{0} + " " + join( counter[[Category]], "." );
+		tmp[] = counter[[Category]];
+		for (idx[] = 1, idx[]<tmp[]{}, idx[]++) tmp[]{idx[]} = literal( tmp[]{idx[]}, "00" );
+		[Section Nr] = [Category]{0} + " " + join( tmp[], "." );
 	} );
 }
 
 
+define procedure( save keywords )
+{
+
+	table lookup( keyword index to save, HTML File Name, Section Nr, RTOC, HTML File Name, Section Nr );
+	table save( keyword index to save, keyword index file[] );
+
+	table keep selected rows ( keyword index to save, [Abbreviation]==chosen book[abbr] );
+
+
+}
 
 
 //	Step 7: Create the navigator (to be integrated in HTML files) from revolving TOC
@@ -488,13 +502,14 @@ define procedure ( create navigator from revolving TOC )
 		next level[] = select if( [Level]=='', 1, [Level] );
 		while (next level[] < level[])  { table append( navigator, {{ "</ul></li>", level[]-- }} );  }
 		while (next level[] > level[])  { table append( navigator, {{ '<li class="navi"><ul>',   ++level[] }} );  }
+		section nr[] = replace all( right([Section Nr],' '), ".0", "."); // Change 4.02.01 to 4.2.1, etc.  This 2-digit format was needed to keep function lists in sorted order.
 		if ([HTML File Name] != '')
 		{
-			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><div class="navi">' + right([Section Nr],' ') + " " + [Section Name] + " </div></a></li>", level[], [HTML File Name], [Section Name] } } );
+			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><div class="navi">' + section nr[] + " " + [Section Name] + " </div></a></li>", level[], [HTML File Name], [Section Name] } } );
 		}
 		else
 		{
-			table append( navigator, { { '<li class="navi"><div>' + right([Section Nr],' ') + " " + [Section Name] + " </div></li>", level[] } } );
+			table append( navigator, { { '<li class="navi"><div>' + section nr[] + " " + [Section Name] + " </div></li>", level[] } } );
 		} );
 	while (1 < level[])  { table append( navigator, { "</ul></li>" } ); level[]--; } // Close all nested itemizations
 
@@ -533,6 +548,52 @@ define function( run example program, { { program table, literal }, { b4p file n
 	return 		( join([example output:0,], new line) ); // Return output as one string.
 }
 
+
+
+
+
+//	table keep selected rows ( keyword index to save, [Abbreviation]==chosen book[abbr] & [Documentation Type]==Function Description & [Feature Names]!='' );
+
+
+define procedure( insert function name browser, { { html file name, literal }, { text, all, reference } } )
+{
+	for all variables( text[], line[], i[] )
+	{
+		if (trim(line[])='$functions$')
+		{
+		    row[] = table search row ( keyword index to save, [HTML File Name]=html file name[] );
+		    if (row[] > 0)
+		    {
+			echo("    Found place to provide summary of functions" );
+			section nr[] = softquoted literal([keyword index to save:Section Nr,row[]] + ".*");
+			table copy table selected rows( keyword index to save, temp, [Section Nr]=section nr[] );
+			table sort rows( temp, { Section Nr, Feature Names } );
+			table delete selected rows( temp, [Documentation Type]==General Description );
+
+			t[]  = "<br><br><hr><h4>Procedures and Functions Provided:</h4>" + new line;
+
+			keys[] = {}; // Keywords
+			table process( temp,
+			    if ([Feature Names]=='' & [Keywords]<>'')
+			    {
+				keys[] += { [Keywords] };
+			    }
+			    else: if ([Feature Names]!='')
+			    {
+				if (keys[] <> {})
+				{
+				    t[] += "<br>" + join(keys[],", ") + ":" + "<br>" + new line;
+				    keys[] = {};
+				}
+				t[] += "&nbsp;&nbsp;&nbsp;&nbsp;" + "__" + [Feature Names] + "__ <br>" + new line;
+			    }
+			);
+			text[i[]] = t[] + "<br>";
+		    }		    
+		}
+
+	}
+}
 
 
 define procedure( apply HTML links on keywords, { { text, all, reference } } )
@@ -704,6 +765,7 @@ define procedure ( create function description in HTML, { { item, all, reference
     all full descriptors[]	= set names( item[], 1, all );				// e.g. {"Descriptor 01:Intro", ...}
     all descriptors[]		= deep( left, { all full descriptors[], ':' } ); 	// e.g. {"Descriptor 01", ...}
 
+
     for all table rows(  table name[], Name, descriptor[] )
     {
 	description title[] 	= '';
@@ -715,11 +777,14 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 	check( [Todo] )
 	{
+	    case ( '*text*' ) insert function name browser( item[HTML File Name], item[full descriptor[]] );
+
 	    case ( '*append*' )
 	    {
 		apply HTML links on embedded keywords( item[full descriptor[]] );
 		table append( HTML out[], { "<h4> " + descriptor to show[] + ": " + '<span class="black_text">' + join( set( item[full descriptor[]], 1 ),", ") + "</span></h4>" } );
 	    }
+
 
 	    case ( '*list*,*text*,*parameters*,*return values*' )
 	    {
@@ -770,6 +835,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 	    {
 		table create( example program );
 	    }
+
 
 	    case ( '*link keywords*' )		apply HTML links on keywords( item[full descriptor[]] );
 
@@ -1032,6 +1098,7 @@ define procedure ( create combined TOC )
 	collect keywords;
 	load revolving TOC;
 	sequence revolving TOC;
+	save keywords;
 
 	create navigator from revolving TOC;
 

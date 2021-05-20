@@ -323,11 +323,11 @@ B4PDOCU.START
 	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators which can be combined with __comparison options__
 	to make adjustments on the comparison rules:
 	* <b>&lt;</b> Less than
-	* <b>&le;</b> Less than or equal to
+	* <b>&lt;=</b> Less than or equal to
 	* <b>&gt;</b> Greater than
-	* <b>&ge;</b> Greater than or equal to
+	* <b>&gt;=</b> Greater than or equal to
 	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.  
-	* <b>&gt;&lt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.
+	* <b>&lt;&gt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.
 	* <b>==</b> __strictly Equal to__, expecting 1 operand only
 	* <b>!=</b> __strictly not equal to__, expecting 1 operand only
 

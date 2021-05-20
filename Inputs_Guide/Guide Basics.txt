@@ -9,14 +9,14 @@ B4PDOCU.START
     "Feature Names":		[ "User Guide" ],
     "Description 01:Introduction to B4P"::
 
-	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
+	<b>B4P is a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
 	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for ingestion, 
 	integration, and analysis of many large complex data sources, generating rapid results in easily understood form for immediate use in
 	Excel and other business intelligence tools. 
 
 	<br/><br/>
 
-	<img src="Images/B4P_General_Overview.jpg" alt="B4P Overview"><br/>
+	<img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
 	+++,
 
 	
@@ -221,21 +221,121 @@ B4PDOCU.START
 
 
 
-
-
-
-// ------------------------------------------------------------------------------------------------
-  "Getting Started" :
+"Getting Started" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Getting started" ],
 //  "Keywords":			[ "add unique keywords" ],
     "Description 01:Overview"::
 
-	Add text here
-	
+	The follwing sections given an introduction to some common functions which support each of the eight
+	following processing steps conveniently.
+
+	<br/><img src="Images/Description_Introduction_Flowchart.png" alt="B4P Typical Data Processing Steps">
+
+
 	+++
-  },
+},
+
+
+"1. Import Source Data" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Import source data" ],
+    "Description 01:Overview"::
+
+	B4P provides various means to import and load data from different sources.
+
+	* __table load(__) for loading files in basic formats like text, CSV, HTML, JSON, XML, etc.
+	* __table load excel file(__) for loading sheets from Excel files
+	* __variable load(__) for loading hierarchically structured JSON data into a structured B4P __variable__.
+
+
+    "Description 02:Import from the Web"::
+
+	The Internet contains rich information sources which could be useful for data processing needs.
+	Only two function calls are needed to retrieve tables from the web:
+
+	* __file download(__) and __file download overwrite(__) -- The latter one allows overwriting existing files.
+	* __table load(__)
+
+	+++,
+    "Examples 02:Simple Example"::
+	include(Support Library);
+	include(Utility Library);
+
+	file download overwrite ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
+	table load              ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
+
+	// The last parameter is a piece of text in the HTML file which needs to be passed first before
+	// the next table below will be loaded.
+
+	table list( countries, briefly, 5, 1st col, 0, last col, 1 );
+
+	// Only the first and last 5 rows and first two columns to keep the listing short
+
+	+++,
+    "Output 02:Original table as retrieved from Wikipedia": "automatic"
+
+},
+
+
+
+
+"2. Clean Data" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Import source data" ],
+    "Description 01:Overview"::
+
+	Data obtained from external sources may be named and structured differently, and the table may contain
+	unnecessary contents which need to be cleaned up first.  Following functions are availble to do the initial
+	clean-up work.  Following functions 
+
+	* __table lift header row(__): Specify one (or more) uniqe header names and the headers will shift to the 1st row.  The data below moves up.
+	* __table correct headers(__): Data received from different organization may contain different headers or even spelling mistakes.  Use this fucntion to clean up.
+	* __table rename headers(__): Rename headers to something easier to understand
+	* __clean numeral(__): Convert hard-to-digest values like "GBP 300,15-" to machine-readable numerals like "-300.15".
+	* __table process selected rows__<b>( table name, [Answer]=+'yes,true,ja,oui', [Answer]=yes );</b> to align some contents
+	* __table process cells__<b>( [.] = __trim__([.]) );</b> to remove all dangling spaces in the fiels, e.g. ' Hello ' to 'Hello'.
+
+    "Description 02:Wikipedia Example"::
+
+	The file downloaded from Wikipedia does indeed need some cleanup.
+
+	* First, the table contain two header rows where the 2nd header is the row of interest containing column header names.
+	* The header names are sophisticated, e.g. "Internet ccTLD". 
+	* In addition, lots of cross references like <b>[1]</b> are included and they distract.
+	* Various fields, particularly country names, contain leading spaces.
+
+	+++,
+    "Examples 02:Simple Example"::
+	include(Support Library);
+	include(Utility Library);
+
+	table load                 ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
+
+	table configure            ( countries, read numerals, no ); // Read numbers as text
+
+	// The statement below catches 3 flies in one strike:
+	//
+	// 1. Replaces non-break spaces (UNICODE 160) and hair spaces (8202) to regular spaces (common inconveniences in HTML files)
+	// 2. Eliminate all cross references beginning with '['
+	// 3. Do some trimming: Remove dangling spaces so all text values begin and end with visible characters
+
+	table process all cells    ( countries, [.] = trim( replace all( left([.],'['), {chr(8202), chr(160)}, {' ', ' '} ) ) );
+
+	// Move the header row to top row.  Data below shifts up.
+
+	table lift header row      ( countries, Country name );
+
+	table list( countries, briefly, 5, 1st col, 0, last col, 1 );
+	+++,
+
+    "Output 02:Original table as retrieved from Wikipedia": "automatic"
+
+},
+
 
 
 

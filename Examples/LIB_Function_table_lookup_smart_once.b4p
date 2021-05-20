@@ -14,12 +14,13 @@
 
   count[] = table lookup smart once ignore case
             ( target,   {Seats Needed, Preference,Location}, { Place to go, Phone, Row },
-              lookup,   {Table size,   Offering,  Ambience}, { Restaurant Name, Phone Number, '#row' }, true, Counter );
+                      lookup,   {Table size,   Offering,  Ambience}, { Restaurant Name, Phone Number, '#row' }, true, Counter );
 
   echo("Lookup table:");
   table list( lookup );
 
-  // Note: Querying New York after Florence looks for next match afer Florence and is a beer.
+  // Note: Every item in the lookup table is retrieved once. At next lookup, the next matching entry further below will be retrieved.
+  // Exception: Last row, so you can use it as a default row to capture all lookups which failed further up.
 
   echo("Target table after lookup (", count[], " items found):");
   table list( target );

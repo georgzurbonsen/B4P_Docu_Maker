@@ -9,12 +9,16 @@
   table initialize( target, {{ Sport, Name, Score 1, Score 2, Score 3, Score 4 },
       { racquetball, "", 5, 100, 12  },
       { squash,      "", 5, 100, 12  },
-      { racquetball, "", 5, 300, 10  },
-      { tennis,      "", 5, 100, 12  } } );
+      { tennis,      "", 5, 300, 10  },
+      { racquetball, "", 1, 100, 55  },
+      { tennis,      "", 5, 100, 12,8  } } );
 
   // Picks the 1st match and integrates the results
-  table integrate( target, Sport,  { Name,  Score 1 .. Score 4 },
-                   lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );
+  count[] = table integrate( target, Sport,  { Name,  Score 1 .. Score 4 },
+                   lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average }, true, Counter );
 
+  echo("Lookup table polled:");
+  table list( lookup );
+
+  echo("Target table after lookup (", count[], " items found):");
   table list ( target );
-

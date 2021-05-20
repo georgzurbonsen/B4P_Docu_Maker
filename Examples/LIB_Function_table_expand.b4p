@@ -13,20 +13,24 @@
      {  broccoli,      others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
      {  spring water,  water,          1.00  } } );
 
-  table initialize( target, { { Name, Favorite Food, Weight }, 
-     { Rafael, Broccoli,    200 }, { Steve, Parmesan cheese, 100 }, 
-     { George, Potato chips, 50 }, { Fred,  Spring water,   1000 } } );
+  table initialize( target, { { Name, Favorite Food, Weight },
+     { Rafael, Broccoli,    200 }, { Steve, Parmesan cheese, 100 }, { Stephanie, Parmesan cheese, 200 },
+     { Jane,   Potato chips,100 }, { Nick, Potato chips, 50 },      { Fred,  Spring water,   1000 } } );
 
 
   echo("Target table before looking up with expanding contents:");
   table list ( target );
 
-  table expand ignore case( target, Favorite Food, { Ingredient, Weight }, nute facts, Food, 
-                { Ingredient, Portion }, { overwrite, mul} );
+  count[] = table expand ignore case( target, Favorite Food, { Ingredient, Weight }, nute facts, Food,
+                { Ingredient, Portion }, { overwrite, mul}, true, Counter );
+
+  echo("Lookup table:");
+  table list ( nute facts );
 
   // Note that food portions are multiplied with the weight of the food.
 
   echo("After expanding (listing ingredients and calculating their weights):");
+  echo("Note: Nothing found for parmesan cheese.");
+  echo("Target table after lookup (", count[], " items found):");
   table list ( target );
-  
 

@@ -19,7 +19,6 @@
   echo("Lookup table:");
   table list( lookup );
 
-  // Note: Querying New York after Florence looks for next match afer Florence and is a beer.
 
   echo("Target table after lookup (", count[], " items found):");
   table list( target );

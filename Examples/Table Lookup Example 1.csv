@@ -1,13 +1,16 @@
-﻿City;Meal or Drink;Recommendation
-Hamburg;Meal;Hering
-Hamburg;Meal;Seafood
-New York;Meal;Pizza
-New York;Meal;Hamburger
-Florence;Drink;Chianti
-Florence;Meal;Tagliatelli
-Edinburgh;Drink;Single Malt
-Edinburgh;Meal;Fish & Chips
-New York;Drink;Lager
-Plzen;Drink;Pils
-Munich;Meal;Pork
-Munich;Drink;Weissbier
+﻿City;Country;Meal or Drink;Recommendation;Rating
+Hamburg;Germany;Meal;Hering;2
+Hamburg;Germany;Meal;Seafood;3
+New York;USA;Meal;Pizza;5
+New York;USA;Meal;Hamburger;5
+Florence;Italy;Drink;Chianti;4
+Florence;Italy;Meal;Tagliatelli;5
+Edinburgh;G. Britain;Drink;Single Malt;3
+Edinburgh;G. Britain;Meal;Fish & Chips;3
+New York;USA;Drink;Lager;3
+Camarque;France;Meal;Cheese;3
+Camarque;France;Spice;Fleur du sel;4
+Boston;USA;Meal;Lobster;4
+Plzen;Czech Rep.;Drink;Pils;4
+Munich;Germany;Meal;Pork;3
+Munich;Germany;Drink;Weissbier;5

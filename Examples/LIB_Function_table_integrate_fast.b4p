@@ -10,12 +10,16 @@
       { racquetball, "", 5, 100, 12  },
       { squash,      "", 5, 100, 12  },  // Lookup table: Squash entry is below racquetball
       { racquetball, "", 5, 300, 10  },  // Looks up Gini's score
-      { racquetball, "", 5, 300, 10  },  // And again.
+      { racquetball, "", 5, 300, 10  },  // And again (same row polled)
       { tennis,      "", 5, 100, 12  } } );
 
   // Picks the 1st match and integrates the results
-  table integrate fast( target, Sport,  { Name,  Score 1 .. Score 4 },
-                        lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );
+  count[] = table integrate fast( target, Sport,  { Name,  Score 1 .. Score 4 },
+                            lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average }, true, Counter );
+  echo("Lookup table polled:");
+  table list( lookup );
 
+  echo("Note: 2nd requcketball search returns Gini and not Chuck because Eva/squash was looked up before");
+  echo("Target table after lookup (", count[], " items found):");
   table list ( target );
 

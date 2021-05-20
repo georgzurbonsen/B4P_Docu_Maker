@@ -10,11 +10,16 @@
       { racquetball, "", 5, 100, 12  },
       { squash,      "", 5, 100, 12  },  // Lookup table: Squash entry is below racquetball
       { racquetball, "", 5, 300, 10  },
+      { football,    "", 1, 300, 20  },
       { tennis,      "", 5, 100, 12  } } );
 
   // Picks the 1st match and integrates the results
-  table integrate smart ( target, Sport,  { Name,  Score 1 .. Score 4 },
-                          lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average } );
+  count[] = table integrate smart ( target, Sport,  { Name,  Score 1 .. Score 4 },
+                                    lookup, Sports, { Names, 4:Scores }, { overwrite, add, sub, max, average }, true, Counter );
 
+  echo("Lookup table after lookup:");
+  table list ( lookup );
+
+  echo("Target table after lookup (", count[], " items found):");
   table list ( target );
 

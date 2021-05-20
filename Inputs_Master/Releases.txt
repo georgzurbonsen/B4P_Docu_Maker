@@ -151,7 +151,7 @@ B4PDOCU.START
 
     "Description 06:Performance Improvements"::
 
-	* Minor performance improvemnets when processing parameter sets (skipped and eliminated internal execution steps no longer needed).
+	* Minor performance improvements when processing parameter sets (skipped and eliminated internal execution steps no longer needed).
 	* Batch-mode installation implemented.
 
     "Description 07:Depreciated and retired features"::
@@ -161,7 +161,56 @@ B4PDOCU.START
 
 	+++
 
+},
+
+
+
+
+
+//
+"Rel. 8.03" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 8.03" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 8.03, issued 2021-05-18, "...."</b><br>
+	<i>French Mathematican, deceased 1883-04-18, developed the mathematical theoretic model how the Saturn rings were created.</i>
+
+    "Description 02:Bugfixes"::
+
+	* Loading JSON files into B4P tables: Loading refused if JSON begins with array and not with object.  Has been fixed.
+	* __table lookup(__) family: Stabilization (eliminated a potential bug)
+	* Release 8.02 induced an error in the function __table distribute(__) which prevented doing the work.  Has been fixed.
+
+    "Description 03:New Functions"::
+
+	* __table digest(__) function family: New variant of lookup and integration functionality
+	* __table lookup with rules(__) (also ... digest, ... expand, ... integrate) introduced.
+	* Additional help functions, e.g. __help keywords__, __help functions__, etc.  Recommended for interactive use
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* __table lookup smart(__) (also ... digest, ... expand, ... integrate): Added option to specify B4P expression for more flexible comparisons
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	None in this release.
+
+    "Description 06:Performance Improvements"::
+
+	* Did a spring-season clean-up of the existing function family __table lookup(__) / __table integrate(__) / __table expand(__) and shoud show minor performance improvements.
+
+
+    "Description 07:Depreciated and retired features"::
+
+	None in this release.
+
+	+++
+
 }
+
 
 
 

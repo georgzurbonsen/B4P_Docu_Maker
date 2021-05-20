@@ -65,6 +65,8 @@ B4PDOCU.START
 
 	Further more, see the seeparate section on __control flow functions for tables__ where the following functions, mostly loops, are defined:
 
+	$functions$
+
 	+++
 },
 
@@ -83,6 +85,8 @@ B4PDOCU.START
 	* __check(__) ... __case(__): Branches to statements or blocks where the condition is met.  All cases where the expression matches will be executed.
 
 	See also the exception functions __throw(__) / __catch(__) for skipping the remaining code inbetween.
+
+	$functions$
 
 	+++
 },
@@ -113,6 +117,8 @@ B4PDOCU.START
 	* __for all table selected columns(__)
 	* __for all current table columns(__)
 	* __for all current table selected columns(__)
+
+	$functions$
 
 	+++
 },
@@ -146,6 +152,8 @@ B4PDOCU.START
 	parameter count[] | Contains the number of parameters passed.  This is useful if the defined function allows for flexibility regarding number of parameters passed.
 	===
 
+	$functions$
+
 	+++
 },
 
@@ -162,6 +170,8 @@ B4PDOCU.START
 	B4P provides __start(__) to start other B4P programs.  Execution of this calling program continues when the B4P program has ended.
 	The __include(__) behaves similarly like __start(__), but memorizes the loaded program including the defined functions.  This features is useful
 	to define and include user specific function libraries which can be re-used in different B4P programs.
+
+	$functions$
 
 	+++
 },
@@ -185,6 +195,7 @@ B4PDOCU.START
 	* __catch if__ : The frisbee will only be caught if the value matches with the condition expression specified.  Otherwise the frisbee keeps flying.
 	* __interactive__: Enters interactive mode so you can inspect variables, tables, and do other works interactively.  Type <b>return</b> to continue program execution.<br>
 	* __null__: Null function. Does nothing, returns void value.  Suitable as placeholder function calls.
+
 
 	+++
 },
@@ -221,7 +232,13 @@ B4PDOCU.START
 	a[] = pick if( true, echo(yes), echo(no) ); // Note: Only 'yes' if printed
 	echo("Result is ", a[] );
 	+++,
-    "Output 03:Output": "automatic"
+    "Output 03:Output": "automatic",
+
+    "Description 04:"::
+
+	$functions$
+
+	+++
 },
 
 
@@ -240,6 +257,8 @@ B4PDOCU.START
 	* __expression(__): Execute a __B4P expression__ provided directly or in a string
 	* __compare(__): Compare a value with a __comparison expression__ provided directly or in a string
 	* __assign(__): Assign a value to a B4P variable where the varialbe name (including members if needed) are provided directly or in a string.
+
+	$functions$
 
 	+++
 },
@@ -271,6 +290,8 @@ B4PDOCU.START
 
 	This subsection covers text-based input/output such as __input(__), __echo(__), __print(__) and so forth.
 
+	$functions$
+
 	+++
 },
 
@@ -282,6 +303,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This subsection covers special effects such as clearing screens, moving cursors and changing text and background colors.
+
+	$functions$
 
 	+++
 },
@@ -297,6 +320,8 @@ B4PDOCU.START
 
 	The functions described in the following section are suited for __interactive mode__ and program use.  These functions provide
 	convenient insight into variables and tables.
+
+	$functions$
 
 	+++
 },
@@ -315,6 +340,8 @@ B4PDOCU.START
 	Converting values to __literal__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
 	in a desirable format.
 
+	$functions$
+
 	+++
 },
 
@@ -329,6 +356,8 @@ B4PDOCU.START
 
 	B4P provides a broad range of advanced mathematics and statistics functions.
 
+	$functions$
+
 	+++
 },
 
@@ -341,6 +370,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	B4P provides various functions to check numeric values and carry out basic mathematis functions.
+
+	$functions$
 
 	+++
    },
@@ -355,6 +386,8 @@ B4PDOCU.START
 	Transcendental functions are less mystic than you are believing.
 	They include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions
 	and suitable for everyday mathematics tasks.
+	
+	$functions$
 
 	+++
 },
@@ -368,6 +401,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This section covers all functions which can process value series of variable sizes.
+
+	$functions$
 
 	+++
    },	
@@ -412,6 +447,8 @@ B4PDOCU.START
 	* __diagonal__: Creates a matrix with values along the diagonal and zero in the remaining fields
 	* __transpose__: Transposes a matrix
 
+	$functions$
+
 	+++
    },	
 
@@ -422,6 +459,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This section covers all statistics functions.
+
+	$functions$
 
 	+++
   },
@@ -436,6 +475,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This section various functions needed for financial calculations, business and capacity planning.
+
+	$functions$
 
 	+++
   },
@@ -453,6 +494,8 @@ B4PDOCU.START
 	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, 
 	__statistics functions__ and __conditional combination functions__.
 
+	$functions$
+
 	+++
   },
 
@@ -466,6 +509,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.
+
+	$functions$
 
 	+++
   },
@@ -487,12 +532,14 @@ B4PDOCU.START
 	* __Time functions__
 	* __Stopwatch functions__
 
-	The following important date functions are found in the section __Type Conversion Functions__ and connvert data of other types, e.g. __literals__, to __dates__.:
+	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __literals__, to __dates__.:
 	* __date(__)
 	* __pure date(__)
 	* __date time(__)
 	* __time(__)
 	* __pure time(__)
+
+	$functions$
 
 	+++
   },
@@ -508,12 +555,14 @@ B4PDOCU.START
 
 	<br><br>
 
-	The following important date functions are found in the section __Type Conversion Functions__ and connvert data of other types, e.g. __literals__, to __dates__.:
+	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __literals__, to __dates__.:
 	* __date(__)
 	* __pure date(__)
 	* __date time(__)
 	* __time(__)
 	* __pure time(__)
+
+	$functions$
 
 	+++
   },
@@ -529,6 +578,8 @@ B4PDOCU.START
 	B4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
 	as well as stopwatch functions to measure the performance of your applications.
 
+	$functions$
+
 	+++
   },
 
@@ -541,6 +592,8 @@ B4PDOCU.START
 
 	The following functions suspend program execution for a specified time or until a specific time has been reached.
 	The delay will pause B4P's process and lets other application run at full speed.
+
+	$functions$
 
 	+++
   },
@@ -555,6 +608,8 @@ B4PDOCU.START
 
 	This section describes procedures and functions for character and string manipulations.
 
+	$functions$
+
 	+++
   },
 
@@ -568,6 +623,8 @@ B4PDOCU.START
 
 	This subsection describes various functions to search for string patterns and extract substrings from stings.
 
+	$functions$
+
 	+++
   },
 
@@ -580,6 +637,7 @@ B4PDOCU.START
 
 	This subsection describes various functions to search for string patterns and extract substrings from stings.
 
+	$functions$
 	+++
   },
 
@@ -592,6 +650,7 @@ B4PDOCU.START
 
 	All other string functions, including random string generation, are summarized next.
 
+	$functions$
 	+++
   },
 
@@ -611,6 +670,7 @@ B4PDOCU.START
 	* Multi-Table Integration (comparing, validating, lookups, merging, etc.)
 	* Formatting and Styling Tables (color, column widths, fonts, borders, setting autofilters, etc.)
 
+	$functions$ 
 	+++
 },
 
@@ -630,6 +690,8 @@ B4PDOCU.START
 	* Excel file (.xlsx / .xlsm)
 	* JSON
 
+	$functions$
+
 	+++
 },
 
@@ -644,6 +706,9 @@ B4PDOCU.START
 
 	* Listing tables
 	* Using tables as menus and asking for choices
+
+	$functions$
+
 	+++
 },
 
@@ -661,6 +726,8 @@ B4PDOCU.START
 	* Writing and writing tables
 	* Clearing and deleting tables
 	* Accessing table information
+
+	$functions$
 
 	+++
 },
@@ -680,6 +747,9 @@ B4PDOCU.START
 	* Adding further rows with contents
 
 	See the chapter on __tables__ to take advantage of various ways to read and write table contents effectively.
+
+	$functions$
+
 	+++
 },
 
@@ -704,6 +774,8 @@ B4PDOCU.START
 	* Writing  data from table rows selected with an algorithmic expression
 	* Forget memorized table columns during program execution
 
+	$functions$
+
 	+++
 },
 
@@ -726,6 +798,8 @@ B4PDOCU.START
 	The functions described next provide additional powerful ways to read data from the tables such as:
 	* Reading data from table rows selected with an algorithmic expression
 
+	$functions$
+
 	+++
 },
 
@@ -740,6 +814,9 @@ B4PDOCU.START
 
 	* Clear tables (remove all contents, but keep the table existing)
 	* Delete tables entirely
+
+	$functions$
+
 	+++
 },
 
@@ -756,6 +833,9 @@ B4PDOCU.START
 	* Does the specified table exist?
 	* Table lengths
 	* Table widths in specific rows and overall table widths
+
+	$functions$
+
 	+++
 },
 
@@ -772,6 +852,9 @@ B4PDOCU.START
 	* Search functions across rows, columns and the entire table using different comparing methods
 	* Exploration: explore - filter - extract sub-tables
 	* Table widths in specific rows and overall table widths
+
+	$functions$
+
 	+++
 },
 
@@ -790,6 +873,9 @@ B4PDOCU.START
 	* Identify all rows with selection criteria met
 	* Identify all columns or headers with selection criteria met
 	* Search the header row
+
+	$functions$
+
 
 	+++
 },
@@ -827,6 +913,9 @@ B4PDOCU.START
 	Tables can be extracted either into new blank tables or added to existing tables, allowing to arrange them horizontally and/or vertically.
 
 	<br/><br/><img src="Images/Description_Exploring_and_Extracting_Tables.jpg" alt="Exploring and Extracting Tables"><br/><br/>
+
+	$functions$
+
 	+++
 },
 
@@ -857,6 +946,8 @@ B4PDOCU.START
 	* __for all current table columns(__)
 	* __for all current table selected columns(__)
 
+	$functions$
+
 	+++
 },
 
@@ -878,6 +969,8 @@ B4PDOCU.START
 	* Pivoting and consolidating tables
 	* Copying, renaming and splitting tables
 
+	$functions$
+
 	+++
 },
 
@@ -892,6 +985,8 @@ B4PDOCU.START
 	It is highly advisable to check the input data to ensure that the corresponding headers and structures
 	are available and error messages can be issued very early rather than somewhere in the middle of data processing steps.
 
+	$functions$
+
 	+++
 },
 
@@ -904,6 +999,8 @@ B4PDOCU.START
 
 	The functions described next provide efficient means to process table columns, i.e. 
 	inserting, deleting, rearranging, processing, etc.
+
+	$functions$
 
 	+++
 },
@@ -918,6 +1015,8 @@ B4PDOCU.START
 	The functions described next provide efficient means process table rows, i.e.
 	inserting, deleting, rearranging, manipulating, etc.
 
+	$functions$
+
 	+++
 },
 
@@ -930,6 +1029,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	The functions described next provide efficient means process table contents.
+
+	$functions$
 
 	+++
 },
@@ -950,6 +1051,8 @@ B4PDOCU.START
 	* Spreading serialized data out horizontally (opposite of above), and
 	* Consolidating tables (boiling tables down to fewer rows with specific consolidation actions serving as ingredients)
 
+	$functions$
+
 	+++
 },
 
@@ -962,6 +1065,7 @@ B4PDOCU.START
 
 	The functions described next provide efficient means to copy and split tables.
 
+	$functions$ 
 	+++
 },
 
@@ -980,6 +1084,7 @@ B4PDOCU.START
 	* Combining multiple tables (e.g. merging data)
 	* Exploring and extracting tables
 
+	$functions$ 
 	+++
 },
 
@@ -994,6 +1099,8 @@ B4PDOCU.START
 	The functions described next provide efficient means to check tables for consistency and duplications 
 	as well as a simple-to-use function to compare tables and generate comparison reports.
 
+	$functions$ 
+
 	+++
 },
 
@@ -1005,9 +1112,51 @@ B4PDOCU.START
     "Feature Names":		[ "Looking up other tables" ],
     "Description 01:Introduction"::
 
-	The functions described next provide efficient lookup features to retrieve selected information from other
-	tables.
+	The functions described in following sections provide efficient lookup features to retrieve selected information from other tables (referred
+	to as lookup tables) which will then be written into the target table.  All function varieties follow the same basic
+	lookup principle in similar ways:  For the target table, one or more <b>input columns</b> need
+	to be specified where the corresponding contents in every row will be compared with the <b>search columns</b> in the lookup table.
+	When a matching row has been found, then the corresponding contents in the <b>output columns</b> in the lookup table will be
+	transferred to the <b>destination columns</b> in the target table.
 
+
+	B4P provides following function families:
+
+	=== 150, 850, noheader, noframe_1stcolbold
+	__table lookup__      | Information found in the lookup table will be retrieved and written into the target table.
+	__table integrate__   | Information found in the lookup table will be combined with the existing contents in the target table, using \
+				underlying rules of the specified __table integration operation identifiers__.  Example: Retrieved numeric scores \
+				can be added to the existing value in the destination colum, instead of simply overwriting them.
+	__table expand__      | Works similar to __table integrate__, but if two or more matches are identified in the lookup table, \
+				then additional rows will be inserted in the target table, original contents repeated downwards in the target table, and then \
+				updated with the contents retrieved from the lookup table.
+	__table expand fast__ | A variant where the additional rows are added to the end of the table in order to avoid wasting time shifting other rows downward
+	__table digest__      | Works similar like __table integrate__ where all matches instead of just the first one in the lookup table are integrated into the target table.
+	===
+
+	These functions come with following variants where these variants are added to the function names above:
+	
+	=== 150, 850, noheader, noframe_1stcolbold
+	... <b>top down</b> ...       | The table will always be searched from top to bottom.  No automatic indexing made for large lookup tables.  Beneficial for lookup \
+					tables where the first rew rows at the top would be found most frequently in order to save search time.
+	... <b>fast</b> ...	      | The row number of the last match in the lookup table will be memorized.  The search continues there when the search begins with \
+					the next row in the target table.  Very useful if both target table and lookup table are already in an alphabetic order and this \
+					can accelerate the lookup performance significantly.  Not applicable for __table digest(__).
+	... <b>once</b> ...	      | Every row in the lookup table can be retrieved only once.  For the next search, the next match below that row would apply, as long \
+					there are matches.
+	... <b>smart</b> ...	      | The lookup table contains smart patterns supporting comparison operators, wildcareds, multiple values and ranges.  In addition, \
+					B4P expressions returning boolean results can be specified.
+	... <b>smart once</b> ...     | Combination of both <b>once</b> and <b>smart</b>.
+	... <b>with rules</b> ...     | An opposite variant of <b>smart</b>: The matching patterns and possibly B4P expressions are specified in the target table and the \
+					lookup table contains the contents compared with and returned where matches are identified.
+	... <b>with rules once</b> ...| Combination of both <b>once</b> and <b>smarty/b>.
+	===
+
+	Finally, the function names can be rounded up with the ... <b>ignore case</b> suffix which makes all comparisons case insensitive.  Only exception: B4P expressions
+	returning boolean results are not affected by this rule, but the ignore-case ruling can be included in the expression, for example using the '+' __comparison options__.
+
+	$functions$ 
+	
 	+++
 },
 
@@ -1057,6 +1206,7 @@ B4PDOCU.START
 	* Dividing tables (binary division in relational algebra)
 	* Arranging tables sideways.
 
+	$functions$ 
 
 	+++
   },
@@ -1143,7 +1293,11 @@ B4PDOCU.START
 	* <b>table style rules[]</b>: Defines rules to properly interpret formatting codes
 	* <b>table style html comments[]</b>: Template to put comments into HTML file format so opening them with Excel will make the comments show up.
 	In addition, this library maintains one table called <b>global color table</b> which describes all available colors with their names.  See next section for details.
+
+	$functions$ 
+
 	+++
+
 },
 
 // See "Style Library.txt" for further documentation on styles.
@@ -1164,6 +1318,7 @@ B4PDOCU.START
 	This section summarizes all functions processing variables.  The functions are categorized into the following:
 	* Obtaining information about the variables
 
+	$functions$ 
 
 	+++
   },
@@ -1182,6 +1337,8 @@ B4PDOCU.START
 
 	__Arrays and structures__ will be addressed in the following section.
 
+	$functions$ 
+
 	+++
   },
 
@@ -1193,6 +1350,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This section provides an overview of functions defining and working with __arrays__ and __structures__.
+
+	$functions$ 
 
 	+++
   },
@@ -1263,7 +1422,10 @@ B4PDOCU.START
 	json to variable( c[], j[], JSON B4P );
 	inspect( c[] ); // Same as before.
 	+++,
-	"Output 02": "automatic"
+	"Output 02": "automatic",
+	"Description 03:"::
+	$functions$ 
+	+++
 
   },
 
@@ -1276,6 +1438,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This section describes functions related to __variable references__.
+
+	$functions$ 
 
 	+++
   },
@@ -1299,6 +1463,8 @@ B4PDOCU.START
 	If a nested sub-attribute is created, then the values associated to the attributes are blank literals "", and not void.
 	Example:  attribute write ( path[ ], file[ ], {local machine, local settings, date format}, "YYYY-MM-DD" ) will automatically assign "" to attribute name local machine, 
 	and local settings if not yet existing.
+
+	$functions$ 
 
 	+++
   },
@@ -1378,6 +1544,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This subsection describes various functions to search to accesss directories and files.
+	$functions$ 
 
 	+++
   },
@@ -1390,6 +1557,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This subsection describes various functions to obtain list of existing filse and directories, as well as searching for files and directories.
+	$functions$ 
 
 	+++
   },
@@ -1401,6 +1569,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This subsection describes various functions to create, copy, rename and delete files and directories
+	$functions$ 
 
 	+++
   },
@@ -1421,6 +1590,8 @@ B4PDOCU.START
 	<br><br>
 	<u>Note</u>: All Microsoft office featuers, e.g. loading Excel files, rely on these file compression and decompression functions.
 
+	$functions$ 
+
 	+++
   },
 
@@ -1433,6 +1604,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	This section summarizes system specific functions including executing operating system commands (like Windows CMD, Linux shell, etc.)
+	$functions$ 
 
 	+++
   },
@@ -1446,6 +1618,8 @@ B4PDOCU.START
 
 	This section describes the __system(__) function to execute system commands and also provides a function called __quote path(__) to precondition 
 	path and file names so they can be used as command line parameters for system commands accordingly.
+
+	$functions$ 
 
 	+++
   },
@@ -1470,6 +1644,8 @@ B4PDOCU.START
 
 	<br><br>
 	Please contact us if you need to write a B4P program which needs to access the registry and you have a good reason for that.
+
+
 	+++
   },
 
@@ -1482,6 +1658,8 @@ B4PDOCU.START
 
 	The following functions relate to system and B4P programming privileges as well as functions needed to activate licensing.
 	As an example, these functions are used in the B4P installation script.
+
+	$functions$ 
 
 	+++
   },
@@ -1497,6 +1675,8 @@ B4PDOCU.START
 
 	The functions described next are ideally suited for interactive use in order to obtain more information
 	about specific functions and features and access on-line and off-line documentation directly.
+
+	$functions$ 
 
 	+++
   },

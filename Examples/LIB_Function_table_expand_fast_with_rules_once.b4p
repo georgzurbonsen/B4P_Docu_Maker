@@ -1,0 +1,34 @@
+﻿#!/usr/local/bin/b4p
+
+  table initialize( animals,
+      { { Name,      Size,     Speed,     Movement,  Leg count,  Surface,    Special Skills   },
+        { Parrot,    small,    50,        flying,    2,          feathers,   immitates voices },
+        { Donkey,    medium,   28,        walking,   4,          hair,       agriculture use  },
+        { Dog,       small,    30,        walking,   4,          hair,       sense of smell   },
+        { Cat,       small,    20,        walking,   4,          hair,       night vision     },
+        { Fox,       small,    25,        walking,   4,          hair,       relatively smart },
+        { Owl,       small,    80,        flying,    2,          feathers,   night vision     },
+        { Worm,      tiny,     0.01,      crawling,  0,          mucous skin,unclear          },
+        { Whale,     huge,     30,        swimming,  0,          skin,       relatively smart } } );
+
+  headers[] = [animals:..,0]-{Name};
+
+
+  table initialize( target,
+          { { Size,     Speed,     Movement,  Leg count,  Surface, Special Skills, Animal, Double Speed   },
+            { '*',      ':mod([.],40)=0','*', '*',        '*',     '*',          "It's an", 2  }, // Speed divisible by 40 -> Owl
+            { small,    '20..30',  '*',       '*',        Hair,    '*',          "It's a ", 2   }, // Dog, Cat, Fox
+            { small,    '20..30',  '*',       '*',        Hair,    '*',          "It's a ", 2   }, // No match (items already found)
+            { '*',      '20..30',  '*',       '*',        '*',     '*',          "",        2   } } ); // Donkey and Whale only
+
+  count[] = table expand fast with rules once ignore case ( target, headers[],  {Animal, Movement, Double Speed},
+            animals, headers[], {Name,   Movement, Speed},   { append with space, overwrite, mul }, true, Counter );
+  // Data integration process: Overwrite movement in target table, Add animal name to 'It's ...' and note double speed.
+
+  echo("List of animals with counted lookups:");
+  table list( animals );
+
+  echo("Note: Dog/Cat/Fox can be found only once.  Row 4: Donkey and Whale found (Dog/Cat/Fox already taken)");
+  echo("Target table after lookup (", count[], " items found):");
+  table list( target );
+

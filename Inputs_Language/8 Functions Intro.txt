@@ -558,7 +558,7 @@ B4PDOCU.START
 "Expressions to Select Rows" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Expressions to select rows" ],
+    "Feature Names":		[ "Expression to select rows", "Expressions to select rows" ],
     "Description 01:Introduction"::
 
 	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions

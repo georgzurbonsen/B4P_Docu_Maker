@@ -1,0 +1,31 @@
+
+
+	table initialize( lookup,
+	        { { Size,     Surface,   Colors,  Leg Count, Habitat,      Communication, Animal },
+	          { small,    feathers,  black,   2,         '*',          tweeting,      blackbird },
+	          { '*',      feathers,  '*',     2,         '*',          '*',           bird },
+	          { small,    '*',       pink,    0,         '*',          '',            earthworm },
+		  { large,    wet skin,  gray,    0,         ':[.]=mare[]',singing,       whale },
+	          { big,      scales,    '*',     0,         '*',          '',            boa constrictor },
+	          { '*',      scales,    '*',     0,         '*',          '',            snake },
+	          { '*big*',  skin,      '*',     4,       ':find(instruments[],[.])>=0', elephant },
+		  { '*',      '*',       '*',    '*',        '*',          '*',           other animal  } } );
+
+
+	table list( lookup );
+
+	table initialize( main,
+	        { { Size,     Surface,   Colors, Leg Count, Habitat, Communication, },
+	          { small,    feathers,  black, 2,         Austria,   tweeting     },
+	          { small,    fine hairs,any,   4,         worldwide, meow         },
+		  { large,    wet skin,  gray,  0,         ocean,     singing      },
+		  { very big, skin,      gray,  4,         Africa,    trumpet      } });
+
+
+	mare[] = 'ocean,bay,sea'; // Define the variable to compare with.
+	instruments[] = { trumpet, trombone, susaphone };
+
+
+	table lookup smart ignore case ( main, [main:..,0], Animal, lookup, [main:..,0], Animal );
+
+	table list( main );

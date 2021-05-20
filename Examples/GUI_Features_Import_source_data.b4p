@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+
+  table load                 ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
+
+  table configure            ( countries, read numerals, no ); // Read numbers as text
+
+  // The statement below catches 3 flies in one strike:
+  //
+  // 1. Replaces non-break spaces (UNICODE 160) and hair spaces (8202) to regular spaces (common inconveniences in HTML files)
+  // 2. Eliminate all cross references beginning with '['
+  // 3. Do some trimming: Remove dangling spaces so all text values begin and end with visible characters
+
+  table process all cells    ( countries, [.] = trim( replace all( left([.],'['), {chr(8202), chr(160)}, {' ', ' '} ) ) );
+
+  // Move the header row to top row.  Data below shifts up.
+
+  table lift header row      ( countries, Country name );
+
+  table list( countries, briefly, 5, 1st col, 0, last col, 1 );

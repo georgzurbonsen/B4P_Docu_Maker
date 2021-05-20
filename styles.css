@@ -13,6 +13,7 @@ code
 {
   font-family: Lucida console,Courier New,Courier,monospace;
   font-size: 12px;
+/*  white-space: pre-wrap;  Creates double spaced text. Do not use.*/
 }
 
 /* color the text */
