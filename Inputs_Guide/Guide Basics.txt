@@ -677,56 +677,6 @@ B4PDOCU.START
 
 
 // ------------------------------------------------------------------------------------------------
-  "Interactive Mode Workflow" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Interactive mode workflow" ],
-//  "Keywords":			[ "add unique keywords" ],
-    "Description 01:Overview"::
-
-	Add text here
-	Note: Interactive commands, e.g. $ ls command, cannot be automated.
-	You need to formulate the output contents by hand.  Same applies if you provoke exceptions (error messages).
-
-    "Examples 01:Directory listing command"::
-		$ ls
-	+++,
-    "Output 01:Output is shown manually"::
-	.config         b4p          setup          abc.pdf         def.xls
-        5 Files.
-	+++
-  },
-
-
-
-// ------------------------------------------------------------------------------------------------
-  "Programming Mode Workflow" :
-  {
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Programming mode workflow" ],
-//  "Keywords":			[ "add unique keywords" ],
-    "Description 01:Overview"::
-
-	Add text here
-	
-	+++,
-    "Examples 01"::
-	echo("Hello World");
-	+++,
-    "Output 01:This output is generated automatically.": "automatic",
-
-    "Description 02:Overview"::
-
-	Add text here
-
-	+++
-  },
-
-
-
-
-
-// ------------------------------------------------------------------------------------------------
   "Getting Help" :
   {
     "Documentation":		"General Description", // Required value

@@ -1,4 +1,43 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+GUI;B 3.01;1. Data Ingestion;GUI_Features_Import_source_data.html;General Description;Import source data
+GUI;B 3.02;2. Semantic Alignment;GUI_Features_Clean_Data.html;General Description;Clean Data
+GUI;B 3.03;3. Validate and Explore;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
+GUI;B 3.04;4. Merge and Consolidate;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
+GUI;B 3.05;5. Enrichment;GUI_Features_Enrichment.html;General Description;Enrichment
+GUI;B 3.06;6. Align and Process;GUI_Features_Align_and_Process.html;General Description;Align and Process
+GUI;B 3.07;7. Format and Style;GUI_Features_Format_the_results.html;General Description;Format the results
+GUI;B 3.08;8. Save and Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
+GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
+GUI;B 4;Examples;GUI_Features_Examples.html;General Description;Examples
+GUI;B 4.01;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
+GUI;B 3.09;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
+GUI;B 3;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;B 6;Index;GUI_Features_Index.html;General Description;Index
+GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;B 1.01;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
+GUI;B 1.02;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
+GUI;B 5.01;Licensing;GUI_Features_Licensing.html;General Description;Licensing
+GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
+GUI;B 2.02.01;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
+GUI;B 2.02.03;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
+GUI;B 2.02.02;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
+GUI;B 2.03;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
+GUI;B 2.03.05;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
+GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
+GUI;B 2.03.04;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
+GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
+GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
+GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;B 5;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
+GUI;B 1.03;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;B 1;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
+GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
+GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
+GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
+GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
 LAN;B 7.04;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 LAN;B 7.04.04;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 LAN;B 7.04.01;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -133,7 +172,7 @@ LAN;B 2.01;Installing and Starting Up;LAN_Features_Installting_and_starting_up.h
 LAN;B 2.07.02;Interactive Help;LAN_Features_Interactive_help.html;General Description;Interactive help
 LAN;B 2.07;Interactive Mode;LAN_Features_interactive_mode.html;General Description;interactive mode
 LAN;B 8.06;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
-LAN;B 1;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
+LAN;;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
 LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Language pitfalls
 LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijacking parameters
 LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;licensing
@@ -280,47 +319,6 @@ LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;wildc
 LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;B 7.01;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;B 4.03.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
-GUI;B 3.01;1. Data Ingestion;GUI_Features_Import_source_data.html;General Description;Import source data
-GUI;B 3.02;2. Semantic Alignment;GUI_Features_Clean_Data.html;General Description;Clean Data
-GUI;B 3.03;3. Validate and Explore;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
-GUI;B 3.04;4. Merge and Consolidate;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
-GUI;B 3.05;5. Enrichment;GUI_Features_Enrichment.html;General Description;Enrichment
-GUI;B 3.06;6. Align and Process;GUI_Features_Align_and_Process.html;General Description;Align and Process
-GUI;B 3.07;7. Format and Style;GUI_Features_Format_the_results.html;General Description;Format the results
-GUI;B 3.08;8. Save and Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
-GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
-GUI;B 4;Examples;GUI_Features_Examples.html;General Description;Examples
-GUI;B 4.01;Football team merger;GUI_Features_merging_two_football_clubs.html;General Description;merging two football clubs
-GUI;B 3.09;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
-GUI;B 3;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;B 6;Index;GUI_Features_Index.html;General Description;Index
-GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;B 3.10;Interactive Mode Workflow;GUI_Features_Interactive_mode_workflow.html;General Description;Interactive mode workflow
-GUI;B 1.01;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
-GUI;B 1.02;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
-GUI;B 5.01;Licensing;GUI_Features_Licensing.html;General Description;Licensing
-GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
-GUI;B 2.02.01;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
-GUI;B 2.02.03;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
-GUI;B 2.02.02;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
-GUI;B 2.03;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
-GUI;B 2.03.05;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
-GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
-GUI;B 2.03.04;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
-GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
-GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
-GUI;B 3.11;Programming Mode Workflow;GUI_Features_Programming_mode_workflow.html;General Description;Programming mode workflow
-GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 5;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
-GUI;B 1.03;Use Cases;GUI_Features_use_cases.html;General Description;use cases
-GUI;;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
-GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
-GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
-GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
-GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
 MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
 MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
 MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
