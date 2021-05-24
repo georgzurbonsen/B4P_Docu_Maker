@@ -183,16 +183,22 @@ B4PDOCU.START
 	* Loading JSON files into B4P tables: Loading refused if JSON begins with array and not with object.  Has been fixed.
 	* __table lookup(__) family: Stabilization (eliminated a potential bug)
 	* Release 8.02 induced an error in the function __table distribute(__) which prevented doing the work.  Has been fixed.
+	* __table list(__) generates wrong output in some cases when table fields contain mulitple lines of data.  Has been fixed.
+	* Loading HTML tables also loaded details on styles if &lt;STYLE&gt; tags including contents are inside table cells.  Has been fixed.
 
     "Description 03:New Functions"::
 
 	* __table digest(__) function family: New variant of lookup and integration functionality
 	* __table lookup with rules(__) (also ... digest, ... expand, ... integrate) introduced.
 	* Additional help functions, e.g. __help keywords__, __help functions__, etc.  Recommended for interactive use
+	* __height(__) returns number of rows a string contains
+	* __clean(__) cleans a string by substituting exotic UNICODE line breaks and spaces into ANSI new line spaces (codes 10 and 32).
+	* __table clean(__) caries cleanup work as described above and can also trim out unnecessary spaces and line breaks.
 
     "Description 04:Improvements in Existing Functions"::
 
 	* __table lookup smart(__) (also ... digest, ... expand, ... integrate): Added option to specify B4P expression for more flexible comparisons
+	* __substitute(__) and __replace(__): Single-character wildcard symbols are now supported if the matching string is not a hard quoted literal.
 
     "Description 05:New Language Features (e.g. syntax and semantics)"::
 
@@ -205,13 +211,12 @@ B4PDOCU.START
 
     "Description 07:Depreciated and retired features"::
 
-	None in this release.
+	* Converting strings to dates: Months in roman numbers are discontinued.  They are used very rarely, and create confusion with structured \
+	  section numbers like 1.v.20.
 
 	+++
 
 }
-
-
 
 
 

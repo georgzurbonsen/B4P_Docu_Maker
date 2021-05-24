@@ -30,6 +30,8 @@
 						[Feature Names] = parameter set([Keywords]){} );
 	table rename column headers	( toc, Feature Names, Keyword Count );
 
+	table process			( toc, [Section Nr] = replace all( [Section Nr], '.0','.' ) );
+
 	table insert selected rows	( toc, true /* all */, [Keyword Count]-1, { Section Nr, Section Name, Keywords, HTML File Name }, Keyword Count );
 	table process			( toc, [Keywords] = parameter set([Keywords]){[Keyword Count]} );
 	table delete columns		( toc, Keyword Count );

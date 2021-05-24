@@ -363,7 +363,7 @@ B4PDOCU.START
 		* Text wrapping will be activated if contents contain line breaks so the whole text is visible
 		* All numbers will be saved as numeric data.
 		** Numbers containing scientific notation (e.g. 1E3 for 1000) will be saved using scientific notation format.
-		** Other number formats like percentages: Save the numbers as they are (e.g. 0.15 for 15%), then apply __style__ functions such as __table style columns(__) with the attribute name <b>number format</b> \
+		** Other number formats like percentages: Save the numbers as they are (e.g. 0.15 for 15%), then apply __styles__ functions such as __table style columns(__) with the attribute name <b>number format</b> \
 		   followed by the attribute value as understood by Excel, e.g. <b>"0.00%"</b>.
 	
 

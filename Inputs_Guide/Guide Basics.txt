@@ -1,4 +1,4 @@
-//
+	//
 B4PDOCU.START
 
 
@@ -238,20 +238,18 @@ B4PDOCU.START
 },
 
 
-"1. Import Source Data" :
+"1. Data Ingestion" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Import source data" ],
     "Description 01:Overview"::
 
-	B4P provides various means to import and load data from different sources.
+	B4P provides various means to ingest, i.e. import and load data from different sources.
 
 	* __table load(__) for loading files in basic formats like text, CSV, HTML, JSON, XML, etc.
 	* __table load excel file(__) for loading sheets from Excel files
 	* __variable load(__) for loading hierarchically structured JSON data into a structured B4P __variable__.
 
-
-    "Description 02:Import from the Web"::
 
 	The Internet contains rich information sources which could be useful for data processing needs.
 	Only two function calls are needed to retrieve tables from the web:
@@ -259,38 +257,41 @@ B4PDOCU.START
 	* __file download(__) and __file download overwrite(__) -- The latter one allows overwriting existing files.
 	* __table load(__)
 
+
+	<hr>
+
+    "Description 03:Example with Country Table from Wikipedia"::
+
 	+++,
-    "Examples 02:Simple Example"::
+    "Examples 03:Simple Example"::
 	include(Support Library);
-	include(Utility Library);
+	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
+	table load                     ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
 
-	file download overwrite ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
-	table load              ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
-
-	// The last parameter is a piece of text in the HTML file which needs to be passed first before
-	// the next table below will be loaded.
-
-	table list( countries, briefly, 5, 1st col, 0, last col, 1 );
-
-	// Only the first and last 5 rows and first two columns to keep the listing short
-
+	table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
+	table save                     ( countries, temp.csv); // Hide!  Step 1 ends
 	+++,
-    "Output 02:Original table as retrieved from Wikipedia": "automatic"
-
+    "Output 03:Original table as retrieved from Wikipedia": "automatic",
+    "Description 04:"::
+	You may notice the following:
+	* The header row is not in the top.
+	* Various fields contain references to further literature, e.g. [a], [aa], etc.
+	* Note the missing space in the entry for Western Saharah.  An exotic UNICODE 'hair space' symbol exists inside.
+	For these reasons above, some initial cleanups are needed which are described on the next page.
+	+++
 },
 
 
 
 
-"2. Clean Data" :
+"2. Semantic Alignment" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Clean Data" ],
     "Description 01:Overview"::
 
 	Data obtained from external sources may be named and structured differently, and the table may contain
-	unnecessary contents which need to be cleaned up first.  Following functions are availble to do the initial
-	clean-up work.  Following functions 
+	unnecessary contents which need to be cleaned up first, and/or semantic aligneents made.
 
 	* __table lift header row(__): Specify one (or more) uniqe header names and the headers will shift to the 1st row.  The data below moves up.
 	* __table correct headers(__): Data received from different organization may contain different headers or even spelling mistakes.  Use this fucntion to clean up.
@@ -298,8 +299,12 @@ B4PDOCU.START
 	* __clean numeral(__): Convert hard-to-digest values like "GBP 300,15-" to machine-readable numerals like "-300.15".
 	* __table process selected rows__<b>( table name, [Answer]=+'yes,true,ja,oui', [Answer]=yes );</b> to align some contents
 	* __table process cells__<b>( [.] = __trim__([.]) );</b> to remove all dangling spaces in the fiels, e.g. ' Hello ' to 'Hello'.
+	* __table keep selected rows(__) / __table delete selected rows(__): Pre-screen the table for rows you want to keep or discard
+	* __table delete blank rows(__): A simple function call to remove all blank rows.
 
-    "Description 02:Wikipedia Example"::
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 1)"::
 
 	The file downloaded from Wikipedia does indeed need some cleanup.
 
@@ -310,31 +315,363 @@ B4PDOCU.START
 
 	+++,
     "Examples 02:Simple Example"::
-	include(Support Library);
-	include(Utility Library);
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!  Step 2 begins
+	// The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
+	// and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
+	// Note: literal(...) is needed in roder to avoid error messages when numbers are read from the table.
 
-	table load                 ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
+	table process all cells        ( countries, [.] = replace all( literal([.]), {'[?]', '[??]' }, '' ) );
+	table clean                    ( countries, trim spaces );
 
-	table configure            ( countries, read numerals, no ); // Read numbers as text
+	table lift header row          ( countries ); // Find header row automatically
+	table process                  ( countries, [Country name]= left([Country name], ' (') ); // Remove name additions
 
-	// The statement below catches 3 flies in one strike:
-	//
-	// 1. Replaces non-break spaces (UNICODE 160) and hair spaces (8202) to regular spaces (common inconveniences in HTML files)
-	// 2. Eliminate all cross references beginning with '['
-	// 3. Do some trimming: Remove dangling spaces so all text values begin and end with visible characters
+	table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
 
-	table process all cells    ( countries, [.] = trim( replace all( left([.],'['), {chr(8202), chr(160)}, {' ', ' '} ) ) );
-
-	// Move the header row to top row.  Data below shifts up.
-
-	table lift header row      ( countries, Country name );
-
-	table list( countries, briefly, 5, 1st col, 0, last col, 1 );
+	table save                     ( countries, temp.csv); // Hide!  Step 2 ends
 	+++,
 
-    "Output 02:Original table as retrieved from Wikipedia": "automatic"
+    "Output 02:The table has been cleaned up.": "automatic"
 
 },
+
+
+
+"3. Validate and Explore":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Validate and Explore" ],
+    "Description 01:Overview"::
+
+	In the third step, consider further checks on the tables, e.g. that all required headers are available,
+	the data inside the table is consistent, etc.  The functions listed below are some commonly used ones:
+
+	* __table check headers(__):  B4P checks if all headers specified here exist in the table.  Various checking options exist, e.g. you can also check that no additional column headers \
+	  than those specified are in the table, or even check for complying a certain sequence.  You can also identify repeated header names.
+	* __table keep columns(__): Only the specified columns will be kept. The others will be discarded.
+	* __table describe(__): B4P checks the contents in selected columns and provides description.  E.g. you can easily identify if a particular \
+	  column contains telephone numbers, simple names, dates, and not something else.
+	* __table check duplicates(__) checks repeated entries in case redundant entries need to be removed or consolidated.
+	* __table fill vertically(__) can be used to replicate contents in rows below if they are blank, assuming the same contents as above are assumed.
+	* __table rename headers(__) lets you rename column headers in order to simplify or harmonize header names across multiple tables.
+	* __table lookup(__) and related functions allows you to look up data from other tables.
+
+
+	If the loaded table does actually contain a collection of mutiple sub-tables, then consider the fuctions desribed in the section __Explore and filter and extract sub-tables__.
+
+	<br><br>
+	During the validation process, consider further preparation steps on the table.
+	
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 2)"::
+
+	Do some validation on this table:
+
+	* Check for header names and keep those columns.  Discard the others.
+	* Some rows contain '...' because these country names are interpreted as regions belonging to other countries.\
+	  Example: 'Akrotiri and Dhekelia – See United Kingdom, The'
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!  Step 3 begins - Semantic alignment
+	table keep columns             ( countries, { Country name, 'Alpha-2 code', 'Alpha-3 code' } );
+	table delete selected rows     ( countries, ['Alpha-2 code']=='...' );
+	table delete columns           ( countries,  'Alpha-3 code' );
+
+	// Check if the 2-character country code is always consisting of 2 characters.
+	table process selected rows    ( countries, ['Alpha-2 code']{}!=2, echo("The country code ", ['Alpha-2 code'], " may be incorrect" ) );
+
+	// Some country names need to be harmonized with a language list to combine, e.g. 'Holy See' and 'Vatican City'.
+
+	table initialize               ( country name alignment,
+	{ { Country code, Aligned country name },
+	  { KR, South Korea },                           { KP, North Korea },
+	  { US, United States },                         { VN, Vietnam },
+	  { BN, Brunei },                                { CV, Cape Verde },
+	  { CZ, Czech Republic },                        { LA, Laos }, 
+	  { RU, Russia },                                { VA, Vatican City },
+	  { SY, Syria },                                 { CC, 'Cocos (Keeling) Islands' },
+	  { CD, 'Democratic Republic of the Congo' },    { CG, 'Republic of the Congo' },
+	  { TL, East Timor },                            { CI, Ivory Coast },
+	  { FM, 'Federated States of Micronesia' },      { MM, 'Myanmar (Burma)' },
+	  { PS, Palestine },                             { TZ, Tanzania },
+	  { ST, Sao Tome and Principe },                 { SO, Somaliland } } );
+
+	table lookup                   ( countries, 'Alpha-2 code', Country name, country name alignment, Country code, Aligned country name );
+
+	table list( countries, briefly, 5  ); // List first and last 5 rows and 2 columns only
+	table save                     ( countries, temp.csv); // Hide! Step 3 ends
+	+++,
+
+    "Output 02:The table has been validated.": "automatic"
+
+},
+
+
+
+
+"4. Merge and Consolidate":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Merge and Consolidate" ],
+    "Description 01:Overview"::
+
+	In many application cases, information from multiple sources need to be merged and overlapping information consolidated.
+	Data management associated with merging or rearanging mulitple organizations are typical examples.  Typical functions to
+	choose from are
+
+	* __table merge(__) and related functions: Merge two tables where identification columns are defined to identify common data to be consoldated.
+	* __table lookup(__) is a suitable alternative combining data from two tables into one.
+	* __table integrate(__) works similar like__table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up.
+	* __table compare(__) is useful to check a current and an older data and isolate all relevant differences for further processing.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 3)"::
+
+	Do some validation on this table:
+
+	* Load a list of languages by countries from Wikipedia
+	* Align country names in the country table, e.g. 'Viet Nam' to 'Vietnam'.
+	* Merge the language data into the country data.
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide! Step 4 begins
+
+	// Download a list of languages from Wikipedia and do the clean-up first.
+
+	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory", languages.html );
+	table load                     ( languages, languages.html, HTML, List of countries );
+	table process all cells        ( languages, [.] = replace all( literal([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
+	table clean		       ( languages, trim spaces );
+	table delete selected rows     ( languages, [Country]=Country ); // Headers are repeated inside the long table.
+	table keep columns             ( languages, {Country, Official language} );
+	table rename headers           ( languages, {Country, Official language}, { Country name, Languages } );
+
+	// Merge the data.
+	// Note Some languages come without countries (see bottom of table), and vice versa.
+
+	table merge extend columns     ( languages, countries, Country name );
+	table list( countries, briefly, 8 ); // List first and last 8 rows only
+
+	table save                     ( countries, temp.csv); // Hide!
+	+++,
+
+    "Output 02:Merging has been done.": "automatic"
+
+},
+
+
+
+
+
+"5. Enrichment":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Enrichment" ],
+    "Description 01:Overview"::
+
+	Data enrichment typically involves adding furhter valuble information.  For a list of countries, some economic or demographic information
+	could be of interest.  
+
+	* __table lookup(__) is a suitable alternative combining data from two tables into one.
+	* __table integrate(__) works similar like__table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up.
+	* __table process(__) lets you process every rows with algorithms of choice.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 4)"::
+
+	Do some enrichment this table:
+
+	* In this simple country and language example, no further enrichment is needed.
+
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!
+
+	// Some language specifications can be very long
+
+	echo(new line, "Example of long contents: ", [countries:Country name,Switzerland,Languages] );
+	echo(new line, "Let's cut to max. 25 characters, then remove last incomplete word and add '...' behind", new line);
+
+	table process                  ( countries, while (find([Languages],'(')>=0) 
+	                                                [Languages] = trim( outside exclude ( [Languages], '(', ')' ))  );
+	max[] = 25;
+	table process selected rows    ( countries, [Languages]{}>max[], 
+	                                            [Languages] = left last match( left( [Languages], max[] ), ' ') + " ..." );
+
+	echo(new line, "Delete all countries without languages and vice versa...");
+	table delete selected rows     ( countries, ['Alpha-2 code']=='' | [Languages]=='' );
+
+	table list( countries, briefly, 8 ); // List first and last 8 rows only
+	table save                     ( countries, temp.csv); // Hide!  Step 5 ends
+	+++,
+
+    "Output 02:Enrichtment done.": "automatic"
+
+},
+
+
+
+
+
+
+"6. Align and Process":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Align and Process" ],
+    "Description 01:Overview"::
+
+	Take the opportunity to carry out analyses, depending on the problem you intend to solve.
+	Following functions may be suitable:
+
+	* __table process selected rows(__) to apply algorithms of choice on rows selected with an expression
+	* __table sort rows(__) to sort tables by alphabetic, numeric, date orders, etc.
+	* Do a pivot by combining __table spread(__) to spread values horizontally and then do __table consolidate(__) eliminate unnecessary rows
+	* Do a pivot by moving horizontal data to vertical data with __table serialize(__)
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 5)"::
+
+	Do some validation on this table:
+
+	* Load a list of languages by countries from Wikipedia
+	* Align country names in the country table, e.g. 'Viet Nam' to 'Vietnam'.
+	* Merge the language data into the country data.
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!  Step 6 begins
+	languages in focus[]           = { Chinese, English, French, Spanish, German, Russian, Hindi };
+	table keep selected rows       ( countries, (tokenize( [Languages], {}, {' ',','} ) & languages in focus[]) != {} );
+
+	table insert columns           ( countries, languages in focus[] );
+        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+softquoted literal([.,0])+'*') [.]=1; );
+
+	table list( countries, briefly, 8 ); // List first and last 8 rows only
+
+	table delete columns           ( countries, {'Alpha-2 code', Languages} );
+
+	table copy table               ( countries, summary );
+	table keep columns             ( summary, languages in focus[] );
+        table consolidate              ( summary, {}, languages in focus[], sum );
+	table transpose                ( summary );
+	table insert rows              ( summary, 0 );
+	[ summary: ..,0]               = { Language, '# Countries' };
+	table sort rows                ( summary, '# Countries', numeric down);
+
+	echo ("Brief summary on key languages:");
+	table list ( summary );
+	table save                     ( countries, temp.csv); // Hide!
+	+++,
+
+    "Output 02:Processing completed.": "automatic"
+
+},
+
+
+
+
+
+
+"7. Format and Style":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Format the results" ],
+    "Description 01:Overview"::
+
+	As a first step, consider formatting some data, e.g. aligning them, etc, e.g. with __table format numbers(__).
+	If you plan to save the output in Excel or HTML format, then consider to apply some style attributions.
+
+	* __table style auto width(__) will adapt the column widths based on the lengths of the contents.
+	* __table style theme(__) applies a graphic theme on the table, e.g. highlighted header row and zebra pattern in the rows below for better readability
+	* __table style table(__) to apply further formatting, e.g. setting an autofilter feature on the header row or freezing top rows or left columns
+	* __table style rows(__), __table style columns(__), ad __table style cells(__) to apply specific formats and colors on specified table locations.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 6)"::
+
+	Do some validation on this table:
+
+	* Apply a theme "Zebra"
+	* Autowidth, but at least 12 Excel width units wide
+	* Set autofilter on header row and freeze it
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+	table load                     ( countries, temp.csv); // Hide!
+
+	table style theme              ( countries, Zebra, pattern, 2 );
+	table style auto width         ( countries, min, 12 );
+	table style table              ( countries, sheet, freeze rows, 1, autofilter, 0 );
+	echo("Formatting done.");
+	+++,
+
+    "Output 02:The table has been formatted.": "automatic"
+
+},
+
+
+
+
+"8. Save and Export":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Save and Export" ],
+    "Description 01:Overview"::
+
+	In a final step, save the tables in data formats needed, e.g. Excel, CSV, HTML, JSON and text files.
+
+	* __table save(__) saves tables in text formats, CSV, HTML, JSON tables, etc.
+	* __variable save(__) saves a B4P variable tree in a JSON file
+	* __table save excel file(__) save one or multiple tables in Excel format
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 6)"::
+
+	Save as Excel file
+
+	* Apply a theme "Zebra"
+	* Autowidth, but at least 12 Excel width units wide
+	* Set autofilter on header row and freeze it
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+	table load                     ( countries, temp.csv); // Hide!
+// Hide!
+	table style theme              ( countries, Zebra, pattern, 2 ); // Hide!
+	table style auto width         ( countries, min, 12 ); // Hide!
+	table style table              ( countries, sheet, freeze rows, 1, autofilter, 0 ); // Hide!
+// Hide!
+
+	table save excel file          ( countries, "Countries and Key Langauges", "Images/Countries.xlsx" ); // Hide!
+	file delete ( temp.csv ); // Hide!
+	+++,
+
+	"Output 02:All done.": "automatic",
+	"Description 03:Viewing the Results:"::
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Countries.xlsx" >Countries.xlsx</a> (Excel .xlsx format).	
+	+++
+},
+
+
 
 
 
