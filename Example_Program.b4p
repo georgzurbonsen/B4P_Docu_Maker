@@ -1,19 +1,16 @@
-﻿    runtime settings[verbose] = low;
-    include ( Support Library );
-    include ( Office Library );
-    working directory ( Examples );
+﻿  
+  echo("Distinguish between simple and zero members variables");
+  a[] = Hi;
+  echo(identify(a[0])); // simple
 
-    table load excel file       ( football club, Football Membership List.xlsx ); 
-    table list                  ( football club );
-    table load                  ( soccer club,   Soccer Membership List.csv ); // Beginners are Novices here
-    table list                  ( soccer club );
+  a[0] = Ho;
+  echo(identify(a[0])); // array
 
-    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
-    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
-    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
-    echo                        ("Merged soccer club has ", table length( soccer club )-1, " members.");
+  delete(a[0]);
+  echo(identify(a[0])); // not found
+  echo(identify(a[])); // zero members
 
-    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
-    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
-    table list                  ( soccer club );
-    table save                  ( soccer club,   Merged Soccer Club Membership List.xls, EXCEL );
+  a[dog] = Hund;
+  echo(identify(a[])); // structure
+
+
