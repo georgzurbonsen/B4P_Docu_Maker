@@ -115,6 +115,7 @@ B4PDOCU.START
 "add color" :
 {
 	"Function Names":	[ "add color" ],
+	"Keywords":		[ "Color functions" ],
 	"Documentation":	"Function Description",
 	"Library":		"Style Library",
 	"Description"::
@@ -656,19 +657,10 @@ B4PDOCU.START
     "Feature Names":		[ "Formatting the Tables" ],
     "Description 01:Introduction"::
 
-	Four basic functions are available to format the tables:
-	* __table style table(__)
-	* __table style rows(__)
-	* __table style columns(__)
-	* __table style cells(__)
-
-	Advanced functions with ehanced styling features:
-	* __table style auto width(__)
-	* __table style theme__)
-
+	$functions$
 
 	<br><br>
-	All four functions make use of __generic attribute names__ and __generic attribute values__, for exmple <i>font size</i> followed by a number.  These attributes
+	All functions make use of __generic attribute names__ and __generic attribute values__, for exmple <i>font size</i> followed by a number.  These attributes
 	will then be translated to the file-type specifc formatting attributes wich differ between HTML and Excel formats.  Even though greate effort has been invested
 	to ensure that the formatting attributes provide equivalent outcome, some differences apply. One example is that formatting complete rows across the entire sheet
 	works fine in Excel but for good reasons not in HTML where the color ends with the last table column.
@@ -869,6 +861,7 @@ B4PDOCU.START
 "table style table" :
 {
 	"Function Names":	[ "table style table" ],
+	"Keywords":		[ "Apply style on tables" ],
 	"Documentation":	"Function Description",
 	"Library":		"Style Library",
 	"Description"::
@@ -1235,13 +1228,11 @@ B4PDOCU.START
 	HTML files, and Excel formatting markups for the Excel (XML 2003) file format.
 
 	The following functions are available:
-	* __translate style attributes for html(__) - HTML for web browsers and Excel
-	* __translate style attributes for excel xml 2003(__)   - For legacy Excel format
-	* __translate style attributes for excel(__) - For contemporary Excel Open Office format (.xlsx) - No longer required to call before saving
+
+	$functions$
 
 	<u>Note:</u>: For Excel, the function __translate style attributes for excel(__) will be called automatically when saving Excel files in case
 	you have not called it explicitly, which allows you to skip this step done manually.
-
 
 	<br>
 	You can save multiple formatted tables in one file using the __table save multiple(__) function.  In this case, the translation functions need to be
@@ -1575,6 +1566,7 @@ B4PDOCU.START
 "translate style attributes ..." :
 {
 	"Function Names":	[ "translate style attributes for excel", "translate style attributes for excel xml 2003", "translate style attributes for html" ],
+	"Keywords":		[ "Translate applied style to target file format" ],
 	"Documentation":	"Function Description",
 	"Library":		"Style Library",
 	"Description"::
@@ -1606,6 +1598,7 @@ B4PDOCU.START
 "table style reset" :
 {
 	"Function Names":	[ "table style reset" ],
+	"Keywords":		[ "Remove all style attributes from the table" ],
 	"Documentation":	"Function Description",
 	"Library":		"Style Library",
 	"Description"::

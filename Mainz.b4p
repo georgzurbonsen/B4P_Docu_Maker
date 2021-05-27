@@ -1,6 +1,0 @@
-
-	table initialize	( dirty,
-		{ { One Line, Two + new line + Lines, Three + new line + Great + new line + Lines } } );
-
-	table list( dirty );
-	interactive;	

@@ -1,6 +1,67 @@
-Distinguish between simple and zero members variables
-not found
-simple
-not found
-zero members
-structure
+Included: Support Library  2.06
+Included: Utility Library  2.04
+Included: Office Library  3.05
+Included: Zip Library  2.24
+
+    Loaded EXCEL file 'Football Membership List.xlsx':
+    12 rows, max 4 columns, 4 columns in 1st row
+
+    0 : First Name | Family Name | City         | Level      
+    1 : Abel       | Amberstone  | Amsterdam    | Beginner   
+    2 : Beata      | Berghill    | Barcelona    | Experienced
+    3 : Corinne    | Carlson     | Copenhagen   | Beginner   
+    4 : Dietmar    | Davis       | Dublin       | Beginner   
+    5 : Ellen      | Evans       | Essen        | Beginner   
+    6 : Fred       | Fisher      | Frankfurt    | Experienced
+    7 : Gregory    | Green       | Gaza City    | Experienced
+    8 : Henry      | Hansson     | Hamburg      | Experienced
+    9 : Ida        | Ingelberg   | Ingolstadt   | Beginner   
+   10 : John       | Janssen     | Johannesburg | Beginner   
+   11 : Karl       | Karlsson    | Kansas City  | Experienced
+
+
+    Loaded CSV/TSV file 'Soccer Membership List.csv':
+    13 rows, max 4 columns, 4 columns in 1st row, 52 fields, list separator: ;
+
+    0 : Level        | Town        | Last Name  | First Name
+    1 : Questionable | Kyoto       | Karlsson   | Karl      
+    2 : Novice       | London      | Lee        | Linda     
+    3 : Experienced  | Morristown  | Miller     | Mike      
+    4 : Experienced  | New York    | Nguyen     | Nathali   
+    5 : Experienced  | Oslo        | Oliveiro   | Oscar     
+    6 : Novice       | Phoenix     | Paulsson   | Petra     
+    7 : Novice       | Quebec City | Quarles    | Quincy    
+    8 : Experienced  | Riga        | Richardson | Richard   
+    9 : Experienced  | San Diego   | Stewart    | Sandra    
+   10 : Experienced  | Tahoma      | Turner     | Tim       
+   11 : Questionable | Ulm         | Ufford     | Uwe       
+   12 : Novice       | Venice      | Viking     | Victor    
+
+Merged soccer club has 22 members.
+    0 : Level                       | First Name | Last Name  | Town                
+    1 : Beginner                    | Abel       | Amberstone | Amsterdam           
+    2 : Beginner                    | Corinne    | Carlson    | Copenhagen          
+    3 : Beginner                    | Dietmar    | Davis      | Dublin              
+    4 : Beginner                    | Ellen      | Evans      | Essen               
+    5 : Beginner                    | Ida        | Ingelberg  | Ingolstadt          
+    6 : Beginner                    | John       | Janssen    | Johannesburg        
+    7 : Beginner                    | Linda      | Lee        | London              
+    8 : Beginner                    | Petra      | Paulsson   | Phoenix             
+    9 : Beginner                    | Quincy     | Quarles    | Quebec City         
+   10 : Beginner                    | Victor     | Viking     | Venice              
+   11 : Experienced                 | Beata      | Berghill   | Barcelona           
+   12 : Experienced                 | Fred       | Fisher     | Frankfurt           
+   13 : Experienced                 | Gregory    | Green      | Gaza City           
+   14 : Experienced                 | Henry      | Hansson    | Hamburg             
+   15 : Experienced                 | Mike       | Miller     | Morristown          
+   16 : Experienced                 | Nathali    | Nguyen     | New York            
+   17 : Experienced                 | Oscar      | Oliveiro   | Oslo                
+   18 : Experienced                 | Richard    | Richardson | Riga                
+   19 : Experienced                 | Sandra     | Stewart    | San Diego           
+   20 : Experienced                 | Tim        | Turner     | Tahoma              
+   21 : Questionable                | Uwe        | Ufford     | Ulm                 
+   22 : Questionable or Experienced | Karl       | Karlsson   | Kyoto or Kansas City
+
+
+    Saved table(s) to EXCEL-XML2003 file 'Merged Soccer Club Membership List.xls' containing 1 sheets.
+

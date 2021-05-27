@@ -278,6 +278,8 @@ B4PDOCU.START
 	* __Console special effects__ adds clear screen, cursor control and some color to the console.
 	* __Inspection and debugging__ contain functions which are helpful for interactive use, e.g. to __inspect__ variables.
 
+	$functions$
+
 	+++
 },
 
@@ -932,20 +934,6 @@ B4PDOCU.START
 
 	This section describes special-purpose __control flow functions__ specifically developed to process table contents.
 
-	* __with table(__): Provides context information of a specified table in order to enable __partial table specifications__ inside the following statement or block
-
-	Loops through the rows (top down):
-
-	* __for all table rows(__)
-	* __for all table selected rows(__)
-
-	Loops across the columns:
-
-	* __for all table columns(__)
-	* __for all table selected columns(__)
-	* __for all current table columns(__)
-	* __for all current table selected columns(__)
-
 	$functions$
 
 	+++
@@ -1531,6 +1519,8 @@ B4PDOCU.START
 	Can't move files across devices		| Can't move files across devices	| Can't move files across devices (with __file rename(__) function)
 	File found directory expected		| Directory found file expected		| Specified directory name refers to an existing file, and vice versa
 	===
+
+	$functions$
 
 	+++
   },
