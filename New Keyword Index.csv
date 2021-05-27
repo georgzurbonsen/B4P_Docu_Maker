@@ -1,4 +1,10 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
+MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
+MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
+MAS;B 1.03;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
+MAS;;Rel. 8.03;MAS_Features_Release_8.03.html;General Description;Release 8.03
+MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 LAN;B 7.04;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 LAN;B 7.04.04;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 LAN;B 7.04.01;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -133,7 +139,7 @@ LAN;B 2.01;Installing and Starting Up;LAN_Features_Installting_and_starting_up.h
 LAN;B 2.07.02;Interactive Help;LAN_Features_Interactive_help.html;General Description;Interactive help
 LAN;B 2.07;Interactive Mode;LAN_Features_interactive_mode.html;General Description;interactive mode
 LAN;B 8.06;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
-LAN;B 1;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
+LAN;;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
 LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Language pitfalls
 LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijacking parameters
 LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;licensing
@@ -319,12 +325,6 @@ GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installa
 GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
 GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
 GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
-MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
-MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
-MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
-MAS;B 1.03;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
-MAS;;Rel. 8.03;MAS_Features_Release_8.03.html;General Description;Release 8.03
-MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 LIB;B 9.04;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;B 9.07.04.05.01;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;B 5.03.01;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
