@@ -1,333 +1,4 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
-LAN;B 7.04;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
-LAN;B 7.04.04;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
-LAN;B 7.04.01;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
-LAN;B 7.04.02;"&#43; Transactions from Tables to Variables";LAN_Features_ADD_Transactions_from_tables_to_variables.html;General Description;ADD Transactions from tables to variables
-LAN;B 7.04.03;"&#43; Transactions from Variables to Tables";LAN_Features_ADD_Transactions_from_variables_to_tables.html;General Description;ADD Transactions from variables to tables
-LAN;B 7.02;"&amp; Transaction Assignment Operators";LAN_Features_Transactions_with_AND_assignment_operator.html;General Description;Transactions with AND assignment operator
-LAN;B 7.02.04;"&amp; Transactions between Tables";LAN_Features_AND_Transactions_between_tables.html;General Description;AND Transactions between tables
-LAN;B 7.02.01;"&amp; Transactions between Variables";LAN_Features_AND_Transactions_between_variables.html;General Description;AND Transactions between variables
-LAN;B 7.02.02;"&amp; Transactions from Tables to Variables";LAN_Features_AND_Transactions_from_tables_to_variables.html;General Description;AND Transactions from tables to variables
-LAN;B 7.02.03;"&amp; Transactions from Variables to Tables";LAN_Features_AND_Transactions_from_variables_to_tables.html;General Description;AND Transactions from variables to tables
-LAN;B 7.03;"&vert; Transaction Assignment Operators";LAN_Features_Transactions_with_OR_assignment_operator.html;General Description;Transactions with OR assignment operator
-LAN;B 7.03.04;"&vert; Transactions between Tables";LAN_Features_OR_Transactions_between_tables.html;General Description;OR Transactions between tables
-LAN;B 7.03.01;"&vert; Transactions between Variables";LAN_Features_OR_Transactions_between_variables.html;General Description;OR Transactions between variables
-LAN;B 7.03.02;"&vert; Transactions from Tables to Variables";LAN_Features_OR_Transactions_from_tables_to_variables.html;General Description;OR Transactions from tables to variables
-LAN;B 7.03.03;"&vert; Transactions from Variables to Tables";LAN_Features_OR_Transactions_from_variables_to_tables.html;General Description;OR Transactions from variables to tables
-LAN;B 3.05.01;(Unquoted) Literals;LAN_Features_Unquoted_Literals.html;General Description;Unquoted Literals
-LAN;B 3.05.01;(Unquoted) Literals;LAN_Features_Unquoted_Literals.html;General Description;Unquoted Literal
-LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;accessing tables
-LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;;table access methods
-LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;;table references
-LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;;table reference
-LAN;B 6.06;Ad-hoc Operators;LAN_Features_ad-hoc_operators.html;General Description;ad-hoc operators
-LAN;B 6.06;Ad-hoc Operators;LAN_Features_ad-hoc_operators.html;General Description;;ad-hoc operations
-LAN;B 6.06.02;Ad-hoc Operators Overview;LAN_Features_ad-hoc_operators_overview.html;General Description;ad-hoc operators overview
-LAN;B 6.02.01.01;Additions;LAN_Features_addition.html;General Description;addition
-LAN;B 6.02.01;Arithmetic Operators;LAN_Features_arithmetic_operators.html;General Description;arithmetic operators
-LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;arrays
-LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;array
-LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;arrays
-LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;array member
-LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;array members
-LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;spontaneous array creation
-LAN;B 6.04;Assignment operators;LAN_Features_Assignment_operators.html;General Description;Assignment operators
-LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;assignments
-LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;;assignment
-LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;;expression
-LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;;expressions
-LAN;B 2.07.07;Basic Commands;LAN_Features_Basic_Commands.html;General Description;Basic Commands
-LAN;B 3.07;Basic Data Types;LAN_Features_basic_data_types.html;General Description;basic data types
-LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;Basic Language Structure
-LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Blocks
-LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Statement
-LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Statements
-LAN;B 6.02;Binary Operators;LAN_Features_binary_operators.html;General Description;binary operators
-LAN;B 3.07.04;Booleans;LAN_Features_data_types_booleans.html;General Description;data types booleans
-LAN;B 3.07.04;Booleans;LAN_Features_data_types_booleans.html;General Description;;boolean
-LAN;B 3.07.04;Booleans;LAN_Features_data_types_booleans.html;General Description;;booleans
-LAN;B 3.08.04;CSV File Format;LAN_Features_CSV.html;General Description;CSV
-LAN;B 3.08.04;CSV File Format;LAN_Features_CSV.html;General Description;;CSV
-LAN;B 6.06.01;Cascading ad-hoc Operators;LAN_Features_cascading_ad-hoc_operators.html;General Description;cascading ad-hoc operators
-LAN;B 3.04.01;Case Sensitivity;LAN_Features_case_sensitivity.html;General Description;case sensitivity
-LAN;B 3.04;Characters;LAN_Features_Characters.html;General Description;Characters
-LAN;B 8.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_Piece.html;General Description;Code Piece
-LAN;B 8.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_Piece.html;General Description;;code pieces
-LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;Command line switches
-LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Command line switch
-LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Command line options
-LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Short command line options
-LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Short options
-LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Switches
-LAN;B 3.03;Comments;LAN_Features_comments.html;General Description;comments
-LAN;B 3.03;Comments;LAN_Features_comments.html;General Description;;markdown
-LAN;B 3.03;Comments;LAN_Features_comments.html;General Description;;github markdown
-LAN;B 8.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;Comparison Expression [func. params]
-LAN;B 8.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;;Comparison Expressions
-LAN;B 8.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;;Comparison Expression
-LAN;B 6.02.02;Comparison Operators;LAN_Features_comparison_operators.html;General Description;comparison operators
-LAN;B 6.02.02;Comparison Operators;LAN_Features_comparison_operators.html;General Description;comparison expression
-LAN;B 6.02.03;Comparison Options;LAN_Features_comparison_options.html;General Description;comparison options
-LAN;B 6.02.03;Comparison Options;LAN_Features_comparison_options.html;General Description;;Epsilon
-LAN;B 3.04.02;Console Input / Output;LAN_Features_console.html;General Description;console
-LAN;B 4.04.04;Copying References;LAN_Features_copying_references.html;General Description;copying references
-LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;data types dates
-LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;date
-LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;dates
-LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;plain date
-LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;plain dates
-LAN;B 6.05;Deep Assignment Operators;LAN_Features_deep_assignment_operators.html;General Description;deep assignment operators
-LAN;B 6.03.02;Deep Binary Operators;LAN_Features_deep_binary_operators.html;General Description;deep binary operators
-LAN;B 6.03;Deep Operators;LAN_Features_deep_operators.html;General Description;deep operators
-LAN;B 6.03.01;Deep Unary Operators;LAN_Features_deep_unary_operators.html;General Description;deep unary operators
-LAN;B 3.08;Directories and Files;LAN_Features_Directory_and_files.html;General Description;Directory and files
-LAN;B 3.08;Directories and Files;LAN_Features_Directory_and_files.html;General Description;;directories
-LAN;B 3.08;Directories and Files;LAN_Features_Directory_and_files.html;General Description;;files
-LAN;B 3.02;Distinct Language Features;LAN_Features_Distinct_Language_Features.html;General Description;Distinct Language Features
-LAN;B 6.02.01.04;Divisions;LAN_Features_division.html;General Description;division
-LAN;B 2.07.01;Entering Interactive Mode;LAN_Features_entering_interactive_mode.html;General Description;entering interactive mode
-LAN;B 6.02.02.01;Equal to;LAN_Features_equal_to.html;General Description;equal to
-LAN;B 2.07.04;Execute B4P Expressions Interactively;LAN_Features_Execute_B4P_expressions_interactively.html;General Description;Execute B4P expressions interactively
-LAN;B 2.07.04;Execute B4P Expressions Interactively;LAN_Features_Execute_B4P_expressions_interactively.html;General Description;;interactive expressions
-LAN;B 2.07.03;Execute B4P Statements Interactively;LAN_Features_Execute_B4P_statements_interactively.html;General Description;Execute B4P statements interactively
-LAN;B 2.07.03;Execute B4P Statements Interactively;LAN_Features_Execute_B4P_statements_interactively.html;General Description;;interactive statements
-LAN;B 2;Execution Engine;LAN_Features_Execution_Engine.html;General Description;Execution Engine
-LAN;B 8.04.03.02;Expressions (func. params);LAN_Features_Expressions_[func_params].html;General Description;Expressions [func params]
-LAN;B 8.04.05;Expressions to Select Columns;LAN_Features_Expressions_to_select_columns.html;General Description;Expressions to select columns
-LAN;B 8.04.04;Expressions to Select Rows;LAN_Features_Expression_to_select_rows.html;General Description;Expression to select rows
-LAN;B 8.04.04;Expressions to Select Rows;LAN_Features_Expression_to_select_rows.html;General Description;Expressions to select rows
-LAN;B 8.01;Function Naming;LAN_Features_Function_Naming.html;General Description;Function Naming
-LAN;B 8.03;Function Parameter Directions;LAN_Features_Function_parameter_directions.html;General Description;Function parameter directions
-LAN;B 8.03;Function Parameter Directions;LAN_Features_Function_parameter_directions.html;General Description;parameter directions
-LAN;B 8.04;Function Parameter Types;LAN_Features_Function_parameter_types.html;General Description;Function parameter types
-LAN;B 8.02;Function Parameters;LAN_Features_Function_Parameters.html;General Description;Function Parameters
-LAN;B 8.02;Function Parameters;LAN_Features_Function_Parameters.html;General Description;;Function parameter
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;Functions and Procedures
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedures
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Functions
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function call
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function calls
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure call
-LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure calls
-LAN;B 4.01.01;Global Variables;LAN_Features_Global_variables.html;General Description;Global variables
-LAN;B 6.02.02.06;Greater than (or Equal to);LAN_Features_greater_than_or_equal_to.html;General Description;greater than or equal to
-LAN;B 6.02.02.06;Greater than (or Equal to);LAN_Features_greater_than_or_equal_to.html;General Description;;greater than
-LAN;B 5.01.08;Header Name Exception Handling;LAN_Features_header_name_exception_handling.html;General Description;header name exception handling
-LAN;B 5.02;Header Names - Memory Effect;LAN_Features_memory_effect.html;General Description;memory effect
-LAN;B 5.01.02;Horizontal Table Access;LAN_Features_horizontal_table_access.html;General Description;horizontal table access
-LAN;B 5.01.02;Horizontal Table Access;LAN_Features_horizontal_table_access.html;General Description;;horizontal table accesses
-LAN;B 5.01.02.01;Horizontal Table Access w. Param. Sets;LAN_Features_Horizontal_table_access_using_parameter_sets.html;General Description;Horizontal table access using parameter sets
-LAN;B 5.01.02.03;Horizontal Table Access w. Ranges;LAN_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
-LAN;B 5.01.02.02;Horizontal Table Access w. Wildcards;LAN_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
-LAN;B 9;Index;LAN_Features_Index.html;General Description;Index
-LAN;B 3.07.06.01;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;data types parameter sets indexing
-LAN;B 3.07.06.01;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;parameter set indexing
-LAN;B 3.07.06.01;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;length of parameter sets
-LAN;B 3.07.01.01;Indexing Strings;LAN_Features_literals_indexing.html;General Description;literals indexing
-LAN;B 3.07.01.01;Indexing Strings;LAN_Features_literals_indexing.html;General Description;;literals indexing
-LAN;B 3.07.01.01;Indexing Strings;LAN_Features_literals_indexing.html;General Description;;length of literals
-LAN;B 8.05;Indirect Parameter Passing;LAN_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
-LAN;B 2.07.05;Inspecting Tables Interactively;LAN_Features_Inspect_Tables.html;General Description;Inspect Tables
-LAN;B 2.07.06;Inspecting Variables Interactively;LAN_Features_Inspect_Variables.html;General Description;Inspect Variables
-LAN;B 2.01;Installing and Starting Up;LAN_Features_Installting_and_starting_up.html;General Description;Installting and starting up
-LAN;B 2.07.02;Interactive Help;LAN_Features_Interactive_help.html;General Description;Interactive help
-LAN;B 2.07;Interactive Mode;LAN_Features_interactive_mode.html;General Description;interactive mode
-LAN;B 8.06;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
-LAN;B 1;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
-LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Language pitfalls
-LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijacking parameters
-LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;licensing
-LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;;licensing
-LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;;unlock
-LAN;B 4.01.04.01;List of System Variables;LAN_Features_list_of_system_variables.html;General Description;list of system variables
-LAN;B 3.05;Literal Constants;LAN_Features_Literal_Constants.html;General Description;Literal Constants
-LAN;B 3.07.01;Literals;LAN_Features_data_types_literals.html;General Description;data types literals
-LAN;B 3.07.01;Literals;LAN_Features_data_types_literals.html;General Description;;literal
-LAN;B 3.07.01;Literals;LAN_Features_data_types_literals.html;General Description;;literals
-LAN;B 3.08.02;Loading Files - Character sets;LAN_Features_loading_files.html;General Description;loading files
-LAN;B 4.01.02;Local Variables;LAN_Features_Local_variables.html;General Description;Local variables
-LAN;B 3.09;Locales;LAN_Features_Locales.html;General Description;Locales
-LAN;B 3.09;Locales;LAN_Features_Locales.html;General Description;;list of Locales
-LAN;B 3.09;Locales;LAN_Features_Locales.html;General Description;;locale
-LAN;B 6.02.04.01;Logical And;LAN_Features_logical_and.html;General Description;logical and
-LAN;B 6.02.04;Logical Operators;LAN_Features_logical_operators.html;General Description;logical operators
-LAN;B 6.02.04.02;Logical Or;LAN_Features_logical_or.html;General Description;logical or
-LAN;B 2.03;Long Options;LAN_Features_Long_Options.html;General Description;Long Options
-LAN;B 2.03;Long Options;LAN_Features_Long_Options.html;General Description;;Long command line options
-LAN;B 5.01.09;Lookup Access Exception Handling;LAN_Features_lookup_access_exception_handling.html;General Description;lookup access exception handling
-LAN;B 6.03.03;Matrix Operations Summary;LAN_Features_matrix_operations_summary.html;General Description;matrix operations summary
-LAN;B 6.03.03;Matrix Operations Summary;LAN_Features_matrix_operations_summary.html;General Description;;matrix mathematics
-LAN;B 5.01.04;Matrix Table Access;LAN_Features_matrix_table_access.html;General Description;matrix table access
-LAN;B 5.01.04;Matrix Table Access;LAN_Features_matrix_table_access.html;General Description;;matrix table accesses
-LAN;B 3.10;Miscellaneous Features;LAN_Features_Miscellaneous_Features.html;General Description;Miscellaneous Features
-LAN;B 3.05.04;Multiline Literals;LAN_Features_Multiline_literals.html;General Description;Multiline literals
-LAN;B 3.05.04;Multiline Literals;LAN_Features_Multiline_literals.html;General Description;;Multiline strings
-LAN;B 6.02.01.03;Multiplications;LAN_Features_multiplication.html;General Description;multiplication
-LAN;B 3.10.02;Negative Indexing;LAN_Features_negative_indexing.html;General Description;negative indexing
-LAN;B 5.01.06;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;nested partial table specification
-LAN;B 5.01.06;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;;nested partial table specifications
-LAN;B 6.02.02.02;Not Equal to;LAN_Features_not_equal_to.html;General Description;not equal to
-LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;data types numerals
-LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;numeral
-LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;numerals
-LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;plain numeral
-LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;plain numerals
-LAN;B 3.06;Numeric Constants;LAN_Features_Numeric_Constants.html;General Description;Numeric Constants
-LAN;B 2.07.08;Operating System Commands;LAN_Features_Operating_System_Commands.html;General Description;Operating System Commands
-LAN;B 2.07.08;Operating System Commands;LAN_Features_Operating_System_Commands.html;General Description;;OS Commands
-LAN;B 8.04.01;Parameter Set or Literal (Func. Param. Type);LAN_Features_parameter_set_or_literal.html;General Description;parameter set or literal
-LAN;B 8.04.01;Parameter Set or Literal (Func. Param. Type);LAN_Features_parameter_set_or_literal.html;General Description;;parameter set or literal
-LAN;B 4.03.05;Parameter Sets Specifying Members;LAN_Features_specifying_members_with_parameter_sets.html;General Description;specifying members with parameter sets
-LAN;B 3.07.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;data types parameter sets
-LAN;B 3.07.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter set
-LAN;B 3.07.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter sets
-LAN;B 3.07.06.03;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;data types parameter sets value ranges
-LAN;B 3.07.06.03;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;;parameter set value ranges
-LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;data types parameter sets value repetitions
-LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;parameter set value repetitions
-LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetition
-LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetitions
-LAN;B 5.01.05;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;partial table specifications
-LAN;B 5.01.05;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;;partial table specification
-LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;path names
-LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;path name
-LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;path names
-LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;file name
-LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;file names
-LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;protecting variables
-LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;protecting setting
-LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;variable protection
-LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;protection settings
-LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;variable protections
-LAN;B 3.05.03;Quoted Literals;LAN_Features_Quoted_Literals.html;General Description;Quoted Literals
-LAN;B 3.05.03;Quoted Literals;LAN_Features_Quoted_Literals.html;General Description;Quoted Literal
-LAN;B 4.04.03;Redirecting References;LAN_Features_redirecting_references.html;General Description;redirecting references
-LAN;B 4.04.06;References in Member Variables;LAN_Features_References_in_member_variables.html;General Description;References in member variables
-LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;references to variables
-LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;variable references
-LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;variable reference
-LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;reference
-LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;references
-LAN;B 4.01.03;Regional Variables;LAN_Features_Regional_variables.html;General Description;Regional variables
-LAN;B 4.04.05;Releasing References;LAN_Features_Releasing_references.html;General Description;Releasing references
-LAN;B 3.05.05;Reserved Keywords;LAN_Features_reserved_keywords.html;General Description;reserved keywords
-LAN;B 3.05.05;Reserved Keywords;LAN_Features_reserved_keywords.html;General Description;;reserved keyword
-LAN;B 3.08.03;Saving Files - Character sets;LAN_Features_saving_files.html;General Description;saving files
-LAN;B 5.01.07;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;General Description;shifted table column specification
-LAN;B 5.01.07;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;General Description;shifted table column specifications
-LAN;B 4.04.01;Simple References;LAN_Features_simple_references_to_variables.html;General Description;simple references to variables
-LAN;B 4.04.01;Simple References;LAN_Features_simple_references_to_variables.html;General Description;;simple references
-LAN;B 5.01.01;Simple Table Access;LAN_Features_simple_table_access.html;General Description;simple table access
-LAN;B 4.03.01;Simple Variables;LAN_Features_simple_variables.html;General Description;simple variables
-LAN;B 4.03.01;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variables
-LAN;B 4.03.01;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variable
-LAN;B 3.07.06.02;Slicing Parameter Sets;LAN_Features_Extracting_Subsets.html;General Description;Extracting Subsets
-LAN;B 3.07.01.02;Slicing Strings;LAN_Features_Extracting_substrings.html;General Description;Extracting substrings
-LAN;B 6.02.02.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;smaller than or equal to
-LAN;B 6.02.02.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;;smaller than
-LAN;B 3.05.02;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Softquoted Literals
-LAN;B 3.05.02;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Softquoted Literal
-LAN;B 3.05.02;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Entities
-LAN;B 2.04;Starting Behavior;LAN_Features_Starting_Behavior.html;General Description;Starting Behavior
-LAN;B 8.04.03.04;Statements (func. params);LAN_Features_Statements_[func_params].html;General Description;Statements [func params]
-LAN;B 6.02.02.03;Strictly Equal to;LAN_Features_strictly_equal_to.html;General Description;strictly equal to
-LAN;B 6.02.02.04;Strictly Not Equal to;LAN_Features_strictly_not_equal_to.html;General Description;strictly not equal to
-LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;structures
-LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure
-LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;default members
-LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;default member
-LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure members
-LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure member
-LAN;B 6.02.01.02;Subtractions;LAN_Features_subtraction.html;General Description;subtraction
-LAN;B 4.01.04;System Variables;LAN_Features_system_variables.html;General Description;system variables
-LAN;B 4.01.04;System Variables;LAN_Features_system_variables.html;General Description;;system variable
-LAN;B 8.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;Table columns
-LAN;B 8.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;;table columns as function parameters
-LAN;;Table of Contents;LAN_Features_Table_of_Contents.html;General Description;Table of Contents
-LAN;B 5;Tables;LAN_Features_tables.html;General Description;tables
-LAN;B 3;The Language;LAN_Features_The_Language.html;General Description;The Language
-LAN;B 4.04.02;Through-Referencing;LAN_Features_through-referencing.html;General Description;through-referencing
-LAN;B 7;Transactions;LAN_Features_Transactions.html;General Description;Transactions
-LAN;B 7;Transactions;LAN_Features_Transactions.html;General Description;;Transaction
-LAN;B 7.01.04;Transactions between Tables;LAN_Features_Transactions_between_tables.html;General Description;Transactions between tables
-LAN;B 7.01.01;Transactions between Variables;LAN_Features_Transactions_between_variables.html;General Description;Transactions between variables
-LAN;B 7.01.02;Transactions from Tables to Variables;LAN_Features_Transactions_from_tables_to_variables.html;General Description;Transactions from tables to variables
-LAN;B 7.01.03;Transactions from Variables to Tables;LAN_Features_Transactions_from_variables_to_tables.html;General Description;Transactions from variables to tables
-LAN;B 7.01.03;Transactions from Variables to Tables;LAN_Features_Transactions_from_variables_to_tables.html;General Description;;Open-ended ranges
-LAN;B 6.01;Unary Operators;LAN_Features_unary_operators.html;General Description;unary operators
-LAN;B 2.05;User Initialization Program;LAN_Features_User_initialization_program.html;General Description;User initialization program
-LAN;B 2.05;User Initialization Program;LAN_Features_User_initialization_program.html;General Description;;custom initialization program
-LAN;B 2.05;User Initialization Program;LAN_Features_User_initialization_program.html;General Description;;My B4P Init.b4p
-LAN;B 4.02;Variable Attributes;LAN_Features_Variable_attributes.html;General Description;Variable attributes
-LAN;B 4.03;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;Variable forms
-LAN;B 4.03;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;base variable
-LAN;B 4.03;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;base variables
-LAN;B 4.01;Variable Scopes;LAN_Features_Variable_scopes.html;General Description;Variable scopes
-LAN;B 4;Variables;LAN_Features_Variable.html;General Description;Variable
-LAN;B 4;Variables;LAN_Features_Variable.html;General Description;Variables
-LAN;B 8.04.03.03;Variables (func. params);LAN_Features_Variables_[func_params].html;General Description;Variables [func params]
-LAN;B 3.10.01;Verbose Levels;LAN_Features_verbose.html;General Description;verbose
-LAN;B 3.10.01;Verbose Levels;LAN_Features_verbose.html;General Description;;verbose levels
-LAN;B 5.01.03;Vertical Table Access;LAN_Features_vertical_table_access.html;General Description;vertical table access
-LAN;B 5.01.03;Vertical Table Access;LAN_Features_vertical_table_access.html;General Description;;vertical table accesses
-LAN;B 5.01.03.01;Vertical Table Access w. Param. Sets;LAN_Features_Vertical_table_access_using_parameter_sets.html;General Description;Vertical table access using parameter sets
-LAN;B 5.01.03.03;Vertical Table Access w. Ranges;LAN_Features_Vertical_table_access_using_ranges.html;General Description;Vertical table access using ranges
-LAN;B 5.01.03.02;Vertical Table Access w. Wildcards;LAN_Features_Vertical_table_access_using_wildcards.html;General Description;Vertical table access using wildcards
-LAN;B 3.07.05;Voids;LAN_Features_data_types_voids.html;General Description;data types voids
-LAN;B 3.07.05;Voids;LAN_Features_data_types_voids.html;General Description;;void
-LAN;B 3.07.05;Voids;LAN_Features_data_types_voids.html;General Description;;voids
-LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;wildcards
-LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
-LAN;B 7.01;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
-LAN;B 4.03.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
-MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
-MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
-MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
-MAS;B 1.03;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
-MAS;B 1.04;Rel. 8.03;MAS_Features_Release_8.03.html;General Description;Release 8.03
-MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 3.01;1. Import;GUI_Features_Import_source_data.html;General Description;Import source data
-GUI;B 3.02;2. Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
-GUI;B 3.03;3. Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
-GUI;B 3.04;4. Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
-GUI;B 3.05;5. Augment;GUI_Features_Enrichment.html;General Description;Enrichment
-GUI;B 3.06;6. Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
-GUI;B 3.07;7. Format;GUI_Features_Format_the_results.html;General Description;Format the results
-GUI;B 3.08;8. Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
-GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
-GUI;B 4;Examples;GUI_Features_Examples.html;General Description;Examples
-GUI;B 4.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
-GUI;B 4.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
-GUI;B 3.09;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
-GUI;B 3;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;B 5;Index;GUI_Features_Index.html;General Description;Index
-GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;B 1.01;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
-GUI;B 1.02;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
-GUI;B 2.06.01;Licensing;GUI_Features_Licensing.html;General Description;Licensing
-GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
-GUI;B 2.02.01;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
-GUI;B 2.02.03;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
-GUI;B 2.02.02;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
-GUI;B 2.03;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
-GUI;B 2.03.05;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
-GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
-GUI;B 2.03.04;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
-GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
-GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
-GUI;B 4.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
-GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;B 4.04;U.S. Presidents from Wikipedia;GUI_Features_Example_-_U.S._Presidents_from_Wikipedia.html;General Description;Example - U.S. Presidents from Wikipedia
-GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
-GUI;B 1.03;Use Cases;GUI_Features_use_cases.html;General Description;use cases
-GUI;;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
-GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
-GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
-GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
-GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
 LIB;B 9.04;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;B 9.07.04.05.01;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;B 5.03.01;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
@@ -532,8 +203,8 @@ LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Pr
 LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Coverages
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Styles
-LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
-LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
+LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
+LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Values
@@ -1578,3 +1249,332 @@ LIB;B 11.04.01;zip compress;LIB_Function_zip_compress.html;Function Description;
 LIB;B 11.04.01;zip compress;LIB_Function_zip_compress.html;Function Description;;File comporession and decompression
 LIB;B 11.04.03;zip extract all;LIB_Function_zip_extract_all.html;Function Description;zip extract all
 LIB;B 11.04.02;zip extract files;LIB_Function_zip_extract_files.html;Function Description;zip extract files
+LAN;B 7.04;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
+LAN;B 7.04.04;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
+LAN;B 7.04.01;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
+LAN;B 7.04.02;"&#43; Transactions from Tables to Variables";LAN_Features_ADD_Transactions_from_tables_to_variables.html;General Description;ADD Transactions from tables to variables
+LAN;B 7.04.03;"&#43; Transactions from Variables to Tables";LAN_Features_ADD_Transactions_from_variables_to_tables.html;General Description;ADD Transactions from variables to tables
+LAN;B 7.02;"&amp; Transaction Assignment Operators";LAN_Features_Transactions_with_AND_assignment_operator.html;General Description;Transactions with AND assignment operator
+LAN;B 7.02.04;"&amp; Transactions between Tables";LAN_Features_AND_Transactions_between_tables.html;General Description;AND Transactions between tables
+LAN;B 7.02.01;"&amp; Transactions between Variables";LAN_Features_AND_Transactions_between_variables.html;General Description;AND Transactions between variables
+LAN;B 7.02.02;"&amp; Transactions from Tables to Variables";LAN_Features_AND_Transactions_from_tables_to_variables.html;General Description;AND Transactions from tables to variables
+LAN;B 7.02.03;"&amp; Transactions from Variables to Tables";LAN_Features_AND_Transactions_from_variables_to_tables.html;General Description;AND Transactions from variables to tables
+LAN;B 7.03;"&vert; Transaction Assignment Operators";LAN_Features_Transactions_with_OR_assignment_operator.html;General Description;Transactions with OR assignment operator
+LAN;B 7.03.04;"&vert; Transactions between Tables";LAN_Features_OR_Transactions_between_tables.html;General Description;OR Transactions between tables
+LAN;B 7.03.01;"&vert; Transactions between Variables";LAN_Features_OR_Transactions_between_variables.html;General Description;OR Transactions between variables
+LAN;B 7.03.02;"&vert; Transactions from Tables to Variables";LAN_Features_OR_Transactions_from_tables_to_variables.html;General Description;OR Transactions from tables to variables
+LAN;B 7.03.03;"&vert; Transactions from Variables to Tables";LAN_Features_OR_Transactions_from_variables_to_tables.html;General Description;OR Transactions from variables to tables
+LAN;B 3.05.01;(Unquoted) Literals;LAN_Features_Unquoted_Literals.html;General Description;Unquoted Literals
+LAN;B 3.05.01;(Unquoted) Literals;LAN_Features_Unquoted_Literals.html;General Description;Unquoted Literal
+LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;accessing tables
+LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;;table access methods
+LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;;table references
+LAN;B 5.01;Accessing Tables;LAN_Features_accessing_tables.html;General Description;;table reference
+LAN;B 6.06;Ad-hoc Operators;LAN_Features_ad-hoc_operators.html;General Description;ad-hoc operators
+LAN;B 6.06;Ad-hoc Operators;LAN_Features_ad-hoc_operators.html;General Description;;ad-hoc operations
+LAN;B 6.06.02;Ad-hoc Operators Overview;LAN_Features_ad-hoc_operators_overview.html;General Description;ad-hoc operators overview
+LAN;B 6.02.01.01;Additions;LAN_Features_addition.html;General Description;addition
+LAN;B 6.02.01;Arithmetic Operators;LAN_Features_arithmetic_operators.html;General Description;arithmetic operators
+LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;arrays
+LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;array
+LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;arrays
+LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;array member
+LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;array members
+LAN;B 4.03.02;Arrays;LAN_Features_arrays.html;General Description;;spontaneous array creation
+LAN;B 6.04;Assignment operators;LAN_Features_Assignment_operators.html;General Description;Assignment operators
+LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;assignments
+LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;;assignment
+LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;;expression
+LAN;B 6;Assignments and Expressions;LAN_Features_assignments.html;General Description;;expressions
+LAN;B 2.07.07;Basic Commands;LAN_Features_Basic_Commands.html;General Description;Basic Commands
+LAN;B 3.07;Basic Data Types;LAN_Features_basic_data_types.html;General Description;basic data types
+LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;Basic Language Structure
+LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Blocks
+LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Statement
+LAN;B 3.01;Basic Language Structure;LAN_Features_Basic_Language_Structure.html;General Description;;Statements
+LAN;B 6.02;Binary Operators;LAN_Features_binary_operators.html;General Description;binary operators
+LAN;B 3.07.04;Booleans;LAN_Features_data_types_booleans.html;General Description;data types booleans
+LAN;B 3.07.04;Booleans;LAN_Features_data_types_booleans.html;General Description;;boolean
+LAN;B 3.07.04;Booleans;LAN_Features_data_types_booleans.html;General Description;;booleans
+LAN;B 3.08.04;CSV File Format;LAN_Features_CSV.html;General Description;CSV
+LAN;B 3.08.04;CSV File Format;LAN_Features_CSV.html;General Description;;CSV
+LAN;B 6.06.01;Cascading ad-hoc Operators;LAN_Features_cascading_ad-hoc_operators.html;General Description;cascading ad-hoc operators
+LAN;B 3.04.01;Case Sensitivity;LAN_Features_case_sensitivity.html;General Description;case sensitivity
+LAN;B 3.04;Characters;LAN_Features_Characters.html;General Description;Characters
+LAN;B 8.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_Piece.html;General Description;Code Piece
+LAN;B 8.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_Piece.html;General Description;;code pieces
+LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;Command line switches
+LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Command line switch
+LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Command line options
+LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Short command line options
+LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Short options
+LAN;B 2.02;Command Line Switches;LAN_Features_Command_line_switches.html;General Description;;Switches
+LAN;B 3.03;Comments;LAN_Features_comments.html;General Description;comments
+LAN;B 3.03;Comments;LAN_Features_comments.html;General Description;;markdown
+LAN;B 3.03;Comments;LAN_Features_comments.html;General Description;;github markdown
+LAN;B 8.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;Comparison Expression [func. params]
+LAN;B 8.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;;Comparison Expressions
+LAN;B 8.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;;Comparison Expression
+LAN;B 6.02.02;Comparison Operators;LAN_Features_comparison_operators.html;General Description;comparison operators
+LAN;B 6.02.02;Comparison Operators;LAN_Features_comparison_operators.html;General Description;comparison expression
+LAN;B 6.02.03;Comparison Options;LAN_Features_comparison_options.html;General Description;comparison options
+LAN;B 6.02.03;Comparison Options;LAN_Features_comparison_options.html;General Description;;Epsilon
+LAN;B 3.04.02;Console Input / Output;LAN_Features_console.html;General Description;console
+LAN;B 4.04.04;Copying References;LAN_Features_copying_references.html;General Description;copying references
+LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;data types dates
+LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;date
+LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;dates
+LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;plain date
+LAN;B 3.07.03;Dates;LAN_Features_data_types_dates.html;General Description;;plain dates
+LAN;B 6.05;Deep Assignment Operators;LAN_Features_deep_assignment_operators.html;General Description;deep assignment operators
+LAN;B 6.03.02;Deep Binary Operators;LAN_Features_deep_binary_operators.html;General Description;deep binary operators
+LAN;B 6.03;Deep Operators;LAN_Features_deep_operators.html;General Description;deep operators
+LAN;B 6.03.01;Deep Unary Operators;LAN_Features_deep_unary_operators.html;General Description;deep unary operators
+LAN;B 3.08;Directories and Files;LAN_Features_Directory_and_files.html;General Description;Directory and files
+LAN;B 3.08;Directories and Files;LAN_Features_Directory_and_files.html;General Description;;directories
+LAN;B 3.08;Directories and Files;LAN_Features_Directory_and_files.html;General Description;;files
+LAN;B 3.02;Distinct Language Features;LAN_Features_Distinct_Language_Features.html;General Description;Distinct Language Features
+LAN;B 6.02.01.04;Divisions;LAN_Features_division.html;General Description;division
+LAN;B 2.07.01;Entering Interactive Mode;LAN_Features_entering_interactive_mode.html;General Description;entering interactive mode
+LAN;B 6.02.02.01;Equal to;LAN_Features_equal_to.html;General Description;equal to
+LAN;B 2.07.04;Execute B4P Expressions Interactively;LAN_Features_Execute_B4P_expressions_interactively.html;General Description;Execute B4P expressions interactively
+LAN;B 2.07.04;Execute B4P Expressions Interactively;LAN_Features_Execute_B4P_expressions_interactively.html;General Description;;interactive expressions
+LAN;B 2.07.03;Execute B4P Statements Interactively;LAN_Features_Execute_B4P_statements_interactively.html;General Description;Execute B4P statements interactively
+LAN;B 2.07.03;Execute B4P Statements Interactively;LAN_Features_Execute_B4P_statements_interactively.html;General Description;;interactive statements
+LAN;B 2;Execution Engine;LAN_Features_Execution_Engine.html;General Description;Execution Engine
+LAN;B 8.04.03.02;Expressions (func. params);LAN_Features_Expressions_[func_params].html;General Description;Expressions [func params]
+LAN;B 8.04.05;Expressions to Select Columns;LAN_Features_Expressions_to_select_columns.html;General Description;Expressions to select columns
+LAN;B 8.04.04;Expressions to Select Rows;LAN_Features_Expression_to_select_rows.html;General Description;Expression to select rows
+LAN;B 8.04.04;Expressions to Select Rows;LAN_Features_Expression_to_select_rows.html;General Description;Expressions to select rows
+LAN;B 8.01;Function Naming;LAN_Features_Function_Naming.html;General Description;Function Naming
+LAN;B 8.03;Function Parameter Directions;LAN_Features_Function_parameter_directions.html;General Description;Function parameter directions
+LAN;B 8.03;Function Parameter Directions;LAN_Features_Function_parameter_directions.html;General Description;parameter directions
+LAN;B 8.04;Function Parameter Types;LAN_Features_Function_parameter_types.html;General Description;Function parameter types
+LAN;B 8.02;Function Parameters;LAN_Features_Function_Parameters.html;General Description;Function Parameters
+LAN;B 8.02;Function Parameters;LAN_Features_Function_Parameters.html;General Description;;Function parameter
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;Functions and Procedures
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedures
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Functions
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function call
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function calls
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure call
+LAN;B 8;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure calls
+LAN;B 4.01.01;Global Variables;LAN_Features_Global_variables.html;General Description;Global variables
+LAN;B 6.02.02.06;Greater than (or Equal to);LAN_Features_greater_than_or_equal_to.html;General Description;greater than or equal to
+LAN;B 6.02.02.06;Greater than (or Equal to);LAN_Features_greater_than_or_equal_to.html;General Description;;greater than
+LAN;B 5.01.08;Header Name Exception Handling;LAN_Features_header_name_exception_handling.html;General Description;header name exception handling
+LAN;B 5.02;Header Names - Memory Effect;LAN_Features_memory_effect.html;General Description;memory effect
+LAN;B 5.01.02;Horizontal Table Access;LAN_Features_horizontal_table_access.html;General Description;horizontal table access
+LAN;B 5.01.02;Horizontal Table Access;LAN_Features_horizontal_table_access.html;General Description;;horizontal table accesses
+LAN;B 5.01.02.01;Horizontal Table Access w. Param. Sets;LAN_Features_Horizontal_table_access_using_parameter_sets.html;General Description;Horizontal table access using parameter sets
+LAN;B 5.01.02.03;Horizontal Table Access w. Ranges;LAN_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
+LAN;B 5.01.02.02;Horizontal Table Access w. Wildcards;LAN_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
+LAN;B 9;Index;LAN_Features_Index.html;General Description;Index
+LAN;B 3.07.06.01;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;data types parameter sets indexing
+LAN;B 3.07.06.01;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;parameter set indexing
+LAN;B 3.07.06.01;Indexing Elements;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;length of parameter sets
+LAN;B 3.07.01.01;Indexing Strings;LAN_Features_literals_indexing.html;General Description;literals indexing
+LAN;B 3.07.01.01;Indexing Strings;LAN_Features_literals_indexing.html;General Description;;literals indexing
+LAN;B 3.07.01.01;Indexing Strings;LAN_Features_literals_indexing.html;General Description;;length of literals
+LAN;B 8.05;Indirect Parameter Passing;LAN_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
+LAN;B 2.07.05;Inspecting Tables Interactively;LAN_Features_Inspect_Tables.html;General Description;Inspect Tables
+LAN;B 2.07.06;Inspecting Variables Interactively;LAN_Features_Inspect_Variables.html;General Description;Inspect Variables
+LAN;B 2.01;Installing and Starting Up;LAN_Features_Installting_and_starting_up.html;General Description;Installting and starting up
+LAN;B 2.07.02;Interactive Help;LAN_Features_Interactive_help.html;General Description;Interactive help
+LAN;B 2.07;Interactive Mode;LAN_Features_interactive_mode.html;General Description;interactive mode
+LAN;B 8.06;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
+LAN;;Language Guide - Overview;LAN_Features_Language_Guide.html;General Description;Language Guide
+LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Language pitfalls
+LAN;B 3.11;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijacking parameters
+LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;licensing
+LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;;licensing
+LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;;unlock
+LAN;B 4.01.04.01;List of System Variables;LAN_Features_list_of_system_variables.html;General Description;list of system variables
+LAN;B 3.05;Literal Constants;LAN_Features_Literal_Constants.html;General Description;Literal Constants
+LAN;B 3.07.01;Literals;LAN_Features_data_types_literals.html;General Description;data types literals
+LAN;B 3.07.01;Literals;LAN_Features_data_types_literals.html;General Description;;literal
+LAN;B 3.07.01;Literals;LAN_Features_data_types_literals.html;General Description;;literals
+LAN;B 3.08.02;Loading Files - Character sets;LAN_Features_loading_files.html;General Description;loading files
+LAN;B 4.01.02;Local Variables;LAN_Features_Local_variables.html;General Description;Local variables
+LAN;B 3.09;Locales;LAN_Features_Locales.html;General Description;Locales
+LAN;B 3.09;Locales;LAN_Features_Locales.html;General Description;;list of Locales
+LAN;B 3.09;Locales;LAN_Features_Locales.html;General Description;;locale
+LAN;B 6.02.04.01;Logical And;LAN_Features_logical_and.html;General Description;logical and
+LAN;B 6.02.04;Logical Operators;LAN_Features_logical_operators.html;General Description;logical operators
+LAN;B 6.02.04.02;Logical Or;LAN_Features_logical_or.html;General Description;logical or
+LAN;B 2.03;Long Options;LAN_Features_Long_Options.html;General Description;Long Options
+LAN;B 2.03;Long Options;LAN_Features_Long_Options.html;General Description;;Long command line options
+LAN;B 5.01.09;Lookup Access Exception Handling;LAN_Features_lookup_access_exception_handling.html;General Description;lookup access exception handling
+LAN;B 6.03.03;Matrix Operations Summary;LAN_Features_matrix_operations_summary.html;General Description;matrix operations summary
+LAN;B 6.03.03;Matrix Operations Summary;LAN_Features_matrix_operations_summary.html;General Description;;matrix mathematics
+LAN;B 5.01.04;Matrix Table Access;LAN_Features_matrix_table_access.html;General Description;matrix table access
+LAN;B 5.01.04;Matrix Table Access;LAN_Features_matrix_table_access.html;General Description;;matrix table accesses
+LAN;B 3.10;Miscellaneous Features;LAN_Features_Miscellaneous_Features.html;General Description;Miscellaneous Features
+LAN;B 3.05.04;Multiline Literals;LAN_Features_Multiline_literals.html;General Description;Multiline literals
+LAN;B 3.05.04;Multiline Literals;LAN_Features_Multiline_literals.html;General Description;;Multiline strings
+LAN;B 6.02.01.03;Multiplications;LAN_Features_multiplication.html;General Description;multiplication
+LAN;B 3.10.02;Negative Indexing;LAN_Features_negative_indexing.html;General Description;negative indexing
+LAN;B 5.01.06;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;nested partial table specification
+LAN;B 5.01.06;Nested Partial Table Specifications;LAN_Features_nested_partial_table_specification.html;General Description;;nested partial table specifications
+LAN;B 6.02.02.02;Not Equal to;LAN_Features_not_equal_to.html;General Description;not equal to
+LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;data types numerals
+LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;numeral
+LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;numerals
+LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;plain numeral
+LAN;B 3.07.02;Numerals;LAN_Features_data_types_numerals.html;General Description;;plain numerals
+LAN;B 3.06;Numeric Constants;LAN_Features_Numeric_Constants.html;General Description;Numeric Constants
+LAN;B 2.07.08;Operating System Commands;LAN_Features_Operating_System_Commands.html;General Description;Operating System Commands
+LAN;B 2.07.08;Operating System Commands;LAN_Features_Operating_System_Commands.html;General Description;;OS Commands
+LAN;B 8.04.01;Parameter Set or Literal (Func. Param. Type);LAN_Features_parameter_set_or_literal.html;General Description;parameter set or literal
+LAN;B 8.04.01;Parameter Set or Literal (Func. Param. Type);LAN_Features_parameter_set_or_literal.html;General Description;;parameter set or literal
+LAN;B 4.03.05;Parameter Sets Specifying Members;LAN_Features_specifying_members_with_parameter_sets.html;General Description;specifying members with parameter sets
+LAN;B 3.07.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;data types parameter sets
+LAN;B 3.07.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter set
+LAN;B 3.07.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter sets
+LAN;B 3.07.06.03;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;data types parameter sets value ranges
+LAN;B 3.07.06.03;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;;parameter set value ranges
+LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;data types parameter sets value repetitions
+LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;parameter set value repetitions
+LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetition
+LAN;B 3.07.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetitions
+LAN;B 5.01.05;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;partial table specifications
+LAN;B 5.01.05;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;;partial table specification
+LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;path names
+LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;path name
+LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;path names
+LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;file name
+LAN;B 3.08.01;Path and File Names;LAN_Features_path_names.html;General Description;;file names
+LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;protecting variables
+LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;protecting setting
+LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;variable protection
+LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;protection settings
+LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;variable protections
+LAN;B 3.05.03;Quoted Literals;LAN_Features_Quoted_Literals.html;General Description;Quoted Literals
+LAN;B 3.05.03;Quoted Literals;LAN_Features_Quoted_Literals.html;General Description;Quoted Literal
+LAN;B 4.04.03;Redirecting References;LAN_Features_redirecting_references.html;General Description;redirecting references
+LAN;B 4.04.06;References in Member Variables;LAN_Features_References_in_member_variables.html;General Description;References in member variables
+LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;references to variables
+LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;variable references
+LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;variable reference
+LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;reference
+LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;references
+LAN;B 4.01.03;Regional Variables;LAN_Features_Regional_variables.html;General Description;Regional variables
+LAN;B 4.04.05;Releasing References;LAN_Features_Releasing_references.html;General Description;Releasing references
+LAN;B 3.05.05;Reserved Keywords;LAN_Features_reserved_keywords.html;General Description;reserved keywords
+LAN;B 3.05.05;Reserved Keywords;LAN_Features_reserved_keywords.html;General Description;;reserved keyword
+LAN;B 3.08.03;Saving Files - Character sets;LAN_Features_saving_files.html;General Description;saving files
+LAN;B 5.01.07;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;General Description;shifted table column specification
+LAN;B 5.01.07;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;General Description;shifted table column specifications
+LAN;B 4.04.01;Simple References;LAN_Features_simple_references_to_variables.html;General Description;simple references to variables
+LAN;B 4.04.01;Simple References;LAN_Features_simple_references_to_variables.html;General Description;;simple references
+LAN;B 5.01.01;Simple Table Access;LAN_Features_simple_table_access.html;General Description;simple table access
+LAN;B 4.03.01;Simple Variables;LAN_Features_simple_variables.html;General Description;simple variables
+LAN;B 4.03.01;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variables
+LAN;B 4.03.01;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variable
+LAN;B 3.07.06.02;Slicing Parameter Sets;LAN_Features_Extracting_Subsets.html;General Description;Extracting Subsets
+LAN;B 3.07.01.02;Slicing Strings;LAN_Features_Extracting_substrings.html;General Description;Extracting substrings
+LAN;B 6.02.02.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;smaller than or equal to
+LAN;B 6.02.02.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;;smaller than
+LAN;B 3.05.02;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Softquoted Literals
+LAN;B 3.05.02;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Softquoted Literal
+LAN;B 3.05.02;Softquoted Literals;LAN_Features_Softquoted_Literals.html;General Description;Entities
+LAN;B 2.04;Starting Behavior;LAN_Features_Starting_Behavior.html;General Description;Starting Behavior
+LAN;B 8.04.03.04;Statements (func. params);LAN_Features_Statements_[func_params].html;General Description;Statements [func params]
+LAN;B 6.02.02.03;Strictly Equal to;LAN_Features_strictly_equal_to.html;General Description;strictly equal to
+LAN;B 6.02.02.04;Strictly Not Equal to;LAN_Features_strictly_not_equal_to.html;General Description;strictly not equal to
+LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;structures
+LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure
+LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;default members
+LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;default member
+LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure members
+LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure member
+LAN;B 6.02.01.02;Subtractions;LAN_Features_subtraction.html;General Description;subtraction
+LAN;B 4.01.04;System Variables;LAN_Features_system_variables.html;General Description;system variables
+LAN;B 4.01.04;System Variables;LAN_Features_system_variables.html;General Description;;system variable
+LAN;B 8.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;Table columns
+LAN;B 8.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;;table columns as function parameters
+LAN;;Table of Contents;LAN_Features_Table_of_Contents.html;General Description;Table of Contents
+LAN;B 5;Tables;LAN_Features_tables.html;General Description;tables
+LAN;B 3;The Language;LAN_Features_The_Language.html;General Description;The Language
+LAN;B 4.04.02;Through-Referencing;LAN_Features_through-referencing.html;General Description;through-referencing
+LAN;B 7;Transactions;LAN_Features_Transactions.html;General Description;Transactions
+LAN;B 7;Transactions;LAN_Features_Transactions.html;General Description;;Transaction
+LAN;B 7.01.04;Transactions between Tables;LAN_Features_Transactions_between_tables.html;General Description;Transactions between tables
+LAN;B 7.01.01;Transactions between Variables;LAN_Features_Transactions_between_variables.html;General Description;Transactions between variables
+LAN;B 7.01.02;Transactions from Tables to Variables;LAN_Features_Transactions_from_tables_to_variables.html;General Description;Transactions from tables to variables
+LAN;B 7.01.03;Transactions from Variables to Tables;LAN_Features_Transactions_from_variables_to_tables.html;General Description;Transactions from variables to tables
+LAN;B 7.01.03;Transactions from Variables to Tables;LAN_Features_Transactions_from_variables_to_tables.html;General Description;;Open-ended ranges
+LAN;B 6.01;Unary Operators;LAN_Features_unary_operators.html;General Description;unary operators
+LAN;B 2.05;User Initialization Program;LAN_Features_User_initialization_program.html;General Description;User initialization program
+LAN;B 2.05;User Initialization Program;LAN_Features_User_initialization_program.html;General Description;;custom initialization program
+LAN;B 2.05;User Initialization Program;LAN_Features_User_initialization_program.html;General Description;;My B4P Init.b4p
+LAN;B 4.02;Variable Attributes;LAN_Features_Variable_attributes.html;General Description;Variable attributes
+LAN;B 4.03;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;Variable forms
+LAN;B 4.03;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;base variable
+LAN;B 4.03;Variable Forms and Trees;LAN_Features_Variable_forms.html;General Description;base variables
+LAN;B 4.01;Variable Scopes;LAN_Features_Variable_scopes.html;General Description;Variable scopes
+LAN;B 4;Variables;LAN_Features_Variable.html;General Description;Variable
+LAN;B 4;Variables;LAN_Features_Variable.html;General Description;Variables
+LAN;B 8.04.03.03;Variables (func. params);LAN_Features_Variables_[func_params].html;General Description;Variables [func params]
+LAN;B 3.10.01;Verbose Levels;LAN_Features_verbose.html;General Description;verbose
+LAN;B 3.10.01;Verbose Levels;LAN_Features_verbose.html;General Description;;verbose levels
+LAN;B 5.01.03;Vertical Table Access;LAN_Features_vertical_table_access.html;General Description;vertical table access
+LAN;B 5.01.03;Vertical Table Access;LAN_Features_vertical_table_access.html;General Description;;vertical table accesses
+LAN;B 5.01.03.01;Vertical Table Access w. Param. Sets;LAN_Features_Vertical_table_access_using_parameter_sets.html;General Description;Vertical table access using parameter sets
+LAN;B 5.01.03.03;Vertical Table Access w. Ranges;LAN_Features_Vertical_table_access_using_ranges.html;General Description;Vertical table access using ranges
+LAN;B 5.01.03.02;Vertical Table Access w. Wildcards;LAN_Features_Vertical_table_access_using_wildcards.html;General Description;Vertical table access using wildcards
+LAN;B 3.07.05;Voids;LAN_Features_data_types_voids.html;General Description;data types voids
+LAN;B 3.07.05;Voids;LAN_Features_data_types_voids.html;General Description;;void
+LAN;B 3.07.05;Voids;LAN_Features_data_types_voids.html;General Description;;voids
+LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;wildcards
+LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
+LAN;B 7.01;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
+LAN;B 4.03.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
+GUI;B 3.01;1. Import;GUI_Features_Import_source_data.html;General Description;Import source data
+GUI;B 3.02;2. Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
+GUI;B 3.03;3. Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
+GUI;B 3.04;4. Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
+GUI;B 3.05;5. Augment;GUI_Features_Enrichment.html;General Description;Enrichment
+GUI;B 3.06;6. Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
+GUI;B 3.07;7. Format;GUI_Features_Format_the_results.html;General Description;Format the results
+GUI;B 3.08;8. Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
+GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
+GUI;B 4;Examples;GUI_Features_Examples.html;General Description;Examples
+GUI;B 4.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
+GUI;B 4.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
+GUI;B 3.09;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
+GUI;B 3;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;B 5;Index;GUI_Features_Index.html;General Description;Index
+GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;B 1.01;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
+GUI;B 1.02;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
+GUI;B 2.06.01;Licensing;GUI_Features_Licensing.html;General Description;Licensing
+GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
+GUI;B 2.02.01;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
+GUI;B 2.02.03;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
+GUI;B 2.02.02;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
+GUI;B 2.03;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
+GUI;B 2.03.05;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
+GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
+GUI;B 2.03.04;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
+GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
+GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
+GUI;B 4.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
+GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;B 4.04;U.S. Presidents from Wikipedia;GUI_Features_Example_-_U.S._Presidents_from_Wikipedia.html;General Description;Example - U.S. Presidents from Wikipedia
+GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
+GUI;B 1.03;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
+GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
+GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
+GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
+GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
+MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
+MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
+MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
+MAS;B 1.03;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
+MAS;B 1.04;Rel. 8.03;MAS_Features_Release_8.03.html;General Description;Release 8.03
+MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
