@@ -6,9 +6,8 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table of Contents" ],
 
-    "Description 01:Overview"::
+    "Description 01:"::
 
-	<br/><br/>
 	<b>B4P is a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
 
 	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for ingestion, 

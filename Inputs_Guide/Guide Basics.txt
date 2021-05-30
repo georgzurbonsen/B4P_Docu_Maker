@@ -7,13 +7,12 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "User Guide" ],
-    "Description 01:Introduction to B4P"::
+    "Description 01:"::
 
-	<br/><br/>
-	<b>B4P is a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b> 
+	<b>B4P is a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  
 
-	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for the rapid ingestion, 
-	integration, and analysis of large complex datasets, generating results in easily understood form for immediate use in
+	B4P is a powerful data integration and analytics engine with built-in programming language, and is purpose-built for ingestion, 
+	integration, and analysis of many large complex data sources, generating rapid results in easily understood form for immediate use in
 	Excel and other business intelligence tools. 
 
 	<br/><br/>
@@ -240,13 +239,13 @@ B4PDOCU.START
 },
 
 
-"1. Data Ingestion" :
+"1. Import" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Import source data" ],
     "Description 01:Overview"::
 
-	B4P provides various means to ingest, i.e. import and load data from different sources.
+	B4P provides various means to download files, load data from different sources.
 
 	* __table load(__) for loading files in basic formats like text, CSV, HTML, JSON, XML, etc.
 	* __table load excel file(__) for loading sheets from Excel files
@@ -286,22 +285,25 @@ B4PDOCU.START
 
 
 
-"2. Semantic Alignment" :
+"2. Clean" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Clean Data" ],
     "Description 01:Overview"::
 
 	Data obtained from external sources may be named and structured differently, and the table may contain
-	unnecessary contents which need to be cleaned up first, and/or semantic aligneents made.
+	unnecessary contents which need to be cleaned up first, and/or semantic alignments to be made.  Some typical functions are listed below:
 
-	* __table lift header row(__): Specify one (or more) uniqe header names and the headers will shift to the 1st row.  The data below moves up.
-	* __table correct headers(__): Data received from different organization may contain different headers or even spelling mistakes.  Use this fucntion to clean up.
-	* __table rename headers(__): Rename headers to something easier to understand
-	* __clean numeral(__): Convert hard-to-digest values like "GBP 300,15-" to machine-readable numerals like "-300.15".
-	* __table process selected rows__<b>( table name, [Answer]=+'yes,true,ja,oui', [Answer]=yes );</b> to align some contents
+	* __table delete blank rows(__): Easy one. It removes all blank rows.
+	* __table lift header row(__): Specify one (or more) uniqe header names and the headers will shift to the 1st row.  The data rows below moves up.
+	* __table correct headers(__): Data received from different organization may contain different headers or spelling mistakes.  Use this function to clean up.
+	* __table rename headers(__): Rename headers to something easier to understand.
+	* __table clean(__): General replacement of exotic spaces and line breaks in the UNICODE space to the familar spaces and 'new line', and trimming options for \
+	    white spaces and line breaks.
+	* __clean numeral(__): Convert hard-to-digest values like "GBP 300,15-" to processable values like "-300.15".
+	* __table process selected rows__<b>( table name, [Answer]=+'yes,true,ja,oui,sì', [Answer]=yes );</b> to align some contents.
 	* __table process cells__<b>( [.] = __trim__([.]) );</b> to remove all dangling spaces in the fiels, e.g. ' Hello ' to 'Hello'.
-	* __table keep selected rows(__) / __table delete selected rows(__): Pre-screen the table for rows you want to keep or discard
+	* __table keep selected rows(__) / __table delete selected rows(__): Pre-screen the table for rows you want to keep or discard.
 	* __table delete blank rows(__): A simple function call to remove all blank rows.
 
 	<br>
@@ -340,7 +342,7 @@ B4PDOCU.START
 
 
 
-"3. Validate and Explore":
+"3. Validate":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Validate and Explore" ],
@@ -416,20 +418,21 @@ B4PDOCU.START
 
 
 
-"4. Merge and Consolidate":
+"4. Merge":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Merge and Consolidate" ],
     "Description 01:Overview"::
 
-	In many application cases, information from multiple sources need to be merged and overlapping information consolidated.
+	In many application cases, information from multiple sources need to be merged and overlapping information consolidated based on rules provided.
 	Data management associated with merging or rearanging mulitple organizations are typical examples.  Typical functions to
-	choose from are
+	choose from are:
 
 	* __table merge(__) and related functions: Merge two tables where identification columns are defined to identify common data to be consoldated.
 	* __table lookup(__) is a suitable alternative combining data from two tables into one.
 	* __table integrate(__) works similar like__table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up.
 	* __table compare(__) is useful to check a current and an older data and isolate all relevant differences for further processing.
+	* __table consolidate(__) lets you condense the contens in the table using rules provided in order to focus on the essential information you need.
 
 	<br>
 	<hr>
@@ -473,14 +476,15 @@ B4PDOCU.START
 
 
 
-"5. Enrichment":
+"5. Augment":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Enrichment" ],
     "Description 01:Overview"::
 
-	Data enrichment typically involves adding furhter valuble information.  For a list of countries, some economic or demographic information
-	could be of interest.  
+	Data augmentation (enrichment) typically involves adding further valuble information.   Consider a lookup table with some economic and demographic
+	data which you want to add to your analysis in order to provide a better statistical weighting.  Or for stock market data, obtain a list of
+	present credit ratings and key financial data of the corporation you are tracking.  The functions below are the most common ones to choose:
 
 	* __table lookup(__) is a suitable alternative combining data from two tables into one.
 	* __table integrate(__) works similar like__table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up.
@@ -522,22 +526,22 @@ B4PDOCU.START
 
 
 
-
-
-
-"6. Align and Process":
+"6. Analyze":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Align and Process" ],
     "Description 01:Overview"::
 
-	Take the opportunity to carry out analyses, depending on the problem you intend to solve.
-	Following functions may be suitable:
+	Time to do the real world after all data inputs available in the quality needed.  Use the full B4P capabilities and function libraries
+	such as __statistics functions__ to analyze the data and draw meaningful conclusions.
+	The functions listed below could be of interest, but check the function library first before implementing something wtih 
+	low level code such as individual calculations.
 
-	* __table process selected rows(__) to apply algorithms of choice on rows selected with an expression
-	* __table sort rows(__) to sort tables by alphabetic, numeric, date orders, etc.
-	* Do a pivot by combining __table spread(__) to spread values horizontally and then do __table consolidate(__) eliminate unnecessary rows
-	* Do a pivot by moving horizontal data to vertical data with __table serialize(__)
+	* __table process selected rows(__) to apply algorithms of choice on rows selected with an expression.
+	* Do a pivot by combining __table spread(__) to spread values horizontally and then do __table consolidate(__) eliminate unnecessary rows.
+	* Do a pivot by moving horizontal data to vertical data with __table serialize(__).
+	* __table distribute(__) becomes very handy for production planning: Knowing the number of units ordered, lot sizes, delivery start and end dates, \
+	  and some cultural information like bank and school holidays (vacations), you generate the production plan with one function call.
 
 	<br>
 	<hr>
@@ -585,14 +589,21 @@ B4PDOCU.START
 
 
 
-"7. Format and Style":
+"7. Format":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Format the results" ],
     "Description 01:Overview"::
 
-	As a first step, consider formatting some data, e.g. aligning them, etc, e.g. with __table format numbers(__).
-	If you plan to save the output in Excel or HTML format, then consider to apply some style attributions.
+	Before saving the results, consider shaping up the data as you need present.  At a first step, check and process the contents.
+
+	* __table sort rows(__) to sort tables by alphabetic, numeric, date orders, etc.
+	* __table sort columns(__) to sort columns.
+	* __table rearrange columns(__) and __table rearrange selected rows(__) to move the data into the right locations, e.g. most important data to appear on the top left.
+	* __table substitute horizontally(__) and __table substitute vertically(__) to replace repeating values with a simple remark.
+
+	If you plan to save the work in Excel (or HTML), then consider adding __styles__ such as applying colors, different typefaces,
+	freezing the header row, adjusting column width, applying autofilters, etc.
 
 	* __table style auto width(__) will adapt the column widths based on the lengths of the contents.
 	* __table style theme(__) applies a graphic theme on the table, e.g. highlighted header row and zebra pattern in the rows below for better readability
@@ -605,7 +616,7 @@ B4PDOCU.START
 
 	Do some validation on this table:
 
-	* Apply a theme "Zebra"
+	* Apply a theme "Zebra" (interchanging white and field color patterns)
 	* Autowidth, but at least 12 Excel width units wide
 	* Set autofilter on header row and freeze it
 
@@ -629,7 +640,7 @@ B4PDOCU.START
 
 
 
-"8. Save and Export":
+"8. Export":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Save and Export" ],
@@ -638,8 +649,9 @@ B4PDOCU.START
 	In a final step, save the tables in data formats needed, e.g. Excel, CSV, HTML, JSON and text files.
 
 	* __table save(__) saves tables in text formats, CSV, HTML, JSON tables, etc.
-	* __variable save(__) saves a B4P variable tree in a JSON file
-	* __table save excel file(__) save one or multiple tables in Excel format
+	* __table save multiple(__) to save multiple tables in legacy Excel format (Excel XML 2003) into one file.
+	* __variable save(__) saves a B4P variable tree in a JSON file.
+	* __table save excel file(__) save one or multiple tables in contemporary Excel format (.xlsx, .xlsm).
 
 	<br>
 	<hr>

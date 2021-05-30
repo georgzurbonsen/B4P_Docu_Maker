@@ -1,135 +1,29 @@
-	include ( Support Library );
-	include ( Office Library );
-	include ( Style Library );
+#!/usr/local/bin/b4p
 
-	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
+include ( Style Library ); 	// Include this library if you want to use the 'table style ...' functions.
 
-	table load                     ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
-	table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
-	
+    table load excel file       ( football club, "Examples\Football Membership List.xlsx" ); 
+    table load                  ( soccer club,   "Examples\Soccer Membership List.csv" ); // Beginners are Novices here
 
-//	table save                     ( countries, temp.csv); // Hide!  Step 1 ends
-//	table load                     ( countries, temp.csv); // Hide!  Step 2 begins
-
-
-	// The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
-	// and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
-	// Note: literal(...) is needed in roder to avoid error messages when numbers are read from the table.
-
-	table process all cells        ( countries, [.] = replace all( literal([.]), {'[?]', '[??]' }, '' ) );
-	table clean		       ( countries, trim spaces );
-
-	table lift header row          ( countries ); // Find header row automatically
-	
-	table process                  ( countries, [Country name]= left([Country name], ' (') ); // Remove name additions
-
-	table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
+    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
+    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
+    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
 
 
-//	table save                     ( countries, temp.csv); // Hide!  Step 2 ends
-//	table load                     ( countries, temp.csv); // Hide!  Step 3 begins - Semantic alignment
+    // Done processing.  Before saving to Excel fie, do some formatting.
+
+    table style theme           ( soccer club, Zebra );
+    table style auto width      ( soccer club );
+    table process selected rows ( soccer club, ([Level] = '*Questionable*'),
+        table style cells           ( soccer club, Level, row(), single, text color, red ) );
 
 
-	table keep columns             ( countries, { Country name, 'Alpha-2 code', 'Alpha-3 code' } );
-	table delete selected rows     ( countries, ['Alpha-2 code']=='...' );
-	table delete columns           ( countries,  'Alpha-3 code' );
+    // Save teh work as HTML and Excel
 
-	// Check if the 2-character country code is always consisting of 2 characters.
-	table process selected rows    ( countries, ['Alpha-2 code']{}!=2, echo("The country code ", ['Alpha-2 code'], " may be incorrect" ) );
+    translate style attributes for html (soccer club);
+    table save                  ( soccer club, "Images\New Soccer Club Membership List.html", HTML );
 
-	// Some country names need to be harmonized with a language list to combine, e.g. 'Holy See' and 'Vatican City'.
-
-	table initialize               ( country name alignment,
-	{ { Country code, Aligned country name },
-	  { KR, South Korea },                           { KP, North Korea },
-	  { US, United States },                         { VN, Vietnam },
-          { BN, Brunei },                                { CV, Cape Verde },
-	  { CZ, Czech Republic },                        { LA, Laos }, 
-	  { RU, Russia },                                { VA, Vatican City },
-	  { SY, Syria },                                 { CC, 'Cocos (Keeling) Islands' },
-	  { CD, 'Democratic Republic of the Congo' },    { CG, 'Republic of the Congo' },
-	  { TL, East Timor },                            { CI, Ivory Coast },
-	  { FM, 'Federated States of Micronesia' },      { MM, 'Myanmar (Burma)' },
-	  { PS, Palestine },                             { TZ, Tanzania },
-	  { ST, Sao Tome and Principe },                 { SO, Somaliland } } );
-
-	table lookup                   ( countries, 'Alpha-2 code', Country name, country name alignment, Country code, Aligned country name );
-
-	table list( countries, briefly, 5  ); // List first and last 5 rows and 2 columns only
-
-
-//	table save                     ( countries, temp.csv); // Hide! Step 3 ends
-//	table load                     ( countries, temp.csv); // Hide! Step 4 begins
-
-	// Download a list of languages from Wikipedia and do the clean-up first.
-
-	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory", languages.html );
-	table load                     ( languages, languages.html, HTML, List of countries );
-	table process all cells        ( languages, [.] = replace all( literal([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
-	table clean		       ( languages, trim spaces );
-	table delete selected rows     ( languages, [Country]=Country ); // Headers are repeated inside the long table.
-	table keep columns             ( languages, {Country, Official language} );
-	table rename headers           ( languages, {Country, Official language}, { Country name, Languages } );
-
-	// Merge the data.
-
-	table merge extend columns     ( languages, countries, Country name );
-
-	table list( countries, briefly, 8 ); // List first and last 8 rows only
-
-//	table save                     ( countries, temp.csv); // Hide!  Step 4 ends
-//	table load                     ( countries, temp.csv); // Hide!  Step 5 bgins
-
-	// Some language specifications can be very long
-
-	echo(new line, "Example of long contents: ", [countries:Country name,Switzerland,Languages] );
-	echo(new line, "Let's cut to max. 30 characters, then remove last incomplete word and add '...' behind", new line);
-
-	table process                  ( countries, while (find([Languages],'(')>=0) [Languages] = trim( outside exclude ( [Languages], '(', ')' ))  );
-	max[] = 30;
-	table process selected rows    ( countries, [Languages]{}>max[], [Languages] = left last match( left( [Languages], max[] ), ' ') + " ..." );
-
-
-
-	echo(new line, "Delete all countries without languages and vice versa...");
-	table delete selected rows     ( countries, ['Alpha-2 code']=='' | [Languages]=='' );
-
-	table list( countries, briefly, 8 ); // List first and last 8 rows only
-
-
-//	table save                     ( countries, temp.csv); // Hide!  Step 5 ends
-//	table load                     ( countries, temp.csv); // Hide!  Step 6 begins
-
-
-	languages in focus[]           = { Chinese, English, French, Spanish, German, Russian, Hindi };
-	table keep selected rows       ( countries, (tokenize( [Languages], {}, {' ',','} ) & languages in focus[]) != {} );
-
-	table insert columns           ( countries, languages in focus[] );
-        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+softquoted literal([.,0])+'*') [.]=1; );
-
-	table list( countries, briefly, 8 ); // List first and last 8 rows only
-
-	table delete columns           ( countries, {'Alpha-2 code', Languages} );
-
-	table copy table               ( countries, summary );
-	table keep columns             ( summary, languages in focus[] );
-        table consolidate              ( summary, {}, languages in focus[], sum );
-	table transpose                ( summary );
-	table insert rows              ( summary, 0 );
-	[ summary: ..,0]               = { Language, '# Countries' };
-	table sort rows                ( summary, '# Countries', numeric down);
-
-	echo ("Brief summary on key languages:");
-	table list ( summary );
-
-//	table save                     ( countries, temp.csv); // Hide!
-//	table load                     ( countries, temp.csv); // Hide!
-
-	table style theme              ( countries, Zebra, pattern, 2 );
-	table style auto width         ( countries, min, 12 );
-	table style table              ( countries, sheet, freeze rows, 1, autofilter, 0 );
-
-	table save excel file          ( countries, "Countries and Key Langauges", Countries.xlsx );
-
-//	table save                     ( countries, temp.csv); // Hide!
-//	table load                     ( countries, temp.csv); // Hide!
+    table save excel file       ( soccer club, Soccer Club, "Images\New Soccer Club Membership List.xlsx" );
+    echo ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
