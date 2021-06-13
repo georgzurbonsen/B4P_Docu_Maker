@@ -1530,6 +1530,13 @@ LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;wildc
 LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;B 7.01;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;B 4.03.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
+MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
+MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
+MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
+MAS;B 1.03;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
+MAS;B 1.04;Rel. 8.03;MAS_Features_Release_8.03.html;General Description;Release 8.03
+MAS;;Update 8.03a;MAS_Features_Release_8.03a.html;General Description;Release 8.03a
+MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
 GUI;B 3.01;1. Import;GUI_Features_Import_source_data.html;General Description;Import source data
 GUI;B 3.02;2. Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
 GUI;B 3.03;3. Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
@@ -1572,9 +1579,3 @@ GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installa
 GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
 GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
 GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
-MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
-MAS;B 1.01;Rel. 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
-MAS;B 1.02;Rel. 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01
-MAS;B 1.03;Rel. 8.02;MAS_Features_Release_8.02.html;General Description;Release 8.02
-MAS;B 1.04;Rel. 8.03;MAS_Features_Release_8.03.html;General Description;Release 8.03
-MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents

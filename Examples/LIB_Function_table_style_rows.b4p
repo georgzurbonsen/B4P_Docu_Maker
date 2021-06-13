@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include( Style Library );
   table load( t, "Cities.csv" );
 
   table style rows( t, 0, body, boldface, true, row height, 30 );
@@ -13,11 +12,8 @@
   // Here: Sheet wide coverage when viewing files with Excel
   table style rows( t, table selected rows( t, [Country]==ITA), sheet, fill color, lemon, italic, true );
 
-  translate style attributes for html(t);
   table save( t, "Images/Style_Function_table_style_rows.html", HTML );
-  translate style attributes for excel xml 2003(t);
   table save( t, "Images/Style_Function_table_style_rows.xls", EXCEL );
-  translate style attributes for excel (t);
   table save excel file( t, Contents, "Images/Style_Function_table_style_rows.xlsx" );
   echo("Done.");
 

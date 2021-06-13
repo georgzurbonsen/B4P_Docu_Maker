@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include( Style Library );
   table load( t1, "Cities.csv" );
   table copy table( t1, t2 );
 
@@ -15,8 +14,6 @@
 
   // Prepare and save the work
 
-  translate style attributes for excel (t1);
-  translate style attributes for excel (t2);
   table save excel file  ( { t1, t2 }, { Simple, Customized }, "Images/Style_Auto_Width.xlsx" );
 
   echo("Done.");

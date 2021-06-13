@@ -529,7 +529,7 @@ define procedure ( create navigator from revolving TOC )
 define procedure( save example program, { { program table, literal }, { b4p file name, literal } } )
 {
 	table insert rows ( program table[], 0, 1 ); // Insert row 0 as it needs to be processed, too.
-	table delete selected rows( program table[], [0]=~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes and rows to hide
+	table delete selected rows( program table[], [0]=~ '*include*(*Support Library*)*;','*include*(*Style Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes and rows to hide
 	table process( program table[], [0] = [0] - "Examples/" - "examples/" - "Examples\" - "examples\" ); // Remove subdirectories
 	[ program table[]: 0, 0 ] = "#!/usr/local/bin/b4p"; // Shebang for UNIX/LINUX/MacOS systems
 	table save ( program table[], "Examples/" + b4p file name[], TEXT );
@@ -862,7 +862,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		        {
 			    substitute all( payloads[index[]], {"&","<",">","\","  ","&nbsp; ", tab, new line}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;&nbsp;","&nbsp;&nbsp;","&nbsp;", "<br>" } );
 			    if (payloads[index[]]{0}==' ') substitute    ( payloads[index[]], " ", "&nbsp;" ); // First space must be nbsp
-			    if (value[] =~ '*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;','*//*Hide*!*')
+			    if (value[] =~ '*include*(*Style Library*)*;','*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;','*//*Hide*!*')
 				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }
 

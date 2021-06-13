@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include( Style Library );
   table load( t, "Cities.csv" );
 
   // Freeze panes and apply an autofilter
@@ -27,10 +26,7 @@
   // Number format is supported in Excel only
   table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
-  translate style attributes for excel xml 2003(t);
   table save( t, "Images/Style_Function_table_style_professionally.xls", EXCEL );
-
-  translate style attributes for excel(t);
   table save excel file( t, Contents, "Images/Style_Function_table_style_professionally.xlsx"  );
 
   // How to apply number formats in HTML for browsers
@@ -39,7 +35,6 @@
   table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
   table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
 
-  translate style attributes for html(t);
   table save( t, "Images/Style_Function_table_style_professionally.html", HTML );
   file copy overwrite( "Images/Style_Function_table_style_professionally.html", "Images/Style_Function_table_style_professionally_in_html.xls" );
   echo("Done.");

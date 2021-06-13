@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include( Style Library );
   a[0] = navy;
   a[1] = {0,0,128};
   a[2] = "#000080";

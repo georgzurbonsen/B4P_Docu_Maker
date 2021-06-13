@@ -216,7 +216,69 @@ B4PDOCU.START
 
 	+++
 
+},
+
+
+
+//
+"Update 8.03a" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 8.03a" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 8.03a, updated 2021-06-13, "The Tabulating Machine"</b><br>
+	<i>Herman Hollerith's invention in 1890 doing mechanical data import, processing, tabulation and sorting for analyzing U.S. census data.</i>
+
+    "Description 02:Bugfixes"::
+
+	* Fixed an old syntax parsing bug addressing sequences where syntax errors have been raised on correct syntax. It affects following code sequence inside __switch(__) and __check(__) sequences.<br>\
+	  <b>__case__ (...) __if__ (...) { ... } <br>\
+	     __case__ (...) ... </b><br>\
+	  In detail, the following valid __case__ statement has been rejected.
+	* Fixed another old syntax parsing bug addressing sequence where syntax errors ahve been raised on correct syntax. It affects loops (all kind of loops) inside __if(__).<br>\
+	  <b>__if__ (...) __while__ (...) { ... } <br>\
+	     __else__ ... </b><br> \
+	  In detail, the following __else__ keyword has been rejected.
+	* If __exception(__) is called inside a user-defined procedure or function in oder to assert a user-defined exception and requesting a calling hierarchy of \
+	  1 or higher in order to show the code context of the callign code, then you may need to type "exit" repeatedly to leave B4P when done inspecting.  Normally \
+	  typing "exit" only once shall suffice.  This has been fixed.
+	* The function __call(__) to call any B4P function by name required 2 parameters all time though the documentation also allows just 1 parameter. This has been fixed.
+
+
+    "Description 03:New Functions"::
+
+	None in this release.
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* __table load(__) and __table save(__): If the file ends with '.xlsx', '.xlsm' or '.xlsb', then the user will be notified that this is the wrong function to \
+	  load or save Excel files.  The error messsage advises to use __table load excel file(__) or __table save excel file(__) instead.
+
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	* No longer to explicitly call __include__(Style Library) in order to add style features to Excel files.  This library will be loaded in addition to \
+	  the other standard libraries: Utility Library, Office Library, Zip Library and Support Library.
+	* Calling functions like __translate style attributes for html(__) and __translate style attributes for excel xml 2003(__) explicitly before saving the \
+	  table into a HTML or old Excel format is no longer needed.  These functions will be called automatically before saving, which is already the case with \
+	  the new Excel format using __table save excel file(__).
+
+
+    "Description 06:Performance Improvements"::
+
+	None in this release.
+
+    "Description 07:Depreciated and retired features"::
+
+	None in this release.
+
+	+++
+
 }
+
+
 
 
 

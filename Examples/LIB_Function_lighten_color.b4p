@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include( Style Library );
   for (i[] = 1, i[] <4, i[]++)
   {
       echo( new line, "Factor ", i[],":" );

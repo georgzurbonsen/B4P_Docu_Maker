@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include( Style Library );
 
   echo("Demonstrate precedences in formatting sheets / rows / columns / cells");
 
@@ -19,9 +18,6 @@
   table style table( t, sheet, fill color, gray 15 );
   // Calling the same function with 'table' instead of 'sheet' would overpaint every cell
 
-  translate style attributes for html(t);
   table save( t, "Images/Style_Precedences.html", HTML );
-  translate style attributes for excel xml 2003(t);
   table save( t, "Images/Style_Precedences.xls", EXCEL );
-  translate style attributes for excel (t);
   table save excel file( t, Contents, "Images/Style_Precedences.xlsx" );

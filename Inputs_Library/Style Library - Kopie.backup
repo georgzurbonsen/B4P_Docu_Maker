@@ -167,8 +167,11 @@ B4PDOCU.START
 
 	table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Custom_Colors.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Custom_Colors.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Custom_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
@@ -354,8 +357,11 @@ B4PDOCU.START
 	table list ( t );
 	table process( t, table style rows( t, row(), table, fill color, [Color Name] ) );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Lightened_Colors.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Lightened_Colors.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Lightened_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
@@ -489,8 +495,11 @@ B4PDOCU.START
 	table list ( t );
 	table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Darkened_Colors.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Darkened_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
@@ -624,8 +633,11 @@ B4PDOCU.START
 	table list ( t );
 	table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Weakened_Colors.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Weakened_Colors.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Weakened_Colors.xlsx" );
 	+++,
 	"Output": "automatic",
@@ -747,8 +759,11 @@ B4PDOCU.START
 	table style rows   ( t, 3, sheet, type, literal );
 	table style cells  ( t, Boolean Num, 4, single, type, boolean );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Number_Formats.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Number_Formats.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Number_Formats.xlsx" );
 	+++,
 	"Output 01:": "automatic",
@@ -813,8 +828,11 @@ B4PDOCU.START
 	table style table( t, sheet, fill color, gray 15 );
 	// Calling the same function with 'table' instead of 'sheet' would overpaint every cell
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Precedences.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Precedences.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Precedences.xlsx" );
 	+++,
 	"Output 01:": "automatic",
@@ -899,8 +917,11 @@ B4PDOCU.START
 	table style table( t, sheet, column width, 24, wrap text, true );
 	table style table( t, body, text color, navy );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_sheet.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_sheet.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Function_table_style_sheet.xlsx" );
 	echo("Done.");
 
@@ -988,8 +1009,11 @@ B4PDOCU.START
 	// Here: Sheet wide coverage when viewing files with Excel
 	table style rows( t, table selected rows( t, [Country]==ITA), sheet, fill color, lemon, italic, true );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_rows.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_rows.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Function_table_style_rows.xlsx" );
 	echo("Done.");
 
@@ -1072,7 +1096,10 @@ B4PDOCU.START
 	// Number format is supported in Excel only
 	table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_columns.xls", EXCEL );
+
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Function_table_style_columns.xlsx" );
 
 	// How to apply number formats in HTML for browsers
@@ -1081,6 +1108,7 @@ B4PDOCU.START
 	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
 	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_columns.html", HTML );
 	echo("Done.");
 	+++,
@@ -1169,8 +1197,11 @@ B4PDOCU.START
 	table style cells( t, {City,3,5}, {3,5,7,9}, matrix, fill color, green );
 	table style cells( t, {Famous cultural place, Moving along}, {0,8}, field, fill color, cyan );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_cells.html", HTML );
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_cells.xls", EXCEL );
+	translate style attributes for excel (t);
 	table save excel file( t, Contents, "Images/Style_Function_table_style_cells.xlsx" );
 	echo("Done.");
 
@@ -1245,7 +1276,10 @@ B4PDOCU.START
 	// Number format is supported in Excel only
 	table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
+	translate style attributes for excel xml 2003(t);
 	table save( t, "Images/Style_Function_table_style_professionally.xls", EXCEL );
+
+	translate style attributes for excel(t);
 	table save excel file( t, Contents, "Images/Style_Function_table_style_professionally.xlsx"  );
 
 	// How to apply number formats in HTML for browsers
@@ -1254,6 +1288,7 @@ B4PDOCU.START
 	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
 	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
 
+	translate style attributes for html(t);
 	table save( t, "Images/Style_Function_table_style_professionally.html", HTML );
 	file copy overwrite( "Images/Style_Function_table_style_professionally.html", "Images/Style_Function_table_style_professionally_in_html.xls" );
 	echo("Done.");
@@ -1357,6 +1392,8 @@ B4PDOCU.START
 
 	// Prepare and save the work
 
+	translate style attributes for excel (t1);
+	translate style attributes for excel (t2);
 	table save excel file  ( { t1, t2 }, { Simple, Customized }, "Images/Style_Auto_Width.xlsx" );
 
 	echo("Done.");
@@ -1540,9 +1577,6 @@ B4PDOCU.START
 		* <b>translate style attributes for excel</b>: Needed before __table save excel file(__) for the modern Excel .xlsx file format
 		* <b>translate style attributes for excel xml 2003</b>: Needed before __table save__(..., EXCEL) for the old Excel XML 2003 file format 
 		* <b>translate style attributes for html</b>: Needed before __table save__(..., HTML) for HTML format, can be opened in web browsers and Excel (if renamed from .html to .xls)
-
-		<br><br>
-		Begining in the update release 8.03a, these functions do not need to be called up explicitly anymore.  They will be called automatically when saving the files.
 
 	+++,
 	"Call as":		"procedure",
