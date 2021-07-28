@@ -1,5 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-  include ( Style Library );
   table load                     ( countries, temp.csv); // Hide!
 // Hide!
   table style theme              ( countries, Zebra, pattern, 2 ); // Hide!

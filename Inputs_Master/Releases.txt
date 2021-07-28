@@ -21,7 +21,7 @@ B4PDOCU.START
 
 
 
-"Rel. 8.00" :
+"Release 8.00" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Release 8.00" ],
@@ -45,7 +45,7 @@ B4PDOCU.START
 },
 
 
-"Rel. 8.01" :
+"Release 8.01" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Release 8.01" ],
@@ -110,7 +110,7 @@ B4PDOCU.START
 
 
 //
-"Rel. 8.02" :
+"Release 8.02" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Release 8.02" ],
@@ -168,7 +168,7 @@ B4PDOCU.START
 
 
 //
-"Rel. 8.03" :
+"Release 8.03" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Release 8.03" ],
@@ -219,17 +219,15 @@ B4PDOCU.START
 },
 
 
-
-//
-"Update 8.03a" :
+"Release 8.04" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Release 8.03a" ],
+    "Feature Names":		[ "Release 8.04" ],
 
     "Description 01:Overview"::
 
-	<b>Release 8.03a, updated 2021-06-13, "The Tabulating Machine"</b><br>
-	<i>Herman Hollerith's invention in 1890 doing mechanical data import, processing, tabulation and sorting for analyzing U.S. census data.</i>
+	<b>Release 8.04, updated 2021-07-28, "The Big Myth"</b><br>
+	<i>The Big Fact: Mountain in Central Switzerland (Grosser Mythen), elevation: 1,898 meters, 47 deg 01' 47" North, 8 deg 41' 19.7" East (695034/209499).</i>
 
     "Description 02:Bugfixes"::
 
@@ -245,6 +243,7 @@ B4PDOCU.START
 	  1 or higher in order to show the code context of the callign code, then you may need to type "exit" repeatedly to leave B4P when done inspecting.  Normally \
 	  typing "exit" only once shall suffice.  This has been fixed.
 	* The function __call(__) to call any B4P function by name required 2 parameters all time though the documentation also allows just 1 parameter. This has been fixed.
+	* Function __table save excel file(__): Improper saving of certain formats and style (incl. column width, row height) if 2 or more sheets are saved in one file.
 
 
     "Description 03:New Functions"::
@@ -255,6 +254,7 @@ B4PDOCU.START
 
 	* __table load(__) and __table save(__): If the file ends with '.xlsx', '.xlsm' or '.xlsb', then the user will be notified that this is the wrong function to \
 	  load or save Excel files.  The error messsage advises to use __table load excel file(__) or __table save excel file(__) instead.
+	* __table load excel file(__): You can load multiple sheets from one Excel file into multiple tables using one single function call.
 
 
     "Description 05:New Language Features (e.g. syntax and semantics)"::
@@ -268,7 +268,7 @@ B4PDOCU.START
 
     "Description 06:Performance Improvements"::
 
-	None in this release.
+	See improvement on __table load excel file(__): Loading multiple sheets with one call is faster than calling this function repeatedly.
 
     "Description 07:Depreciated and retired features"::
 
