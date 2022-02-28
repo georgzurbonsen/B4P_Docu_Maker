@@ -13,5 +13,5 @@
 
   animal1[] |<== [ animals: .., 1 ];
   animal2[] |<==^  [ animals: .., 1 ];
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );

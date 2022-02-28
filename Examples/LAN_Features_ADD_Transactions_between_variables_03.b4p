@@ -8,5 +8,5 @@
   array ( animals2[insects], { ant, tick, mosquito } );
 
   animals1[] +<=> animals2[];  
-  inspect(animals1[]); // Keep dog, owl eel, bear, deer, bee, fly. Get turtle, skunk and all insects
-  inspect(animals2[]); // Keep cat, trout, turtle, lynx, skunk. Get owl, deer and all insects
+  see(animals1[]); // Keep dog, owl eel, bear, deer, bee, fly. Get turtle, skunk and all insects
+  see(animals2[]); // Keep cat, trout, turtle, lynx, skunk. Get owl, deer and all insects

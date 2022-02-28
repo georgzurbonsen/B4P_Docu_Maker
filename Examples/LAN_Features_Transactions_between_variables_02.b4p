@@ -12,8 +12,8 @@
   animals1[] <=> plants1[];
   animals2[] <=>^ plants2[];
 
-  inspect( animals1[] );
-  inspect( plants1[] );
+  see( animals1[] );
+  see( plants1[] );
 
-  inspect( animals2[] );
-  inspect( plants2[] );
+  see( animals2[] );
+  see( plants2[] );

@@ -1,4 +1,4 @@
-//
+-//
 B4PDOCU.START
 
 
@@ -276,10 +276,179 @@ B4PDOCU.START
 
 	+++
 
+},
+
+
+"Release 9.00" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 9.00" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 9.00, updated 2022-01-10, "Amerigo Vespucci"</b><br>
+	<i>Famous salesman, sailor and navigator.  And naming origin of "America".</i>
+
+    "Description 02:Bugfixes"::
+
+	* Calling __print(__) alone and without parameters causes a program crash, done by accessing an invalid memory location. This has been fixed.
+	* Inside __switch(__) or __check(__) blocks with cases, the __else__ block would be executed even if supposed to skip over it.  This has been fixed.
+	* Function __define additional procedure and function(__) was refused and returned error message.  This has been fixed.
+
+    "Description 03:New Functions"::
+
+	* __console(__): Read out console parameters such as text and cusor positions as well as console sizes in number of rows and columns
+	* __underscore(__), __boldface(__), __blinking(__), __reverse(__): Various console features.  Implementation may vary among different consoles and terminal emulators.
+	* __format(__) and __format print(__) generated formatted text output for console use.  The latter function outputs the contents directly to the console.
+	* __print bar(__) outputs a bar symbol or string across the full width of the visible console
+	* __distribute amount(__) distributes a numeric value across multiple values using specific rules, e.g. even, random, etc.
+	* __weight(__) measures the weight, i.e. number of members and sub-members of the specified variable
+	* __weight profile(__) works similar to __weight(__), but the weights are recorded separately for every hierarchical level in order to get some tree profile info
+	* __depth(__) returns the depth of the specified variable, i.e. maximum nesting level of members and their sub-members
+	* __table insert rows if needed(__), __table delete rows if needed(__), __table delete remaining rows if needed(__) suppress exceptions in if the specified row number lies below the table.
+	* __inspect(__) - New implementation for active visualization of variables
+	* __see(__) - Old implementaiton of <b>inspect</b>().
+	* __dump entities(__) - Provides a list of all HTML-like entities B4P is supporting.
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* __text color(__) and __background color(__): In the past, only 16 colors were supported.  Various additional color names have been added, and \
+	  it is possible to provide RGB-colors in hexadecimal format (#rrggbb), as __function parameters__ or three numbers in a __parameter set__.
+	* __getch(__) and __input quick(__) now support arrow, function and other non-character navigation keys.
+	* __delete members(__) allows to delete members of a selected range
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	* Various new HTML like entities have been introduced for UNICODE characters in the PUA (Private Use Area) in order to do text formatting and \
+	  colors on the console, as well as recognizing special keyboard keys such as function and navigation keys.
+
+    "Description 06:Other new Features"::
+
+	Interactive mode has been improved where better editing is supported, including accessing previous entered text and accessing the clipboard.
+	As LINUX / MacOS have not advanced input features like in Windows, this improvement is particularly significant for those systems.
+
+	<br><br>
+
+	Error messages make use of text color for better clarity.
+
+    "Description 07:Performance Improvements"::
+
+	__table save excel file(__) runs significantly faster when saving large excel files.
+
+    "Description 08:Depreciated and retired features"::
+
+	* <b>docs search</b>() is now part of __docs(__).
+	* <b>inspect</b>() as implemented in the past has changed to __see(__).
+
+
+	+++
+
+},
+
+
+
+"Release 9.01" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 9.01 Golden Cut" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 9.01 tbd, updated 2022-01-10, "The Golden Cut"</b><br>
+	<i>Golden Cut - or Golden Ratio - is the same as the ratio of their sum to the larger of the two quantities. Common in mathematics, modern arts and architecture.</i>
+
+    "Description 02:Bugfixes"::
+
+	* __table view(__): Minor correctios
+
+    "Description 03:New Functions"::
+
+	* __file browser(__) provides an interactive and feature-rich file browsers to select files
+	* __existing here(__), __existing here and valid(__): Returns true if the variable is defined as a local variable or provided through a function \
+	  parameter.  This prevents unfavorable influences from equally named global variables.
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* __width(__) and __text row(__) ensure that formatting characters such as changing colors are not counted as full width character.
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	* Various new HTML like entities have been introduced for UNICODE characters in the PUA (Private Use Area) in order to do text formatting and \
+	  colors on the console, as well as recognizing special keyboard keys such as function and navigation keys.
+
+    "Description 06:Other new Features"::
+
+	None in this release
+
+    "Description 07:Performance Improvements"::
+
+	None in this release
+
+    "Description 08:Depreciated and retired features"::
+
+	None in this release.
+
+	+++
+
+},
+
+
+
+"Release 9.02 RC" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 9.02 Release Candiate" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 9.02, updated 2022-03-XX, "William Henry Hoover"</b><br>
+	<i>Inventor of the vacuum cleaner, and a huge time-saving benefit for everyone.</i>
+
+    "Description 02:Bugfixes"::
+
+	* Specifying "." (with double quotation marks) has not enforced searching for header name called ".". This has been fixed
+	* Fuction __input(__) - Bugfix (issues with blank prompts resolved)
+
+    "Description 03:New Functions"::
+
+	None in this release
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* __for all table rows__: Can accept as few as 1 parameter.
+	* __for all table selected rows__: Can accept as few as 2 parameters.
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	None in this release
+
+    "Description 06:Other new Features"::
+
+	None in this release
+
+    "Description 07:Clean-ups and Streamlining"::
+
+	* The type __literal__ consist of two subtypes (__softquoted literal__ and __quoted literal__) and no longer three.
+	* Various clean-ups done in B4P docs
+
+    "Description 08:Performance Improvements"::
+
+	* Clean-up in the B4P engine results in minor performance improvements.
+
+    "Description 09:Depreciated and retired features"::
+
+	Softquoted literals: Header names and likes in a single string and separate with commas will no longer be separated into
+	individual parameters as it created more confustion and processing time than providing benefits. Put multiple parameters into
+	a parameter set instead.
+
+	<br><br>
+
+	The function <b>type detailed</b> has been renamed to <b>subtype</b>.
+
+
+	+++
+
 }
-
-
-
 
 
 

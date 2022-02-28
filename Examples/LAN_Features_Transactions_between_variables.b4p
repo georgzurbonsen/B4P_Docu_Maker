@@ -8,5 +8,5 @@
   a[] <==  animals1[];
   b[] <==^ animals1[];
 
-  inspect(a[]);
-  inspect(b[]);
+  see(a[]);
+  see(b[]);

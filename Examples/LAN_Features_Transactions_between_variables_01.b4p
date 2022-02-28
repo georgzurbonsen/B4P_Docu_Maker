@@ -9,8 +9,8 @@
   a[] <<=  animals1[];
   b[] <<=^ animals2[];
 
-  inspect(a[]);
-  inspect(b[]);
+  see(a[]);
+  see(b[]);
   echo("animals1[] existing? ", existing(animals1[]));
-  inspect(animals2[]);
+  see(animals2[]);
 

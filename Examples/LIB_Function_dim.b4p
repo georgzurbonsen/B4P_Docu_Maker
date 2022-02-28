@@ -4,10 +4,10 @@
   dim( a[], 5, Hi, b[], {}, 1, a[2], {2,2}, 0 );
   redim( a[], 8, Ho );
 
-  inspect( a[] ); // Nested arrays
-  inspect( b[] ); // Void
+  see( a[] ); // Nested arrays
+  see( b[] ); // Void
 
   dim( c[], { 2, 2 }, 1 );    // 2x2 array
   redim( c[], { 3, 3}, 3 );   // Extend to 3x3 array
 
-  inspect( c[] );
+  see( c[] );

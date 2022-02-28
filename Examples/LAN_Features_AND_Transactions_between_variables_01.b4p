@@ -8,5 +8,5 @@
   animals1[mammal] &<<= animals2[mammal]; 
   // Lynx replaces bear, and the deer continues living.
 
-  inspect(animals1[]);
-  inspect(animals2[]);
+  see(animals1[]);
+  see(animals2[]);

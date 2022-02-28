@@ -8,4 +8,4 @@
   city[district,2,inhabitants] = 19500;
   echo("1st  district = ", city[district,1], "   last district = ", city[district,-1] );
 
-  inspect( city[] );
+  see( city[] );

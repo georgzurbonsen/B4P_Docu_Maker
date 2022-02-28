@@ -1,12 +1,42 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = 1;
-  b[me] = you;
-  c[2] = true;
+gbl[] = Hello;
+table initialize( result, {{ Context, Variable, 'existing()', 'existing here()', 'existing and valid()', 'existing here and valid()' }} );
 
-  echo( existing ( a[] ), ", ", existing ( b[] ), ", ", existing ( c[] ), ", ", existing ( d[] ) );
-  // true, true, true, false
+define procedure ( ho, {{ par, literal }} )
+{
+  table append( result, {{ ho, Function parameter,      existing          (par[]),  existing here          (par[]),
+                                                        existing and valid(par[]),  existing here and valid(par[]) }} );
+  table append( result, {{ ho, Unaccessible variable,   existing          (var[]),  existing here          (var[]),
+                                                        existing and valid(var[]),  existing here and valid(var[]) }} );
+  table append( result, {{ ho, Global variable,         existing          (gbl[]),  existing here          (gbl[]),
+                                                        existing and valid(gbl[]),  existing here and valid(gbl[]) }} );
+  table append( result, {{ ho, Valid System variable,   existing          (runtime settings[crlf]),  existing here          (runtime settings[    ]),
+                                                        existing and valid(runtime settings[crlf]),  existing here and valid(runtime settings[crlf]) },{''}} );
+}
 
-  echo( existing ( a[1] ), ", ", existing ( b[me] ), ", ", existing ( b[he] ), ", ", existing ( b[0] ) );
-  // false, true, false, true
+define procedure ( hi )
+{
+  var[] = Ahoi;
+  table append( result, {{ hi, Function parameter,      existing          (par[]),  existing here          (par[]),
+                                                        existing and valid(par[]),  existing here and valid(par[]) }} );
+  table append( result, {{ hi, Local variable,          existing          (var[]),  existing here          (var[]),
+                                                        existing and valid(var[]),  existing here and valid(var[]) }} );
+  table append( result, {{ hi, Global variable,         existing          (gbl[]),  existing here          (gbl[]),
+                                                        existing and valid(gbl[]),  existing here and valid(gbl[]) }} );
+  table append( result, {{ hi, Valid System variable,   existing          (runtime settings[crlf]),  existing here          (runtime settings[    ]),
+                                                        existing and valid(runtime settings[crlf]),  existing here and valid(runtime settings[crlf]) },{''}} );
+  ho( He );
+}
 
-  for (i[] = 0, i[] <= 3, i[]++) echo("c[",i[],"] existing: ", existing(c[i[]]), "   valid: ", existing and valid(c[i[]]) );
+
+hi;
+  table append( result, {{ main, Nonexisting variable,  existing          (var[]),  existing here          (var[]),
+                                                        existing and valid(var[]),  existing here and valid(var[]) }} );
+  table append( result, {{ main, Global variable,       existing          (gbl[]),  existing here          (gbl[]),
+                                                        existing and valid(gbl[]),  existing here and valid(gbl[]) }} );
+  table append( result, {{ main, System variable,       existing          (runtime settings[    ]),  existing here          (runtime settings[]),
+                                                        existing and valid(runtime settings[    ]),  existing here and valid(runtime settings[]) }} );
+  table append( result, {{ main, Valid System variable, existing          (runtime settings[crlf]),  existing here          (runtime settings[    ]),
+                                                        existing and valid(runtime settings[crlf]),  existing here and valid(runtime settings[crlf]) }} );
+
+table list( result );

@@ -14,6 +14,6 @@
   animal1[] <=>  [ animals: Name, Dog, .. ]; // Pick up entire row
   animal2[] <=>^ [ animals: Name, Owl,    ]; 
 
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)

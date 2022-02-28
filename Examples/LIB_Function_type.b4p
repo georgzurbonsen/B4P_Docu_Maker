@@ -8,9 +8,9 @@
       a[date] = date(today);
       a[bool] = true;
       a[pset] = { 1,2,3 };
-      a[void] = null;
+      a[void] = null();
 
       for all variables( a[], value[], counter[], name[] )
       {
-          echo( name[], ": ", value[], " --> ", type( value[] ), ", ", type detailed( value[] ) );
+          echo( name[], ": ", value[], " --> ", type( value[] ), ", ", subtype( value[] ) );
       }

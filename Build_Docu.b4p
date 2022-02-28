@@ -20,6 +20,7 @@ runtime settings[verbose] = quiet;
 keyword index file[] = "New Keyword Index.csv";
 
 
+
 define procedure ( load catalogue of books )
 {
 	echo(new line, "Step 1: Load Catalogue of Books and let user choose a book to process", new line );
@@ -529,7 +530,7 @@ define procedure ( create navigator from revolving TOC )
 define procedure( save example program, { { program table, literal }, { b4p file name, literal } } )
 {
 	table insert rows ( program table[], 0, 1 ); // Insert row 0 as it needs to be processed, too.
-	table delete selected rows( program table[], [0]=~ '*include*(*Support Library*)*;','*include*(*Style Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes and rows to hide
+	table delete selected rows( program table[], [0]=~ '*include*(*Console Library*)*;','*include*(*Support Library*)*;','*include*(*Style Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes and rows to hide
 	table process( program table[], [0] = [0] - "Examples/" - "examples/" - "Examples\" - "examples\" ); // Remove subdirectories
 	[ program table[]: 0, 0 ] = "#!/usr/local/bin/b4p"; // Shebang for UNIX/LINUX/MacOS systems
 	table save ( program table[], "Examples/" + b4p file name[], TEXT );
@@ -540,7 +541,7 @@ define function( run example program, { { program table, literal }, { b4p file n
 {
 	table save	( program table[], "Example_Program.b4p", new line );
 	echo		( "    Run example program.  If dead, then look at Example_Program.b4p and run it. Here: Type 'exit' to continue");
-	system		( quote path(system info[bin directory] + system info[directory separator] + b4p) + " -wx Example_Program.b4p > Example_Out.txt" );
+	system		( quote path(system info[bin directory] + system info[directory separator] + b4p) + " -wxc Example_Program.b4p > Example_Out.txt" );
 
 	save example program( program table[], b4p file name[] );
 
@@ -862,7 +863,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		        {
 			    substitute all( payloads[index[]], {"&","<",">","\","  ","&nbsp; ", tab, new line}, {"&amp;", "&lt;", "&gt;", "&#92;", "&nbsp;&nbsp;","&nbsp;&nbsp;","&nbsp;", "<br>" } );
 			    if (payloads[index[]]{0}==' ') substitute    ( payloads[index[]], " ", "&nbsp;" ); // First space must be nbsp
-			    if (value[] =~ '*include*(*Style Library*)*;','*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;','*//*Hide*!*')
+			    if (value[] =~ '*include*(*Console Library*)*;','*include*(*Style Library*)*;','*include*(*Support Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;','*//*Hide*!*')
 				payloads[index[]] = '$SKIP$'; // Skip marker, see 'filter' call further below.
 		        }
 

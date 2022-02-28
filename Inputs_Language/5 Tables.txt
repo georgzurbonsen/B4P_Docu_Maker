@@ -1,4 +1,4 @@
-//
+// ü (Recognize as UTF8)
 B4PDOCU.START
 
 "Tables" :
@@ -7,70 +7,87 @@ B4PDOCU.START
     "Feature Names":		[ "tables" ],
     "Description 01:Introduction"::
 
-	Tables are the main structural objects on which this programming language has been developed for, namely processing tables of any size
-	effectively and efficiently with minimum amount of code to be written and delivering highest possible performance when executing
-	the code.  All tables are 2-dimensional data structures which hold all information as literals (text), including numeric valuesand dates.
-	+++,
-    "Description 02:Table Characteristics"::
+	Tables are the key objects on which this programming language has been developed for, namely to process tables of any size
+	effectively and efficiently with minimum amount of code to be written and delivering maximum possible execution performance.
+	All tables are 2-dimensional data structures which hold all information as literals (text), including numeric values,
+	boolean values, dates and parameter sets.
 
-	Table naming rules:
-	* All tables are referred with table names
-	* Table names must be of type __literal__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters
+    "Description 02:Table Used for Examples Throughout this Chapter"::
+
+	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
+	+++,
+    "Examples 02:"::
+	include( Support Library );
+	table load( table, "Examples\Cities.csv" );
+	table list( table );
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+"Table Naming Rules" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table names" ],
+    "Description 01:Table Naming Rules"::
+	* All tables are identified with table names
+	* Table names must be of type __literal__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters.
 	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing literals (e.g. variables, string calculations, etc.)
 	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
 	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
 	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
-	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but makes little sense unless you want to do esoteric programming.
-	<br><br>
+	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but not recommended when keeping up with understandable coding quality.
 
-	Table properties:
+    +++
+},
+
+
+"Table Properties" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table properties" ],
+    "Description 01:Table Properties"::
 	* All tables are global, i.e. accessible by called procedure and functions, no matter in which code file they are running, and retained if created \
 	  inside user-defined procedures and functions and then returned.
 	* The tables are fully stored and managed in working memory (dynamic RAM).  In case you work with very large tables and your system has not enough memory space, \
 	  the the operating system will move data to the <i>page file</i> in order to provide additional space.  With the very large memory space available \
 	  systems, this should not be an issue for most applications.  B4P uses full 64-bit performance, so you will not encounter the 4GB limit.
-	* Tables may contain any number of rows, including 0 (= no) row.
 	* Row counting starts with 0 (row 0 is typically referred as the header row), 1, 2, etc.
-	* __Negative indexing__ is supported for referencing row numbers.  -1 refers to the last row in the table, -2 the one above, etc.
-	* Blank rows are allowed
+	* Tables may contain any number of rows, including 0 (= no) row.
+	* __Negative indexing__ is supported for referencing row numbers.  -1 refers to the last row in the table, -2 to the next one above, etc.
+	* Blank rows are allowed <br>
 	* Column counting starts with 0, 1, 2, etc.
-	* __Negative indexing__ is also supported for referencing column numbers.  -1 refers to the rightmost column, -2 the one to the left, etc.
-	* The width of every table row row (i.e. number of columns) may vary.
+	* __Negative indexing__ is also supported for referencing column numbers.  -1 refers to the rightmost column, -2 the next one to the left, etc.
+	* The width of every table row row (i.e. number of columns in every row) may vary.
 	* The number of entries in a table row may exceed the number of header entries, but in this case these entries cannot be identified by column header names.  They can only be accessed with column numbers.
 	* Blank columns are allowed
 	* Multiple identical column header names are allowed, but referencing them by names will always match with the first occurrence (from left to right).
-	* Tables loaded, e.g. from HTML, XML, excel, contain no formatting attributes (e.g. font size, frame and cell background color, alignments, typefaces like bold, underline, etc.).  \
+	* Tables loaded, e.g. from HTML, XML, Excel, contain no formatting attributes (e.g. font size, frame and cell background color, alignments, typefaces like bold, underline, etc.).  \
 	  However, before saving the tables, you may want to append formatting attributes which will then be parts of the data contents. See the section on __styles__.
+	* Regarding tables loaded from Excel files: By default the calculated values will be loaded and not the underlying formulas.
 	* The function __table configure(__) is available to change table-specific properties.
-	+++,
+	+++
+},
 
-    "Description 03:Creating tables"::
+"Creating Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Creating tables" ],
+    "Description 01:Creating tables"::
 
-	Various methods are available to create tables.<br>
+	Various methods are available to create tables:<br>
 	* Function calls such as __table create(__), __table initialize(__), etc.
 	* Loading data into tables, e.g. with __table load(__), table load excel file(__)
-	* Copying tables, e.g. with __table copy table(__), or using other functiosn which create new tables as output, e.g. directory listing(__).
-	+++,
+	* Copying tables, e.g. with __table copy table(__), or using other functiosn which create new tables as output, e.g. __directory listing(__).
 
-    "Description 04:Overview"::
 	The next sections describe the synatax which allows for straightforward and powerful access to table contents, be it simple values, whole (or parts of) rows and
 	columns, or a combination of both (e.g. accessing a matrix from the table).
 	<br><br>
-	__Partial table specifications__ is also a very efficient means to access contents with minimum syntax and is very useful when processing tables from to to
-	bottom, e.g in loops or using the __table process(__) function call.
-	+++,
+	+++
 
-    "Description 05:Table used for examples throughout this chapter"::
-
-	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
-	+++,
-    "Examples 05:"::
-	include( Support Library );
-	table load( table, "Examples\Cities.csv" );
-	table list( table );
-	+++,
-    "Output 05:": "automatic"
 },
+
+
 
 
 "Accessing Tables" :
@@ -82,33 +99,62 @@ B4PDOCU.START
 
 	B4P provides the following four <i>table access methods</i> to access table contents:
 	* __Simple table access__ to access individual table cells
-	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.
-	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.
-	* __Matrix table access__ to access multiple cells in different rows and columns as well.
+	* __Horizontal table access__ to access multiple cells in a specified row:
+		** a selection of different columns,
+		** a range containing mulitiple consecutive columns, and
+		** all cells in the entire row.
+	* __Vertical table access__ to access multiple cells in a specified column:
+		** a selection of different rows,
+		** a range containing mulitiple consecutive rows, and
+		** all cells in the entire column.
+	* __Matrix table access__ is the combination of the both:
+		** a selection of different cells over the table
+		** a range containing multiple rows and columns
+		** all cells in the entire table.
 
-	In addition to these basic acces modes, __transactions__ and various functions do also provide access to tables.
+	In addition to these basic acces modes, __transactions__ and various functions do also provide powerful means to access the tables.
+
 	+++,
 
-    "Description 02:Reading Values"::
+    "Description 02:Reading Contents"::
 
-	With the intitial settings, all data which look like numbers will be read as numerals and everything else
-	as literals.  The function __table configure(__) lets you decide whether to inteprete dates, booleans, etc. as such or read them as text.
-	On the other hand, the table can be configured to force reading numbers as literals, too.
+	Data can only read from tables if they are existing or initialized.
+	<br><br>
+
+	By default, following read access rules apply:
+	* Numeric contents (excl. scientific notation) will be read as numerals
+	* Text contents (incl. blanks) will be read as literals
+	* Dates, 'true', 'false', etc. will also be read as literal.
+
+	However, the function __table configure(__) lets you decide whether to read dates, booleans, etc. as dates and not as
+	literals.  Oppositely, this function can also force reading numbers as literals.
 
 	<br><br>
-	Attempting to read values which lie outside the table (except if referencing above the header row or left of the first column) will return blank.
+	Attempting to read values which lie outside the table (except if referencing above the header row or left of the first column) 
+	will return blanks (empty strings).
+
 	+++,	
 
-    "Description 03:Writing Values"::
+    "Description 03:Writing Contents"::
 
-	Please note that values can only written into the table if the table is existing (for example created, initailized, loaded, etc.).
+	Data can only written to tables if the tables are existing or initialized.
+	<br><br>
 
-	All data written to tables will be converted to literals first. This also includes for numbers, dates, times, parameter sets, etc.
-	For boolean values, 'true' and 'false' will be used.
+	All data written to tables will be converted to literals (strings) first. This also includes for numbers, dates, times, parameter sets, etc.
+	For boolean values, the text values 'true' and 'false' will be used.  If you want to read the text values 'true' and 'false' as booleans,
+	the use __table configure(__) to activate this: <b>table configure(<i>table name</i>, read booleans, yes );</b>
 
 	<br><br>
 	Attempting to write values which lie outside the table (except if referencing above the header row or left of the first column) will work successfully.
 	If necessary, the size of the table will be extended accordingly.  Valid example: <b>[ table: 999, 999] = "nine nine nine";</b> 
+
+    "Description 04:Advanced Features"::
+
+	Following features are supported to facilitate accessing table contents:
+	* __Partial Table Specifications__ provide table contexts so tables can be accessed with just the column name or number,
+	* __Shifted Table Column Specifications__: Neighboring columns can be accessed if a particular header name is known, but want to access the next column to the left or right instead,
+	* __Header Name Exception Handling__ to define direct actions without asserting exceptions if the header name has not been found, and
+	* __Lookup Access Exception Handling__ to define default table rows in case the table row cannot be found by matching the contents.
 
 	+++
 },
@@ -290,15 +336,15 @@ B4PDOCU.START
     "Feature Names":		[ "Horizontal table access using wildcards" ],
     "Description 01:Introduction"::
 
-	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (strings values inside single quotation
-	marks) to compare the header row.  A colon (:) must be added before this string to instruct B4P to search the table for matching
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (i.e. with __Text inside single quotation marks__)
+	to compare the header row and pick up all matches.  A leading colon (<b>:</b>) is required to instruct B4P to search the table for matching
 	contents. All headers matching to the string pattern will be included in the selecction.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
 	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
-	by the softquoted literal value.
+	by the __softquoted literal__ value.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| : Header Name Pattern		| ,	| Simple Row Specifier			| ]
@@ -544,9 +590,10 @@ B4PDOCU.START
     "Feature Names":		[ "Vertical table access using wildcards" ],
     "Description 01:Introduction"::
 
-	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (strings values inside single quotation
-	marks) to compare the header row.  A colon (:) must be added before this string to instruct B4P to search the table for matching
-	contents. All headers matching to the string pattern will be included in the selecction.
+
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (i.e. with __Text inside single quotation marks__)
+	to compare the entries in the specified column and pick up all row numbers with matching comparisons.  A leading colon (<b>:</b>) is required 
+	to instruct B4P to search the table for matching contents.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
@@ -797,29 +844,39 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "partial table specifications" ],
-    "Keywords":			[ "partial table specification"  ],
+    "Keywords":			[ "table context" ],
     "Description 01:Introduction"::
 
-	If a context for partial __partial table specification__ is provided, then the table name and/or row numbers are optionaland and can be left out.
-	Some functions do even include the current column number.
-	The context refers refers to a specific table, the <i>current</i> row number, and optionally the <i>current</i> column number.
+	<b>Partial table specifications</b> provide a method to access table contents in a simpler way, for example by only mentioning the
+	table column.  This is only possible if a current <b>table context</b> is provided.  
 
-	The function names listed below are the common ones which support partial table specification:
-	* __with table(__) to provide a context (table name and row number) directly.
+    "Description 02:Table Context"::
+
+	The table context provides and makes use of following default information for partial table specifications:
+	* The current table name
+	* The current table row
+	* Optionally, (but not in all cases) the current table column
+
+	Various B4P functions provide the <b>table context</b> for the code which does either follow these functions inside a statement or block,
+	or apply to the code provided as function parameters to these functions.
+
+	<br><br>
+
+	Examples of some functions which provide table contexts with table names and rows:
+	* __with table(__) with 2 function parameters (table name and row)
 	* __for all table rows(__)
 	* __table process(__) and __table process selected rows(__)
-	* All standard table functions which contain the term <b>selected rows</b> at the end.  In this case, partial table specifciation is allowed in the __expression__ calculated for every row
+	* All standard table functions which contain the ending <b>... selected rows</b>.  In this case, partial table specifciation is allowed in the __expression__ calculated for every row
 
-	Following functions do also involve the column number:
-	* __with table(__) with 3 parameters to provide a context (table name, row number and column number) directly.
+	Examples of some functions which do also provide the table colums:
+	* __with table(__) with 3 function parameters (table name and row and column)
 	* __table process cells(__) and likes
 	* __table process columns(__) and  __table process selected columns(__)
-	
 
 	With such a context available, the row number can also be retrieved directly with the function __row(__).
 
 	+++,
-    "Description 02:Syntax for Partial Table Specification"::
+    "Description 03:Syntax for Partial Table Specification"::
 
 	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers
 	or expressions providing literals and numerals.
@@ -862,12 +919,12 @@ B4PDOCU.START
 	===
 
 	+++,
-    "Description 03:Principle"::
+    "Description 04:Principle"::
 
 	<br/><img src="Images/Description_Table_Simple_Access_Partial.jpg" alt="Simple table access, partial table specification"><br/>
 
 	+++,
-    "Examples 03:Programming Examples"::
+    "Examples 04:Programming Examples"::
 	table load( table, "Examples\Cities.csv");
 	with table( table, 5 ) // Row 5
 	{
@@ -896,10 +953,10 @@ B4PDOCU.START
 	    echo( trim( [0,] ) ); // Column 0, including header ( trim: Countries listed only once )
 	}	
 	+++,
-    "Output 03:Output - Staying in San Francisco": "automatic",
-    "Description 04:Specifying Current Columns"::
+    "Output 04:Output - Staying in San Francisco": "automatic",
+    "Description 05:Specifying Current Columns"::
 
-	If the context information is also providig the current column number, then the lone point (<b>.</b>) acts as a shortcut
+	If the context information is also providing the current column number, then the lone point (<b>.</b>) acts as a shortcut
 	to reference the current column.  Please note that the lone point is interpreted as a literal string consisting of 1 
 	character (unless it is part of a numeral acting as a decimal point) and not a programming language specific symbol.
 	This does even apply if the point is a softquoted or quoted literal ( <b>'.'</b> or <b>"."</b> ).
@@ -912,31 +969,31 @@ B4PDOCU.START
 
 
 	+++,
-    "Examples 04:Programming Examples"::
+    "Examples 05:Programming Examples"::
 	include ( Support Library );
 	table load( table, "Examples\Cities.csv");
 
-	[ table: -2, 0] = '>.'; // Change header in 2nd last column to '>.' for test below
+	[ table: Inhabitants      , 0] = '>.'; // Change header to ">." for the test below
+	[ table: Famous attraction, 0] = '.';  // Change header to '.' for the test below
+
 	table list( table );
 
 	with table( table, 5, City ) // Row 5
 	{
-	    echo( [.] );
-	    echo( ['.'], " and ", ['>.'] );  // Next column after current one is referenced
-	    echo( ["."], " and ", [">."] );  // Note: Header ">." is referenced instead
+	    echo( "City: ", [.] );                            // Single quotation marks not needed for lone point
+	    echo( "City: ", ['.'], " and State: ", ['>.'] );  // Next column after current one is referenced
+	    echo( "Attraction: ", ["."], " and inhabitants: ", [">."] );  // Note: Header ">." is referenced instead
 	}
-
-	[ table: -2, 0] = '.'; // Change header in 2nd last column to '.' for test below
 
 	// Do the same without column context.  Lookig fore header called '.':
 
-	with table( table, 5 ) // Row 5
+	echo(new line, "And Philadelphia:");
+	with table( table, 3 ) // Row 3
 	{
-	    echo( [.] );
-	    echo( ['.'], " and ", ['>.'] );  // museum and moving along.
+	    echo( "Attraction: ", ["."], " and inhabitants: ", [">."] );
 	}
 	+++,
-    "Output 04:Output:": "automatic",
+    "Output 05:Output:": "automatic",
     "See also": [ "Nested partial table specifications", "shifted table column specifications" ]
 },
 
@@ -948,10 +1005,18 @@ B4PDOCU.START
     "Keywords":			[ "nested partial table specifications" ],
     "Description 01:Introduction"::
 
-	B4P supports nested table contexts and facilitates working with 2 tables directly.
-	In order to reference to the next higher context, use the <b>deep</b> symbol (^) after the beginning bracket.  If 3 or more nested
-	table context info are specified, then use additional ^ symbols to reference the even higher ones.  The __row(__) function also provides
-	one parameter which can be used to reference the next higher levels up.
+	B4P supports nested table contexts and facilitates working with 2 tables directly with miminum coding effortsa.
+	In order to access a table using the next outer context, use the <b>deep</b> symbol (circumflex ^) after the opening bracket.
+        If 3 or more nested table contextsare specified, then use additional ^ symbols to reference the further outer contexts.
+
+	<br><br>
+
+	The __row(__) and __col(__) functions also provide one parameter which can be used to reference the next or further outer context.
+
+	<br><br>
+	Visualized example:
+
+	<br/><img src="Images/Description_Table_Nested_Contexts.jpg" alt="Nested Table Context"><br/>
 
 	+++,
 
@@ -1019,10 +1084,9 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	In some situations, you know a specific column number for orientation, and want to use this column to reference a different
-	column nearby, i.e. further to the left or to the right.  In this case, put the header name into <u>single</u> quotation marks 
-	so it will be considered as a softquoted literal, and add one or multiple '&lt;' or '&gt' symbols before the name starts, but inside
-	the single quotation marks.  Multiple consecutive symobls can be cascaded to refer to nearby columns which are not immediate neighbors.
-
+	column nearby, i.e. further to the left or to the right.  In this case, provide the header name as __softquoted literal__, for example with
+	__Text inside single quotation marks__, and start the text with one or multiple '&lt;' or '&gt' symbols.
+	Multiple consecutive symobls can be cascaded to refer to nearby columns which are not immediate neighbors.
 
 	=== 40, 960, bold_column_1 noframe, noheader
 	&lt;		| Refer to the next column to the left.  Example:  '&lt;First Name'
@@ -1036,7 +1100,7 @@ B4PDOCU.START
 	<u>Attention</u>: Shifting does not happen in quoted literals, e.g. "&gt;Last Name". It assumes the header name containing the &gt; symbol.<br>
 	
 	<br><br>
-	Attempting to left-shift beyond the first column (column 0) will assert exceptions.  Attempting to right-shift beyond the last column is OK as long
+	Left-shifting stops at column 0.  Attempts to go beyond will also refer to column 0. Attempting to right-shift beyond the last column is OK as long
 	the function allows it.  Otherwise exceptions will be asserted, too.
 
 	<br><br>

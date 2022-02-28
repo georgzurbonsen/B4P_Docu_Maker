@@ -14,7 +14,7 @@
   [ animals: Name, Dog, .. ] <=> animal1[]; // Pick up entire row
   [ animals: Name, Owl, {Name,Special ability} ] <=>^ animal2[];  // E.g. leg count not included
 
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)    
 

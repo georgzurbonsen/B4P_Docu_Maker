@@ -61,8 +61,8 @@ B4PDOCU.START
 
 	a[] <=> b[]; // Swap
 
-	inspect( a[] ); // Your rocks collection
-	inspect( b[] );	// Animals, incl varieties of dogs
+	see( a[] ); // Your rocks collection
+	see( b[] );	// Animals, incl varieties of dogs
 	+++,
     "Output 01:": "automatic"	
 
@@ -129,8 +129,8 @@ B4PDOCU.START
 	a[] <==  animals1[];
 	b[] <==^ animals1[];
 
-	inspect(a[]);
-	inspect(b[]);
+	see(a[]);
+	see(b[]);
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Move Transaction Example"::
@@ -144,10 +144,10 @@ B4PDOCU.START
 	a[] <<=  animals1[];
 	b[] <<=^ animals2[];
 
-	inspect(a[]);
-	inspect(b[]);
+	see(a[]);
+	see(b[]);
 	echo("animals1[] existing? ", existing(animals1[]));
-	inspect(animals2[]);
+	see(animals2[]);
 
 	+++,
     "Output 02:": "automatic",
@@ -165,11 +165,11 @@ B4PDOCU.START
 	animals1[] <=> plants1[];
 	animals2[] <=>^ plants2[];
 
-	inspect( animals1[] );
-	inspect( plants1[] );
+	see( animals1[] );
+	see( plants1[] );
 
-	inspect( animals2[] );
-	inspect( plants2[] );
+	see( animals2[] );
+	see( plants2[] );
 	+++,
     "Output 03:": "automatic"
 
@@ -233,8 +233,8 @@ B4PDOCU.START
 	animal1[] <==  [ animals: Name, Dog, .. ]; // Pick up entire row
 	animal2[] <==^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 
 	+++,
     "Output 01:": "automatic",
@@ -252,8 +252,8 @@ B4PDOCU.START
 	animal1[] <<=  [ animals: Name, Dog, .. ]; // Pick up entire row
 	animal2[] <<=^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // The owl is left over
 	+++,
     "Output 02:": "automatic",
@@ -274,8 +274,8 @@ B4PDOCU.START
 	animal1[] <=>  [ animals: Name, Dog, .. ]; // Pick up entire row
 	animal2[] <=>^ [ animals: Name, Owl,    ]; 
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)
 	+++,
     "Output 03:": "automatic"
@@ -393,7 +393,7 @@ B4PDOCU.START
 
 	table list ( animals );
 	echo("animal1[] existing? ", existing(animal1[]) );
-	inspect(animal2[]); 
+	see(animal2[]); 
 	+++,
     "Output 03:": "automatic",
     "Examples 04:Swap Transaction Example"::
@@ -413,8 +413,8 @@ B4PDOCU.START
 	[ animals: Name, Dog, .. ] <=> animal1[]; // Pick up entire row
 	[ animals: Name, Owl, {Name,Special ability} ] <=>^ animal2[];  // E.g. leg count not included
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)	
 
 	+++,
@@ -608,7 +608,7 @@ B4PDOCU.START
 	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
 
 	animals1[] &<== animals2[];  // Trout and cat overwritten, owl survives
-	inspect(animals1[]);
+	see(animals1[]);
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Move Transaction Example"::
@@ -621,8 +621,8 @@ B4PDOCU.START
 	animals1[mammal] &<<= animals2[mammal]; 
 	// Lynx replaces bear, and the deer continues living.
 
-	inspect(animals1[]);
-	inspect(animals2[]);
+	see(animals1[]);
+	see(animals2[]);
 	+++,
     "Output 02:": "automatic",
     "Examples 03:Swap Transaction Example"::
@@ -634,8 +634,8 @@ B4PDOCU.START
 
 	animals1[] &<=> animals2[]; 
 
-	inspect(animals1[]); // animals1 gets cat, trout, lynx
-	inspect(animals2[]); // animals2 gets dog, eel and bear
+	see(animals1[]); // animals1 gets cat, trout, lynx
+	see(animals2[]); // animals2 gets dog, eel and bear
 	+++,
     "Output 03:": "automatic"
 
@@ -685,8 +685,8 @@ B4PDOCU.START
 
 	animal1[] &<== [ animals: .., 1 ]; // Owl with skin wings and night vision
 	animal2[] &<== [ animals: .., 1 ]; // Owl
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Move Transaction Example"::
@@ -704,8 +704,8 @@ B4PDOCU.START
 
 	animal1[] &<<= [ animals: .., 1 ]; // Owl 
 	animal2[] &<<= [ animals: .., 1 ]; // Dog
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Ape left over
 	+++,
     "Output 02:": "automatic",
@@ -725,8 +725,8 @@ B4PDOCU.START
 	animal1[] &<=>  [ animals: .., 1 ]; // Animal1: Owl with night vision, no info on legs, keeps bat wings and hangs while sleeping
 	animal2[] &<=>^ [ animals: .., 2 ]; // Animal2: Dog with 4 legs.  Circumflex symbol: Do not transfer table name.
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Contains bat and crab and ape with some info
 	+++,
     "Output 03:": "automatic"
@@ -778,8 +778,8 @@ B4PDOCU.START
 	[ animals: .., 2 ] &<== animal1[];
 	[ animals: .., 3 ] &<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Contains owl, bat and crab
 	+++,
     "Output 01:": "automatic",
@@ -799,8 +799,8 @@ B4PDOCU.START
 	[ animals: .., 2 ] &<=> animal1[];  // Swap, with table name in base variable
 	[ animals: .., 3 ] &<=>^ animal2[]; // Swap
 
-	inspect( animal1[] ); // Strange animal descriptions ...
-	inspect( animal2[] );
+	see( animal1[] ); // Strange animal descriptions ...
+	see( animal2[] );
 	table list( animals ); // Contains owl, bat and crab with some info
 	+++,
     "Output 02:": "automatic"
@@ -966,7 +966,7 @@ B4PDOCU.START
 	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
 
 	animals1[] |<== animals2[];  // animals1 contains overwritten fish, reptile and all mammal sub-members
-	inspect(animals1[]);
+	see(animals1[]);
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Copy Transaction Example among Structures and Arrays"::
@@ -979,8 +979,8 @@ B4PDOCU.START
 	animals2[] |<== animals1[];  // Note: bear, then deer replace lynx and skunk
 	animals1[] |<== animals2[];
 
-	inspect(animals2[]); // Array with 4 elements
-	inspect(animals1[]); // Addition of beer, dear, shark and pig
+	see(animals2[]); // Array with 4 elements
+	see(animals1[]); // Addition of beer, dear, shark and pig
 	+++,
     "Output 02:": "automatic",
     "Examples 03:Move Transaction Example"::
@@ -993,8 +993,8 @@ B4PDOCU.START
 	animals1[mammal] |<<= animals2[mammal]; 
 	// Lynx replaces bear, skunk added, turtle added
 
-	inspect(animals1[]); // omnivore added, carnivore overwritten
-	inspect(animals2[]); // no more mammal subtypes (...vores)
+	see(animals1[]); // omnivore added, carnivore overwritten
+	see(animals2[]); // no more mammal subtypes (...vores)
 	+++,
     "Output 03:": "automatic",
     "Examples 04:Swap Transaction Example"::
@@ -1006,8 +1006,8 @@ B4PDOCU.START
 
 	animals1[] |<=> animals2[]; 
 
-	inspect(animals1[]); // trout and eel; and dog and cat are exchanged, owl and turtle duplicated
-	inspect(animals2[]); 
+	see(animals1[]); // trout and eel; and dog and cat are exchanged, owl and turtle duplicated
+	see(animals2[]); 
 	+++,
     "Output 04:": "automatic"
 
@@ -1056,8 +1056,8 @@ B4PDOCU.START
 
 	animal1[] |<== [ animals: .., 1 ];
 	animal2[] |<==^	 [ animals: .., 1 ];
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Move Transaction Example"::
@@ -1075,8 +1075,8 @@ B4PDOCU.START
 
 	animal1[] |<<= [ animals: .., 1 ]; // Owl, with skin wings like a bat
 	animal2[] |<<= [ animals: .., 1 ]; // Dog, but not a favorable pet
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Ape left over
 	+++,
     "Output 02:": "automatic",
@@ -1096,8 +1096,8 @@ B4PDOCU.START
 	animal1[] |<=>  [ animals: .., 1 ]; // Exchange owl with bat
 	animal2[] |<=>^ [ animals: .., 2 ]; // Exchange dog with crab
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Contains bat and crab and ape with some info
 	+++,
     "Output 03:": "automatic"
@@ -1150,8 +1150,8 @@ B4PDOCU.START
 	[ animals: .., 2 ] |<== animal1[];
 	[ animals: .., 3 ] |<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Contains bat and crab and ape with some info
 	+++,
     "Output 01:": "automatic",
@@ -1171,8 +1171,8 @@ B4PDOCU.START
 	[ animals: .., 2 ] |<=> animal1[];  // Swap, with table name in base variable
 	[ animals: .., 3 ] |<=>^ animal2[]; // Swap
 
-	inspect( animal1[] ); // Dog, ...
-	inspect( animal2[] ); // Ape, ...
+	see( animal1[] ); // Dog, ...
+	see( animal2[] ); // Ape, ...
 	table list( animals ); // Contains owl, bat and crab and ape with some info
 	+++,
     "Output 02:": "automatic"
@@ -1337,7 +1337,7 @@ B4PDOCU.START
 	array ( animals2[insects], { ant, tick, mosquito } );
 
 	animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
-	inspect(animals1[]);
+	see(animals1[]);
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Copy Transaction Example among Structures and Arrays"::
@@ -1350,7 +1350,7 @@ B4PDOCU.START
 	structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );
 
 	animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
-	inspect(animals1[]);
+	see(animals1[]);
 	+++,
     "Output 02:": "automatic",
     "Examples 03:Move Transaction Example"::
@@ -1364,8 +1364,8 @@ B4PDOCU.START
 
 	animals1[mammal] +<<= animals2[ mammal ];
 
-	inspect(animals1[]);
-	inspect(animals2[]); // Without the mammals
+	see(animals1[]);
+	see(animals2[]); // Without the mammals
 	+++,
     "Output 03:": "automatic",
     "Examples 04:Swap Transaction Example"::
@@ -1378,8 +1378,8 @@ B4PDOCU.START
 	array ( animals2[insects], { ant, tick, mosquito } );
 
 	animals1[] +<=> animals2[];  
-	inspect(animals1[]); // Keep dog, owl eel, bear, deer, bee, fly. Get turtle, skunk and all insects
-	inspect(animals2[]); // Keep cat, trout, turtle, lynx, skunk. Get owl, deer and all insects
+	see(animals1[]); // Keep dog, owl eel, bear, deer, bee, fly. Get turtle, skunk and all insects
+	see(animals2[]); // Keep cat, trout, turtle, lynx, skunk. Get owl, deer and all insects
 	+++,
     "Output 04:": "automatic"
 
@@ -1428,8 +1428,8 @@ B4PDOCU.START
 
 	animal1[] +<== [ animals: .., 1 ];
 	animal2[] +<==^	 [ animals: .., 3 ];
-	inspect( animal1[] ); // Adds leg count, but name and special ability are maintained
-	inspect( animal2[] ); // animal2[] gets all table entries for the ape
+	see( animal1[] ); // Adds leg count, but name and special ability are maintained
+	see( animal2[] ); // animal2[] gets all table entries for the ape
 	+++,
     "Output 01:": "automatic",
     "Examples 02:Move Transaction Example"::
@@ -1448,8 +1448,8 @@ B4PDOCU.START
 
 	animal1[] +<<= [ animals: .., 1 ];
 	animal2[] +<<=^	 [ animals: .., 2 ]; // Ape on row 2 (was on row 3 before the transaction on previous row)
-	inspect( animal1[] ); // Adds leg count, but name and special ability are maintained
-	inspect( animal2[] ); // animal2[] gets all table entries for the ape
+	see( animal1[] ); // Adds leg count, but name and special ability are maintained
+	see( animal2[] ); // animal2[] gets all table entries for the ape
 
 	table list( animals ); // Dog with its nose is left over.
 	+++,
@@ -1470,8 +1470,8 @@ B4PDOCU.START
 	animal1[] +<=>  [ animals: .., 1 ]; // Exchange owl with bat
 	animal2[] +<=>^ [ animals: .., 2 ]; // Exchange dog with crab
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Contains bat (row 1) and crab (row 2) in addition
 	+++,
     "Output 03:": "automatic"
@@ -1520,8 +1520,8 @@ B4PDOCU.START
 	[ animals: .., 3 ] +<== animal1[];  // Bat is added in row 3
 	[ animals: .., 2 ] +<<=^ animal2[]; // Crab is added to row 2 (bat moves from row 3 to row 4)
 
-	inspect( animal1[] );
-	inspect( animal2[] );
+	see( animal1[] );
+	see( animal2[] );
 	table list( animals ); // Contains bat and crab and ape with some info
 	+++,
     "Output 01:": "automatic",
@@ -1541,8 +1541,8 @@ B4PDOCU.START
 	[ animals: .., 2 ] +<=> animal1[];  // Bat is written to row 2 (other rows move down), other data not overwritten
 	[ animals: .., 1 ] +<=>^ animal2[]; // Owl data added to array
 
-	inspect( animal1[] ); // Gets leg count from the dog
-	inspect( animal2[] ); // Ape, ...
+	see( animal1[] ); // Gets leg count from the dog
+	see( animal2[] ); // Ape, ...
 	table list( animals ); // Contains owl, bat and crab and ape with some info
 	+++,
     "Output 02:": "automatic"

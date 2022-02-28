@@ -8,5 +8,5 @@
   animals2[] |<== animals1[];  // Note: bear, then deer replace lynx and skunk
   animals1[] |<== animals2[];
 
-  inspect(animals2[]); // Array with 4 elements
-  inspect(animals1[]); // Addition of beer, dear, shark and pig
+  see(animals2[]); // Array with 4 elements
+  see(animals1[]); // Addition of beer, dear, shark and pig

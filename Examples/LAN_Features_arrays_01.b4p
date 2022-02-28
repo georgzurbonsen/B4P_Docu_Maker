@@ -2,10 +2,10 @@
 
   echo("Initialize a 2-dimensional array:");
   dim( a[], {2,3}, '0' );
-  inspect( a[] );
+  see( a[] );
 
   echo(new line, "Initialize two arrays (2nd one is nested) implicitly:");
   b[2] = true;
   b[1,2] = 123;
-  inspect( b[] );
+  see( b[] );
 

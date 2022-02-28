@@ -84,10 +84,11 @@ B4PDOCU.START
 
 	=== 100, 900, bold_column_1
 	Swtich	| Description
+	-c	| Suppress all console specific features (use standard input instead of console input, no console control like cursor movement and colors).  Use this option for batch processing.
 	-d	| Normally, at start-up, B4P changes the working directory to the directory where the B4P program file to execute is located. <br>\
 		  This command line switch suppresses this and leaves the working directory unchanged.
 	-i	| (lower-case i) Start B4P and enter __interactive mode__ immediately.  Even if a B4P program has been specified, the program will not be loaded and started</b>.
-	-I	| (upper-case i) MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for regular B4P program use.
+	-I	| (upper-case i) MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for regular B4P program use.  The switch '-c' will also come effective here to suppress console features.
 	-w	| Suppress B4P welcome text. <br>\
 		  <u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br>\
 		  <u>Attention 2:</u> The B4P initialization program "B4P Init.b4p" will not be started.  This file would otherwise load the default B4P library files (e.g. "Support Library").<br>\

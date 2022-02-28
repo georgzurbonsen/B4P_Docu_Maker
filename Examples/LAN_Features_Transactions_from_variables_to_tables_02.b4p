@@ -16,4 +16,4 @@
 
   table list ( animals );
   echo("animal1[] existing? ", existing(animal1[]) );
-  inspect(animal2[]); 
+  see(animal2[]); 

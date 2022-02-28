@@ -48,34 +48,50 @@ B4PDOCU.START
 
 
 
-"Basic Language Structure" :
+"Overall Language Structure" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		"Basic Language Structure",
-    "Keywords":			[ "Blocks", "Statement", "Statements" ],
+    "Feature Names":		"Overall Language Structure",
+    "Keywords":			[ "Block", "Blocks", "Statement", "Statements" ],
     "Description 01:Introduction"::
 
-	The B4P language is designed to solve problems with as few clearly understandable statements as possible.  The language consists of 
-	a small number of building blocks:
+	The B4P language is designed to solve problems with as few clearly understandable statements as possible, allowing to keep the number of statements,
+	variables and loops as low as possible.
+
+    "Description 02:Basic Elements"::
+
+	The B4P language builds on the following basic elements:
+
+	* __Text__
+	* __Numbers__
+	* Language specific __symbols__ (e.g. operators, assignment symbols)
+	* __Comments__
+
+    "Description 03:Top-Down Syntax"::
+
+	The top-down syntax and semantic structure is defined as follows:
 
 	=== 200, 600, 200, bold_column_1 bold_column_3
-	Language Features	| Description																| Examples
-	<b>Blocks</b>		| The contain 1 or more statements inside braces <b>{ ... }</b> in order to execute them jointly, e.g. after __if(__) functions \
-				  and in control flow statements such as loops.	 											| { a[] = 1; b[] = 2; }
-	<b>Statements</b>	| Can be a procedure call, an __assignment__, an ad-hoc operation or a transaction.<br>\
-				  Multiple statements are separated with semiclons <b>;</b>										|
-	__Procedure calls__	| B4P functions called as procedures.<br>In B4P, control flow statements are also procedure calls.					| echo( Hello World );
-	__Assignments__		| A value or calculated __expression__ is assigned to a variable or table entry								| a[] = 3 * 3;
-	__Ad-hoc operations__	| Immediate operation applied on a target variable without doing assignment								| a[]++;
-	__Transactions__	| Smart assignments among variables including their hierarchical member variables and table rows 					| b[] <== a[];
-	__Expressions__		| Values (constants), variables, table entries, functions called, or calculated combination of them using operators and parentheses	| a[] + 2*abs(b[])
+	Language Features	| Description																	| Examples
+	<b>Program</b>		| The program refers to the complete code in one file loaded and executed.  It may contain any number of blocks and statements.			| 
+	<b>Blocks</b>		| Blocks refer to code encapsulated with braces <b>{ ... }</b> and contain any number of statements and nested blocks.\
+				  Blocks are useful to include all statements in loops, after __if(__) clauses, etc.								|  { a[] = 1; b[] = 2; }
+	<b>Statements</b>	| Can be a __procedure call__, an __assignment__, an __ad-hoc operation__ or a __transaction__. Every statement ends with a semicolon. <b>;</b>		|
+	__Procedure Calls__	| B4P functions called as procedures.  In B4P, control flow statements like __if(__) and __while(__) also procedure calls.			| echo( Hello World );
+	__Assignments__		| A value or calculated __expression__ is assigned to a variable or to a location in a table.							| a[] = 3 * 3;
+	__Ad-hoc Operations__	| Immediate operation applied on a target variable without doing assignment									| a[]++;
+	__Transactions__	| Smart assignments among variables including their hierarchical member variables and table rows 						| b[] <== a[];
+	__Expressions__		| Calculation or combination of the following which return a value: __numbers__, __text__, __variables__, __table references__, further \
+				  __function calls__, and calculation using __unary operators__ and __binary operators__ and parentheses.					| a[] + 2*b[] + sin( c[] )
+	__Function Calls__	| A B4P function is called and returns a value.  It can be used as an expression or part of it.							| sin( c[] )
 	===
-	<br><br>
-	Like in other programming languages, long statements may take multiple lines of text becase the semicolon is delimiting the statements.
+
+	Like in other programming languages, statements may be written in multiple lines where no special symbol is needed to indicate that the statement is not yet complete and
+	continues on the next line.  The final semicolon <b>;</b> concludes the statement.  The following statement or block may continue on the same line or further below.
 
 	+++,
 
-    "Description 02:Control Flow Statements"::
+    "Description 04:Control Flow Statements"::
 
 	In contrast to other programming languages, the control flow statements such as __if(__), __while(__) and __for(__) loops and many more
 	are indeed B4P __functions__ which are called as procedures and then decide whether to execute the following statements or block containing
@@ -98,36 +114,30 @@ B4PDOCU.START
 	<br><br>
 
 	=== 200, 800, noframe_1stcolbold, noheader
-	Interpreted				| The __execution engine__ is designed to interpret and process the code with very high performance. \
-						  Two factors contribute to high execution performance despite being an interpreted language: <br>\
-						  1. The code is checked and fully tokenized before starting to run<br>\
-						  2. The language provides an extensive library to manage large tables, variable structures and parameter sets (i.e. vectors and matrices).
-	Fully portable across system platforms | B4P runs on WINDOWS, LINUX and MAC-OS.  You can develop your apps so they run on all \
-			 			 platforms without changing the code. B4P provides harmonized functions for directory, file and system function calls,\
-			 			 as well as system variables such as user names, key system directory names, etc.
-	Names with spaces and special characters | You are allowed to use spaces and special characters in function names, variable names, table names, column header names, etc.  \
+	Cross Platform Compatible		| B4P runs on  WINDOWS, LINUX and MAC-OS using  Intel and ARM CPUs.  The language allows execution on different targets without modifying the code.
+	Flexible Naming				| You are allowed to use spaces and special characters in function names, variable names, table names, column header names, etc.  \
 						  <b>max value[]</b> and <b>'1%'[]</b> are valid variable names. This allows you to use typical column headers, e.g. "Total Costs", \
 						  without modifying them or putting quotations around. A valid function call could be " table create (customer table, supplier table, etc. ); \
 						  " Function names like __table process selected rows(__) is easier to read than "TableProcessSelectedRows"
-	Variables 				| All simple variables end with brackets <b>[]</b>  Example: <b>value[]</b>. If you forget them, then the name is just a string value.<br/>\
+	__Variables__ 				| All simple variables end with brackets <b>[]</b>  Example: <b>value[]</b>. If you forget them, then the name is just a string value.<br/>\
 						  You can create child variables with any nesting, <br/>e.g. <b>animal[dog]=poodle; animal[cat]=tiger; animal[dog,leg count]=4;</b>.<br/>\
 						  You can also define arrays, e.g. <b>matrix[2,3]</b> or the combination of both structures and arrays to develop sophisticated variable storage models.
-	Values 					| Numbers are values, text are values, too.  In the example <b>a[] = bull dog ;  b[] = ' bull   dog ';</b> a[] is assiged with <i>'bull dog'</i> containing one space between the two words, whare as b[] is assigned with <i>' bull   dog '</i> where all spaces are preserved.  Without quotation marks, outside spaces and repeated spaces betwen words are ignored.
-	Full UNICODE support 			| Every character counts as 1 character, including the foreign and non-ANSI ones.  The full UNICODE including the Basic Multilingual Plane (like &eacute; and &euro;), and all the other UNICODE planes (e.g. &#x1F609;) are supported.
-	Basic variable types 			| They are <i>numeral</i>, <i>literal</i>, <i>boolean</i>, <i>date</i> (manages date, time and both), <i>parameter set</i>, and <i>void</i>.
-	Parameter sets 				| Very powerful type to combine any number of variables and nested parameter sets into one parameter set.<br>Example: <b>names[] = {Abel, Beata, Charly};</b>
+	__Numbers__ and __text__		| __Numbers__ and __text__ are seen as values.  In the example <b>a[] = bull dog ;  b[] = ' bull   dog ';</b> a[] is assiged with <i>'bull dog'</i> containing one space between the two words, whare as b[] is assigned with <i>' bull   dog '</i> where all spaces are preserved.  Without quotation marks, outside spaces and repeated spaces betwen words are ignored.
+	Full __UNICODE__ characters		| Every character counts as 1 character, including the foreign and non-ANSI ones.  The full UNICODE including the Basic Multilingual Plane (like &eacute; and &euro;), and all the other UNICODE planes (e.g. &#x1F609;) are supported.
+	__Basic data types__			| They are __numeral__, __literal__, __boolean__, __date__ (for both dates and time of day), __parameter sets__, and __void__.
+	__Parameter sets__			| Very powerful type to combine any number of variables and nested parameter sets into one parameter set.<br>Example: <b>names[] = {Abel, Beata, Charly};</b>
 	Dynamic weak typing 			| B4P uses dynamic weak typing.  The type is set once a value is assigned. Example: <b>a[] = 1;</b> automatically declares a[] as a numeric variable. <br>The type will change if something non-numeric is assigned, eg. <b>a[] = Hello;</b>.
-	Tables 					| Tables are the heart of B4P.  Typically referenced as <b>[table name : row , column ]</b>.<br/>If a conext with table name and row number is given, e.g. inside a loop, then a simple reference like <b>[column]</b> is sufficient.<br>Example: <b>table process</b>( membership list, <b>echo</b>( [Family Name], ", ", [First Name] );
-	Accessing multiple values in tables 	| Powerful schemes are available to access individual cells, entire rows or parts of them, entire columsn or parts of them, or combination of all.
+	__Tables__ 				| They are the DNA of B4P.  Typically referenced as <b>[table name : row , column ]</b>.<br/>If a conext with table name and row number is given, e.g. inside a loop, then a simple reference like <b>[column]</b> is sufficient.<br>Example: <b>table process</b>( membership list, <b>echo</b>( [Family Name], ", ", [First Name] );
+	Accessing multiple values in tables 	| Powerful methods are available to access individual cells, entire rows or parts of them, entire columsn or parts of them, or combination of all.
 	Powerful table processing function library | A large number of procedures and functions is available to analyze, process and combine tables as you wish.  These functions deliver highest machine performance.
-	Transactions 				| Very smart assignments for variables and table rows. You can replicate variables including all child members, or combine two variables including their member variables.
-	Function parameters accept code pieces | Unlike in other languages, some functions accept pieces of code such as expressions and statements as input parameters.  These codes may be executed several time. <br/>Good example: <b>table process( members, [full name] = [1st name] + ' ' + [last name] );</b>
+	__Transactions__			| Very smart assignments for variables and table rows. You can replicate variables including all child members, or combine two variables including their member variables.
+	Function parameters accept __code pieces__ | Unlike in other languages, some functions accept pieces of code such as expressions and statements as input parameters.  These codes may be executed several time. <br/>Good example: <b>table process( members, [full name] = [1st name] + ' ' + [last name] );</b>
 	Variable count function parameters 	| Some functions accept a variable number of parameters, with minimum, maximum and incrementals given.
 	User definable procedures and functions | You can defined own procedures and functions.  Functions provide return values whereas procedures don't.  You can assign multiple function names to the same user-defined code. In this case, the pre-defined local variable <b>function name[]</b> allows to identify the function name used to call the code.
-	Indirect parameter passing 		| Some procedures and functions allow one <i>parameter set</i> variable to be used to provide all function parameters in one.<br/>Example: a[] = { 2,3,4 }; <b>echo</b>( <b>min</b>( 2,3,4 ), ' and ', <b>min</b>( a[] ) ); // Output in both cases is 2.
-	Deep unary and binary operators 	| Deep operators (supplemented with the circumflex '^' symbol) can be used to calculate with elements inside parameter sets. <br/>Example: { 1,2,3 } +^ { 4,5,6 } results in { 5,7,9 }.  However, { 1,2,3 } + { 4,5,6 } results in {1,2,3,4,5,6} instead.  Deep operations are analogous to vector and matrix operations.
-	Control flow | Unless in other programming languages, control flow features like __if(__), __for(__), __while(__), __return__, etc. are actually procedure and function calls.  \
-						  Something as simple as <b>if</b> takes one boolean value as function parameter and decides whether to execute or skip the next statement or code block.  In fact, this is made possible because procedures and functions can accept code pieces as it is required for functions like <b>for</b>.
+	__Indirect parameter passing__		| Some procedures and functions allow one <i>parameter set</i> variable to be used to provide all function parameters in one.<br/>Example: a[] = { 2,3,4 }; <b>echo</b>( <b>min</b>( 2,3,4 ), ' and ', <b>min</b>( a[] ) ); // Output in both cases is 2.
+	__Deep operators__		 	| Deep operators (supplemented with the circumflex '^' symbol) can be used to calculate with elements inside parameter sets. <br/>Example: { 1,2,3 } +^ { 4,5,6 } results in { 5,7,9 }.  However, { 1,2,3 } + { 4,5,6 } results in {1,2,3,4,5,6} instead.  Deep operations are analogous to vector and matrix operations.
+	__Control flow functions__ 		| Different from other programming languages, control flow features like __if(__), __for(__), __while(__), __return__, etc. are actually procedure and function calls.  \
+						  These functions are governing the execution of the next __statement__ or __block__.
 	Portable directory paths 		| B4P accepts both '/' and '\' for path separators. They will be adjusted automatically to match with the operating system requirements.
 	===
 	
@@ -146,6 +156,52 @@ B4PDOCU.START
 	===
 	+++
 },
+
+
+
+
+
+"Symbols" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Symbols" ],
+    "Description 01:Overview of B4P Symbos"::
+
+	B4P makes use of the following symbols:
+
+	=== 150, 250, 600, bold_column_1
+	Symbols		| Description		| Explanation
+	{ }		| Braces		| Specify program __blocks__ <br>\
+						  Put values into __parameter sets__ <br>\
+						  __Indexing strings__ and __indexing parameter sets__ <br>\
+						  __slicing strings__ and __slicing parameter sets__
+	( )		| Parentheses		| Used for calculations where contents inside parentheses are calculated first, and describe __function parameters__
+	[  ]		| Brackets		| Specify __variables__: Opening bracket follows after the variable name, where further hierarchical member names and array indexes can be specified <br>\
+						  Specify __table references__: Tables do always begin with brackets <br>
+	,		| Comma			| Separates elements in __parameter sets__, values in __function parameters__, etc.
+	;		| Semicolon		| Concludes and separates statements
+	+ - * / 	| Arithmetic operators	| Used as binary, and some as unary and assignment operators
+	&amp; &#124; !	| Logic operators	| Used as binary, and some as unary and assignment operators
+	&lt; &lt;= = &gt;= &gt; != | Comparison operators | Compares one value to the left with <u>exactly</u> one value to the right
+	= &lt; &gt:	| Comparison operators	| Compares one value to the left with one or mor values or ranges to the right
+	..		| Range			| Used for slicing character sets, parameter sets and specifying ranges
+	~		| Other operators	| Used as unary operators
+	++ -- **	| Ad-hoc operators	| Used to increment, decrement and scale variables and table entries
+	:		| Colon			| Separates __else__ from subsequent statement <br>\
+						  Repeat operator for parameter set elements<br>\
+						  Instructs to access multiple table entries
+	/* */ //	| Comments		| These symbols designate comments inbetween or following till end of line
+	&lt;== &lt;&lt;= &lt;=&gt; | Transaction symbols | Used for __transactions__
+	===
+
+	Various symbols can be combined, for example for the __assignment operator__ <b>+=</b> to add the calculated result of an expression to the destination.
+
+	<br><br>
+	<u>Note:</u> The single point (<b>.</b>) is interpreted as part of a __number__ (decimal point) if the whole item constitutes a legitimate number, or part of a __text__.
+	+++
+
+},
+
 
 
 
@@ -202,20 +258,20 @@ B4PDOCU.START
 "Characters" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Characters" ],
+    "Feature Names":		[ "Characters", "UNICODE" ],
     "Description 01:Introduction"::
 
 	B4P supports the full UNICODE character set which includes
-	* The Basic Multilingual Plane (codes 0 ... 65,535), as well as
-	* 16 additional UNICODE planes (codes 65,536 ... 1,114,111).
+	* The Basic Multilingual Plane (codes 0 ... 65,535 / U+0000 ... U+FFFF), as well as
+	* All 16 additional extended planes ( U+1FFFF ... U+10FFFF )
 
-	In contrast to various other programming languages, B4P considers every UNICODE character as one single
-	character.  For example, 'Caf&eacute;' counts 4 characters.  The full character set is available to define
+
+	B4P treats every UNICODE character as one single character.  For example, 'Caf&eacute;' counts 4 characters.  The full character set is available to define
 	variable names, table names, table header names, user function names, path and file names, etc.
 	Internally, in order to conserve memory needs for large data, all text data is stored and handled in UTF-8 format, but you don't need to worry about ths.
 
 	<br><br>
-	Note that Latin, Greek and Cyrillic characters share common letters, e.g. capital letter 'A'.  Attempting to compare them will indicate that
+	Note that Latin, Greek and Cyrillic characters share symbols which look identical, e.g. the capital letter 'A'.  Attempting to compare them will indicate that
 	they are different.  As another example, the Greek <i>mu</i> &mu; and the <i>micro</i> &micro; symbols are different, too.
 
 	+++,
@@ -239,9 +295,657 @@ B4PDOCU.START
 	<br><br>
 	The legacy Macintosh "carriage return only" (CR) serving as line separator is not supported.
 
+	+++,
+
+    "Description 03:Function, Arrow and Other Navigation Keys"::
+
+	B4P has the unique capability to translate characters received with the functions __getch(__) or __input quick(__) into dedicated UNICODE
+	characters situated in the <i>Private Use Area B</i>.  This area is freely available for own use and will not interfere with assignments
+	of new characters in the future.  Every key pressed, e.g. a function or arrow key, will return a single character.
+	<br><br>
+	See __Special keyboard input characters__.
+
+	<br><br>
+	<u>Note:</u> You may have considered Escape sequences (which date back to Digital Equipment VT100 terminals in the late 1970's , e.g. 
+s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multiple characters (up to seven of them) and B4P will not guarantee cross platform portability. 
+
+	+++,
+
+    "Description 04:Special Console Output Characters for Formatting"::
+
+	B4P is also supporting a set of dedicated UNICODE characters for formatting text contents before outputting the with standard functions
+	such as __echo(__), __format print(__) and __print(__).  Typical examples are changing text and background color, enabling underscore and
+	some cursor navigation symbols.
+	<br><br>
+	See __Special console output characters__.
+
+	<br><br>
+	<u>Note:</u> You may have considered Escape sequences (which date back to Digital Equipment VT100 terminals in the late 1970's , e.g. 
+	<b>ESC [A</b> for cursor movements) but these symbols do typically contain multiple characters and B4P will not guarantee cross platform portability. 
+
 	+++
 
-  },
+},
+
+
+"Character Entities" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Character Entities" ],
+    "Description 01:Introduction"::
+
+	Character entities are descriptive representations of characters which are not available on the keyboard.
+	They begin with an ampersand (&amp;), followed by a descriptive string or character code and conclude with a semicolon (;).
+	Character entities are commonly used in HTML for web pages in order to avoid ambiguities with reserved symbols (e.g. &lt for HTML tags)
+	and to display special characters.  Character codes can be specified in both decimal and hexadecimal formats.
+
+	<br><br>
+
+	Similar to HTML, B4P supports a large number of character entities.
+	See the description of __dump entities(__) for a complete list of currently supported character entities.
+
+	<br><br>
+
+	In addition, B4P provides <b>proprietary character entities</b> to define __special console output characters__ (e.g. text and
+	background color and text attributes such as underscoring), as well as __special keyboard input characters__ like cursor navigation keys in
+	form of single characters.
+
+	<br><br>
+
+	In __text inside single quotation marks__, character entities are converted into their actual characters.  The conversion takes place before program
+	execution begins, quasi at compile time.  Character entities are not converted in __text inside double quotation marks__.
+
+
+	+++,
+
+    "Examples 01:"::
+  echo( 'Value is &ge; 100 &euro;' );  // Text inside single quotation marks
+  echo( "Value is &ge; 100 &euro;" );  // Text inside double quotation marks - will show plain text
+  echo( decode entities( "Value is &ge; 100 &euro;" )); // Entities decoded at run-time
+
+  echo( '&#x20ac;'); // EURO Sign - UNICODE hexadecimal code
+  echo( '&#8364;' ); // EURO Sign - UNICODE decimal code
+	+++,
+    "Output 01:":		"automatic",
+    "See also": [ "encode entities", "decode entities", "dump entities", "special keyboard input characters", "special console output characters" ]
+
+},
+
+
+
+"Special Keyboard Input Characters" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Special keyboard input characters" ],
+    "Description 01:Introduction"::
+
+	B4P has the unique capability to translate characters received with the functions __getch(__) or __input quick(__) into dedicated UNICODE
+	characters situated in the <i>Private Use Area</i> (PUA).  Every key pressed, e.g. a function or arrow key, will return a single character.
+
+	<br><br>
+
+	<u>Note:</u> The operating system may capture some of the keys for their own use, e.g. for application or task switching.  Try the keys out
+	for possible operating system functionality before using them in the B4P program.
+
+	<br><br>
+
+	B4P provides dedicated __character entities__ for all these characters.
+
+
+    "Description 02:Function and Navigation Keys"::
+
+	Following table applies with function and arrow keys pressed alone.
+
+	=== 300, 150, 300, bold_column_1
+	Key			| UNICODE (hex)	| Character Entity Name
+	Insert 			| 108000	| &amp;insert;
+	End			| 108001	| &amp;end;
+	Arrow down		| 108002	| &amp;arrow-down;
+	Pg dn			| 108003	| &amp;pgdn;
+	Arrow left		| 108004	| &amp;arrow-left;
+	Center key (Keypad 5)	| 108005	| &amp;center;
+	Arrow right		| 108006	| &amp;arrow-right;
+	Home			| 108007	| &amp;home;
+	Arrow up		| 108008	| &amp;arrow-up;
+	Pg up			| 108009	| &amp;pgup;
+	Delete			| 10800a	| &amp;delete;
+	F1			| 108011	| &amp;f1;
+	F2			| 108012	| &amp;f2;
+	F3			| 108013	| &amp;f3;
+	F4			| 108014	| &amp;f4;
+	F5			| 108015	| &amp;f5;
+	F6			| 108016	| &amp;f6;
+	F7			| 108017	| &amp;f7;
+	F8			| 108018	| &amp;f8;
+	F9			| 108019	| &amp;f9;
+	F10			| 10801a	| &amp;f10;
+	F11			| 10801b	| &amp;f11;
+	F12			| 10801c	| &amp;f12;
+	===	
+
+    "Description 03:Control Key held down"::
+
+
+	Following table applies with function and arrow keys pressed while the control key is held down:
+
+	=== 300, 100, 300, bold_column_1
+	Key				| UNICODE (hex)	| Character Entity Name
+	ctrl-Insert 			| 108100	| &amp;ctrl-insert;
+	ctrl-End			| 108101	| &amp;ctrl-end;
+	ctrl-Arrow down			| 108102	| &amp;ctrl-arrow-down;
+	ctrl-Pg dn			| 108103	| &amp;ctrl-pgdn;
+	ctrl-Arrow left			| 108104	| &amp;ctrl-arrow-left;
+	ctrl-Center key (Keypad 5)	| 108105	| &amp;ctrl-center;
+	ctrl-Arrow right		| 108106	| &amp;ctrl-arrow-right;
+	ctrl-Home			| 108107	| &amp;ctrl-home;
+	ctrl-Arrow up			| 108108	| &amp;ctrl-arrow-up;
+	ctrl-Pg up			| 108109	| &amp;ctrl-pgup;
+	ctrl-Delete			| 10810a	| &amp;ctrl-delete;
+	ctrl-F1				| 108111	| &amp;ctrl-f1;
+	ctrl-F2				| 108112	| &amp;ctrl-f2;
+	ctrl-F3				| 108113	| &amp;ctrl-f3;
+	ctrl-F4				| 108114	| &amp;ctrl-f4;
+	ctrl-F5				| 108115	| &amp;ctrl-f5;
+	ctrl-F6				| 108116	| &amp;ctrl-f6;
+	ctrl-F7				| 108117	| &amp;ctrl-f7;
+	ctrl-F8				| 108118	| &amp;ctrl-f8;
+	ctrl-F9				| 108119	| &amp;ctrl-f9;
+	ctrl-F10			| 10811a	| &amp;ctrl-f10;
+	ctrl-F11			| 10811b	| &amp;ctrl-f11;
+	ctrl-F12			| 10811c	| &amp;ctrl-f12;
+	===	
+
+
+    "Description 04:Shift Key held down"::
+
+	Following table applies with function and arrow keys pressed while the shift key is held down:
+
+	=== 300, 100, 300, bold_column_1
+	Key					| UNICODE (hex)	| Character Entity Name
+	shift-Insert 				| 108200	| &amp;shift-insert;
+	shift-End				| 108201	| &amp;shift-end;
+	shift-Arrow down			| 108202	| &amp;shift-arrow-down;
+	shift-Pg dn				| 108203	| &amp;shift-pgdn;
+	shift-Arrow left			| 108204	| &amp;shift-arrow-left;
+	shift-Center key (Keypad 5)		| 108205	| &amp;shift-center;
+	shift-Arrow right			| 108206	| &amp;shift-arrow-right;
+	shift-Home				| 108207	| &amp;shift-home;
+	shift-Arrow up				| 108208	| &amp;shift-arrow-up;
+	shift-Pg up				| 108209	| &amp;shift-pgup;
+	shift-Delete				| 10820a	| &amp;shift-delete;
+	shift-F1				| 108211	| &amp;shift-f1;
+	shift-F2				| 108212	| &amp;shift-f2;
+	shift-F3				| 108213	| &amp;shift-f3;
+	shift-F4				| 108214	| &amp;shift-f4;
+	shift-F5				| 108215	| &amp;shift-f5;
+	shift-F6				| 108216	| &amp;shift-f6;
+	shift-F7				| 108217	| &amp;shift-f7;
+	shift-F8				| 108218	| &amp;shift-f8;
+	shift-F9				| 108219	| &amp;shift-f9;
+	shift-F10				| 10821a	| &amp;shift-f10;
+	shift-F11				| 10821b	| &amp;shift-f11;
+	shift-F12				| 10821c	| &amp;shift-f12;
+	shift-TAB				| 108220	| &amp;shift-tab;
+	===	
+
+
+
+    "Description 05:Ctrl and Shift Key held down"::
+
+	Following table applies with function and arrow keys pressed while the shift key is held down:
+
+	=== 300, 100, 300, bold_column_1
+	Key					| UNICODE (hex)	| Character Entity Name
+	ctrl-shift-Insert 			| 108300	| &amp;ctrl-shift-insert;
+	ctrl-shift-End				| 108301	| &amp;ctrl-shift-end;
+	ctrl-shift-Arrow down			| 108302	| &amp;ctrl-shift-arrow-down;
+	ctrl-shift-Pg dn			| 108303	| &amp;ctrl-shift-pgdn;
+	ctrl-shift-Arrow left			| 108304	| &amp;ctrl-shift-arrow-left;
+	ctrl-shift-Center key (Keypad 5)	| 108305	| &amp;ctrl-shift-center;
+	ctrl-shift-Arrow right			| 108306	| &amp;ctrl-shift-arrow-right;
+	ctrl-shift-Home				| 108307	| &amp;ctrl-shift-home;
+	ctrl-shift-Arrow up			| 108308	| &amp;ctrl-shift-arrow-up;
+	ctrl-shift-Pg up			| 108309	| &amp;ctrl-shift-pgup;
+	ctrl-shift-Delete			| 10830a	| &amp;ctrl-shift-delete;
+	ctrl-shift-F1				| 108311	| &amp;ctrl-shift-f1;
+	ctrl-shift-F2				| 108312	| &amp;ctrl-shift-f2;
+	ctrl-shift-F3				| 108313	| &amp;ctrl-shift-f3;
+	ctrl-shift-F4				| 108314	| &amp;ctrl-shift-f4;
+	ctrl-shift-F5				| 108315	| &amp;ctrl-shift-f5;
+	ctrl-shift-F6				| 108316	| &amp;ctrl-shift-f6;
+	ctrl-shift-F7				| 108317	| &amp;ctrl-shift-f7;
+	ctrl-shift-F8				| 108318	| &amp;ctrl-shift-f8;
+	ctrl-shift-F9				| 108319	| &amp;ctrl-shift-f9;
+	ctrl-shift-F10				| 10831a	| &amp;ctrl-shift-f10;
+	ctrl-shift-F11				| 10831b	| &amp;ctrl-shift-f11;
+	ctrl-shift-F12				| 10831c	| &amp;ctrl-shift-f12;
+	===	
+
+
+
+    "Description 06:ALT Key held down"::
+
+	Following table applies with function and arrow keys pressed while the ALT key is held down.
+	The following character set assumes that the left-hand <b>alt</b> key is used.
+	Note that some machines and operating system interprete the right-hand <b>alt</b> key
+	differenty, e.g. for special characters such as the EURO symbol (&euro;).
+
+	=== 300, 100, 300, bold_column_1
+	Key				| UNICODE (hex)	| Character Entity Name
+	alt-Insert 			| 108400	| &amp;alt-insert;
+	alt-End				| 108401	| &amp;alt-end;
+	alt-Arrow down			| 108402	| &amp;alt-arrow-down;
+	alt-Pg dn			| 108403	| &amp;alt-pgdn;
+	alt-Arrow left			| 108404	| &amp;alt-arrow-left;
+	alt-Center key (Keypad 5)	| 108405	| &amp;alt-center;
+	alt-Arrow right			| 108406	| &amp;alt-arrow-right;
+	alt-Home			| 108407	| &amp;alt-home;
+	alt-Arrow up			| 108408	| &amp;alt-arrow-up;
+	alt-Pg up			| 108409	| &amp;alt-pgup;
+	alt-Delete			| 10840a	| &amp;alt-delete;
+	alt-F1				| 108411	| &amp;alt-f1;
+	alt-F2				| 108412	| &amp;alt-f2;
+	alt-F3				| 108413	| &amp;alt-f3;
+	alt-F4				| 108414	| &amp;alt-f4;
+	alt-F5				| 108415	| &amp;alt-f5;
+	alt-F6				| 108416	| &amp;alt-f6;
+	alt-F7				| 108417	| &amp;alt-f7;
+	alt-F8				| 108418	| &amp;alt-f8;
+	alt-F9				| 108419	| &amp;alt-f9;
+	alt-F10				| 10841a	| &amp;alt-f10;
+	alt-F11				| 10841b	| &amp;alt-f11;
+	alt-F12				| 10841c	| &amp;alt-f12;
+	===	
+
+
+
+    "Description 07:Ctrl + ALT Keys held down"::
+
+	Following table applies with function and arrow keys pressed while both Ctrl and ALT keys are held down.
+	Note that some machines and operating system interprete the right-hand <b>alt</b> key
+	differenty, e.g. ctrl-alt-Delete to access the task manager or to resetart the machine.
+
+	=== 300, 100, 300, bold_column_1
+	Key					| UNICODE (hex)	| Character Entity Name
+	ctrl-alt-Insert 			| 108500	| &amp;ctrl-alt-insert;
+	ctrl-alt-End				| 108501	| &amp;ctrl-alt-end;
+	ctrl-alt-Arrow down			| 108502	| &amp;ctrl-alt-arrow-down;
+	ctrl-alt-Pg dn				| 108503	| &amp;ctrl-alt-pgdn;
+	ctrl-alt-Arrow left			| 108504	| &amp;ctrl-alt-arrow-left;
+	ctrl-alt-Center key (Keypad 5)		| 108505	| &amp;ctrl-alt-center;
+	ctrl-alt-Arrow right			| 108506	| &amp;ctrl-alt-arrow-right;
+	ctrl-alt-Home				| 108507	| &amp;ctrl-alt-home;
+	ctrl-alt-Arrow up			| 108508	| &amp;ctrl-alt-arrow-up;
+	ctrl-alt-Pg up				| 108509	| &amp;ctrl-alt-pgup;
+	ctrl-alt-Delete				| 10850a	| &amp;ctrl-alt-delete;
+	ctrl-alt-F1				| 108511	| &amp;ctrl-alt-f1;
+	ctrl-alt-F2				| 108512	| &amp;ctrl-alt-f2;
+	ctrl-alt-F3				| 108513	| &amp;ctrl-alt-f3;
+	ctrl-alt-F4				| 108514	| &amp;ctrl-alt-f4;
+	ctrl-alt-F5				| 108515	| &amp;ctrl-alt-f5;
+	ctrl-alt-F6				| 108516	| &amp;ctrl-alt-f6;
+	ctrl-alt-F7				| 108517	| &amp;ctrl-alt-f7;
+	ctrl-alt-F8				| 108518	| &amp;ctrl-alt-f8;
+	ctrl-alt-F9				| 108519	| &amp;ctrl-alt-f9;
+	ctrl-alt-F10				| 10851a	| &amp;ctrl-alt-f10;
+	ctrl-alt-F11				| 10851b	| &amp;ctrl-alt-f11;
+	ctrl-alt-F12				| 10851c	| &amp;ctrl-alt-f12;
+	===	
+
+
+
+    "Description 08:ALT + Shift Keys held down"::
+
+	Following table applies with function and arrow keys pressed while both ALT and Shift keys are held down.
+	Note that some machines and operating system interprete the right-hand <b>alt</b> key
+	differenty.
+
+	=== 300, 100, 300, bold_column_1
+	Key					| UNICODE (hex)	| Character Entity Name
+	alt-shift-Insert 			| 108600	| &amp;alt-shift-insert;
+	alt-shift-End				| 108601	| &amp;alt-shift-end;
+	alt-shift-Arrow down			| 108602	| &amp;alt-shift-arrow-down;
+	alt-shift-Pg dn				| 108603	| &amp;alt-shift-pgdn;
+	alt-shift-Arrow left			| 108604	| &amp;alt-shift-arrow-left;
+	alt-shift-Center key (Keypad 5)		| 108605	| &amp;alt-shift-center;
+	alt-shift-Arrow right			| 108606	| &amp;alt-shift-arrow-right;
+	alt-shift-Home				| 108607	| &amp;alt-shift-home;
+	alt-shift-Arrow up			| 108608	| &amp;alt-shift-arrow-up;
+	alt-shift-Pg up				| 108609	| &amp;alt-shift-pgup;
+	alt-shift-Delete			| 10860a	| &amp;alt-shift-delete;
+	alt-shift-F1				| 108611	| &amp;alt-shift-f1;
+	alt-shift-F2				| 108612	| &amp;alt-shift-f2;
+	alt-shift-F3				| 108613	| &amp;alt-shift-f3;
+	alt-shift-F4				| 108614	| &amp;alt-shift-f4;
+	alt-shift-F5				| 108615	| &amp;alt-shift-f5;
+	alt-shift-F6				| 108616	| &amp;alt-shift-f6;
+	alt-shift-F7				| 108617	| &amp;alt-shift-f7;
+	alt-shift-F8				| 108618	| &amp;alt-shift-f8;
+	alt-shift-F9				| 108619	| &amp;alt-shift-f9;
+	alt-shift-F10				| 10861a	| &amp;alt-shift-f10;
+	alt-shift-F11				| 10861b	| &amp;alt-shift-f11;
+	alt-shift-F12				| 10861c	| &amp;alt-shift-f12;
+	===	
+
+
+
+    "Description 09:Ctrl + ALT + Shift Keys held down"::
+
+	Following table applies with function and arrow keys pressed while both ALT and Shift keys are held down.
+	Note that some machines and operating system interprete the right-hand <b>alt</b> key
+	differenty.
+
+	=== 300, 100, 300, bold_column_1
+	Key					| UNICODE (hex)	| Character Entity Name
+	ctrl-alt-shift-Insert 			| 108700	| &amp;ctrl-alt-shift-insert;
+	ctrl-alt-shift-End			| 108701	| &amp;ctrl-alt-shift-end;
+	ctrl-alt-shift-Arrow down		| 108702	| &amp;ctrl-alt-shift-arrow-down;
+	ctrl-alt-shift-Pg dn			| 108703	| &amp;ctrl-alt-shift-pgdn;
+	ctrl-alt-shift-Arrow left		| 108704	| &amp;ctrl-alt-shift-arrow-left;
+	ctrl-alt-shift-Center key (Keypad 5)	| 108705	| &amp;ctrl-alt-shift-center;
+	ctrl-alt-shift-Arrow right		| 108706	| &amp;ctrl-alt-shift-arrow-right;
+	ctrl-alt-shift-Home			| 108707	| &amp;ctrl-alt-shift-home;
+	ctrl-alt-shift-Arrow up			| 108708	| &amp;ctrl-alt-shift-arrow-up;
+	ctrl-alt-shift-Pg up			| 108709	| &amp;ctrl-alt-shift-pgup;
+	ctrl-alt-shift-Delete			| 10870a	| &amp;ctrl-alt-shift-delete;
+	ctrl-alt-shift-F1			| 108711	| &amp;ctrl-alt-shift-f1;
+	ctrl-alt-shift-F2			| 108712	| &amp;ctrl-alt-shift-f2;
+	ctrl-alt-shift-F3			| 108713	| &amp;ctrl-alt-shift-f3;
+	ctrl-alt-shift-F4			| 108714	| &amp;ctrl-alt-shift-f4;
+	ctrl-alt-shift-F5			| 108715	| &amp;ctrl-alt-shift-f5;
+	ctrl-alt-shift-F6			| 108716	| &amp;ctrl-alt-shift-f6;
+	ctrl-alt-shift-F7			| 108717	| &amp;ctrl-alt-shift-f7;
+	ctrl-alt-shift-F8			| 108718	| &amp;ctrl-alt-shift-f8;
+	ctrl-alt-shift-F9			| 108719	| &amp;ctrl-alt-shift-f9;
+	ctrl-alt-shift-F10			| 10871a	| &amp;ctrl-alt-shift-f10;
+	ctrl-alt-shift-F11			| 10871b	| &amp;ctrl-alt-shift-f11;
+	ctrl-alt-shift-F12			| 10871c	| &amp;ctrl-alt-shift-f12;
+	===	
+
+
+	+++
+},
+
+"Special Console Output Characters" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Special console output characters" ],
+    "Keywords":			[ "Console text and background colors" ],
+    "Description 01:Introduction"::
+
+	B4P is also supporting a set of dedicated UNICODE characters for formatting literal contents before outputting the with standard functions
+	such as __echo(__), __format print(__) and __print(__).  Typical examples are changing text and background color, enabling underscore and
+	some cursor navigation symbols.
+
+	<br><br>
+	B4P provides dedicated __character entities__ for all these characters.
+
+
+    "Description 02:Tab Features"::
+
+	The tab character( B4P: reserved keyword __tab__ ) provides fixed tab positions in steps of eight characters.  In addition to this, B4P provides
+	a set of reserved characters and entitites to advance to a specific position.
+
+	<br><br>
+	This feature is also suitable for batch or redirected output because it converts these characters variable number of spaces.
+
+	=== 400, 200, 400, bold_column_1
+	Functionality			| UNICODE (hex)		| Character Entity Name
+	Tab position 1			| 103001		| &amp;tab1;
+	Tab position 2			| 103002		| &amp;tab2;
+	...				| ...			| ...
+	Tab position 300		| 10312c		| &amp;tab300;
+	===	
+
+	+++,
+
+
+
+    "Description 03:Formatting Features"::
+
+	Some functions, especially blinking text, are not supported on all terminals. 
+
+	=== 400, 200, 400, bold_column_1
+	Functionality			| UNICODE (hex)		| Character Entity Name
+	Reset console			| 100000		| &amp;reset;
+	Underscore toggle/off/on	| 100010-100012		| &amp;underscore; &amp;underscore off; &amp;underscore on;
+	Boldface toggle/off/on		| 100014-100016		| &amp;boldface; &amp;boldface off; &amp;boldface on;
+	Blinking toggle/off/on		| 100018-10001a		| &amp;blinking; &amp;blinking off; &amp;blinking on;
+	Reverse toggle/off/on		| 10001c-10001e		| &amp;reverse; &amp;reverse off; &amp;reverse on;
+	===	
+
+	+++,
+
+
+    "Description 04:Console Colors"::
+
+	Following text and background colors are supported on the console:
+	Inside the entities, color names in lower-case letters refer to text color, and color names in upper-case letters refer to background color.
+	The color names on the left hand column are also valid names for the functions __text color(__) and __background color(__).
+
+
+	=== 200, 200, 400, 200, bold_column_1
+	Color name			| UNICODE (hex)		| Character Entity Names				| RBG Color Code
+	previous			| 101120, 102120	| &amp;previous; &amp;PREVIOUS;				| Previous color
+	default				| 101121, 102121	| &amp;default; &amp;DEFAULT;				| Default console color
+					|			|							|
+	black				| 101000, 102000	| &amp;black; &amp;BLACK;				| 0,   0,   0
+	very dark gray			| 101001, 102001	| &amp;very dark gray; &amp;VERY DARK GRAY;		| 64,  64,  64
+	dark gray			| 101002, 102002	| &amp;dark gray; &amp;DARK GRAY;			| 85,  85,  85
+	gray				| 101003, 102003	| &amp;gray; &amp;GRAY;					| 128, 128, 128
+	light gray			| 101004, 102004	| &amp;light gray; &amp;LIGHT GRAY;			| 192, 192, 192
+	very light gray			| 101005, 102005	| &amp;very light gray; &amp;VERY LIGHT GRAY;		| 224, 224, 224
+	white				| 101006, 102006	| &amp;white; &amp;WHITE;				| 255, 255, 255
+					|			|							| 
+	dark red			| 101010, 102010	| &amp;dark red; &amp;DARK RED;				| 170,   0,   0
+	red				| 101011, 102011	| &amp;red; &amp;RED;					| 255,   0,   0
+	light red			| 101012, 102012	| &amp;light red; &amp;LIGHT RED;			| 255, 128, 128
+					|			|							| 
+	dark scarlet			| 101014, 102014	| &amp;dark scarlet; &amp;DARK SCARLET;			| 170,  43,   0
+	scarlet				| 101015, 102015	| &amp;scarlet; &amp;SCARLET;				| 255,  64,   0
+	light scarlet			| 101016, 102016	| &amp;light scarlet; &amp;LIGHT SCARLET;		| 255, 160, 128
+					|			|							|
+	dark mandarin			| 101018, 102018	| &amp;dark mandarin; &amp;DARK MANDARIN;		| 170,  86,   0
+	mandarin			| 101019, 102019	| &amp;mandarin; &amp;MANDARIN;				| 255, 128,   0
+	light mandarin			| 10101a, 10201a	| &amp;light mandarin; &amp;LIGHT MANDARIN;		| 255, 192, 128
+					|			|							| 
+	dark orange			| 10101c, 10201c	| &amp;dark orange; &amp;DARK ORANGE;			| 170, 128,   0
+	orange				| 10101d, 10201d	| &amp;orange; &amp;ORANGE;				| 255, 192,   0
+	light orange			| 10101e, 10201e	| &amp;light orange; &amp;LIGHT ORANGE;			| 255, 224, 128
+					|			|							| 
+	dark mango			| 101020, 102020	| &amp;dark mango; &amp;DARK MANGO;			| 170, 150,   0
+	mango				| 101021, 102021	| &amp;mango; &amp;MANGO;				| 255, 224,   0
+	light mango			| 101022, 102022	| &amp;light mango; &amp;LIGHT MANGO;			| 255, 240, 128
+					|			|							| 
+	dark chrome			| 101024, 102024	| &amp;dark chrome; &amp;DARK CHROME;			| 170, 160,   0
+	chrome				| 101025, 102025	| &amp;chrome; &amp;CHROME;				| 255, 240,   0
+	light chrome			| 101026, 102026	| &amp;light chrome; &amp;LIGHT CHROME;			| 255, 248, 128
+					|			|							| 
+	dark yellow			| 101028, 102028	| &amp;dark yellow; &amp;DARK YELLOW;			| 170, 170,   0
+	yellow				| 101029, 102029	| &amp;yellow; &amp;YELLOW;				| 255, 255,   0
+	light yellow			| 10102a, 10202a	| &amp;light yellow; &amp;LIGHT YELLOW;			| 255, 255, 128
+					|			|							| 
+	dark lemon			| 10102c, 10202c	| &amp;dark lemon; &amp;DARK LEMON;			| 150, 170,   0
+	lemon				| 10102d, 10202d	| &amp;lemon; &amp;LEMON;				| 224, 255,   0
+	light lemon			| 10102e, 10202e	| &amp;light lemon; &amp;LIGHT LEMON;			| 240, 255, 128
+					|			|							| 
+	dark granny			| 101030, 102030	| &amp;dark granny; &amp;DARK GRANNY;			| 127, 170,   0
+	granny				| 101031, 102031	| &amp;granny; &amp;GRANNY;				| 192, 255,   0
+	light granny			| 101032, 102032	| &amp;light granny; &amp;LIGHT GRANNY;			| 224, 255, 128
+					|			|							| 
+	dark chartreuse			| 101034, 102034	| &amp;dark chartreuse; &amp;DARK CHARTREUSE;		| 86, 170,   0
+	chartreuse			| 101035, 102035	| &amp;chartreuse; &amp;CHARTREUSE;			| 128, 255,   0
+	light chartreuse		| 101036, 102036	| &amp;light chartreuse; &amp;LIGHT CHARTREUSE;		| 192, 255, 128
+					|			|							| 
+	dark green			| 101038, 102038	| &amp;dark green; &amp;DARK GREEN;			| 0, 170,   0
+	green				| 101039, 102039	| &amp;green; &amp;GREEN;				| 0, 255,   0
+	light green			| 10103a, 10203a	| &amp;light green; &amp;LIGHT GREEN;			| 128, 255, 128
+					|			|							| 
+	dark spring green		| 10103c, 10203c	| &amp;dark spring green; &amp;DARK SPRING GREEN;	| 0, 170,  86 
+	spring green			| 10103d, 10203d	| &amp;spring green; &amp;SPRING GREEN;			| 0, 255, 128
+	light spring green		| 10103e, 10203e	| &amp;light spring green; &amp;LIGHT SPRING GREEN;	| 128, 255, 192
+					|			|							| 
+	dark turquoise			| 101040, 102040	| &amp;dark turquoise; &amp;DARK TURQUOISE;		| 0, 170, 128
+	turquoise			| 101041, 102041	| &amp;turquoise; &amp;TURQUOISE;			| 0, 255, 192
+	light turquoise			| 101042, 102042	| &amp;light turquoise; &amp;LIGHT TURQUOISE;		| 128, 255, 224
+					|			|							| 
+	dark cyan			| 101044, 102044	| &amp;dark cyan; &amp;DARK CYAN;			| 0, 170, 170
+	cyan				| 101045, 102045	| &amp;cyan; &amp;CYAN;					| 0, 255, 255
+	light cyan			| 101046, 102046	| &amp;light cyan; &amp;LIGHT CYAN;			| 128, 255, 255
+					|			|							| 
+	dark sky blue			| 101048, 102048	| &amp;dark sky blue; &amp;DARK SKY BLUE;		| 0, 150, 170
+	sky blue			| 101049, 102049	| &amp;sky blue; &amp;SKY BLUE;				| 0, 224, 255
+	light sky blue			| 10104a, 10204a	| &amp;light sky blue; &amp;LIGHT SKY BLUE;		| 128, 241, 255
+					|			|							| 
+	dark aquamarine			| 10104c, 10204c	| &amp;dark aquamarine; &amp;DARK AQUAMARINE;		| 0, 128, 170
+	aquamarine			| 10104d, 10204d	| &amp;aquamarine; &amp;AQUAMARINE;			| 0, 192, 255
+	light aquamarine		| 10104e, 10204e	| &amp;light aquamarine; &amp;LIGHT AQUAMARINE;		| 128, 224, 255
+					|			|							| 
+	dark azur			| 101050, 102050	| &amp;dark azur; &amp;DARK AZUR;			| 0, 107, 170
+	azur				| 101051, 102051	| &amp;azur; &amp;AZUR;					| 0, 160, 255
+	light azur			| 101052, 102052	| &amp;light azur; &amp;LIGHT AZUR;			| 128, 208, 255
+					|			|							| 
+	dark ocean			| 101054, 102054	| &amp;dark ocean; &amp;DARK OCEAN;			| 0,  86, 170
+	ocean				| 101055, 102055	| &amp;ocean; &amp;OCEAN;				| 0, 128, 255
+	light ocean			| 101056, 102056	| &amp;light ocean; &amp;LIGHT OCEAN;			| 128, 192, 255
+					|			|							| 
+	dark sapphire			| 101058, 102058	| &amp;dark sapphire; &amp;DARK SAPPHIRE;		| 0,  64, 170
+	sapphire			| 101059, 102059	| &amp;sapphire; &amp;SAPPHIRE;				| 0,  96, 255
+	light sapphire			| 10105a, 10205a	| &amp;light sapphire; &amp;LIGHT SAPPHIRE;		| 128, 176, 255
+					|			|							| 
+	dark lapis			| 10105c, 10205c	| &amp;dark lapis; &amp;DARK LAPIS;			| 0,  43, 170
+	lapis				| 10105d, 10205d	| &amp;lapis; &amp;LAPIS;				| 0,  64, 255
+	light lapis			| 10105e, 10205e	| &amp;light lapis; &amp;LIGHT LAPIS;			| 128, 160, 255
+					|			|							| 
+	dark royal blue			| 101060, 102060	| &amp;dark royal blue; &amp;DARK ROYAL BLUE;		| 0,  22, 170
+	royal blue			| 101061, 102061	| &amp;royal blue; &amp;ROYAL BLUE;			| 0,  32, 255
+	light royal blue		| 101062, 102062	| &amp;light royal blue; &amp;LIGHT ROYAL BLUE;		| 128, 144, 255
+					|			|							| 
+	dark blue			| 101064, 102064	| &amp;dark blue; &amp;DARK BLUE;			| 0,   0, 170
+	blue				| 101065, 102065	| &amp;blue; &amp;BLUE;					| 0,   0, 255
+	light blue			| 101066, 102066	| &amp;light blue; &amp;LIGHT BLUE;			| 128, 128, 255
+					|			|							| 
+	dark admiral			| 101068, 102068	| &amp;dark admiral; &amp;DARK ADMIRAL;			| 43,   0, 170
+	admiral				| 101069, 102069	| &amp;admiral; &amp;ADMIRAL;				| 64,   0, 255
+	light admiral			| 10106a, 10206a	| &amp;light admiral; &amp;LIGHT ADMIRAL;		| 160, 128, 255
+					|			|							| 
+	dark ultramarine		| 10106c, 10206c	| &amp;dark ultramarine; &amp;DARK ULTRAMARINE;		| 64,   0, 170
+	ultramarine			| 10106d, 10206d	| &amp;ultramarine; &amp;ULTRAMARINE;			| 96,   0, 255
+	light ultramarine		| 10106e, 10206e	| &amp;light ultramarine; &amp;LIGHT ULTRAMARINE;	| 176, 128, 255
+					|			|							| 
+	dark violet			| 101070, 102070	| &amp;dark violet; &amp;DARK VIOLET;			| 86,   0, 170
+	violet				| 101071, 102071	| &amp;violet; &amp;VIOLET;				| 128,   0, 255
+	light violet			| 101072, 102072	| &amp;light violet; &amp;LIGHT VIOLET;			| 192, 128, 255
+					|			|							| 
+	dark purple			| 101074, 102074	| &amp;dark purple; &amp;DARK PURPLE;			| 107,   0, 170
+	purple				| 101075, 102075	| &amp;purple; &amp;PURPLE;				| 160,   0, 255
+	light purple			| 101076, 102076	| &amp;light purple; &amp;LIGHT PURPLE;			| 208, 128, 255
+					|			|							| 
+	dark electric			| 101078, 102078	| &amp;dark electric; &amp;DARK ELECTRIC;		| 128,   0, 170
+	electric			| 101079, 102079	| &amp;electric; &amp;ELECTRIC;				| 192,   0, 255
+	light electric			| 10107a, 10207a	| &amp;light electric; &amp;LIGHT ELECTRIC;		| 224, 128, 255
+					|			|							| 
+	dark phlox			| 10107c, 10207c	| &amp;dark phlox; &amp;DARK PHLOX;			| 150,   0, 170
+	phlox				| 10107d, 10207d	| &amp;phlox; &amp;PHLOX;				| 224,   0, 255
+	light phlox			| 10107e, 10207e	| &amp;light phlox; &amp;LIGHT PHLOX;			| 240, 128, 255
+					|			|							| 
+	dark magenta			| 101080, 102080	| &amp;dark magenta; &amp;DARK MAGENTA;			| 170,   0, 170
+	magenta				| 101081, 102081	| &amp;magenta; &amp;MAGENTA;				| 255,   0, 255
+	light magenta			| 101082, 102082	| &amp;light magenta; &amp;LIGHT MAGENTA;		| 255, 128, 255
+					|			|							| 
+	dark pink			| 101084, 102084	| &amp;dark pink; &amp;DARK PINK;			| 170,   0, 128
+	pink				| 101085, 102085	| &amp;pink; &amp;PINK;					| 255,   0, 192
+	light pink			| 101086, 102086	| &amp;light pink; &amp;LIGHT PINK;			| 255, 128, 224
+					|			|							| 
+	dark carmine			| 101088, 102088	| &amp;dark carmine; &amp;DARK CARMINE;			| 170,   0,  86
+	carmine				| 101089, 102089	| &amp;carmine; &amp;CARMINE;				| 255,   0, 128
+	light carmine			| 10108a, 10208a	| &amp;light carmine; &amp;LIGHT CARMINE;		| 255, 128, 192
+					|			|							| 
+	dark cold red			| 10108c, 10208c	| &amp;dark cold red; &amp;DARK COLD RED;		| 170,   0,  43
+	cold red			| 10108d, 10208d	| &amp;cold red; &amp;COLD RED;				| 255,   0,  64
+	light cold red			| 10108e, 10208e	| &amp;light cold red; &amp;LIGHT COLD RED;		| 255, 128, 160
+					|			|							| 
+	dark brown			| 101090, 102090	| &amp;dark brown; &amp;DARK BROWN;			| 100,  50,   0
+	brown				| 101091, 102091	| &amp;brown; &amp;BROWN;				| 150,  75,   0
+	light brown			| 101092, 102092	| &amp;light brown; &amp;LIGHT BROWN;			| 203, 166, 128
+					|			|							| 
+	dark beige			| 101094, 102094	| &amp;dark beige; &amp;DARK BEIGE;			| 164, 164, 147
+	beige				| 101095, 102095	| &amp;beige; &amp;BEIGE;				| 245, 245, 220
+	light beige			| 101096, 102096	| &amp;light beige; &amp;LIGHT BEIGE;			| 251, 251, 238
+					|			|							| 
+	dark tan			| 101098, 102098	| &amp;dark tan; &amp;DARK TAN;				| 140, 120,  94
+	tan				| 101099, 102099	| &amp;tan; &amp;TAN;					| 210, 180, 140
+	light tan			| 10109a, 10209a	| &amp;light tan; &amp;LIGHT TAN;			| 233, 218, 198
+					|			|							| 
+	dark salmon			| 101098, 102098	| &amp;dark salmon; &amp;DARK SALMON;			| 170,  97, 110
+	salmon				| 101099, 102099	| &amp;salmon; &amp;SALMON;				| 255, 145, 164
+	light salmon			| 10109a, 10209a	| &amp;light salmon; &amp;LIGHT SALMON;			| 255, 201, 210
+	===
+	+++,
+
+
+
+
+    "Description 05:Console Theme Colors"::
+
+	In addition to static colors, theme colors can be chosen.  When B4P starts, some initial colors are assigned, 
+	however they can be reassigned to different colors by changing the color names or hexadecimal RGB values (#RRGGBB format)
+	in <b>console[theme colors,</b><i>theme color name</i><b>] = </b><i>New color name</i>;
+
+	<br><br>
+	The theme colors listed in the 1st column below can also be used with the functions __text color(__) and __background color(__).
+
+	=== 200, 200, 400, 200, bold_column_1
+	Theme color name		| UNICODE (hex)		| Character Entity Names				| RBG Color Code
+	neutral				| 101100, 102100	| &amp;neutral; &amp;NEUTRAL;				|
+	high				| 101101, 102101	| &amp;high; &amp;HIGH;					|
+	medium				| 101102, 102102	| &amp;medium; &amp;MEDIUM;				|
+	low				| 101103, 102103	| &amp;low; &amp;LOW;					|
+					|			|							|
+	bad				| 101104, 102104	| &amp;bad; &amp;BAD;					|
+	warning				| 101105, 102105	| &amp;warning; &amp;WARNING;				|
+	info				| 101106, 102106	| &amp;info; &amp;INFO;					|
+	ok				| 101107, 102107	| &amp;ok; &amp;OK;					|
+					|			|							|
+	start				| 101108, 102108	| &amp;start; &amp;START;				|
+	active				| 101109, 102109	| &amp;active; &amp;ACTIVE;				|
+	pause				| 10110a, 10210a	| &amp;pause; &amp;PAUSE;				|
+	done				| 10110b, 10210b	| &amp;done; &amp;DONE;					|
+					|			|							|
+	accent 1			| 10110c, 10210c	| &amp;accent 1; &amp;ACCENT 1;				|
+	accent 2			| 10110d, 10210d	| &amp;accent 2; &amp;ACCENT 2;				|
+	accent 3			| 10110e, 10210e	| &amp;accent 3; &amp;ACCENT 3;				|
+	accent 4			| 10110f, 10210f	| &amp;accent 4; &amp;ACCENT 4;				|
+					|			|							|
+	deco 1				| 101110, 102110	| &amp;deco 1; &amp;DECO 1;				|
+	deco 2				| 101111, 102111	| &amp;deco 2; &amp;DECO 2;				|
+	deco 3				| 101112, 102112	| &amp;deco 3; &amp;DECO 3;				|
+	deco 4				| 101113, 102113	| &amp;deco 4; &amp;DECO 4;				|
+	===	
+	+++,
+
+
+
+
+    "Description 06:Other Special Output Characters"::
+
+	A limted number of navigation key characters can also be used as output characters in roder to move the cursor:
+
+	=== 200, 200, 400, 200, bold_column_1
+	Key Character		| UNICODE (hex)	| Character Entity Name	| Action
+	Arrow up		| 108008	| &amp;arrow-up;	| Cursor up 1 row
+	Arrow down		| 108002	| &amp;arrow-down;	| Cursor down 1 row
+	Arrow left		| 108004	| &amp;arrow-left;	| Cursor left 1 row
+	Arrow right		| 108006	| &amp;arrow-right;	| Cursor right 1 row
+	Home			| 108007	| &amp;home;		| Cursor to 1st column
+	ctrl-Home		| 108107	| &amp;ctrl-home;	| Cursor to top left
+	===
+
+	+++
+
+
+
+},
 
 
 "Case Sensitivity" :
@@ -254,12 +958,16 @@ B4PDOCU.START
 	In UNIX / Linux / MacOS, directory and file names are fully case sensitive.  However in Windows, file names are only case-sensitivity when creating
 	directories or file names, but finding them is not case sensitive.
 
+	+++,
+
     "Description 02:Case Conversion"::
 
 	B4P provides the __unary operators__ <b>+</b>, <b>-</b> and <b>!</b> to change text to upper case, lower case or just capitalize the first character.
 	The case conversion does not respect speciic locales, for example special handling of the Turkish letters turkish letters &#x0130; / i / I / &#x0131;.
 	The lower case sharp-s &#x00DF; in the German Language will not be converted to upper case or substituted by two capital S.  The B4P case conversion is presently
 	supporting following UNICODE characters:
+
+	<br><br>
 
 	=== 300, 300, 300
 	UNICODE Block 		| Code Range 		| Example
@@ -280,9 +988,12 @@ B4PDOCU.START
     "Feature Names":		[ "console" ],
     "Description 01:Console Output"::
 
-	Even in Windows 7, 8 and 10, the good old console (started with "cmd" or "msdos" or "powershell") contains archaeological software artefacts dating back to 1981
-	when the IBM PC has been launched.  Luckily, the recent Windows releases support UTF-8 output to the console.  However, the supported character sets
-	are limted to the following:
+	Good news: The consoles under Windows, LINUX and MacOS support full UNICODE.<br>
+	Bad news: Most console and terminal programs do not display all available UNICODE characters properly
+
+	<br><br>
+
+	All consoles support the ANSI (formerly: ASCII) chracter set.  Most consoles support additional character sets such as 
 
 	* Basic Latin
 	* Latin-1 Supplement (To ensure Düsseldorf is not written as Dusseldorf - translated as "village of fools")
@@ -291,43 +1002,37 @@ B4PDOCU.START
 	* Cyrillic (Russian)
 	* A set of additional symbols (also found in win1252 character set) including the Euro currency sign
 
-	Unsupported symbols will automatically be shown as question mark or with a placeholder box.
+	Unsupported symbols will automatically be shown using  question marks or placeholder boxes.
 
 	+++,
 
     "Description 02:Console Input"::
 
-	Another relict from 1981: Unfortunately, Microsoft has not done its homework regarding UNICODE input from the keyboard and we need to accept the facts established
-	in the year when Ronald Reagan was elected as the President, surely a better choice than since 2016, and foreign characters appeared more foreign at that time than today, too.
-	Non-ANSI symbols (accents, umlauts, Euro currency symbol, etc.) are converted with an antiquated MS-DOS character set.  B4P resolves this issue by automatically
-	converting entered characters into UNICODE.
+	Consoles under Windows have only limited capabilities to input non-ANSI characters.  Under Windows, foreign characters are accepted, but the EURO-symbol is not.<br>
+	<u>Hint:</u> Consider using __character entities__ to specify special characters which you do cannot find on your keyboard.
 
-	+++,
-    "Description 03:UNIX, Linux and MacOS Platforms"::
-	These platforms are much better prepared for full UNICODE (UTF-8) support when interacting with keyboard input and console output.
 	+++
 },
 
 
 
 
-"Literal Constants" :
+"Text" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Literal Constants" ],
+    "Feature Names":		[ "Text" ],
     "Description 01:Introduction"::
 
-	B4P treats literal constants a bit differently than in other programming languages.  B4P distinguishes between three different literal constants	
-	which have different characteristics:
+	The B4P language supports 3 different forms of text contents:
 
-	* (unquoted) literals
-	* softquoted literals
-	* quoted literals
+	* __Plain text__, which is any text with and without spaces
+	* __Text inside single quotation marks__, using apostrophes ( ANSI/UNICODE 39: ') as quotation mark symbols
+	* __Text inside double quotation marks__, using double quotation marks ( ANSI/UNICODE 34: ")
 
-	These literal constants can be used in thefollowing contexts:
+	These text contents can be used for following putposes:
 
 	=== 250, 250, 250, 250
-	Usage of literal constants		| (Unquoted) literals				| Softquoted literals			| Quoted literals
+	Usage of literal constants		| Plain text				 	| Text inside single quotation marks	| Text inside double quotation marks
 	String values				| example					| 'example'				| "example"
 	Base variable names (see <sup>1</sup>)	| example[]					| 'example'[]				| "example"[]
 	Member variable names (see <sup>1</sup>)| example[example 2, ...]			| 'example'['example 2', ...]		| "example"["example 2", ...]
@@ -335,7 +1040,7 @@ B4PDOCU.START
 	Function names, called as procedures	| example;<br>example(...);			| (Not supported)			| (Not supported)
 	Function names, called as functions in expressions\
 						| = ... example();<br>= ... example(...);	| (Not supported)			| (Not supported)
-	Reserved keywords			| true, false, else, ...			| (Not reserved if in quotation marks)	| (Not reserved if in quotation marks)
+	Reserved keywords			| true, false, else, tab, escape, new line	| (Not reserved if in quotation marks)	| (Not reserved if in quotation marks)
 	===
 
 	<sup>1</sup> <u>Attention</u>: Different from other programming languages, __variables__ in B4P are always specified by literals followed by a <b>[]</b> or <b>[...]</b> sequence.
@@ -346,34 +1051,45 @@ B4PDOCU.START
 
 
 
-"(Unquoted) Literals" :
+"Plain Text" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Unquoted Literals", "Unquoted Literal" ],
+    "Feature Names":		[ "Plain Text" ],
     "Description 01:Introduction"::
 
-	Simple (unquoted) literals are used to name variables, functions, tables and __reserved keywords__.<br>
-	<u>Attention</u>: Don't forget to add the <b>[]</b> sequence behind the literal if it shall be used as a variable and not as a string value because B4P
-	interpretes stand-alone unquoted literals as string values.
+	Plain text can be used for
+	* <b>String values</b>
+	* __Variable names__
+	* __Table names__
+	* __Procedure names__ and __function names__
+	* __Reserved keywords__ (true, false, else, tab, escape, new line) <br>\
+	  These reserved keywords must always be formulated with lower-case characters, otherwise they are treated as plain text.
 
-	<br><br>
-	Following rules apply:
-	* They may consist of 1 or more words separated by white spaces (space bar, tab, etc.)
-	* Multiple consecutive spaces in the literal will collapse to one space symbol (e.g. <b>Hello&nbsp;&nbsp;&nbsp;World</b> is the same as <b>Hello World</b>)
-	* The literals may consist of both text and numbers separated with spaces, e.g. <b>4200 Pennsylvania Avenue</b>, or <b>Number 1</b> or <b>555 1212</b> (phone number is text because of space inside).
-	* The literals must fit on the same line
-	* Leading and trailing spaces are ignored
-	* All characters are allowed, as long they do not interfere with the B4P programmin syntax. Example: The hyphen in <b>Baden-Baden</b> (a spa city in Germany) is interpreted \
-	  as a minus sign and does a text subtraction of <b>Baden</b> and the outcome is an empty string.  In this case, specify <b>'Baden-Baden'</b> or <b>"Baden-Baden"</b> instead.
-	* A lone point (<b>.</b>) specified without quotation marks is also interpreted as a string containg this one character as long it is not part of a numeral serving as decimal point. \
-	  In some cases, the lone point used as substitute header name will refer to the current table headers if __partial table specifications__ are enabled.  Note that two consecutive \
-	  points is a B4P range symbol.  Use quotation marks around them to output two consecutive points.
-	* Reserved keywords are automatically treated as such, e.g. <b>true</b> as Boolean <i>true</i> and not as a string.
+    "Description 02:Rules"::
+
+	Following rules apply for plain text:
+	* It may consist of any character which does not interfere with the B4P code syntax: Letters, letters combined with numbers, and special symbols not interfering with B4P code syntax (e.g. parentheses, commas, operators, etc.).
+	** Good example: A.1 (The single point is not a dedicated B4P symbol).
+	** Bad example: Baden-Baden (The hyphen is interpreted as a minus sign and results in a successful string subtraction.
+	* The text may contain white <i>white spaces</i> (space bar, tab, etc.)
+	** Example 1: <b>4200 Pennsylvania Avenue</b> or <b>Number 1</b>
+	** Example 2: <b>555 1212</b> (phone number is a text and not a __number__ because of the space inside)
+	** Example 3: <b>1.234.567</b> (multiple decimal points between numeric digits constitute a text)
+	* The text must be on the same line.
+	* Multiple consecutive white spaces inside the text are interpreted as one single space character.
+	** Example: <b>Hello&nbsp;&nbsp;&nbsp;World</b> is the same as <b>Hello World</b>.
+	* Leading and trailing spaces are ignored.
+	** Example: <b>echo(Hello World)</b> outputs the same as <b>echo(&nbsp;&nbsp;Hello World )</b>.
+	* A lone point (<b>.</b>) specified without quotation marks is also interpreted as a string containing this one character as long it is not a decimal point in a numeral.
+	** The lone point is also used to reference a current column in __partial table specifications__.
+	** Note: Two consecutive points is a B4P __range__ symbol and does not consitute a text.
+	* Reserved keywords are automatically interpreted as part of the B4P syntax, e.g. <b>true</b> as Boolean <i>true</i>, and __else__ is also part of the B4P language.
+	* If the text is assigned to B4P variables, then the variable assumes the subtype __softquoted literal__.
 
 	+++,
-    "Examples 01:"::
+    "Examples 02:Examples"::
 	echo( Hello World );
-	echo(   Hello   World   );  // Same as above
+	echo(   Hello   World   );  // Same as above (Spaces outside the strings are ignored, so are multiple spaces inside)
 	echo( One + One );          // + sign is an operator, result is 'OneOne'
 	echo( 'One + One' );        // This one is OK.
 	echo( Baden-Baden );        // Empty string.  Hyphen is treated as minus sign (subtraction of literals)
@@ -384,31 +1100,43 @@ B4PDOCU.START
 	echo( this is on, new line, the next line );  // new line is a reserved keyword
 	echo( Café in Zürich );     // Foreign characters inside
 	echo( . );                  // Lone point
-	echo( .   . . );            // A string containing 3 lone points (. . .), also showing how spaces are collapsing
+	echo( .     . . );          // A string containing 3 lone points (. . .), also showing how spaces are collapsing
 	// echo( .. );              // Would cause an error because .. is a b4p language symbol.
 	echo( '..' );               // This one is OK
+	echo( new line, Line 1, new line, Line 2 ); 
 	+++,
-    "Output 01:": "automatic"
+    "Output 02:": "automatic",
+    "See also": [ "Text inside single quotation marks", "Text inside double quotation marks" ]
 },
 
 
-"Softquoted Literals" :
+"Text Inside Single Quotation Marks" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Softquoted Literals", "Softquoted Literal", "Entities" ],
+    "Feature Names":		[ "Text inside single quotation marks"],
     "Description 01:Introduction"::
 
-	Softquoted literals are used to name variables and tables, but not functions and __reserved keywords__. Softquoted literals are literals specified with single quotation marks.  Follwing rules apply:
-	* Use single quotation marks <b>' ... '</b> to contain the literal constants
-	* Any character except line breaks and single quotation marks are allowed inside
-	* The literal constant may contain multiple consecutive spaces
-	* The literal constant may contain leading or trailing spaces, as long they are inside the quotation marks
-	* <b>Character entities common in HTML</b> like &amp;euro; or &amp;#x20ac; for the EURO symbol &euro; are supported here
-	* In various functions, __wildcard symbols__ in softquoted literals (e.g. *, ?, #, etc.) are used for flexible searching and comparison rules
-	* __Multiline strings__ can be specified using 3 consecutive single quotation mark symbols.
+	Text inside single quotation marks can be used for
+	* <b>String values</b>
+	* __Variable names__
+	* __Table names__
+
+    "Description 02:Rules"::
+	* Use single quotation marks (apostrophes) <b>' ... '</b> to enclose the text.
+	* Inside the quotation marks, all characters are fine, except the single quotation mark which delimits the text.
+	* All white spaces inside the text inside quoatation marks are preserved.
+	** Example 1: <b>'Hello&nbsp;&nbsp;&nbsp;World'</b> is not equal to <b>'Hello World'</b>
+	** Example 2: <b>'Hello World'</b> is not equal to <b>'  Hello World  '</b>
+	* The text must fit on the same line.
+	** Exception: Use  __Multi-line text__ using 3 consecutive quotation marks ''' (apostrophes) as delimiatersto formulate a text requiring multiple lines.
+	* Reserved keywords inside quotation marks are treated as text, e.g. 'true'.
+	* Various functions and comparisons support __wildcard symbols__
+	** Example 1: <b>ABC = 'A*'</b> returns true.
+	* __Character entities__ like &amp;euro; or &amp;#x20ac; for the EURO symbol &euro; are supported.  They are converted quasi at compile time to target characters.
+	* If the text is assigned to B4P variables, then the variable assumes the subtype __softquoted literal__.
 
 	+++,
-    "Examples 01:"::
+    "Examples 02:Examples"::
 	echo( 'Hello World' );
 	echo( '  Hello   World  ' );
 	echo( 'One + One' );
@@ -416,29 +1144,41 @@ B4PDOCU.START
 	echo( 'Price tags: &euro; 10.00, &#x20ac; 10.00, &#8364; 10.00');
 	echo( '3 * 2 = 6' );
 	echo( 'A cheap way to continue on&#10;the next line' ); // Not recommended. Use '...', new line, '...' instead.
+	echo( new line, 'Line 1', new line, 'Line 2' ); 
 	+++,
-    "Output 01:": "automatic",
-    "See also": ["quoted literals", "multiline strings" ]
+    "Output 02:": "automatic",
+    "See also": [ "Plain text", "Text inside double quotation marks", "Multi-line text", "Softquoted literals" ]
 },
 
 
-"Quoted Literals" :
+
+"Text Inside Double Quotation Marks" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Quoted Literals", "Quoted Literal" ],
+    "Feature Names":		[ "Text inside double quotation marks"],
     "Description 01:Introduction"::
 
-	Quoted literals are used to name variables and tables, but not functions and __reserved keywords__. Softquoted literals are literals specified with double quotation marks.  Follwing rules apply:
-	* Use double quotation marks <b>" ... "</b> to contain the literal constants
-	* Any character except line breaks and single quotation marks are allowed inside
-	* The literal constant may contain multiple consecutive spaces
-	* The literal constant may contain leading or trailing spaces, as long they are inside the quotation marks
-	* Character entities are treated as they are, i.e. they are not converted to the specified characters.
-	* Wildcard symbols are treated as they are, i.e. no wildcard features are applied for searching and comparing strings.
-	* __Multiline strings__ can be specified using 3 consecutive double quotation mark symbols.
+	Text inside double quotation marks can be used for
+	* <b>String values</b>
+	* __Variable names__
+	* __Table names__
+
+    "Description 02:Rules"::
+	* Use double quotation marks <b>" ... "</b> to enclose the text.
+	* Inside the quotation marks, all characters are fine, except the double quotation mark which delimits the text.
+	* All white spaces inside the text inside quoatation marks are preserved.
+	** Example 1: <b>"Hello&nbsp;&nbsp;&nbsp;World"</b> is not equal to <b>"Hello World"</b>
+	** Example 2: <b>"Hello World"</b> is not equal to <b>"  Hello World  "</b>
+	* The text must fit on the same line.
+	** Exception: Use  __Multi-line text__ using 3 consecutive quotation marks """ as delimiatersto formulate a text requiring multiple lines.
+	* Reserved keywords inside quotation marks are treated as text, e.g. 'true'.
+	* Various functions and comparisons support __wildcard symbols__
+	** Example 1: <b>ABC = 'A*'</b> returns true.
+	* __Character entities__ are not supported in texts inside double quotation marks.  Any such specification is part of the quoted text.
+	* If the text is assigned to B4P variables, then the variable assumes the subtype __quoted literal__.
 
 	+++,
-    "Examples 01:"::
+    "Examples 02:Examples"::
 	echo( "Hello World" );
 	echo( "  Hello   World  " );
 	echo( "One + One" );
@@ -446,9 +1186,10 @@ B4PDOCU.START
 	echo( "Price tags: &euro; 10.00, &#x20ac; 10.00, &#8364; 10.00"); // No translation of entities here
 	echo( "3 * 2 = 6" );
 	echo( "A cheap way to continue on&#10;the next line" ); // No translation of entitites here
+	echo( new line, "Line 1", new line, "Line 2" ); 
 	+++,
-    "Output 01:": "automatic",
-    "See also": ["softquoted literals", "multiline strings" ]
+    "Output 02:": "automatic",
+    "See also": [ "Softquoted literals", "Plain text", "Text inside single quotation marks", "Multi-line text" ]
 },
 
 
@@ -457,22 +1198,25 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "reserved keywords" ],
-    "Keywords":			[ "reserved keyword" ],
+    "Keywords":			[ "reserved keyword", "escape", "tab" ],
     "Description 01:Introduction to reserved keywords"::
-	B4P has only six reserved symbols which must be specified as __unquoted literals__, i.e. without quotation marks.
+	B4P has only six reserved symbols which must be specified as __plain text__ using lower-case letters and without quotation marks.
 
-	=== 100, 200, 700, bold_column_1
-	Keyword 	| Meaning 		| Description
-	tab		| Tabulator 		| Converts to a tab character (ANSI and UNICODE 9)
-	new line	| Line Break 		| Converts to CR+LF (Windows) or LF (LINUX) to continue on the next line
-	escape		| Escape chracter 	| Converts to an escape character (ANSI and UNICODE 27)
-	true		| Boolean true  	| 'true' as boolean type, not literal
-	false		| Boolean false		| 'false' as boolean type, not literal
-	else		| 'else' in code syntax | To be used in association with <b>if</b>, <b>switch</b> and other control flow functions
+	=== 150, 150, 700, bold_column_1
+	Reserved Keyword 	| Meaning 		| Description
+	tab			| Tabulator 		| Converts to a tab character (ANSI and UNICODE 9)
+	new line		| Line Break 		| Represented as ANSI and UNICODE 10.  Under Windows, Carriage return symbols are added before line feed symbols.
+	escape			| Escape chracter 	| Converts to an escape character (ANSI and UNICODE 27)
+	true			| Boolean true  	| 'true' as boolean type and not as text
+	false			| Boolean false		| 'false' as boolean type and not as text
+	else			| 'else' in code syntax | To be used in association with <b>if</b>, <b>switch</b> and other control flow functions
 	===
 
-	As explained before, flow control keywords like __if(__), __while(__), etc. are treated like function names. 
+	Different from other languages, flow control features like __if(__) and __while(__) are function names and not reserved keywords.
 
+	<br><br>
+	Alternatively to using <b>tab</b>, you consider __special console output characters__ such as <b>&amp;tab20;</b> to advance to a specified column.
+	
 
 	+++,
     "Examples 01:"::
@@ -482,35 +1226,33 @@ B4PDOCU.START
 	echo( true = false ); // Outputs 'false' (Boolean comparison)
 	+++,
     "Output 01:":		"automatic",
-    "See also":			[ "Control flow functions" ]
+    "See also": [ "Quoted literals", "Plain text", "Text inside single quotation marks", "Multi-line text" ]
 
 },
 
 
 
-
-"Multiline Literals" :
+"Multi-Line Text" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Multiline literals" ],
-    "Keywords":			[ "Multiline strings" ],
+    "Feature Names":		[ "Multi-line text" ],
+    "Keywords":			[ "Multi-line strings" ],
     "Description 01:Introduction"::
 
-	Similar to Python and other modern programming languages, B4P supports multline strings, name both as __softquoted literals__
-	and __quoted literals__.  Softquoted multiline strings begin with three single quotation marks <b>'''</b> with contents across
-	multiple lines follinwg and deliminted with <b>'''</b>.  For quoted multiline strings, use <b>"""</b> delimiters instead.
-	The three quotation mark symbols must be written without blanksin between.
-	The string contents are treated similarly as regular string constants, for example entities like <b>&amp;szlig;</b> being
-	resolved to the sharp S in German: <b>&szlig;</b>.  The length of multi-line strings is presently limited to 200,000 
-	bytes, where (foreign) non-ANSI characters count 2..4 bytes depending on their code. Longer strings will be invalidated.
+	Similar to Python and other modern programming languages, B4P supports multline strings, for both
 
-	<br><br>
-	Inside the multi-line literals, 1 and 2 consecutive quotation markes are treated as regular text.  3 consecutive quotation marks
-	are also treated as text if that one is not used as the opening delimiter.  B4P comments inside multi-line strings are also
-	seen as part of the contents.
+	* __Text inside single quotation marks__, using three single quotation marks <b>'''</b> (apostrophes) as delimiters, and
+	* __Text inside double quotation marks__, using three double quotation marks <b>"""</b> as delimiters.
 
-	<br><br>
-	Multiline string contents can start immediately after the three quotation symbols or on the next row.  Same applies for the
+	Following rules:
+
+	* The text contents are treated similarly as defined for __Text inside single quotation marks__ and __Text inside double quotation marks__.
+	* Inside a multi-line text, 1 or 2 cosnecutive ' or " symbols are treated as contents.
+	* Inside a multi-line text delimited with """: The ''' is considered part of the text.
+	* Inside a multi-line text delimited with ''': The """ is considered part of the text.
+	* Similar to __text inside single quotation marks__, __character entities__ are supported.
+
+	Multi-line string contents can start immediately after the three quotation symbols or on the next row.  Same applies for the
 	end: The multi-line string can be ended on the same line with three quotation marks, or immediately on the following row.
 	If you want to include new line symbols at the beginning and/or at the end of the multi-line string, then include additional
 	blank rows.
@@ -575,31 +1317,31 @@ for all variables( example[], ex[] )
 }
 	+++,
     "Output 03:":		"automatic",
-    "See also":			[ "Quoted Literals", "Softquoted Literals" ]
+    "See also":			[ "Text inside single quotation marks", "Text inside double quotation marks" ]
 
 },
 
 
-"Numeric Constants" :
+"Numbers" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Numeric Constants" ],
+    "Feature Names":		[ "Number", "Numbers" ],
     "Description 01:Introduction"::
 
-	In B4P, numeric constants express numeric values.  Following rules apply to both numeric values in B4P programs and
-	B4P tables.
+	In the B4P language, numbers are numeric values which optionally contain decimal points.  The same applies to reading numbers from __tables__.
+	Following rules apply:
 
 	* It must contain at least 1 digit (0..9)
-	* The number must not contain spaces and/or thousand separator symbols.  Use __clean numeral(__) to remove such symbols.
-	* At most one decimal point may be used.  More points inside make the value look like an __unquoted literal__.
+	* Negative numebers start with a minus sign (see: __unary operators__)
+	* The number must not contain spaces and/or thousand separator symbols.  Use __clean numeral(__) to remove such symbols automatically.
+	* At most one decimal point may be used.  More points inside make the value look like a __plain text__.
+	** A lone decimal describes a __plain text__ containing one character.
+	** At least one digit must be added before or after the decimal point, e.g. <b>5.</b> or <b>.5</b> are OK, specifying 5 and 0.5.
 	* Leading zeros in front and trailing zeros after the digits after the comma are OK
-	* At present, scientific notation is not allowed in the B4P code
+	* Scientific notation is not allowed in the B4P code.
+	**  However, use __numeral(__) or __clean numeral(__) to specify scientific notations.
 	** Exceptions: Table entries may contain numbers in scientific notation, but use __table configure(__) to activate reading scientific notation.
-	** The function __numeral(__) supports scientific notation in literals provided.
-	** Scientific notation is also supported in numers in JSON files. 
-	* In B4P, the text representation of literals will be memorized and used for later outputting
-	** Useful for maintaining numeric values such as postal codes (e.g. 02111 for Boston Chinatown) or section numbers (e.g. 2.10).
-	** The text representation will be dropped when calculations are made with that number, even adding 0, multiplying by 1 or negating them.
+	** Scientific notation is also supported in numbers in JSON files.  See __variable load(__) to load JSON files.
 
 	+++,
     "Examples 01:"::
@@ -620,15 +1362,17 @@ for all variables( example[], ex[] )
 "Basic Data Types" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "basic data types" ],
+    "Feature Names":		[ "Basic data types", "Types", "Subtypes" ],
     "Description 01:Basic Data Types"::
 
-	B4P supports six basic data types for data storage in variables and in all calculations (variables and constant values retrieved and processed).
-	Only the __tables__ support only one data type which are __literals__.  Numbers written to tables are converted to strings, and the other way
-	around when reading numbers from the tables.
+	B4P supports six basic data types for storing data in B4P __variables__ and in all calculation paths.
+	However, __tables__ store all data in text form, including __numbers__.  Numerals written to tables are converted into numbers in text form, and
+	numbers read are converted into numerals.
+
+	<br><br>
+	Literals, numerals and dates are also categorized in two subtypes each which are desribed in the following sections.
 
 	* __Literals__
-	** Unquoted literals
 	** Softquoted literals
 	** Quoted literals
 	* __Numerals__
@@ -645,66 +1389,124 @@ for all variables( example[], ex[] )
   },
 
 
+
   "Literals" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "data types literals" ],
+    "Feature Names":		[ "Data type literals" ],
     "Keywords":			[ "literal", "literals" ],
-    "Description 01:Literals"::
+    "Description 01:Introduction"::
 
-	Literals are text representations (strings) consisting of 0, 1 or any number of UNICODE characters.  Every UNICODE character counts as 1, even
-	if they are not belong to the Basic Multilingual Plane.  There is no hard limitation on the number of characters which can be stored.  Only the available memory
-	sets the limitations.
+	Literals in B4P are strings which consist of 0, 1 or any number of UNICODE characters.  Every character counts as 1 character, regardless if it is an ANSI or
+	non-ANSI (e.g. foreign) character.  The string length is limited to a specific value, but only by the available system memory.
 
-	The variables in B4P do distinguish among the three sub-types already explained in __literal constants__:
-	* (Unquoted) literals,
-	* Softquoted literals, and
-	* Quoted literals.
+	<br><br>
+	B4P supports following three subtypes:
+	* __Quoted literals__, and
+	* __Softquoted literals__.
 
-	+++,
-    "Examples 01:"::
-	a[0] =  Hello World;       // (Unquoted) literal
-	a[1] =    Hello  World  ;  // Multiple white spaces between collapse to 1 space. No leading or trailing spaces.
-	a[2] = 'Hello World';      // Softquoted literal
-	a[3] = 'Hello  World';
-	a[4] = "Hello World";      // Quoted literal
-	a[5] = "Hello  World";
+	Simple rules: B4P handles __Text inside double quotation marks__ as __quoted literals__ where all contents are considered <i>as given</i>. <br>
+	And __text inside single quotation marks__ as well as __plain text__ are handled as __softquoted literals__.
 
-	a[6] = 07.04.2020;         // Literal constant, because it contains two points
-	a[7] = 555 1212;           // Contains a space
-	a[8] = 1 Main St.;         // This is a valid literal constant
-	a[9] = mike@example.com;   // Valid, too.  See note below.
+	+++
+  },
 
-	a[10] = a[0] + a[2];       // When calculating literals, then the higher quoted one applies.
-	a[11] = a[0] + a[4];       // "
+  "Softquoted Literals" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Data subtype softquoted literals" ],
+    "Keywords":			[ "Softquoted literal", "Softquoted literals" ],
+    "Description 01:Introduction"::
 
 
-	// General advice: Please put literal constants containing @, #, %, \ and other special
-	// symbols not (yet) part of the B4P language elements into quotation marks in order
-	// to avoid any compatibility issues in the future.
+	The data subtype <b>quoted literal</b> is applied in following cases:
 
-	inspect( a[] );
+	* __Plain text__ or __text inside single quotation marks__ is written into B4P __variables__.
+	* __Plain text__ or __text inside single quotation marks__ is used in B4P __expressions__ and __comparisons__.
 
-	echo( a[0] = a[1] ); // True
-	echo( a[0] = a[2] ); // True
-	echo( a[0] = a[4] ); // True
-	echo( a[3] = a[5] ); // True
+	Following features apply to <b>softquoted literals</b> only:
+
+	* Symbols like '*' or '?' are treated as __wildcards__ for __comparisons__ and when the equal sign = or not-equal sign &lt;&gt; is used<br> \
+	  <u>Note:</u> This is not the case for the other comparison operators such as  == and !=.
+	* __Accessing tables__: A single point may be used to access the current coolumn if the __table context__ allows this.
+	* __Shifted table column specifications__: Table header names may be prefixed with one or more &lt; or &gt; to access neighboring columns.
+	* Some functions support dedicated values in place of column header names in their parameeters, e.g. <b>'#row'</b> or <b>'*'</b> in specific function parameters such as in __table lookup(__) and __table consolidate(__).
+
+   "Examples 01:With Text Inside Single Quotation Marks"::
+	a[] = 'Hello World';
+	b[] = 'Hello   World';
+	c[] = '  Hello World  ';
+	echo( 'a[] = "', a[], '"');
+	echo( 'b[] = "', b[], '"');
+	echo( 'c[] = "', c[], '"');
+	echo( 'Subtype of a[] is ', subtype( a[] ) );
+	echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // Softquoted literals support wildcards
 	+++,
     "Output 01:Output:":		"automatic",
 
-    "Description 02:Summary"::
+   "Examples 02:With Plain Text"::
+	a[] = Hello World;
+	b[] = Hello   World;
+	c[] =   Hello World  ;
+	
+	echo( 'a[] = "', a[], '"');
+	echo( 'b[] = "', b[], '"');
+	echo( 'c[] = "', c[], '"');
+	echo( 'Subtype of a[] is ', subtype( a[] ) );
+	echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // Softquoted literals support wildcards
 
-	=== 400, 200, 200, 200, simple
-	Item 					| (Unquoted) literal 		| Softquoted literal 					| Quoted literal
-	Representation in B4P code text		| Alphanumeric contents		| Alphanumeric contents in single quotation marks	| Alphanumeric contents in double quotation marks
-	Resolving __entities__ in B4P code text	| No				| Yes							| No
-	Wildcard symbols used for comparisons	| No				| Yes							| No
-	Leading and trailing white spaces	| No				| Yes							| Yes
-	Multiple consecutive white spaces	| No (They reduce to 1 white space) 	| Yes						| Yes
-	Line breaks in literal values		| No (use 'new line')		| No (use 'new line')					| No (use 'new line')
-	===
+	echo;
+	echo("Following texts are read as softquoted literals");
+	a[] = 07.04.2020;         // Literal constant, because it contains two points
+	b[] = 555 1212;           // Contains a space
+	c[] = 1 Main St.;         // This is a valid literal constant
+	d[] = mike@example.com;   // Valid, too.  See note below.
 
-	+++
+	echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[]));
+	echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[]));
+	echo( 'c[] = "', c[], '"  Subtype: ', subtype(c[]));
+	echo( 'd[] = "', d[], '"  Subtype: ', subtype(d[]));
+
+	echo;
+	echo("Combine softquoted and quoted literal:");
+	a[] = Hello + ' World';
+	b[] = Hello + " World";
+	echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[])); // Softquoted literal
+	echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[])); // Quoted literal
+
+	+++,
+    "Output 02:Output:":		"automatic"
+
+  },
+
+  "Quoted Literals" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Data subtype quoted literals" ],
+    "Keywords":			[ "Quoted literal", "Quoted literals" ],
+    "Description 01:Introduction"::
+
+	The data subtype <b>quoted literal</b> is applied in following cases:
+
+	* __Text inside double quotation marks__ is written into B4P __variables__.
+	* __Text inside double quotation marks__ is used in B4P __expressions__ and __comparisons__.
+	* Unless specified otherwise, almost all B4P functions which return values of type <b>literal</b> are of subtype <b>quoted literals</b>.
+	* The contents in quoted literals are always considered as given , including:
+	** No symbols like '*' or '?' are treated as wildcard symbols for comparisons
+
+   "Examples 01:With Text Inside Double Quotation Marks"::
+	a[] = "Hello World";
+	b[] = "Hello   World";
+	c[] = "  Hello World  ";
+
+	echo( 'a[] = "', a[], '"');
+	echo( 'b[] = "', b[], '"');
+	echo( 'c[] = "', c[], '"');
+	echo( 'Subtype of a[] is ', subtype( a[] ) );
+	echo( "Simple comparison returning 'false': ", Hello = "*llo" ); // Quoted literals support no wildcards
+	+++,
+    "Output 01:Output:":		"automatic"
+
 
   },
 
@@ -713,8 +1515,7 @@ for all variables( example[], ex[] )
   "Indexing Strings" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "literals indexing" ],
-    "Keywords":			[ "literals indexing", "length of literals" ],
+    "Feature Names":		[ "Indexing strings" ],
     "Description 01:Literals - Simple Indexing"::
 
 	<i>Simple indexing</i> is used to retrieve single characters from the literal.  Indexing begins with 0 which refers to the 1st
@@ -747,7 +1548,7 @@ for all variables( example[], ex[] )
   "Slicing Strings" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Extracting substrings" ],
+    "Feature Names":		[ "Slicing strings", "Extracting substrings" ],
     "Description 01:Introduction"::
 
 	Instead of specifying single index values to retrieve single characters, substrings can be retrieved by listing muliple values and/or ranges.
@@ -784,19 +1585,17 @@ for all variables( example[], ex[] )
     "Keywords":			[ "numeral", "numerals", "plain numeral", "plain numerals"  ],
     "Description 01:Numerals"::
 
-	Numerals are numeric data representations which are internally handled as double precision floating point numbers.
-	The same type is used for typical integer use (for example a loop index counting upwards, referencing a row number to the table) and
-	advanced mathematical use.
+	B4P handles all numerals as double precision floating point numbers.  This means that numerals can handle both whole numbers and
+	numbers with decimal digits behind.  Two subtypes are suppported:
 
-	The variables in B4P do distinguish among the two sub-types:
-	* Numerals with text represenatations
-	* Plain numerals
+	* <b>Numerals</b> with text represenatations
+	* <b>Plain numerals</b>
 
 	Numerals picked up from the B4P program code or read in from tables will initially carry along their original
-	text representations.  They are useful in case the leading and trailing zeros in numbers (like in postal codes and section numbers)
-	need to be preserved.  The literal representation will be discarded immediately when any kind of algorithmic operation
-	is applied, even if 0 is added or 1 is mulitplied or the value is negated.  No discardings take place on direct assignments
-	and transactions without calculations done, e.g. <b>a[] = b[];</b>.
+	text representations, for example 0123.40. They are useful in case the leading and trailing zeros in numbers (like in postal codes and 
+	section numbers in document structures) need to be preserved.  The literal representation will be discarded immediately when any kind
+	of algorithmic operations is applied, for exmaple additions (including adding 0) and even negations.  In all these cases, the
+	subtype changes from <b>numeral</b> to <b>plain numeral</b>.
 
 
 	+++,
@@ -810,10 +1609,14 @@ for all variables( example[], ex[] )
 	for all variables( a[], b[] )
 	{
 	    c[] = literal(b[]);  // Recover literal representation
-	    d[] = b[] * 1;       // Literal representation gets dropped
-	    e[] = literal(d[]);  // Recover literal representation again
+	    d[] = b[] + 0;       // Literal representation gets dropped because a calculation has been made
+	    e[] = literal(d[]);  // Convert back to literal representation
 
-	    echo(b[],"  ", c[], "  ", d[], "  ", e[], "  ", type detailed( b[] ) );
+	    echo;
+	    echo("For following numeral        : ", b[], " subtype: ", subtype(b[]) );
+	    echo("   Literal representation    : ", c[], " subtype: ", subtype(c[]) );
+	    echo("   Converted to plain numeral: ", d[], " subtype: ", subtype(d[]) );
+	    echo("   Back to literal again     : ", e[], " subtype: ", subtype(e[]) );
 	}
 	+++,
     "Output 01:":		"automatic"
@@ -828,12 +1631,21 @@ for all variables( example[], ex[] )
     "Keywords":			[ "date", "dates", "plain date", "plain dates"  ],
     "Description 01:Dates"::
 
+
+	The date type can store dates (beginning 1990-01-01), time of day (down to the second), combination of both (date and time) and an empty
+	values called <b>blank dates</b>.
+
+	B4P handles all numerals as double precision floating point numbers.  This means that numerals can handle both whole numbers and
+	numbers with decimal digits behind.  Two subtypes are suppported:
+
+	* Dates with text represenatations
+	* Plain dates (don't confuse with blank dates)
+
+
 	This data type can store pure dates (beginning 1990-01-01), time of day (down to the second), combination of both date and time of day, or <i>blank dates</i> which 
 	are blank values neither containing dates or times.
 
 	Following sub-types are supported for dates:
-	* Dates with text represenatations
-	* Plain dates (don't confuse with blank dates)
 
 	<br>
 
@@ -859,20 +1671,27 @@ for all variables( example[], ex[] )
 	+++,
 
     "Examples 01:"::
-	d1[] = "14. July 2021";
-	d2[] = "now";
-	d3[] = "20:15:00";
-	d4[] = ""; // Blank date
-	
-	echo("date     (): ", date(d1[]), ", ", date(d2[]), ", ",date(d3[]), ", ",date(d4[]), ", ", type detailed(date(d1[])) );
-	echo("time     (): ", time(d1[]), ", ", time(d2[]), ", ",time(d3[]), ", ",time(d4[]), ", ", type detailed(time(d1[])) );
-	echo("pure date(): ", pure date(d1[]), ", ", pure date(d2[]), ", ",pure date(d3[]), ", ",pure date(d4[]), ", ", 
-			type detailed(pure date(d1[])) );
-	echo("date time(): ", date time(d1[]), ", ", date time(d2[]), ", ",date time(d3[]), ", ",date time(d4[]), ", ", 
-			type detailed(date time(d1[])) );
+	// Following assignments are still literals (text)
+	a[0] = "July 14. 2021";
+	a[1] = '20:15:00';
+	a[2] = "2022 August 01 22:15";
+	a[3] = today;  // Must be lower case
+	a[4] = now;    // "
+	a[5] = '' ;    // Blank date
 
-	echo;
-	echo(date("31. March 2021"), " / ", type detailed(date("31. Dezember 2021")) );
+	for all variables( a[], b[] )
+	{
+	    // The 'date' function converts input strings (text) into plain dates without preserving text
+
+	    c[] = date( b[] ); 
+	    d[] = pure date( b[] );
+	    e[] = time ( b[] );
+
+	    echo(new line, "For input value      : ", b[] );
+	    echo("  Date: ", c[],"  Date only: ", d[], "  Time only: ", e[]);
+	}
+	echo( new line, Additional Features );
+
 	echo(date("2020 / 12 / 31 15:00")+1);		// Date and time
 	echo(date time("2020-12-31"));			// Add a time (default 00:00:00)
 	echo(time("2020-12-31 15:00"));			// Time
@@ -894,13 +1713,17 @@ for all variables( example[], ex[] )
     "Keywords":			[ "boolean", "booleans"  ],
     "Description 01:Voids"::
 
-	The boolean data type takes two values which are __reserved keywords__: <b>true</b> and <b>false</b>.<br>
+	The boolean data type takes two values which are __reserved keywords__: <b>true</b> and <b>false</b>.  Boolean results are provided with comparisons.<br>
 	<u>Attention</u>: The keywords are case-sensitive. <b>True</b> and <b>TRUE</b> are a string values, as well as <b>'true'</b> and <b>"false"</b>.
+
+
 
     "Examples 01:"::
 	echo(true, " / ", type(true));        // Boolean true
 	echo(True, " / ", type(True));        // This is a literal value (T is upper case.)
 	echo(5 > 6, " / ", type(5 > 6));      // Boolean false 
+	echo(true & false);                   // Logical AND
+	echo(true | false);                   // Logical OR
 	+++,
 
     "Output 01:":		"automatic"
@@ -957,19 +1780,18 @@ for all variables( example[], ex[] )
 	In the program code, sets can be defined with any number of values or expressions inside braces <b>{ }</b> and separated with commas. Nested parameter sets are supported.
 
 	=== 250, 750, noframe_1stcolbold, noheader
-	Number of elements	| At least zero (empty set)
-	Empty sets		| Empty parameter sets { }are not the same as blank or void values
-	Mixed data types	| A parameter set may contain data of different types, e.g. { 1, Abc, true, date(31.12.2020) }
-	Nesting			| Parameter sets support nesting, e.g. { { 1, 2 }, { 3, 4 }, 5 }
-	Nested empty sets	| Nested empty sets are allowed.  E.g. { {} } is not the same as { } or { { {} } }.
-	Sequence of elements	| The sequence of elements is preserved, i.e. {a,b,c,d} and {d,c,b,a} are different.<br>Comparing them with '=' returns true (ordering does not care), but with '==' returns false (elements must be in same order).
-	Mulitple identical elements | Parameter sets may contain multiple identical elements, e.g. { a, b, a, a, c, c }.  You can use the __trim(__) function to eliminate duplicates.
-	Protection		| In contrast to variable array members and structure members, parameter sets provide no dedicated protection rules.
-	Embedding		| A paramter set can be embedded into another parameter set, e.g. a[] = {1,2}; b[] = {a[]};
-	__Parameter Set Indexing__	| One element can be extracted by indexing.  1st element begins wtih 0. Example:  a[] = {a,b,c,d}{1}; Here, the 1st element is accessed, a[] gets value 'b'.
-	__Negative indexing__	| Negative indexing supported here. a[] = { a,b,c,d,e }{-2} assigns 'd' to a[].
-	__Extracting subsets__	| Specify multiple index values and ranges to extract subsets.
-	Arithmetics		| A broad range of arithmetic operators are available to manipulate parameter sets.
+	Number of elements		| At least zero (empty set)
+	Empty sets			| Empty parameter sets { } are not the same as blank or void values
+	Mixed data types		| A parameter set may contain data of different types, e.g. { 1, Abc, true, date(31.12.2020) }
+	Nesting				| Parameter sets support nesting, e.g. { { 1, 2 }, { 3, 4 }, 5 }
+	Nested empty sets		| Nested empty sets are allowed.  E.g. { {} } is not the same as { } or { { {} } }.
+	Sequence of elements		| The sequence of elements is preserved, i.e. {a,b,c,d} and {d,c,b,a} are different.<br>Comparing them with '=' returns true (ordering does not care), but with '==' returns false (elements must be in same order).
+	Mulitple identical elements 	| Parameter sets may contain multiple identical elements, e.g. { a, b, a, a, c, c }.  You can use the __trim(__) function to eliminate duplicates.
+	Embedding			| A paramter set can be embedded into another parameter set, e.g. a[] = {1,2}; b[] = {a[]};
+	__Indexing Parameter Sets__	| One element can be extracted by indexing.  1st element begins wtih 0. Example:  a[] = {a,b,c,d}{1}; Here, the 1st element is accessed, a[] gets value 'b'.
+	__Negative indexing__		| Negative indexing supported here. a[] = { a,b,c,d,e }{-2} assigns 'd' to a[].
+	__Slicing Parameter Sets__	| Specify multiple index values and ranges to extract subsets.
+	Arithmetics			| A broad range of arithmetic operators are available to manipulate parameter sets, for example intersections and unions.
 	===	
 	+++,
 
@@ -984,11 +1806,11 @@ for all variables( example[], ex[] )
   },
 
 
-  "Indexing Elements" :
+  "Indexing Parameter Sets" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "data types parameter sets indexing" ],
-    "Keywords":			[ "parameter set indexing", "length of parameter sets" ],
+    "Keywords":			[ "Indexing parameter sets", "Indexing elements", "Length of parameter sets" ],
     "Description 01:Parameter Sets - Simple Indexing"::
 
 	<i>Simple indexing</i> is used to retrieve single elements from the parameter set.  Indexing begins with 0 which refers to the 1st
@@ -1042,7 +1864,7 @@ for all variables( example[], ex[] )
   "Slicing Parameter Sets" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Extracting Subsets" ],
+    "Feature Names":		[ "Slicing Parameter sets" ],
 
 
     "Description 01:Parameter Sets - Extracting Subsets"::
@@ -1246,7 +2068,7 @@ for all variables( example[], ex[] )
 	* Please avoid using following special symbols in file names:
 	** : Colon - Used to specify drives in Windows environments
 	** ", ' quotation marks - Not valid as part of file name.  Quotation marks may be needed at command level to specify path and file names containing spaces, but not to be done in B4P code.
-	** *, ? wildcard symbols
+	** *, ? wildcard symbols specific for directory and file names
 	** , comma - B4P uses commas to specify multiple file names, e.g. in the __directory listing(__) function
 	** & ampersand - Typically a control symbol for operating system command shells
 	** &lt;, &gt;, | - Rediction and piping
@@ -1306,7 +2128,7 @@ for all variables( example[], ex[] )
 	=== 200, 300, 500
 	Character Set | Format | Description
 	ANSI 		| 8 bits, 7 of them used 	| Traditional ANSI characters.  All non-ANSI characters, including foreign characters, the Euro symbol, etc. are converted into question marks. <br>Examples: E  e
-	iso8859-1	| 8 bits			| ANSI characters plus West European character set in the range between 0xA0 (160) and 0xFF (255). <br> This format does not support Windows proprietary character range between 0x80 (128) and 0x9F (159) which affects the Euro symbol (€). <br>Examples: E  e  É  é
+	iso8859-1	| 8 bits			| ANSI characters plus West European character set in the range between ex A0 (160) and hex FF (255). <br> This format does not support Windows proprietary character range between hex 80 (128) and hex 9F (159) which affects the Euro symbol (€). <br>Examples: E  e  É  é
 	win1252		| 8 bits, <br> default setting for Windows | Same as above, but includes Windows proprietary character range so additional punctuation symbols as well as the Euro symbol (€) will be handled correctly. <br>Examples: E  e  É  é  €
 	utf-8		| 8 bits			| UNICODE format.  Characters can take 1, 2, 3 or 4 byes.<br>Examples: E  e  É  é  €  Ə  ə  中国  𐌄 (also applicable in next rows below)
 	utf-16		|16 bits (little endian)	| UNICODE format. Every character contains precisely 2 bytes, starting with the least significant byte.  Surrogate pairs are used for characters outside Basic Multilingual Plane.
@@ -1436,6 +2258,7 @@ for all variables( example[], ex[] )
 	none		| none		| none			| Suppresses thousand separator, date is in universally recognized YYYY-MM-DD format
 	en_US		| English	| USA			| Decimal point, 1000-comma, M/D/YYYY
 	en_GB		| English	| Great Britain		| Decimal point, 1000-comma, DD/MM/YYYY
+	en_UK		| English	| Great Britain		| Decimal point, 1000-comma, DD/MM/YYYY (Same as en_GB)
 	en_CA		| English	| Canada		| Decimal point, 1000-comma, DD/MM/YYYY
 	en_DE		| English	| Germany		| Decimal comma, 1000-point, DD/MM/YYYY, weekday and month names are in English
 	en_CH		| English	| Switzerland		| Decimal comma, 1000-point, DD/MM/YYYY, weekday and month names are in English
@@ -1444,7 +2267,9 @@ for all variables( example[], ex[] )
 	en_SE		| English	| Sweden		| Decimal comma, 1000-space, YYYY-MM-DD, weekday and month names are in English
 	en_IN		| English	| India			| Decimal point, 1000-comma, D/M/YYYY, weekday and month names are in English, <br>Note: Different thousand-separation scheme applies in India: 12,34,567.89 
 	in_IN		| Indian	| India			| Decimal point, 1000-comma, D/M/YYYY, <br>Note: Different thousand-separation scheme applies in India: 12,34,567.89
+	hi_IN		| Hindi		| India			| Decimal point, 1000-comma, D/M/YYYY, <br>Note: Different thousand-separation scheme applies in India: 12,34,567.89
 	de_CH		| German	| Switzerland		| Decimal point, 1000-apostrophe, DD.MM.YYYY
+	de_CH_HP	| German	| Switzerland		| For HP machines with other settings: Decimal point, 1000-separator with UNICODE 2817 (Typographical Right Single Quotation Mark)
 	de_DE		| German	| Germany		| Decimal comma, 1000-point, YYYY-MM-DD
 	de_AT		| German	| Austria		| Decimal comma, 1000-space, DD.MM.YYYY
 	de_IT		| German	| Italy			| Decimal comma, 1000-point, DD.MM.YYYY, weekday and month names are in German
@@ -1454,9 +2279,11 @@ for all variables( example[], ex[] )
 	fr_BE		| French	| Belgium		| Decimal comma, 1000-space, D/MM/YYYY, weekday and month names are in French
 	it_IT		| Italian	| Italy			| Decimal comma, 1000-point, DD/MM/YYYY
 	it_CH		| Italian	| Switzerland		| Decimal point, 1000-apostrophe, DD.MM.YYYY, weekday and month names are in Italian
+	it_CH_HP	| Italian	| Switzerland		| For HP machines with other settings: Decimal point, 1000-separator with UNICODE 2817 (Typographical Right Single Quotation Mark)
 	es_ES		| Spanish	| Spain			| Decimal point, 1000-comma, D/MM/YYYY
 	es_US		| Spanish	| USA			| Decimal point, 1000-comma, M/D/YYYY, weekday and month names are in Spanish
 	sv_SE		| Swedish	| Sweden		| Decimal comma, 1000-space, YYYY-MM-DD
+	nl_NL		| Dutch		| Netherlands		| Decimal comma, 1000-point, DD-MM-YYYY
 	===
 
 	+++
@@ -1564,7 +2391,7 @@ for all variables( example[], ex[] )
 "Language Pitfalls" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Language pitfalls", "Hijacking parameters" ],
+    "Feature Names":		[ "Language pitfalls", "Hijacking parameters", "Hijack" ],
     "Description 01:Introduction"::
 
 	The syntactic and semantic structure of B4P allow powerful features such as multiple-word naming for variables, functions and tables, as well as
@@ -1595,7 +2422,7 @@ for all variables( example[], ex[] )
 
 	With b[] = 6, the expression <b>a[] = { 1, b[]=5, 6, 7, 8 }</b> is actually resulting <b>{ 1, true }</b> because the comparison has hijacke the remaining
 	parameters in the parameter set.  Add parenthese to avoid this, e.g. <b>a[] = { 1, (b[]=5), 6, 7, 8 }</b> which returns <b>{1, false, 6, 7, 8}</b>.
-	Note that the same hijacking 
+
 
     "Description 05:Memory Effect on Table Headers"::
 
@@ -1611,6 +2438,16 @@ for all variables( example[], ex[] )
 	* Misleading: <b>... else a[] = 1;</b> Here, 1 is assigned to a variable called <b>else a</b>.
 	* No issues with __blocks__: <b>... else { a[] = 1; } </b>
 
+    "Description 07:Error message refers to end of program unexpectedly"::
+
+	You may likely have forgotten a closing parenthesis after the function beginning with <b>table process ...</b> and other functions which expect
+	a code piece in the last parameter.  With the missing closing parameter, B4P tries to include the entire remaining code into that function
+	parameter.
+
+	<br><br>
+	Action: Go back to that function call and ensure that all closing parentheses are included. Example:<br><br>
+	<b>table process selected rows(table, [sine] = sin( [angle] );   </b> // Attention: One parenthesis is missing!<br>
+	<b>table process selected rows(table, [sine] = sin( [angle] ) ); </b> // This one is OK
 
 	+++
 }

@@ -7,6 +7,76 @@ B4PDOCU.START
 
 
 
+"browser":
+{
+	"Function Names":	[ "browser" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function selects a standard web browser to be used for opening contents using a web browser or accessing Internet contents.
+		The chosen web browser will be memorized for later use, so it only needs to be done when changing over to another browser.
+
+		<br><br>
+		Presently, B4P is supporting the following browsers:
+
+		=== 200, 100, 100, 100, 100, 300, bold_column_1, bold_coluimn_2
+		Full browser name	| Short Name	| Windows	| LINUX		| MacOS		| Remarks
+		Apple Safari		| safari	|		|		| Yes		|
+		Brave			| brave		|		| Yes		| Yes		|
+		Google Chrome		| chrome	| Yes		| Yes		| Yes		|
+		Microsoft Edge		| edge		| Yes		|		|		|
+		Microsoft Explorer	| explorer	| Yes		|		|		| Obsolete
+		Mozilla Firevox		| firevox	|		| Yes		| Yes		|
+		===
+
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"-",
+	"Restrictions":		"Selection of supported browsers deviate across operating systems.",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "browser name or option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "get",
+		  "Description"::
+			=== 200, 600, noframe_1stcolbold
+			get				| Returns the short browser name.  If no browser name is defined, then a menu appears to choose a valid browser name.
+			<i>(blank)</i>			| Treated the same as 'get'
+			info				| Provides info about the chosen browser on the screen and returns the short browser name or blank if no browser is defined.
+			reset				| Removes the known browser name (corresponds to factory settings)
+			set				| A menu appears to choose the browser
+			<i>short broswer name</i>	| The browser name will be checked for validty.  If OK, then it will be used. Otherwise, a menu appears to choose a valid browser name.
+			===
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Short browser name",
+		  "Types": [ "literal" ],
+		  "Description": "The short name of the selected browser will be returned."
+		}
+	],
+	"Examples"::
+	echo(new line, "Reset browser ..." );
+	browser(reset);
+
+	echo(new line, "Choose Google Chrome ..." );
+	browser(chrome);
+
+	echo(new line, "Get browser short name ..." );
+	echo("Browser name = ", browser(get) );
+
+	echo(new line, "Display info about chosen browser ..." );
+	browser(info);
+	+++,
+	"See also": [ "openweb" ]
+},
+
+
+
 
 "openweb":
 {
@@ -14,17 +84,13 @@ B4PDOCU.START
 	"Documentation":	"Function Description",
 	"Library":		"Support Library",
 	"Description"::
-		This function opens a web page using the the favorite browser
-
-		<br><br>
-
-		When calling this function for the very first time without providing a favorite web browser specified in the
-		1st function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
-		installed as B4P is not in charge of installing web browsers for you.
+		This function opens a specified web page.  If the browser name is not yet defined, then a short menu listing
+		the available browsers appears for the first time.  Similar as described in the function __browser(__), the chosen	
+		browser will be memorized for future use and can be changed over again if needed.
 
 	+++,
 	"Call as":		"procedure",
-	"Parameter count":	"1 or 2",
+	"Parameter count":	"1",
 	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
 	"Parameters":
 	[
@@ -37,29 +103,12 @@ B4PDOCU.START
 			Web access errors like non-existing pages, error 404, etc., are displayed on teh browser directly.  B4P gets no return value
 			back from this function informing about access success or failure.
 			+++
-		},
-		{ "Number": "Opt. 2.",
-		  "Name": "Web browser",
-		  "Direction": "input",
-		  "Types": [ "literal" ],
-		  "Description"::
-			Specify a valid web browser name:
-			=== 100, 400, noframe_1stcolbold, noheader
-			Windows	| chrome, edge, explorer
-			Linux   | chrome, firefox, brave
-			MacOS   | brave, chrome, firefox, safari
-
-			===
-			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
-			The chosen browser will be memorized for the next times you are using this function if you do not specify the browser expicitly.<br><br>
-			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
-			+++
 		}
 	],
 	"Examples"::
 	openweb( "https://www.b4p.app" );
 	+++,
-	"See also": [ "docs" ]
+	"See also": [ "docs", "browser" ]
 },
 
 
@@ -104,20 +153,20 @@ Page Number
         [7]   Operating System Commands
 
 
-        For more information, type:     docs search ( interactive mode )
-                                        docs search (help)
+        For more information, type:     docs ( interactive mode )
+                                        docs ( help )
 
 
 _______________________________________________________________________________
 Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 >>
 +++,
-	"See also": [ "docs", "docs search" ]
+	"See also": [ "docs" ]
 },
 
 
 
-"help ... / docs":
+"help ...":
 {
 	"Function Names":	[ "help welcome",  "docs" , "help user guide", "help language", "help functions", "help library","help keywords", "help index" ],
 	"Documentation":	"Function Description",
@@ -136,73 +185,44 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		help index		| " (same)
 		=== 
 
-		When calling this function for the very first time without providing a favorite web browser specified in the
-		1st function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
-		installed as B4P is not in charge of installing web browsers for you.
+		This function opens a specified web page.  If the browser name is not yet defined, then a short menu listing
+		the available browsers appears for the first time.  Similar as described in the function __browser(__), the chosen	
+		browser will be memorized for future use and can be changed over again if needed.
 
 	+++,
 	"Call as":		"procedure",
-	"Parameter count":	"0 or 1",
+	"Parameter count":	"0",
 	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
-	"Parameters":
-	[
-		{ "Number": "Opt. 1.",
-		  "Name": "Web browser",
-		  "Direction": "input",
-		  "Types": [ "literal" ],
-		  "Description"::
-			Specify a valid web browser name:
-			=== 100, 400, noframe_1stcolbold, noheader
-			Windows	| chrome, edge, explorer
-			Linux   | chrome, firefox, brave
-			MacOS   | brave, chrome, firefox, safari
-			===
-			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
-			The chosen browser will be memorized for the next times you are using this function if you do not specify the browser expicitly.<br><br>
-			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
-			+++
-		}
-	],
-	"See also": [ "docs search" ]
+	"See also": [ "docs" ]
 },
 
 
 
 
 
-"docs search" :
+"docs" :
 {
-	"Function Names":	[ "docs search" ],
+	"Function Names":	[ "docs" ],
 	"Documentation":	"Function Description",
 	"Library":		"Support Library",
 	"Description"::
-		This function uses the keyword provided to access the on-line B4P documentation and opens the page you are looking
-		for.  When calling this function for the very first time without providing a favorite web browser specified in the
-		2nd function parameter, then you will be asked to choose one.  Make sure that the favorite web browser is already
-		installed.
+		This function access the online B4P documenation.  If no parameter (e.g. keyword) is provided, then the B4P home page
+		will be opened.
 
 		<br><br>
-
-		If the keyword provided matches with an existing keyword in the online B4P documentation, then the targeted page
-		will be opened immediately.  Try <b>docs search( table process )</b> to get the details about the function __table search(__).
-		Otherwise, yo will be prompted to enter a keyword.  While typing the letters, the number of possible matches shown at the
-		left will narrow down.  Try to type as match so the number of matches reduces to below 20 so they fit into one menu
-		overview.  
+		Keywords can be specifified to access documentation of a specific features directly, e.g. <b>docs(echo)</b> opens the
+		documentation for __echo(__) directly.  The keywords are not case sensitive.
 
 		<br><br>
-
-		The keywords are not case-sensitive.  Wildcards are supported, e.g. typing 'e*o' or 'e??o' finds 'echo.
-		You can use the question mark (?) to toggle among three comparison methods applied for the keyword:
-		* <b>begins with</b>: Keyword is compared with beginning letter(s) of the existing choices (applicable when beginning to narrow down)
-		* <b>contains</b>: Keyword is checked as part of the existing choices
-		* <b>equals</b>: Keyword is checked for perfect match (matches is 0 when nothing is typed and changes to 1 when a matching keyword is found)
+		Instead of keywords, search expressions using B4P __wildcard symbols__ are also possible.  For example, <b>docs('*')</b>
+		will show the list of all keywords on the console where you can choose one from or narrow down the search.
 
 		<u>Note</u>: When you use <b>docs search</b> for the first time, you will be asked to select the web browser.  Select one which is installed on your system.<br>
 		<u>Note</u>: Your own user-defined functions are not included here becasue this feature uses the B4P table of contents available on the B4P web page.
 
 	+++,
 	"Call as":		"procedure",
-	"Parameter count":	"0-2",
+	"Parameter count":	"0-1",
 	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
 	"Parameters":
 	[
@@ -213,56 +233,11 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		  "Description"::
 			If a matching keyword (e.g. 'echo') is entered, then the web page with the right contents will open directly.
 			Wildcards like '*' and '?' are supported to provide a precise search.<br><br>
-			<u>Note</u>: When using wildcard symbols, then put the expression in single or double quotation marks, e.g. <b>"table lookup*"</b>
-			+++
-		},
-		{ "Number": "Opt. 2.",
-		  "Name": "Web browser",
-		  "Direction": "input",
-		  "Types": [ "literal" ],
-		  "Description"::
-			Specify a valid web browser name:
-			=== 100, 400, noframe_1stcolbold, noheader
-			Windows	| chrome, edge, explorer
-			Linux   | chrome, firefox, brave
-			MacOS   | brave, chrome, firefox, safari
-			===
-			If the entered browser is not valid, then you will be asked to choose one of the valid browsers interactively.
-			The chosen browser will be memorized for the next times you are using this function if you do not specify the browser expicitly.<br><br>
-			<u>Note</u>: This function does not check if the browser is installed, nor does it search for all browsers installed in your system.
+			<u>Note:</u> When using wildcard symbols, then put the expression in single or double quotation marks, e.g. <b>"table lookup*"</b><br>
+			<u>Note:</u> All keywords entered are not case sensitive.
 			+++
 		}
-
 	],
-	"Examples:'docs search' entered in interactive mode"::
->> docs search('table li*')
-
-Note: Web documentation is still under construction and not yet complete.
-
-Advice:  docs search ( [keyword] ) looks for specific keyword.
-Exmaple: docs search ( for )   looks for help for 'for'
-         docs search ( 'for*' )    looks for keywords beginning with 'for'
-
-Use 'single' quotation marks when using wildcard symbols *,?,..
-
-
-Narrow down the number of matches for your keyword (target: Max 20).
-Add text by typing, [Backspace] to delete last character
-Press [Enter] to confirm, [Escape] to leave.
-The number of matches will update automatically while typing
-Press [-] to toggle comparison mode between 'begins with', 'contains' and 'equals'.
-Comparison mode is equals
-
-   4 matches: table li*
-
-     A :  table lift contents
-     B :  table lift header row
-     C :  table lift headers
-     D :  table list
-     X :  Exit this menu
-Please select: D
->>
-	+++,
 	"See also": [ "help welcome", "help keywords", "help" ]
 },
 
@@ -365,75 +340,29 @@ Please select: D
 		  "Description": ""
 		},
 		{ "Number": "Opt. 2.",
-		  "Name": "Web browser",
+		  "Name": "Visualization tool",
 		  "Direction": "input",
 		  "Types": [ "literal" ],
+		  "Default value": "here",
 		  "Description"::
-			Specify a valid web browser name:
-			=== 200, 600, noframe_1stcolbold, noheader
-			Windows	| chrome, chrome datatables, edge, edge datatables, explorer, explorer datatables
-			Linux   | chrome, chrome datatables, firefox, firefox datatables, brave, brave datatables
-			MacOS   | brave, brave datatables, chrome, chrome datatables, firefox, firefox datatables, safari, safari datatabls
-			All systems | here
+			=== 200, 600, noframe_1stcolbold
+			Visiualization Tool | Functionality											| Restrictions
+			here		| The table will be visualized on the console, providing interactive navigation features		\
+					  This is the default choice if the 2nd parameter is not specified.					|
+			excel		| Saves the table as a ".xlsx" file and opens Microsoft Excel for viewing.				| Windows only
+			csv		| Saves the table as a ".csv" file and opens Microsoft Excel for viewing.				| Windows only
+			html		| Saves the table as a ".html" file and opens Microsoft Excel for viewing.				| Windows only
+			xml		| Saves the table as a ".xls" file (EXCEL 2003 XML) and opens Micirosoft Excel for viewing.		| Depreciated format
+			browser		| Saves the table as a ".html" file and opens a web browser for direct viewing.				|
+			datatables	| Saves the table as a ".html" file and opens the web browser and uses the Datatable feature as provided \
+					  by SpryMedia Ltd under the MIT license								|
 			===
-			<b>here</b> opens the table locally.
-			All other options open the 
 
 			+++
 		}
 
 	],
-	"Examples:'view' entered in interactive mode"::
->> table load( cities, Examples\Cities.csv )
-
-    Loaded CSV/TSV file 'Examples\Cities.csv':
-    15 rows, max 8 columns, 8 columns in 1st row, 120 fields, list separator: ;
-
->> view ( cities, here )
-000000: City          State / Province Country Inhabitants Famous attraction
-        ------------- ---------------- ------- ----------- ------------------
-000001: New York City New York         USA     8300000     St. of Liberty
-000002: Washington    D.C.             USA     650000      Lincoln Statue
-000003: Philadelphia  Pennsylvania     USA     1500000     Independence hall
-000004: Boston        Massachusetts    USA     620000      Freedom trail
-000005: San Francisco California       USA     805000      Golden Gate
-000006: Montréal      Quebec           CAN     1700000     Hôtel du Parlement
-000007: Copenhagen    Hovedstaten      DAN     580000      Little Mermaid
-000008: Venice        Venetia          ITA     260000      Doge's Palace
-000009: Los Angeles   California       USA     3800000     Hollywood
-000010: Vienna                         AUT     1800000     Prater
-_______________________________________________________________________________
-Action ([?] for help):  ?
-Navigation: l = Left,      r = Right       u = Page Up   d = Page Down   s = Search next
-            L = 1st Col.   R = Last Col.   U = Top       D = Bottom      S = Search
-            n = 1 column  narrower         w = 1 column wider            c = ClS on/off
-            N = 5 columns narrower         W = 5 columns wider
-            X = Change Screen Width        P = Change Page Height
-
-            Q = Quit
-
-Procedure call  :  view ( table name [, chars per row [, rows to show]] )
-            e.g.:  view ( my table, 160, 20 ) // My table, 160 chars, 20 rows to show
-
-_______________________________________________________________________________
-Action ([?] for help):  r
-000000: State / Province Country Inhabitants Famous attraction  Alt. (m)
-        ---------------- ------- ----------- ------------------ --------
-000001: New York         USA     8300000     St. of Liberty     10
-000002: D.C.             USA     650000      Lincoln Statue     7
-000003: Pennsylvania     USA     1500000     Independence hall  12
-000004: Massachusetts    USA     620000      Freedom trail      43
-000005: California       USA     805000      Golden Gate        16
-000006: Quebec           CAN     1700000     Hôtel du Parlement
-000007: Hovedstaten      DAN     580000      Little Mermaid     24
-000008: Venetia          ITA     260000      Doge's Palace      1
-000009: California       USA     3800000     Hollywood          100
-000010:                  AUT     1800000     Prater
-_______________________________________________________________________________
-Action ([?] for help):  q
->>
-	+++,
-	"See also": [ "table list", "view reset" ]
+	"See also": [ "table view", "table list", "view reset" ]
 },
 
 
@@ -452,10 +381,504 @@ Action ([?] for help):  q
 	"Parameter count":	"0",
 	"Restrictions":		"Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.",
 	"See also": [ "view"]
+},
+
+
+
+
+"table view" :
+{
+	"Function Names":	[ "table view" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function displays a table on the console and provides a set of navigation features to browse the contents.
+		A set of characters (incl. function and navigation keys) can be defined to leave the viewer when such a character has 
+		been pressed.
+
+		<br><br>
+
+		While viewing the table, following navigation keys are available:
+
+		=== 200, 800, noframe_1stcolbold
+		Key		| Function
+		&uarr;		| Move up
+		&darr;		| Move down
+		&larr;		| Move left
+		&rarr;		| Move right
+		Pg up		| 1 screen page up
+		Pg dn		| 1 screen page down
+		Home		| Move to 1st column
+		End		| Move to last column
+		Ctrl-Home	| Move to 1st row
+		Ctrl-End	| Move to last row
+		Ctrl- &uarr;	| Reduce number of screen lines to display contents
+		Ctrl- &darr;	| Increase number of screen lines to display contents
+		Ctrl- &larr;	| Reduce column width
+		Ctrl- &rarr;	| Increase column width
+		Ctrl-C		| Copy cell contents into clipboard (Pushing Ctrl-C twice in a row stops program execution)
+		F1		| Quick on-screen help for the available navigation functions
+		===
+
+		Contents visualized with highlighted (typically yellow) text color are incomplete.  Widen the columns and/or increase the number of rows
+		to see the full contents if needed. One the entire contents are visible, then the highlighting vanishes.
+
+
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"3-6",
+	"Restrictions":		["Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.", "Not suitable for batch processing"],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": "The contents of this table will be displayed"
+		},
+		{ "Number": "2.",
+		  "Name": "Prompt",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			The prompt text will be displayed at the bottom of the table.  UNICODE PUA2 characters (like &amp;yellow; for yellow texdt) are allowed here to add visual effects.
+			<br><br>
+			If the prompt consists of two rows, separated with a new line character, then the first line will be displayed above the table (instead of a standard table header info)
+			and the 2nd line will be used as the prompt.
+		  +++
+		},
+		{ "Number": "3.",
+		  "Name": "Return characters",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			This string contains all return characters which will stop viewing when one of these characters or keyboard codes have been pressed.
+			Example: <b>'ABC&amp;f3;&amp;shift-f4;&amp;escape;' + new line </b> will stop browsing when A, B, C, F3, Shift-F4, the Enter key or the Escape key has been pressed.
+			<br>
+			<u>Note:</u> The entities &amp;nl; and &amp;escape; are unofficial entitites not supported by browsers, but accepted by B4P.
+		  +++
+		},
+		{ "Number": "Opt. 4.",
+		  "Name": "Options",
+		  "Direction": "input",
+		  "Types": [ "parameter set" ],
+		  "Default value": "{} (empty set) - No options specified",
+		  "Description"::
+			The parameters set may contain the following options.
+			=== 300, 500, noframe_1stcolbold, noheader
+			full row cursor		| The enire row will be marked
+			hide row numbers	| The row numbers on the left-hand-side will be hidden (for simplified output)
+			select no headers	| The cursor cannot be moved into the header row, i.e. header row and its contents cannot be selected
+			ignore case		| The entered character will be compared with the return characters, but ignoring upper/lower case.  Letters returned are in upper case.
+			no deco			| No color features like background zebra pattern
+			no input		| The table will be displayed, but no prompt will show up and no input will be requested.  Suitable for passive display.
+			wrap			| Contents containing line breaks will be shown over multiple rows
+			alt screen		| The table will be displayed on an alternative screen.  The previous screen contents with its history will resume after done viewing.
+			json			| Not applicable for this function.  Will be ignored.
+			===
+
+		  +++
+		},
+		{ "Number": "Opt. 5.",
+		  "Name": "Row",
+		  "Direction": "output",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			The table row number where the cursor was located when leaving the table will be returned.
+		  +++
+		},
+		{ "Number": "Opt. 6.",
+		  "Name": "Column",
+		  "Direction": "output",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			The table column number where the cursor was located when leaving the table will be returned.  The 1st column is column 0.
+			In case the option 'full row cursor' is chosen, then the column number shown at the left hand side of the screen will be returned.
+		  +++
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Entered command",
+		  "Types": [ "literal" ],
+		  "Description": "The chosen character, as specified in the 3rd function parameter, will be returned."
+		}
+	],
+	"See also": [ "view", "variable view"]
+
+},
+
+
+"variable view" :
+{
+	"Function Names":	[ "variable view" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function displays the contents of a specified variable, including all its array and structure members and sub-members.
+		At the beginning, 2 levels are displayed: The __base variable__ and its direct array or structure members.
+		On the every row where a plus sign (+) is visible, push the plus key on the keyboard to open up further details.
+		Alternative, push the greater-than sign (&gt;) to open all details.
+		A set of characters (incl. function and navigation keys) can be defined to leave the viewer when such a character has 
+		been pressed.
+
+		<br><br>
+		Following contents will be displayed:
+		=== 200, 800, noheader, noframe_1stcolbold
+		Variable Name	| The variable name on the 1st row is the top-level variable name as specified in the 1st function parammeter.  In the rows below, the member variable names or index numbers are displayed.
+		Contents	| Displays the contents of the variables
+		Type		| Displays the type (If the option 'json' isused, then JSON naming convention is used)
+		Form		| Distinguishes between simple variable, array, structure and zero members (array with 0 numbers).  (If the 'json' option applies, 'object' will be used in place of the structure.)
+		Level		| Variable hierarchy level.  Base variable: 0.  First level members: 1, sub-members: 2, and so forth.
+		Weight		| Number of further member variables underneath, including this one.
+		===
+
+
+		<br><br>
+
+		While viewing the table, following navigation keys are available:
+
+		=== 200, 800, noframe_1stcolbold
+		Key		| Function
+		&uarr;		| Move up
+		&darr;		| Move down
+		&larr;		| Move left
+		&rarr;		| Move right
+		Pg up		| 1 screen page up
+		Pg dn		| 1 screen page down
+		Home		| Move to 1st column
+		End		| Move to last column
+		Ctrl-Home	| Move to 1st row
+		Ctrl-End	| Move to last row
+		Ctrl- &uarr;	| Reduce number of screen lines to display contents
+		Ctrl- &darr;	| Increase number of screen lines to display contents
+		Ctrl- &larr;	| Reduce column width
+		Ctrl- &rarr;	| Increase column width
+		Ctrl-C		| Copy cell contents into clipboard (Pushing Ctrl-C twice in a row stops program execution)
+		+		| When the cursor lies on a row with a '+' marker, then the next level of member variables become visible.
+		&gt;		| When the cursor lies on a row with a '+' marker, then all further levels of member variables become visible
+		-		| When the cursor lies on a row with a '-' marker, then the details below will be hidden again.
+		F1		| Quick on-screen help for the available navigation functions. Will vanish when continuing navigating.
+		F3		| Provides more details about the selected variable, see below. Will vanish when continuing navigating.
+		===
+
+		Contents visualized with highlighted (typically yellow) text color are incomplete.  Widen the columns and/or increase the number of rows
+		to see the full contents if needed. One the entire contents are visible, then the highlighting vanishes.
+
+		<br><br>
+		Variable details explained (when pushing F3):
+		=== 200, 800, noheader, noframe_1stcolbold
+		Depth		| Total number of levels of the variable.  For simple variables, it is 1.  For arrays and structures with members, but without sub-members, it is 2.
+		Weight		| Total number of member variables, including the base variable at the referenced location.
+		Tree Profile	| The total weight broken down into different levels.  The 1st level is always 1 because it represents the base variable.  The 2nd level refers to its members, and so forth.
+		Leaf Count	| The total number of leaf variables containing valid data.  Intermediate variables with members are not counted, even if they carry valid data.
+		Leaves Profile	| The total number of leaf variables is broken down into different levels, similar to Tree Profile.
+		===
+
+
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"3-6",
+	"Restrictions":		["Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.", "Not suitable for batch processing"],
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Name of existing table",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description": "The contents of this table will be displayed"
+		},
+		{ "Number": "2.",
+		  "Name": "Prompt",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			The prompt text will be displayed at the bottom of the table.  UNICODE PUA2 characters (like &amp;yellow; for yellow texdt) are allowed here to add visual effects.
+		  +++
+		},
+		{ "Number": "3.",
+		  "Name": "Return characters",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Description"::
+			This string contains all return characters which will stop viewing when one of these characters or keyboard codes have been pressed.
+			Example: <b>'ABC&amp;f3;&amp;shift-f4;&amp;escape;' + new line </b> will stop browsing when A, B, C, F3, Shift-F4, the Enter key or the Escape key has been pressed.
+			<br>
+			<u>Note:</u> The entities &amp;nl; and &amp;escape; are unofficial entitites not supported by browsers, but accepted by B4P.
+		  +++
+		},
+		{ "Number": "Opt. 4.",
+		  "Name": "Options",
+		  "Direction": "input",
+		  "Types": [ "parameter set" ],
+		  "Default value": "{} (empty set) - No options specified",
+		  "Description"::
+			The parameters set may contain the following options.
+			=== 300, 500, noframe_1stcolbold, noheader
+			full row cursor		| The enire row will be marked
+			hide row numbers	| The row numbers on the left-hand-side will be hidden (for simplified output)
+			select no headers	| (Already and always active when viewing variables) - The cursor cannot be moved into the header row, i.e. header row and its contents cannot be selected
+			ignore case		| The entered character will be compared with the return characters, but ignoring upper/lower case.  Letters returned are in upper case.
+			no deco			| No color features like background zebra pattern
+			no input		| The table will be displayed, but no prompt will show up and no input will be requested.  Suitable for passive display.
+			wrap			| Contents containing line breaks will be shown over multiple rows
+			alt screen		| The table will be displayed on an alternative screen.  The previous screen contents with its history will resume after done viewing.
+			json			| JSON naming convention will be used.
+			===
+
+		  +++
+		},
+		{ "Number": "Opt. 5.",
+		  "Name": "Row",
+		  "Direction": "output",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			The table row number where the cursor was located when leaving the table will be returned.
+		  +++
+		},
+		{ "Number": "Opt. 6.",
+		  "Name": "Column",
+		  "Direction": "output",
+		  "Types": [ "numeral" ],
+		  "Description"::
+			The table column number where the cursor was located when leaving the table will be returned.  The 1st column is column 0.
+			In case the option 'full row cursor' is chosen, then the column number shown at the left hand side of the screen will be returned.
+		  +++
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Entered command",
+		  "Types": [ "literal" ],
+		  "Description": "The chosen character, as specified in the 3rd function parameter, will be returned."
+		}
+	],
+	"See also": [ "inspect", "see", "table view"]
+
+},
+
+"inspect" :
+{
+	"Function Names":	[ "inspect" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		The function <b>inspect</b> is a simpler form of <b>variable view</b>, avoiding to type sophisticated commands.
+		The variable will be visualized with the same interactive featuers as with __variable view(__).
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0-1",
+	"Restrictions":		["Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.", "Not suitable for batch processing"],
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Option",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "'' (blank)",
+		  "Description": "Only supported option: <b>json</b>.  It will use JSON nomenclature when viewing the variable."
+		}
+	],
+	"See also": [ "variable view", "see", "table view"]
+},
+
+
+"file browser" :
+{
+	"Function Names":	[ "file browser" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function provides interactive file browsing (using the table features of __table view(__)) where
+		the user will see directory and file names, file type, size and date and timestamp of last modification.
+		Optionally, the different file types appear in their characteristic colors, e.g. blue for (Microsoft Word) documents.
+
+		<br><br>
+
+		While browing the files, following navigation keys are available:
+
+		=== 200, 800, noframe_1stcolbold
+		Key		| Function
+		&uarr;		| Move up
+		&darr;		| Move down
+		&larr;		| Move left
+		&rarr;		| Move right
+		Pg up		| 1 screen page up
+		Pg dn		| 1 screen page down
+		Home		| Move to 1st column
+		End		| Move to last column
+		Ctrl-Home	| Move to 1st row
+		Ctrl-End	| Move to last row
+		Ctrl- &uarr;	| Reduce number of screen lines to display contents
+		Ctrl- &darr;	| Increase number of screen lines to display contents
+		Ctrl- &larr;	| Reduce column width
+		Ctrl- &rarr;	| Increase column width
+		Ctrl-C		| Copy cell contents into clipboard (Pushing Ctrl-C twice in a row stops program execution)
+		F1		| Quick on-screen help for the available navigation functions
+		Enter key	| Enter a sub-folder or, on the 1st row, the parent folder (..)
+		Escape key	| Stop program execution
+		Visible characters | Specify a path or directory name directly to change directory.  Just start typing and a prompt to choose a directory will occur automatically.
+		===
+
+		<u>Hint:</u> Use the <b>drag and drop</b> feature. If you have a file browser open, then click on the folder symbol to choose, hold the
+		mouse key pressed and drop it into the console with the running B4P program.  The <i>drop</i> action actually <i>types</i> the full path
+		of the selected directory.  Press 'Enter' to change the directory.  If the directory cannot be found or is not accessible, then no change takes place.
+
+
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"1-4",
+	"Restrictions":		["Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.", "Not suitable for batch processing"],
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Prompt",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "Current path on 1st row, standard prompt below the table",
+		  "Description"::
+			The prompt text will be displayed at the bottom of the table.  UNICODE PUA2 characters (like &amp;yellow; for yellow texdt) are allowed here to add visual effects.
+			<br><br>
+			If the prompt consists of two rows, separated with a new line character, then the first line will be displayed above the table (instead of a standard table header info)
+			and the 2nd line will be used as the prompt.
+		  +++
+		},
+		{ "Number": "Opt. 2",
+		  "Name": "Path",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": ". (current folder)",
+		  "Description"::
+			Specify an existing path.  Relative paths such as specifying subdirectories, '..' for parent folder, '.' for current folder, etc. are supported.
+			Wildcards are not allowed here.
+		  +++
+		},
+		{ "Number": "Opt. 3",
+		  "Name": "Pattern",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "* (all files)",
+		  "Description"::
+			Specify the pattern to be applied for the file names.  Folder names are not affected by this.
+			For exapmle, specify "*.xlsx,*.xlsm" to include all Excel files with and without macros.
+
+			<br><br>
+			<u>Note:</u> Under Windows, cases for pattern matching are ignored, but not for LINUX or MACOS.  DO ignore case, see 4th function parameter.
+		  +++
+		},
+		{ "Number": "Opt. 4.",
+		  "Name": "Options",
+		  "Direction": "input",
+		  "Types": [ "parameter set" ],
+		  "Default value": "{} (empty set) - No options specified",
+		  "Description"::
+			The parameters set may contain the following options.
+			=== 300, 500, noframe_1stcolbold, noheader
+			files only		| Only files will be listed.  When pushing 'Enter', the chosen file name will be returned <u>without</u> the path name.
+			colors			| File names of common types will be colored, e.g. spreadsheets in green, presentations in red, PDF files in pink, etc.
+			file names ignore case	| Applicable to LINUX and MACOS: Comparing files with matching pattern provided with the 3rd function paramter will ignore upper/lower case.  Under Windoes, cases are ignored anyway.
+			===
+
+			Following options, also provided in  __table view(__), are also supported here:
+
+			=== 300, 500, noframe_1stcolbold, noheader
+			full row cursor		| The enire row will be marked
+			ignore case		| The entered character will be compared with the return characters, but ignoring upper/lower case.  Letters returned are in upper case.
+			no deco			| No color features like background zebra pattern
+			no input		| The table will be displayed, but no prompt will show up and no input will be requested.  Suitable for passive display.
+			alt screen		| The table will be displayed on an alternative screen.  The previous screen contents with its history will resume after done viewing.
+			===
+
+		  +++
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Chosen file",
+		  "Types": [ "literal" ],
+		  "Description"::
+			An empty string (blank) is returned if the file browser is left by pressing 'Escape'.
+			If 'Enter' is pressed on a file name, then one of the following cases apply:
+			* If the 4th funtion parameter contains 'files only' as a setting which disables navigation through directories, then only the file name will be returned.
+			* Otherwise, the full path with the file name will be returned.
+			+++
+		}
+	],
+	"Examples"::
+
+	file name[] = file browser( "Select an Excel file: ", ".", "*.xlsx,*.xlsm", { colors, file names ignore case } );
+	echo("Good job. The chosen file name is: ", file name[] );
+
+	+++,
+	"See also": [ "dir", "table view", "directory listing"]
+},
+
+
+"dir" :
+{
+	"Function Names":	[ "dir" ],
+	"Documentation":	"Function Description",
+	"Library":		"Support Library",
+	"Description"::
+		This function is a simplified version of __file browser(__) which provides the directory listing where you can
+		navigate.  The cursor supported navigation keys, function keys and commands are described below.
+		If called as a function, and the Enter key is used to return, the it contains the full path name of the selected file.
+
+		The differences of <b>dir()</b> and __file browser(__) are the following:
+		* In interactive mode, use it as a short and familiarized command.  Just type <b>dir</b>
+		* Some settings are already made, e.g. files of known types appear in their characteristic caolors, e.g. green for (Microsoft Excel) spreadsheets.
+
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"0-2",
+	"Restrictions":		["Under normal conditions, the 'Support Library' is loaded automatically, so no 'include(...)' call is needed.", "Not suitable for batch processing"],
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Path",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": ". (current folder)",
+		  "Description"::
+			Specify an existing path.  Relative paths such as specifying subdirectories, '..' for parent folder, '.' for current folder, etc. are supported.
+			Wildcards are not allowed here.
+		  +++
+		},
+		{ "Number": "Opt. 2",
+		  "Name": "Pattern",
+		  "Direction": "input",
+		  "Types": [ "literal" ],
+		  "Default value": "* (all files)",
+		  "Description"::
+			Specify the pattern to be applied for the file names.  Folder names are not affected by this.
+			For exapmle, specify "*.xlsx,*.xlsm" to include all Excel files with and without macros.
+
+			<br><br>
+			<u>Note:</u> Regarless if running under Windows or LINUX, pattern checks with file names are always case-insensitive.
+		  +++
+		}
+
+	],
+	"Return value":
+	[
+		{ "Name": "Chosen file",
+		  "Types": [ "literal" ],
+		  "Description"::
+			An empty string (blank) is returned if the file browser is left by pressing 'Escape'.
+			If 'Enter' is pressed on a file name, then the full path with the file name is returned.
+			+++
+		}
+	],
+	"Examples"::
+	dir;
+	dir ('.\Tables', '*.xlsx' );
+
+	+++,
+	"See also": [ "file browser", "directory listing"]
 }
-
-
-
 
 
 

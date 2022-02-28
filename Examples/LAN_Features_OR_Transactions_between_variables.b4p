@@ -6,4 +6,4 @@
   structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
 
   animals1[] |<== animals2[];  // animals1 contains overwritten fish, reptile and all mammal sub-members
-  inspect(animals1[]);
+  see(animals1[]);

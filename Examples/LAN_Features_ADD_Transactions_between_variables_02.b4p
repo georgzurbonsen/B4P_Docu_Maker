@@ -9,5 +9,5 @@
 
   animals1[mammal] +<<= animals2[ mammal ];
 
-  inspect(animals1[]);
-  inspect(animals2[]); // Without the mammals
+  see(animals1[]);
+  see(animals2[]); // Without the mammals

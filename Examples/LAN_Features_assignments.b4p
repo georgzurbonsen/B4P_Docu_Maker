@@ -9,5 +9,5 @@
   [table:Name,2] = Nic;
   [table:Name,2] = Jane;  
 
-  inspect( a[] );
+  see( a[] );
   table list( table );

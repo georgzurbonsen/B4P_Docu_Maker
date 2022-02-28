@@ -26,7 +26,7 @@ B4PDOCU.START
 	[table:Name,2] = Nic;
 	[table:Name,2] = Jane;	
 
-	inspect( a[] );
+	see( a[] );
 	table list( table );
 	+++,
     "Output 01:": "automatic",
@@ -318,7 +318,7 @@ B4PDOCU.START
 "Comparison Operators" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "comparison operators", "comparison expression" ],
+    "Feature Names":		[ "comparison operators", "comparison expression", "comparisons" ],
     "Description 01:Introduction"::
 	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators which can be combined with __comparison options__
 	to make adjustments on the comparison rules:
@@ -332,7 +332,7 @@ B4PDOCU.START
 	* <b>!=</b> __strictly not equal to__, expecting 1 operand only
 
 	Comparisons with b>=</b> and <b>&gt;&lt;</b> are more tolerant in comparing numbers and strings containing numbers, and also support
-	wildcard symbols on the right-hand operands if they are defined as softquoted literals (e.g. values in single quotation marks, not double).
+	wildcard symbols on the right-hand operands if they are defined as __softquoted literals__ (e.g. __text inside single quotation marks__).
 
 
 	+++,
@@ -380,8 +380,7 @@ B4PDOCU.START
 	* Various B4P functions accepting parameters allowign wildcards for pattern matching
 	* Searching for files, e.g. __directory listing(__) and __resolve path name(__) function.
 
-	Unless specified otherwise (like in searching files), wildcard symbols in strings will only work if specified as __softquoted literals__, for
-	example using single (and not double) quotation marks.
+	Unless specified otherwise (like in searching files), wildcard symbols in strings will only work if specified as __softquoted literals__ (e.g. __text inside single quotation marks__).
 
  	=== 100, 200, 100, 600, bold_column_1 bold_column_3
 	Symbol	| Meaning						| Example			| Explanation
@@ -437,7 +436,7 @@ B4PDOCU.START
 
 	Basic rules to equal-to comparisons which are a bit more relaxed than the __strictly equal to__ comparison operator:
 	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.
-	* __Wildcards__ are supported in the right-hand operand if the value is a softquoted literal (e.g. specified inside single quotation marks)
+	* __Wildcards__ are supported in the right-hand operand if the value is a __softquoted literal__ (e.g. specified inside single quotation marks)
 	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
 	* Dates, Booleans and numerals can be compared with literals if they have the same text value / literal representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.
 	* Comparing two void values will always return true.
@@ -524,7 +523,7 @@ B4PDOCU.START
 
 	Basic rules to not-equal-to comparisons which are a bit more relaxed than the __strictly not equal to__ comparison operator:
 	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.
-	* __Wildcards__ are supported in the right-hand operand if the value is a softquoted literal (e.g. specified inside single quotation marks)
+	* __Wildcards__ are supported in the right-hand operand if the value is a __softquoted literal__ (e.g. __text inside single quotation marks__).
 	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
 	* Dates, Booleans and numerals can be compared with literals if they have the same text value / literal representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.
 	* Comparing two void values will always return true.
@@ -1057,7 +1056,7 @@ B4PDOCU.START
 "Assignment operators" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Assignment operators" ],
+    "Feature Names":		[ "Assignment operator", "Assignment operators" ],
     "Description 01:Introduction"::
 
 	Similar to C/C++, B4P supports assignment operators as listed in the table below. An assignment operator such as <b>a[]+=3</b>; 
@@ -1145,7 +1144,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "ad-hoc operators" ],
-    "Keywords":		[ "ad-hoc operations" ],
+    "Keywords":			[ "ad-hoc operations", "ad-hoc operation" ],
     "Description 01:Introduction"::
 
 	Ad-hoc operators are features which apply an immediate action on the variable or table field referenced.

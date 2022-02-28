@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+
+    echo("Copy a text to the clipboard");
+    clipboard("Copied text");
+    echo("Paste the contents in a different application, e.g. an editor, Word, Excel, etc.");
+    echo("You have 5 seconds to copy some other text.  Sleeping for 5 seconds ...");
+    sleep(5);
+    echo("Current contents on the clipboard: ", clipboard() );
+

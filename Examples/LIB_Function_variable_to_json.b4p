@@ -3,4 +3,4 @@
   j[] = variable to json( a[] );
   echo("Simple variable in JSON: ", j[] );
   json to variable( b[], j[], JSON B4P );
-  inspect(b[]);
+  see(b[]);

@@ -7,5 +7,5 @@
 
   animals1[] |<=> animals2[]; 
 
-  inspect(animals1[]); // trout and eel; and dog and cat are exchanged, owl and turtle duplicated
-  inspect(animals2[]); 
+  see(animals1[]); // trout and eel; and dog and cat are exchanged, owl and turtle duplicated
+  see(animals2[]); 

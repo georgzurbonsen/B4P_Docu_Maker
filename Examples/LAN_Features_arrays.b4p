@@ -2,9 +2,9 @@
   
   echo("Initialize variable with dim function:");
   dim( a[], 5, '.' );
-  inspect( a[] );
+  see( a[] );
 
   echo(new line, "Initialize variable with array function:");
   array( a[], { Ha, He, Hi, Ho, Hu, Ahoi } );
-  inspect( a[] );
+  see( a[] );
 

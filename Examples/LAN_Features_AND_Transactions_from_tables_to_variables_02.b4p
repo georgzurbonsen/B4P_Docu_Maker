@@ -13,6 +13,6 @@
   animal1[] &<=>  [ animals: .., 1 ]; // Animal1: Owl with night vision, no info on legs, keeps bat wings and hangs while sleeping
   animal2[] &<=>^ [ animals: .., 2 ]; // Animal2: Dog with 4 legs.  Circumflex symbol: Do not transfer table name.
 
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Contains bat and crab and ape with some info

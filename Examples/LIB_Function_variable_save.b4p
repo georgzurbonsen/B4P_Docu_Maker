@@ -8,4 +8,4 @@
 
   variable load( c[], "Outputs/colors.json", JSON B4P );
 
-  inspect( c[] );
+  see( c[] );

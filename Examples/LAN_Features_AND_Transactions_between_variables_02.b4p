@@ -7,5 +7,5 @@
 
   animals1[] &<=> animals2[]; 
 
-  inspect(animals1[]); // animals1 gets cat, trout, lynx
-  inspect(animals2[]); // animals2 gets dog, eel and bear
+  see(animals1[]); // animals1 gets cat, trout, lynx
+  see(animals2[]); // animals2 gets dog, eel and bear

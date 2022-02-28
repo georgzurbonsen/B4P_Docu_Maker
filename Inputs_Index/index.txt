@@ -9,7 +9,7 @@ __10p__<br>
 Function Library Guide: 5.2.3 Exponential Functions<br><br>
 "Description 02:A"::
 __abbreviate name__<br>
-Function Library Guide: 6.3.3 abbreviate name<br><br>
+Function Library Guide: 6.3.4 abbreviate name<br><br>
 __abort__<br>
 Function Library Guide: 2.5.6 abort<br><br>
 __abs__, __absolute value__<br>
@@ -21,7 +21,7 @@ Function Library Guide: 9.4.1 list tables<br><br>
 __Accessing table information__<br>
 Function Library Guide: 9.4 Accessing Table Information<br><br>
 __accessing tables__<br>
-Language Guide: 5.1 Accessing Tables<br><br>
+Language Guide: 5.4 Accessing Tables<br><br>
 __acos__, __acos deg__<br>
 Function Library Guide: 5.2.5 Trigonometric Functions<br><br>
 __acosh__<br>
@@ -52,8 +52,6 @@ __Additional info on fast processing of rows__<br>
 Function Library Guide: 9.7.4.5.1 Addt'l Info on fast rows processing<br><br>
 __advanced directory listing__, __advanced directory listing recursive__<br>
 Function Library Guide: 11.2.2 advanced directory listing ...<br><br>
-__Align and Process__<br>
-User Guide: 3.6 6. Analyze<br><br>
 __alternative execution of code blocks__<br>
 Function Library Guide: 2.1.4 switch, check<br><br>
 __and__<br>
@@ -77,13 +75,15 @@ Function Library Guide: 9.8.3.8 table arrange ...<br><br>
 __array__<br>
 Function Library Guide: 10.2.3 array, array protect<br><br>
 __Array functions__<br>
+Function Library Guide: 10.1.10 insert members (protect)<br><br>
+__Array functions__<br>
 Function Library Guide: 10.2.1 dim / redim<br><br>
 __array member__, __array members__<br>
 Language Guide: 4.3.2 Arrays<br><br>
 __array protect__<br>
 Function Library Guide: 10.2.3 array, array protect<br><br>
 __array to array structure__, __array to structure__<br>
-Function Library Guide: 10.2.7 array to structure ...<br><br>
+Function Library Guide: 10.2.9 array to structure ...<br><br>
 __arrays__<br>
 Language Guide: 4.3.2 Arrays<br><br>
 __Arrays and Structures__<br>
@@ -94,7 +94,7 @@ __asinh__<br>
 Function Library Guide: 5.2.6 Hyperbolic Functions<br><br>
 __assign__, __assign [function]__<br>
 Function Library Guide: 2.7.6 assign<br><br>
-__Assignment operators__<br>
+__Assignment operator__, __Assignment operators__<br>
 Language Guide: 6.4 Assignment operators<br><br>
 __assignments__<br>
 Language Guide: 6 Assignments and Expressions<br><br>
@@ -118,17 +118,15 @@ __average ignore zero if__, __average ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 "Description 03:B"::
 __background color__<br>
-Function Library Guide: 3.2.3 text / background color<br><br>
+Function Library Guide: 3.2.4 text / background color<br><br>
 __base variable__, __base variables__<br>
 Language Guide: 4.3 Variable Forms and Trees<br><br>
 __Basic Commands__<br>
 Language Guide: 2.7.7 Basic Commands<br><br>
-__basic data types__<br>
-Language Guide: 3.7 Basic Data Types<br><br>
+__Basic data types__<br>
+Language Guide: 3.3 Basic Data Types<br><br>
 __basic directory and file functions__<br>
 Function Library Guide: 11.1 Basic Directory and File Functions<br><br>
-__Basic Language Structure__<br>
-Language Guide: 3.1 Basic Language Structure<br><br>
 __basic math functions__<br>
 Function Library Guide: 5.1 Basic Math Functions<br><br>
 __basic statistics functions__<br>
@@ -139,8 +137,12 @@ __best type__<br>
 Function Library Guide: 4.10 best type<br><br>
 __binary operators__<br>
 Language Guide: 6.2 Binary Operators<br><br>
-__Blocks__<br>
-Language Guide: 3.1 Basic Language Structure<br><br>
+__blinking__<br>
+Function Library Guide: 3.2.6 blinking<br><br>
+__Block__, __Blocks__<br>
+Language Guide: 3.2 Overall Language Structure<br><br>
+__boldface__<br>
+Function Library Guide: 3.2.7 boldface<br><br>
 __boolean__, __boolean conversion function__<br>
 Function Library Guide: 4.8 boolean<br><br>
 __boolean to literal conversion and formatting__, __Boolean to Literal Formatting Parameters__<br>
@@ -167,7 +169,7 @@ Language Guide: 6.6.1 Cascading ad-hoc Operators<br><br>
 __case__<br>
 Function Library Guide: 2.1.5 case<br><br>
 __case sensitivity__<br>
-Language Guide: 3.4.1 Case Sensitivity<br><br>
+Language Guide: 3.2.5.1 Case Sensitivity<br><br>
 __catch__, __catch if__<br>
 Function Library Guide: 2.5.8 catch, catch if<br><br>
 __Change tabular contents to serialized contents__<br>
@@ -175,21 +177,23 @@ Function Library Guide: 9.7.5.2 table serialize ...<br><br>
 __Change the prompt used in interactive mode__<br>
 Function Library Guide: 3.3.1 prompt<br><br>
 __Changing between structures and arrays__<br>
-Function Library Guide: 10.2.6 structure to array ...<br><br>
+Function Library Guide: 10.2.8 structure to array ...<br><br>
 __character coding__<br>
 Function Library Guide: 6.2 Character Encoding and Decoding<br><br>
 __character decoding__<br>
 Function Library Guide: 6.2.2 code<br><br>
 __character encoding__<br>
 Function Library Guide: 6.2.1 chr<br><br>
+__Character Entities__<br>
+Language Guide: 3.2.5.3 Character Entities<br><br>
 __Characters__<br>
-Language Guide: 3.4 Characters<br><br>
+Language Guide: 3.2.5 Characters<br><br>
 __check__<br>
 Function Library Guide: 2.1.4 switch, check<br><br>
 __Check if value contains date or time__<br>
 Function Library Guide: 7.1.1 date inside, time inside<br><br>
 __Check if variable is existing__<br>
-Function Library Guide: 10.1.1 existing (and valid)<br><br>
+Function Library Guide: 10.1.1 existing (here and valid)<br><br>
 __Check table rows__<br>
 Function Library Guide: 9.7.3.8 table check row<br><br>
 __Checking and processing headers__<br>
@@ -199,32 +203,34 @@ Function Library Guide: 9.7.1 Checking and Processing Headers<br><br>
 __checking numbers__<br>
 Function Library Guide: 5.1.1 is numeric / integer - Functions<br><br>
 __choose recent file__<br>
-Function Library Guide: 11.2.4 choose recent file<br><br>
+Function Library Guide: 11.2.6 choose recent file<br><br>
 __chr__<br>
 Function Library Guide: 6.2.1 chr<br><br>
 __clean__<br>
-Function Library Guide: 6.1.12 clean<br><br>
-__Clean Data__<br>
-User Guide: 3.2 2. Clean<br><br>
+Function Library Guide: 6.1.13 clean<br><br>
 __clean if numeral__, __clean numeral__, __clean numerals__<br>
 Function Library Guide: 4.3 clean (if) numeral<br><br>
 __clean up exotic spaces and line breaks in strings__<br>
-Function Library Guide: 6.1.12 clean<br><br>
+Function Library Guide: 6.1.13 clean<br><br>
 __Cleaning up and miscellaneous table functions__<br>
 Function Library Guide: 9.7.4.13 table format numbers<br><br>
+__clear__, __clear parts of screen__<br>
+Function Library Guide: 3.2.2 clear<br><br>
 __clear the screen__<br>
 Function Library Guide: 3.2.1 cls<br><br>
 __Clearing and deleting tables__<br>
 Function Library Guide: 9.3.4 Deleting Tables<br><br>
 __Clearing and deleting tables__<br>
 Function Library Guide: 9.3.4.1 table clear ...<br><br>
+__clipboard__<br>
+Function Library Guide: 3.1.9 clipboard<br><br>
 __cls__<br>
 Function Library Guide: 3.2.1 cls<br><br>
 __code__<br>
 Function Library Guide: 6.2.2 code<br><br>
 __Code Execution Functions__<br>
 Function Library Guide: 2.7 Code Execution Functions<br><br>
-__Code Piece__, __code pieces__<br>
+__Code piece__, __Code pieces__<br>
 Language Guide: 8.4.3 Code Pieces (Func. Param. Type)<br><br>
 __col__<br>
 Function Library Guide: 9.4.7 col<br><br>
@@ -239,7 +245,7 @@ Function Library Guide: 9.8.3 Combining Multiple Tables<br><br>
 __Command line options__, __Command line switches__<br>
 Language Guide: 2.2 Command Line Switches<br><br>
 __comments__<br>
-Language Guide: 3.3 Comments<br><br>
+Language Guide: 3.2.4 Comments<br><br>
 __compare__<br>
 Function Library Guide: 2.7.5 compare<br><br>
 __compare pick__, __compare select__<br>
@@ -260,8 +266,10 @@ __comparison operators__<br>
 Language Guide: 6.2.2 Comparison Operators<br><br>
 __comparison options__<br>
 Language Guide: 6.2.3 Comparison Options<br><br>
+__comparisons__<br>
+Language Guide: 6.2.2 Comparison Operators<br><br>
 __compose__, __compose line__<br>
-Function Library Guide: 3.1.2 compose ...<br><br>
+Function Library Guide: 3.1.4 compose ...<br><br>
 __compound annual growth rate__<br>
 Function Library Guide: 5.7.1 cagr - Compond Annual Growth Rate<br><br>
 __conditional branches__<br>
@@ -269,13 +277,21 @@ Function Library Guide: 2.1.1 if, unless<br><br>
 __conditional combination functions__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __console__<br>
-Language Guide: 3.4.2 Console Input / Output<br><br>
+Language Guide: 3.2.5.2 Console Input / Output<br><br>
+__console__<br>
+Function Library Guide: 3.2.5 console<br><br>
 __Console I/O Functions__<br>
 Function Library Guide: 3 Console I/O Functions<br><br>
 __Console I/O with tables__<br>
 Function Library Guide: 9.2 Console I/O with Tables<br><br>
+__Console input__<br>
+Function Library Guide: 3.1.6 input to complete<br><br>
+__Console out text attributes__<br>
+Function Library Guide: 3.2.6 blinking<br><br>
 __Console special effects__<br>
 Function Library Guide: 3.2 Console Special Effects<br><br>
+__Console text and background colors__<br>
+Language Guide: 3.2.5.5 Special Console Output Characters<br><br>
 __Consolidate table rows__<br>
 Function Library Guide: 9.7.5.5 table consolidate ...<br><br>
 __consolidation actions__<br>
@@ -309,7 +325,7 @@ Function Library Guide: 5.3.5 count Functions<br><br>
 __count elements__, __count elements ignore blanks__, __count elements ignore both__, __count elements ignore case__, __Count elements in parameter sets__<br>
 Function Library Guide: 8.1.8 count elements ...<br><br>
 __count files__, __count files recursive__<br>
-Function Library Guide: 11.2.5 count files ...<br><br>
+Function Library Guide: 11.2.7 count files ...<br><br>
 __count functions__<br>
 Function Library Guide: 5.3.5 count Functions<br><br>
 __count if__, __count if any__<br>
@@ -335,15 +351,17 @@ Function Library Guide: 9.3.1.1 table create ...<br><br>
 __Create hash signatures for values provided__<br>
 Function Library Guide: 4.13 hash signature<br><br>
 __Create new variables as global variables__<br>
-Function Library Guide: 10.1.9 global<br><br>
+Function Library Guide: 10.1.11 global<br><br>
+__Creating tables__<br>
+Language Guide: 5.3 Creating Tables<br><br>
 __Creating tables and building up tables__<br>
 Function Library Guide: 9.3.1 Creating and Building up Tables<br><br>
 __Cross-functional info__<br>
 Function Library Guide: 14 Cross-Functional Info<br><br>
 __CSV__<br>
-Language Guide: 3.8.4 CSV File Format<br><br>
+Language Guide: 3.4.4 CSV File Format<br><br>
 __cursor__, __cursor position__<br>
-Function Library Guide: 3.2.2 cursor<br><br>
+Function Library Guide: 3.2.3 cursor<br><br>
 __custom initialization program__<br>
 Language Guide: 2.5 User Initialization Program<br><br>
 "Description 05:D"::
@@ -351,24 +369,28 @@ __darken color__<br>
 Function Library Guide: 9.9.1.4 darken color<br><br>
 __darken colors__<br>
 Function Library Guide: 9.9.1.8 darken colors<br><br>
+__Data subtype quoted literals__<br>
+Language Guide: 3.3.1.2 Quoted Literals<br><br>
+__Data subtype softquoted literals__<br>
+Language Guide: 3.3.1.1 Softquoted Literals<br><br>
+__Data type literals__<br>
+Language Guide: 3.3.1 Literals<br><br>
 __data types booleans__<br>
-Language Guide: 3.7.4 Booleans<br><br>
+Language Guide: 3.3.4 Booleans<br><br>
 __data types dates__<br>
-Language Guide: 3.7.3 Dates<br><br>
-__data types literals__<br>
-Language Guide: 3.7.1 Literals<br><br>
+Language Guide: 3.3.3 Dates<br><br>
 __data types numerals__<br>
-Language Guide: 3.7.2 Numerals<br><br>
+Language Guide: 3.3.2 Numerals<br><br>
 __data types parameter sets__<br>
-Language Guide: 3.7.6 Parameter sets<br><br>
+Language Guide: 3.3.6 Parameter sets<br><br>
 __data types parameter sets indexing__<br>
-Language Guide: 3.7.6.1 Indexing Elements<br><br>
+Language Guide: 3.3.6.1 Indexing Parameter Sets<br><br>
 __data types parameter sets value ranges__<br>
-Language Guide: 3.7.6.3 Parameter sets - Value Ranges<br><br>
+Language Guide: 3.3.6.3 Parameter sets - Value Ranges<br><br>
 __data types parameter sets value repetitions__<br>
-Language Guide: 3.7.6.4 Parameter sets - Value Repetitions<br><br>
+Language Guide: 3.3.6.4 Parameter sets - Value Repetitions<br><br>
 __data types voids__<br>
-Language Guide: 3.7.5 Voids<br><br>
+Language Guide: 3.3.5 Voids<br><br>
 __date__<br>
 Function Library Guide: 4.5 date, pure date, date time<br><br>
 __Date and Time Detection Rules__<br>
@@ -416,25 +438,31 @@ Function Library Guide: 2.3.2 define additional procedure / function<br><br>
 __define function__<br>
 Function Library Guide: 2.3.1 define procedure / function<br><br>
 __Define local variables when writing__<br>
-Function Library Guide: 10.1.10 local<br><br>
+Function Library Guide: 10.1.12 local<br><br>
 __define procedure__, __define procedure and function__, __defining user procedures and user functions__<br>
 Function Library Guide: 2.3.1 define procedure / function<br><br>
 __Defining User Specific Colors__<br>
 Function Library Guide: 9.9.1 Defining User Specific Colors<br><br>
-__delete__, __delete members__<br>
-Function Library Guide: 10.1.8 delete ...<br><br>
+__delete__<br>
+Function Library Guide: 10.1.8 delete<br><br>
+__Delete array and structure members__, __delete members__<br>
+Function Library Guide: 10.1.9 delete members<br><br>
 __Delete table contents__<br>
 Function Library Guide: 9.7.4.11 table delete cells selected rows<br><br>
 __delete user function__<br>
 Function Library Guide: 2.3.6 delete user function<br><br>
+__Delete variable members__<br>
+Function Library Guide: 10.1.9 delete members<br><br>
 __Delete variables__<br>
-Function Library Guide: 10.1.8 delete ...<br><br>
+Function Library Guide: 10.1.8 delete<br><br>
 __Deleting table rows__<br>
-Function Library Guide: 9.7.3.3 table delete rows<br><br>
+Function Library Guide: 9.7.3.3 table delete rows (if needed)<br><br>
+__depth__<br>
+Function Library Guide: 10.2.7 depth<br><br>
 __Derive disjoint union (exclusive or) from both tables__<br>
 Function Library Guide: 9.8.3.5 table exclude ...<br><br>
 __describe__<br>
-Function Library Guide: 6.3.2 describe<br><br>
+Function Library Guide: 6.3.3 describe<br><br>
 __Detects dates correctly in literals__<br>
 Function Library Guide: 4.7 Date and Time Detection Rules<br><br>
 __deviation__<br>
@@ -455,14 +483,16 @@ __dim__<br>
 Function Library Guide: 10.2.1 dim / redim<br><br>
 __dim protect__<br>
 Function Library Guide: 10.2.2 dim / redim protect<br><br>
+__dir__<br>
+Function Library Guide: 11.2.4 dir<br><br>
 __Direct character input from console__<br>
-Function Library Guide: 3.1.4 input quick ...<br><br>
+Function Library Guide: 3.1.7 input quick ...<br><br>
 __directories__<br>
-Language Guide: 3.8 Directories and Files<br><br>
+Language Guide: 3.4 Directories and Files<br><br>
 __directory and file system functions__<br>
 Function Library Guide: 11 Directory and File System Functions<br><br>
 __Directory and files__<br>
-Language Guide: 3.8 Directories and Files<br><br>
+Language Guide: 3.4 Directories and Files<br><br>
 __directory create__, __directory create ... Functions__, __directory create all__, __directory create silently__<br>
 Function Library Guide: 11.3.1 directory create ...<br><br>
 __directory create temp__<br>
@@ -486,9 +516,11 @@ Function Library Guide: 5.7.4 discount - Discount Values<br><br>
 __disk space__, __disk space free__<br>
 Function Library Guide: 11.1.7 disk space ...<br><br>
 __Distinct Language Features__<br>
-Language Guide: 3.2 Distinct Language Features<br><br>
+Language Guide: 3.1 Distinct Language Features<br><br>
 __distribute__, __distribute advance__<br>
 Function Library Guide: 5.7.5 distribute - Value Distribution over Timeline<br><br>
+__distribute amount__<br>
+Function Library Guide: 5.1.9 distribute amount<br><br>
 __Distribute quantities over timeline__<br>
 Function Library Guide: 9.7.5.6 table distribute ...<br><br>
 __distribution over timeline__<br>
@@ -504,11 +536,13 @@ Function Library Guide: 2.5.10 null - Function<br><br>
 __do-loop__<br>
 Function Library Guide: 2.2.1 do<br><br>
 __docs__<br>
-Function Library Guide: 13.2 help ... / docs<br><br>
-__docs search__<br>
-Function Library Guide: 13.4 docs search<br><br>
+Function Library Guide: 13.2 help ...<br><br>
+__docs__<br>
+Function Library Guide: 13.3 docs<br><br>
+__dump entities__<br>
+Function Library Guide: 13.12 dump entities<br><br>
 __dump functions__<br>
-Function Library Guide: 13.8 dump functions<br><br>
+Function Library Guide: 13.11 dump functions<br><br>
 "Description 06:E"::
 __e.g. for production planning__<br>
 Function Library Guide: 9.7.5.6 table distribute ...<br><br>
@@ -520,16 +554,14 @@ __encode entities__<br>
 Function Library Guide: 6.2.4 encode entities<br><br>
 __end__<br>
 Function Library Guide: 2.5.5 end<br><br>
-__Enrichment__<br>
-User Guide: 3.5 5. Augment<br><br>
 __entering interactive mode__<br>
 Language Guide: 2.7.1 Entering Interactive Mode<br><br>
-__Entities__<br>
-Language Guide: 3.5.2 Softquoted Literals<br><br>
 __Epsilon__<br>
 Language Guide: 6.2.3 Comparison Options<br><br>
 __equal to__<br>
 Language Guide: 6.2.2.1 Equal to<br><br>
+__escape__<br>
+Language Guide: 3.2.1.4 Reserved Keywords<br><br>
 __even__, __even numbers__<br>
 Function Library Guide: 5.1.2 even, odd, whole<br><br>
 __Example - Retrieve stock market data__<br>
@@ -570,14 +602,14 @@ __executing system commands__<br>
 Function Library Guide: 12.1 Executing System Commands<br><br>
 __Execution Engine__<br>
 Language Guide: 2 Execution Engine<br><br>
-__existing__, __existing and valid__<br>
-Function Library Guide: 10.1.1 existing (and valid)<br><br>
+__existing__, __existing and valid__, __existing here__, __existing here and valid__<br>
+Function Library Guide: 10.1.1 existing (here and valid)<br><br>
 __exit__<br>
 Function Library Guide: 2.5.4 exit<br><br>
 __exp__<br>
 Function Library Guide: 5.2.3 Exponential Functions<br><br>
 __explain functions__<br>
-Function Library Guide: 13.7 list / explain functions<br><br>
+Function Library Guide: 13.10 list / explain functions<br><br>
 __Explore__<br>
 Function Library Guide: 9.5.2.1 table explore<br><br>
 __Explore and filter and extract sub-tables__<br>
@@ -598,11 +630,11 @@ __Expressions to select rows__<br>
 Language Guide: 8.4.4 Expressions to Select Rows<br><br>
 __Expressions [func params]__<br>
 Language Guide: 8.4.3.2 Expressions (func. params)<br><br>
-__Extracting Subsets__<br>
-Language Guide: 3.7.6.2 Slicing Parameter Sets<br><br>
 __Extracting substrings__<br>
-Language Guide: 3.7.1.2 Slicing Strings<br><br>
+Language Guide: 3.3.1.4 Slicing Strings<br><br>
 "Description 07:F"::
+__file browser__<br>
+Function Library Guide: 11.2.3 file browser<br><br>
 __File comporession and decompression__<br>
 Function Library Guide: 11.4.1 zip compress<br><br>
 __file compression decompression__<br>
@@ -630,7 +662,7 @@ Function Library Guide: 11.3.12 file download ...<br><br>
 __file existing__<br>
 Function Library Guide: 11.1.1 directory existing, file existing<br><br>
 __file name__, __file names__<br>
-Language Guide: 3.8.1 Path and File Names<br><br>
+Language Guide: 3.4.1 Path and File Names<br><br>
 __file rename__, __file rename ... Functions__, __file rename all__, __file rename silently__<br>
 Function Library Guide: 11.3.7 file rename ...<br><br>
 __file size__<br>
@@ -674,7 +706,7 @@ Function Library Guide: 7.1.8 fy - Fiscal Year<br><br>
 __flat__, __Flatten matrix__<br>
 Function Library Guide: 5.4.7 flat<br><br>
 __font color__<br>
-Function Library Guide: 3.2.3 text / background color<br><br>
+Function Library Guide: 3.2.4 text / background color<br><br>
 __for__<br>
 Function Library Guide: 2.2.2 for<br><br>
 __for all current table columns__<br>
@@ -704,11 +736,11 @@ Function Library Guide: 9.6.2 for all table rows<br><br>
 __for-loop through variables__<br>
 Function Library Guide: 2.2.5 for all variables<br><br>
 __foreground color__<br>
-Function Library Guide: 3.2.3 text / background color<br><br>
+Function Library Guide: 3.2.4 text / background color<br><br>
 __forget memorized table columns__<br>
 Function Library Guide: 9.3.1.4 forget memorized table columns<br><br>
-__Format the results__<br>
-User Guide: 3.7 7. Format<br><br>
+__format__, __format print__<br>
+Function Library Guide: 3.1.3 format, format print<br><br>
 __Formatting and styling tables__<br>
 Function Library Guide: 9.9 Formatting and Styling Tables<br><br>
 __Formatting Coverages__, __Formatting Precedences__<br>
@@ -725,7 +757,7 @@ __function existing__<br>
 Function Library Guide: 2.3.5 function / user function existing<br><br>
 __Function Library__, __Function Library Guide__<br>
 Function Library Guide: 1 Function Library<br><br>
-__Function Naming__<br>
+__Function Names__<br>
 Language Guide: 8.1 Function Naming<br><br>
 __Function parameter__<br>
 Language Guide: 8.2 Function Parameters<br><br>
@@ -758,14 +790,18 @@ __geometric mean ignore zero__<br>
 Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __geometric mean ignore zero if__, __geometric mean ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__get console size__, __get cursor position__<br>
+Function Library Guide: 3.2.5 console<br><br>
 __get differences__<br>
-Function Library Guide: 6.1.14 get differences<br><br>
+Function Library Guide: 6.1.15 get differences<br><br>
 __get long options__<br>
 Function Library Guide: 2.4.3 get long options<br><br>
+__get text position__<br>
+Function Library Guide: 3.2.5 console<br><br>
 __Get variable name__<br>
 Function Library Guide: 10.1.5 name<br><br>
 __getch__, __getch ignore case__<br>
-Function Library Guide: 3.1.5 getch ...<br><br>
+Function Library Guide: 3.1.8 getch ...<br><br>
 __Getting help__<br>
 User Guide: 3.9 Getting Help<br><br>
 __Getting started__<br>
@@ -773,9 +809,9 @@ User Guide: 3 Getting Started<br><br>
 __gini__, __gini coefficient__, __gini ignore blanks__, __gini ignore zero__<br>
 Function Library Guide: 5.5.4 gini Coefficient Functions<br><br>
 __github markdown__<br>
-Language Guide: 3.3 Comments<br><br>
+Language Guide: 3.2.4 Comments<br><br>
 __global__<br>
-Function Library Guide: 10.1.9 global<br><br>
+Function Library Guide: 10.1.11 global<br><br>
 __global privileges__<br>
 Function Library Guide: 12.4.1 global / script privileges<br><br>
 __Global variables__<br>
@@ -790,7 +826,7 @@ Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __hash signature__<br>
 Function Library Guide: 4.13 hash signature<br><br>
 __header name exception handling__<br>
-Language Guide: 5.1.8 Header Name Exception Handling<br><br>
+Language Guide: 5.4.8 Header Name Exception Handling<br><br>
 __height__<br>
 Function Library Guide: 6.1.6 height<br><br>
 __help__<br>
@@ -798,23 +834,23 @@ Function Library Guide: 13.1 help<br><br>
 __help and support functions__<br>
 Function Library Guide: 13 Help and Support Functions<br><br>
 __help functions__, __help index__, __help keywords__, __help language__, __help library__, __help user guide__, __help welcome__<br>
-Function Library Guide: 13.2 help ... / docs<br><br>
+Function Library Guide: 13.2 help ...<br><br>
 __hex to decimal__<br>
 Function Library Guide: 5.1.8 hex to decimal<br><br>
 __Hijacking parameters__<br>
-Language Guide: 3.11 Language Pitfalls<br><br>
+Language Guide: 3.7 Language Pitfalls<br><br>
 __horizontal__<br>
 Function Library Guide: 5.4.5 horizontal<br><br>
 __horizontal table access__<br>
-Language Guide: 5.1.2 Horizontal Table Access<br><br>
+Language Guide: 5.4.2 Horizontal Table Access<br><br>
 __Horizontal table access using parameter sets__<br>
-Language Guide: 5.1.2.1 Horizontal Table Access w. Param. Sets<br><br>
+Language Guide: 5.4.2.1 Horizontal Table Access w. Param. Sets<br><br>
 __Horizontal table access using ranges__<br>
-Language Guide: 5.1.2.3 Horizontal Table Access w. Ranges<br><br>
+Language Guide: 5.4.2.3 Horizontal Table Access w. Ranges<br><br>
 __Horizontal table access using wildcards__<br>
-Language Guide: 5.1.2.2 Horizontal Table Access w. Wildcards<br><br>
+Language Guide: 5.4.2.2 Horizontal Table Access w. Wildcards<br><br>
 __horizontal table accesses__<br>
-Language Guide: 5.1.2 Horizontal Table Access<br><br>
+Language Guide: 5.4.2 Horizontal Table Access<br><br>
 __hour__<br>
 Function Library Guide: 7.2.1 hour, minute, second<br><br>
 __hyperbolic functions__<br>
@@ -826,12 +862,10 @@ __Identify optimum data type for value provided__<br>
 Function Library Guide: 4.10 best type<br><br>
 __Identify scope of variable__<br>
 Function Library Guide: 10.1.4 scope<br><br>
-__Identify variable types__<br>
-Function Library Guide: 4.12 type, type detailed<br><br>
+__Identify variable types and subtypes__<br>
+Function Library Guide: 4.12 type, subtype<br><br>
 __if__<br>
 Function Library Guide: 2.1.1 if, unless<br><br>
-__Import source data__<br>
-User Guide: 3.1 1. Import<br><br>
 __include__, __include B4P program__, __include libraries__, __include library__<br>
 Function Library Guide: 2.4.2 include<br><br>
 __income disparity__<br>
@@ -842,18 +876,26 @@ __Index__<br>
 Language Guide: 9 Index<br><br>
 __Index__<br>
 Function Library Guide: 15 Index<br><br>
+__Indexing elements__, __Indexing parameter sets__<br>
+Language Guide: 3.3.6.1 Indexing Parameter Sets<br><br>
+__Indexing strings__<br>
+Language Guide: 3.3.1.3 Indexing Strings<br><br>
 __Indirect parameter passing__<br>
 Language Guide: 8.5 Indirect Parameter Passing<br><br>
 __input__<br>
-Function Library Guide: 3.1.3 input<br><br>
+Function Library Guide: 3.1.5 input<br><br>
 __input quick__, __input quick ignore case__<br>
-Function Library Guide: 3.1.4 input quick ...<br><br>
+Function Library Guide: 3.1.7 input quick ...<br><br>
+__input to complete__<br>
+Function Library Guide: 3.1.6 input to complete<br><br>
+__insert members__<br>
+Function Library Guide: 10.1.10 insert members (protect)<br><br>
 __Insert table rows__<br>
-Function Library Guide: 9.7.3.1 table insert rows<br><br>
+Function Library Guide: 9.7.3.1 table insert rows (if needed)<br><br>
 __Inserting table columns__<br>
 Function Library Guide: 9.7.2.1 table insert (missing) columns<br><br>
 __inspect__<br>
-Function Library Guide: 3.3.2 inspect<br><br>
+Function Library Guide: 3.3.3 inspect<br><br>
 __Inspect Tables__<br>
 Language Guide: 2.7.5 Inspecting Tables Interactively<br><br>
 __Inspect Variables__<br>
@@ -876,10 +918,14 @@ __integrate results from one or more matching row into target table row__<br>
 Function Library Guide: 9.8.2.23 table digest ...<br><br>
 __interactive__<br>
 Function Library Guide: 2.5.3 interactive<br><br>
+__Interactive editing__<br>
+Language Guide: 2.8 Interactive Input and Editing<br><br>
 __interactive expressions__<br>
 Language Guide: 2.7.4 Execute B4P Expressions Interactively<br><br>
 __Interactive help__<br>
 Language Guide: 2.7.2 Interactive Help<br><br>
+__Interactive input__<br>
+Language Guide: 2.8 Interactive Input and Editing<br><br>
 __interactive mode__<br>
 Language Guide: 2.7 Interactive Mode<br><br>
 __interactive statements__<br>
@@ -924,35 +970,33 @@ User Guide: 1.2 Key Features<br><br>
 __Language Guide__<br>
 Language Guide: 1 Language Guide - Overview<br><br>
 __Language pitfalls__<br>
-Language Guide: 3.11 Language Pitfalls<br><br>
+Language Guide: 3.7 Language Pitfalls<br><br>
 __Launch other B4P programs__<br>
 Function Library Guide: 2.4 Launch other B4P programs<br><br>
 __left__<br>
-Function Library Guide: 6.1.7 left ... (string function)<br><br>
+Function Library Guide: 6.1.8 left ... (string function)<br><br>
 __left__<br>
 Function Library Guide: 8.1.3 left ... (parameter set function)<br><br>
 __left include__<br>
-Function Library Guide: 6.1.7 left ... (string function)<br><br>
+Function Library Guide: 6.1.8 left ... (string function)<br><br>
 __left include__<br>
 Function Library Guide: 8.1.3 left ... (parameter set function)<br><br>
 __left last match__<br>
-Function Library Guide: 6.1.7 left ... (string function)<br><br>
+Function Library Guide: 6.1.8 left ... (string function)<br><br>
 __left last match__<br>
 Function Library Guide: 8.1.3 left ... (parameter set function)<br><br>
 __left last match include__<br>
-Function Library Guide: 6.1.7 left ... (string function)<br><br>
+Function Library Guide: 6.1.8 left ... (string function)<br><br>
 __left last match include__, __left [parameter set function]__<br>
 Function Library Guide: 8.1.3 left ... (parameter set function)<br><br>
 __left [string function]__<br>
-Function Library Guide: 6.1.7 left ... (string function)<br><br>
+Function Library Guide: 6.1.8 left ... (string function)<br><br>
 __length__<br>
 Function Library Guide: 6.1.4 length ... (string function)<br><br>
 __length__<br>
 Function Library Guide: 8.1.1 length ... (parameter set function)<br><br>
-__length of literals__<br>
-Language Guide: 3.7.1.1 Indexing Strings<br><br>
-__length of parameter sets__<br>
-Language Guide: 3.7.6.1 Indexing Elements<br><br>
+__Length of parameter sets__<br>
+Language Guide: 3.3.6.1 Indexing Parameter Sets<br><br>
 __length [parameter set function]__<br>
 Function Library Guide: 8.1.1 length ... (parameter set function)<br><br>
 __length [string function]__<br>
@@ -986,37 +1030,35 @@ User Guide: 2.2.3 Linux - Getting Started<br><br>
 __Linux Installation__<br>
 User Guide: 2.2.2 Linux - Installation<br><br>
 __list functions__<br>
-Function Library Guide: 13.7 list / explain functions<br><br>
+Function Library Guide: 13.10 list / explain functions<br><br>
 __list global variables__, __list local variables__<br>
-Function Library Guide: 3.3.3 list variables ...<br><br>
+Function Library Guide: 3.3.4 list variables ...<br><br>
+__List of all entities__<br>
+Function Library Guide: 13.12 dump entities<br><br>
+__List of all functions__<br>
+Function Library Guide: 13.11 dump functions<br><br>
 __list of Locales__<br>
-Language Guide: 3.9 Locales<br><br>
+Language Guide: 3.5 Locales<br><br>
 __list of parameter types in user functions__<br>
 Function Library Guide: 2.3.3 Parameter Types in User-Defined Functions<br><br>
 __list of system variables__<br>
 Language Guide: 4.1.4.1 List of System Variables<br><br>
 __list system variables__<br>
-Function Library Guide: 3.3.3 list variables ...<br><br>
+Function Library Guide: 3.3.4 list variables ...<br><br>
 __list tables__<br>
 Function Library Guide: 9.4.1 list tables<br><br>
 __list variables__, __List variables including their members and data types__<br>
-Function Library Guide: 3.3.3 list variables ...<br><br>
+Function Library Guide: 3.3.4 list variables ...<br><br>
 __Listing directories__<br>
 Function Library Guide: 11.2.1 directory listing ...<br><br>
 __listing directories and files__<br>
 Function Library Guide: 11.2 Listing and Searching Directories and Files<br><br>
-__literal__<br>
-Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>
-__Literal Constants__<br>
-Language Guide: 3.5 Literal Constants<br><br>
-__literal conversion__, __literal conversion functions__<br>
+__literal__, __literal conversion__, __literal conversion functions__<br>
 Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>
 __literal functions__<br>
 Function Library Guide: 6 String Functions<br><br>
 __literal to literal conversion and formatting__, __Literal to Literal Formatting Parameters__<br>
 Function Library Guide: 4.1.1 Literal to Literal Formatting<br><br>
-__literals indexing__<br>
-Language Guide: 3.7.1.1 Indexing Strings<br><br>
 __ln__<br>
 Function Library Guide: 5.2.4 Logarithmic Functions<br><br>
 __Loading and saving tables__<br>
@@ -1028,7 +1070,7 @@ Function Library Guide: 10.3 Loading and Saving Variables<br><br>
 __Loading and saving variables using JSON__<br>
 Function Library Guide: 10.3.1 variable load ...<br><br>
 __loading files__<br>
-Language Guide: 3.8.2 Loading Files - Character sets<br><br>
+Language Guide: 3.4.2 Loading Files - Character sets<br><br>
 __Loading HTML files__<br>
 Function Library Guide: 9.1.1.1 Loading HTML files<br><br>
 __Loading JSON files__<br>
@@ -1036,13 +1078,13 @@ Function Library Guide: 9.1.1.3 Loading JSON files<br><br>
 __Loading XML files__<br>
 Function Library Guide: 9.1.1.2 Loading XML files<br><br>
 __local__<br>
-Function Library Guide: 10.1.10 local<br><br>
+Function Library Guide: 10.1.12 local<br><br>
 __Local variables__<br>
 Language Guide: 4.1.2 Local Variables<br><br>
 __locale__, __Locales__<br>
-Language Guide: 3.9 Locales<br><br>
+Language Guide: 3.5 Locales<br><br>
 __locate differences__<br>
-Function Library Guide: 6.1.15 locate differences<br><br>
+Function Library Guide: 6.1.16 locate differences<br><br>
 __log__, __logarithmic functions__<br>
 Function Library Guide: 5.2.4 Logarithmic Functions<br><br>
 __logical and__<br>
@@ -1064,7 +1106,7 @@ Function Library Guide: 9.8.2.8 table integrate ...<br><br>
 __Looking up other tables__<br>
 Function Library Guide: 9.8.2 Looking up Other Tables<br><br>
 __lookup access exception handling__<br>
-Language Guide: 5.1.9 Lookup Access Exception Handling<br><br>
+Language Guide: 5.4.9 Lookup Access Exception Handling<br><br>
 __Loops__<br>
 Function Library Guide: 2.2 Loops<br><br>
 __Loops__<br>
@@ -1085,13 +1127,13 @@ Function Library Guide: 5.4.5 horizontal<br><br>
 __Make matrix vertical__<br>
 Function Library Guide: 5.4.6 vertical<br><br>
 __Make regional variables accessible in functions called__<br>
-Function Library Guide: 10.1.11 regional<br><br>
+Function Library Guide: 10.1.13 regional<br><br>
 __Manipulate table contents__<br>
 Function Library Guide: 9.7.4.6 table manipulate (selected rows)<br><br>
 __manipulating directories and files__<br>
 Function Library Guide: 11.3 Manipulating Directories and Files<br><br>
 __markdown__<br>
-Language Guide: 3.3 Comments<br><br>
+Language Guide: 3.2.4 Comments<br><br>
 __Mathematics and Statistics__<br>
 Function Library Guide: 5 Mathematics and Statistics<br><br>
 __matrix determinant__<br>
@@ -1109,7 +1151,7 @@ Function Library Guide: 5.4.1 mmul, mmdiv - Multiplication and Division<br><br>
 __matrix operations summary__<br>
 Language Guide: 6.3.3 Matrix Operations Summary<br><br>
 __matrix table access__, __matrix table accesses__<br>
-Language Guide: 5.1.4 Matrix Table Access<br><br>
+Language Guide: 5.4.4 Matrix Table Access<br><br>
 __max 123__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
 __max 123 if__, __max 123 if any__, __max 123 ignore zero if__, __max 123 ignore zero if any__<br>
@@ -1163,29 +1205,27 @@ Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __member count__<br>
 Function Library Guide: 10.2.5 member count<br><br>
 __memory effect__<br>
-Language Guide: 5.2 Header Names - Memory Effect<br><br>
-__Merge and Consolidate__<br>
-User Guide: 3.4 4. Merge<br><br>
+Language Guide: 5.5 Header Names - Memory Effect<br><br>
 __Merge two tables with union-set principle__<br>
 Function Library Guide: 9.8.3.1 table merge ...<br><br>
 __middle__<br>
-Function Library Guide: 6.1.9 middle ... (string function)<br><br>
+Function Library Guide: 6.1.10 middle ... (string function)<br><br>
 __middle__<br>
 Function Library Guide: 8.1.5 middle ... (parameter set function)<br><br>
 __middle include__<br>
-Function Library Guide: 6.1.9 middle ... (string function)<br><br>
+Function Library Guide: 6.1.10 middle ... (string function)<br><br>
 __middle include__<br>
 Function Library Guide: 8.1.5 middle ... (parameter set function)<br><br>
 __middle until__<br>
-Function Library Guide: 6.1.9 middle ... (string function)<br><br>
+Function Library Guide: 6.1.10 middle ... (string function)<br><br>
 __middle until__<br>
 Function Library Guide: 8.1.5 middle ... (parameter set function)<br><br>
 __middle until include__<br>
-Function Library Guide: 6.1.9 middle ... (string function)<br><br>
+Function Library Guide: 6.1.10 middle ... (string function)<br><br>
 __middle until include__, __middle [parameter set function]__<br>
 Function Library Guide: 8.1.5 middle ... (parameter set function)<br><br>
 __middle [string function]__<br>
-Function Library Guide: 6.1.9 middle ... (string function)<br><br>
+Function Library Guide: 6.1.10 middle ... (string function)<br><br>
 __min__<br>
 Function Library Guide: 5.3.2 min, max Functions<br><br>
 __min 123__<br>
@@ -1253,7 +1293,7 @@ Function Library Guide: 7.2.1 hour, minute, second<br><br>
 __minv__<br>
 Function Library Guide: 5.4.2 minv - Matrix Inversion<br><br>
 __Miscellaneous Features__<br>
-Language Guide: 3.10 Miscellaneous Features<br><br>
+Language Guide: 3.6 Miscellaneous Features<br><br>
 __mmul__<br>
 Function Library Guide: 5.4.1 mmul, mmdiv - Multiplication and Division<br><br>
 __mod__, __modulo__<br>
@@ -1263,13 +1303,13 @@ Function Library Guide: 7.1.2 year, quarter, month, day<br><br>
 __Move and rearrange table rows__<br>
 Function Library Guide: 9.7.3.9 table move rows<br><br>
 __move cursor__<br>
-Function Library Guide: 3.2.2 cursor<br><br>
+Function Library Guide: 3.2.3 cursor<br><br>
 __mul__<br>
 Function Library Guide: 5.3.1 Arithmetic and Boolean Series Functions<br><br>
+__Multi-line strings__, __Multi-line text__<br>
+Language Guide: 3.2.1.5 Multi-Line Text<br><br>
 __Multi-table integration__<br>
 Function Library Guide: 9.8 Multi-Table Integration<br><br>
-__Multiline literals__, __Multiline strings__<br>
-Language Guide: 3.5.4 Multiline Literals<br><br>
 __multiplication__<br>
 Language Guide: 6.2.1.3 Multiplications<br><br>
 __My B4P Init.b4p__<br>
@@ -1280,24 +1320,24 @@ Function Library Guide: 10.1.5 name<br><br>
 __nearest neighbor interpolation__, __nearest right neighbor interpolation__<br>
 Function Library Guide: 5.5.6 Interpolation Functions<br><br>
 __negative indexing__<br>
-Language Guide: 3.10.2 Negative Indexing<br><br>
+Language Guide: 3.6.2 Negative Indexing<br><br>
 __nested partial table specification__, __nested partial table specifications__<br>
-Language Guide: 5.1.6 Nested Partial Table Specifications<br><br>
+Language Guide: 5.4.6 Nested Partial Table Specifications<br><br>
 __not equal to__<br>
 Language Guide: 6.2.2.2 Not Equal to<br><br>
 __null__, __Null function__<br>
 Function Library Guide: 2.5.10 null - Function<br><br>
+__Number__, __Numbers__<br>
+Language Guide: 3.2.2 Numbers<br><br>
 __numeral__, __numeral conversion function__<br>
 Function Library Guide: 4.2 numeral<br><br>
 __numeral to literal conversion and formatting__, __Numeral to Literal Formatting Parameters__<br>
 Function Library Guide: 4.1.3 Numeral to Literal Formatting<br><br>
-__Numeric Constants__<br>
-Language Guide: 3.6 Numeric Constants<br><br>
 "Description 16:O"::
 __odd__, __odd numbers__<br>
 Function Library Guide: 5.1.2 even, odd, whole<br><br>
 __office document properties__, __Office functions__<br>
-Function Library Guide: 11.2.7 office document properties<br><br>
+Function Library Guide: 11.2.9 office document properties<br><br>
 __once__<br>
 Function Library Guide: 2.1.3 once<br><br>
 __One table does row-subtraction on other table__<br>
@@ -1306,10 +1346,12 @@ __One table overlays the other table__<br>
 Function Library Guide: 9.8.3.2 table overlay/subtract ...<br><br>
 __one-time execution__<br>
 Function Library Guide: 2.1.3 once<br><br>
+__open__<br>
+Function Library Guide: 12.1.1 open<br><br>
 __Open-ended ranges__<br>
 Language Guide: 7.1.3 Transactions from Variables to Tables<br><br>
 __openweb__<br>
-Function Library Guide: 13.3 openweb<br><br>
+Function Library Guide: 13.4 openweb<br><br>
 __Operating System Commands__<br>
 Language Guide: 2.7.8 Operating System Commands<br><br>
 __or__<br>
@@ -1327,23 +1369,25 @@ Language Guide: 2.7.8 Operating System Commands<br><br>
 __Other string functions__<br>
 Function Library Guide: 6.3 Miscellaneous String Functions<br><br>
 __outside__<br>
-Function Library Guide: 6.1.10 outside ... (string function)<br><br>
+Function Library Guide: 6.1.11 outside ... (string function)<br><br>
 __outside__<br>
 Function Library Guide: 8.1.6 outside ... (parameter set function)<br><br>
 __outside exclude__<br>
-Function Library Guide: 6.1.10 outside ... (string function)<br><br>
+Function Library Guide: 6.1.11 outside ... (string function)<br><br>
 __outside exclude__<br>
 Function Library Guide: 8.1.6 outside ... (parameter set function)<br><br>
 __outside until__<br>
-Function Library Guide: 6.1.10 outside ... (string function)<br><br>
+Function Library Guide: 6.1.11 outside ... (string function)<br><br>
 __outside until__<br>
 Function Library Guide: 8.1.6 outside ... (parameter set function)<br><br>
 __outside until exclude__<br>
-Function Library Guide: 6.1.10 outside ... (string function)<br><br>
+Function Library Guide: 6.1.11 outside ... (string function)<br><br>
 __outside until exclude__, __outside [parameter set function]__<br>
 Function Library Guide: 8.1.6 outside ... (parameter set function)<br><br>
 __outside [string function]__<br>
-Function Library Guide: 6.1.10 outside ... (string function)<br><br>
+Function Library Guide: 6.1.11 outside ... (string function)<br><br>
+__Overall Language Structure__<br>
+Language Guide: 3.2 Overall Language Structure<br><br>
 "Description 17:P"::
 __parallel__<br>
 Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
@@ -1357,8 +1401,6 @@ __parameter set extraction functions__<br>
 Function Library Guide: 8.1 Set Search and Extraction Functions<br><br>
 __parameter set functions__<br>
 Function Library Guide: 8 Parameter Set Functions<br><br>
-__parameter set indexing__<br>
-Language Guide: 3.7.6.1 Indexing Elements<br><br>
 __parameter set or literal__<br>
 Language Guide: 8.4.1 Parameter Set or Literal (Func. Param. Type)<br><br>
 __parameter set search and extraction__, __parameter set search functions__<br>
@@ -1366,13 +1408,13 @@ Function Library Guide: 8.1 Set Search and Extraction Functions<br><br>
 __Parameter Set to literal conversion and formatting__, __Parameter Set to Literal Formatting Parameters__<br>
 Function Library Guide: 4.1.5 Parameter Set to Literal Formatting<br><br>
 __parameter set value ranges__<br>
-Language Guide: 3.7.6.3 Parameter sets - Value Ranges<br><br>
+Language Guide: 3.3.6.3 Parameter sets - Value Ranges<br><br>
 __parameter set value repetitions__<br>
-Language Guide: 3.7.6.4 Parameter sets - Value Repetitions<br><br>
+Language Guide: 3.3.6.4 Parameter sets - Value Repetitions<br><br>
 __partial table specifications__<br>
-Language Guide: 5.1.5 Partial Table Specifications<br><br>
+Language Guide: 5.4.5 Partial Table Specifications<br><br>
 __path names__<br>
-Language Guide: 3.8.1 Path and File Names<br><br>
+Language Guide: 3.4.1 Path and File Names<br><br>
 __pause__<br>
 Function Library Guide: 2.5.1 pause<br><br>
 __pick__<br>
@@ -1388,17 +1430,25 @@ Function Library Guide: 2.6.3 select ifs, pick ifs<br><br>
 __Pivoting and consolidating tables__<br>
 Function Library Guide: 9.7.5 Pivoting and Conosolidating Tables<br><br>
 __plain date__, __plain dates__<br>
-Language Guide: 3.7.3 Dates<br><br>
+Language Guide: 3.3.3 Dates<br><br>
 __plain numeral__, __plain numerals__<br>
-Language Guide: 3.7.2 Numerals<br><br>
+Language Guide: 3.3.2 Numerals<br><br>
+__Plain Text__<br>
+Language Guide: 3.2.1.1 Plain Text<br><br>
 __polynomial interpolation__<br>
 Function Library Guide: 5.5.6 Interpolation Functions<br><br>
 __pow__, __power function__<br>
 Function Library Guide: 5.2.2 pow - Power Function<br><br>
-__print__, __print line__<br>
+__print__<br>
+Function Library Guide: 3.1.1 echo, print ...<br><br>
+__print bar__<br>
+Function Library Guide: 3.1.2 print bar<br><br>
+__print line__<br>
 Function Library Guide: 3.1.1 echo, print ...<br><br>
 __Procedure call__, __Procedure calls__<br>
 Language Guide: 8 Functions and Procedures<br><br>
+__Procedure Names__<br>
+Language Guide: 8.1 Function Naming<br><br>
 __Process table cells__<br>
 Function Library Guide: 9.7.4.4 table process cells (selected rows)<br><br>
 __Process table columns__<br>
@@ -1445,20 +1495,20 @@ Function Library Guide: 5.5.2 quantile ...<br><br>
 __quarter__<br>
 Function Library Guide: 7.1.2 year, quarter, month, day<br><br>
 __quote path__<br>
-Function Library Guide: 12.1.2 quote path<br><br>
-__Quoted Literals__<br>
-Language Guide: 3.5.3 Quoted Literals<br><br>
+Function Library Guide: 12.1.3 quote path<br><br>
+__Quoted literal__, __Quoted literals__<br>
+Language Guide: 3.3.1.2 Quoted Literals<br><br>
 "Description 19:R"::
 __random__<br>
 Function Library Guide: 5.1.7 random - Random Integers<br><br>
 __random letters__, __random string__<br>
-Function Library Guide: 6.3.1 random string, random letters<br><br>
+Function Library Guide: 6.3.2 random string, random letters<br><br>
 __Ranking options__<br>
 Function Library Guide: 14.1 Sorting and Ranking Options<br><br>
 __read access__, __read access repeat if locked__<br>
 Function Library Guide: 11.1.2 read access ..., write access ...<br><br>
 __Read variable members into parameter sets__<br>
-Function Library Guide: 10.2.8 set, set names<br><br>
+Function Library Guide: 10.2.10 set, set names<br><br>
 __Reading tables__<br>
 Function Library Guide: 9.3.3.1 table read row<br><br>
 __Recent Releases__<br>
@@ -1474,7 +1524,7 @@ Language Guide: 4.4.6 References in Member Variables<br><br>
 __references to variables__<br>
 Language Guide: 4.4 References to Variables<br><br>
 __regional__<br>
-Function Library Guide: 10.1.11 regional<br><br>
+Function Library Guide: 10.1.13 regional<br><br>
 __Regional variables__<br>
 Language Guide: 4.1.3 Regional Variables<br><br>
 __registry access functions__<br>
@@ -1497,6 +1547,8 @@ __Release 8.03__<br>
 Master Document: 1.4 Release 8.03<br><br>
 __Release 8.04__<br>
 Master Document: 1.5 Release 8.04<br><br>
+__Release 9.00__<br>
+Master Document: 1.6 Release 9.00<br><br>
 __release all__<br>
 Function Library Guide: 10.4.2 release all<br><br>
 __Release references to variables__<br>
@@ -1509,36 +1561,42 @@ __Renaming tables__<br>
 Function Library Guide: 9.7.6.1 table rename<br><br>
 __replace__, __replace all__<br>
 Function Library Guide: 6.1.2 replace, replace all<br><br>
+__replicate__, __replicate characters__, __replicate strings__<br>
+Function Library Guide: 6.3.1 replicate ... (string function)<br><br>
 __reschedule__<br>
 Function Library Guide: 7.1.9 reschedule<br><br>
 __reserved keywords__<br>
-Language Guide: 3.5.5 Reserved Keywords<br><br>
+Language Guide: 3.2.1.4 Reserved Keywords<br><br>
+__reset console__<br>
+Function Library Guide: 3.2.10 reset console<br><br>
 __Resident attributes functions__<br>
 Function Library Guide: 10.5 Resident Attributes Functions<br><br>
 __Resolve directory and file names__, __resolve directory name__, __resolve file name__, __resolve path name__<br>
-Function Library Guide: 11.2.6 resolve path/directory/file name<br><br>
+Function Library Guide: 11.2.8 resolve path/directory/file name<br><br>
 __return__<br>
 Function Library Guide: 2.3.4 return<br><br>
+__reverse__<br>
+Function Library Guide: 3.2.8 reverse<br><br>
 __rgb__<br>
 Function Library Guide: 9.9.1.3 rgb<br><br>
 __right__<br>
-Function Library Guide: 6.1.8 right ... (string function)<br><br>
+Function Library Guide: 6.1.9 right ... (string function)<br><br>
 __right__<br>
 Function Library Guide: 8.1.4 right ... (parameter set function)<br><br>
 __right include__<br>
-Function Library Guide: 6.1.8 right ... (string function)<br><br>
+Function Library Guide: 6.1.9 right ... (string function)<br><br>
 __right include__<br>
 Function Library Guide: 8.1.4 right ... (parameter set function)<br><br>
 __right last match__<br>
-Function Library Guide: 6.1.8 right ... (string function)<br><br>
+Function Library Guide: 6.1.9 right ... (string function)<br><br>
 __right last match__<br>
 Function Library Guide: 8.1.4 right ... (parameter set function)<br><br>
 __right last match include__<br>
-Function Library Guide: 6.1.8 right ... (string function)<br><br>
+Function Library Guide: 6.1.9 right ... (string function)<br><br>
 __right last match include__, __right [parameter set function]__<br>
 Function Library Guide: 8.1.4 right ... (parameter set function)<br><br>
 __right [string function]__<br>
-Function Library Guide: 6.1.8 right ... (string function)<br><br>
+Function Library Guide: 6.1.9 right ... (string function)<br><br>
 __rms__<br>
 Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __rms if__, __rms if any__<br>
@@ -1558,20 +1616,18 @@ Function Library Guide: 9.4.6 row<br><br>
 __Row-wise intersection made from two tables__<br>
 Function Library Guide: 9.8.3.3 table intersect ...<br><br>
 "Description 20:S"::
-__Save and Export__<br>
-User Guide: 3.8 8. Export<br><br>
 __saving files__<br>
-Language Guide: 3.8.3 Saving Files - Character sets<br><br>
+Language Guide: 3.4.3 Saving Files - Character sets<br><br>
 __Saving JSON files__<br>
 Function Library Guide: 9.1.2.1 Saving JSON files<br><br>
 __scope__<br>
 Function Library Guide: 10.1.4 scope<br><br>
 __screen color__<br>
-Function Library Guide: 3.2.3 text / background color<br><br>
+Function Library Guide: 3.2.4 text / background color<br><br>
 __script privileges__<br>
 Function Library Guide: 12.4.1 global / script privileges<br><br>
 __Search and count files__, __search files__, __search files recursive__<br>
-Function Library Guide: 11.2.3 search files ...<br><br>
+Function Library Guide: 11.2.5 search files ...<br><br>
 __Search functions__<br>
 Function Library Guide: 9.5.1 Search Functions<br><br>
 __Searching and exploring tables__<br>
@@ -1580,6 +1636,8 @@ __Searching tables__<br>
 Function Library Guide: 9.5.1.1 table search ...<br><br>
 __second__<br>
 Function Library Guide: 7.2.1 hour, minute, second<br><br>
+__see__<br>
+Function Library Guide: 3.3.2 see<br><br>
 __select__<br>
 Function Library Guide: 2.6.1 select, pick<br><br>
 __select by value__<br>
@@ -1607,13 +1665,13 @@ Function Library Guide: 7.1.4 serial date<br><br>
 __series functions__<br>
 Function Library Guide: 5.3 Series Functions<br><br>
 __set__<br>
-Function Library Guide: 10.2.8 set, set names<br><br>
+Function Library Guide: 10.2.10 set, set names<br><br>
 __set locale__<br>
 Function Library Guide: 12.2 set locale<br><br>
 __set names__<br>
-Function Library Guide: 10.2.8 set, set names<br><br>
+Function Library Guide: 10.2.10 set, set names<br><br>
 __shifted table column specification__, __shifted table column specifications__<br>
-Language Guide: 5.1.7 Shifted Table Column Specifications<br><br>
+Language Guide: 5.4.7 Shifted Table Column Specifications<br><br>
 __Short command line options__<br>
 Language Guide: 2.2 Command Line Switches<br><br>
 __Short error messages on directories and files__<br>
@@ -1623,7 +1681,7 @@ Language Guide: 2.2 Command Line Switches<br><br>
 __simple references to variables__<br>
 Language Guide: 4.4.1 Simple References<br><br>
 __simple table access__<br>
-Language Guide: 5.1.1 Simple Table Access<br><br>
+Language Guide: 5.4.1 Simple Table Access<br><br>
 __simple variables__<br>
 Language Guide: 4.3.1 Simple Variables<br><br>
 __sin__, __sin deg__<br>
@@ -1638,22 +1696,32 @@ __Sleep and wait functions__, __sleep countdown__<br>
 Function Library Guide: 7.3.1 sleep, sleep countdown<br><br>
 __sleep until__, __sleep until countdown__<br>
 Function Library Guide: 7.3.2 sleep until, sleep until countdown<br><br>
+__Slicing Parameter sets__<br>
+Language Guide: 3.3.6.2 Slicing Parameter Sets<br><br>
+__Slicing strings__<br>
+Language Guide: 3.3.1.4 Slicing Strings<br><br>
 __smaller than or equal to__<br>
 Language Guide: 6.2.2.5 Smaller than (or Equal to)<br><br>
 __smart conversion and formatting__, __smart formatting__, __Smart Formatting Parameters__<br>
 Function Library Guide: 4.1.7 Smart Formatting<br><br>
 __smart if numeral__, __smart numeral__, __smart numerals__<br>
 Function Library Guide: 4.4 smart (if) numeral<br><br>
+__Softquoted literal__<br>
+Language Guide: 3.3.1.1 Softquoted Literals<br><br>
 __softquoted literal__<br>
 Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>
-__Softquoted Literals__<br>
-Language Guide: 3.5.2 Softquoted Literals<br><br>
+__Softquoted literals__<br>
+Language Guide: 3.3.1.1 Softquoted Literals<br><br>
 __Sort and rearrange table rows__<br>
 Function Library Guide: 9.7.3.12 table sort (selected) rows<br><br>
 __Sorting and rearranging table columns__<br>
 Function Library Guide: 9.7.2.4 table sort columns<br><br>
 __Sorting options__<br>
 Function Library Guide: 14.1 Sorting and Ranking Options<br><br>
+__Special console output characters__<br>
+Language Guide: 3.2.5.5 Special Console Output Characters<br><br>
+__Special keyboard input characters__<br>
+Language Guide: 3.2.5.4 Special Keyboard Input Characters<br><br>
 __specifying members with parameter sets__<br>
 Language Guide: 4.3.5 Parameter Sets Specifying Members<br><br>
 __spline interpolation__<br>
@@ -1671,7 +1739,7 @@ Language Guide: 2.4 Starting Behavior<br><br>
 __starting directory__<br>
 Function Library Guide: 11.1.4 starting directory<br><br>
 __Statement__, __Statements__<br>
-Language Guide: 3.1 Basic Language Structure<br><br>
+Language Guide: 3.2 Overall Language Structure<br><br>
 __Statements [func params]__<br>
 Language Guide: 8.4.3.4 Statements (func. params)<br><br>
 __statistics functions__<br>
@@ -1697,7 +1765,7 @@ Language Guide: 4.3.3 Structures<br><br>
 __structure protect__<br>
 Function Library Guide: 10.2.4 structure, structure protect<br><br>
 __structure to array__, __structure to array recursive__<br>
-Function Library Guide: 10.2.6 structure to array ...<br><br>
+Function Library Guide: 10.2.8 structure to array ...<br><br>
 __structures__<br>
 Language Guide: 4.3.3 Structures<br><br>
 __Styles__<br>
@@ -1710,6 +1778,10 @@ __substitute__, __substitute all__<br>
 Function Library Guide: 6.1.3 substitute, substitute all<br><br>
 __subtraction__<br>
 Language Guide: 6.2.1.2 Subtractions<br><br>
+__subtype__<br>
+Function Library Guide: 4.12 type, subtype<br><br>
+__Subtypes__<br>
+Language Guide: 3.3 Basic Data Types<br><br>
 __sum__<br>
 Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __sum if__, __sum if any__<br>
@@ -1718,15 +1790,19 @@ __switch__<br>
 Function Library Guide: 2.1.4 switch, check<br><br>
 __Switches__<br>
 Language Guide: 2.2 Command Line Switches<br><br>
+__Symbols__<br>
+Language Guide: 3.2.3 Symbols<br><br>
 __system__<br>
-Function Library Guide: 12.1.1 system<br><br>
+Function Library Guide: 12.1.2 system<br><br>
 __system functions__<br>
 Function Library Guide: 12 System Functions<br><br>
 __system variables__<br>
 Language Guide: 4.1.4 System Variables<br><br>
 "Description 21:T"::
+__tab__<br>
+Language Guide: 3.2.1.4 Reserved Keywords<br><br>
 __table access methods__<br>
-Language Guide: 5.1 Accessing Tables<br><br>
+Language Guide: 5.4 Accessing Tables<br><br>
 __table add missing row__<br>
 Function Library Guide: 9.3.2.4 table (write or) add missing row<br><br>
 __table add row__<br>
@@ -1769,6 +1845,8 @@ __Table console I/O__<br>
 Function Library Guide: 9.2.1 table list<br><br>
 __table consolidate__, __table consolidate selected rows__<br>
 Function Library Guide: 9.7.5.5 table consolidate ...<br><br>
+__table context__<br>
+Language Guide: 5.4.5 Partial Table Specifications<br><br>
 __table copy columns__, __table copy columns selected rows__<br>
 Function Library Guide: 9.7.2.2 table copy columns ...<br><br>
 __table copy table__<br>
@@ -1797,10 +1875,10 @@ __table delete empty columns__<br>
 Function Library Guide: 9.7.2.9 table delete blank/empty/unnamed columns<br><br>
 __table delete remaining columns__<br>
 Function Library Guide: 9.7.2.8 table delete remaining columns<br><br>
-__table delete remaining rows__<br>
-Function Library Guide: 9.7.3.4 table delete remaining rows<br><br>
-__table delete rows__<br>
-Function Library Guide: 9.7.3.3 table delete rows<br><br>
+__table delete remaining rows__, __table delete remaining rows if needed__<br>
+Function Library Guide: 9.7.3.4 table delete remaining rows (if needed)<br><br>
+__table delete rows__, __table delete rows if needed__<br>
+Function Library Guide: 9.7.3.3 table delete rows (if needed)<br><br>
 __table delete selected rows__<br>
 Function Library Guide: 9.7.3.5 table delete selected rows<br><br>
 __table delete silently__<br>
@@ -1822,7 +1900,7 @@ Function Library Guide: 9.7.5.6 table distribute ...<br><br>
 __table divide__, __table divide selected rows__<br>
 Function Library Guide: 9.8.3.7 table divide ...<br><br>
 __table duplicate columns__<br>
-Function Library Guide: 9.7.2.3 table duplicate columns ...<br><br>
+Function Library Guide: 9.7.2.3 table duplicate columns<br><br>
 __table exclude__, __table exclude columns__, __table exclude exclude columns__, __table exclude exclusive columns__, __table exclude extend columns__<br>
 Function Library Guide: 9.8.3.5 table exclude ...<br><br>
 __table existing__<br>
@@ -1869,8 +1947,8 @@ __table insert above selected rows__<br>
 Function Library Guide: 9.7.3.2 table insert ... selected rows<br><br>
 __table insert columns__, __table insert missing columns__<br>
 Function Library Guide: 9.7.2.1 table insert (missing) columns<br><br>
-__table insert rows__<br>
-Function Library Guide: 9.7.3.1 table insert rows<br><br>
+__table insert rows__, __table insert rows if needed__<br>
+Function Library Guide: 9.7.3.1 table insert rows (if needed)<br><br>
 __table insert selected rows__<br>
 Function Library Guide: 9.7.3.2 table insert ... selected rows<br><br>
 __table integrate__<br>
@@ -1945,6 +2023,8 @@ __table move selected rows__<br>
 Function Library Guide: 9.7.3.10 table move selected rows<br><br>
 __table multiply__, __table multiply selected rows__<br>
 Function Library Guide: 9.8.3.6 table multiply ...<br><br>
+__Table names__<br>
+Language Guide: 5.1 Table Naming Rules<br><br>
 __table overlay__, __table overlay columns__, __table overlay exclusive columns__, __table overlay extend columns__, __table overlay intersect columns__<br>
 Function Library Guide: 9.8.3.2 table overlay/subtract ...<br><br>
 __table process__<br>
@@ -1969,6 +2049,8 @@ __table process selected rows__<br>
 Function Library Guide: 9.7.4.1 table process (all) (selected rows)<br><br>
 __table process selected rows fast__<br>
 Function Library Guide: 9.7.4.2 table process selected rows fast<br><br>
+__Table properties__<br>
+Language Guide: 5.2 Table Properties<br><br>
 __table rank rows__, __table rank selected rows__<br>
 Function Library Guide: 9.7.3.13 table rank (selected) rows<br><br>
 __table read column selected rows__<br>
@@ -1980,7 +2062,7 @@ Function Library Guide: 9.7.2.5 table rearrange ... columns<br><br>
 __table rearrange selected rows__<br>
 Function Library Guide: 9.7.3.11 table rearrange selected rows<br><br>
 __table references__<br>
-Language Guide: 5.1 Accessing Tables<br><br>
+Language Guide: 5.4 Accessing Tables<br><br>
 __table rename__<br>
 Function Library Guide: 9.7.6.1 table rename<br><br>
 __table rename column headers__, __table rename existing headers__, __table rename headers__<br>
@@ -2047,6 +2129,8 @@ __table validate - examples__<br>
 Function Library Guide: 9.8.1.2.2 table validate - Examples<br><br>
 __table validate - group results__, __table validate - row results__<br>
 Function Library Guide: 9.8.1.2.1 table validate - Row and Group Results<br><br>
+__table view__<br>
+Function Library Guide: 13.6 table view<br><br>
 __table write column selected rows__<br>
 Function Library Guide: 9.3.2.5 table write column selected rows<br><br>
 __table write or add missing row__<br>
@@ -2063,14 +2147,22 @@ __terminal value__<br>
 Function Library Guide: 5.7.3 tv - Terminal Value<br><br>
 __Terms and Conditions__<br>
 User Guide: 2.6 Terms and Conditions<br><br>
+__Text__<br>
+Language Guide: 3.2.1 Text<br><br>
 __text color__<br>
-Function Library Guide: 3.2.3 text / background color<br><br>
+Function Library Guide: 3.2.4 text / background color<br><br>
 __Text composition__<br>
-Function Library Guide: 3.1.2 compose ...<br><br>
+Function Library Guide: 3.1.4 compose ...<br><br>
 __Text from standard input__<br>
-Function Library Guide: 3.1.3 input<br><br>
+Function Library Guide: 3.1.5 input<br><br>
 __text input/output__<br>
 Function Library Guide: 3.1 Text Input / Output<br><br>
+__Text inside double quotation marks__<br>
+Language Guide: 3.2.1.3 Text Inside Double Quotation Marks<br><br>
+__Text inside single quotation marks__<br>
+Language Guide: 3.2.1.2 Text Inside Single Quotation Marks<br><br>
+__text row__<br>
+Function Library Guide: 6.1.7 text row<br><br>
 __Text to standard output__<br>
 Function Library Guide: 3.1.1 echo, print ...<br><br>
 __The Language__<br>
@@ -2092,7 +2184,7 @@ Function Library Guide: 7.2.1 hour, minute, second<br><br>
 __time inside__<br>
 Function Library Guide: 7.1.1 date inside, time inside<br><br>
 __tokenize__<br>
-Function Library Guide: 6.1.13 tokenize<br><br>
+Function Library Guide: 6.1.14 tokenize<br><br>
 __Transactions__<br>
 Language Guide: 7 Transactions<br><br>
 __Transactions between tables__<br>
@@ -2120,34 +2212,36 @@ Function Library Guide: 9.7.5.1 table transpose<br><br>
 __trigonometric functions__<br>
 Function Library Guide: 5.2.5 Trigonometric Functions<br><br>
 __trim__<br>
-Function Library Guide: 6.1.11 trim ... (string function)<br><br>
+Function Library Guide: 6.1.12 trim ... (string function)<br><br>
 __trim__<br>
 Function Library Guide: 8.1.7 trim ... (parameter set function)<br><br>
 __trim all__<br>
-Function Library Guide: 6.1.11 trim ... (string function)<br><br>
+Function Library Guide: 6.1.12 trim ... (string function)<br><br>
 __trim [parameter set function]__<br>
 Function Library Guide: 8.1.7 trim ... (parameter set function)<br><br>
 __trim [string function]__<br>
-Function Library Guide: 6.1.11 trim ... (string function)<br><br>
+Function Library Guide: 6.1.12 trim ... (string function)<br><br>
 __tv__<br>
 Function Library Guide: 5.7.3 tv - Terminal Value<br><br>
 __Two parameter passing methods for series functions__<br>
 Function Library Guide: 5.3.1 Arithmetic and Boolean Series Functions<br><br>
 __type__<br>
-Function Library Guide: 4.12 type, type detailed<br><br>
+Function Library Guide: 4.12 type, subtype<br><br>
 __type conversion__, __Type Conversion Functions__<br>
 Function Library Guide: 4 Type Conversion and Formatting<br><br>
-__type detailed__<br>
-Function Library Guide: 4.12 type, type detailed<br><br>
+__Types__<br>
+Language Guide: 3.3 Basic Data Types<br><br>
 "Description 22:U"::
 __unary operators__<br>
 Language Guide: 6.1 Unary Operators<br><br>
+__underscore__<br>
+Function Library Guide: 3.2.9 underscore<br><br>
+__UNICODE__<br>
+Language Guide: 3.2.5 Characters<br><br>
 __unless__<br>
 Function Library Guide: 2.1.1 if, unless<br><br>
 __unlock__<br>
 Language Guide: 2.6 Licensing<br><br>
-__Unquoted Literals__<br>
-Language Guide: 3.5.1 (Unquoted) Literals<br><br>
 __until__<br>
 Function Library Guide: 2.2.3 while, until<br><br>
 __Updates and Upgrades__<br>
@@ -2173,8 +2267,6 @@ Function Library Guide: 2.3 User-Defined Procedures and Functions<br><br>
 __User-specific colors__<br>
 Function Library Guide: 9.9.1 Defining User Specific Colors<br><br>
 "Description 23:V"::
-__Validate and Explore__<br>
-User Guide: 3.3 3. Validate<br><br>
 __Validation functions__<br>
 Function Library Guide: 9.8.1.2 table validate<br><br>
 __Variable__<br>
@@ -2185,6 +2277,8 @@ __Variable forms__<br>
 Language Guide: 4.3 Variable Forms and Trees<br><br>
 __variable load__<br>
 Function Library Guide: 10.3.1 variable load ...<br><br>
+__Variable Names__<br>
+Language Guide: 4 Variables<br><br>
 __variable protection__, __variable protections__<br>
 Language Guide: 4.5 Protecting Variables<br><br>
 __variable references__<br>
@@ -2197,6 +2291,8 @@ __Variable scopes__<br>
 Language Guide: 4.1 Variable Scopes<br><br>
 __variable to json__<br>
 Function Library Guide: 10.3.4 variable to json ...<br><br>
+__variable view__<br>
+Function Library Guide: 13.7 variable view<br><br>
 __Variables__<br>
 Language Guide: 4 Variables<br><br>
 __variables functions__<br>
@@ -2216,23 +2312,23 @@ Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __variance ignore zero if__, __variance ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __verbose__, __verbose levels__<br>
-Language Guide: 3.10.1 Verbose Levels<br><br>
+Language Guide: 3.6.1 Verbose Levels<br><br>
 __vertical__<br>
 Function Library Guide: 5.4.6 vertical<br><br>
 __vertical table access__<br>
-Language Guide: 5.1.3 Vertical Table Access<br><br>
+Language Guide: 5.4.3 Vertical Table Access<br><br>
 __Vertical table access using parameter sets__<br>
-Language Guide: 5.1.3.1 Vertical Table Access w. Param. Sets<br><br>
+Language Guide: 5.4.3.1 Vertical Table Access w. Param. Sets<br><br>
 __Vertical table access using ranges__<br>
-Language Guide: 5.1.3.3 Vertical Table Access w. Ranges<br><br>
+Language Guide: 5.4.3.3 Vertical Table Access w. Ranges<br><br>
 __Vertical table access using wildcards__<br>
-Language Guide: 5.1.3.2 Vertical Table Access w. Wildcards<br><br>
+Language Guide: 5.4.3.2 Vertical Table Access w. Wildcards<br><br>
 __vertical table accesses__<br>
-Language Guide: 5.1.3 Vertical Table Access<br><br>
+Language Guide: 5.4.3 Vertical Table Access<br><br>
 __view__<br>
-Function Library Guide: 13.5 view<br><br>
+Function Library Guide: 13.8 view<br><br>
 __view reset__<br>
-Function Library Guide: 13.6 view reset<br><br>
+Function Library Guide: 13.9 view reset<br><br>
 __void to literal conversion and formatting__, __Void to Literal Formatting Parameters__<br>
 Function Library Guide: 4.1.2 Void to Literal Formatting<br><br>
 "Description 24:W"::
@@ -2250,6 +2346,8 @@ __week__<br>
 Function Library Guide: 7.1.6 week<br><br>
 __weekday__, __weekday from date__<br>
 Function Library Guide: 7.1.5 weekday<br><br>
+__weight__, __weight profile__<br>
+Function Library Guide: 10.2.6 weight, weight profile<br><br>
 __while__<br>
 Function Library Guide: 2.2.3 while, until<br><br>
 __whole__, __whole numbers__<br>

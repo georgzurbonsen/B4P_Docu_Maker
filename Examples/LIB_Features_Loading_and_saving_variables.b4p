@@ -5,14 +5,14 @@
   b[Blue,light] = Hellblau;
   b[Blue,dark] = Dunkelblau;
 
-  inspect(b[]);
+  see(b[]);
 
   j[] = variable to json( b[], JSON);
 
   echo("JSON code:", new line, j[], new line, "_______" );
 
   json to variable( c[], j[], JSON B4P );
-  inspect( c[] );
+  see( c[] );
 
   echo(new line, "Add data to intermediate nodes");
 
@@ -24,4 +24,4 @@
   echo("JSON code:", new line, j[], new line, "_______" );
 
   json to variable( c[], j[], JSON B4P );
-  inspect( c[] ); // Same as before.
+  see( c[] ); // Same as before.

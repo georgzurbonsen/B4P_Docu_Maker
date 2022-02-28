@@ -9,5 +9,5 @@
   // Builds a[a,b,c,f]  = { 1,2,3,6 }
   // Builds a[c,d] and a[c,e] with 4 and 5
 
-  inspect ( a[] );
+  see ( a[] );
 

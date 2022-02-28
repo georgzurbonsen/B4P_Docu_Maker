@@ -71,7 +71,7 @@ B4PDOCU.START
 	else // This part is executed in teh recursive call.
 	{
 	    echo("Number of long options found: ", count[] );
-	    inspect( long options[] );
+	    see( long options[] );
 	    echo(new line);
 	}
 	+++,

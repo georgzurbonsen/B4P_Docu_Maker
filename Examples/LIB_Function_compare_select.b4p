@@ -11,4 +11,4 @@
   {
       a[] = compare pick ( i[], Others, (2,5,7), "Is 2 or 3", >5, print("Greater than 5  ") );
       echo( i[], ": ", a[] );
-  }   
+  }

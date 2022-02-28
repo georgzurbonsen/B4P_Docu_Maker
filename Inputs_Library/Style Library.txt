@@ -1239,7 +1239,7 @@ B4PDOCU.START
 	border[] = { medium, red };
 	table process selected rows( t, ([Famous cultural place]=+'*theater*','*opera*'), 
 	    table style cells( t, { City, Famous cultural place}, row(), matrix, 
-	    text color, mandarin, fill color, lemonchiffon, boldface, true,
+	    text color, mandarin, fill color, lemon, boldface, true,
 	    left border, border[], right border, border[], top border, border[], bottom border, border[]  ) );
 
 	// Number format is supported in Excel only

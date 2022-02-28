@@ -13,6 +13,6 @@
   [ animals: .., 2 ] |<== animal1[];
   [ animals: .., 3 ] |<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.
 
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Contains bat and crab and ape with some info

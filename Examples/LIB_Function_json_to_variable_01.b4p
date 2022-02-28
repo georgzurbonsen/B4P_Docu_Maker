@@ -15,4 +15,4 @@
   echo("Load the JSON text, assuming it originated from B4P output");
   json to variable( diverse[], j[], JSON B4P );
 
-  inspect( diverse[] ); // You will see that all contents are preserved.
+  see( diverse[] ); // You will see that all contents are preserved.

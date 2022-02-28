@@ -12,6 +12,6 @@
 
   animal1[] &<<= [ animals: .., 1 ]; // Owl 
   animal2[] &<<= [ animals: .., 1 ]; // Dog
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Ape left over

@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+  echo( 'Value is &ge; 100 &euro;' );  // Text inside single quotation marks
+  echo( "Value is &ge; 100 &euro;" );  // Text inside double quotation marks - will show plain text
+  echo( decode entities( "Value is &ge; 100 &euro;" )); // Entities decoded at run-time
+
+  echo( '&#x20ac;'); // EURO Sign - UNICODE hexadecimal code
+  echo( '&#8364;' ); // EURO Sign - UNICODE decimal code

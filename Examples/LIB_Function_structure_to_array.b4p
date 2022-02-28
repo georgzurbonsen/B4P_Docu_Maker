@@ -10,10 +10,10 @@
   structure to array( copy[], temperatures[] );
 
   echo(new line, "Calling 'structure to array':");
-  inspect( copy[] );
-  inspect( temperatures[] ); // Is already an array
+  see( copy[] );
+  see( temperatures[] ); // Is already an array
 
   echo(new line, "Calling 'structure to array recursive':");
   structure to array recursive( country[] );
-  inspect( country[] );
+  see( country[] );
 

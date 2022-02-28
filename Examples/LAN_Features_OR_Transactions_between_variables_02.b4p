@@ -8,5 +8,5 @@
   animals1[mammal] |<<= animals2[mammal]; 
   // Lynx replaces bear, skunk added, turtle added
 
-  inspect(animals1[]); // omnivore added, carnivore overwritten
-  inspect(animals2[]); // no more mammal subtypes (...vores)
+  see(animals1[]); // omnivore added, carnivore overwritten
+  see(animals2[]); // no more mammal subtypes (...vores)

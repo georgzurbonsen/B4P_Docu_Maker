@@ -12,6 +12,6 @@
 
   animal1[] |<<= [ animals: .., 1 ]; // Owl, with skin wings like a bat
   animal2[] |<<= [ animals: .., 1 ]; // Dog, but not a favorable pet
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Ape left over

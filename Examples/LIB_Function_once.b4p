@@ -3,7 +3,7 @@
   {
       once()
           echo(Hey folks);
-      else: 
+      else:
           echo(Good bye);
   }
 

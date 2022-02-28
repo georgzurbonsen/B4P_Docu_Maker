@@ -384,9 +384,76 @@ B4P: Verify and resolve path 'ex*' ...
 >> exit
 	+++
 
+},
+
+
+
+"Interactive Input and Editing":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Interactive input", "Interactive editing" ],
+    "Description 01:Introduction"::
+
+	In __interactive mode__ and other occasions where line input is requested, e.g. with the __input(__) and __table menu(__) functions,
+	following editing features are available, as long B4P has not been started with the __command line switches__ <b>-c</b>
+	for disabling console features (but suitable for batch processing) and <b>-I</b> for installation scripts.
+
+	<br><br>
+	<u>Note:</u> If either of the two beforementioned switches are used, then B4P uses standard input and output, allowing to redirect
+	text I/O using pipes and other features.  All (distracting) console features will be kept inactive.
+
+	<br><br>
+	While entering text, following features are available:
+
+	=== 200, 800, bold_column_1
+	Key			| Function
+	Arrow left		| Moves cursor 1 character to the left <sup>1</sup>
+	CTRL-Arrow left		| Moves cursor 1 word to the left <sup>1</sup>
+	Arrow right		| Moves cursor 1 character to the right <sup>1</sup>
+	CTRL-Arrow right	| Moves cursor 1 word to the right <sup>1</sup>
+	Home			| Moves cursor to 1st position <sup>1</sup>
+	End			| Moves cursor to the end of the entered contents <sup>1</sup>
+	Arrow up		| Accesses the history of previously entered commands and/or strings, beginning with the most recent one.
+	Arrow down		| Accesses the next more recently entered command and/or strings
+	CTRL-K			| Delete remaining text starting with the cursor
+	CTRL-C			| Copies marked text to clipboard <sup>2</sup>
+	CTRL-X			| Cuts marked text to clipboard
+	CTRL-V			| Pastes contents from the clipboard
+	Backspace key		| Deletes the character on the left to the cursor and moves the cursor one character back
+	Delete key		| Deletes the character underneath the cursor
+	Insert key		| Toggles between insert and overwriting mode.  In overwriting mode, the next character to be overwritten is \
+				  marked and can also be cut or copied into the clipboard.
+	===
+	<sup>1</sup> Text can be marked for cutting and copying when holding the shift key down and using the cursor navigation keys.  Unfortunately, the mouse cannot be used. <br>
+	<sup>2</sup> Typing two CTRL-C consecutively will stop program execution
+
+    "Description 02:History of Recorded Commands and Strings"::
+
+	As mentioned in the table above, the vertical arrow keys support an input history.
+	<br><br>
+
+	The history of entered commands and strings are recorded in the following system variable: <b>libraries[console library,history[</b><i>n</i><b>]</b>
+	where the number <i>n</i> is the array index.  The first entered string gets index 0, with the additionally captured commands and/or strings following next
+	and ending with the most recently entered command or string. If a string identical with one in the history is entered, then the position of the stored
+	string will be moved to the most recent position in the array.
+
+    "Description 03:Clipboard"::
+
+	The clipboard as provided by the operating system will be used and allows cross application use.  Copying texts will be made available as both plain ANSI and UNICODE text.
+	In the other direction, both plain ANSI and UNICODE text can be pasted.  Attempting to paste HTML contents, image and other objects will not work.
+
+	<br><br>
+
+	<b>Using the mouse:</b> B4P does not support the mouse directly.  However, you can mark the text with the mouse and use the copy / paste features in the
+	top menu bar or menu box after clicking the right mouse key to initiate copying and pasting text.
+
+	<br><br>
+
+	<u>Note: </u>Under LINUX, the <b>xclip</b> utility will be used.  Make sure this utility is installed, e.g. with <b>sudo apt-get install xclip</b>.<br>
+	Under MacOS, the standard <b>pbcopy</b> and <b>pbpaste</b> utilities are used internally.
+	
+	+++	
 }
-
-
 
 
 

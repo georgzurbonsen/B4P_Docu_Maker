@@ -13,6 +13,6 @@
   animal1[] +<=>  [ animals: .., 1 ]; // Exchange owl with bat
   animal2[] +<=>^ [ animals: .., 2 ]; // Exchange dog with crab
 
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
   table list( animals ); // Contains bat (row 1) and crab (row 2) in addition

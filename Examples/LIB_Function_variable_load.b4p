@@ -5,7 +5,7 @@
              { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );
   array( pets[Cat], { Hauskatze, Puma, Tiger } );
 
-  inspect( pets[] );
+  see( pets[] );
 
   variable save( pets[], "Outputs\pets.json" );
 
@@ -18,7 +18,7 @@
   echo("Load the JSON file, assuming it originated from B4P output");
   variable load( animals[], "Outputs\pets.json", JSON B4P );
 
-  inspect( animals[] ); // You will see that all contents are preserved.
+  see( animals[] ); // You will see that all contents are preserved.
 
   echo("Now load the JSON file as if the file originated from somewhere else ...");
 
@@ -27,4 +27,4 @@
   // Element 1:  Further structured data
 
   variable load( animals[], "Outputs\pets.json", JSON );
-  inspect( animals[] );
+  see( animals[] );

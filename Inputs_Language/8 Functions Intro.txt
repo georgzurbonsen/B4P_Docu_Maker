@@ -45,24 +45,22 @@ B4PDOCU.START
 "Function Naming" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Function Naming" ],
+    "Feature Names":		[ "Procedure Names", "Function Names" ],
     "Description 01:Introduction"::
 
-	Unlike virtually any other programming language, B4P function names are unquoted literals which may consist of multiple words with spaces and special characters inbetween.
-	This scheme allows specifying even sophisticated functions in a normal language, e.g. __table lookup ignore case(__) and makes the language much more readable
-	than using special symbols or upper/lower case scheme to code long function names.  Memorizing such names is much easier for you and your team members.
+	B4P function names must be formulated __plain text__ and may consist of multiple words with spaces inbetween and allow special characters as long they do not interfere
+	with the B4P syntax (For example single points ( <b>.</b> ) and underscore symbols (<b>_</b>) are OK).  This makes function names easy to read and memorize, for example
+	__table lookup ignore case(__).
+
 
 	<br><br>
 	Please note the following rules for function names, especially when creating __user-defined procedures__ and __user-defined functions__ on your own:
-	* Function names are always specified as __unquoted literals__, i.e. always without quotation marks
 	* Function names are case sensitive
-	* Function names do not interfere with variable names and table names, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>
-	* The formulation rules for unquoted literals apply, which include:
-	** Spaces are allowed
-	** Multiple consecutive spaces and/or tabs collapse to 1 space.
-	** Spaces before the beginning and after the end of the names are irrelevant
-	* Names may consist of words and numbers, or even mulitple numbers separated with spaces.
-	* Special symbols are allowed as long they do not inteferee with the B4P language syntax.  E.g. <b>my_function</b> is OK, but <b>my-function</b> does not work because the hyphen is interpreted as a minus sign, attempting to text-subtract 'function' from 'my'.
+	* Function names are always specified as __plain text__, i.e. always without quotation marks
+	** Multiple words sparated with spaces are allowed
+	** Multiple spaces and tabs are interpreted as one single space
+	** Special symbols may be used as long they do not interfere with the B4P syntax.  Example: single points ( <b>.</b> ) and underscore symbols (<b>_</b>) are OK, but the hypen (minus sign) is not.
+	* Function names do not interfere with __variable names__ and __table names__, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>
 
 
     "Description 03:Function Naming Examples"::
@@ -78,7 +76,7 @@ B4PDOCU.START
 	table-process(...)						| <u>Attention</u>: <i>Kebab-case</i> does not work.  It attempts to execute 'process(...)', then do a text subtraction of 'table' minus return value of process(...).
 	tableprocess(...)						| Single-word 'tableprocess' differs from double-word 'table process'
 	TableProcess(...)						| <i>Camel case</i> formulation: Capitalized letter for each word makes it a distinct function name from 'tableprocess'
-	'table process'(...)						| Syntax error (only unquoted literals are allowed)
+	'table process'(...)						| Syntax error (only plain text is allowed)
 	"table process"(...)						| Syntax error (see above)
 	===
 
@@ -95,33 +93,28 @@ B4PDOCU.START
     "Keywords":			[ "Function parameter" ],
     "Description 01:Introduction"::
 
-	Depending on their specifications, B4P functions can take a fixed or variable number of parameters.  For variable number of parameters,
-	the minimum required, maximum allowed (or no limitation), and increments (e.g. min 2, max 11, increments of 3 means allowing 
-	2, 5, 8 or 11 parameters) are defined.
+	B4P applies a flexible scheme to specify parameters to be passed into functions.
 
-	Function parameters can be values, variables (including references to variables), expressions, table references and __code pices__.
+	* Functions may accept a fixed or variable number of parameters.
+	* Variable number of parameters is typically specified with a minimum, maximum and incremental count, Example: min 3, max 9, and increments of 2, so even number parameters are rejected.
+	* If 0 parameters are allowed, then functions called as procedures can be specified without parentheses, e.g. <b>echo;</b>.
+	* Following __parameter directions__ are supported: Input, output, input/output, and __variable references__
+	* Function parameters can be values, variables (including references to variables), expressions, table references and __code pieces__.
+
 	Details are ruled in the respective function definitions.
 
 	<br><br>
 
+	Type checking of function parameters takes place at run-time.  Depending on the parameter requested, a specific type (e.g. numeral), multiple different types,
+	or all types are accepted.  Various functions dealing with tables do also accept __table columns as function parameters__ which is a flexible parameter
+	type and accepts one of the following: individual header names, individual column numbers or several of them provided in a __parameter set__.
+
+	<br><br>
+
 	The ability to pass __code pieces__ as parameters into functions, which are then executed by the function once or repeatedly on when needed,
-	are unique to B4P and not common in other programming languges. This feature is actually used in control flow funtions (e.g. __if(__),
+	are unique to B4P and not common in other programming languges. This feature is actually used in __control flow functions__ (e.g. __if(__),
 	__while(__), etc.) which are, in other languages, defined as fixed keywords and are inherent parts of the programming language.  
 	In addition, this feature allows convenient operations through tables without specifying loops, e.g. with the __table process(__) function.
-
-	<br><br>
-
-	Depending on the specific functions, they may acceept parameters with values of any type (e.g. numerals only), a combination of them, or
-	or any type.  Type checking of the function parameters happen before the actual function is executed.  Type mismatches will be report
-	as exceptions (error messages).  Various functions dealing with tables do also accept __table columns as function parameters__ which is a flexible parameter
-	type and accepts one of the following: individual header names, individual column numbers or several of them provided in a __parameter set__ variable.
-
-
-	<br><br>
-
-	B4P supports different __parameter directions__: Input, output, input/output, __variable references__ and __code pieces__.
-	Functions may require no, a fixed number or a variable number of __function parameters__.
-
 
 	+++
 },
@@ -242,7 +235,7 @@ B4PDOCU.START
 	Parameter Types		| Description
 	All			| Accepts 
 	Numeral			| Accepts numerals and expressions returning numeral values
-	Literal			| Accepts unquoted, softquoted and quoted strings and expressions returning strings
+	Literal			| Accepts literals (strings) and expressions returning lterals
 	Boolean			| Accepts <b>true</b>, <b>false</b> or expressions returning boolean values, e.g. comparisons
 	Date			| Accepts dates and/or time values or expressions returning date/time values.
 	Date or literal		| In this case, literals will be converted to dates automatically, e.g. "29.Feb. 20" to 2020-02-29, or "today" to today's date
@@ -277,14 +270,14 @@ B4PDOCU.START
 	Whenever a function expects a __function parameter__ for table columns, the following types are supported and automatically
 	put into parameter sets.
 
-	=== 200, 500, 300, bold_column_1
-	Type			| Description				| Example
-	Quoted literals		| The content of the entire string is interpreted as one string value | "Last,First Name" is such an example
-	Quoted literals		| "" Empty string, will be treated as one blank string | "" translates to {""}
-	Softquoted literal	| Contents separated with commas are broken down into individual strings. Spaces around commas are ignored. | 'Last Name, First Name' results in two values: {'Last Name','First Name'}.
-	Softquoted literals	| '' Empty string, will be treated as no string | '' translates to { } (empty set)
-	Unquoted literal	| Treated like quoted literals (containing no commas, but multiple consecutive spaces collapse to 1 space) | Last Name, Last&nbsp;&nbsp;&nbsp;Name (both are equialent)
-	Parameter set		| Parameter sets contain a colection of values | { 1, Last Name, "Value [EUR]" }
+	=== 150, 500, 350, bold_column_1
+	Type			| Description												| Example
+	__Quoted literals__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
+				  Empty strings "" are treated as they are.			 					| "Last,First Name" is such an example
+	__Softquoted literals__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
+				  Empty strings '' are treated as they are.			 					| 'Last,First Name' is such an example
+	__Parameter set__	| Parameter sets can contain any number of values <br>\
+				  Empty sets {} provide zero values.									| { Last Name, First Name, "Value [EUR]", 123 }
 	===
 
 	<br><br>
@@ -338,30 +331,28 @@ B4PDOCU.START
 	=== 200, 500, 300, bold_column_1
 	Type			| Description				| Example
 	Numeral			| Specifies a __table column number__, beginning with 0.  __Negative indexing__ is allowed, i.e. -1 is last column in the top row, counting leftward. | 0 (left most column)<br> -2 (2nd. last column)
-	Quoted literals		| The content of the entire string is interpreted as one header name | "Last,First Name" refers to one header name<br>"" is a blank header name
-	Quoted literals		| "" Empty string, will be treated as one blank header name | "" translates to {""}
-	Softquoted literal	| Contents separated with commas are broken down into individual header names. Spaces around commas are ignored. | 'Last Name, First Name' results in 2 headers: 'Last Name' and 'First Name'.
-	Softquoted literals	| '' Empty string, will be treated as no header name | '' translates to { } (empty set)
-	Unquoted literal	| Treated like quoted literals (containing no commas, but multiple consecutive spaces collapse to 1 space) | Last Name, Last&nbsp;&nbsp;&nbsp;Name (both are equialent)
-	Parameter set		| Parameter sets contain a colection of header names and/or column numbers | { 1, Last Name, "Value [EUR]" }
+	Quoted literal		| The content of the entire string is interpreted as one header name. <br>\
+				  Empty strings ("") refer to the first column with blank header name.		 | "Last,First Name" refers to one header name<br>"" is a blank header name
+	Softquoted literal	| The content of the entire string is interpreted as one header name. <br>\
+				  Empty strings ('') refer to the first column with blank header name.<br>\
+				  __shifted table column specifications__ are allowed here to reference neighboring columns.<br>\
+				  Some function-specific exceptions may apply and are explicitly documented in the function library documentation. | 'Last,First Name' refers to one header name<br>'' is a blank header name
+	Parameter set		| Parameter sets contain a colection of header names and/or column numbers 	 | { 1, Last Name, first Name, "Value [EUR]" }
 	===
 
-	Various functions specific rules may apply:
+
+	Addtional function-specific rules may apply.  Below are some examples:
 	* Header names must exist
 	* Header names may exist (missing ones may be created as additinal columns in the table)
 	* Header names must not exist (e.g. to check if specific header names are <i>not</i> used in a specific table
 	* Column numbers are allowed, or not allowed
 	* Column numbers may only refer to existing colums, or alternatively all columns even if not yet existing
+	* Header names or column numbers must be unique
+	* etc.
 
 	<br>
-	<u>Note</u>: If Table headers contain numbers, the put the numbers into quotation marks.
+	<u>Note</u>: If Table headers contain numbers, then you can find these headers by specifying the numbers as literals, e.g. <b>'10'</b>, or <b>{ ..., '10'. ...}</b>.
 
-	+++,
-    "Description 02:Shifted Table Column Specifications"::
-
-	See the section on __shifted table column specifications__ for more details.  They can be applied both in table references as well as in column header
-	names provided as function parameters.  In both cases, the literal must be of type __softquoted literal__, e.g. contents put into single quotation marks.
-	Otherwise, the contents are treated literally as they are.
 	+++
 },
 
@@ -370,8 +361,8 @@ B4PDOCU.START
 "Code Pieces (Func. Param. Type)" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Code Piece" ],
-    "Keywords":			[ "code pieces" ],
+    "Feature Names":		[ "Code piece" ],
+    "Keywords":			[ "Code pieces" ],
     "Description 01:Introduction"::
 
 	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a literal string.
@@ -610,7 +601,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions
-	are typically used in funtions with names containing <b>... selected columns ... </b> where expressions are applied to chosses specifc columns to
+	are typically used in functions with names containing <b>... selected columns ... </b> where expressions are applied to chosses specifc columns to
 	include in the data processing.
 
 

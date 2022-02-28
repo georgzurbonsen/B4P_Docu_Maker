@@ -13,7 +13,7 @@
 
   animal1[] +<<= [ animals: .., 1 ];
   animal2[] +<<=^  [ animals: .., 2 ]; // Ape on row 2 (was on row 3 before the transaction on previous row)
-  inspect( animal1[] ); // Adds leg count, but name and special ability are maintained
-  inspect( animal2[] ); // animal2[] gets all table entries for the ape
+  see( animal1[] ); // Adds leg count, but name and special ability are maintained
+  see( animal2[] ); // animal2[] gets all table entries for the ape
 
   table list( animals ); // Dog with its nose is left over.

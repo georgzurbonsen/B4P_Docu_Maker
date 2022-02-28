@@ -3,7 +3,7 @@
   echo( tokenize( "This   is a" + new line + " test" ) );
 
   echo( new line, "Demonstrate 'include blanks' and 'trim token'" );
-  echo( tokenize( ",Ha, He ,,Hi,", '', "," ) );
+  echo( tokenize( ",Ha, He ,,Hi,", {}, "," ) );
   echo( tokenize( ",Ha, He ,,Hi,", include blanks, "," ) );
   echo( tokenize( ";Ha; He ,,Hi,", trim token, {",",";"} ) );
   echo( tokenize( ",Ha, He ,,Hi,", {include blanks, trim token}, "," ) );
@@ -12,7 +12,7 @@
   echo( tokenize( "'Me, and"+new line+"You','and us'" , allow new line inside quotations, ",", "'" ) );
 
   echo( new line, "Demonstrate usage of quotations" );
-  echo( tokenize( "<text>A gnu</text>,<text>A gnat</text>" , '', ",", { "<text>", "</text>" } ) );
+  echo( tokenize( "<text>A gnu</text>,<text>A gnat</text>" , {}, ",", { "<text>", "</text>" } ) );
   echo( tokenize( "<text>A gnu</text>,<text>A gnat</text>" , include quotations as tokens, ",", { "<text>", "</text>" } ) );
 
   echo( new line, "Read numerals, dates, booleans" );

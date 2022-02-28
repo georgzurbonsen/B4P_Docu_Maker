@@ -8,4 +8,4 @@
     list functions( "mo*" ); // Lists 3 functions: mod, mode (defined here) and month.
     echo;
     echo("Functions explained:");
-    explain functions( "mo*" ); 
+    explain functions( "mo*" );

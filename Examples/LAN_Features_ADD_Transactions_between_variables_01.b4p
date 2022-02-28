@@ -8,4 +8,4 @@
   structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );
 
   animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
-  inspect(animals1[]);
+  see(animals1[]);

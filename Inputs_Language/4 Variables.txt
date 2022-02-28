@@ -4,7 +4,7 @@ B4PDOCU.START
 "Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Variable", "Variables" ],
+    "Feature Names":		[ "Variable", "Variables", "Variable Names" ],
     "Description 01:Introduction to Variables"::
 
 	B4P provides a unique storage model for variables.  
@@ -339,7 +339,7 @@ B4PDOCU.START
 	Attribute       | Description 
 	Variable Name   | A literal of choice.  Exception: Array members have no names as they are just numbered
 	Value		| Stored value (Base Variable)
-	Data Type       | Distinguishes among __numeral__, __plain numeral__, __date__, __plain date__, __literal__, __softquoted literal__, __quoted literal__, __boolean__, __void__, and __parameter set__. 
+	Data Type       | Variables can assume any __Basic Data Types__ and __subtypes__ such as __literal__, __numeral__, etc.
 	Variable Form   | Distinguishes whether the variable is a __simple variable__, an __array__ or a __structure__, or a simple variable containing __zero members__
 	Members		| Contains all member variables (in __arrays__ and __structures__).  Every member is treated like an individual variable, too.
 	Member count	| Number of existing members (0 for simple variables)
@@ -476,11 +476,11 @@ B4PDOCU.START
 	
 	echo("Initialize variable with dim function:");
 	dim( a[], 5, '.' );
-	inspect( a[] );
+	see( a[] );
 
 	echo(new line, "Initialize variable with array function:");
 	array( a[], { Ha, He, Hi, Ho, Hu, Ahoi } );
-	inspect( a[] );
+	see( a[] );
 
 	+++,
     "Output 01:":		"automatic",
@@ -507,12 +507,12 @@ B4PDOCU.START
 
 	echo("Initialize a 2-dimensional array:");
 	dim( a[], {2,3}, '0' );
-	inspect( a[] );
+	see( a[] );
 
 	echo(new line, "Initialize two arrays (2nd one is nested) implicitly:");
 	b[2] = true;
 	b[1,2] = 123;
-	inspect( b[] );
+	see( b[] );
 
 	+++,
     "Output 02:":		"automatic"
@@ -560,11 +560,11 @@ B4PDOCU.START
 	a[cat] = Katze;
 	a[gnu] = Gnu;
 	echo(a[cat]);
-	inspect( a[] );
+	see( a[] );
 
 	echo(new line, "Initialize with the structure function");
 	structure( leg count[], { snake, bird, dog, fly, tick }, { 0, 2, 4, 6, 8 } );
-	inspect( leg count[] );
+	see( leg count[] );
 
 	+++,
     "Output 01:":		"automatic",
@@ -599,7 +599,7 @@ B4PDOCU.START
 	city[district,2,inhabitants] = 19500;
 	echo("1st  district = ", city[district,1], "   last district = ", city[district,-1] );
 
-	inspect( city[] );
+	see( city[] );
 	+++,
     "Output 02:":		"automatic",
 

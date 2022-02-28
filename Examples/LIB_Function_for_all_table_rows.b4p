@@ -1,6 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-      table initialize ( colors, { { EN, FR }, { red, rouge }, { blue, blue }, { green, vert }, { yellow, jaune } } );
-      for all table rows( colors, EN, value[], index[] )
+      table initialize ( colors, { { EN, FR }, { red, rouge }, { blue, blue }, { green, vert }, { rose, rosé }, { yellow, jaune } } );
+
+      // Simple case with 1 parameters
+      for all table rows( colors )
       {
-          echo( index, ": ", value[], " / ", [FR] );
+          echo( [EN], " -> ", [FR] ); // All French colors ending with 'e'
+      }
+
+      // All 4 parameters
+      // Note the extra parentheses for 2nd parameter to avoid hijacking further function parameters into the comparison
+      for all table rows( colors, EN, value[], index[] )
+      //
+      {
+          echo( "index ", index[], ": ",value[], " -> ", [FR] ); // All French colors ending with 'e'
       }

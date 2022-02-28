@@ -13,5 +13,5 @@
 
   animal1[] &<== [ animals: .., 1 ]; // Owl with skin wings and night vision
   animal2[] &<== [ animals: .., 1 ]; // Owl
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );

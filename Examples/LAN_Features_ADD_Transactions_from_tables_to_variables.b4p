@@ -13,5 +13,5 @@
 
   animal1[] +<== [ animals: .., 1 ];
   animal2[] +<==^  [ animals: .., 3 ];
-  inspect( animal1[] ); // Adds leg count, but name and special ability are maintained
-  inspect( animal2[] ); // animal2[] gets all table entries for the ape
+  see( animal1[] ); // Adds leg count, but name and special ability are maintained
+  see( animal2[] ); // animal2[] gets all table entries for the ape

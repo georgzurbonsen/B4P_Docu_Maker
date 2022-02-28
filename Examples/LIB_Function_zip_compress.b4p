@@ -11,7 +11,7 @@
 
       echo("List the extracted contents from 'All csv.zip':", new line);
       directory listing recursive( d, "All csv" );
-      table keep columns( d, 'Path,Name,Date Created,Directory,Size' );
+      table keep columns( d, {Path,Name,Date Created,Directory,Size} );
       table list( d );
 
       directory delete recursive ( "", "All csv" );

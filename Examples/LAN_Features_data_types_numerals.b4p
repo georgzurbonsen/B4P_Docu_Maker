@@ -8,8 +8,12 @@
   for all variables( a[], b[] )
   {
       c[] = literal(b[]);  // Recover literal representation
-      d[] = b[] * 1;       // Literal representation gets dropped
-      e[] = literal(d[]);  // Recover literal representation again
+      d[] = b[] + 0;       // Literal representation gets dropped because a calculation has been made
+      e[] = literal(d[]);  // Convert back to literal representation
 
-      echo(b[],"  ", c[], "  ", d[], "  ", e[], "  ", type detailed( b[] ) );
+      echo;
+      echo("For following numeral        : ", b[], " subtype: ", subtype(b[]) );
+      echo("   Literal representation    : ", c[], " subtype: ", subtype(c[]) );
+      echo("   Converted to plain numeral: ", d[], " subtype: ", subtype(d[]) );
+      echo("   Back to literal again     : ", e[], " subtype: ", subtype(e[]) );
   }

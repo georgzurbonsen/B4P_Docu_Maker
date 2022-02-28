@@ -11,6 +11,6 @@
   animal1[] <==  [ animals: Name, Dog, .. ]; // Pick up entire row
   animal2[] <==^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
 
-  inspect( animal1[] );
-  inspect( animal2[] );
+  see( animal1[] );
+  see( animal2[] );
 

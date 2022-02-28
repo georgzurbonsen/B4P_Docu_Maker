@@ -9,4 +9,4 @@
       sleep (0.05);
       echo( "Before continuing: ", watch continue() );
       sleep (0.05);
-      echo( watch stop(),", ", watch reset(), " and now back at zero: ", watch reset() ); 
+      echo( watch stop(),", ", watch reset(), " and now back at zero: ", watch reset() );

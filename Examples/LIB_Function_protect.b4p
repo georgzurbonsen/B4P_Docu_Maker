@@ -6,12 +6,12 @@
   protect( read only, b[] ) ;
 
   echo( "Base variable protection setting: ", protect( check, b[] ) );
-  inspect( b[] );
+  see( b[] );
 
   protect recursive( prevent deleting, b[] ) ;
 
   echo( "Base variable protection setting: ", protect( check, b[] ) );
-  inspect( b[] );
+  see( b[] );
   b[] = 2;
   b[Hi] = 3;
   b[Ho] = 4;
@@ -19,9 +19,9 @@
   protect( read only, b[] ) ;
 
   echo( "Base variable protection setting: ", protect( check, b[] ) );
-  inspect( b[] );
+  see( b[] );
 
   protect recursive( prevent deleting, b[] ) ;
 
   echo( "Base variable protection setting: ", protect( check, b[] ) );
-  inspect( b[] );
+  see( b[] );
