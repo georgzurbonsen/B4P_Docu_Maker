@@ -1,5 +1,5 @@
 ﻿#!/usr/local/bin/b4p
-      d[1] = { 31.12.2020, 31.12.2021, 31.12.2022 }; // still a literal. week() converts to date
+      d[1] = { 31.12.2020, 31.12.2021, 31.12.2022 }; // still a string. week() converts to date
       d[2] = { 01.01.2020, 01.01.2021, 01.01.2022 };
       for (option[] = 0, option[] <= 4, option[]++)
       {

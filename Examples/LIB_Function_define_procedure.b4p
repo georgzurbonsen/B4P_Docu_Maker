@@ -1,13 +1,13 @@
 ﻿#!/usr/local/bin/b4p
-      define function( my private function, { { guest name, literal }, { vegetarian, boolean } }, 2, -1, 2 )
+      define function( my private function, { { guest name, string }, { vegetarian, boolean } }, 2, -1, 2 )
       {
           echo( "Name of function: ", function name[] );
           echo( "First invited guest: ", guest name[], select if( vegetarian[], " (vegetarian menu)", " (fish menu)" ) );
 
           for (i[] = 3, i[] <= parameter count[], i[]+=2 ) // Additional guests
           {
-              name[] = ("parameter " + literal(i[]  ))[];
-              vegi[] = ("parameter " + literal(i[]+1))[];
+              name[] = ("parameter " + str(i[]  ))[];
+              vegi[] = ("parameter " + str(i[]+1))[];
 
               echo( "And: ", name[], select if( vegi[], " (vegetarian menu)", " (fish menu)" ) );
           }

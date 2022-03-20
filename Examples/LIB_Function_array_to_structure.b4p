@@ -15,7 +15,7 @@
 
   b[] <== a[];
   array to structure recursive( b[], "No. " );
-  echo("Conversion with literal in 2nd parameter:");
+  echo("Conversion with string in 2nd parameter:");
   see( b[] );
 
   b[] <== a[];

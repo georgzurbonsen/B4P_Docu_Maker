@@ -1,4 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-    a[] = input("The weather is ", "Please complete following sentence: ", literal );
+    a[] = input("The weather is ", "Please complete following sentence: ", string );
     echo("Entered value is : ", a[],"   The type is : ", type (a[]) );
 

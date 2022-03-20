@@ -152,7 +152,7 @@ Massachusetts
 2.5 [plain numeral]
 >> table load ( t, 'Examples\Cities.csv' )
 >> = [t: City, Boston, 'State/Province' ]
-Massachusetts ["literal"]
+Massachusetts [quoted string]
 >> exit // Leave B4P
 	+++
 },

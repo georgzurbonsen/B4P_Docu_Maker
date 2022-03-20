@@ -49,7 +49,7 @@
 	( toc,
 		if ([Keywords]{0} <> +[Keywords,row()-1]{0})
 		{
-		    table append	( index, { compose( '"Description ', literal( section nr[]++, "00"), ':', +[Keywords]{0} ,'"::' ) } );
+		    table append	( index, { compose( '"Description ', str( section nr[]++, "00"), ':', +[Keywords]{0} ,'"::' ) } );
 		    keywords[] = {};
 		}
 		keywords[] += {'__'+[Keywords]+'__'};

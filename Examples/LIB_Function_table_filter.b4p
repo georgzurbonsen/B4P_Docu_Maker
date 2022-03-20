@@ -1,5 +1,5 @@
 ﻿#!/usr/local/bin/b4p
-  define procedure( print coordinates, { { coordinates, parameters }, { msg, literal } } )
+  define procedure( print coordinates, { { coordinates, parameters }, { msg, string } } )
   {
       echo( msg[] );
       for all parameters( coordinates[], c[], i[] )

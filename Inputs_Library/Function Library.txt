@@ -338,8 +338,8 @@ B4PDOCU.START
     "Keywords":			[ "type conversion" ],
     "Description 01:Introduction"::
 
-	A set of functions are available to convert data in one type (e.g. __literals__) into other types (e.g. __dates__ and __numerals__).
-	Converting values to __literal__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
+	A set of functions are available to convert data in one type (e.g. __strings__) into other types (e.g. __dates__ and __numerals__).
+	Converting values to __string__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
 	in a desirable format.
 
 	$functions$
@@ -534,7 +534,7 @@ B4PDOCU.START
 	* __Time functions__
 	* __Stopwatch functions__
 
-	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __literals__, to __dates__.:
+	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __strings__, to __dates__.:
 	* __date(__)
 	* __pure date(__)
 	* __date time(__)
@@ -557,7 +557,7 @@ B4PDOCU.START
 
 	<br><br>
 
-	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __literals__, to __dates__.:
+	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __strings__, to __dates__.:
 	* __date(__)
 	* __pure date(__)
 	* __date time(__)
@@ -605,7 +605,7 @@ B4PDOCU.START
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "string functions" ],
-    "Keywords":			[ "literal functions" ],
+    "Keywords":			[ "string functions" ],
     "Description 01:Introduction"::
 
 	This section describes procedures and functions for character and string manipulations.
@@ -1352,7 +1352,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	The following functions provide convenient methods to save variables (including all the structure and array members and sub-members) into files or $
-	text strings (literals) and vice versa in JavaScriopt Object Notation (JSON).  Focus is given on full data preservation in round trip cases, 
+	text strings (strings) and vice versa in JavaScriopt Object Notation (JSON).  Focus is given on full data preservation in round trip cases, 
 	i.e. data is saved as JSON and covered again, and vice versa.
 
 	<br><br>
@@ -1368,14 +1368,14 @@ B4PDOCU.START
 	__Simple Variables__	| If the variable is a simple variable, then it will be saved as a JSON plain array containing 1 element.  Using 'JSON B4P' option in the loading process will recover the variable properly.
 	__Arrays__		| B4P arrays are stored as JSON arrays
 	__Structures__		| B4P structures are stored as JSON objects
-	Literals		| Literal string contents are stored as text in double quotation marks
+	strings		| string string contents are stored as text in double quotation marks
 	Numerals		| Numerals are written as numbers without quotation marks.  When saving, scientific notation is not used.  However, JSON files containing scientific notation will be loaded correctly.
 	Booleans		| Will be written as <b>true</b> and <b>false</b>.  B4P will recognize boolean values and convert them to Boolean type
 	Void values		| Are written as <b>null</b> in JSON output.
 	Dates			| Dates (and times) are written as text in following formats: "YYYY-MM-DD", "hh:mm:ss", "YYYY-MM-DD hh:mm:ss", and "0000-00-00".  The last value refers to a blank date and will be recognized as such. When reading JSON data, dates and times must adhere strictly with the given formats, otherwise they will be loaded as text (e.g. "01 April 2020").
-	Parameter Sets		| Parameter sets will be converted to string format (similarly implemented as in the __literal(__) function) and stored as text.  Literals are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested parameter sets are supported.
-	Loading literals	| All loaded literals are declared as <b>quoted literals</b>
-	Special characters	| Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside literals, etc. 
+	Parameter Sets		| Parameter sets will be converted to string format (similarly implemented as in the __str(__) function) and stored as text.  strings are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested parameter sets are supported.
+	Loading strings	| All loaded strings are declared as <b>quoted strings</b>
+	Special characters	| Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside strings, etc. 
 	===
 	+++,
     "Description 02:Intermediate Nodes"::
@@ -1440,7 +1440,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	Resident attributes are values which can be stored in dedicated files.  In contrast to loading and saving variables, attributes are tuples
-	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, literal, date, Boolean and parameter set.
+	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, string, date, Boolean and parameter set.
 	Attribute names can be either flat (just one name) or hierarchical (parameter set containing multiple names representng a sort of path name).
 
 	<br><br>
@@ -1448,7 +1448,7 @@ B4PDOCU.START
 	or settings conveniently.  One file may contain one or more settings.  Thd data format used is JavaScript Object Notation (JSON).
 
 	<br><br>
-	If a nested sub-attribute is created, then the values associated to the attributes are blank literals "", and not void.
+	If a nested sub-attribute is created, then the values associated to the attributes are blank strings "", and not void.
 	Example:  attribute write ( path[ ], file[ ], {local machine, local settings, date format}, "YYYY-MM-DD" ) will automatically assign "" to attribute name local machine, 
 	and local settings if not yet existing.
 
@@ -1718,12 +1718,12 @@ B4PDOCU.START
 	date				| Sorts by dates.  Fields containing no qualified dates are interpreted like blank dates.  See rules below the table.
 	===
 
-	Rules on literals:
-	* Blank literal '' comes first
+	Rules on strings:
+	* Blank string '' comes first
 	* One space symbol ' ' (UNICODE 32) comes next.
 	* Sorting is done based on UNICODE character codes.
 	* Sorting takes no cultural implications into consideration (e.g. Spanish: LL follows L).
-	* Numbers are also treated as literals: 0100 comes before 10.
+	* Numbers are also treated as strings: 0100 comes before 10.
 
 	Rules on numerals:
 	* For contents beginning a number: The 1st number will be recognized.

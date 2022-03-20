@@ -15,7 +15,7 @@
   table process( demo wildcards,
       for (c[] = 1, c[] < table row width( demo wildcards, 0 ), c[]++ )
       {
-          [c[]]      = [0]      = softquoted literal( [c[], 0 ] ); // Compare and write the result
+          [c[]]      = [0]      = soft( [c[], 0 ] ); // Compare and write the result
           // Current   Column   Compared with corresponding header name above
           // column    zero
       } );

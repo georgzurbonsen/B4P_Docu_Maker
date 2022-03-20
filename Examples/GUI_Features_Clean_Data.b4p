@@ -2,9 +2,9 @@
   table load                     ( countries, temp.csv); // Hide!  Step 2 begins
   // The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
   // and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
-  // Note: literal(...) is needed in roder to avoid error messages when numbers are read from the table.
+  // Note: str(...) is needed in order to avoid error messages when numbers are read from the table.
 
-  table process all cells        ( countries, [.] = replace all( literal([.]), {'[?]', '[??]' }, '' ) );
+  table process all cells        ( countries, [.] = replace all( str([.]), {'[?]', '[??]' }, '' ) );
   table clean                    ( countries, trim spaces );
 
   table lift header row          ( countries ); // Find header row automatically

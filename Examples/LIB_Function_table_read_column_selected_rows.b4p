@@ -5,9 +5,9 @@
   echo( table read column selected rows( table 1, Animal, [leg count]>4 ) );
   echo( table read column selected rows( table 1, leg count, [leg count]>4 ) );
 
-  // Numbers are read as numerals. Force reading them as literals:
+  // Numbers are read as numerals. Force reading them as strings:
 
   table configure( table 1, read numerals, no );
 
   // Pay attention to convert leg counts into nuemrals here.
-  echo( table read column selected rows( table 1, leg count, numeral([leg count])>4 ) );
+  echo( table read column selected rows( table 1, leg count, num([leg count])>4 ) );

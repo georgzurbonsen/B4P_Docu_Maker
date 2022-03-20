@@ -19,7 +19,7 @@ B4PDOCU.START
 
 	=== 230, 10, 10, noframe table_syntax
 	Base Variable Name		| [ 	| ]
-	- Literal value or expression	|	|
+	- String value or expression	|	|
 	  as variable name		|	|
 	===
 
@@ -48,13 +48,13 @@ B4PDOCU.START
 
 	Naming variables:
 	* The naming rule applies to __base variables__ as well as member variables in __structures__.
-	* Table names must be of type __literal__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters
-	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing literals (e.g. variables, string calculations, etc.)
+	* Table names must be of type __string__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters
+	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing strings (e.g. variables, string calculations, etc.)
 	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
 	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
 	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
 	* Blank variable names are also allowed, e.g. <b>''[]</b>.  Attention: Inside __structures__, blank member names will be referred as default member variables, e.g. <b>names[''] = All others;</b>.
-	* Any expression returning a literal is allowed, e.g. <b>("Hel" + "lo")[]</b> are allowed.
+	* Any expression returning a string is allowed, e.g. <b>("Hel" + "lo")[]</b> are allowed.
 	* Indirect variable referencingis supported, e.g. <b>(a[])[] = 1; echo( a[][] );</b> meaning writing 1 to variable with name retrieved from variable a.
 
 	<br><br>
@@ -251,24 +251,24 @@ B4PDOCU.START
 	=== 300, 100, 100, 500, bold_column_1
 	Variable Name				| Variable Type	| Protection Settings	| Description
 	command line arguments[]		| numeral	| read only		| Number of command line arguments, at least 1
-	&nbsp;&nbsp;...[0]			| literal	| full access		| 1st command line argument (typically the name of the B4P program file)
-	&nbsp;&nbsp;...[1, 2, ...]		| literal	| full access		| Additional command line arguments if available
+	&nbsp;&nbsp;...[0]			| string	| full access		| 1st command line argument (typically the name of the B4P program file)
+	&nbsp;&nbsp;...[1, 2, ...]		| string	| full access		| Additional command line arguments if available
 	===
 	<br>
 	=== 300, 100, 100, 500, bold_column_1, noheader
 	local settings[]			| void		| locked		| <b>Following variables refer to local settings</b>
-	&nbsp;&nbsp;...[locale]			| literal	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.
-	&nbsp;&nbsp;...[country name]		| literal	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.
-	&nbsp;&nbsp;...[language]		| literal	| read only 		| Configured language as part of locale settings.  Use __set locale(__) to change.
-	&nbsp;&nbsp;...[currency symbol]	| literal	| limited access	| Currency symbol as configured in locale settings
-	&nbsp;&nbsp;...[decimal separator]	| literal	| limited access	| Typically 1 chracter, e.g. '.', ','
-	&nbsp;&nbsp;...[thousand separator]	| literal	| limited access	| Typically 1 chracter, e.g. ',', '.', ' ', "'"
-	&nbsp;&nbsp;...[date format]		| literal	| limited access	| E.g. "DD.MM.YYYY", "MM/DD/YY", etc.  See __date to literal formatting parameters__.
-	&nbsp;&nbsp;...[date format short]	| literal	| limited access	| E.g. "DMY" or "MDY", used for resolving ambiguities in extracting dates from strings
-	&nbsp;&nbsp;...[date separator]		| literal	| limited access	| Typically 1 chracter, e.g. '.', '/', '-'
-	&nbsp;&nbsp;...[time format]		| literal	| limited access	| E.g. "HH:II:SS" Note the "I" for minute digits. See __date to literal formatting parameters__.
-	&nbsp;&nbsp;...[time separator]		| literal	| limited access	| Typically 1 chracter, e.g. ':'
-	&nbsp;&nbsp;...[list separator]		| literal	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.
+	&nbsp;&nbsp;...[locale]			| string	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[country name]		| string	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[language]		| string	| read only 		| Configured language as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[currency symbol]	| string	| limited access	| Currency symbol as configured in locale settings
+	&nbsp;&nbsp;...[decimal separator]	| string	| limited access	| Typically 1 chracter, e.g. '.', ','
+	&nbsp;&nbsp;...[thousand separator]	| string	| limited access	| Typically 1 chracter, e.g. ',', '.', ' ', "'"
+	&nbsp;&nbsp;...[date format]		| string	| limited access	| E.g. "DD.MM.YYYY", "MM/DD/YY", etc.  See __date to string formatting parameters__.
+	&nbsp;&nbsp;...[date format short]	| string	| limited access	| E.g. "DMY" or "MDY", used for resolving ambiguities in extracting dates from strings
+	&nbsp;&nbsp;...[date separator]		| string	| limited access	| Typically 1 chracter, e.g. '.', '/', '-'
+	&nbsp;&nbsp;...[time format]		| string	| limited access	| E.g. "HH:II:SS" Note the "I" for minute digits. See __date to string formatting parameters__.
+	&nbsp;&nbsp;...[time separator]		| string	| limited access	| Typically 1 chracter, e.g. ':'
+	&nbsp;&nbsp;...[list separator]		| string	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.
 	===
 	<br>
 	=== 300, 100, 100, 500, bold_column_1, noheader
@@ -282,39 +282,39 @@ B4PDOCU.START
 	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| __Epsilon__ as numeric tolerance value used for comparisons.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.
 	&nbsp;&nbsp;...[exit directly]		| boolean	| limited access	| Normally false, i.e. user must press [Enter] to finally leave the program and the console window may close.  If set to true, then B4P programs exist directly.
 	&nbsp;&nbsp;...[search files ignore case]| boolean	| limited access	| Normally true under Windows and false under Linux/MACOS.  In Windows systems, finding files is not case sensitive.
-	&nbsp;&nbsp;...[input file character set]| literal	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks, \
+	&nbsp;&nbsp;...[input file character set]| string	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks, \
 											  and too few special symbols were inside to recognize the files properly.  Presently, its <b>win-1252</b> for Windows and <b>utf-8</b> for Linux/MACOS systems.<br>\
 											  Following character sets are supported: <b>ansi, iso8859-1, win1252, utf-8, utf-16, utr-16 big endian</b>.
-	&nbsp;&nbsp;...[output file character set]| literal	| limited access	| Default character set assumed for saving files if no other format specified.  Presently it's <b>utf-8</b>.
+	&nbsp;&nbsp;...[output file character set]| string	| limited access	| Default character set assumed for saving files if no other format specified.  Presently it's <b>utf-8</b>.
 	&nbsp;&nbsp;...[memorize table columns]	| boolean	| limited access	| See __memory effect__ regarding table header names begin memorized. Set to false to deactivate memorizing.
-	&nbsp;&nbsp;...[prompt]			| literal	| limited access	| Current prompt as used in the __interactive mode__.  Change it using the __prompt(__) function.
-	&nbsp;&nbsp;...[registry my space]	| literal	| limited access	| Obsolete.
-	&nbsp;&nbsp;...[verbose]		| literal	| limited access	| Verbose levels.  See __verbose__ for more details.
+	&nbsp;&nbsp;...[prompt]			| string	| limited access	| Current prompt as used in the __interactive mode__.  Change it using the __prompt(__) function.
+	&nbsp;&nbsp;...[registry my space]	| string	| limited access	| Obsolete.
+	&nbsp;&nbsp;...[verbose]		| string	| limited access	| Verbose levels.  See __verbose__ for more details.
 	&nbsp;&nbsp;...[found main]		| boolean	| read only		| true if B4P was started without a specified B4P program file, but has found 'main.b4p' in the current or starting directory.
 	===
 	<br>
 	=== 300, 100, 100, 500, bold_column_1, noheader
 	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>
-	&nbsp;&nbsp;...[app data directory]	| literal	| read only		| Local machine application data directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
-	&nbsp;&nbsp;...[app data directory b4p]	| literal	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
-	&nbsp;&nbsp;...[user app data directory]     | literal	| read only		| User application data directory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
-	&nbsp;&nbsp;...[user app data directory b4p] | literal	| read only		| User application data directory with B4P subdirectory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
-	&nbsp;&nbsp;...[bin directory]		| literal	| read only		| Location of binary executable file<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
-	&nbsp;&nbsp;...[program directory]	| literal	| read only		| Program directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/usr/local/etc"
-	&nbsp;&nbsp;...[program directory b4p]	| literal	| read only		| Program directory with B4P subdirectory<br>Windows: "C:\Program Files\b4p"<br>Linux/MACOS: "/usr/local/etc/b4p"
-	&nbsp;&nbsp;...[temp directory]		| literal	| read only		| Directory for temporary data storage:<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\TEMP"<br>Linux/MACOS: "/tmp"
-	&nbsp;&nbsp;...[user directory]		| literal	| read only		| User directory after login:<br>Windows: "C:\Users\<i>user name</i>\"<br>Linux/MACOS: "/home/<i>user name</i>"
-	&nbsp;&nbsp;...[directory separator]	| literal	| read only		| Windows: '\' and Linux/MACOS: '/'
-	&nbsp;&nbsp;...[operating system]	| literal	| read only		| e.g. "Windows", "Linux", "MACOS"
-	&nbsp;&nbsp;...[operating system product] | literal	| read only		| e.g. specific Windows OS product like "Windows 10 Pro" or Linux distribution name like "Ubuntu"
-	&nbsp;&nbsp;...[user name] 		| literal	| read only		| Your login user name
-	&nbsp;&nbsp;...[user domain] 		| literal	| read only		| Your user domain
-	&nbsp;&nbsp;...[host name]		| literal	| read only		| Name of your system
-	&nbsp;&nbsp;...[privileges]		| literal	| read only		| Your privilege level for the operating system: <br>\
+	&nbsp;&nbsp;...[app data directory]	| string	| read only		| Local machine application data directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
+	&nbsp;&nbsp;...[app data directory b4p]	| string	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[user app data directory]     | string	| read only		| User application data directory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
+	&nbsp;&nbsp;...[user app data directory b4p] | string	| read only		| User application data directory with B4P subdirectory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[bin directory]		| string	| read only		| Location of binary executable file<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[program directory]	| string	| read only		| Program directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/usr/local/etc"
+	&nbsp;&nbsp;...[program directory b4p]	| string	| read only		| Program directory with B4P subdirectory<br>Windows: "C:\Program Files\b4p"<br>Linux/MACOS: "/usr/local/etc/b4p"
+	&nbsp;&nbsp;...[temp directory]		| string	| read only		| Directory for temporary data storage:<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\TEMP"<br>Linux/MACOS: "/tmp"
+	&nbsp;&nbsp;...[user directory]		| string	| read only		| User directory after login:<br>Windows: "C:\Users\<i>user name</i>\"<br>Linux/MACOS: "/home/<i>user name</i>"
+	&nbsp;&nbsp;...[directory separator]	| string	| read only		| Windows: '\' and Linux/MACOS: '/'
+	&nbsp;&nbsp;...[operating system]	| string	| read only		| e.g. "Windows", "Linux", "MACOS"
+	&nbsp;&nbsp;...[operating system product] | string	| read only		| e.g. specific Windows OS product like "Windows 10 Pro" or Linux distribution name like "Ubuntu"
+	&nbsp;&nbsp;...[user name] 		| string	| read only		| Your login user name
+	&nbsp;&nbsp;...[user domain] 		| string	| read only		| Your user domain
+	&nbsp;&nbsp;...[host name]		| string	| read only		| Name of your system
+	&nbsp;&nbsp;...[privileges]		| string	| read only		| Your privilege level for the operating system: <br>\
 											  <b>standard</b>: Standard user privileges <br>\
 											  <b>elevated</b>: Enhanced privileges, entitled to install software <br>\
 											  <b>administrator</b>: Administrator privileges.  Applicable if program is started with administration rights (e.g. 'sudo' added in front in Linux/MACOS systems)
-	&nbsp;&nbsp;...[operating system version] | literal	| read only		| Version number of installed operating system
+	&nbsp;&nbsp;...[operating system version] | string	| read only		| Version number of installed operating system
 	===
 	<br>
 	=== 300, 100, 100, 500, bold_column_1, noheader
@@ -337,9 +337,9 @@ B4PDOCU.START
 
 	=== 200, 800, noframe_1stcolbold
 	Attribute       | Description 
-	Variable Name   | A literal of choice.  Exception: Array members have no names as they are just numbered
+	Variable Name   | A string of choice.  Exception: Array members have no names as they are just numbered
 	Value		| Stored value (Base Variable)
-	Data Type       | Variables can assume any __Basic Data Types__ and __subtypes__ such as __literal__, __numeral__, etc.
+	Data Type       | Variables can assume any __Basic Data Types__ and __subtypes__ such as __string__, __numeral__, etc.
 	Variable Form   | Distinguishes whether the variable is a __simple variable__, an __array__ or a __structure__, or a simple variable containing __zero members__
 	Members		| Contains all member variables (in __arrays__ and __structures__).  Every member is treated like an individual variable, too.
 	Member count	| Number of existing members (0 for simple variables)
@@ -373,7 +373,7 @@ B4PDOCU.START
 
 	=== 200, 600, 200, noframe_1stcolbold
 	Variable Form | Description | Example
-	__Simple Variables__ | Simple variables hold one base variable value of any data type (numeral, literal, date, boolean, void and paramter set) and contain no members. | last name[]
+	__Simple Variables__ | Simple variables hold one base variable value of any data type (numeral, string, date, boolean, void and paramter set) and contain no members. | last name[]
         __Arrays__           | In addition to the base variable, arrays a defined number of numerically indexed members | member [1], member[3]
 	__Structures__       | In addition to the base variable, structures contain one or more named member variables | animal[dog], animal[cat]
 	__Zero Members__     | Very similar to simple variables.  Contains base variable and zero members, but has previously had array or structure members which have been deleted meanwhiel.  The variable form changes to __structure__ if a structure element is added, or to __array__ if an array member is added.
@@ -393,7 +393,7 @@ B4PDOCU.START
 
 	=== 230, 10, 10, noframe table_syntax
 	Base Variable Name		| [ 	| ]
-	- Literal value or expression	|	|
+	- String value or expression	|	|
 	  as variable name		|	|
 	===
 
@@ -416,7 +416,7 @@ B4PDOCU.START
 	echo('1'[], " ", ' '[], " ", ''[], " ", 'a[]'[], new line );
 
 	me too[] = Hmm;
-	me  too[] = Me;   // Unquoted literal ignores redundant spaces, same as 'me too'
+	me  too[] = Me;   // Plain text ignores redundant spaces, same as 'me too'
 	'me  too'[] = Mee too;
 	echo( me too[], ", ", me  too[], ", ", 'me  too'[] );
 	+++,
@@ -439,7 +439,7 @@ B4PDOCU.START
 
 	=== 230, 10, 230, 10, noframe table_syntax
 	Base Variable Name		| [ 	| Index			 		| ]
-	- Literal value or expression	|	| - Numeral or numeric expression	|
+	- String value or expression	|	| - Numeral or numeric expression	|
 	  as variable name		|	|   as index number			|
 	===
 
@@ -495,7 +495,7 @@ B4PDOCU.START
 	<br>Nested arrays:
 	=== 230, 10, 230, 10, 230, 10, noframe table_syntax
 	Base Variable Name		| [ 	| Index			 		| ,	| Index					| ]
-	- Literal value or expression	|	| - Numeral or numeric expression	|	| - Numeral or numeric expression	|
+	- String value or expression	|	| - Numeral or numeric expression	|	| - Numeral or numeric expression	|
 	  as variable name		|	|   as index number			|	|   as index number			|
 	===
 	* Nesting structures in arrays and vice versa is also allowed.
@@ -534,7 +534,7 @@ B4PDOCU.START
 
 	=== 230, 10, 230, 10, noframe table_syntax
 	Base Variable Name		| [ 	| Member Name		 		| ]
-	- Literal value or expression	|	| - Literal value or expression		|
+	- String value or expression	|	| - String value or expression		|
 	  as variable name		|	|   as variable member name		|
 	===
 	<br>
@@ -578,7 +578,7 @@ B4PDOCU.START
 	<br>Nested structures:
 	=== 230, 10, 230, 10, 230, 10, noframe table_syntax
 	Base Variable Name		| [ 	| Member Name				| ,	| Member Name				| ]
-	- Literal value or expression	|	| - Literal value or expression		|	| - Literal value or expression		|
+	- String value or expression	|	| - String value or expression		|	| - § value or expression		|
 	  as variable name		|	|   as variable member name		|	|   as variable member name		|
 	===
 	<br>
@@ -606,7 +606,7 @@ B4PDOCU.START
     "Description 03:Default Members"::
 
 	Normally, attempting to access a structure with a non-existing element name will cause an error.  Beyond4P supports default members
-	which will be returned in case of no matches.  Assign the default value using a blank literal ('') as member name and that's it.
+	which will be returned in case of no matches.  Assign the default value using a blank string ('') as member name and that's it.
 
 	+++,
 
@@ -1015,7 +1015,7 @@ echo( a[0],", ", a[1] ); // Hi, Hi
 	Use __protect(__) to check settings	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| &#x2714;
 	===
 	<sup>1</sup> Provided no additional protection seetings restrict usage of the member variables.<br>
-	<sup>2</sup> E.g. forbidden to overwrite literal contents with numeric contents.  Additional restrictions may apply on system variables, e.g. only specific values may be written.<br>
+	<sup>2</sup> E.g. forbidden to overwrite string contents with numeric contents.  Additional restrictions may apply on system variables, e.g. only specific values may be written.<br>
 	<sup>3</sup> E.g. converting structures to arrays and back using __array to structure(__) or __structure to array(__) functions.<br>
 	<sup>4</sup> Only possible if variable contains no other members so far.<br>
 

@@ -24,7 +24,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Source path name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Choice of file or directory name.  If directory name is chosen, then the whole directory with all contents will be compressed.
 			__Wildcards__ e.g. (pictures\*.jpg)  are allowed. In this case, 2nd parameter (Archive file name) is also required to provide a concrete archive name.
@@ -33,7 +33,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 2.",
 		  "Name": "Archive file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			A dedicated archive file name is required if the 1st parameter does not specifcy a dedicated file or directory (with files inside), but to
 			multiple files or directories (using wildcard symbols).
@@ -42,7 +42,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 3.",
 		  "Name": "Archive format",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			One of the following: <b>zip</b> and <b>7z<b> (latter applies for 7-Zip and is supported under Windows only. Will be rejected under other operating systems").
 			+++
@@ -93,7 +93,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Archive file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Choice of file or directory name.  If directory name is chosen, then the whole directory with all contents will be compressed.
 			__Wildcards__ e.g. (pictures\*.jpg)  are allowed. In this case, 2nd parameter (Archive file name) is also required to provide a concrete archive name.
@@ -102,18 +102,18 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Content file names",
 		  "Direction": "input",
-		  "Types": [ "parameter set or literal" ],
+		  "Types": [ "parameter set or string" ],
 		  "Description"::
 			Specify all files to extract:
-			* Use literal type to specify 1 file.
+			* Use string type to specify 1 file.
 			* Use aparameter set to specify multiple files
-			* Alternatively use softquoted literal (with single quotation marks) with file names spearated by comam to specify multiple files.
+			* Alternatively use softquoted string (with single quotation marks) with file names spearated by comam to specify multiple files.
 			+++
 		},
 		{ "Number": "Opt. 3.",
 		  "Name": "Target directory name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "(current working directory)",
 		  "Description"::
 			Specify the directory where the extracted files shall be copied to. 
@@ -156,7 +156,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Archive file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Choice of file or directory name.  If directory name is chosen, then the whole directory with all contents will be compressed.
 			__Wildcards__ e.g. (pictures\*.jpg)  are allowed. In this case, 2nd parameter (Archive file name) is also required to provide a concrete archive name.
@@ -165,7 +165,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 2.",
 		  "Name": "Target directory name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "(current working directory)",
 		  "Description"::
 			Specify the directory where the extracted files shall be copied to. 

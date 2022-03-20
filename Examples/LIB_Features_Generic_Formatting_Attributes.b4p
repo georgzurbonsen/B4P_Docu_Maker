@@ -13,7 +13,7 @@
   table style cells  ( t, Dates Num,   2, single, number format, "DD.MMM.YYYY" );
   table style cells  ( t, Dates Lit 1, 2, single, number format, "DD.MMM.YYYY" );
   table style cells  ( t, Dates Lit 2, 2, single, number format, "DD.MMM.YYYY" );
-  table style rows   ( t, 3, sheet, type, literal );
+  table style rows   ( t, 3, sheet, type, string );
   table style cells  ( t, Boolean Num, 4, single, type, boolean );
 
   table save( t, "Images/Style_Number_Formats.html", HTML );

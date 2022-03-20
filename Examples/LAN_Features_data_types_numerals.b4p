@@ -2,18 +2,18 @@
   a[0] = 123.45;
   a[1] = 007;
   a[2] = 20.20;
-  a[3] = numeral( '1.5E-3' ); // Literal representation will not be included here
+  a[3] = num( '1.5E-3' ); // String representation will not be included here
   a[4] = 0.00;
 
   for all variables( a[], b[] )
   {
-      c[] = literal(b[]);  // Recover literal representation
-      d[] = b[] + 0;       // Literal representation gets dropped because a calculation has been made
-      e[] = literal(d[]);  // Convert back to literal representation
+      c[] = str(b[]);  // Recover string representation
+      d[] = b[] + 0;       // String representation gets dropped because a calculation has been made
+      e[] = str(d[]);  // Convert back to string representation
 
       echo;
       echo("For following numeral        : ", b[], " subtype: ", subtype(b[]) );
-      echo("   Literal representation    : ", c[], " subtype: ", subtype(c[]) );
+      echo("   String representation     : ", c[], " subtype: ", subtype(c[]) );
       echo("   Converted to plain numeral: ", d[], " subtype: ", subtype(d[]) );
-      echo("   Back to literal again     : ", e[], " subtype: ", subtype(e[]) );
+      echo("   Back to string again      : ", e[], " subtype: ", subtype(e[]) );
   }

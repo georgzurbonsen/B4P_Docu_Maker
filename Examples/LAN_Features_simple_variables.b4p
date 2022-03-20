@@ -15,6 +15,6 @@
   echo('1'[], " ", ' '[], " ", ''[], " ", 'a[]'[], new line );
 
   me too[] = Hmm;
-  me  too[] = Me;   // Unquoted literal ignores redundant spaces, same as 'me too'
+  me  too[] = Me;   // Plain text ignores redundant spaces, same as 'me too'
   'me  too'[] = Mee too;
   echo( me too[], ", ", me  too[], ", ", 'me  too'[] );

@@ -52,6 +52,8 @@ __Additional info on fast processing of rows__<br>
 Function Library Guide: 9.7.4.5.1 Addt'l Info on fast rows processing<br><br>
 __advanced directory listing__, __advanced directory listing recursive__<br>
 Function Library Guide: 11.2.2 advanced directory listing ...<br><br>
+__Align and Process__<br>
+User Guide: 3.6 F - Analyze<br><br>
 __alternative execution of code blocks__<br>
 Function Library Guide: 2.1.4 switch, check<br><br>
 __and__<br>
@@ -143,10 +145,10 @@ __Block__, __Blocks__<br>
 Language Guide: 3.2 Overall Language Structure<br><br>
 __boldface__<br>
 Function Library Guide: 3.2.7 boldface<br><br>
-__boolean__, __boolean conversion function__<br>
-Function Library Guide: 4.8 boolean<br><br>
-__boolean to literal conversion and formatting__, __Boolean to Literal Formatting Parameters__<br>
-Function Library Guide: 4.1.6 Boolean to Literal Formatting<br><br>
+__bool__, __boolean conversion function__<br>
+Function Library Guide: 4.8 bool<br><br>
+__boolean to string conversion and formatting__, __Boolean to String Formatting Parameters__<br>
+Function Library Guide: 4.1.6 Boolean to String Formatting<br><br>
 __Branches__<br>
 Function Library Guide: 2.1 Branches<br><br>
 __break case__, __break loop__<br>
@@ -208,8 +210,10 @@ __chr__<br>
 Function Library Guide: 6.2.1 chr<br><br>
 __clean__<br>
 Function Library Guide: 6.1.13 clean<br><br>
-__clean if numeral__, __clean numeral__, __clean numerals__<br>
-Function Library Guide: 4.3 clean (if) numeral<br><br>
+__Clean Data__<br>
+User Guide: 3.2 B - Clean<br><br>
+__clean if num__, __clean num__, __clean numerals__<br>
+Function Library Guide: 4.3 clean num, clean if num<br><br>
 __clean up exotic spaces and line breaks in strings__<br>
 Function Library Guide: 6.1.13 clean<br><br>
 __Cleaning up and miscellaneous table functions__<br>
@@ -369,12 +373,12 @@ __darken color__<br>
 Function Library Guide: 9.9.1.4 darken color<br><br>
 __darken colors__<br>
 Function Library Guide: 9.9.1.8 darken colors<br><br>
-__Data subtype quoted literals__<br>
-Language Guide: 3.3.1.2 Quoted Literals<br><br>
-__Data subtype softquoted literals__<br>
-Language Guide: 3.3.1.1 Softquoted Literals<br><br>
-__Data type literals__<br>
-Language Guide: 3.3.1 Literals<br><br>
+__Data subtype quoted strings__<br>
+Language Guide: 3.3.1.2 Quoted Strings<br><br>
+__Data subtype softquoted strings__<br>
+Language Guide: 3.3.1.1 Softquoted Strings<br><br>
+__data type strings__<br>
+Language Guide: 3.3.1 Strings<br><br>
 __data types booleans__<br>
 Language Guide: 3.3.4 Booleans<br><br>
 __data types dates__<br>
@@ -409,8 +413,8 @@ __date inside__<br>
 Function Library Guide: 7.1.1 date inside, time inside<br><br>
 __date time__<br>
 Function Library Guide: 4.5 date, pure date, date time<br><br>
-__date to literal conversion and formatting__, __Date to Literal Formatting Parameters__<br>
-Function Library Guide: 4.1.4 Date to Literal Formatting<br><br>
+__date to string conversion and formatting__, __Date to String Formatting Parameters__<br>
+Function Library Guide: 4.1.4 Date to String Formatting<br><br>
 __day__<br>
 Function Library Guide: 7.1.2 year, quarter, month, day<br><br>
 __day of year__<br>
@@ -463,7 +467,7 @@ __Derive disjoint union (exclusive or) from both tables__<br>
 Function Library Guide: 9.8.3.5 table exclude ...<br><br>
 __describe__<br>
 Function Library Guide: 6.3.3 describe<br><br>
-__Detects dates correctly in literals__<br>
+__Detects dates correctly in strings__<br>
 Function Library Guide: 4.7 Date and Time Detection Rules<br><br>
 __deviation__<br>
 Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
@@ -554,6 +558,8 @@ __encode entities__<br>
 Function Library Guide: 6.2.4 encode entities<br><br>
 __end__<br>
 Function Library Guide: 2.5.5 end<br><br>
+__Enrichment__<br>
+User Guide: 3.5 E - Augment<br><br>
 __entering interactive mode__<br>
 Language Guide: 2.7.1 Entering Interactive Mode<br><br>
 __Epsilon__<br>
@@ -741,12 +747,14 @@ __forget memorized table columns__<br>
 Function Library Guide: 9.3.1.4 forget memorized table columns<br><br>
 __format__, __format print__<br>
 Function Library Guide: 3.1.3 format, format print<br><br>
+__Format the results__<br>
+User Guide: 3.7 G - Format<br><br>
 __Formatting and styling tables__<br>
 Function Library Guide: 9.9 Formatting and Styling Tables<br><br>
 __Formatting Coverages__, __Formatting Precedences__<br>
 Function Library Guide: 9.9.2.6 Formatting Coverages and Precedences<br><br>
 __formatting template__<br>
-Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>
+Function Library Guide: 4.1 str, soft<br><br>
 __Formatting the Tables__<br>
 Function Library Guide: 9.9.2 Styling Functions<br><br>
 __fq__<br>
@@ -866,6 +874,8 @@ __Identify variable types and subtypes__<br>
 Function Library Guide: 4.12 type, subtype<br><br>
 __if__<br>
 Function Library Guide: 2.1.1 if, unless<br><br>
+__Import source data__<br>
+User Guide: 3.1 A - Import<br><br>
 __include__, __include B4P program__, __include libraries__, __include library__<br>
 Function Library Guide: 2.4.2 include<br><br>
 __income disparity__<br>
@@ -1053,12 +1063,6 @@ __Listing directories__<br>
 Function Library Guide: 11.2.1 directory listing ...<br><br>
 __listing directories and files__<br>
 Function Library Guide: 11.2 Listing and Searching Directories and Files<br><br>
-__literal__, __literal conversion__, __literal conversion functions__<br>
-Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>
-__literal functions__<br>
-Function Library Guide: 6 String Functions<br><br>
-__literal to literal conversion and formatting__, __Literal to Literal Formatting Parameters__<br>
-Function Library Guide: 4.1.1 Literal to Literal Formatting<br><br>
 __ln__<br>
 Function Library Guide: 5.2.4 Logarithmic Functions<br><br>
 __Loading and saving tables__<br>
@@ -1159,11 +1163,11 @@ Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __max 124 ignore zero__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
 __max abc__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __max abc if__, __max abc if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __max abc ignore case__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __max abc ignore case if__, __max if__, __max if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __max ignore blanks__<br>
@@ -1174,14 +1178,6 @@ __max ignore zero__<br>
 Function Library Guide: 5.3.2 min, max Functions<br><br>
 __max ignore zero if__, __max ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
-__max literal__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
-__max literal if__, __max literal if any__<br>
-Function Library Guide: 5.6 Conditional Combination Functions<br><br>
-__max literal ignore case__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
-__max literal ignore case if__<br>
-Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __max numeral__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
 __max numeral if__, __max numeral if any__<br>
@@ -1189,6 +1185,14 @@ Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __max numeral ignore zero__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
 __max numeral ignore zero if__, __max numeral ignore zero if any__<br>
+Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__max string__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
+__max string if__, __max string if any__<br>
+Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__max string ignore case__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
+__max string ignore case if__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __mdet__<br>
 Function Library Guide: 5.4.3 mdet - Matrix Determinant<br><br>
@@ -1206,6 +1210,8 @@ __member count__<br>
 Function Library Guide: 10.2.5 member count<br><br>
 __memory effect__<br>
 Language Guide: 5.5 Header Names - Memory Effect<br><br>
+__Merge and Consolidate__<br>
+User Guide: 3.4 D - Merge<br><br>
 __Merge two tables with union-set principle__<br>
 Function Library Guide: 9.8.3.1 table merge ...<br><br>
 __middle__<br>
@@ -1237,48 +1243,32 @@ Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
 __min 123 ignore zero if__, __min 123 ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min abc__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __min abc if__, __min abc if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min abc ignore blanks__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __min abc ignore blanks if__, __min abc ignore blanks if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min abc ignore both__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __min abc ignore both if__, __min abc ignore both if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min abc ignore case__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __min abc ignore case if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min and max functions__<br>
 Function Library Guide: 5.3.2 min, max Functions<br><br>
-__min and max functions on literals__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
 __min and max functions on numerals__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
+__min and max functions on strings__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
 __min if__, __min if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min ignore blanks__<br>
 Function Library Guide: 5.3.2 min, max Functions<br><br>
 __min ignore blanks if__, __min ignore blanks if any__, __min ignore zero if__, __min ignore zero if any__<br>
-Function Library Guide: 5.6 Conditional Combination Functions<br><br>
-__min literal__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
-__min literal if__, __min literal if any__<br>
-Function Library Guide: 5.6 Conditional Combination Functions<br><br>
-__min literal ignore blanks__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
-__min literal ignore blanks if__, __min literal ignore blanks if any__<br>
-Function Library Guide: 5.6 Conditional Combination Functions<br><br>
-__min literal ignore both__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
-__min literal ignore both if__, __min literal ignore both if any__<br>
-Function Library Guide: 5.6 Conditional Combination Functions<br><br>
-__min literal ignore case__<br>
-Function Library Guide: 5.3.3 min, max Functions on Literals<br><br>
-__min literal ignore case if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min numeral__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
@@ -1287,6 +1277,22 @@ Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __min numeral ignore zero__<br>
 Function Library Guide: 5.3.4 min, max Functions on Numerals<br><br>
 __min numeral ignore zero if__, __min numeral ignore zero if any__<br>
+Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__min string__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
+__min string if__, __min string if any__<br>
+Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__min string ignore blanks__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
+__min string ignore blanks if__, __min string ignore blanks if any__<br>
+Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__min string ignore both__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
+__min string ignore both if__, __min string ignore both if any__<br>
+Function Library Guide: 5.6 Conditional Combination Functions<br><br>
+__min string ignore case__<br>
+Function Library Guide: 5.3.3 min, max Functions on Strings<br><br>
+__min string ignore case if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __minute__<br>
 Function Library Guide: 7.2.1 hour, minute, second<br><br>
@@ -1327,12 +1333,14 @@ __not equal to__<br>
 Language Guide: 6.2.2.2 Not Equal to<br><br>
 __null__, __Null function__<br>
 Function Library Guide: 2.5.10 null - Function<br><br>
+__num__<br>
+Function Library Guide: 4.2 num<br><br>
 __Number__, __Numbers__<br>
 Language Guide: 3.2.2 Numbers<br><br>
-__numeral__, __numeral conversion function__<br>
-Function Library Guide: 4.2 numeral<br><br>
-__numeral to literal conversion and formatting__, __Numeral to Literal Formatting Parameters__<br>
-Function Library Guide: 4.1.3 Numeral to Literal Formatting<br><br>
+__numeral conversion function__<br>
+Function Library Guide: 4.2 num<br><br>
+__numeral to string conversion and formatting__, __Numeral to String Formatting Parameters__<br>
+Function Library Guide: 4.1.3 Numeral to String Formatting<br><br>
 "Description 16:O"::
 __odd__, __odd numbers__<br>
 Function Library Guide: 5.1.2 even, odd, whole<br><br>
@@ -1401,12 +1409,12 @@ __parameter set extraction functions__<br>
 Function Library Guide: 8.1 Set Search and Extraction Functions<br><br>
 __parameter set functions__<br>
 Function Library Guide: 8 Parameter Set Functions<br><br>
-__parameter set or literal__<br>
-Language Guide: 8.4.1 Parameter Set or Literal (Func. Param. Type)<br><br>
+__parameter set or string__<br>
+Language Guide: 8.4.1 Parameter Set or String (Func. Param. Type)<br><br>
 __parameter set search and extraction__, __parameter set search functions__<br>
 Function Library Guide: 8.1 Set Search and Extraction Functions<br><br>
-__Parameter Set to literal conversion and formatting__, __Parameter Set to Literal Formatting Parameters__<br>
-Function Library Guide: 4.1.5 Parameter Set to Literal Formatting<br><br>
+__Parameter Set to string conversion and formatting__, __Parameter Set to String Formatting Parameters__<br>
+Function Library Guide: 4.1.5 Parameter Set to String Formatting<br><br>
 __parameter set value ranges__<br>
 Language Guide: 3.3.6.3 Parameter sets - Value Ranges<br><br>
 __parameter set value repetitions__<br>
@@ -1496,8 +1504,8 @@ __quarter__<br>
 Function Library Guide: 7.1.2 year, quarter, month, day<br><br>
 __quote path__<br>
 Function Library Guide: 12.1.3 quote path<br><br>
-__Quoted literal__, __Quoted literals__<br>
-Language Guide: 3.3.1.2 Quoted Literals<br><br>
+__Quoted string__, __Quoted strings__<br>
+Language Guide: 3.3.1.2 Quoted Strings<br><br>
 "Description 19:R"::
 __random__<br>
 Function Library Guide: 5.1.7 random - Random Integers<br><br>
@@ -1616,6 +1624,8 @@ Function Library Guide: 9.4.6 row<br><br>
 __Row-wise intersection made from two tables__<br>
 Function Library Guide: 9.8.3.3 table intersect ...<br><br>
 "Description 20:S"::
+__Save and Export__<br>
+User Guide: 3.8 H - Export<br><br>
 __saving files__<br>
 Language Guide: 3.4.3 Saving Files - Character sets<br><br>
 __Saving JSON files__<br>
@@ -1704,14 +1714,12 @@ __smaller than or equal to__<br>
 Language Guide: 6.2.2.5 Smaller than (or Equal to)<br><br>
 __smart conversion and formatting__, __smart formatting__, __Smart Formatting Parameters__<br>
 Function Library Guide: 4.1.7 Smart Formatting<br><br>
-__smart if numeral__, __smart numeral__, __smart numerals__<br>
-Function Library Guide: 4.4 smart (if) numeral<br><br>
-__Softquoted literal__<br>
-Language Guide: 3.3.1.1 Softquoted Literals<br><br>
-__softquoted literal__<br>
-Function Library Guide: 4.1 literal, quoted literal, softquoted literal<br><br>
-__Softquoted literals__<br>
-Language Guide: 3.3.1.1 Softquoted Literals<br><br>
+__smart if num__, __smart num__, __smart numerals__<br>
+Function Library Guide: 4.4 smart num, smart if num<br><br>
+__soft__<br>
+Function Library Guide: 4.1 str, soft<br><br>
+__Softquoted string__, __Softquoted strings__<br>
+Language Guide: 3.3.1.1 Softquoted Strings<br><br>
 __Sort and rearrange table rows__<br>
 Function Library Guide: 9.7.3.12 table sort (selected) rows<br><br>
 __Sorting and rearranging table columns__<br>
@@ -1748,16 +1756,22 @@ __stop__<br>
 Function Library Guide: 2.5.2 stop<br><br>
 __Stopwatch functions__<br>
 Function Library Guide: 7.2.2 Stopwatch Functions<br><br>
+__str__<br>
+Function Library Guide: 4.1 str, soft<br><br>
 __strictly equal to__<br>
 Language Guide: 6.2.2.3 Strictly Equal to<br><br>
 __strictly not equal to__<br>
 Language Guide: 6.2.2.4 Strictly Not Equal to<br><br>
+__string conversion__, __string conversion functions__<br>
+Function Library Guide: 4.1 str, soft<br><br>
 __string extraction functions__<br>
 Function Library Guide: 6.1 String Search and Extraction Functions<br><br>
 __string functions__<br>
 Function Library Guide: 6 String Functions<br><br>
 __string search and extraction__, __string search functions__<br>
 Function Library Guide: 6.1 String Search and Extraction Functions<br><br>
+__string to string conversion and formatting__, __String to String Formatting Parameters__<br>
+Function Library Guide: 4.1.1 String to String Formatting<br><br>
 __structure__, __Structure functions__<br>
 Function Library Guide: 10.2.4 structure, structure protect<br><br>
 __structure members__<br>
@@ -2267,6 +2281,8 @@ Function Library Guide: 2.3 User-Defined Procedures and Functions<br><br>
 __User-specific colors__<br>
 Function Library Guide: 9.9.1 Defining User Specific Colors<br><br>
 "Description 23:V"::
+__Validate and Explore__<br>
+User Guide: 3.3 C - Validate<br><br>
 __Validation functions__<br>
 Function Library Guide: 9.8.1.2 table validate<br><br>
 __Variable__<br>
@@ -2329,8 +2345,8 @@ __view__<br>
 Function Library Guide: 13.8 view<br><br>
 __view reset__<br>
 Function Library Guide: 13.9 view reset<br><br>
-__void to literal conversion and formatting__, __Void to Literal Formatting Parameters__<br>
-Function Library Guide: 4.1.2 Void to Literal Formatting<br><br>
+__void to string conversion and formatting__, __Void to String Formatting Parameters__<br>
+Function Library Guide: 4.1.2 Void to String Formatting<br><br>
 "Description 24:W"::
 __wait__, __wait countdown__<br>
 Function Library Guide: 7.3.4 wait, wait countdown<br><br>

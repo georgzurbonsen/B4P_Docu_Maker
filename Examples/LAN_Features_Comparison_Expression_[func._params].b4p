@@ -16,7 +16,7 @@
 
       c[] = '(3..5,10)';
       result[] = compare select( var[], other, 
-              :literal(11)+",37", is 11 or 37,    // Expression returning a string
+              :str(11)+",37", is 11 or 37,    // Expression returning a string
               :'==13',      thirteen,     // Softquoted string: No difference to quoted string
               :'=+a',       1st letter in alphabet, 
               :"'H*'",      Begins with H, // See note below !

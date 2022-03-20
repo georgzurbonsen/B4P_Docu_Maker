@@ -2,7 +2,7 @@
 include ( Style Library );      // Include this library if you want to use the 'table style ...' functions.
 //  Step 1: Download two web pages.
 
-    echo("Stock market originates from slickcharts.  Date downloaded: ", literal( date(today), "Tttt DD. Mmmm. YYYY", en_US ) );
+    echo("Stock market originates from slickcharts.  Date downloaded: ", str( date(today), "Tttt DD. Mmmm. YYYY", en_US ) );
     for all parameters ( {nasdaq100, sp500} , listing[] )
     {
         file download overwrite     ( "https://www.slickcharts.com/" + listing[], listing[] + .html);
@@ -22,7 +22,7 @@ include ( Style Library );      // Include this library if you want to use the '
   
 //  Percent value gets converted to regular number, price value is claned up
 
-    table process                   ( stocks, ['% Chg'] = smart numeral( middle(['% Chg'],'(',')')); [Price] = clean numeral([Price]) );
+    table process                   ( stocks, ['% Chg'] = smart num( middle(['% Chg'],'(',')')); [Price] = clean num([Price]) );
     table sort rows                 ( stocks, Company );
     table process                   ( stocks, ['#'] = row() );
 

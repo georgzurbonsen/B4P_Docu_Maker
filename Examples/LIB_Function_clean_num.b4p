@@ -1,0 +1,15 @@
+﻿#!/usr/local/bin/b4p
+      echo( clean num ( "EUR 1'234.50" ), " and ", clean if num ( "EUR 1'234.50" ) ); // Both 1234.5
+      echo( clean num ( "2,500 € " ),     " and ", clean num ( "2,500 €", ",") ); //  2500 and 2.5
+      echo( clean num ( "2,500- € " ) ); // -2500
+      echo( clean num ( "-   2,500" ),    ", ",    clean num ( "(2,500)" ) ); //  Both -2500
+      echo( clean num ( "[2,500]" ),      " and ", clean num ( "-[2,500]" ) ); // 2500 (brackets alone do not negate)
+      echo( clean num ( "(EUR 1,000)" ),  " and ", clean num ( "(EUR) 1,000") ); // Negation if number INSIDE parentheses
+      echo( clean num ( "INR 30 40 500" ) ); //  3040500
+      echo( clean num ( ".123" ),         " and ", clean num ( ".123", "," )); // returns 0.123 and 123.
+      echo( clean num ( "" ),             " and '",clean if num( "" ), "'" ); // returns 0 and "";
+      echo( clean num ( "abc" ),          " and ", clean if num ( "abc" ) ); //  returns 0 and abc
+
+      echo( new line, "Scientific Notations:");
+      echo( clean num ( 1.2E3 ), " and  ", clean num ( '1.2E+03' ) ); //  return 1200
+      echo( clean num ( "1 2 E - 0 3" ) ); // returns 0.012

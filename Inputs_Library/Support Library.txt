@@ -38,7 +38,7 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "browser name or option",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "get",
 		  "Description"::
 			=== 200, 600, noframe_1stcolbold
@@ -55,7 +55,7 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "Short browser name",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": "The short name of the selected browser will be returned."
 		}
 	],
@@ -97,7 +97,7 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "URL web page address",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Specify a valid URL web page address as you would type it into the address field in the web browser. <br>
 			Web access errors like non-existing pages, error 404, etc., are displayed on teh browser directly.  B4P gets no return value
@@ -229,7 +229,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 1.",
 		  "Name": "Keyword",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			If a matching keyword (e.g. 'echo') is entered, then the web page with the right contents will open directly.
 			Wildcards like '*' and '?' are supported to provide a precise search.<br><br>
@@ -270,13 +270,13 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "1.",
 		  "Name": "Name of existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": [ "" ]
 		},
 		{ "Number": "2., 4., ...",
 		  "Name": "Option",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Following options are supported:<br>
 			=== 100, 700, noframe_1stcolbold, noheader
@@ -336,13 +336,13 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "1.",
 		  "Name": "Name of existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "Opt. 2.",
 		  "Name": "Visualization tool",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "here",
 		  "Description"::
 			=== 200, 600, noframe_1stcolbold
@@ -433,13 +433,13 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "1.",
 		  "Name": "Name of existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": "The contents of this table will be displayed"
 		},
 		{ "Number": "2.",
 		  "Name": "Prompt",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			The prompt text will be displayed at the bottom of the table.  UNICODE PUA2 characters (like &amp;yellow; for yellow texdt) are allowed here to add visual effects.
 			<br><br>
@@ -450,7 +450,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "3.",
 		  "Name": "Return characters",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			This string contains all return characters which will stop viewing when one of these characters or keyboard codes have been pressed.
 			Example: <b>'ABC&amp;f3;&amp;shift-f4;&amp;escape;' + new line </b> will stop browsing when A, B, C, F3, Shift-F4, the Enter key or the Escape key has been pressed.
@@ -501,7 +501,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 	"Return value":
 	[
 		{ "Name": "Entered command",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": "The chosen character, as specified in the 3rd function parameter, will be returned."
 		}
 	],
@@ -586,13 +586,13 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "1.",
 		  "Name": "Name of existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": "The contents of this table will be displayed"
 		},
 		{ "Number": "2.",
 		  "Name": "Prompt",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			The prompt text will be displayed at the bottom of the table.  UNICODE PUA2 characters (like &amp;yellow; for yellow texdt) are allowed here to add visual effects.
 		  +++
@@ -600,7 +600,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "3.",
 		  "Name": "Return characters",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			This string contains all return characters which will stop viewing when one of these characters or keyboard codes have been pressed.
 			Example: <b>'ABC&amp;f3;&amp;shift-f4;&amp;escape;' + new line </b> will stop browsing when A, B, C, F3, Shift-F4, the Enter key or the Escape key has been pressed.
@@ -651,7 +651,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 	"Return value":
 	[
 		{ "Name": "Entered command",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": "The chosen character, as specified in the 3rd function parameter, will be returned."
 		}
 	],
@@ -676,7 +676,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 1",
 		  "Name": "Option",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "'' (blank)",
 		  "Description": "Only supported option: <b>json</b>.  It will use JSON nomenclature when viewing the variable."
 		}
@@ -736,7 +736,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 1",
 		  "Name": "Prompt",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "Current path on 1st row, standard prompt below the table",
 		  "Description"::
 			The prompt text will be displayed at the bottom of the table.  UNICODE PUA2 characters (like &amp;yellow; for yellow texdt) are allowed here to add visual effects.
@@ -748,7 +748,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 2",
 		  "Name": "Path",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": ". (current folder)",
 		  "Description"::
 			Specify an existing path.  Relative paths such as specifying subdirectories, '..' for parent folder, '.' for current folder, etc. are supported.
@@ -758,7 +758,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 3",
 		  "Name": "Pattern",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "* (all files)",
 		  "Description"::
 			Specify the pattern to be applied for the file names.  Folder names are not affected by this.
@@ -798,7 +798,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 	"Return value":
 	[
 		{ "Name": "Chosen file",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			An empty string (blank) is returned if the file browser is left by pressing 'Escape'.
 			If 'Enter' is pressed on a file name, then one of the following cases apply:
@@ -840,7 +840,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 1",
 		  "Name": "Path",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": ". (current folder)",
 		  "Description"::
 			Specify an existing path.  Relative paths such as specifying subdirectories, '..' for parent folder, '.' for current folder, etc. are supported.
@@ -850,7 +850,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 2",
 		  "Name": "Pattern",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "* (all files)",
 		  "Description"::
 			Specify the pattern to be applied for the file names.  Folder names are not affected by this.
@@ -865,7 +865,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 	"Return value":
 	[
 		{ "Name": "Chosen file",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			An empty string (blank) is returned if the file browser is left by pressing 'Escape'.
 			If 'Enter' is pressed on a file name, then the full path with the file name is returned.

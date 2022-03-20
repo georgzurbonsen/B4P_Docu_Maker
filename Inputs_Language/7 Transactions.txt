@@ -302,7 +302,7 @@ B4PDOCU.START
 	* Only one level of __array members__ or __structure members__ will be transferred to the table.
 	* Further nested members will not be considered and transferred.
 	* The base variable will also not be considered and transferred (i.e. the name of the table will not be altered).
-	* During the transaction, the values will be converted to literals automatically because tables maintain all contents as strings.
+	* During the transaction, the values will be converted to strings automatically because tables maintain all contents as strings.
 	* Transactions of variables without members (e.g. __simple variables__, __zero members__ variables) result in no data transfers.  Only row in the destination table will be cleared.
 	* Structure members with blank member names (so called __default members__) correspond with blank headers
 	* <b>Open-ended ranges</b>: Additional table columns with header names are only added if <i>open-ended ranges</i> are specified for the table row.  Open-ended ranges apply in following cases:

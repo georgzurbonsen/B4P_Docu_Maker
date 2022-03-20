@@ -8,5 +8,5 @@
       echo( left( st[], ' ' ), " / ", left last match( st[], ' ' ) );
       echo( left last match include( st[], 'e' ) ); // Strips exclamation mark only
       echo;
-      echo( left( st[], 'c^ffee' ) ); // Softquoted literal (no or single quotation marks) - matched
-      echo( left( st[], "c^ffee" ) ); // Quoted literal     (double quotation marks) - not matched
+      echo( left( st[], 'c^ffee' ) ); // Softquoted string (no or single quotation marks) - matched
+      echo( left( st[], "c^ffee" ) ); // Quoted string     (double quotation marks) - not matched

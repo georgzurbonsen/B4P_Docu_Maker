@@ -4,8 +4,8 @@
       echo( join( {1,'',2,' 3 ',4}, ', ' ) );             // Returns: 1, , 2,  3 , 4
       echo( join( {1,'',2,' 3 ',4}, '(',', ',')' ) );     // Returns: (1, , 2,  3 , 4)
       echo( join ignore blanks( {1,'',2,' 3 ',4}, '(',', ',')' ) ); // Returns: (1, 2,  3 , 4)
-      echo( join ignore blanks( { '' }, '(',', ',')' ) );           // Returns blank literal
-      echo( join ( { }, '(',', ',')' ) );                           // Returns blank literal
+      echo( join ignore blanks( { '' }, '(',', ',')' ) );           // Returns blank string
+      echo( join ( { }, '(',', ',')' ) );                           // Returns blank string
       echo( join( { a,b,c,a,b,c}, "," ) );                // a,b,c,a,b,c
       echo( join unique( { a,b,c,a,b,c}, "," ) );         // a,b,c
       echo( join( { a,b,{c,d},e }, '[', '; ', ']' ) );    // [a; b; [c; d]; e] (nested sets)

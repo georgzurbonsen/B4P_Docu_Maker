@@ -5,7 +5,7 @@
 
   for (month[]=1, month[]<=12, month[]++ )
   {
-      echo( "Year ending in ", literal( date(2022,month[],1),"Mmmm" ), ": " );
+      echo( "Year ending in ", str( date(2022,month[],1),"Mmmm" ), ": " );
       print( "    FY: ", fy( date[], month[] ) );
       for all parameters( patterns[], pattern[] )
       {

@@ -3,5 +3,5 @@
       echo( parameter set ( "a,1,{true,TRUE,false} " ) );   // {'a',1,{true,'TRUE',false}}
       echo( parameter set ( "2019-07-14,10:30:00"  ) ); // 2 date values: { 2019-07-14,10:30:00 }
       echo( type( parameter set ( "2019-07-14,10:30:00" ){0} ) );   // Check type of date
-      echo( parameter set ( "2019/07/14,10:30"  ) );        // 2 literals: { '2019/07/14','10:30' } (not qualified as dates)
-      echo( parameter set ( "{a,,b}"  ) );          // 4 literals: { 'a','','','b' } (2 literals are blank)
+      echo( parameter set ( "2019/07/14,10:30"  ) );        // 2 strings: { '2019/07/14','10:30' } (not qualified as dates)
+      echo( parameter set ( "{a,,b}"  ) );          // 4 strings: { 'a','','','b' } (2 strings are blank)

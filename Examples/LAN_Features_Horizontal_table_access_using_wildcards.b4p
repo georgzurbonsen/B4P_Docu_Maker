@@ -3,7 +3,7 @@
 
   echo( [ table:  :'F*',   5 ] ); // 2 matches: looks for headers starting with "F*"
   echo( [ table:  :'F*', -10 ] ); // Same result
-  echo( [ table:  :"F*",   5 ] ); // No match. Qquoted literal, looks for header name "F*"
+  echo( [ table:  :"F*",   5 ] ); // No match. Qquoted string, looks for header name "F*"
   echo;
 
   echo( [ table: :'F*', Golden Gate] ); // Golden Gate is 1st match

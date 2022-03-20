@@ -13,7 +13,7 @@
       // Formulate the coparison expression in a string and use 'compare' to use it. Colon required for this.
       // [0,0] = Current table (overview), column 0, row 0.   [0] = Current table, column 0, current row
 
-          [col[]] = compare ( [0,0], : [0] + literal( [col[],0] ) );
+          [col[]] = compare ( [0,0], : [0] + str( [col[],0] ) );
       } );
 
   table list( overview ); 

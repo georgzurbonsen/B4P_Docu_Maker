@@ -1,5 +1,16 @@
-List the extracted file from 'All csv.zip':
 
-    0 : Path    | Name       | Date Created | Directory | Size
-    1 : My Dir\ | Cities.csv | 2021-08-18   | No        | 1035
+    Saved table(s) to EXCEL file 'Images\Presidents.xlsx' containing 1 sheets.
+
+    0 : President                     | Period                              | Party                 | Election     
+    1 : George Washington (1732–1799) | April 30, 1789 – March 4, 1797      | Unaffiliated          | 1788–89, 1792
+    2 : John Adams (1735–1826)        | March 4, 1797 – March 4, 1801       | Federalist            | 1796         
+    3 : Thomas Jefferson (1743–1826)  | March 4, 1801 – March 4, 1809       | Democratic-Republican | 1800, 1804   
+    4 : James Madison (1751–1836)     | March 4, 1809 – March 4, 1817       | Democratic-Republican | 1808, 1812   
+    5 : James Monroe (1758–1831)      | March 4, 1817 – March 4, 1825       | Democratic-Republican | 1816, 1820   
+  ... :
+   41 : Bill Clinton (b. 1946)        | January 20, 1993 – January 20, 2001 | Democratic            | 1992, 1996   
+   42 : George W. Bush (b. 1946)      | January 20, 2001 – January 20, 2009 | Republican            | 2000, 2004   
+   43 : Barack Obama (b. 1961)        | January 20, 2009 – January 20, 2017 | Democratic            | 2008, 2012   
+   44 : Donald Trump (b. 1946)        | January 20, 2017 – January 20, 2021 | Republican            | 2016         
+   45 : Joe Biden (b. 1942)           | January 20, 2021 – Incumbent        | Democratic            | 2020         
 

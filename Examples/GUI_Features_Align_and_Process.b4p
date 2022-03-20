@@ -4,7 +4,7 @@
   table keep selected rows       ( countries, (tokenize( [Languages], {}, {' ',','} ) & languages in focus[]) != {} );
 
   table insert columns           ( countries, languages in focus[] );
-        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+softquoted literal([.,0])+'*') [.]=1; );
+        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+soft([.,0])+'*') [.]=1; );
 
   table list( countries, briefly, 8 ); // List first and last 8 rows only
 

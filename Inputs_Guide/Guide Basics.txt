@@ -239,7 +239,7 @@ B4PDOCU.START
 },
 
 
-"1. Import" :
+"A - Import" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Import source data" ],
@@ -285,7 +285,7 @@ B4PDOCU.START
 
 
 
-"2. Clean" :
+"B - Clean" :
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Clean Data" ],
@@ -300,7 +300,7 @@ B4PDOCU.START
 	* __table rename headers(__): Rename headers to something easier to understand.
 	* __table clean(__): General replacement of exotic spaces and line breaks in the UNICODE space to the familar spaces and 'new line', and trimming options for \
 	    white spaces and line breaks.
-	* __clean numeral(__): Convert hard-to-digest values like "GBP 300,15-" to processable values like "-300.15".
+	* __clean num(__): Convert hard-to-digest values like "GBP 300,15-" to processable values like "-300.15".
 	* __table process selected rows__<b>( table name, [Answer]=+'yes,true,ja,oui,sì', [Answer]=yes );</b> to align some contents.
 	* __table process cells__<b>( [.] = __trim__([.]) );</b> to remove all dangling spaces in the fiels, e.g. ' Hello ' to 'Hello'.
 	* __table keep selected rows(__) / __table delete selected rows(__): Pre-screen the table for rows you want to keep or discard.
@@ -323,9 +323,9 @@ B4PDOCU.START
 	table load                     ( countries, temp.csv); // Hide!  Step 2 begins
 	// The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
 	// and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
-	// Note: literal(...) is needed in roder to avoid error messages when numbers are read from the table.
+	// Note: str(...) is needed in order to avoid error messages when numbers are read from the table.
 
-	table process all cells        ( countries, [.] = replace all( literal([.]), {'[?]', '[??]' }, '' ) );
+	table process all cells        ( countries, [.] = replace all( str([.]), {'[?]', '[??]' }, '' ) );
 	table clean                    ( countries, trim spaces );
 
 	table lift header row          ( countries ); // Find header row automatically
@@ -342,7 +342,7 @@ B4PDOCU.START
 
 
 
-"3. Validate":
+"C - Validate":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Validate and Explore" ],
@@ -418,7 +418,7 @@ B4PDOCU.START
 
 
 
-"4. Merge":
+"D - Merge":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Merge and Consolidate" ],
@@ -453,7 +453,7 @@ B4PDOCU.START
 
 	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory", languages.html );
 	table load                     ( languages, languages.html, HTML, List of countries );
-	table process all cells        ( languages, [.] = replace all( literal([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
+	table process all cells        ( languages, [.] = replace all( str([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
 	table clean		       ( languages, trim spaces );
 	table delete selected rows     ( languages, [Country]=Country ); // Headers are repeated inside the long table.
 	table keep columns             ( languages, {Country, Official language} );
@@ -476,7 +476,7 @@ B4PDOCU.START
 
 
 
-"5. Augment":
+"E - Augment":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Enrichment" ],
@@ -526,7 +526,7 @@ B4PDOCU.START
 
 
 
-"6. Analyze":
+"F - Analyze":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Align and Process" ],
@@ -561,7 +561,7 @@ B4PDOCU.START
 	table keep selected rows       ( countries, (tokenize( [Languages], {}, {' ',','} ) & languages in focus[]) != {} );
 
 	table insert columns           ( countries, languages in focus[] );
-        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+softquoted literal([.,0])+'*') [.]=1; );
+        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+soft([.,0])+'*') [.]=1; );
 
 	table list( countries, briefly, 8 ); // List first and last 8 rows only
 
@@ -589,7 +589,7 @@ B4PDOCU.START
 
 
 
-"7. Format":
+"G - Format":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Format the results" ],
@@ -640,7 +640,7 @@ B4PDOCU.START
 
 
 
-"8. Export":
+"H - Export":
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Save and Export" ],

@@ -9,8 +9,8 @@
     {
         echo(loc[],":");
         set locale( loc[] );
-        echo( literal( date[], "  Tttt, DD.Mmmm.YYYY", local ) );
-        echo( literal( num[],  "  #,###.##", local ) );
+        echo( str( date[], "  Tttt, DD.Mmmm.YYYY", local ) );
+        echo( str( num[],  "  #,###.##", local ) );
         if (i[]==0) list system variables( "local settings" ); //  Do this for 1 example
     }
 

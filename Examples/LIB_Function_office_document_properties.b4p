@@ -3,5 +3,5 @@
 
   for all parameters( property names[], pn[], index[] )
   {
-      echo( literal( pn[], "16#", align right), "  :  ", property values[]{index[]} );
+      echo( str( pn[], "16#", align right), "  :  ", property values[]{index[]} );
   }

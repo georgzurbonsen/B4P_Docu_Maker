@@ -210,7 +210,7 @@ B4PDOCU.START
     "Output 05:": "automatic",
     "Description 06:Code Pieces"::
 
-	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a literal string.
+	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a string.
 	When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
 	called multiple times, or in specific cases not at all.
 
@@ -229,20 +229,20 @@ B4PDOCU.START
     "Feature Names":		[ "Function parameter types" ],
     "Description 01:Introduction"::
 
-	B4P supports different parameter types (e.g. literal, etc.) as well as more specialized parameter types.
+	B4P supports different parameter types (e.g. string, etc.) as well as more specialized parameter types.
 
 	=== 200, 800, bold_column_1
 	Parameter Types		| Description
 	All			| Accepts 
 	Numeral			| Accepts numerals and expressions returning numeral values
-	Literal			| Accepts literals (strings) and expressions returning lterals
+	String			| Accepts strings and expressions returning lterals
 	Boolean			| Accepts <b>true</b>, <b>false</b> or expressions returning boolean values, e.g. comparisons
 	Date			| Accepts dates and/or time values or expressions returning date/time values.
-	Date or literal		| In this case, literals will be converted to dates automatically, e.g. "29.Feb. 20" to 2020-02-29, or "today" to today's date
+	Date or string		| In this case, strings will be converted to dates automatically, e.g. "29.Feb. 20" to 2020-02-29, or "today" to today's date
 	Parameter set		| Accepts parameter sets or expressiosn returning parameter sets
 	Combinations of above	| Various functions accept values of different types
 	Table columns		| Parameter to specify one or multiple table columns in a flexible way. See section on __table columns as function parameters__.
-	Parameter set or literal| Various functions accept either parameter sets or literals.  See section on __parameter set or literal__  for details
+	Parameter set or string | Various functions accept either parameter sets or strings.  See section on __parameter set or string__  for details
 	All types		| Accepts values of all types, including void
 	Valid types		| Accepts values of all types, except void
 	Variable		| __Code piece__, expecting a variable name
@@ -257,14 +257,14 @@ B4PDOCU.START
 },
 
 
-"Parameter Set or Literal (Func. Param. Type)":
+"Parameter Set or String (Func. Param. Type)":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "parameter set or literal" ],
-    "Keywords":			[ "parameter set or literal" ],
+    "Feature Names":		[ "parameter set or string" ],
+    "Keywords":			[ "parameter set or string" ],
     "Description 01:Introduction"::
 
-	Various functions accept either parameter sets or literals when expecting one or multiple strings, for example file names
+	Various functions accept either parameter sets or strings when expecting one or multiple strings, for example file names
 	as supported by various file functions. The rules are described below
 
 	Whenever a function expects a __function parameter__ for table columns, the following types are supported and automatically
@@ -272,9 +272,9 @@ B4PDOCU.START
 
 	=== 150, 500, 350, bold_column_1
 	Type			| Description												| Example
-	__Quoted literals__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
+	__Quoted strings__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
 				  Empty strings "" are treated as they are.			 					| "Last,First Name" is such an example
-	__Softquoted literals__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
+	__Softquoted strings__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
 				  Empty strings '' are treated as they are.			 					| 'Last,First Name' is such an example
 	__Parameter set__	| Parameter sets can contain any number of values <br>\
 				  Empty sets {} provide zero values.									| { Last Name, First Name, "Value [EUR]", 123 }
@@ -291,7 +291,7 @@ B4PDOCU.START
 	{
 	    for (i[] = 1, i[] <= parameter count[], i[]++)
 	    {
-		var name[] = 'parameter ' + literal(i[]);
+		var name[] = 'parameter ' + str(i[]);
 	    	print( var name[][], "  (", var name[][]{}," items) " );
 	    }
 	    echo;
@@ -308,10 +308,10 @@ B4PDOCU.START
 	echo;
 
 	define additional procedure( demonstrate 2, demonstrate, 
-	    { { parameter 1, to parameters members to literal } }, 1, unlimited );
+	    { { parameter 1, to parameters members to string } }, 1, unlimited );
 	
 	demonstrate   ( { 1, 2, '3' } );
-	demonstrate 2 ( { 1, 2, '3' } ); // Note: All numbers are converted to literals
+	demonstrate 2 ( { 1, 2, '3' } ); // Note: All numbers are converted to strings
 
 	+++,
     "Output 01:": "automatic"
@@ -331,9 +331,9 @@ B4PDOCU.START
 	=== 200, 500, 300, bold_column_1
 	Type			| Description				| Example
 	Numeral			| Specifies a __table column number__, beginning with 0.  __Negative indexing__ is allowed, i.e. -1 is last column in the top row, counting leftward. | 0 (left most column)<br> -2 (2nd. last column)
-	Quoted literal		| The content of the entire string is interpreted as one header name. <br>\
+	Quoted string		| The content of the entire string is interpreted as one header name. <br>\
 				  Empty strings ("") refer to the first column with blank header name.		 | "Last,First Name" refers to one header name<br>"" is a blank header name
-	Softquoted literal	| The content of the entire string is interpreted as one header name. <br>\
+	Softquoted string	| The content of the entire string is interpreted as one header name. <br>\
 				  Empty strings ('') refer to the first column with blank header name.<br>\
 				  __shifted table column specifications__ are allowed here to reference neighboring columns.<br>\
 				  Some function-specific exceptions may apply and are explicitly documented in the function library documentation. | 'Last,First Name' refers to one header name<br>'' is a blank header name
@@ -351,7 +351,7 @@ B4PDOCU.START
 	* etc.
 
 	<br>
-	<u>Note</u>: If Table headers contain numbers, then you can find these headers by specifying the numbers as literals, e.g. <b>'10'</b>, or <b>{ ..., '10'. ...}</b>.
+	<u>Note</u>: If Table headers contain numbers, then you can find these headers by specifying the numbers as strings, e.g. <b>'10'</b>, or <b>{ ..., '10'. ...}</b>.
 
 	+++
 },
@@ -365,13 +365,13 @@ B4PDOCU.START
     "Keywords":			[ "Code pieces" ],
     "Description 01:Introduction"::
 
-	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a literal string.
+	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a string.
 	When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
 	called multiple times, or in specific cases not at all.
 
 	<br><br>
 
-	Code pieces provided in literal strings must be referenced with a preceding colon (:) symbol in order to avoid interpreting the string
+	Code pieces provided in strings must be referenced with a preceding colon (:) symbol in order to avoid interpreting the string
 	value or expression as actual code to execute.
 
 	Code pieces come in 4 different flavors:
@@ -426,7 +426,7 @@ B4PDOCU.START
 
 		c[] = '(3..5,10)';
 		result[] = compare select( var[], other, 
-				:literal(11)+",37", is 11 or 37,    // Expression returning a string
+				:str(11)+",37", is 11 or 37,    // Expression returning a string
 				:'==13',      thirteen,     // Softquoted string: No difference to quoted string
 				:'=+a',       1st letter in alphabet, 
 				:"'H*'",      Begins with H, // See note below !
@@ -613,7 +613,7 @@ B4PDOCU.START
 	=== 200, 800, noheader, noframe bold_column_1
 	boolean		| If it is an expression returning boolean values, then this expression will be calculated for every column, starting from the left with column 0.  \
 			  Typically, processing will be done on the corresponding columns if the outcome is <b>true</b>.
-	literal		| if the expression returns a literal, then a header name is assumed.  Only existing header names will be accepted.
+	string		| if the expression returns a string, then a header name is assumed.  Only existing header names will be accepted.
 	numeral		| If the expression returns a numeral, then one single column number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last column with respect to the header row.
 	parameter set	| If the expression returns a parameter set, the the column  numbers inside the parameter sets will be used.  Negative indexing is allowed as described above. \
 			  The parameter set may also contain existing header names.  No columns will be processed if an empty set is provided.

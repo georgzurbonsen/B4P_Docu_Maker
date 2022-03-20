@@ -130,7 +130,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "New color name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Specify a new color name which does not yet exist in the color table
 			+++
@@ -138,7 +138,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Category 2",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Apply a categorization, e.g. an existing one like "gray scale" or a new one of choice.  This value will noted down as
 			"Cat 2" in the color table.  The 1st category is assigned automatically with "user defined".
@@ -147,7 +147,7 @@ B4PDOCU.START
 		{ "Number": "3.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "literal" ],
+		  "Types": [ "parameter set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
 			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
@@ -198,7 +198,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "reference",
-		  "Types": [ "parameter set", "literal" ],
+		  "Types": [ "parameter set", "string" ],
 		  "Description"::
 			The value must be provided in a variable which will be converted by this function to RGB colo
 			Three possibiltes to specify the color:
@@ -211,7 +211,7 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "Error message",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			If a blank string is returned, then the conversion is successful,  Otherwise, a comprehensible error message will be returned.
 			+++
@@ -254,7 +254,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "literal" ],
+		  "Types": [ "parameter set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
 			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
@@ -325,7 +325,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Suffix",
 		  "Direction": "input",
-		  "Types": [ "numeral or literal" ],
+		  "Types": [ "numeral or string" ],
 		  "Description"::
 				Specify a suffix to be added to the color names in order to distinguish them from their original colors.
 			+++
@@ -388,7 +388,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "literal" ],
+		  "Types": [ "parameter set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
 			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
@@ -460,7 +460,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Suffix",
 		  "Direction": "input",
-		  "Types": [ "numeral or literal" ],
+		  "Types": [ "numeral or string" ],
 		  "Description"::
 				Specify a suffix to be added to the color names in order to distinguish them from their original colors.
 			+++
@@ -523,7 +523,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "literal" ],
+		  "Types": [ "parameter set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
 			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
@@ -595,7 +595,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Suffix",
 		  "Direction": "input",
-		  "Types": [ "numeral or literal" ],
+		  "Types": [ "numeral or string" ],
 		  "Description"::
 				Specify a suffix to be added to the color names in order to distinguish them from their original colors.
 			+++
@@ -680,17 +680,17 @@ B4PDOCU.START
 					| border specificaction<sup>1</sup>	| "				| Applies cell borders.  The attribute name <b>borders</b> applies to all four sides. | HTML: 'hairline' thickness is same as 'thin' thickness
 	underscore<br>boldface<br>italic| Boolean: true / false			| "				| Applies text formatting			|
 	wrap text			| Boolean: true / false			| "				| Text inside the cell will wrap to next row if too long | 
-	comment				| Literal: text contents		| cell				| Adds comments which are visible in Excel when holding the mouse cursor above the red triangle symbol | See <sup>2</sup><br>Not yet supported for Excel (.xlsx).
-	font name			| Literal: font name			| table, row, column, cell	| Sets the font name				| The font name must be known to Excel or the web browser
+	comment				| string: text contents		| cell				| Adds comments which are visible in Excel when holding the mouse cursor above the red triangle symbol | See <sup>2</sup><br>Not yet supported for Excel (.xlsx).
+	font name			| string: font name			| table, row, column, cell	| Sets the font name				| The font name must be known to Excel or the web browser
 	font size			| Numeral: size in points		| "				| Sets the font size				| 
-	number format			| Literal: Excel number format		| "				| Applies Excel number format			| See <sup>3</sup>. It differs from B4P formatting.  Web browsers do not support this. Output the values as text if they should contain formatting.
-	type				| Literal: default, literal, numeral, boolean 	| "			| default: No special rules<br> \
-														  literal: All contents are treated as literals, incl. numbers<br>\
+	number format			| string: Excel number format		| "				| Applies Excel number format			| See <sup>3</sup>. It differs from B4P formatting.  Web browsers do not support this. Output the values as text if they should contain formatting.
+	type				| string: default, string, numeral, boolean 	| "			| default: No special rules<br> \
+														  string: All contents are treated as strings, incl. numbers<br>\
 														  numeral: Contents are treated as numerals<br>\
 														  boolean: Contents are treated as booleans, e.g. 0 and 1 are TRUE and FALSE in Excel. \
 																				| <u>Attention</u>: Forcing text as numerals or booleans may result to unsuccessful file loading by Excel.
-	horizontal align		| Literal: automatic, left, middle, right	| "			| Alignment of cell contents			|
-	vertical align			| Literal: automatic, top, center, bottom	| "			| Alignment of cell contents			|
+	horizontal align		| string: automatic, left, middle, right	| "			| Alignment of cell contents			|
+	vertical align			| string: automatic, top, center, bottom	| "			| Alignment of cell contents			|
 	column width			| Numeral: width (1..255)			| column		| Sets column width using Excel units		|
 	row height			| Numeral: height (1..255)			| row			| Sets row height using Excel units		| Not 100% accurate if using HTML format (Difference by +/- 1 is possible)
 	autofilter			| Numeral: row number				| table			| Use 0 for header row. No pre-filtering made	|
@@ -702,7 +702,7 @@ B4PDOCU.START
 	gridlines			| Boolean: true, false				| table			| Shows or hides Excel gridlines		| Excel (.xlsx) only
 	===
 
-	<sup>1</sup>Parameter set with two values: thickness (literal) and __color specification__, e.g. <b>{ thin, red }</b>.  Valid thicknesses: hairline, thin, medium, thick<br>
+	<sup>1</sup>Parameter set with two values: thickness (string) and __color specification__, e.g. <b>{ thin, red }</b>.  Valid thicknesses: hairline, thin, medium, thick<br>
 	<sup>2</sup>Comments in HTML files loaded with Excel will work on the 1st table only in case multiple table are saved.</br>
 	<sup>3</sup>See: <a href="https://exceljet.net/custom-number-formats" target="_blank"><b>Info about Excel number format codes</b></a><br>
 
@@ -723,7 +723,7 @@ B4PDOCU.START
 	Text colors			| May be degraded (e.g. crimson shown in red)					| Normally not, but some browers may act differently
 	Formulas			| Not supported									| Supported, but language specific.  Formulate as you work in Excel.  All formulas must begin with an equal sign. <br> Function names must be specified in the local language configured for Excel.  If it's German, use a function name like "SUMME" instead of "SUM".
 	Output boolean values		| Not supported									| Supported, but language specific, and not case sensitive. Use "WAHR" and "FALSCH" if Excel is configured in German.
-	Forcing data to literal format, including numbers | Use attribute name 'type' and value 'text'. e.g.<br><b>table style table( test, sheet, type, literal);</b> | The same rule applies
+	Forcing data to string format, including numbers | Use attribute name 'type' and value 'text'. e.g.<br><b>table style table( test, sheet, type, string);</b> | The same rule applies
 	===
 	+++,
 	"Examples 01:Different interpretation of numeric, date and boolean values"::
@@ -744,7 +744,7 @@ B4PDOCU.START
 	table style cells  ( t, Dates Num,   2, single, number format, "DD.MMM.YYYY" );
 	table style cells  ( t, Dates Lit 1, 2, single, number format, "DD.MMM.YYYY" );
 	table style cells  ( t, Dates Lit 2, 2, single, number format, "DD.MMM.YYYY" );
-	table style rows   ( t, 3, sheet, type, literal );
+	table style rows   ( t, 3, sheet, type, string );
 	table style cells  ( t, Boolean Num, 4, single, type, boolean );
 
 	table save( t, "Images/Style_Number_Formats.html", HTML );
@@ -858,13 +858,13 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "2.",
 		  "Name": "Formatting Coverage",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __formatting coverages__.  Valid values are: 
 			* <b>sheet</b>: Covers entire sheet, even outside the table
@@ -875,7 +875,7 @@ B4PDOCU.START
 		{ "Number": "3, 5, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute names__ for available names.
 			+++
@@ -883,7 +883,7 @@ B4PDOCU.START
 		{ "Number": "4, 6, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
 			+++
@@ -934,7 +934,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "2.",
@@ -946,7 +946,7 @@ B4PDOCU.START
 		{ "Number": "3.",
 		  "Name": "Formatting Coverage",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __formatting coverages__.  Valid values are: 
 			* <b>sheet</b>: Covers entire sheet, even outside the table
@@ -957,7 +957,7 @@ B4PDOCU.START
 		{ "Number": "4, 6, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute names__ for available names.
 			+++
@@ -965,7 +965,7 @@ B4PDOCU.START
 		{ "Number": "5, 7, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
 			+++
@@ -1022,7 +1022,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "2.",
@@ -1034,7 +1034,7 @@ B4PDOCU.START
 		{ "Number": "3.",
 		  "Name": "Formatting Coverage",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __formatting coverages__.  Valid values are: 
 			* <b>sheet</b>: Covers entire sheet, even outside the table
@@ -1045,7 +1045,7 @@ B4PDOCU.START
 		{ "Number": "4, 6, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute names__ for available names.
 			+++
@@ -1053,7 +1053,7 @@ B4PDOCU.START
 		{ "Number": "5, 7, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
 			+++
@@ -1077,9 +1077,9 @@ B4PDOCU.START
 
 	// How to apply number formats in HTML for browsers
 
-	table process              ( t,                      [Inhabitants] = literal([Inhabitants], '#,##0', local) );  
-	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
-	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
+	table process              ( t,                      [Inhabitants] = str([Inhabitants], '#,##0', local) );  
+	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = str(['Alt. (m)'] , '#,##0', local) );
+	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, string );
 
 	table save( t, "Images/Style_Function_table_style_columns.html", HTML );
 	echo("Done.");
@@ -1115,7 +1115,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "2.",
@@ -1133,7 +1133,7 @@ B4PDOCU.START
 		{ "Number": "4.",
 		  "Name": "Formatting Coverage",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __formatting coverages__.  Valid values are: 
 			* <b>single</b>: Single cell addressed.  If parameter set provided, then both parameter set must contain same number of elements. Each element pair corresponds to coordinates for one cell
@@ -1144,7 +1144,7 @@ B4PDOCU.START
 		{ "Number": "5, 7, ...",
 		  "Name": "Generic Attribute Name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute names__ for available names.
 			+++
@@ -1152,7 +1152,7 @@ B4PDOCU.START
 		{ "Number": "6, 8, ...",
 		  "Name": "Generic Attribute Value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See __generic attribute values__ for valid values.  Different rules apply for the different generic attribute names.
 			+++
@@ -1250,9 +1250,9 @@ B4PDOCU.START
 
 	// How to apply number formats in HTML for browsers
 
-	table process              ( t,                      [Inhabitants] = literal([Inhabitants], '#,##0', local) );  
-	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
-	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
+	table process              ( t,                      [Inhabitants] = str([Inhabitants], '#,##0', local) );  
+	table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = str(['Alt. (m)'] , '#,##0', local) );
+	table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, string );
 
 	table save( t, "Images/Style_Function_table_style_professionally.html", HTML );
 	file copy overwrite( "Images/Style_Function_table_style_professionally.html", "Images/Style_Function_table_style_professionally_in_html.xls" );
@@ -1318,13 +1318,13 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "Opt. 2, 4, ...",
 		  "Name": "Auto width attribute name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See table above for supported attribute names.
 			+++
@@ -1332,7 +1332,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 3, 5, ...",
 		  "Name": "Auto width attribute value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See table above for supported attribute values.
 			+++
@@ -1409,7 +1409,7 @@ B4PDOCU.START
 
 		A simpler alternative to editing the Excel file is to provide additional parameters to the function call, which are formulated in pairs of
 		two consecutive parameters: attribute names and attribute values.  You can add further formatting, change theme colors, and do all kind of
-		adjustments and enhancements.  Following attributes are supported where all attribute values must be provided as literals, with exception for
+		adjustments and enhancements.  Following attributes are supported where all attribute values must be provided as strings, with exception for
 		attribute name <b>pattern</b> where numerals are expected instead.
 
 
@@ -1434,7 +1434,7 @@ B4PDOCU.START
 		===
 
 		<sup>1</sup> Specify the the color either by supported color name (e.g. rad, orange, chestnut, navy, etc.), hexadecimal value (e.g. "#FF8040")
-		or parameter set containing three values, but must be converted to a literal in this case (e.g. "{255,128,64}" ).
+		or parameter set containing three values, but must be converted to a string in this case (e.g. "{255,128,64}" ).
 
 	+++,
 	"Call as":		"procedure",
@@ -1445,19 +1445,19 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		},
 		{ "Number": "1.",
 		  "Name": "Theme name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": "A supported theme name must be specified,  Example: "Zebra", or "Zebra Vertical Lines".  Theme names are case sensitive."
 		},
 		{ "Number": "Opt. 3, 5, ...",
 		  "Name": "attribute name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See table above for supported attribute names.
 			+++
@@ -1465,7 +1465,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 4, 6, ...",
 		  "Name": "attribute value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			See table above for supported attribute values.
 			+++
@@ -1553,7 +1553,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		}
 
@@ -1579,7 +1579,7 @@ B4PDOCU.START
 		{ "Number": "1, 2, etc.",
 		  "Name": "Name fo existing table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		}
 	]

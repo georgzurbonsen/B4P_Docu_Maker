@@ -13,9 +13,9 @@
 
   // How to apply number formats in HTML for browsers
 
-  table process              ( t,                      [Inhabitants] = literal([Inhabitants], '#,##0', local) );  
-  table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = literal(['Alt. (m)'] , '#,##0', local) );
-  table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, literal );
+  table process              ( t,                      [Inhabitants] = str([Inhabitants], '#,##0', local) );  
+  table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = str(['Alt. (m)'] , '#,##0', local) );
+  table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, string );
 
   table save( t, "Images/Style_Function_table_style_columns.html", HTML );
   echo("Done.");

@@ -29,19 +29,20 @@ B4PDOCU.START
 	irrevocably delete any related contents already downloaded or obtained.
 
 	+++,
-    "Description 02:B4P Runtime Engine - Free Demo Usage"::
+    "Description 02:B4P Runtime Engine - Free Usage"::
 
 	The Software (here more precisely the installation package) can be downloaded, installed and used at free of charge for the following
 	<u>personal and non-commercial purposes</u> such as:
 
-	* Evaluation,
-	* Demonstration, and
-	* Education.
+	* Evaluations
+	* Demonstrations
+	* Education
+	* Other non-commercial uses
 
 	The Software available as in the free-of-charge configuration runs in <u>demo mode</u> where the following functional restrictions are applying:
 
-	* B4P tables can only be saved if they contain at most 300 rows and 40 columns.
-	* During on B4P session, at most 5 tables can be saved.  The same applies to number of tables and not number of files if using the functions which save multiple tables in one file.
+	* B4P tables can only be saved if they contain at most 5000 rows and 500 columns.
+	* During on B4P session, at most 10 tables can be saved.  The same applies to number of tables and not number of files if using the functions which save multiple tables in one file.
 
 	The Owner reserves the right to alter the limitations of the Software for the free-of-charge demonstration package any time and without prior notice.
 	Please contact the Owner for obtaining a license for unrestricted and/or commercial purposes.

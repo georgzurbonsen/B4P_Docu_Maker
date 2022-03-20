@@ -9,7 +9,7 @@ B4PDOCU.START
 
 	Tables are the key objects on which this programming language has been developed for, namely to process tables of any size
 	effectively and efficiently with minimum amount of code to be written and delivering maximum possible execution performance.
-	All tables are 2-dimensional data structures which hold all information as literals (text), including numeric values,
+	All tables are 2-dimensional data structures which hold all information as strings (text), including numeric values,
 	boolean values, dates and parameter sets.
 
     "Description 02:Table Used for Examples Throughout this Chapter"::
@@ -31,8 +31,8 @@ B4PDOCU.START
     "Feature Names":		[ "Table names" ],
     "Description 01:Table Naming Rules"::
 	* All tables are identified with table names
-	* Table names must be of type __literal__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters.
-	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing literals (e.g. variables, string calculations, etc.)
+	* Table names must be of type __string__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters.
+	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing strings (e.g. variables, string calculations, etc.)
 	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
 	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
 	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
@@ -123,11 +123,11 @@ B4PDOCU.START
 
 	By default, following read access rules apply:
 	* Numeric contents (excl. scientific notation) will be read as numerals
-	* Text contents (incl. blanks) will be read as literals
-	* Dates, 'true', 'false', etc. will also be read as literal.
+	* Text contents (incl. blanks) will be read as strings
+	* Dates, 'true', 'false', etc. will also be read as string.
 
 	However, the function __table configure(__) lets you decide whether to read dates, booleans, etc. as dates and not as
-	literals.  Oppositely, this function can also force reading numbers as literals.
+	strings.  Oppositely, this function can also force reading numbers as strings.
 
 	<br><br>
 	Attempting to read values which lie outside the table (except if referencing above the header row or left of the first column) 
@@ -140,7 +140,7 @@ B4PDOCU.START
 	Data can only written to tables if the tables are existing or initialized.
 	<br><br>
 
-	All data written to tables will be converted to literals (strings) first. This also includes for numbers, dates, times, parameter sets, etc.
+	All data written to tables will be converted to strings first. This also includes for numbers, dates, times, parameter sets, etc.
 	For boolean values, the text values 'true' and 'false' will be used.  If you want to read the text values 'true' and 'false' as booleans,
 	the use __table configure(__) to activate this: <b>table configure(<i>table name</i>, read booleans, yes );</b>
 
@@ -171,12 +171,12 @@ B4PDOCU.START
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
-	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers
-	or expressions providing literals and numerals.  __Negative indexing__ is supported for both rows and columns.
+	The table must be referenced inside brackets using a combination of strings and/or numerals.  These may be constant strings and numbers
+	or expressions providing strings and numerals.  __Negative indexing__ is supported for both rows and columns.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ]
-		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	|
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|
 		|				|	| - Negative column number	|	| - Negative row number			|
 	===
@@ -184,7 +184,7 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Header name, or			|
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Header name, or			|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - Positive row number, or		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| - Negative row number			|
 	===
@@ -222,8 +222,8 @@ B4PDOCU.START
 	You have full freedom to specify the header names as you wish.  Some rules need to be followed:
 	* If the header name contains 1 or more words and optionally single spaces inbetween, and they contain no special symbol which could be interpreted by \
 	  B4P otherwise (e.g. hypen as minus sign), then the name can be used without quotation marks.
-	* If you want to refer a header name which is a number (e.g. 1, 24.12, etc.), then make sure to provided these numbers as literals, e.g. with quotation \
-	  marks or using the __literal(__) function to convert numeric results to literals.
+	* If you want to refer a header name which is a number (e.g. 1, 24.12, etc.), then make sure to provided these numbers as strings, e.g. with quotation \
+	  marks or using the __str(__) function to convert numeric results to strings.
 	+++
 },
 
@@ -259,7 +259,7 @@ B4PDOCU.START
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
 	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
 	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
-	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a literal in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a string in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
 
 	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the horizontal table access.
 	+++
@@ -273,19 +273,19 @@ B4PDOCU.START
     "Feature Names":		[ "Horizontal table access using parameter sets" ],
     "Description 01:Introduction"::
 
-	Instead of specifying one column header name (literal) or column number (numeral), a parameter set can be used to specify
+	Instead of specifying one column header name (string) or column number (numeral), a parameter set can be used to specify
 	multiple columns in order to access multiple cells in a specific row at a time.  The resulting data read out is a parameter set
 	containing the data which corresponds to the headers specified accordingly.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
-	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing literals and numerals, as well as parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals, as well as parameter sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Multiple Column Specifier	| ,	| Simple Row Specifier			| ]
-		| Must be a literal		|	| - Parameter set containing	|	| - Matching contents (literal), or 	|
+		| Must be a string		|	| - Parameter set containing	|	| - Matching contents (string), or 	|
 		|				|	| header names and/or positive	|	| - Positive row number, or		|
 		|				|	| or negative column numbers	|	| - Negative row number			|
 	===
@@ -293,11 +293,11 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	| Multiple Column Specifier 2		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Parameter set containing		|
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Parameter set containing		|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| header names and/or positive		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| or negative column numbers		|
 	===
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -336,7 +336,7 @@ B4PDOCU.START
     "Feature Names":		[ "Horizontal table access using wildcards" ],
     "Description 01:Introduction"::
 
-	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (i.e. with __Text inside single quotation marks__)
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
 	to compare the header row and pick up all matches.  A leading colon (<b>:</b>) is required to instruct B4P to search the table for matching
 	contents. All headers matching to the string pattern will be included in the selecction.
 
@@ -344,23 +344,23 @@ B4PDOCU.START
     "Description 02:Syntax for Full Table Specification"::
 
 	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
-	by the __softquoted literal__ value.
+	by the __softquoted string__ value.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| : Header Name Pattern		| ,	| Simple Row Specifier			| ]
-		| Must be a literal		|	| - Must be a softquoted	|	| - Matching contents (literal), or 	|
-		|				|	| literal, recommended to use	|	| - Positive row number, or		|
+		| Must be a string		|	| - Must be a softquoted	|	| - Matching contents (string), or 	|
+		|				|	| string, recommended to use	|	| - Positive row number, or		|
 		|				|	| wildcard symbols		|	| - Negative row number			|
 	===
 
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  : Header Name Pattern		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Must be a softquoted 		|
-		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| literal, recommended to use		|
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Must be a softquoted 		|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| string, recommended to use		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| wildcard symbols			|
 	===
-	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), 
+	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
 	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 
@@ -376,7 +376,7 @@ B4PDOCU.START
 
 	echo( [ table:  :'F*',   5 ] ); // 2 matches: looks for headers starting with "F*"
 	echo( [ table:  :'F*', -10 ] ); // Same result
-	echo( [ table:  :"F*",   5 ] ); // No match. Qquoted literal, looks for header name "F*"
+	echo( [ table:  :"F*",   5 ] ); // No match. Qquoted string, looks for header name "F*"
 	echo;
 
 	echo( [ table: :'F*', Golden Gate] ); // Golden Gate is 1st match
@@ -421,12 +421,12 @@ B4PDOCU.START
     "Description 02:Syntax for Full Table Specification"::
 
 	
-	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing literals and numerals or parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals or parameter sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Range Column Specifier	| ,	| Simple Row Specifier			| ]
-		| Must be a literal		|	| - Starting .. Ending column	|	| - Matching contents (literal), or 	|
+		| Must be a string		|	| - Starting .. Ending column	|	| - Matching contents (string), or 	|
 		|				|	| - .. Ending column		|	| - Positive row number, or		|
 		|				|	| - Starting column ..		|	| - Negative row number			|
 		|				|	| - .. or (blank)		|	| 					|
@@ -435,12 +435,12 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Range Column Specifier 2	| ]
-		| Must be a literal		|	| - Header name, or		|	| - Matching contents (literal), or 	| 	| - Starting .. Ending column	|
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Starting .. Ending column	|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - .. Ending column		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| - Starting column ..		|
 		|				|	|				|	|					|	| - .. or left blank		|
 	===
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -511,7 +511,7 @@ B4PDOCU.START
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
 	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
 	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
-	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a literal in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a string in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
 
 	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
 	+++
@@ -526,19 +526,19 @@ B4PDOCU.START
     "Feature Names":		[ "Vertical table access using parameter sets" ],
     "Description 01:Introduction"::
 
-	Instead of specifying one row number (numeral) or matching contents (literal), a parameter set can be used to specify
+	Instead of specifying one row number (numeral) or matching contents (string), a parameter set can be used to specify
 	multiple rows in order to access multiple cells in a specific column at a time.  The resulting data read out is a parameter set
 	containing the data which corresponds to the row numbers specified accordingly.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
-	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing literals and numerals, as well as parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals, as well as parameter sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Parameter set containing		|
+		| Must be a string		|	| - Header name, or		|	| - Parameter set containing		|
 		|				|	| - Positive column number, or	|	| row numbers or contents to match	|
 		|				|	| - Negative column number	|	| with the data in the table		|
 	===
@@ -546,11 +546,11 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by one or more rows, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ,	|  Simple Column Specifier 2	| ]
-		| Must be a literal		|	| - Header name, or		|	| - Parameter set containing 		| 	| - Header name, or		|
+		| Must be a string		|	| - Header name, or		|	| - Parameter set containing 		| 	| - Header name, or		|
 		|				|	| - Positive column number, or	|	| row numbers or contents to match	|	| - Positive column number, or	|
 		|				|	| - Negative column number	|	| with the data in the table		|	| - Negative column number	|
 	===
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -591,7 +591,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 
-	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted literals__ (i.e. with __Text inside single quotation marks__)
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
 	to compare the entries in the specified column and pick up all row numbers with matching comparisons.  A leading colon (<b>:</b>) is required 
 	to instruct B4P to search the table for matching contents.
 
@@ -599,23 +599,23 @@ B4PDOCU.START
     "Description 02:Syntax for Full Table Specification"::
 
 	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
-	by the softquoted literal value.
+	by the softquoted string value.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier		| ,	| : Contents Search Pattern		| ]
-		| Must be a literal		|	| - Matching contents (literal), or	|	| - Must be a softquoted  		|
-		|				|	| - Positive row number, or		|	| literal, recommended to use		|
+		| Must be a string		|	| - Matching contents (string), or	|	| - Must be a softquoted  		|
+		|				|	| - Positive row number, or		|	| string, recommended to use		|
 		|				|	| - Negative row number			|	| wildcard symbols			|
 	===
 
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| : Contents Search Pattern		| ,	| Simple Column Specifier		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Must be a softquoted  		| 	| - Header name, or			|
-		|				|	| - Positive column number, or	|	| literal, recommended to use		|	| - Positive column number, or		|
+		| Must be a string		|	| - Header name, or		|	| - Must be a softquoted  		| 	| - Header name, or			|
+		|				|	| - Positive column number, or	|	| string, recommended to use		|	| - Positive column number, or		|
 		|				|	| - Negative column number	|	| wildcard symbols			|	| - Negative column number		|
 	===
-	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), 
+	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
 	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -670,12 +670,12 @@ B4PDOCU.START
     "Description 02:Syntax for Full Table Specification"::
 
 	
-	The table must be referenced inside brackets using a combination of literals and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing literals and numerals or parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals or parameter sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier		| ,	| Range Column Specifier		| ]
-		| Must be a literal		|	| - Matching contents (literal), or	|	| - Starting .. Ending row		|
+		| Must be a string		|	| - Matching contents (string), or	|	| - Starting .. Ending row		|
 		|				|	| - Positive row number, or		|	| - .. Ending row			|
 		|				|	| - Negative row number			|	| - Starting row ..			|
 		|				|	| 					|	| - .. or (blank)			|
@@ -684,13 +684,13 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Contents Search Pattern		| ,	| Simple Column Specifier		| ]
-		| Must be a literal		|	| - Header name, or		|	| - Starting .. Ending row		| 	| - Header name, or			|
+		| Must be a string		|	| - Header name, or		|	| - Starting .. Ending row		| 	| - Header name, or			|
 		|				|	| - Positive column number, or	|	| - .. Ending row			|	| - Positive column number, or		|
 		|				|	| - Negative column number	|	| - Starting row ..			|	| - Negative column number		|
 		|				|	| 				|	| - .. or (blank)			|	|					|
 	===
 
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (literal or numeral), then the 1st parameter element will be used
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -878,8 +878,8 @@ B4PDOCU.START
 	+++,
     "Description 03:Syntax for Partial Table Specification"::
 
-	The table must be referenced inside brackets using a combination of literals and/or numerals.  These may be constant strings and numbers
-	or expressions providing literals and numerals.
+	The table must be referenced inside brackets using a combination of strings and/or numerals.  These may be constant strings and numbers
+	or expressions providing strings and numerals.
 	<br><br>
 
 	Example 1: Current table name, current row number, specified column	
@@ -894,7 +894,7 @@ B4PDOCU.START
 	<br>Example 2: Other table name, current row number, specified column	
 	=== 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Column Specifier		|  ]
-		| Must be a literal		|	| - Header name(s)		|
+		| Must be a string		|	| - Header name(s)		|
 		|				|	| - Column number(s)		|
 		|				|	| - : Wildcards			|
 		|				|	| - Ranges			|
@@ -903,7 +903,7 @@ B4PDOCU.START
 	<br>Example 3: Current table name, specified row number, specified column	
 	=== 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Column Specifier		| ,	| Row Specifier				| ]
-		| - Header name(s)		|	| - Matching contents (literal), or 	|
+		| - Header name(s)		|	| - Matching contents (string), or 	|
 		| - Column number(s)		|	| - Row numbers				|
 		| - : Wildcards			|	| : Wildcards				|
 		| - Ranges			|	| - Ranges				|
@@ -912,7 +912,7 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Column Specifier		| ,	| Row Specifier				| ,	| Column Specifier 2	| ]
-		| - Header name(s)		|	| - Matching contents (literal), or 	|	| - Header name(s)	|
+		| - Header name(s)		|	| - Matching contents (string), or 	|	| - Header name(s)	|
 		| - Column number(s)		|	| - Row numbers				|	| - Column number(s)	|
 		| - : Wildcards			|	| : Wildcards				|	| - : Wildcards		|
 		| - Ranges			|	| - Ranges				|	| - Ranges		|
@@ -957,9 +957,9 @@ B4PDOCU.START
     "Description 05:Specifying Current Columns"::
 
 	If the context information is also providing the current column number, then the lone point (<b>.</b>) acts as a shortcut
-	to reference the current column.  Please note that the lone point is interpreted as a literal string consisting of 1 
+	to reference the current column.  Please note that the lone point is interpreted as a string string consisting of 1 
 	character (unless it is part of a numeral acting as a decimal point) and not a programming language specific symbol.
-	This does even apply if the point is a softquoted or quoted literal ( <b>'.'</b> or <b>"."</b> ).
+	This does even apply if the point is a softquoted or quoted string ( <b>'.'</b> or <b>"."</b> ).
 	Alternatively, you can use the function __col(__) to get the current column number.
 
 	<br><br>
@@ -1084,7 +1084,7 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	In some situations, you know a specific column number for orientation, and want to use this column to reference a different
-	column nearby, i.e. further to the left or to the right.  In this case, provide the header name as __softquoted literal__, for example with
+	column nearby, i.e. further to the left or to the right.  In this case, provide the header name as __softquoted string__, for example with
 	__Text inside single quotation marks__, and start the text with one or multiple '&lt;' or '&gt' symbols.
 	Multiple consecutive symobls can be cascaded to refer to nearby columns which are not immediate neighbors.
 
@@ -1097,7 +1097,7 @@ B4PDOCU.START
 	&gt;&lt;	| Same here
 	===
 	<u>Attention</u>: The &lt; and &gt; symbols must be the 1st characters after the quotation marks.  If spaces lie inbetween, then these symbols are considered as part of header names.<br>
-	<u>Attention</u>: Shifting does not happen in quoted literals, e.g. "&gt;Last Name". It assumes the header name containing the &gt; symbol.<br>
+	<u>Attention</u>: Shifting does not happen in quoted strings, e.g. "&gt;Last Name". It assumes the header name containing the &gt; symbol.<br>
 	
 	<br><br>
 	Left-shifting stops at column 0.  Attempts to go beyond will also refer to column 0. Attempting to right-shift beyond the last column is OK as long
@@ -1211,7 +1211,7 @@ B4PDOCU.START
     "Feature Names":		[ "memory effect" ],
     "Description 01:Benefit - Increasing Performance"::
 
-	In order to increase overall performance, all header names which are explicitly mentioned with literal values,
+	In order to increase overall performance, all header names which are explicitly mentioned with string values,
 	for example <b>[Family Name]</b>, <b>['Family Name]</b> or <b>["Family Name]</b>, the physical column position of these
 	headers will normally be identified only once by comparing all headers from left to right, and are then memorized.
 	<b>behind</b> the header name.  This will improve the performance when processing through entire tables whiles referencing the same headers, e.g.
@@ -1236,9 +1236,9 @@ B4PDOCU.START
 	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
 	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
 
-	define procedure ( legs, { { table name, literal } } )
+	define procedure ( legs, { { table name, string } } )
 	{
-		table process( table name[], echo( literal([Animal],"8#" ),": ", [leg count] ) );
+		table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
 	}
 
 	legs( table 1 );
@@ -1247,23 +1247,23 @@ B4PDOCU.START
     "Output 02:": "automatic",
     "Description 03:Solving the Drawback"::
 	The column numbers for 'Animal' and 'leg count' are memorized after their first reference, and becomes an issue when
-	called with the 2nd table where the "leg count" lies further to the right and a column called "weapon" has taken is place there.
+	called with the 2nd table where the "leg count" lies in a different column further to the right and a column called "weapon" has taken is place there.
 	The 2nd function call lists the weapons.
 
 	<br><br>
 	Three different approches are available to solve this issue:
-	* Instead of referencing the constant literal directly, do a simple <i>calculation</i> with it, e.g. putting parentheses around them: <b>[(Full Name)]</b>
-	* Force B4P to forget the column numbers in the current proogram
-	* Deactivate memorizing
+	* Instead of referencing the text value directly, do a simple <i>calculation</i> with it, e.g. putting parentheses around them: <b>[(Full Name)]</b>
+	* Force B4P to forget the column numbers in the current program by calling __forget memorized table columns(__)
+	* Deactivate memorizing by changing runtime settings
 
 	+++,
     "Examples 03:Using Parentheses:"::
 	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
 	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
 
-	define procedure ( legs, { { table name, literal } } )
+	define procedure ( legs, { { table name, string } } )
 	{
-		table process( table name[], echo( literal([Animal],"8#" ),": ", [(leg count)] ) );
+		table process( table name[], echo( str([Animal],"8#" ),": ", [(leg count)] ) );
 	}
 
 	legs( table 1 );
@@ -1290,10 +1290,10 @@ B4PDOCU.START
 	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
 	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
 
-	define procedure ( legs, { { table name, literal } } )
+	define procedure ( legs, { { table name, string } } )
 	{
 		forget memorized table columns; // All memorized columns in this B4P program file will be forgotten
-		table process( table name[], echo( literal([Animal],"8#" ),": ", [leg count] ) );
+		table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
 	}
 
 	legs( table 1 );
@@ -1310,9 +1310,9 @@ B4PDOCU.START
 	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
 	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
 
-	define procedure ( legs, { { table name, literal } } )
+	define procedure ( legs, { { table name, string } } )
 	{
-		table process( table name[], echo( literal([Animal],"8#" ),": ", [leg count] ) );
+		table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
 	}
 
 	runtime settings[memorize table columns] = false;

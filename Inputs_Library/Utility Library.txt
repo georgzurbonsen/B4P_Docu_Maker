@@ -21,8 +21,8 @@ B4PDOCU.START
 		<br><br>
 
 		Long options are defined as command line options which begin with two consecutive minus signs (--) followed by an option name.
-		The option name may optionally be completed with an option value, using an equal sign followd by a literal or numeric value.
-		By default, the values are literals, but may be converted to boolean (if "true" or "false"), dates (if "YYYY-MM-DD", "HH:MM:SS" or "YYYY-MM-DD HH:MM:SS"),
+		The option name may optionally be completed with an option value, using an equal sign followd by a string or numeric value.
+		By default, the values are strings, but may be converted to boolean (if "true" or "false"), dates (if "YYYY-MM-DD", "HH:MM:SS" or "YYYY-MM-DD HH:MM:SS"),
 		or numerals (if number provided).  If you need to know the ordering of the options, then check the command line arguments directly.
 
 		<br><br>
@@ -33,7 +33,7 @@ B4PDOCU.START
 		--row=1 col="2"		| long options[row]<br>long options[col]	| 1<br>2 (both numerals)
 		--date="2020-12-31"	| long options[date]				| 2020-12-31 (date format)
 		--ans1=true ans2="false"| long options[ans1]<br>long options[ans2]	| true<br>false (both Boolean types)
-		--t1=Hi --t2="He He"	| long options[t1]<br>long options[t2]		| "Hi"<br>"He He" (both literals)
+		--t1=Hi --t2="He He"	| long options[t1]<br>long options[t2]		| "Hi"<br>"He He" (both strings)
 		===
 
 		<br><br>
@@ -106,7 +106,7 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "Path name",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			This is the full path name to the directory name just created.  A directory separator symbol (slash or backslash) has already been added at the end.
 			+++
@@ -149,7 +149,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Prompt text",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			A prompt text is needed if the count (provided in the last function parameter) is not 1.
 			The prompt will be displayed if needed so you can select from of the <i>n</i> recent files displayed.
@@ -158,7 +158,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Path name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Specify the path name to the directory where the files to be searched are located.  No wildcards are supported here.
 			+++
@@ -166,7 +166,7 @@ B4PDOCU.START
 		{ "Number": "3.",
 		  "Name": "File name pattern to match",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Specify file name pattern where the file name part may contain wildcard symbols such as
 			'*' and '?'. The pattern will be used to obtain a listing of matching files which will then be prioritzed
@@ -176,7 +176,7 @@ B4PDOCU.START
 		{ "Number": "4.",
 		  "Name": "Ordering criteria",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			One of the following values apply:
 			=== 200, 600, noframe_1stcolbold, noheader
@@ -202,7 +202,7 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "Identified file name",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			The file name contains no directory path.  If no file has been found, then a blank string is returned.
 			+++
@@ -262,14 +262,14 @@ Chosen file is: REF_Function_week.b4p
 		{ "Number": "1.",
 		  "Name": "Name to abbreviate",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		}
 	],
 	"Return value":
 	[
 		{ "Name": "Abbreviation",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description": ""
 		}
 	],

@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
       a[num 1] = 1;
       a[num 2] = a[num 1] + 0;
-      a[lit 1] = An unquoted literal;
-      a[lit 2] = 'A softquoted literal';
-      a[lit 3] = "A quoted literal";
-      a[lit 4] = softquoted literal( a[lit 3] );
+      a[lit 1] = Plain text;
+      a[lit 2] = 'A softquoted string';
+      a[lit 3] = "A quoted string";
+      a[lit 4] = soft( a[lit 3] );
       a[date] = date(today);
       a[bool] = true;
       a[pset] = { 1,2,3 };

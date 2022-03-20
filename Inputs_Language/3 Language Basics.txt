@@ -124,7 +124,7 @@ B4PDOCU.START
 						  You can also define arrays, e.g. <b>matrix[2,3]</b> or the combination of both structures and arrays to develop sophisticated variable storage models.
 	__Numbers__ and __text__		| __Numbers__ and __text__ are seen as values.  In the example <b>a[] = bull dog ;  b[] = ' bull   dog ';</b> a[] is assiged with <i>'bull dog'</i> containing one space between the two words, whare as b[] is assigned with <i>' bull   dog '</i> where all spaces are preserved.  Without quotation marks, outside spaces and repeated spaces betwen words are ignored.
 	Full __UNICODE__ characters		| Every character counts as 1 character, including the foreign and non-ANSI ones.  The full UNICODE including the Basic Multilingual Plane (like &eacute; and &euro;), and all the other UNICODE planes (e.g. &#x1F609;) are supported.
-	__Basic data types__			| They are __numeral__, __literal__, __boolean__, __date__ (for both dates and time of day), __parameter sets__, and __void__.
+	__Basic data types__			| They are __numeral__, __string__, __boolean__, __date__ (for both dates and time of day), __parameter sets__, and __void__.
 	__Parameter sets__			| Very powerful type to combine any number of variables and nested parameter sets into one parameter set.<br>Example: <b>names[] = {Abel, Beata, Charly};</b>
 	Dynamic weak typing 			| B4P uses dynamic weak typing.  The type is set once a value is assigned. Example: <b>a[] = 1;</b> automatically declares a[] as a numeric variable. <br>The type will change if something non-numeric is assigned, eg. <b>a[] = Hello;</b>.
 	__Tables__ 				| They are the DNA of B4P.  Typically referenced as <b>[table name : row , column ]</b>.<br/>If a conext with table name and row number is given, e.g. inside a loop, then a simple reference like <b>[column]</b> is sufficient.<br>Example: <b>table process</b>( membership list, <b>echo</b>( [Family Name], ", ", [First Name] );
@@ -673,7 +673,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
     "Keywords":			[ "Console text and background colors" ],
     "Description 01:Introduction"::
 
-	B4P is also supporting a set of dedicated UNICODE characters for formatting literal contents before outputting the with standard functions
+	B4P is also supporting a set of dedicated UNICODE characters for formatting string contents before outputting the with standard functions
 	such as __echo(__), __format print(__) and __print(__).  Typical examples are changing text and background color, enabling underscore and
 	some cursor navigation symbols.
 
@@ -1032,7 +1032,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	These text contents can be used for following putposes:
 
 	=== 250, 250, 250, 250
-	Usage of literal constants		| Plain text				 	| Text inside single quotation marks	| Text inside double quotation marks
+	Usage of string constants		| Plain text				 	| Text inside single quotation marks	| Text inside double quotation marks
 	String values				| example					| 'example'				| "example"
 	Base variable names (see <sup>1</sup>)	| example[]					| 'example'[]				| "example"[]
 	Member variable names (see <sup>1</sup>)| example[example 2, ...]			| 'example'['example 2', ...]		| "example"["example 2", ...]
@@ -1043,8 +1043,8 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	Reserved keywords			| true, false, else, tab, escape, new line	| (Not reserved if in quotation marks)	| (Not reserved if in quotation marks)
 	===
 
-	<sup>1</sup> <u>Attention</u>: Different from other programming languages, __variables__ in B4P are always specified by literals followed by a <b>[]</b> or <b>[...]</b> sequence.
-	It appears outlandish, but has some key advantages which are described later in this manual
+	<sup>1</sup> <u>Attention</u>: Different from other programming languages, __variables__ in B4P are always specified by strings (or __expressions__ returning strings) followed by a <b>[]</b> or <b>[...]</b> sequence.
+	It appears outlandish, but has some key advantages which are described later in this manual.
 
 	+++
 },
@@ -1084,7 +1084,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	** The lone point is also used to reference a current column in __partial table specifications__.
 	** Note: Two consecutive points is a B4P __range__ symbol and does not consitute a text.
 	* Reserved keywords are automatically interpreted as part of the B4P syntax, e.g. <b>true</b> as Boolean <i>true</i>, and __else__ is also part of the B4P language.
-	* If the text is assigned to B4P variables, then the variable assumes the subtype __softquoted literal__.
+	* If the text is assigned to B4P variables, then the variable assumes the subtype __softquoted string__.
 
 	+++,
     "Examples 02:Examples"::
@@ -1092,9 +1092,9 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	echo(   Hello   World   );  // Same as above (Spaces outside the strings are ignored, so are multiple spaces inside)
 	echo( One + One );          // + sign is an operator, result is 'OneOne'
 	echo( 'One + One' );        // This one is OK.
-	echo( Baden-Baden );        // Empty string.  Hyphen is treated as minus sign (subtraction of literals)
+	echo( Baden-Baden );        // Empty string.  Hyphen is treated as minus sign (subtraction of strings)
 	echo( 'Baden-Baden' );      // This one is OK.
-	echo( 1. 23 );              // This is a literal because a space is inside.
+	echo( 1. 23 );              // This is a string because a space is inside.
 	echo( 1 200 );              // Same here.  Use function 'clean numeral' to extract 1200 as a number from here
 	echo( Dial 555 1212 );
 	echo( this is on, new line, the next line );  // new line is a reserved keyword
@@ -1133,7 +1133,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	* Various functions and comparisons support __wildcard symbols__
 	** Example 1: <b>ABC = 'A*'</b> returns true.
 	* __Character entities__ like &amp;euro; or &amp;#x20ac; for the EURO symbol &euro; are supported.  They are converted quasi at compile time to target characters.
-	* If the text is assigned to B4P variables, then the variable assumes the subtype __softquoted literal__.
+	* If the text is assigned to B4P variables, then the variable assumes the subtype __softquoted string__.
 
 	+++,
     "Examples 02:Examples"::
@@ -1147,7 +1147,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	echo( new line, 'Line 1', new line, 'Line 2' ); 
 	+++,
     "Output 02:": "automatic",
-    "See also": [ "Plain text", "Text inside double quotation marks", "Multi-line text", "Softquoted literals" ]
+    "See also": [ "Plain text", "Text inside double quotation marks", "Multi-line text", "softquoted strings" ]
 },
 
 
@@ -1175,7 +1175,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	* Various functions and comparisons support __wildcard symbols__
 	** Example 1: <b>ABC = 'A*'</b> returns true.
 	* __Character entities__ are not supported in texts inside double quotation marks.  Any such specification is part of the quoted text.
-	* If the text is assigned to B4P variables, then the variable assumes the subtype __quoted literal__.
+	* If the text is assigned to B4P variables, then the variable assumes the subtype __quoted string__.
 
 	+++,
     "Examples 02:Examples"::
@@ -1189,7 +1189,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	echo( new line, "Line 1", new line, "Line 2" ); 
 	+++,
     "Output 02:": "automatic",
-    "See also": [ "Softquoted literals", "Plain text", "Text inside single quotation marks", "Multi-line text" ]
+    "See also": [ "softquoted strings", "Plain text", "Text inside single quotation marks", "Multi-line text" ]
 },
 
 
@@ -1226,7 +1226,7 @@ s	<b>ESC [A</b> for a cursor key) but these symbols do typically contain multipl
 	echo( true = false ); // Outputs 'false' (Boolean comparison)
 	+++,
     "Output 01:":		"automatic",
-    "See also": [ "Quoted literals", "Plain text", "Text inside single quotation marks", "Multi-line text" ]
+    "See also": [ "quoted strings", "Plain text", "Text inside single quotation marks", "Multi-line text" ]
 
 },
 
@@ -1333,24 +1333,24 @@ for all variables( example[], ex[] )
 
 	* It must contain at least 1 digit (0..9)
 	* Negative numebers start with a minus sign (see: __unary operators__)
-	* The number must not contain spaces and/or thousand separator symbols.  Use __clean numeral(__) to remove such symbols automatically.
+	* The number must not contain spaces and/or thousand separator symbols.  Use __clean num(__) to remove such symbols automatically.
 	* At most one decimal point may be used.  More points inside make the value look like a __plain text__.
 	** A lone decimal describes a __plain text__ containing one character.
 	** At least one digit must be added before or after the decimal point, e.g. <b>5.</b> or <b>.5</b> are OK, specifying 5 and 0.5.
 	* Leading zeros in front and trailing zeros after the digits after the comma are OK
 	* Scientific notation is not allowed in the B4P code.
-	**  However, use __numeral(__) or __clean numeral(__) to specify scientific notations.
+	**  However, use __num(__) or __clean num(__) to specify scientific notations.
 	** Exceptions: Table entries may contain numbers in scientific notation, but use __table configure(__) to activate reading scientific notation.
 	** Scientific notation is also supported in numbers in JSON files.  See __variable load(__) to load JSON files.
 
 	+++,
     "Examples 01:"::
 	echo( 1 );                   // Simple numeral
-	echo( 1 1 + 2 2 );           // Attention: These two numbers are literals : '1 12 2' is returned, not '33' or '3 3'
+	echo( 1 1 + 2 2 );           // Attention: These two numbers are strings : '1 12 2' is returned, not '33' or '3 3'
 	echo( 123.45 );
 	echo( 0123.450 );            // Same value as above
 	echo( 0123.450 *1);          // Operation applied (multplied by 1), therefore text representation has been dropped
-	echo( numeral( '1.2E+3' ) ); // Scientific notation (must contain capital or lower-case E, + is optional, use - (minus) for small numbers)
+	echo( num( '1.2E+3' ) ); // Scientific notation (must contain capital or lower-case E, + is optional, use - (minus) for small numbers)
 	+++,
     "Output 01:":		"automatic"
 
@@ -1370,17 +1370,17 @@ for all variables( example[], ex[] )
 	numbers read are converted into numerals.
 
 	<br><br>
-	Literals, numerals and dates are also categorized in two subtypes each which are desribed in the following sections.
+	Strings, numerals and dates are also categorized in two subtypes each which are desribed in the following sections.
 
-	* __Literals__
-	** Softquoted literals
-	** Quoted literals
+	* __Strings__
+	** __Softquoted strings__
+	** __Quoted strings__
 	* __Numerals__
-	** Numerals with text representations
-	** Plain numerals
+	** __Numerals__ with text representations
+	** __Plain numerals__
 	* __Dates__, able to contain dates, times or both
-	** Dates with text representations
-	** Plain dates
+	** __Dates__ with text representations
+	** __Plain dates__
 	* __Booleans__
 	* __Parameter sets__
 	* __Voids__
@@ -1390,41 +1390,41 @@ for all variables( example[], ex[] )
 
 
 
-  "Literals" :
+  "Strings" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Data type literals" ],
-    "Keywords":			[ "literal", "literals" ],
+    "Feature Names":		[ "data type strings" ],
+    "Keywords":			[ "string", "strings" ],
     "Description 01:Introduction"::
 
-	Literals in B4P are strings which consist of 0, 1 or any number of UNICODE characters.  Every character counts as 1 character, regardless if it is an ANSI or
+	Strings in B4P consist of 0, 1 or any number of UNICODE characters.  Every character counts as 1 character, regardless if it is an ANSI or
 	non-ANSI (e.g. foreign) character.  The string length is limited to a specific value, but only by the available system memory.
 
 	<br><br>
 	B4P supports following three subtypes:
-	* __Quoted literals__, and
-	* __Softquoted literals__.
+	* __Quoted strings__, and
+	* __Softquoted strings__.
 
-	Simple rules: B4P handles __Text inside double quotation marks__ as __quoted literals__ where all contents are considered <i>as given</i>. <br>
-	And __text inside single quotation marks__ as well as __plain text__ are handled as __softquoted literals__.
+	Simple rules: B4P handles __Text inside double quotation marks__ as __quoted strings__ where all contents are considered <i>as given</i>. <br>
+	And __text inside single quotation marks__ as well as __plain text__ are handled as __softquoted strings__.
 
 	+++
   },
 
-  "Softquoted Literals" :
+  "Softquoted Strings" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Data subtype softquoted literals" ],
-    "Keywords":			[ "Softquoted literal", "Softquoted literals" ],
+    "Feature Names":		[ "Data subtype softquoted strings" ],
+    "Keywords":			[ "Softquoted string", "Softquoted strings" ],
     "Description 01:Introduction"::
 
 
-	The data subtype <b>quoted literal</b> is applied in following cases:
+	The data subtype <b>quoted string</b> is applied in following cases:
 
 	* __Plain text__ or __text inside single quotation marks__ is written into B4P __variables__.
 	* __Plain text__ or __text inside single quotation marks__ is used in B4P __expressions__ and __comparisons__.
 
-	Following features apply to <b>softquoted literals</b> only:
+	Following features apply to <b>softquoted strings</b> only:
 
 	* Symbols like '*' or '?' are treated as __wildcards__ for __comparisons__ and when the equal sign = or not-equal sign &lt;&gt; is used<br> \
 	  <u>Note:</u> This is not the case for the other comparison operators such as  == and !=.
@@ -1440,7 +1440,7 @@ for all variables( example[], ex[] )
 	echo( 'b[] = "', b[], '"');
 	echo( 'c[] = "', c[], '"');
 	echo( 'Subtype of a[] is ', subtype( a[] ) );
-	echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // Softquoted literals support wildcards
+	echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // softquoted strings support wildcards
 	+++,
     "Output 01:Output:":		"automatic",
 
@@ -1453,13 +1453,13 @@ for all variables( example[], ex[] )
 	echo( 'b[] = "', b[], '"');
 	echo( 'c[] = "', c[], '"');
 	echo( 'Subtype of a[] is ', subtype( a[] ) );
-	echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // Softquoted literals support wildcards
+	echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // softquoted strings support wildcards
 
 	echo;
-	echo("Following texts are read as softquoted literals");
-	a[] = 07.04.2020;         // Literal constant, because it contains two points
+	echo("Following texts are read as softquoted strings");
+	a[] = 07.04.2020;         // String constant, because it contains two points
 	b[] = 555 1212;           // Contains a space
-	c[] = 1 Main St.;         // This is a valid literal constant
+	c[] = 1 Main St.;         // This is a valid string constant
 	d[] = mike@example.com;   // Valid, too.  See note below.
 
 	echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[]));
@@ -1468,30 +1468,30 @@ for all variables( example[], ex[] )
 	echo( 'd[] = "', d[], '"  Subtype: ', subtype(d[]));
 
 	echo;
-	echo("Combine softquoted and quoted literal:");
+	echo("Combine softquoted and quoted string:");
 	a[] = Hello + ' World';
 	b[] = Hello + " World";
-	echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[])); // Softquoted literal
-	echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[])); // Quoted literal
+	echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[])); // softquoted string
+	echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[])); // quoted string
 
 	+++,
     "Output 02:Output:":		"automatic"
 
   },
 
-  "Quoted Literals" :
+  "Quoted Strings" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Data subtype quoted literals" ],
-    "Keywords":			[ "Quoted literal", "Quoted literals" ],
+    "Feature Names":		[ "Data subtype quoted strings" ],
+    "Keywords":			[ "Quoted string", "Quoted strings" ],
     "Description 01:Introduction"::
 
-	The data subtype <b>quoted literal</b> is applied in following cases:
+	The data subtype <b>quoted string</b> is applied in following cases:
 
 	* __Text inside double quotation marks__ is written into B4P __variables__.
 	* __Text inside double quotation marks__ is used in B4P __expressions__ and __comparisons__.
-	* Unless specified otherwise, almost all B4P functions which return values of type <b>literal</b> are of subtype <b>quoted literals</b>.
-	* The contents in quoted literals are always considered as given , including:
+	* Unless specified otherwise, almost all B4P functions which return values of type __string__ are of subtype <b>quoted strings</b>.
+	* The contents in quoted strings are always considered as given , including:
 	** No symbols like '*' or '?' are treated as wildcard symbols for comparisons
 
    "Examples 01:With Text Inside Double Quotation Marks"::
@@ -1503,7 +1503,7 @@ for all variables( example[], ex[] )
 	echo( 'b[] = "', b[], '"');
 	echo( 'c[] = "', c[], '"');
 	echo( 'Subtype of a[] is ', subtype( a[] ) );
-	echo( "Simple comparison returning 'false': ", Hello = "*llo" ); // Quoted literals support no wildcards
+	echo( "Simple comparison returning 'false': ", Hello = "*llo" ); // quoted strings support no wildcards
 	+++,
     "Output 01:Output:":		"automatic"
 
@@ -1516,18 +1516,18 @@ for all variables( example[], ex[] )
   {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Indexing strings" ],
-    "Description 01:Literals - Simple Indexing"::
+    "Description 01:Strings - Simple Indexing"::
 
-	<i>Simple indexing</i> is used to retrieve single characters from the literal.  Indexing begins with 0 which refers to the 1st
+	<i>Simple indexing</i> is used to retrieve single characters from the string.  Indexing begins with 0 which refers to the 1st
 	character.  The index value is specified in braces and shall not be confused with a parameter set as such.
 
 	<br><br>
-	Following rules apply to the indexing literals:
+	Following rules apply to the indexing strings:
 	* The index must always be a numeric value.
-	* Specifying just braces <b>{}</b> without an index will retrieve the length (character count) of the literal.  Alternatively, use __length [string function]__.
+	* Specifying just braces <b>{}</b> without an index will retrieve the length (character count) of the string.  Alternatively, use __length [string function]__.
 	* Indexing begins with 0 (zero).
 	* The value will be rounded in case it does not contain an integer value.  Example: <b>a[]{2.99}</b> accesses the same member as <b>a[3]</b>.
-	* __Negative indexing__ is supported. -1 refers to the last character in the literal. -2, -3, etc. refer to the previous ones, and so forth.
+	* __Negative indexing__ is supported. -1 refers to the last character in the string. -2, -3, etc. refer to the previous ones, and so forth.
 	* Empty sets are returned when accessing with index values which lie out of bounds.  Example: <b>{a,b,c}{5}</b> returnss <b>{}</b> (empty set).
 	* Updating individual elements on the left hand side of assignments is not possible.  Wrong exmaple: <b>a[]{3} = 'E';</b>.
 
@@ -1535,7 +1535,7 @@ for all variables( example[], ex[] )
 	echo( abcde{} );     // Returns 5 (character count)
 	echo( abcde{0} );   // Access the 1st element
 	echo( abcde{-2} );  // Access the 2nd last element
-	echo( abcde{10} );  // Attempts to access characters outside the string returns blank literals.
+	echo( abcde{10} );  // Attempts to access characters outside the string returns blank strings.
 	echo( abcde{-10} ); // Same case here.
 	+++,
 
@@ -1554,7 +1554,7 @@ for all variables( example[], ex[] )
 	Instead of specifying single index values to retrieve single characters, substrings can be retrieved by listing muliple values and/or ranges.
 	In some other programming langauges, this feature is known as slicing.
 	The range operator '..' is available to specify a range.  If no value prcedes the range operator, than 0 is assumed.  If no value follows
-	the range operator, then the last character is assumed.  The result will always be a literal.
+	the range operator, then the last character is assumed.  The result will always be a string.
 	Negative indexing is supported.
 	
     "Examples 01:"::
@@ -1593,7 +1593,7 @@ for all variables( example[], ex[] )
 
 	Numerals picked up from the B4P program code or read in from tables will initially carry along their original
 	text representations, for example 0123.40. They are useful in case the leading and trailing zeros in numbers (like in postal codes and 
-	section numbers in document structures) need to be preserved.  The literal representation will be discarded immediately when any kind
+	section numbers in document structures) need to be preserved.  The string representation will be discarded immediately when any kind
 	of algorithmic operations is applied, for exmaple additions (including adding 0) and even negations.  In all these cases, the
 	subtype changes from <b>numeral</b> to <b>plain numeral</b>.
 
@@ -1603,20 +1603,20 @@ for all variables( example[], ex[] )
 	a[0] = 123.45;
 	a[1] = 007;
 	a[2] = 20.20;
-	a[3] = numeral( '1.5E-3' ); // Literal representation will not be included here
+	a[3] = num( '1.5E-3' ); // String representation will not be included here
 	a[4] = 0.00;
 
 	for all variables( a[], b[] )
 	{
-	    c[] = literal(b[]);  // Recover literal representation
-	    d[] = b[] + 0;       // Literal representation gets dropped because a calculation has been made
-	    e[] = literal(d[]);  // Convert back to literal representation
+	    c[] = str(b[]);  // Recover string representation
+	    d[] = b[] + 0;       // String representation gets dropped because a calculation has been made
+	    e[] = str(d[]);  // Convert back to string representation
 
 	    echo;
 	    echo("For following numeral        : ", b[], " subtype: ", subtype(b[]) );
-	    echo("   Literal representation    : ", c[], " subtype: ", subtype(c[]) );
+	    echo("   String representation     : ", c[], " subtype: ", subtype(c[]) );
 	    echo("   Converted to plain numeral: ", d[], " subtype: ", subtype(d[]) );
-	    echo("   Back to literal again     : ", e[], " subtype: ", subtype(e[]) );
+	    echo("   Back to string again      : ", e[], " subtype: ", subtype(e[]) );
 	}
 	+++,
     "Output 01:":		"automatic"
@@ -1650,7 +1650,7 @@ for all variables( example[], ex[] )
 	<br>
 
 	Dates read in from tables (if reading data as dates is activated with the function __table configure(__)) will automatically include their
-	text representations.  The literal representation will be discarded immediately when any kind of algorithmic operation
+	text representations.  The string representation will be discarded immediately when any kind of algorithmic operation
 	is applied, even if 0 days are added.  No discardings take place on direct assignments
 	and transactions without calculations done, e.g. <b>a[] = b[];</b>.
 
@@ -1658,20 +1658,20 @@ for all variables( example[], ex[] )
 
 	=== 200, 800, noframe_1stcolbold
 	Function name 	| Description
-	__date(__)    	| Depending on the literal value provided, it returns a date, date and time, time only, or blank date.
+	__date(__)    	| Depending on the string value provided, it returns a date, date and time, time only, or blank date.
 	__pure date(__) | Works like date, but ignores any time of day information.  Output is either a date or blank date.
 	__date time(__) | Works like date.  If input is not a blank, and if no time of day is provided, then 00:00:00 (midnight) is assumed as time of day.
 	__time(__)	| This function will only use the time information.  If the paramter contains a date only, then a blank date wil be returned.
 	===	
 
-	Simple and valid examples are: <b>date( 14.07.2020 ), date( "2020-07-04" ), date( today )</b>. The values provided in the date functions are literal constants.
+	Simple and valid examples are: <b>date( 14.07.2020 ), date( "2020-07-04" ), date( today )</b>. The values provided in the date functions are string constants.
 	Please note that quotation marks (no matter if single or double) are required for the 2nd example because of the hyphens which would otherwise be treated as
 	minus signs where 7 and 4 are subtracted from 2020.
 
 	+++,
 
     "Examples 01:"::
-	// Following assignments are still literals (text)
+	// Following assignments are still strings (text)
 	a[0] = "July 14. 2021";
 	a[1] = '20:15:00';
 	a[2] = "2022 August 01 22:15";
@@ -1720,7 +1720,7 @@ for all variables( example[], ex[] )
 
     "Examples 01:"::
 	echo(true, " / ", type(true));        // Boolean true
-	echo(True, " / ", type(True));        // This is a literal value (T is upper case.)
+	echo(True, " / ", type(True));        // This is a string value (T is upper case.)
 	echo(5 > 6, " / ", type(5 > 6));      // Boolean false 
 	echo(true & false);                   // Logical AND
 	echo(true | false);                   // Logical OR
@@ -1844,7 +1844,7 @@ for all variables( example[], ex[] )
     "Description 02:Parameter Sets - Simple Indexing in Write Accesses"::
 
 	<i>Simple indexing</i> also works with write accesses in __assignments__.  The target variable must contain an existing parameter set.  Values of other types
-	are not allowed and will cause error messages.  Any data type may be assigned. For example, a numeric element can be replaced by a literal or parameter set
+	are not allowed and will cause error messages.  Any data type may be assigned. For example, a numeric element can be replaced by a string or parameter set
 	(a subset).  Using multiple indexes as allowed for read accesses is not possible (e.g. [a]{1,2} = {A,B};).
 
     "Examples 02:"::
@@ -1936,12 +1936,12 @@ for all variables( example[], ex[] )
     "Output 02:":		"automatic",
 
 
-    "Description 03:Parameter Sets - Value Ranges (Literals)"::
+    "Description 03:Parameter Sets - Value Ranges (Strings)"::
 
-	Value ranges are also supported for literals.  The literal values may consist of one or more characters.  The intial value, optionally <i>second value</i>
-	and final values must contain literals with same number of characters and <u>only one character in the same position changing</u>.
-	An exception applies if the literal contains numeric digits.  Here, up to 8 digits are allowed.  This allows counting from smaller numbers (fewer digits)
-	to larger numbers (more digits).  Minus signs are not considered as part of numbers. A mixup of literals and other types inside a range specification is invalid.
+	Value ranges are also supported for strings.  The string values may consist of one or more characters.  The intial value, optionally <i>second value</i>
+	and final values must contain strings with same number of characters and <u>only one character in the same position changing</u>.
+	An exception applies if the string contains numeric digits.  Here, up to 8 digits are allowed.  This allows counting from smaller numbers (fewer digits)
+	to larger numbers (more digits).  Minus signs are not considered as part of numbers. A mixup of strings and other types inside a range specification is invalid.
 	
 	<br>
 	Following exampls are invalid: 
@@ -1957,8 +1957,8 @@ for all variables( example[], ex[] )
 	echo("Every 2nd letter           : ", {a..c..z});
 	echo("1 letter in string         : ", {'Article A:' .. 'Article F:'} );
 	echo("Combination of 2 ranges    : ", {2..4..10, 'Article A:' .. 'Article F:'} );
-	echo("Numbers in literals        : ", {'Chapter 9:' .. 'Chapter 12:'} );
-	echo("Numbers in literals        : ", {'Chapter 09:' .. 'Chapter 12:'} );
+	echo("Numbers in strings         : ", {'Chapter 9:' .. 'Chapter 12:'} );
+	echo("Numbers in strings         : ", {'Chapter 09:' .. 'Chapter 12:'} );
 	+++,
 
     "Output 03:":		"automatic",
@@ -2191,7 +2191,7 @@ for all variables( example[], ex[] )
 	Regarding decimal symbols, the standard function __table load(__) will check for numerals in text and CSV files (but not HMTL files and likes) with decimal 
 	commas and convert them to decimal points.  The new function __table load unchanged(__) will not do the conversion.  You may need this if you need to
 	discriminate between actual numbers and other numeric data separated with commas but not considered as regular numeric data. 
-	<br/>Consider using the __clean numeral(__)
+	<br/>Consider using the __clean num(__)
 	function to prepare numbers containing commas (and possibly more, such as thousand separators, currency symbols, etc.).
 	<br/>Consider using __table save with local decimal separator(__) to save CSV files using the decimal separator symbol applicable with your country settings (comma or point).
 	<br/>Consider using __table save with decimal comma(__) to make sure all numbers use decimal commas.
@@ -2216,7 +2216,7 @@ for all variables( example[], ex[] )
 
 	Beyond4P is able to support different locales (regional and language specific settings) which are managed in 
 	a file called "List of locales.csv".  This file comes along with the installation package and will be referenced automatically
-	whenever locale information is needed to carry out a particular function, e.g. converting a __date__ to a __literal__.
+	whenever locale information is needed to carry out a particular function, e.g. converting a __date__ to a __string__.
 
 	<br><br>
 	The locale settings influence information processing such the following described below:
@@ -2247,7 +2247,7 @@ for all variables( example[], ex[] )
 	+++,
     "Description 03:Functions asking for locales"::
 
-	* __literal(__), __softquoted literal(__): 2nd function parameter
+	* __str(__), __soft(__): 2nd function parameter
 	* __set locale(__): 1st function parameter (must be a locale value, not country or language name alone=)
 
 	+++,
@@ -2399,7 +2399,7 @@ for all variables( example[], ex[] )
 
     "Description 02:Brackets follow Variable Names"::
 
-	In regular programming languages, keywords are treated as reserved keywords or variables.  In B4P, they are unquoted literals.  To use these literals
+	In regular programming languages, keywords are treated as reserved keywords or variables.  In B4P, they are __plain text__.  To use these strings
 	to access variables, do not forget to add <b>[]</b> behind it.  No differnece applies if you access a subscript of an array or a structure, e.g. <b>a[10]</b>.
 
 

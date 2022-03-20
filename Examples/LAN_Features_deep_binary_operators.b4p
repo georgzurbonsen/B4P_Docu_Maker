@@ -24,7 +24,7 @@
 
   echo( a[] /^ { 2,4,6 } );              // First 3 elemnts are divided
 
-  echo( a[] +^ c[] );                    // Like with normal arithmetic operators, blank literals
+  echo( a[] +^ c[] );                    // Like with normal arithmetic operators, blank strings
                                          // are interpreted as zero.
 
 

@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+  echo( string( Abc ), ", ", string( 123.45 ), ", ", string(true) );
+  echo( string(date('14.juillet.2020')), ", ", string( date('1. Aug 20 22:30')), ", ", string( time( '10:15' ) ) );
+  echo( null() ); // void
+  echo( {a,1,date(today),false} ); // void
+

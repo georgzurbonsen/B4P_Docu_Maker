@@ -12,7 +12,7 @@
 
   for all variables( a[], x[] ) echo( x[] );
 
-  echo("Literal with other types:");
+  echo("String with other types:");
 
   b[0] = 123 = "123";         // true
   b[1] = '123' = 123;         // true
@@ -20,7 +20,7 @@
   b[3] = false = 'False';     // false
   b[4] = date("2020-08-01") = "2020-08-01";  // true
   b[5] = date("2020-08-01") = "01.08.2020";  // false
-  // The last one is 'false' because literal representation of date is YYYY-MM-DD
+  // The last one is 'false' because string representation of date is YYYY-MM-DD
 
   for all variables( b[], x[] ) echo( x[] );
 

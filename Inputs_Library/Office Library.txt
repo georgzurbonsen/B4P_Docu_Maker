@@ -28,7 +28,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Path and file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			It must be a file name of a valid Microsoft open office file.
 			+++
@@ -58,7 +58,7 @@ B4PDOCU.START
 
 	for all parameters( property names[], pn[], index[] )
 	{
-	    echo( literal( pn[], "16#", align right), "  :  ", property values[]{index[]} );
+	    echo( str( pn[], "16#", align right), "  :  ", property values[]{index[]} );
 	}
 	+++,
 	"Output": "automatic"
@@ -93,7 +93,7 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "name of destination table",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			The directory listing will be put into this table, with header names as lsited above.
 			If the table is not yet existing, then it will be created.  Existing tables will be initialized first.
@@ -102,7 +102,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 2",
 		  "Name": "drive or path name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "Current working directory",
 		  "Description"::
 			Specify a disk drive (e.g. C:\) or a path name (/usr/local, or \\server_name\path_name\...).
@@ -113,7 +113,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 3",
 		  "Name": "pattern name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "* (all files)",
 		  "Description"::
 			Specify a disk drive (e.g. C:\) or a path name (/usr/local, or \\server_name\path_name\...).
@@ -124,7 +124,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 4",
 		  "Name": "search option",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "files and directories",
 		  "Description"::
 		    One of the following:
@@ -173,7 +173,7 @@ B4PDOCU.START
 	"Documentation":	"Function Description",
 	"Description"::
 
-		This function identifies all sheets (tabs) inside the Microsoft Excel workbook (Open Office format) and returns them in a parameter set containing literals.
+		This function identifies all sheets (tabs) inside the Microsoft Excel workbook (Open Office format) and returns them in a parameter set containing strings.
 		This information may be necessary in order to load the right table in the Excel file afterwards.
 
 		<br><br>
@@ -187,7 +187,7 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "name of Excel file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			It must be an Excel file in Open Office format, e.g. with file type .xlsx, .xlsm, .xlst.
 			<br><br>
@@ -239,7 +239,7 @@ B4PDOCU.START
 
 		<br><br>
 
-		B4P is able to distinguish properly between literals (strings), numerals, boolean values (true, false), dates, times and date-time combinations 
+		B4P is able to distinguish properly between strings (strings), numerals, boolean values (true, false), dates, times and date-time combinations 
 		(YYYY-MM-DD hh:mm:ss format). Other information such as formulas, cell formatting, color information, etc. are not loaded into the target tables.
 
 		<br><br>
@@ -276,7 +276,7 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "name of target table",
 		  "Direction": "input",
-		  "Types": [ "literal","parameter set" ],
+		  "Types": [ "string","parameter set" ],
 		  "Description"::
 			If only one table needs to be loaded, then it is OK to provide the table name as a string.  If more tables need to be loaded
 			from the file, then include the names into a parameter set.  In case more than 1 table shall be loaded, then precisely
@@ -287,7 +287,7 @@ B4PDOCU.START
 		{ "Number": "2",
 		  "Name": "name of Excel file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			It must be an existing Excel file in Open Office format, e.g. with file type .xlsx, .xlsm, .xlst.
 			<br><br>
@@ -297,7 +297,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 3",
 		  "Name": "Excel sheet name",
 		  "Direction": "input",
-		  "Types": [ "literal", "numeral","parameter set" ],
+		  "Types": [ "string", "numeral","parameter set" ],
 		  "Default value": "0 (Open the currently active and visible sheet in the Excel workbook)",
 		  "Description"::
 			This parameter specifies the Excel sheets in the workbook to be loaded.  It is optional when loading only one sheet.
@@ -315,7 +315,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 4",
 		  "Name": "Attribute name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Following attribute names are supported:
 			* <b>formulas</b>  Specify table name in <i>attribute value</i> parameter which shall be used to read all Excel formulas.
@@ -326,7 +326,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 5",
 		  "Name": "Attribute value",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			Specify the attribute value as defined by the previous function parameter <i>attribute name</i>.
 			<br>
@@ -379,7 +379,7 @@ B4PDOCU.START
 		immediately before saving.
 
 		<br><br>
-		The following type conversions will be made unless forced to literal contents using <b>table style(..., type, literal)</b> on selected
+		The following type conversions will be made unless forced to string contents using <b>table style(..., type, string)</b> on selected
 		table contents.
 		* 'true' and 'false' will be saved as Boolean values
 		* Dates (YYYY-MM-DD) times (hh:mm:ss) or combination of both (YYYY-MM-DD hh:mm:ss) will be saved as dates.
@@ -401,17 +401,17 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "name(s) of table(s)",
 		  "Direction": "input",
-		  "Types": [ "parameter set or literal" ],
+		  "Types": [ "parameter set or string" ],
 		  "Description"::
 			Specify the table name directly, or to specify multiple tables:
 			* Use parameter sets containing table names
-			* Use softquoted literal containing the table names separated with commas
+			* Use softquoted string containing the table names separated with commas
 			+++
 		},
 		{ "Number": "2",
 		  "Name": "Corresonding sheet names",
 		  "Direction": "input",
-		  "Types": [ "parameter set or literal" ],
+		  "Types": [ "parameter set or string" ],
 		  "Description"::
 			Specify the sheet names (as seen on the bottom tabs when opened in Excel).  The number of sheet names must
 			match with the number of tables specified in the 1st function parameter.
@@ -420,7 +420,7 @@ B4PDOCU.START
 		{ "Number": "3",
 		  "Name": "name of Excel file name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Description"::
 			The file name must contain the file type ending '.xlsx'.
 			+++
@@ -428,7 +428,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 4",
 		  "Name": "Active sheet name",
 		  "Direction": "input",
-		  "Types": [ "literal" ],
+		  "Types": [ "string" ],
 		  "Default value": "(1st sheet specified)",
 		  "Description"::
 			You can specify the active sheet name which shall appear on the screen after opening the file in Excel.

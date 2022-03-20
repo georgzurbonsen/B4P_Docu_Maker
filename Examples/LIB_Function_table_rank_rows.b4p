@@ -16,6 +16,6 @@
   echo("Different ranking schemes on names using alphabetic ordering, ignoring case, start with rank 0:");
   table process ( names, for all parameters( { 123, 213, 112, 113, 223 }, scheme[] )
       {
-          table rank rows( names, literal(scheme[]), Name, alphabetic ignore case, scheme[], 0 );
+          table rank rows( names, str(scheme[]), Name, alphabetic ignore case, scheme[], 0 );
       } );
   table list ( names );

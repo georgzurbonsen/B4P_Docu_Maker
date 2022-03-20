@@ -1,4 +1,46 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+GUI;B 3.01;A - Import;GUI_Features_Import_source_data.html;General Description;Import source data
+GUI;B 3.02;B - Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
+GUI;B 3.03;C - Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
+GUI;B 3.04;D - Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
+GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
+GUI;B 3.05;E - Augment;GUI_Features_Enrichment.html;General Description;Enrichment
+GUI;B 4;Examples;GUI_Features_Examples.html;General Description;Examples
+GUI;B 3.06;F - Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
+GUI;B 4.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
+GUI;B 4.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
+GUI;B 3.07;G - Format;GUI_Features_Format_the_results.html;General Description;Format the results
+GUI;B 3.09;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
+GUI;B 3;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
+GUI;B 3.08;H - Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
+GUI;B 5;Index;GUI_Features_Index.html;General Description;Index
+GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;B 1.01;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
+GUI;B 1.02;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
+GUI;B 2.06.01;Licensing;GUI_Features_Licensing.html;General Description;Licensing
+GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
+GUI;B 2.02.01;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
+GUI;B 2.02.03;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
+GUI;B 2.02.02;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
+GUI;B 2.03;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
+GUI;B 2.03.05;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
+GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
+GUI;B 2.03.04;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
+GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
+GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
+GUI;B 4.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
+GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;B 4.04;U.S. Presidents from Wikipedia;GUI_Features_Example_-_U.S._Presidents_from_Wikipedia.html;General Description;Example - U.S. Presidents from Wikipedia
+GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
+GUI;B 1.03;Use Cases;GUI_Features_use_cases.html;General Description;use cases
+GUI;B 1;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
+GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
+GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
+GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
+GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
 LIB;B 9.04;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;B 9.07.04.05.01;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;B 5.03.01;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
@@ -39,8 +81,8 @@ LIB;B 5.05.01;Basic Statistics Functions;LIB_Function_average.html;Function Desc
 LIB;B 5.05.01;Basic Statistics Functions;LIB_Function_average.html;Function Description;harmonic mean
 LIB;B 5.05.01;Basic Statistics Functions;LIB_Function_average.html;Function Description;;basic statistics functions
 LIB;B 10.01;Basic Variables Functions;LIB_Features_basic_variables_functions.html;General Description;basic variables functions
-LIB;B 4.01.06;Boolean to Literal Formatting;LIB_Features_boolean_to_literal_conversion_and_formatting.html;General Description;boolean to literal conversion and formatting
-LIB;B 4.01.06;Boolean to Literal Formatting;LIB_Features_boolean_to_literal_conversion_and_formatting.html;General Description;;Boolean to Literal Formatting Parameters
+LIB;B 4.01.06;Boolean to String Formatting;LIB_Features_boolean_to_string_conversion_and_formatting.html;General Description;boolean to string conversion and formatting
+LIB;B 4.01.06;Boolean to String Formatting;LIB_Features_boolean_to_string_conversion_and_formatting.html;General Description;;Boolean to String Formatting Parameters
 LIB;B 2.01;Branches;LIB_Features_Branches.html;General Description;Branches
 LIB;B 9.08.01.01.03;Change Indication Function;LIB_Function_[This_is_a_user-defined_function_you_need_to_create].html;Function Description;[This is a user-defined function you need to create]
 LIB;B 6.02;Character Encoding and Decoding;LIB_Features_character_coding.html;General Description;character coding
@@ -130,18 +172,18 @@ LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function D
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min abc ignore case if any
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min abc ignore both if
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min abc ignore both if any
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max literal if
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max literal if any
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal if
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal if any
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore blanks if
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore blanks if any
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max literal ignore case if
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore case if any
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore case if
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore case if any
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore both if
-LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min literal ignore both if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max string if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max string if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore blanks if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore blanks if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max string ignore case if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore case if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore case if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore case if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore both if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min string ignore both if any
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max 123 if
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;max 123 if any
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;min 123 if
@@ -178,11 +220,11 @@ LIB;B 9.03.01;Creating and Building up Tables;LIB_Features_Creating_tables_and_b
 LIB;B 9.03;Creating, Writing, Reading, Deleting;LIB_Features_Create___read___write___delete_tables.html;General Description;Create / read / write / delete tables
 LIB;B 14;Cross-Functional Info;LIB_Features_Cross-functional_info.html;General Description;Cross-functional info
 LIB;B 7.01;Date Functions;LIB_Features_date_functions.html;General Description;date functions
-LIB;B 4.07;Date and Time Detection Rules;LIB_Features_Detects_dates_correctly_in_literals.html;General Description;Detects dates correctly in literals
-LIB;B 4.07;Date and Time Detection Rules;LIB_Features_Detects_dates_correctly_in_literals.html;General Description;;Date and Time Detection Rules
+LIB;B 4.07;Date and Time Detection Rules;LIB_Features_Detects_dates_correctly_in_strings.html;General Description;Detects dates correctly in strings
+LIB;B 4.07;Date and Time Detection Rules;LIB_Features_Detects_dates_correctly_in_strings.html;General Description;;Date and Time Detection Rules
 LIB;B 7;Date and Time Functions;LIB_Features_date_and_time_functions.html;General Description;date and time functions
-LIB;B 4.01.04;Date to Literal Formatting;LIB_Features_date_to_literal_conversion_and_formatting.html;General Description;date to literal conversion and formatting
-LIB;B 4.01.04;Date to Literal Formatting;LIB_Features_date_to_literal_conversion_and_formatting.html;General Description;;Date to Literal Formatting Parameters
+LIB;B 4.01.04;Date to String Formatting;LIB_Features_date_to_string_conversion_and_formatting.html;General Description;date to string conversion and formatting
+LIB;B 4.01.04;Date to String Formatting;LIB_Features_date_to_string_conversion_and_formatting.html;General Description;;Date to String Formatting Parameters
 LIB;B 9.09.01;Defining User Specific Colors;LIB_Features_Defining_User_Specific_Colors.html;General Description;Defining User Specific Colors
 LIB;B 9.09.01;Defining User Specific Colors;LIB_Features_Defining_User_Specific_Colors.html;General Description;User-specific colors
 LIB;B 9.09.01;Defining User Specific Colors;LIB_Features_Defining_User_Specific_Colors.html;General Description;;Color Specification
@@ -203,8 +245,8 @@ LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Pr
 LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Coverages
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Styles
-LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
-LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
+LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
+LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Values
@@ -232,8 +274,6 @@ LIB;B 5.05.05;Linear and Exponential Regression;LIB_Function_regression.html;Fun
 LIB;B 5.05.05;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;;linear regression
 LIB;B 5.05.05;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;;exponential regression
 LIB;B 11.02;Listing and Searching Directories and Files;LIB_Features_listing_directories_and_files.html;General Description;listing directories and files
-LIB;B 4.01.01;Literal to Literal Formatting;LIB_Features_literal_to_literal_conversion_and_formatting.html;General Description;literal to literal conversion and formatting
-LIB;B 4.01.01;Literal to Literal Formatting;LIB_Features_literal_to_literal_conversion_and_formatting.html;General Description;;Literal to Literal Formatting Parameters
 LIB;B 9.01.01.01;Loading HTML files;LIB_Features_Loading_HTML_files.html;General Description;Loading HTML files
 LIB;B 9.01.01.01;Loading HTML files;LIB_Features_Loading_HTML_files.html;General Description;;Loading HTML files
 LIB;B 9.01.01.03;Loading JSON files;LIB_Features_Loading_JSON_files.html;General Description;Loading JSON files
@@ -252,11 +292,11 @@ LIB;B 5;Mathematics and Statistics;LIB_Features_Mathematics_and_Statistics.html;
 LIB;B 5.04;Matrix Functions;LIB_Features_matrix_functions.html;General Description;matrix functions
 LIB;B 6.03;Miscellaneous String Functions;LIB_Features_Other_string_functions.html;General Description;Other string functions
 LIB;B 9.08;Multi-Table Integration;LIB_Features_Multi-table_integration.html;General Description;Multi-table integration
-LIB;B 4.01.03;Numeral to Literal Formatting;LIB_Features_numeral_to_literal_conversion_and_formatting.html;General Description;numeral to literal conversion and formatting
-LIB;B 4.01.03;Numeral to Literal Formatting;LIB_Features_numeral_to_literal_conversion_and_formatting.html;General Description;;Numeral to Literal Formatting Parameters
+LIB;B 4.01.03;Numeral to String Formatting;LIB_Features_numeral_to_string_conversion_and_formatting.html;General Description;numeral to string conversion and formatting
+LIB;B 4.01.03;Numeral to String Formatting;LIB_Features_numeral_to_string_conversion_and_formatting.html;General Description;;Numeral to String Formatting Parameters
 LIB;B 8;Parameter Set Functions;LIB_Features_parameter_set_functions.html;General Description;parameter set functions
-LIB;B 4.01.05;Parameter Set to Literal Formatting;LIB_Features_Parameter_Set_to_literal_conversion_and_formatting.html;General Description;Parameter Set to literal conversion and formatting
-LIB;B 4.01.05;Parameter Set to Literal Formatting;LIB_Features_Parameter_Set_to_literal_conversion_and_formatting.html;General Description;;Parameter Set to Literal Formatting Parameters
+LIB;B 4.01.05;Parameter Set to String Formatting;LIB_Features_Parameter_Set_to_string_conversion_and_formatting.html;General Description;Parameter Set to string conversion and formatting
+LIB;B 4.01.05;Parameter Set to String Formatting;LIB_Features_Parameter_Set_to_string_conversion_and_formatting.html;General Description;;Parameter Set to String Formatting Parameters
 LIB;B 2.03.03;Parameter Types in User-Defined Functions;LIB_Features_user_parameter_types.html;General Description;user parameter types
 LIB;B 2.03.03;Parameter Types in User-Defined Functions;LIB_Features_user_parameter_types.html;General Description;;list of parameter types in user functions
 LIB;B 9.07.05;Pivoting and Conosolidating Tables;LIB_Features_Pivoting_and_consolidating_tables.html;General Description;Pivoting and consolidating tables
@@ -288,10 +328,12 @@ LIB;B 7.02.02;Stopwatch Functions;LIB_Function_watch_start.html;Function Descrip
 LIB;B 7.02.02;Stopwatch Functions;LIB_Function_watch_start.html;Function Description;watch read
 LIB;B 7.02.02;Stopwatch Functions;LIB_Function_watch_start.html;Function Description;;Stopwatch functions
 LIB;B 6;String Functions;LIB_Features_string_functions.html;General Description;string functions
-LIB;B 6;String Functions;LIB_Features_string_functions.html;General Description;;literal functions
+LIB;B 6;String Functions;LIB_Features_string_functions.html;General Description;;string functions
 LIB;B 6.01;String Search and Extraction Functions;LIB_Features_string_search_and_extraction.html;General Description;string search and extraction
 LIB;B 6.01;String Search and Extraction Functions;LIB_Features_string_search_and_extraction.html;General Description;;string search functions
 LIB;B 6.01;String Search and Extraction Functions;LIB_Features_string_search_and_extraction.html;General Description;;string extraction functions
+LIB;B 4.01.01;String to String Formatting;LIB_Features_string_to_string_conversion_and_formatting.html;General Description;string to string conversion and formatting
+LIB;B 4.01.01;String to String Formatting;LIB_Features_string_to_string_conversion_and_formatting.html;General Description;;String to String Formatting Parameters
 LIB;B 9.09.02;Styling Functions;LIB_Features_Formatting_the_Tables.html;General Description;Formatting the Tables
 LIB;B 12;System Functions;LIB_Features_system_functions.html;General Description;system functions
 LIB;B 9.08.01.01.02;Table Comparison Reports;LIB_Features_Table_comparison_reports.html;General Description;Table comparison reports
@@ -326,8 +368,8 @@ LIB;B 2.03;User-Defined Procedures and Functions;LIB_Features_User-defined_proce
 LIB;B 2.03;User-Defined Procedures and Functions;LIB_Features_User-defined_procedures_and_functions.html;General Description;;user functions
 LIB;B 10.04;Variable References Functions;LIB_Features_Variable_references_functions.html;General Description;Variable references functions
 LIB;B 10;Variables Functions;LIB_Features_variables_functions.html;General Description;variables functions
-LIB;B 4.01.02;Void to Literal Formatting;LIB_Features_void_to_literal_conversion_and_formatting.html;General Description;void to literal conversion and formatting
-LIB;B 4.01.02;Void to Literal Formatting;LIB_Features_void_to_literal_conversion_and_formatting.html;General Description;;Void to Literal Formatting Parameters
+LIB;B 4.01.02;Void to String Formatting;LIB_Features_void_to_string_conversion_and_formatting.html;General Description;void to string conversion and formatting
+LIB;B 4.01.02;Void to String Formatting;LIB_Features_void_to_string_conversion_and_formatting.html;General Description;;Void to String Formatting Parameters
 LIB;B 9.03.02;Writing Tables;LIB_Features_Functions_for_writing_tables.html;General Description;Functions for writing tables
 LIB;B 6.03.04;abbreviate name;LIB_Function_abbreviate_name.html;Function Description;abbreviate name
 LIB;B 2.05.06;abort;LIB_Function_abort.html;Function Description;abort
@@ -355,8 +397,8 @@ LIB;B 4.10;best type;LIB_Function_best_type.html;Function Description;;Identify 
 LIB;B 3.02.06;blinking;LIB_Function_blinking.html;Function Description;blinking
 LIB;B 3.02.06;blinking;LIB_Function_blinking.html;Function Description;;Console out text attributes
 LIB;B 3.02.07;boldface;LIB_Function_boldface.html;Function Description;boldface
-LIB;B 4.08;boolean;LIB_Function_boolean.html;Function Description;boolean
-LIB;B 4.08;boolean;LIB_Function_boolean.html;Function Description;;boolean conversion function
+LIB;B 4.08;bool;LIB_Function_bool.html;Function Description;bool
+LIB;B 4.08;bool;LIB_Function_bool.html;Function Description;;boolean conversion function
 LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;break case
 LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;continue case
 LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;continue with next case
@@ -379,9 +421,9 @@ LIB;B 6.02.01;chr;LIB_Function_chr.html;Function Description;chr
 LIB;B 6.02.01;chr;LIB_Function_chr.html;Function Description;;character encoding
 LIB;B 6.01.13;clean;LIB_Function_clean.html;Function Description;clean
 LIB;B 6.01.13;clean;LIB_Function_clean.html;Function Description;;clean up exotic spaces and line breaks in strings
-LIB;B 4.03;clean (if) numeral;LIB_Function_clean_numeral.html;Function Description;clean numeral
-LIB;B 4.03;clean (if) numeral;LIB_Function_clean_numeral.html;Function Description;clean if numeral
-LIB;B 4.03;clean (if) numeral;LIB_Function_clean_numeral.html;Function Description;;clean numerals
+LIB;B 4.03;clean num, clean if num;LIB_Function_clean_num.html;Function Description;clean num
+LIB;B 4.03;clean num, clean if num;LIB_Function_clean_num.html;Function Description;clean if num
+LIB;B 4.03;clean num, clean if num;LIB_Function_clean_num.html;Function Description;;clean numerals
 LIB;B 3.02.02;clear;LIB_Function_clear.html;Function Description;clear
 LIB;B 3.02.02;clear;LIB_Function_clear.html;Function Description;;clear parts of screen
 LIB;B 3.01.09;clipboard;LIB_Function_clipboard.html;Function Description;clipboard
@@ -720,11 +762,6 @@ LIB;B 3.03.04;list variables ...;LIB_Function_list_variables.html;Function Descr
 LIB;B 3.03.04;list variables ...;LIB_Function_list_variables.html;Function Description;list global variables
 LIB;B 3.03.04;list variables ...;LIB_Function_list_variables.html;Function Description;list local variables
 LIB;B 3.03.04;list variables ...;LIB_Function_list_variables.html;Function Description;;List variables including their members and data types
-LIB;B 4.01;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;literal
-LIB;B 4.01;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;softquoted literal
-LIB;B 4.01;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;;literal conversion
-LIB;B 4.01;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;;formatting template
-LIB;B 4.01;literal, quoted literal, softquoted literal;LIB_Function_literal.html;Function Description;;literal conversion functions
 LIB;B 10.01.12;local;LIB_Function_local.html;Function Description;local
 LIB;B 10.01.12;local;LIB_Function_local.html;Function Description;;Define local variables when writing
 LIB;B 6.01.16;locate differences;LIB_Function_locate_differences.html;Function Description;locate differences
@@ -748,19 +785,6 @@ LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max ignore zero
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max ignore blanks
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;;min and max functions
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min abc
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;max abc
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min abc ignore blanks
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min abc ignore case
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;max abc ignore case
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min abc ignore both
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min literal
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;max literal
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min literal ignore blanks
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min literal ignore case
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;max literal ignore case
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;min literal ignore both
-LIB;B 5.03.03;min, max Functions on Literals;LIB_Function_min_abc.html;Function Description;;min and max functions on literals
 LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min 123
 LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max 123
 LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min 123 ignore zero
@@ -770,6 +794,19 @@ LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function 
 LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min numeral ignore zero
 LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max numeral ignore zero
 LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;;min and max functions on numerals
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max abc
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore blanks
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore case
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max abc ignore case
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore both
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max string
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore blanks
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore case
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max string ignore case
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore both
+LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;;min and max functions on strings
 LIB;B 5.04.02;minv - Matrix Inversion;LIB_Function_minv.html;Function Description;minv
 LIB;B 5.04.02;minv - Matrix Inversion;LIB_Function_minv.html;Function Description;;matrix inversion
 LIB;B 5.04.01;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;mmul
@@ -783,8 +820,8 @@ LIB;B 10.01.05;name;LIB_Function_name.html;Function Description;;Get variable na
 LIB;B 2.05.10;null - Function;LIB_Function_null.html;Function Description;null
 LIB;B 2.05.10;null - Function;LIB_Function_null.html;Function Description;;Null function
 LIB;B 2.05.10;null - Function;LIB_Function_null.html;Function Description;;Do nothing
-LIB;B 4.02;numeral;LIB_Function_numeral.html;Function Description;numeral
-LIB;B 4.02;numeral;LIB_Function_numeral.html;Function Description;;numeral conversion function
+LIB;B 4.02;num;LIB_Function_num.html;Function Description;num
+LIB;B 4.02;num;LIB_Function_num.html;Function Description;;numeral conversion function
 LIB;B 11.02.09;office document properties;LIB_Function_office_document_properties.html;Function Description;office document properties
 LIB;B 11.02.09;office document properties;LIB_Function_office_document_properties.html;Function Description;;Office functions
 LIB;B 2.01.03;once;LIB_Function_once.html;Function Description;once
@@ -890,15 +927,20 @@ LIB;B 7.03.02;sleep until, sleep until countdown;LIB_Function_sleep_until.html;F
 LIB;B 7.03.01;sleep, sleep countdown;LIB_Function_sleep.html;Function Description;sleep
 LIB;B 7.03.01;sleep, sleep countdown;LIB_Function_sleep.html;Function Description;sleep countdown
 LIB;B 7.03.01;sleep, sleep countdown;LIB_Function_sleep.html;Function Description;;Sleep and wait functions
-LIB;B 4.04;smart (if) numeral;LIB_Function_smart_numeral.html;Function Description;smart numeral
-LIB;B 4.04;smart (if) numeral;LIB_Function_smart_numeral.html;Function Description;smart if numeral
-LIB;B 4.04;smart (if) numeral;LIB_Function_smart_numeral.html;Function Description;;smart numerals
+LIB;B 4.04;smart num, smart if num;LIB_Function_smart_num.html;Function Description;smart num
+LIB;B 4.04;smart num, smart if num;LIB_Function_smart_num.html;Function Description;smart if num
+LIB;B 4.04;smart num, smart if num;LIB_Function_smart_num.html;Function Description;;smart numerals
 LIB;B 5.02.01;sqrt - Square Root;LIB_Function_sqrt.html;Function Description;sqrt
 LIB;B 5.02.01;sqrt - Square Root;LIB_Function_sqrt.html;Function Description;;Square Root
 LIB;B 2.04.01;start;LIB_Function_start.html;Function Description;start
 LIB;B 2.04.01;start;LIB_Function_start.html;Function Description;;start B4P program
 LIB;B 11.01.04;starting directory;LIB_Function_starting_directory.html;Function Description;starting directory
 LIB;B 2.05.02;stop;LIB_Function_stop.html;Function Description;stop
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;str
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;soft
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;;string conversion
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;;formatting template
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;;string conversion functions
 LIB;B 10.02.08;structure to array ...;LIB_Function_structure_to_array.html;Function Description;structure to array
 LIB;B 10.02.08;structure to array ...;LIB_Function_structure_to_array.html;Function Description;structure to array recursive
 LIB;B 10.02.08;structure to array ...;LIB_Function_structure_to_array.html;Function Description;;Changing between structures and arrays
@@ -1440,9 +1482,6 @@ LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;licensing
 LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;;licensing
 LAN;B 2.06;Licensing;LAN_Features_licensing.html;General Description;;unlock
 LAN;B 4.01.04.01;List of System Variables;LAN_Features_list_of_system_variables.html;General Description;list of system variables
-LAN;B 3.03.01;Literals;LAN_Features_Data_type_literals.html;General Description;Data type literals
-LAN;B 3.03.01;Literals;LAN_Features_Data_type_literals.html;General Description;;literal
-LAN;B 3.03.01;Literals;LAN_Features_Data_type_literals.html;General Description;;literals
 LAN;B 3.04.02;Loading Files - Character sets;LAN_Features_loading_files.html;General Description;loading files
 LAN;B 4.01.02;Local Variables;LAN_Features_Local_variables.html;General Description;Local variables
 LAN;B 3.05;Locales;LAN_Features_Locales.html;General Description;Locales
@@ -1480,8 +1519,8 @@ LAN;B 3.02;Overall Language Structure;LAN_Features_Overall_Language_Structure.ht
 LAN;B 3.02;Overall Language Structure;LAN_Features_Overall_Language_Structure.html;General Description;;Blocks
 LAN;B 3.02;Overall Language Structure;LAN_Features_Overall_Language_Structure.html;General Description;;Statement
 LAN;B 3.02;Overall Language Structure;LAN_Features_Overall_Language_Structure.html;General Description;;Statements
-LAN;B 8.04.01;Parameter Set or Literal (Func. Param. Type);LAN_Features_parameter_set_or_literal.html;General Description;parameter set or literal
-LAN;B 8.04.01;Parameter Set or Literal (Func. Param. Type);LAN_Features_parameter_set_or_literal.html;General Description;;parameter set or literal
+LAN;B 8.04.01;Parameter Set or String (Func. Param. Type);LAN_Features_parameter_set_or_string.html;General Description;parameter set or string
+LAN;B 8.04.01;Parameter Set or String (Func. Param. Type);LAN_Features_parameter_set_or_string.html;General Description;;parameter set or string
 LAN;B 4.03.05;Parameter Sets Specifying Members;LAN_Features_specifying_members_with_parameter_sets.html;General Description;specifying members with parameter sets
 LAN;B 3.03.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;data types parameter sets
 LAN;B 3.03.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter set
@@ -1505,9 +1544,9 @@ LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General D
 LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;variable protection
 LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;protection settings
 LAN;B 4.05;Protecting Variables;LAN_Features_protecting_variables.html;General Description;;variable protections
-LAN;B 3.03.01.02;Quoted Literals;LAN_Features_Data_subtype_quoted_literals.html;General Description;Data subtype quoted literals
-LAN;B 3.03.01.02;Quoted Literals;LAN_Features_Data_subtype_quoted_literals.html;General Description;;Quoted literal
-LAN;B 3.03.01.02;Quoted Literals;LAN_Features_Data_subtype_quoted_literals.html;General Description;;Quoted literals
+LAN;B 3.03.01.02;Quoted Strings;LAN_Features_Data_subtype_quoted_strings.html;General Description;Data subtype quoted strings
+LAN;B 3.03.01.02;Quoted Strings;LAN_Features_Data_subtype_quoted_strings.html;General Description;;Quoted string
+LAN;B 3.03.01.02;Quoted Strings;LAN_Features_Data_subtype_quoted_strings.html;General Description;;Quoted strings
 LAN;B 4.04.03;Redirecting References;LAN_Features_redirecting_references.html;General Description;redirecting references
 LAN;B 4.04.06;References in Member Variables;LAN_Features_References_in_member_variables.html;General Description;References in member variables
 LAN;B 4.04;References to Variables;LAN_Features_references_to_variables.html;General Description;references to variables
@@ -1535,9 +1574,9 @@ LAN;B 3.03.01.04;Slicing Strings;LAN_Features_Slicing_strings.html;General Descr
 LAN;B 3.03.01.04;Slicing Strings;LAN_Features_Slicing_strings.html;General Description;Extracting substrings
 LAN;B 6.02.02.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;smaller than or equal to
 LAN;B 6.02.02.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;;smaller than
-LAN;B 3.03.01.01;Softquoted Literals;LAN_Features_Data_subtype_softquoted_literals.html;General Description;Data subtype softquoted literals
-LAN;B 3.03.01.01;Softquoted Literals;LAN_Features_Data_subtype_softquoted_literals.html;General Description;;Softquoted literal
-LAN;B 3.03.01.01;Softquoted Literals;LAN_Features_Data_subtype_softquoted_literals.html;General Description;;Softquoted literals
+LAN;B 3.03.01.01;Softquoted Strings;LAN_Features_Data_subtype_softquoted_strings.html;General Description;Data subtype softquoted strings
+LAN;B 3.03.01.01;Softquoted Strings;LAN_Features_Data_subtype_softquoted_strings.html;General Description;;Softquoted string
+LAN;B 3.03.01.01;Softquoted Strings;LAN_Features_Data_subtype_softquoted_strings.html;General Description;;Softquoted strings
 LAN;B 3.02.05.05;Special Console Output Characters;LAN_Features_Special_console_output_characters.html;General Description;Special console output characters
 LAN;B 3.02.05.05;Special Console Output Characters;LAN_Features_Special_console_output_characters.html;General Description;;Console text and background colors
 LAN;B 3.02.05.04;Special Keyboard Input Characters;LAN_Features_Special_keyboard_input_characters.html;General Description;Special keyboard input characters
@@ -1545,6 +1584,9 @@ LAN;B 2.04;Starting Behavior;LAN_Features_Starting_Behavior.html;General Descrip
 LAN;B 8.04.03.04;Statements (func. params);LAN_Features_Statements_[func_params].html;General Description;Statements [func params]
 LAN;B 6.02.02.03;Strictly Equal to;LAN_Features_strictly_equal_to.html;General Description;strictly equal to
 LAN;B 6.02.02.04;Strictly Not Equal to;LAN_Features_strictly_not_equal_to.html;General Description;strictly not equal to
+LAN;B 3.03.01;Strings;LAN_Features_data_type_strings.html;General Description;data type strings
+LAN;B 3.03.01;Strings;LAN_Features_data_type_strings.html;General Description;;string
+LAN;B 3.03.01;Strings;LAN_Features_data_type_strings.html;General Description;;strings
 LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;structures
 LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;structure
 LAN;B 4.03.03;Structures;LAN_Features_structures.html;General Description;;default members
@@ -1600,48 +1642,6 @@ LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;wildc
 LAN;B 6.02.03.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;B 7.01;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;B 4.03.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
-GUI;;1. Import;GUI_Features_Import_source_data.html;General Description;Import source data
-GUI;;2. Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
-GUI;;3. Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
-GUI;;4. Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
-GUI;;5. Augment;GUI_Features_Enrichment.html;General Description;Enrichment
-GUI;;6. Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
-GUI;;7. Format;GUI_Features_Format_the_results.html;General Description;Format the results
-GUI;;8. Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
-GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
-GUI;B 4;Examples;GUI_Features_Examples.html;General Description;Examples
-GUI;B 4.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
-GUI;B 4.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
-GUI;B 3.09;Getting Help;GUI_Features_Getting_help.html;General Description;Getting help
-GUI;B 3;Getting Started;GUI_Features_Getting_started.html;General Description;Getting started
-GUI;B 5;Index;GUI_Features_Index.html;General Description;Index
-GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;B 1.01;Key Benefits;GUI_Features_Key_Benefits.html;General Description;Key Benefits
-GUI;B 1.02;Key Features;GUI_Features_Key_Features.html;General Description;Key Features
-GUI;B 2.06.01;Licensing;GUI_Features_Licensing.html;General Description;Licensing
-GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
-GUI;B 2.02.01;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
-GUI;B 2.02.03;Linux - Getting Started;GUI_Features_Linux_Getting_Started.html;General Description;Linux Getting Started
-GUI;B 2.02.02;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
-GUI;B 2.03;MacOS;GUI_Features_Installation_and_Setup_on_MacOS.html;General Description;Installation and Setup on MacOS
-GUI;B 2.03.05;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
-GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
-GUI;B 2.03.04;MacOS - Getting Started;GUI_Features_MacOS_Getting_Started.html;General Description;MacOS Getting Started
-GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
-GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
-GUI;B 4.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
-GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;B 4.04;U.S. Presidents from Wikipedia;GUI_Features_Example_-_U.S._Presidents_from_Wikipedia.html;General Description;Example - U.S. Presidents from Wikipedia
-GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
-GUI;B 1.03;Use Cases;GUI_Features_use_cases.html;General Description;use cases
-GUI;;User Guide - Overview;GUI_Features_User_Guide.html;General Description;User Guide
-GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
-GUI;B 2.01.01;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
-GUI;B 2.01.03;Windows - Getting Started;GUI_Features_Windows_Getting_Started.html;General Description;Windows Getting Started
-GUI;B 2.01.02;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
 MAS;B 1;Recent Releases;MAS_Features_Recent_Releases.html;General Description;Recent Releases
 MAS;B 1.01;Release 8.00;MAS_Features_Release_8.00.html;General Description;Release 8.00
 MAS;B 1.02;Release 8.01;MAS_Features_Release_8.01.html;General Description;Release 8.01

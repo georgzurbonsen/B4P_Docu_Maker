@@ -3,4 +3,4 @@
   echo( "Date is ", date[] );
 
   for (month[]=1, month[]<=12, month[]++ )
-      echo( "Year ending in ", literal( date(2022,month[],1),"Mmmm" ), ": ", fq( date[], month[] ) );
+      echo( "Year ending in ", str( date(2022,month[],1),"Mmmm" ), ": ", fq( date[], month[] ) );

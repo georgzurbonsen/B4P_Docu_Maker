@@ -5,7 +5,7 @@
           if (function name[] = bar) echo("Message = ", message[] ); else: echo;
       }
 
-      define additional procedure (bar, foo, { { message, literal } } );
+      define additional procedure (bar, foo, { { message, string } } );
 
       {   // Main part
           foo;

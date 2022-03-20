@@ -5,7 +5,7 @@
   table initialize ( table 2,
   { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
 
-  define procedure ( legs, { { table name, literal } } )
+  define procedure ( legs, { { table name, string } } )
   {
       table process( table name[], echo( [Animal],": ", [leg count], " and ", [(leg count)] ) );
       echo;                                                    // Note the parentheses around (leg count)

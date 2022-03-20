@@ -1,0 +1,24 @@
+﻿#!/usr/local/bin/b4p
+      numbers [] = { -1234, -0.29, 123456.78, 0 };
+      patterns[] = { '*', 'EUR_-*', '0', '+ 0.0', '0000.0000', '?', '?.?', '#.#', '####.####', '0.####', '_(0.00)' };
+      3rd p[] = { "", india, german, en_us, french, de_ch };
+      4th p[] = { "", "",     "+",    "",      "",     ""     };
+
+      for all parameters( numbers[], number[] )
+      {
+          for all parameters( patterns[], pattern[] )
+          {
+              for all parameters( 3rd p[], para 3[], index[] )
+              {
+                  para 4[] = 4th p[]{index[]};
+                  if       (para 3[]   = '')  l[] = str( number[], pattern[] );
+                  else: if (para 4[] = '')  l[] = str( number[], pattern[], para 3[] );
+                  else:                     l[] = str( number[], pattern[], para 3[], para 4[] );
+                  print( "'" + l[] + "', " );
+              }
+              echo;
+          }
+          echo;
+      }
+      echo( "Permille: ", str( 0.1234, '0.0 &permil;') );
+      echo( "Directory assistance (USA): ", str( 5551212, '"Dial 1-"000"-"0000') );

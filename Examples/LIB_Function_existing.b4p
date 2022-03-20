@@ -2,7 +2,7 @@
 gbl[] = Hello;
 table initialize( result, {{ Context, Variable, 'existing()', 'existing here()', 'existing and valid()', 'existing here and valid()' }} );
 
-define procedure ( ho, {{ par, literal }} )
+define procedure ( ho, {{ par, string }} )
 {
   table append( result, {{ ho, Function parameter,      existing          (par[]),  existing here          (par[]),
                                                         existing and valid(par[]),  existing here and valid(par[]) }} );

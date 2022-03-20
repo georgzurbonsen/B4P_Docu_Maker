@@ -8,7 +8,7 @@
 
   for all variables( a[], x[] ) echo( x[] );
 
-  echo("Literal with other types always return false:");
+  echo("String with other types always return false:");
 
   b[0] = 123 == "123";         // false
   b[1] = '123' == 123;         // false

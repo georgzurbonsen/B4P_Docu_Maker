@@ -12,7 +12,7 @@
   echo( "No match case: ", find ( st[], "pizza,PASTA" ) );
 
   // Demonstrate use of non-string values:
-  // In 1st case, it's a numeral with preserved literal, 2nd case it's a plain numeral after a calculation
+  // In 1st case, it's a numeral with preserved string, 2nd case it's a plain numeral after a calculation
   echo( "Locating a digit: ", find ( 00001234.56, 34, 0 ), " / ", find ( 0 + 00001234.56, 34, 0 ) );
 
   foods[] = { Gelati, Pizza, Pasta, Caffè };

@@ -205,27 +205,27 @@ supported types checked[] =
 	"valid types," +
 	"boolean," +
 	"numeral," +
-	"numeral or literal," +
-	"numeral or literal or date," +
+	"numeral or string," +
+	"numeral or string or date," +
 	"table column," +
 	"table columns," +
 	"date," +
-	"literal," +
-	"blank literal," +
+	"string," +
+	"blank string," +
 	"parameter set," +
 	"parameter set containing numerals," +
-	"parameter set containing literals," +
+	"parameter set containing strings," +
 	"parameter set containing dates," +
-	"parameter set or literal," +
+	"parameter set or string," +
 	"matrix,matrix of numerals," +
 	"variable," +
 	"comparison expression," +
 	"expression," +
 	"statements," +
-	":literal," +
+	":string," +
 	"parameter set of numerals," +
-	"numerals or literals," +
-	"date or literal converted to date";
+	"numerals or strings," +
+	"date or string converted to date";
 
 
 table initialize ( table of parameter descriptors,
@@ -246,7 +246,7 @@ table keep selected rows	( table of return value descriptors, [Name] = Name, Typ
 
 
 
-define procedure( check descriptions, { {name, literal}, { item, all, reference }, {descriptor table, literal } } )
+define procedure( check descriptions, { {name, string}, { item, all, reference }, {descriptor table, string } } )
 {
     echo("Check: ", name[] );
     descriptors[] = set names( item[], 1, all );
@@ -274,17 +274,17 @@ define procedure( check descriptions, { {name, literal}, { item, all, reference 
 
 	id[] = identify( item[counter[]] );
 
-	if ( id[] <> softquoted literal([descriptor table[]: Name, descriptor[], Variable ]) )
+	if ( id[] <> soft([descriptor table[]: Name, descriptor[], Variable ]) )
 	    throw( "Entry '" + name[] + "'" + new line + "Descriptor '" + full descriptor[] 
 		+ "'" + new line + "is of type '" + id[] + "' while expecting one of: " + [descriptor table[]: Name, descriptor[], Variable ] );
 
-	valid values[] = softquoted literal([descriptor table[]: Name, descriptor[], Values ]);
+	valid values[] = soft([descriptor table[]: Name, descriptor[], Values ]);
 	if (valid values[] = '') valid values[] = '*';
 	begin of message[] = "Entry '" + name[] + "'" + new line + "Descriptor '" + descriptor[] + "'" + new line;
 
 	if (descriptor[] <> Parameters,Return value)
 	{
-	    if (id[] == simple) // Check that simple values are literals
+	    if (id[] == simple) // Check that simple values are strings
 	    {
 		if (type(item[counter[]]) = void ) throw( begin of message[] + "contains no data.");
 
@@ -292,14 +292,14 @@ define procedure( check descriptions, { {name, literal}, { item, all, reference 
 		item[counter[]] = 0;
 	    }
 
-	    for all variables ( item[counter[]], tmp[], index[] ) // Check that all array members are literals
+	    for all variables ( item[counter[]], tmp[], index[] ) // Check that all array members are strings
 	    {
 		subitem[] =^ item[counter[], index[]];
-		if (type( subitem[] ) != literal)
-		    throw( begin of message[] + literal(index[]+1) + ". Value: '"  + literal(subitem[]) + "' is of data type '" + type(subitem[]) + "' while expecting 'literal'.");
+		if (type( subitem[] ) != string)
+		    throw( begin of message[] + str(index[]+1) + ". Value: '"  + str(subitem[]) + "' is of data type '" + type(subitem[]) + "' while expecting 'string'.");
 
 		if (subitem[] <> valid values[])
-		    throw( begin of message[] + literal(index[]+1) + ". Value: '" + subitem[]          + "' is not one of:  " + [descriptor table[]: Name, descriptor[], Values]);
+		    throw( begin of message[] + str(index[]+1) + ". Value: '" + subitem[]          + "' is not one of:  " + [descriptor table[]: Name, descriptor[], Values]);
 
 	    }
 	}
@@ -327,7 +327,7 @@ define procedure( check all descriptions )
 		    for all variables if existing( item[keyword[]], value[], para_counter[] ) // Loop through parameters
 		    {
 		        parameter[] =^ item[keyword[], para_counter[]];
-		        check descriptions( literal(para_counter[]+1) + ". " + keyword[], parameter[], select if ( keyword[]==Parameters, table of parameter descriptors, table of return value descriptors ) );
+		        check descriptions( str(para_counter[]+1) + ". " + keyword[], parameter[], select if ( keyword[]==Parameters, table of parameter descriptors, table of return value descriptors ) );
 		    }
 		}
 		item[HTML File Name] = chosen book[abbr] + "_Function_" + replace all( item[Function Names,0], {" ","/",":",","}, {"_","_","_","_"} ) + ".html"; // Assign HTML file name
@@ -469,7 +469,7 @@ define procedure( sequence revolving TOC )
 		    }
 		}
 		tmp[] = counter[[Category]];
-		for (idx[] = 1, idx[]<tmp[]{}, idx[]++) tmp[]{idx[]} = literal( tmp[]{idx[]}, "00" );
+		for (idx[] = 1, idx[]<tmp[]{}, idx[]++) tmp[]{idx[]} = str( tmp[]{idx[]}, "00" );
 		[Section Nr] = [Category]{0} + " " + join( tmp[], "." );
 	} );
 }
@@ -527,7 +527,7 @@ define procedure ( create navigator from revolving TOC )
 
 
 
-define procedure( save example program, { { program table, literal }, { b4p file name, literal } } )
+define procedure( save example program, { { program table, string }, { b4p file name, string } } )
 {
 	table insert rows ( program table[], 0, 1 ); // Insert row 0 as it needs to be processed, too.
 	table delete selected rows( program table[], [0]=~ '*include*(*Console Library*)*;','*include*(*Support Library*)*;','*include*(*Style Library*)*;','*include*(*Office Library*)*;','*include*(*Utility Library*)*;' ); // Remove includes and rows to hide
@@ -537,7 +537,7 @@ define procedure( save example program, { { program table, literal }, { b4p file
 }
 
 
-define function( run example program, { { program table, literal }, { b4p file name, literal } } )
+define function( run example program, { { program table, string }, { b4p file name, string } } )
 {
 	table save	( program table[], "Example_Program.b4p", new line );
 	echo		( "    Run example program.  If dead, then look at Example_Program.b4p and run it. Here: Type 'exit' to continue");
@@ -556,7 +556,7 @@ define function( run example program, { { program table, literal }, { b4p file n
 //	table keep selected rows ( keyword index to save, [Abbreviation]==chosen book[abbr] & [Documentation Type]==Function Description & [Feature Names]!='' );
 
 
-define procedure( insert function name browser, { { html file name, literal }, { text, all, reference } } )
+define procedure( insert function name browser, { { html file name, string }, { text, all, reference } } )
 {
 	for all variables( text[], line[], i[] )
 	{
@@ -566,7 +566,7 @@ define procedure( insert function name browser, { { html file name, literal }, {
 		    if (row[] > 0)
 		    {
 			echo("    Found place to provide summary of functions" );
-			section nr[] = softquoted literal([keyword index to save:Section Nr,row[]] + ".*");
+			section nr[] = soft([keyword index to save:Section Nr,row[]] + ".*");
 			table copy table selected rows( keyword index to save, temp, [Section Nr]=section nr[] );
 			table sort rows( temp, { Section Nr, Feature Names } );
 			table delete selected rows( temp, [Documentation Type]==General Description );
@@ -601,7 +601,7 @@ define procedure( apply HTML links on keywords, { { text, all, reference } } )
 {
 	for all variables( text[], line[], i[] )
 	{
-		row[] = table search row ( keyword index, [Keywords]=+literal(line[]) );
+		row[] = table search row ( keyword index, [Keywords]=+str(line[]) );
 		if (row[] >= 0) 
 		{
 		    text[i[]] = '<a class = "bold_text" href="' + [keyword index:HTML File Name,row[]] + '">' + line[] + '</a>';
@@ -627,11 +627,11 @@ define procedure( apply HTML links on embedded keywords, { { text, all, referenc
 
 		    if ( is function[] )
 		    {
-			row[] = table search row ( keyword index, ([Feature Names]=+literal(pure item[])) & ([Documentation Type]=Function Description) );
+			row[] = table search row ( keyword index, ([Feature Names]=+str(pure item[])) & ([Documentation Type]=Function Description) );
 		    }
 		    else
 		    {
-			row[] = table search row ( keyword index, ([Keywords]=+literal(pure item[]))  );
+			row[] = table search row ( keyword index, ([Keywords]=+str(pure item[]))  );
 		    }
 
 		    if (row[] >= 0)
@@ -706,10 +706,10 @@ define procedure( convert manuscript tables into HTML, { { text, all, reference 
 			table width[] = 0;
 			for all parameters( widths[], w[] )
 			{
-			    if (numeral( w[] ) != 0)
+			    if (num( w[] ) != 0)
 			    {
 				table width[] += w[];
-				text[i[]] += '<col style = "width:' + literal(w[]) + 'px">';   
+				text[i[]] += '<col style = "width:' + str(w[]) + 'px">';   
 			    }
 			    else: if (trim(w[]) == 'noheader')
 			    {
@@ -722,7 +722,7 @@ define procedure( convert manuscript tables into HTML, { { text, all, reference 
 			}
 			if (table width[]>0)
 			{
-				table id[] += ' style = "width:' + literal(table width[]) + 'px"';
+				table id[] += ' style = "width:' + str(table width[]) + 'px"';
 				if (table width[] > 1000) pause("Attention: Summed width is ", table width[], " and greater than 1000 pixel");
 			}
 			text[i[]] = "</p><table" + table id[] + ">" + text[i[]];
@@ -757,7 +757,7 @@ define procedure( convert manuscript tables into HTML, { { text, all, reference 
 
 
 
-define procedure ( create function description in HTML, { { item, all, reference }, { HTML out, literal }, { content type, literal } } )
+define procedure ( create function description in HTML, { { item, all, reference }, { HTML out, string }, { content type, string } } )
 {
     table name[] = select if ( content type[] == "Function Names", table of function descriptors, table of general descriptors );
     table create( example program ); // Make sure this table is empty
@@ -875,7 +875,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 				}
 				else
 				{
-				    example program file name[] = item[HTML File Name]-".html"+"_"+literal(example program counter[], "00" ) + ".b4p";
+				    example program file name[] = item[HTML File Name]-".html"+"_"+str(example program counter[], "00" ) + ".b4p";
 				}
 				example program counter[]++;
 				if (trim(value[])=automatic)
@@ -965,7 +965,7 @@ define procedure ( create all general and function descriptions in HTML )
 	    table insert columns( HTML navigator, "Action" );
 
 		// ***************** SIMPLIFY ************************
-	    applicable row[] = table search row( HTML navigator, [0] = '*"' + softquoted literal(plain file name[]) + '"*' );
+	    applicable row[] = table search row( HTML navigator, [0] = '*"' + soft(plain file name[]) + '"*' );
 	    applicable row 2[] = applicable row[];
 	    if ( [HTML navigator:0,applicable row[] ] = '*Table of Contents*' ) 
 		{
@@ -1116,7 +1116,7 @@ define procedure ( create combined TOC )
 	table process selected rows( RTOC, ([Level]=1..3), table style cells( RTOC, {Level, Section Nr, Section Name}, {row(),row(),row()}, single, fill color, colors[[Level]] ) );
 
 	translate style attributes for excel( RTOC );
-	table save excel file( RTOC, "TOC", TOC file name[] + literal( date(now), " YYYY-MM-DD HH.II.SS" ) + ".xlsx" ); 
+	table save excel file( RTOC, "TOC", TOC file name[] + str( date(now), " YYYY-MM-DD HH.II.SS" ) + ".xlsx" ); 
 
 
 

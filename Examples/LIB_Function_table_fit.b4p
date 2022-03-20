@@ -16,7 +16,7 @@
   echo("Original table:" );
   table list( t );
 
-  define procedure ( demonstrate table fit, {{ option, literal }} )
+  define procedure ( demonstrate table fit, {{ option, string }} )
   {
       table copy table ( t, u );
       padding[] = select if ( option[]!=trim, "-", "" );
