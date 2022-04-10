@@ -1,0 +1,358 @@
+//
+B4PDOCU.START
+
+
+
+
+"Linux" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Installation on Linux" ],
+    "Description 01:Introduction"::
+
+	The following pages provide step-by-step instructions for downloading, installing, and getting started using B4P for Linux
+	
+	<br><br>
+
+	Continue to __Linux Prerequisites__.
+	+++
+},
+
+
+
+
+"Linux - Prerequisites" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Prerequisites" ],
+
+    "Description 01:System Requierments"::
+	* Personal computer running LINUX using a common distribution (e.g. Ubuntu)
+	* 64 bit CPU (we are not supporting legacy platforms)
+	* You have elevated privileges to do installations (e.g. allowed to run commands with 'sudo' in front)
+	* Min 2 GB, but more memory is stronly recommended espeically when working with large data
+	* B4P requires less than 20 MB disk space
+	* Internet connectivity is required to access documentation, but not during normal program execution
+
+    "Description 02:Software Requirements"::
+	* A standard editor is sufficient for developing the code.  Optionally, install a more fancy text editor program of choice to do the coding.  I strongly recommend an editor supporting UNICODE.
+	* Ensure that the Linux command <b>wget</b> is available.  If not, then install it according to Linux-specific procedures (e.g. using <b>apt-get install wget</b>, commands vary among different Linux distributions)
+	* Ensure that the Linux command <b>zip</b> and <b>unzip</b> are available.  If not, then install it according to Linux-specific procedures (e.g. using <b>apt-get install zip unzip</b>, commands vary among different Linux distributions)
+	* Web browser installed: Firefox or Google Chrome
+
+	<br><br>
+	Continue with __Linux Download__.
+
+	+++
+},
+
+
+"Linux - Download" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Download" ],
+    "Description 01:Introduction"::
+
+	B4P for Linux can be downloaded by clicking on the following link:
+
+	<br><br>
+
+	( Placeholder for a link to download the file )
+
+	<br><br>
+
+	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P executing engine and all
+	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.
+
+    "Description 02:Extracting the Files"::
+
+	The downloaded file is either a compressed <b>.zip</b> or <b>.tar.gz</b> file.
+	* Use <b>tar -xzvf B4P_*.tar.gz</b>, or
+	* Use <b>unzip B4P_*.zip</b>
+	to decompress the files. The asterisk symbol is a wildcard feature ana allows you to specify a unique part of the file name only, as long there is no 
+	ambiguity with other files.
+
+	<br><br>
+
+	You should see the following files and directory in a new directory called <b>b4p installation</b>:
+
+	=== 300, 700, noheader, bold_column_1
+	b4p			| B4P execution engine including the language interpreter.
+	setup			| B4P installation program
+	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)
+	lib\			| Directory containing B4P library files
+	weblib\			| Directory containing Web-specific library features written in JavaScript.
+	===
+	<br>
+	The contents in 'weblib' contain some CSS files and Javascript codes files which are provided by SpryMedia Ltd, Scottland, and are in use under the MIT license.
+
+
+	<br><br>
+	Included B4P programs:
+	=== 300, 700, noheader, bold_column_1
+	main.b4p			| A default B4P program which can start automatically if declared so
+	interactive.b4p			| A 1-statement B4P program going to interactive mode directly
+	B4P Reference Manual.b4p	| A 2-statement B4P program opening the online reference manual on a browser of choice.  A link to this file will be included in the start menu and added to the desktop if requested.
+	hello world.b4p			| Self-explanatory
+	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P \
+					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.
+	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.
+	===	
+
+	+++,
+	"Description 03:Adjust File Mode Flags (Applicable only if .zip file chosen and extracted)"::
+
+	If you have chosen to use the <b>... .tar.gz</b> file, then the mode flag settings (B4P files executable) are already preserved and you can skip the last step
+	described below.
+
+	<br><br>	
+	However, if you have chosen to decompress the <b>... .zip</b> file, then you need to change the mode flags of selected files which include
+	the executable program as well as all B4P program files included.  Use the following command for this: <b>chmod 755 b4p *.b4p setup </b>
+
+	+++,
+	"Examples 03:File mode: Enable ability to execute files with 'chmod' command"::
+username@domain:~/b4p_installation$ ls
+ b4p                         interactive.b4p        main.b4p              weblib
+'B4P Reference Manual.b4p'   lib                    setup
+'hello world.b4p'           'List of Locales.csv'  'start B4P here.b4p'
+username@domain:~/b4p_installation$ chmod 755 b4p *.b4p setup
+username@domain:~/b4p_installation$ 
+	+++,
+	"Description 04:Ready for installation"::
+
+	Continue with __Linux Installation__ to start the installation process.
+
+	+++
+},
+
+
+
+"Linux - Installation" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Installation" ],
+    "Description 01:Introduction"::
+
+	To start the installation, type "sudo ./setup" click on "setup.exe" on a Linux console window which is in the
+	directory "b4p installation".  You may possibly be asked to enter the password in order to activate elevated
+	access rights in order to run the B4P installation program as a <i>super user</i>.
+
+
+	The follwoing contents will appear:
+	+++,
+    "Examples 01:"::
+username@domain:~/b4p_installation$ sudo ./setup
+
+B4P - Installation Program
+_______________________________________________________________________________
+
+Version 8.00 Candidate (2020-11-08)
+Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
+
+B4P installation program is starting (Linux and MacOS platforms) ... 
+
+1 >> Check the B4P privileges to run installation program ...
+
+
+2 >> Installation program - Main Menu ...
+
+     M :  Do Machine installation for all users
+     D :  De-install B4P
+     I :  Do Identification for acquiring a license
+     E :  Exit installer without actions
+Please select: 
+	+++,
+    "Description 02:"::
+	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\Program Files\B4P</b>.  
+
+	<br><br>
+	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.
+
+	+++,
+    "Examples 02:"::
+3 >> Check that all required files are available for installation ...
+...
+4 >> Identify locations for the program files ...
+...
+5 >> Deleting B4P program and application data subdirectories (if existing) ...
+...
+6 >> Create new folders for B4P program ...
+...
+7 >> Copy all files to destination directory '/usr/local/etc/b4p ...
+...
+	+++,
+    "Description 03:Select Country and Language Settings"::
+	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules
+	things like number and date format, currency symbols, month and weekday names in the specified language, etc.
+
+	<br><br>
+
+	In order to avoid any trouble with your Microsoft Excel installation, I advise you to use the same country and language settings as
+	configured for Excel so the CSV file format is compatible and not simply a choice you do personally favor.  Depending on the settings, 
+	the CSV files may either use commas or semicolons as separators (In excel, take a look at a formula containing a function with 2 or 
+	more parameters and check how the parameters are separated), and numbers may either make use of decimal points or commas.
+
+	+++,
+    "Examples 03:"::
+8 >> Restore user and locale settings (if available) ...
+
+    Info: User settings file not found. Skipped copying
+
+    Info: No locale settings have been defined yet.
+
+    Loaded CSV/TSV file 'List of Locales.csv':
+    31 rows, max 28 columns, 28 columns in 1st row, 868 fields, list separator: ;
+
+
+    Step 1 - Choose language:
+     A :  none
+     B :  English
+     C :  Hindi
+     D :  German
+     E :  French
+     F :  Italian
+     G :  Spanish
+     H :  Swedish
+Please select: D
+
+    Step 2 - Choose country:
+     A :  Germany
+     B :  Switzerland
+     C :  Austria
+     D :  Italy
+Please select: B
+    Locale chosen: de_CH
+    Done setting locale.
+
+	+++,
+    "Description 05:Activating B4P with License File or in Demo Mode"::
+	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,
+	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have
+	received in order to deactivate all restrictions.
+
+	<br><br>
+	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path
+	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.
+	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.
+
+	+++,
+
+    "Examples 05:"::
+
+9 >> Program Licensing ...
+
+License activation ...
+
+    Specify the license file (typically called 'B4P Licsense File.json'), or
+    press [Enter] to skip this and run B4P in demo mode with some restrictions.
+    Enter path + file name or press [Enter] to skip
+    -->     
+    Nothing entered.  B4P will be activated in demo mode.
+
+>>  Congratulations! Installation has been completed.
+
+	+++,
+    "Description 06:Option - Create a personal folder"::
+	This is a nice feature especially for beginners. Highly recommended.
+	A directory called <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b> will be created
+	and contains the following files: 
+	* hello world.b4p
+	* interacctive b4p
+	* main.b4p
+	* start B4P here.b4p
+	* B4P Reference Manual.b4p
+
+	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.
+
+	+++,
+    "Examples 06:"::
+    Do you want to create a personal B4P program folder ?  Y
+    Creating directory: /home/georg/b4p
+    If directory or files already exist, then existing files
+    will not be overwritten.
+
+    Done creating this directory.
+    When you start B4P without file specified, 'Main.b4p' in this directory will be started.
+
+
+    Highly advisable to restart your machine so all configuration settings for this installation are in effect.
+
+
+Done - Press ENTER key
+
+    +++,
+    "Description 07:Concluding the Installation"::
+	Press [Enter] to close the installer.  Now you are ready to start working with B4P.
+
+	<br><br>Continue with __Starting B4P on Linux__.
+
+    +++
+},
+
+
+
+
+
+"Linux - Batch Installation" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux - Batch Installation" ],
+    "Description 01:Introduction"::
+
+	The installation script can also be executed as a batch so all user interaction (keyboard or mouse input) during the
+	the installation process is suppressed.  The automated installation process is made possible using __long options__ when
+	starting the installation using a command typed interactively or executed from a batch file.
+
+	<br><br>
+	Example:  <b>sudo ./setup --choice=machine --locale=en-US</b><br>
+	Required super user (administrator) privileges are enabled with the 'sudo' prefix.
+
+	<br><br>
+	The example above initiates a software installation for the local machine using the locale settings "en-US" (English /
+	United States).  Using the long option '--choice' in the command will automatically treat the installation process
+	as a batch process.  The other options can be used alone in order to skip individual queries, for exmaple getting asked
+	for locale settings
+
+	<br><br>
+
+	
+	=== 300, 700, bold_column_1
+	Option				| Explanation
+	--help				| Help text about the options will be shown on the console.  No installation will be initiated, even if other options are provided.
+	--choice=machine<br>\
+	--choice=deinstall<br>\
+	--choice=info<br>\
+	--choice=exit<br>		| Do installation on local machine for all users<br>\
+					  De-install B4P<br>\
+					  Provide information for generating a license<br>\
+					  Exit installation program without any actions<br>\
+					  The option '--choice' will ensure that the whole installation process is suitable for batch processing.
+	--keep-user-settings		| The user settings from the previous installation (e.g. prompt) will be kept.
+	--keep-my-init			| Keep own 'My B4P Init.b4p' file which can carry out user-specific initialization sequences
+	--keep-my-themes		| Keep own 'B4P Style Themes.xlsx' file and do not use the newest one provided in the installation.
+	--create-personal-folder	| Create a personal folder for own programs.
+	--license=keep<br>\
+	--license=new<br>\
+	--license=no<br>\
+	--license="<i>Lic. File Name.json</i>"	| Keep the existing license from the previous installation, if applicable <br>\
+					  Use the new license file as provided in the installation directory (B4P License File.json)<br>\
+					  Do not apply the license.  B4P shall run in demo mode only<br>\
+					  Use specified path and file name (.json) containing the license information.
+	--locale=keep<br>\
+	--locale=xx_YY			| Keep the existing locale settings from the previous installation<br>\
+					  Specify the combination of ISO 2-character language and country code.  The locale will be accepted if supported \
+					  in the file "List of Locales.csv".  For a first-time batch installation on a new target, the local must be specified. <br>\
+					  <u>Note:</u> Use the locale settings as used by Excel since you want to align on number formats, date formats and list separators.
+	===	
+
+	When the installer is finalizing, then it will pause for 3 seconds, giving users the chance to see the last info shown, in case the console
+	window closes automatically after installation.
+
+	+++
+}
+
+
+
+
+
+B4PDOCU.STOP

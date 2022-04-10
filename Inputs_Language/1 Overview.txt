@@ -17,7 +17,7 @@ B4PDOCU.START
 "Language Guide - Overview" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Language Guide" ],
+    "Feature Names":		[ "Language Guide", "B4P Language", "B4P Program" ],
      "Description 01:Overview"::
 
 	<b> B4P a Low-Code Solution for data analysts to dramatically improve their performance in extracting insights from big data.</b>  

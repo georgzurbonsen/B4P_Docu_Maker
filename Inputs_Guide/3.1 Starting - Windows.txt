@@ -1,0 +1,232 @@
+//
+B4PDOCU.START
+
+
+
+"Starting on Windows":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting B4P on Windows" ],
+    "Description 01:Introduction"::
+
+    This section provides an introduction on how to __edit B4P Programs on Windows__ as well
+    as different variants to start the B4P Analytics Engine and B4P Programs:
+
+    * __Starting a B4P Program with Windows__
+    * __Starting the B4P Engine with Windows__
+
+    +++,
+
+    "Description 02:The personal B4P folder"::
+
+    Under Linux, the personal B4P folder created after installation is subdirectory <b>Documents\Programs\B4P</b> in your home directory.
+    This folder, which is also the initial __starting directory__ after completing the installation, contains some a few programs:
+    * <b>main.b4p</b> - Started if B4P is started without B4P program and finds this directory as starting directory.
+    * <b>hello world.b4p</b> - Displays 'Hello World'
+    * <b>interactive.b4p</b> - Starts B4P and goes directly into __interactive mode__
+    * <b>start B4P here.b4p</b> - Simple utility to change starting directory.  Copy this file into a different directory and run it from there. B4P will then look for "main.b4p" in that location.
+
+
+    <img src="Images/GUI_Windows_B4P_Folder.png" alt="Personal B4P Folder"><br/>
+
+    +++
+
+
+},
+
+
+
+
+"Windows Edit B4P Programs":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Edit B4P Programs on Windows" ],
+
+    "Description 01:Edit B4P on Windows"::
+
+
+    B4P programs are standard text files in ANSI or UNICODE formaT. B4P will recognize the character format
+    automatically.  The <i>Editor</i> App, also and formerly known as <i>Notepad</i> is a pre-installed editor on Windows systems.
+
+    Use the Microsoft file browser (Explorer) to visit directory <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b>.
+    Choose the B4P file (for example: <b>Hello World.b4p</b> and click on the right mouse button and choose <b>Edit</b>.
+    It is typically the 2nd menu entry and could appear in a different language, depending on the language settings of the system.
+
+    <br/><br/><img src="Images/GUI_Windows_Example_Files_Edit.png" alt="Windows Open in Explorer"><br/>
+
+    You can also use alternative text editors as long they do not embed any text formattings such as different fonts, colors,
+    underscoring, etc.  <i>Visual Studio Code</i> is also a popular editor for Windows and other platforms.
+    
+
+    +++
+
+},
+
+
+"Windows Start B4P Programs" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting a B4P Program with Windows" ],
+
+    "Description 01:Starting a B4P Program on Windows - Hello World"::
+
+    Two possibilites exist to start B4P programs:
+
+    * Double-click on the file "Hello World.b4p" using the left mouse button
+    * Click the file "Hello World.b4p" with the right mouse button and choose the 1st menu entry <b>Open</b>.
+
+    <br/><img src="Images/GUI_Windows_Example_Files.png" alt="Windows Start in Explorer"><br/>
+
+    <br><br>
+    The program will start and you will see the following output:
+    +++,
+
+    "Output 01:In the very first run, B4P searches the 7-Zip utility and memorizes its whereabouts:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensing info ...
+
+
+Look for the 7Z compression/decomopression utility
+
+Found following program file paths: {'C:\Program Files','C:\Program Files (x86)'}
+ - 7z.exe Zip-utility found in {'C:\Program Files\7-Zip\7z.exe'} (OK)
+Hello World
+Done - Press ENTER key
+	+++,
+
+    "Output 02:Outcome if this is not the very first run:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensing info ...
+
+Hello World
+Done - Press ENTER key
+
+    +++,
+
+    "Description 03:Start B4P Program with Windows Commands"::
+
+	Start <b>cmd</b> or alternatively <b>powershell</b> and type <b>b4p</b> or <b>B4P</b>.
+
+	Following two appraoches are possible: Type <b>B4P</b> followed by full B4P program file with file type, or just
+	type the B4P file.  The command and files are not case sensitive.  Quotation marks are required if the file names contain spaces.
+
+	* B4P "Hello World.b4p"
+	* "Hello World.b4p"
+
+	If you want to suppress the "Press [Enter] ..." before finishing, add the __command line switch__ <b>-x</b>, for example
+	* B4P -x "Hellow World.b4p"
+	
+	+++,
+    "Output 03:"::
+PS C:\Users\Your user name> cd "C:\Users\Your user name\Documents\Programs\B4P"                     
+PS C:\Users\Your user name\Documents\Programs\B4P> ls *.b4p                                                           
+
+    Verzeichnis: C:\Users\Your user name\Documents\Programs\B4P
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         06.11.20     22:18            482 Hello World.b4p
+-a----         02.10.20     21:52             12 interactive.b4p
+-a----         15.08.20     23:52             11 Main.b4p
+-a----         06.11.20     22:34            555 Start B4P here.b4p
+
+
+PS C:\Users\Your user name\Documents\Programs\B4P> b4p -x "Hello World.b4p"                                           
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensing info ...
+
+Hello World
+PS C:\Users\Your user name\Documents\Programs\B4P>
+	+++
+
+
+},
+
+
+
+
+
+"Windows Start B4P Engine" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting the B4P Engine with Windows" ],
+
+    "Description 01:Starting a B4P Program on Windows"::
+
+	B4P can also be started without specifying a dedicated file name.  In this case, it will first look for "main.b4p" in the current
+	directory (if started from command line).  If the file is not found, then it will look for "main.b4p" in __starting directory__.
+	If not successful, then interactive mode is started.
+
+	<br><br>
+
+	
+
+
+    * Use the start menu
+    * Click on the B4P desktop icon (if activated during installation process)
+
+
+    "Description 02:Using the Start Senu"
+
+	<br><br>
+	Start B4P using the start menu:
+
+	<br/><img src="Images/GUI_Windows_Start_Menu.png" alt="Windows Start Menu"><br/>
+
+	<br><br>
+	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start the execution engine.
+	The following output will occur:
+
+    +++,
+    "Output 02:Wait 2 seconds and main.b4p starts, or hit any key to interrupt and enter interative mode"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensing info ...
+
+Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.
+Main.b4p in C:\Users\Zur Bonsen Georg\Documents\Programs\B4P completed execution.
+Feel free to add or change the code in this file.
+
+Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
+>> exit
+exit (); called
+Done - Press ENTER key
+    +++,
+
+
+    "Description 03:Clicking on the B4P desktop icon"::
+
+    Double-click on the B4P desktop icon and B4P starts.
+
+
+    "Description 04:Start B4P Program with Windows Commands"::
+
+	Start <b>cmd</b> or alternatively <b>powershell</b> and type <b>b4p</b> or <b>B4P</b>.
+
+	<br><br>
+
+	Type <b>B4P</b>.  The file name is not case senstive.  __command line switches__ may be applied.
+	
+    +++
+
+}
+	
+
+
+B4PDOCU.STOP

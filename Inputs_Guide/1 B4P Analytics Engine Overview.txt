@@ -1,0 +1,679 @@
+	//
+B4PDOCU.START
+
+
+"B4P Analytics Engine - Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User Guide", "B4P Analytics Engine" ],
+    "Description 01:Introduction"::
+
+	The B4P execution engine, including some library files written in B4P langauge, is the key software you need to install in order to make full use of the
+	language.  The engine contains a poweful <b>language interpreter</b> which understands and executes the B4P source code directly and without cluttering up your
+	drive with additional files.  A wide spectrum of high-performing functions to handle large data structures such as tables and variable trees are integrated
+	in the execution engine.
+
+    "Description 02:Lean and Simple"::
+
+	Intentionally, the B4P Analytics Engine is exceptionally lean (few megabytes). Its compactness make it so powerful, i.e. starting immediately after the 
+	mouse click and no waiting time until your B4P program starts processing.
+
+    "Description 03:Intentionally no Graphic User Interface"::
+
+	The B4P Analytics Engine is a (probably old-fashioned) console application.  For a good reason, we have left out the nice Windows user interface features,
+	and there are some very good rasons for that:
+
+	* <b>Unparalleled start-up performance</b>: The B4P program runs instantaneouly after the mouse click or pushing [Enter].
+	* <b>Cross-Platform Portability</b>: B4P runs equally well under Windows, Linux and MacOS.  Additional operating systems can be included in the future.
+	* <b>On-line documentation</b> is fully integrated in the B4P Analytics Engineand is available on your fingertips any time.
+
+	GUI features are in most cases more platform-dependent than you are thinking and may slow down overall start-up and execution performance.  
+	This pretended disadvantage is compensated by its superior machine processing performance. Long story short:<br>
+	<b>We minimize our footprint to provide highest performance, and you maximize from these benefits to get your work done quickly!</b>
+
+    "Description 04:Excel with Excel"::
+
+	For visualization purposes, powerful and highly standardized tools existing today such as Microsoft Excel providie all features to do the visual parts
+	such as creating all the charts you need for your presentations.  It makes no sense to let B4P compete against such tools.  The philosophy of B4P is
+	to focus on performing all data processing with <i>bare metal</i> machine performance and creating all Excel files (and other file formats like HTML)
+	which you can open with such tools to complete the visualization tasks.
+
+	<br><br>
+
+	B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already included 
+	(e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.).
+
+	+++
+},
+
+
+
+
+"Use Cases" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use cases" ],
+    "Description 01:Overview"::
+
+	A few use cases are described next where B4P can be used easily to address the problem statements and
+	provide the solutions with maximum performance and accuracy.
+
+	<br><br>
+
+
+	B4P is predestined to let you <b>focus on the 'what'</b>, and hot 'how'.  The philosophy with this language is to express the
+	steps briefly, with very few smart statements and using loops and variables as little as possible.  A large __function library__ is available
+	to provide various means to solve your data processing solutions efficiently.
+
+
+	+++
+},
+
+"Different data from different sources" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Different data from different sources" ],
+    "Description 01:Problem Statement"::
+
+	Your organization has more than 25 branch offices in various countries around the world.  You are requesting product forecasts
+	from them in regular time intervals.    Because every office is using different systems to store and manage their data,
+	you will likely receive the information in different formats.  Past attempts asking them to harmonize their systems did not
+	work because the switchover costs appeared too high.  Some are database exports, and others are hand-crafted
+	Excel tables.
+
+    "Description 02:The Solution"::
+
+	* Use different short B4P program routines to read the different data from every branch office
+	* Automatically check for any inconsistencies, especially if data is provided in hand-made Excel sheets
+	* Align the data using common header names, e.g. 'Customer Name', 'Deliery Date', etc.
+	* Merge the data from the different sites
+	* Notify you if two sites start dealing with the same customer
+	* Consolidate and aggregate all forecast data according to your specifications
+	* Add formatting, colors and style to make the report easy to use
+	* Save the final report.
+
+	+++
+},
+
+
+
+"Machine to Machine Data Transfer" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Machine to Machine Data Transfer" ],
+    "Description 01:Problem Statement"::
+
+	You want to automate the information exchange between your ERP system (Enterprise Resource Planning) and the web-base
+	CRM system (Customer Relationship Management).  Both systems provide means to upload and downlaod data with commands,
+	so you can automate the data exchange entirely.  You want to be notified on discrepancies discovered in both databases
+	which require manual alignment involving the sales managers.
+
+    "Description 02:The Solution"::
+
+	* Let B4P initiate the data exports from both CRM and ERP systems
+	* Check if the customer data and opportunities are matching with each other.  Inform about new customers and opportunities.
+	* Check consistencies of key dates, for example planned order date.  Consider correcting minor differences (e.g. 1 week or less) automatically or notify sales to check the data
+	* Refer to a foreign exchange information from a website in case the opportunities are valued in a different currency
+	* Do necessary format conversions, such as numeric format (One generates EUR values, the other requires them in k EUR, etc.)
+	* Initiate the data uploads into the ERP and CRM systems respectively
+	* Generate a report with transactions made and issues requiring attention by sales management.
+
+	+++
+},
+
+
+"Analyzing Stock Data" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Analyzing Stock Data" ],
+    "Description 01:Problem Statement"::
+
+	Do the best with your savings by investing your money in a smart way better than others do.  You have identified multiple web pages which provide
+	structured corporate information such as
+	* Stock market data (in HTML format)
+	* Credit rating information (e.g. from rating agencies like Standard and Poors)
+	* Financial data of selected businesses (compiled in Excel files you can download)
+	With all the infomation, you have a neat appraoch to make up you own idea whether the shares are fairly valued, overvalued
+	or undervalued, so you your own decision base available whether to intiate buying or selling shares.
+
+    "Description 02:The Solution"::
+
+	* Let download all stock market data on a daily base, as well as credit rating info and othe data.
+	* Align the data to the company names, making sure no mistakes happen with similarly named businesses.  Use their symbol names as a common key.
+	* Provide som accompanying information, e.g. the market areas the businesses are active in (e.g. banking and finance, pharmaceuticals, nutrition, etc.)
+	* Do some calculation, for example if a business is doing better than the average market
+	* Condense the analytics to a list which is easy to understand
+	* Add color, formatting and style to make it even easier to read
+	* Save the file and start investing.
+
+	+++
+},
+
+
+
+"Comparing Bills of Material" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Comparing Bills of Material" ],
+    "Description 01:Problem Statement"::
+
+	Your enterprise has developed lots of different products which have similarities to a certain extent.  After some time, you have sufficient sales
+	data available for the different products so you can do a cross-product analysis by checking for commonalities of the components and pre-assembly
+	units used.  The engineers have provided a large number (200+) of bill of materials (part lists) for the various products, each of them listing
+	several thousand parts.  You want to identify the commonalities (i.e. same or similar parts used)
+	among the product variants, and weigh them up with the number of products sold, in order to initiate some strategic improvements in the product portfolio
+	in order to optimize operational efficiency and profitability.
+
+    "Description 02:The Solution"::
+
+	* Use a simple statement to identify all bill of material files (do not name them individually in your program)
+	* Load one file after the other and apply relational algebraic operations (e.g. intersections) in order to spot commonalities
+	* Identify individual parts and similar pre-assembly units used frequently
+	* Consolidate the information to an abstraction level you can use a a decision base
+	* Add format, style and save the work.
+
+	+++
+},
+
+
+
+
+
+
+"Typical Workflow" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Typical Workflow" ],
+    "Description 01:Overview"::
+
+	The follwing sections given an introduction to some common functions which support each of the eight
+	following processing steps conveniently.
+
+	<br/><img src="Images/Description_Introduction_Flowchart.png" alt="B4P Typical Data Processing Steps">
+
+
+	+++
+},
+
+
+"A - Import" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Import source data" ],
+    "Description 01:Overview"::
+
+	B4P provides various means to download files, load data from different sources.
+
+	* __table load(__) for loading files in basic formats like text, CSV, HTML, JSON, XML, etc.
+	* __table load excel file(__) for loading sheets from Excel files
+	* __variable load(__) for loading hierarchically structured JSON data into a structured B4P __variable__.
+
+
+	The Internet contains rich information sources which could be useful for data processing needs.
+	Only two function calls are needed to retrieve tables from the web:
+
+	* __file download(__) and __file download overwrite(__) -- The latter one allows overwriting existing files.
+	* __table load(__)
+
+
+	<hr>
+
+    "Description 03:Example with Country Table from Wikipedia"::
+
+	+++,
+    "Examples 03:Simple Example"::
+	include(Support Library);
+	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
+	table load                     ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
+
+	table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
+	table save                     ( countries, temp.csv); // Hide!  Step 1 ends
+	+++,
+    "Output 03:Original table as retrieved from Wikipedia": "automatic",
+    "Description 04:"::
+	You may notice the following:
+	* The header row is not in the top.
+	* Various fields contain references to further literature, e.g. [a], [aa], etc.
+	* Note the missing space in the entry for Western Saharah.  An exotic UNICODE 'hair space' symbol exists inside.
+	For these reasons above, some initial cleanups are needed which are described on the next page.
+	+++
+},
+
+
+
+
+"B - Clean" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Clean Data" ],
+    "Description 01:Overview"::
+
+	Data obtained from external sources may be named and structured differently, and the table may contain
+	unnecessary contents which need to be cleaned up first, and/or semantic alignments to be made.  Some typical functions are listed below:
+
+	* __table delete blank rows(__): Easy one. It removes all blank rows.
+	* __table lift header row(__): Specify one (or more) uniqe header names and the headers will shift to the 1st row.  The data rows below moves up.
+	* __table correct headers(__): Data received from different organization may contain different headers or spelling mistakes.  Use this function to clean up.
+	* __table rename headers(__): Rename headers to something easier to understand.
+	* __table clean(__): General replacement of exotic spaces and line breaks in the UNICODE space to the familar spaces and 'new line', and trimming options for \
+	    white spaces and line breaks.
+	* __clean num(__): Convert hard-to-digest values like "GBP 300,15-" to processable values like "-300.15".
+	* __table process selected rows__<b>( table name, [Answer]=+'yes,true,ja,oui,sì', [Answer]=yes );</b> to align some contents.
+	* __table process cells__<b>( [.] = __trim__([.]) );</b> to remove all dangling spaces in the fiels, e.g. ' Hello ' to 'Hello'.
+	* __table keep selected rows(__) / __table delete selected rows(__): Pre-screen the table for rows you want to keep or discard.
+	* __table delete blank rows(__): A simple function call to remove all blank rows.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 1)"::
+
+	The file downloaded from Wikipedia does indeed need some cleanup.
+
+	* First, the table contain two header rows where the 2nd header is the row of interest containing column header names.
+	* The header names are sophisticated, e.g. "Internet ccTLD". 
+	* In addition, lots of cross references like <b>[1]</b> are included and they distract.
+	* Various fields, particularly country names, contain leading spaces.
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!  Step 2 begins
+	// The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
+	// and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
+	// Note: str(...) is needed in order to avoid error messages when numbers are read from the table.
+
+	table process all cells        ( countries, [.] = replace all( str([.]), {'[?]', '[??]' }, '' ) );
+	table clean                    ( countries, trim spaces );
+
+	table lift header row          ( countries ); // Find header row automatically
+	table process                  ( countries, [Country name]= left([Country name], ' (') ); // Remove name additions
+
+	table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
+
+	table save                     ( countries, temp.csv); // Hide!  Step 2 ends
+	+++,
+
+    "Output 02:The table has been cleaned up.": "automatic"
+
+},
+
+
+
+"C - Validate":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Validate and Explore" ],
+    "Description 01:Overview"::
+
+	In the third step, consider further checks on the tables, e.g. that all required headers are available,
+	the data inside the table is consistent, etc.  The functions listed below are some commonly used ones:
+
+	* __table check headers(__):  B4P checks if all headers specified here exist in the table.  Various checking options exist, e.g. you can also check that no additional column headers \
+	  than those specified are in the table, or even check for complying a certain sequence.  You can also identify repeated header names.
+	* __table keep columns(__): Only the specified columns will be kept. The others will be discarded.
+	* __table describe(__): B4P checks the contents in selected columns and provides description.  E.g. you can easily identify if a particular \
+	  column contains telephone numbers, simple names, dates, and not something else.
+	* __table check duplicates(__) checks repeated entries in case redundant entries need to be removed or consolidated.
+	* __table fill vertically(__) can be used to replicate contents in rows below if they are blank, assuming the same contents as above are assumed.
+	* __table rename headers(__) lets you rename column headers in order to simplify or harmonize header names across multiple tables.
+	* __table lookup(__) and related functions allows you to look up data from other tables.
+
+
+	If the loaded table does actually contain a collection of mutiple sub-tables, then consider the fuctions desribed in the section __Explore and filter and extract sub-tables__.
+
+	<br><br>
+	During the validation process, consider further preparation steps on the table.
+	
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 2)"::
+
+	Do some validation on this table:
+
+	* Check for header names and keep those columns.  Discard the others.
+	* Some rows contain '...' because these country names are interpreted as regions belonging to other countries.\
+	  Example: 'Akrotiri and Dhekelia – See United Kingdom, The'
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!  Step 3 begins - Semantic alignment
+	table keep columns             ( countries, { Country name, 'Alpha-2 code', 'Alpha-3 code' } );
+	table delete selected rows     ( countries, ['Alpha-2 code']=='...' );
+	table delete columns           ( countries,  'Alpha-3 code' );
+
+	// Check if the 2-character country code is always consisting of 2 characters.
+	table process selected rows    ( countries, ['Alpha-2 code']{}!=2, echo("The country code ", ['Alpha-2 code'], " may be incorrect" ) );
+
+	// Some country names need to be harmonized with a language list to combine, e.g. 'Holy See' and 'Vatican City'.
+
+	table initialize               ( country name alignment,
+	{ { Country code, Aligned country name },
+	  { KR, South Korea },                           { KP, North Korea },
+	  { US, United States },                         { VN, Vietnam },
+	  { BN, Brunei },                                { CV, Cape Verde },
+	  { CZ, Czech Republic },                        { LA, Laos }, 
+	  { RU, Russia },                                { VA, Vatican City },
+	  { SY, Syria },                                 { CC, 'Cocos (Keeling) Islands' },
+	  { CD, 'Democratic Republic of the Congo' },    { CG, 'Republic of the Congo' },
+	  { TL, East Timor },                            { CI, Ivory Coast },
+	  { FM, 'Federated States of Micronesia' },      { MM, 'Myanmar (Burma)' },
+	  { PS, Palestine },                             { TZ, Tanzania },
+	  { ST, Sao Tome and Principe },                 { SO, Somaliland } } );
+
+	table lookup                   ( countries, 'Alpha-2 code', Country name, country name alignment, Country code, Aligned country name );
+
+	table list( countries, briefly, 5  ); // List first and last 5 rows and 2 columns only
+	table save                     ( countries, temp.csv); // Hide! Step 3 ends
+	+++,
+
+    "Output 02:The table has been validated.": "automatic"
+
+},
+
+
+
+
+"D - Merge":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Merge and Consolidate" ],
+    "Description 01:Overview"::
+
+	In many application cases, information from multiple sources need to be merged and overlapping information consolidated based on rules provided.
+	Data management associated with merging or rearanging mulitple organizations are typical examples.  Typical functions to
+	choose from are:
+
+	* __table merge(__) and related functions: Merge two tables where identification columns are defined to identify common data to be consoldated.
+	* __table lookup(__) is a suitable alternative combining data from two tables into one.
+	* __table integrate(__) works similar like__table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up.
+	* __table compare(__) is useful to check a current and an older data and isolate all relevant differences for further processing.
+	* __table consolidate(__) lets you condense the contens in the table using rules provided in order to focus on the essential information you need.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 3)"::
+
+	Do some validation on this table:
+
+	* Load a list of languages by countries from Wikipedia
+	* Align country names in the country table, e.g. 'Viet Nam' to 'Vietnam'.
+	* Merge the language data into the country data.
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide! Step 4 begins
+
+	// Download a list of languages from Wikipedia and do the clean-up first.
+
+	file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory", languages.html );
+	table load                     ( languages, languages.html, HTML, List of countries );
+	table process all cells        ( languages, [.] = replace all( str([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
+	table clean		       ( languages, trim spaces );
+	table delete selected rows     ( languages, [Country]=Country ); // Headers are repeated inside the long table.
+	table keep columns             ( languages, {Country, Official language} );
+	table rename headers           ( languages, {Country, Official language}, { Country name, Languages } );
+
+	// Merge the data.
+	// Note Some languages come without countries (see bottom of table), and vice versa.
+
+	table merge extend columns     ( languages, countries, Country name );
+	table list( countries, briefly, 8 ); // List first and last 8 rows only
+
+	table save                     ( countries, temp.csv); // Hide!
+	+++,
+
+    "Output 02:Merging has been done.": "automatic"
+
+},
+
+
+
+
+
+"E - Augment":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Enrichment" ],
+    "Description 01:Overview"::
+
+	Data augmentation (enrichment) typically involves adding further valuble information.   Consider a lookup table with some economic and demographic
+	data which you want to add to your analysis in order to provide a better statistical weighting.  Or for stock market data, obtain a list of
+	present credit ratings and key financial data of the corporation you are tracking.  The functions below are the most common ones to choose:
+
+	* __table lookup(__) is a suitable alternative combining data from two tables into one.
+	* __table integrate(__) works similar like__table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up.
+	* __table process(__) lets you process every rows with algorithms of choice.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 4)"::
+
+	Do some enrichment this table:
+
+	* In this simple country and language example, no further enrichment is needed.
+
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!
+
+	// Some language specifications can be very long
+
+	echo(new line, "Example of long contents: ", [countries:Country name,Switzerland,Languages] );
+	echo(new line, "Let's cut to max. 25 characters, then remove last incomplete word and add '...' behind", new line);
+
+	table process                  ( countries, while (find([Languages],'(')>=0) 
+	                                                [Languages] = trim( outside exclude ( [Languages], '(', ')' ))  );
+	max[] = 25;
+	table process selected rows    ( countries, [Languages]{}>max[], 
+	                                            [Languages] = left last match( left( [Languages], max[] ), ' ') + " ..." );
+
+	echo(new line, "Delete all countries without languages and vice versa...");
+	table delete selected rows     ( countries, ['Alpha-2 code']=='' | [Languages]=='' );
+
+	table list( countries, briefly, 8 ); // List first and last 8 rows only
+	table save                     ( countries, temp.csv); // Hide!  Step 5 ends
+	+++,
+
+    "Output 02:Enrichtment done.": "automatic"
+
+},
+
+
+
+"F - Analyze":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Align and Process" ],
+    "Description 01:Overview"::
+
+	Time to do the real world after all data inputs available in the quality needed.  Use the full B4P capabilities and function libraries
+	such as __statistics functions__ to analyze the data and draw meaningful conclusions.
+	The functions listed below could be of interest, but check the function library first before implementing something wtih 
+	low level code such as individual calculations.
+
+	* __table process selected rows(__) to apply algorithms of choice on rows selected with an expression.
+	* Do a pivot by combining __table spread(__) to spread values horizontally and then do __table consolidate(__) eliminate unnecessary rows.
+	* Do a pivot by moving horizontal data to vertical data with __table serialize(__).
+	* __table distribute(__) becomes very handy for production planning: Knowing the number of units ordered, lot sizes, delivery start and end dates, \
+	  and some cultural information like bank and school holidays (vacations), you generate the production plan with one function call.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 5)"::
+
+	Do some validation on this table:
+
+	* Load a list of languages by countries from Wikipedia
+	* Align country names in the country table, e.g. 'Viet Nam' to 'Vietnam'.
+	* Merge the language data into the country data.
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( countries, temp.csv); // Hide!  Step 6 begins
+	languages in focus[]           = { Chinese, English, French, Spanish, German, Russian, Hindi };
+	table keep selected rows       ( countries, (tokenize( [Languages], {}, {' ',','} ) & languages in focus[]) != {} );
+
+	table insert columns           ( countries, languages in focus[] );
+        table process cells in columns ( countries, languages in focus[], if ([Languages] = '*'+soft([.,0])+'*') [.]=1; );
+
+	table list( countries, briefly, 8 ); // List first and last 8 rows only
+
+	table delete columns           ( countries, {'Alpha-2 code', Languages} );
+
+	table copy table               ( countries, summary );
+	table keep columns             ( summary, languages in focus[] );
+        table consolidate              ( summary, {}, languages in focus[], sum );
+	table transpose                ( summary );
+	table insert rows              ( summary, 0 );
+	[ summary: ..,0]               = { Language, '# Countries' };
+	table sort rows                ( summary, '# Countries', numeric down);
+
+	echo ("Brief summary on key languages:");
+	table list ( summary );
+	table save                     ( countries, temp.csv); // Hide!
+	+++,
+
+    "Output 02:Processing completed.": "automatic"
+
+},
+
+
+
+
+
+
+"G - Format":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Format the results" ],
+    "Description 01:Overview"::
+
+	Before saving the results, consider shaping up the data as you need present.  At a first step, check and process the contents.
+
+	* __table sort rows(__) to sort tables by alphabetic, numeric, date orders, etc.
+	* __table sort columns(__) to sort columns.
+	* __table rearrange columns(__) and __table rearrange selected rows(__) to move the data into the right locations, e.g. most important data to appear on the top left.
+	* __table substitute horizontally(__) and __table substitute vertically(__) to replace repeating values with a simple remark.
+
+	If you plan to save the work in Excel (or HTML), then consider adding __styles__ such as applying colors, different typefaces,
+	freezing the header row, adjusting column width, applying autofilters, etc.
+
+	* __table style auto width(__) will adapt the column widths based on the lengths of the contents.
+	* __table style theme(__) applies a graphic theme on the table, e.g. highlighted header row and zebra pattern in the rows below for better readability
+	* __table style table(__) to apply further formatting, e.g. setting an autofilter feature on the header row or freezing top rows or left columns
+	* __table style rows(__), __table style columns(__), ad __table style cells(__) to apply specific formats and colors on specified table locations.
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 6)"::
+
+	Do some validation on this table:
+
+	* Apply a theme "Zebra" (interchanging white and field color patterns)
+	* Autowidth, but at least 12 Excel width units wide
+	* Set autofilter on header row and freeze it
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+	table load                     ( countries, temp.csv); // Hide!
+
+	table style theme              ( countries, Zebra, pattern, 2 );
+	table style auto width         ( countries, min, 12 );
+	table style table              ( countries, sheet, freeze rows, 1, autofilter, 0 );
+	echo("Formatting done.");
+	+++,
+
+    "Output 02:The table has been formatted.": "automatic"
+
+},
+
+
+
+
+"H - Export":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Save and Export" ],
+    "Description 01:Overview"::
+
+	In a final step, save the tables in data formats needed, e.g. Excel, CSV, HTML, JSON and text files.
+
+	* __table save(__) saves tables in text formats, CSV, HTML, JSON tables, etc.
+	* __table save multiple(__) to save multiple tables in legacy Excel format (Excel XML 2003) into one file.
+	* __variable save(__) saves a B4P variable tree in a JSON file.
+	* __table save excel file(__) save one or multiple tables in contemporary Excel format (.xlsx, .xlsm).
+
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 7)"::
+
+	Save as Excel file
+
+	* Apply a theme "Zebra"
+	* Autowidth, but at least 12 Excel width units wide
+	* Set autofilter on header row and freeze it
+
+	+++,
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+	table load                     ( countries, temp.csv); // Hide!
+// Hide!
+	table style theme              ( countries, Zebra, pattern, 2 ); // Hide!
+	table style auto width         ( countries, min, 12 ); // Hide!
+	table style table              ( countries, sheet, freeze rows, 1, autofilter, 0 ); // Hide!
+// Hide!
+
+	table save excel file          ( countries, "Countries and Key Langauges", "Images/Countries.xlsx" ); // Hide!
+	file delete ( temp.csv ); // Hide!
+	+++,
+
+	"Output 02:All done.": "automatic",
+	"Description 03:Viewing the Results:"::
+	Test Click on the file name open the file with Excel (.xlsx) : <a href="Images/Countries.xlsx" >Countries.xlsx</a> (Excel .xlsx format).	
+	+++
+},
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+  "Getting Help" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Getting help" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01:Overview"::
+
++++
+  },
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+  "Examples" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Examples" ],
+//  "Keywords":			[ "add unique keywords" ],
+
+    "Description 01:Overview"::
+	
+	+++
+
+  }
+
+
+B4PDOCU.STOP

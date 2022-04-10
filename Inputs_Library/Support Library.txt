@@ -345,17 +345,17 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		  "Types": [ "string" ],
 		  "Default value": "here",
 		  "Description"::
-			=== 200, 600, noframe_1stcolbold
-			Visiualization Tool | Functionality											| Restrictions
-			here		| The table will be visualized on the console, providing interactive navigation features		\
-					  This is the default choice if the 2nd parameter is not specified.					|
-			excel		| Saves the table as a ".xlsx" file and opens Microsoft Excel for viewing.				| Windows only
-			csv		| Saves the table as a ".csv" file and opens Microsoft Excel for viewing.				| Windows only
-			html		| Saves the table as a ".html" file and opens Microsoft Excel for viewing.				| Windows only
-			xml		| Saves the table as a ".xls" file (EXCEL 2003 XML) and opens Micirosoft Excel for viewing.		| Depreciated format
-			browser		| Saves the table as a ".html" file and opens a web browser for direct viewing.				|
-			datatables	| Saves the table as a ".html" file and opens the web browser and uses the Datatable feature as provided \
-					  by SpryMedia Ltd under the MIT license								|
+			=== 100, 550, 150, noframe_1stcolbold
+			Tool 	| Functionality											| Restrictions
+			here	| The table will be visualized on the console, providing interactive navigation features		\
+				  This is the default choice if the 2nd parameter is not specified.					|
+			excel	| Saves the table as a ".xlsx" file and opens Microsoft Excel for viewing.				| Windows only
+			csv	| Saves the table as a ".csv" file and opens Microsoft Excel for viewing.				| Windows only
+			html	| Saves the table as a ".html" file and opens Microsoft Excel for viewing.				| Windows only
+			xml	| Saves the table as a ".xls" file (EXCEL 2003 XML) and opens Micirosoft Excel for viewing.		| Depreciated format
+			browser	| Saves the table as a ".html" file and opens a web browser for direct viewing.				|
+			datatables | Saves the table as a ".html" file and opens the web browser and uses the Datatable feature as provided \
+				  by SpryMedia Ltd under the MIT license								|
 			===
 
 			+++
