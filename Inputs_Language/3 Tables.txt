@@ -8,35 +8,48 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	Tables are the key objects on which this programming language has been developed for, namely to process tables of any size
-	effectively and efficiently with minimum amount of code to be written and delivering maximum possible execution performance.
-	All tables are 2-dimensional data structures which hold all information as strings (text), including numeric values,
-	boolean values, dates and parameter sets.
+	effectively and efficiently with minimum amount of coding and delivering maximum possible execution performance.  An extensive
+	function library with rich features is available to process and verify tables.
 
-    "Description 02:Table Used for Examples Throughout this Chapter"::
+	<br><br>
+	All tables are 2-dimensional data structures which hold all information as strings (text), including numeric values,
+	boolean values, dates and parameter sets.  Different access methods are avaialble when accessing table contents directly.
+
+	<br/><img src="Images/LAN_Tables.png" alt="Tables"><br/>
+
+
+	+++
+}, 
+
+"Tables - Example File" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Tables - Example used in the Following Sections" ],
+    "Description 01:A list of CCities"::
 
 	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
 	+++,
-    "Examples 02:"::
+    "Examples 01:"::
 	include( Support Library );
 	table load( table, "Examples\Cities.csv" );
 	table list( table );
 	+++,
-    "Output 02:": "automatic"
+    "Output 01:": "automatic"
 },
 
 
-"Table Naming Rules" :
+"Tables - Naming Rules" :
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table names" ],
     "Description 01:Table Naming Rules"::
-	* All tables are identified with table names
-	* Table names must be of type __string__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters.
-	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing strings (e.g. variables, string calculations, etc.)
-	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
-	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
-	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
-	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but not recommended when keeping up with understandable coding quality.
+	* All tables are identified with table names which are string values
+	* You can either use table names with or without quotation marks.
+	* Similar to variable names, speaces are supported.  Use quotation marks if the name contains multiple consecutive spaces and/or special symbols
+	** Multiple consecutive white spaces in strings without quotation marks reduce to one space.
+	* You can also specify an __RHS Expression__ which returns a string containing the retrieved or calculated name
+	* Names may begin or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
+	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but not recommended if you want to keep code quality high.
 
     +++
 },
@@ -52,19 +65,19 @@ B4PDOCU.START
 	* The tables are fully stored and managed in working memory (dynamic RAM).  In case you work with very large tables and your system has not enough memory space, \
 	  the the operating system will move data to the <i>page file</i> in order to provide additional space.  With the very large memory space available \
 	  systems, this should not be an issue for most applications.  B4P uses full 64-bit performance, so you will not encounter the 4GB limit.
-	* Row counting starts with 0 (row 0 is typically referred as the header row), 1, 2, etc.
+	* Row counting starts with 0 (row 0 is the header row).
 	* Tables may contain any number of rows, including 0 (= no) row.
 	* __Negative indexing__ is supported for referencing row numbers.  -1 refers to the last row in the table, -2 to the next one above, etc.
 	* Blank rows are allowed <br>
-	* Column counting starts with 0, 1, 2, etc.
-	* __Negative indexing__ is also supported for referencing column numbers.  -1 refers to the rightmost column, -2 the next one to the left, etc.
-	* The width of every table row row (i.e. number of columns in every row) may vary.
+	* Column counting starts with 0.
+	* __Negative indexing__ is supported for referencing column numbers.  -1 refers to the last column in the table, -2 to the next one to the left, etc.
+	* The rows may contain different number of columns.
 	* The number of entries in a table row may exceed the number of header entries, but in this case these entries cannot be identified by column header names.  They can only be accessed with column numbers.
 	* Blank columns are allowed
 	* Multiple identical column header names are allowed, but referencing them by names will always match with the first occurrence (from left to right).
 	* Tables loaded, e.g. from HTML, XML, Excel, contain no formatting attributes (e.g. font size, frame and cell background color, alignments, typefaces like bold, underline, etc.).  \
 	  However, before saving the tables, you may want to append formatting attributes which will then be parts of the data contents. See the section on __styles__.
-	* Regarding tables loaded from Excel files: By default the calculated values will be loaded and not the underlying formulas.
+	* Regarding tables loaded from Excel files: The calculated values will be loaded and not the underlying formulas.
 	* The function __table configure(__) is available to change table-specific properties.
 	+++
 },
@@ -78,7 +91,7 @@ B4PDOCU.START
 	Various methods are available to create tables:<br>
 	* Function calls such as __table create(__), __table initialize(__), etc.
 	* Loading data into tables, e.g. with __table load(__), table load excel file(__)
-	* Copying tables, e.g. with __table copy table(__), or using other functiosn which create new tables as output, e.g. __directory listing(__).
+	* Copying tables, e.g. with __table copy table(__), or using other functions which create new tables as output, e.g. __directory listing(__).
 
 	The next sections describe the synatax which allows for straightforward and powerful access to table contents, be it simple values, whole (or parts of) rows and
 	columns, or a combination of both (e.g. accessing a matrix from the table).

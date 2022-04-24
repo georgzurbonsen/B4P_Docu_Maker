@@ -1,21 +1,32 @@
 //
 B4PDOCU.START
 
+
+
 "Variables" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Variable", "Variables", "Variable Names" ],
+    "Feature Names":		[ "Variable", "Variables"  ],
     "Description 01:Introduction to Variables"::
 
-	B4P provides a unique storage model for variables.  
-
-	Beyond4P provides a unique model to manage variables: You can create simple variables like in any programming language, but also
+	B4P provides a unique storage model for variables.  You can create simple variables like in any programming language, but also
 	define structures with named variable members and values as well as arrays. You can build up large and sophisticated variable trees containing
-	a free combination of different array and structures and work with tehm.
+	a free combination of different array and structures and work with them, without elaborate declarations needed.
 
-	<br><br>
+	<br/><br/><img src="Images/LAN_Variables.png" alt="Variables"><br/>
 
-	Different than in common programming languages, specifing variables in B4P may appear outlandish, but there is a reason for this:
+	+++
+},
+
+
+
+
+"Variables - Naming Rules" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable names" ],
+    "Description 01:Overview"::
+	Different than in common programming languages, variables in B4P may appear outlandish, but there is a reason for this:
 
 	=== 230, 10, 10, noframe table_syntax
 	Base Variable Name		| [ 	| ]
@@ -23,10 +34,49 @@ B4PDOCU.START
 	  as variable name		|	|
 	===
 
-	All variable names must follow with 2 bracket symbols <b>[ ]</b>.  For simple variabler, no additional info needs to be spefified inside the
-	brackets, but for structures and arrays, member names or array index numbers need to be specified inside them.  This format provides the freedom
+	All variable names must follow with 2 bracket symbols <b>[ ]</b>.  For __simple variables__, no additional info needs to be spefified inside the
+	brackets.  For for structures and arrays, member names or array index numbers need to be specified inside them.  This format provides the freedom
 	to use any variable name, even with special symbols, and you can reference variables indirectly by picking up variable names from other variables
 	or expressions.  And the contents inside the bracket allows for additional freedoms other programming languages do not provide.
+
+	<br><br>
+
+	Naming variables:
+	* The naming rule applies to __base variables__ as well as __member variables__ in __structures__.
+	* Table names must be of type __string__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters
+	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing strings (e.g. variables, string calculations, etc.)
+	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
+	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
+	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
+	* Blank variable names are also allowed, e.g. <b>''[]</b>.
+	** <u>Attention:</u> Inside __structures__, blank member names will be referred as default __member variables__, e.g. <b>names[''] = All others;</b>.
+	* Any __expression__ returning a string is allowed, e.g. <b>("Hel" + "lo")[]</b> are allowed.
+	* Indirect variable referencingis are upported,
+	** In __LHS expressions__ where parentheses are mandatory.  Example:  <b>(a[])[] = 1;</b> where 1 is written to the variable name as stored in variable a[]. 
+	** in __RHS expressions__ where parentheses are optional.  Example: <b> echo( a[][] );</b> meaning writing 1 to variable with name retrieved from variable a.
+
+	<br><br>
+	Declaring variables:
+	* No explicit variable declarations are required, unless you want to fully initialize arrays or structures using __dim(__), __array(__), __structure(__) or similar functions.
+	* Variables are declared with their first assignment
+	* If no __variable protections__ apply, the values of different (i.e. changing) __basic data types__ can be written.
+
+	See also next section on __variable scopes__ (global, regional, local and sysstem variables).
+
+    +++
+},
+
+
+
+
+"Creating Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Creating Variables" ],
+    "Description 01:Overview"::
+	B4P requires no variable declarations.  Variables are created at their first __assignments__.  The __type__ may change dynamically.  It is allowed
+	to assign a number, and later on a value of a different type.  This may however be restricted if __protection settings__ are applied.
+
 	+++,
     "Examples 01:"::
 	a[] = 123;
@@ -35,38 +85,25 @@ B4PDOCU.START
 	"Total Value [€]"[] = 98.95;
 
 	b[] = City;
-	(b[])[] = Milano; // Write access: Don't forget the parentheses
+	(b[])[] = Milano; // Write access: Don't forget the parentheses in LHS expressions
 	
 	echo( a[] );
 	echo( a  variable[] );
 	echo( "Total Value [€]"[] );
-	echo( City[] );
-	echo( b[][] );
+	echo( b[] ); // City
+	echo( City[], ' and ', b[][] ); // 2 x Milano
+
+	b[] = 555.55; // Contained 'City' before.  Assign a number.
+	echo( b[] ); // 555.55
 	+++,
-    "Output 01:": "automatic",
-    "Description 02:Basic Variable Naming Rules"::
+    "Output 01:": "automatic"
 
-	Naming variables:
-	* The naming rule applies to __base variables__ as well as member variables in __structures__.
-	* Table names must be of type __string__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters
-	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing strings (e.g. variables, string calculations, etc.)
-	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
-	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
-	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
-	* Blank variable names are also allowed, e.g. <b>''[]</b>.  Attention: Inside __structures__, blank member names will be referred as default member variables, e.g. <b>names[''] = All others;</b>.
-	* Any expression returning a string is allowed, e.g. <b>("Hel" + "lo")[]</b> are allowed.
-	* Indirect variable referencingis supported, e.g. <b>(a[])[] = 1; echo( a[][] );</b> meaning writing 1 to variable with name retrieved from variable a.
-
-	<br><br>
-	Declaring variables:
-	* No explicit variable declarations are required, unless you want to fully initialize arrays or structures using __dim(__), __array(__), __structure(__) or similar functions.
-	* Variables are declared with their first assignment
-	* If no __variable protections__ apply, the values of different (i.e. changing) __basic data types__ can be written.
-
-	See also next section on variable scops (global, local, etc.).
-
-	+++
 },
+
+
+
+
+
 
 
 "Variable Scopes" :
@@ -354,7 +391,7 @@ B4PDOCU.START
 "Variable Forms and Trees":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Variable forms", "base variable", "base variables" ],
+    "Feature Names":		[ "Variable forms", "base variable", "base variables", "member variable", "member variables" ],
     "Description 01:Introduction"::
 
 	B4P lets you create variable trees which consist of __structures__, __arrays__ or free combinations of both and with quasi unlimited
@@ -364,7 +401,7 @@ B4PDOCU.START
 	<br/><img src="Images/Description_Variable_Forms_and_Trees.jpg" alt="Illustration of a variable tree"><br/>
 	+++,
 
-    "Description 02:Building Variable Trees with Arrays and Structures"::
+    "Description 02:Building Variable Trees with Member Variables using Arrays and Structures"::
 
 	With Beyond4P, you can create simple variables as well as arrays (containing numbered member variables) and structures (containing named member
 	variables).  Full nesting flexibility is supported: Arrays and structures may contain further structures and/or arrays as you wish.
@@ -570,7 +607,7 @@ B4PDOCU.START
     "Output 01:":		"automatic",
 
     "Description 02:Nesting"::
-	Nesting is supported: Every structure element may be a simple variable, a further structure or array of any size.^
+	Nesting is supported: Every structure element may be a simple variable, a further structure or array of any size.
 	Since Beyond4P variable structure is a tree with values possible in both root, intermediate and end nodes, the base variables as well as
 	member variables of those containing sub-members are preserved.
 

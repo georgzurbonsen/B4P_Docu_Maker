@@ -70,7 +70,7 @@ __Apply style on tables__<br>
 Function Library Guide: 9.9.2.1 table style table<br><br>
 __Arithmetic and Boolean Series Functions__<br>
 Function Library Guide: 5.3.1 Arithmetic and Boolean Series Functions<br><br>
-__arithmetic operators__<br>
+__arithmetic operator__, __arithmetic operators__<br>
 Language Guide: 5.2.1 Arithmetic Operators<br><br>
 __Arrange multiple tables side-by-side__<br>
 Function Library Guide: 9.8.3.8 table arrange ...<br><br>
@@ -98,7 +98,7 @@ __assign__, __assign [function]__<br>
 Function Library Guide: 2.7.6 assign<br><br>
 __Assignment operator__, __Assignment operators__<br>
 Language Guide: 5.4 Assignment operators<br><br>
-__assignments__<br>
+__Assignments and expressions__<br>
 Language Guide: 5 Assignments and Expressions<br><br>
 __atan__, __atan deg__<br>
 Function Library Guide: 5.2.5 Trigonometric Functions<br><br>
@@ -119,10 +119,8 @@ Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __average ignore zero if__, __average ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 "Description 03:B"::
-__B4P Analytics Engine__<br>
-User Guide: 1 B4P Analytics Engine - Overview<br><br>
 __B4P Language__, __B4P Program__<br>
-Language Guide: 1 Language Guide - Overview<br><br>
+Language Guide: 2 The Language<br><br>
 __background color__<br>
 Function Library Guide: 3.2.4 text / background color<br><br>
 __base variable__, __base variables__<br>
@@ -147,8 +145,6 @@ __binary operators__<br>
 Language Guide: 5.2 Binary Operators<br><br>
 __blinking__<br>
 Function Library Guide: 3.2.6 blinking<br><br>
-__Block__, __Blocks__<br>
-Language Guide: 2.2 Overall Language Structure<br><br>
 __boldface__<br>
 Function Library Guide: 3.2.7 boldface<br><br>
 __bool__, __boolean conversion function__<br>
@@ -192,7 +188,7 @@ __character decoding__<br>
 Function Library Guide: 6.2.2 code<br><br>
 __character encoding__<br>
 Function Library Guide: 6.2.1 chr<br><br>
-__Character Entities__<br>
+__Character Entities__, __Character entity__<br>
 Language Guide: 2.2.5.3 Character Entities<br><br>
 __Characters__<br>
 Language Guide: 2.2.5 Characters<br><br>
@@ -291,8 +287,6 @@ Function Library Guide: 2.1.1 if, unless<br><br>
 __conditional combination functions__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __console__<br>
-Language Guide: 2.2.5.2 Console Input / Output<br><br>
-__console__<br>
 Function Library Guide: 3.2.5 console<br><br>
 __Console I/O Functions__<br>
 Function Library Guide: 3 Console I/O Functions<br><br>
@@ -300,12 +294,12 @@ __Console I/O with tables__<br>
 Function Library Guide: 9.2 Console I/O with Tables<br><br>
 __Console input__<br>
 Function Library Guide: 3.1.6 input to complete<br><br>
+__Console Input/Output__<br>
+Language Guide: 2.2.5.2 Console Input / Output<br><br>
 __Console out text attributes__<br>
 Function Library Guide: 3.2.6 blinking<br><br>
 __Console special effects__<br>
 Function Library Guide: 3.2 Console Special Effects<br><br>
-__Console text and background colors__<br>
-Language Guide: 2.2.5.5 Special Console Output Characters<br><br>
 __Consolidate table rows__<br>
 Function Library Guide: 9.7.5.5 table consolidate ...<br><br>
 __consolidation actions__<br>
@@ -316,6 +310,8 @@ __Control flow functions__<br>
 Function Library Guide: 2 Control Flow Functions<br><br>
 __Control Flow Functions for Tables__<br>
 Function Library Guide: 9.6 Control Flow Functions for Tables<br><br>
+__Control flow statements__<br>
+Function Library Guide: 2 Control Flow Functions<br><br>
 __copy__<br>
 Function Library Guide: 10.1.2 copy<br><br>
 __Copy and split tables__<br>
@@ -529,8 +525,6 @@ __discount__<br>
 Function Library Guide: 5.7.4 discount - Discount Values<br><br>
 __disk space__, __disk space free__<br>
 Function Library Guide: 11.1.7 disk space ...<br><br>
-__Distinct Language Features__<br>
-Language Guide: 2.1 Distinct Language Features<br><br>
 __distribute__, __distribute advance__<br>
 Function Library Guide: 5.7.5 distribute - Value Distribution over Timeline<br><br>
 __distribute amount__<br>
@@ -578,6 +572,8 @@ __Enrichment__<br>
 User Guide: 5.5 E - Augment<br><br>
 __entering interactive mode__<br>
 User Guide: 4.2 Entering Interactive Mode<br><br>
+__Entity__<br>
+Language Guide: 2.2.5.3 Character Entities<br><br>
 __Epsilon__<br>
 Language Guide: 5.2.3 Comparison Options<br><br>
 __equal to__<br>
@@ -638,12 +634,8 @@ __exponential functions__<br>
 Function Library Guide: 5.2.3 Exponential Functions<br><br>
 __exponential regression__<br>
 Function Library Guide: 5.5.5 Linear and Exponential Regression<br><br>
-__expression__<br>
-Language Guide: 5 Assignments and Expressions<br><br>
 __Expression to select rows__<br>
 Language Guide: 7.4.4 Expressions to Select Rows<br><br>
-__expressions__<br>
-Language Guide: 5 Assignments and Expressions<br><br>
 __Expressions to select columns__<br>
 Language Guide: 7.4.5 Expressions to Select Columns<br><br>
 __Expressions to select rows__<br>
@@ -874,6 +866,8 @@ Function Library Guide: 7.2.1 hour, minute, second<br><br>
 __hyperbolic functions__<br>
 Function Library Guide: 5.2.6 Hyperbolic Functions<br><br>
 "Description 10:I"::
+__I/O parameters__<br>
+Language Guide: 7.3 Function Parameter Directions<br><br>
 __identify__<br>
 Function Library Guide: 10.1.3 identify<br><br>
 __Identify optimum data type for value provided__<br>
@@ -898,6 +892,8 @@ __Indirect parameter passing__<br>
 Language Guide: 7.5 Indirect Parameter Passing<br><br>
 __input__<br>
 Function Library Guide: 3.1.5 input<br><br>
+__input parameters__<br>
+Language Guide: 7.3 Function Parameter Directions<br><br>
 __input quick__, __input quick ignore case__<br>
 Function Library Guide: 3.1.7 input quick ...<br><br>
 __input to complete__<br>
@@ -978,7 +974,7 @@ __Key Features__<br>
 Master Document: 1.2 Key Features<br><br>
 "Description 13:L"::
 __Language Guide__<br>
-Language Guide: 1 Language Guide - Overview<br><br>
+Language Guide: 2 The Language<br><br>
 __Language pitfalls__<br>
 Language Guide: 2.7 Language Pitfalls<br><br>
 __Launch other B4P programs__<br>
@@ -1208,6 +1204,8 @@ __median ignore zero if__, __median ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 __member count__<br>
 Function Library Guide: 10.2.5 member count<br><br>
+__member variable__, __member variables__<br>
+Language Guide: 3.3 Variable Forms and Trees<br><br>
 __memory effect__<br>
 Language Guide: 4.5 Header Names - Memory Effect<br><br>
 __Merge and Consolidate__<br>
@@ -1376,6 +1374,8 @@ __OS Commands__<br>
 User Guide: 4.5 Operating System Commands<br><br>
 __Other string functions__<br>
 Function Library Guide: 6.3 Miscellaneous String Functions<br><br>
+__output parameters__<br>
+Language Guide: 7.3 Function Parameter Directions<br><br>
 __outside__<br>
 Function Library Guide: 6.1.11 outside ... (string function)<br><br>
 __outside__<br>
@@ -1394,8 +1394,6 @@ __outside until exclude__, __outside [parameter set function]__<br>
 Function Library Guide: 8.1.6 outside ... (parameter set function)<br><br>
 __outside [string function]__<br>
 Function Library Guide: 6.1.11 outside ... (string function)<br><br>
-__Overall Language Structure__<br>
-Language Guide: 2.2 Overall Language Structure<br><br>
 "Description 17:P"::
 __parallel__<br>
 Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
@@ -1674,6 +1672,8 @@ __Select value from variable if existing__<br>
 Function Library Guide: 2.6.4 select/pick if existing ...<br><br>
 __Selection based sequence of comparisons__<br>
 Function Library Guide: 2.6.6 compare select / pick<br><br>
+__selection of multiple values__<br>
+Language Guide: 5.2.2 Comparison Operators<br><br>
 __serial date__<br>
 Function Library Guide: 7.1.4 serial date<br><br>
 __series functions__<br>
@@ -1726,10 +1726,12 @@ __Sorting and rearranging table columns__<br>
 Function Library Guide: 9.7.2.4 table sort columns<br><br>
 __Sorting options__<br>
 Function Library Guide: 14.1 Sorting and Ranking Options<br><br>
-__Special console output characters__<br>
+__Special Console Output Characters__<br>
 Language Guide: 2.2.5.5 Special Console Output Characters<br><br>
-__Special keyboard input characters__<br>
+__Special Keyboard Input Characters__, __Special keys__<br>
 Language Guide: 2.2.5.4 Special Keyboard Input Characters<br><br>
+__Special output characters__<br>
+Language Guide: 2.2.5.5 Special Console Output Characters<br><br>
 __specifying members with parameter sets__<br>
 Language Guide: 3.3.5 Parameter Sets Specifying Members<br><br>
 __spline interpolation__<br>
@@ -1770,8 +1772,6 @@ __Starting the B4P Engine with Windows__<br>
 User Guide: 3.1.3 Windows Start B4P Engine<br><br>
 __Starting the Engine__<br>
 User Guide: 3 Starting the Engine<br><br>
-__Statement__, __Statements__<br>
-Language Guide: 2.2 Overall Language Structure<br><br>
 __Statements [func params]__<br>
 Language Guide: 7.4.3.4 Statements (func. params)<br><br>
 __statistics functions__<br>
@@ -2059,8 +2059,6 @@ __table move selected rows__<br>
 Function Library Guide: 9.7.3.10 table move selected rows<br><br>
 __table multiply__, __table multiply selected rows__<br>
 Function Library Guide: 9.8.3.6 table multiply ...<br><br>
-__Table names__<br>
-Language Guide: 4.1 Table Naming Rules<br><br>
 __table overlay__, __table overlay columns__, __table overlay exclusive columns__, __table overlay extend columns__, __table overlay intersect columns__<br>
 Function Library Guide: 9.8.3.2 table overlay/subtract ...<br><br>
 __table process__<br>
@@ -2201,8 +2199,6 @@ __text row__<br>
 Function Library Guide: 6.1.7 text row<br><br>
 __Text to standard output__<br>
 Function Library Guide: 3.1.1 echo, print ...<br><br>
-__The Language__<br>
-Language Guide: 2 The Language<br><br>
 __through-referencing__<br>
 Language Guide: 3.4.2 Through-Referencing<br><br>
 __throw__<br>
@@ -2221,7 +2217,7 @@ __time inside__<br>
 Function Library Guide: 7.1.1 date inside, time inside<br><br>
 __tokenize__<br>
 Function Library Guide: 6.1.14 tokenize<br><br>
-__Transactions__<br>
+__Transaction operator__, __Transaction operators__, __Transactions__<br>
 Language Guide: 6 Transactions<br><br>
 __Transactions between tables__<br>
 Language Guide: 6.1.4 Transactions between Tables<br><br>
@@ -2274,8 +2270,6 @@ __unary operators__<br>
 Language Guide: 5.1 Unary Operators<br><br>
 __underscore__<br>
 Function Library Guide: 3.2.9 underscore<br><br>
-__UNICODE__<br>
-Language Guide: 2.2.5 Characters<br><br>
 __unless__<br>
 Function Library Guide: 2.1.1 if, unless<br><br>
 __until__<br>
@@ -2296,8 +2290,6 @@ __user function existing__<br>
 Function Library Guide: 2.3.5 function / user function existing<br><br>
 __user functions__<br>
 Function Library Guide: 2.3 User-Defined Procedures and Functions<br><br>
-__User Guide__<br>
-User Guide: 1 B4P Analytics Engine - Overview<br><br>
 __User initialization program__<br>
 User Guide: 3.5.4 User Initialization Program<br><br>
 __user parameter types__<br>
@@ -2315,6 +2307,8 @@ __Validate and Explore__<br>
 User Guide: 5.3 C - Validate<br><br>
 __Validation functions__<br>
 Function Library Guide: 9.8.1.2 table validate<br><br>
+__value ranges__<br>
+Language Guide: 5.2.2 Comparison Operators<br><br>
 __Variable__<br>
 Language Guide: 3 Variables<br><br>
 __Variable attributes__<br>
@@ -2323,8 +2317,6 @@ __Variable forms__<br>
 Language Guide: 3.3 Variable Forms and Trees<br><br>
 __variable load__<br>
 Function Library Guide: 10.3.1 variable load ...<br><br>
-__Variable Names__<br>
-Language Guide: 3 Variables<br><br>
 __variable protection__, __variable protections__<br>
 Language Guide: 3.5 Protecting Variables<br><br>
 __variable references__<br>

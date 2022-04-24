@@ -38,7 +38,7 @@ B4PDOCU.START
 "Control Flow Functions" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Control flow functions" ],
+    "Feature Names":		[ "Control flow functions", "Control flow statements" ],
     "Description 01:Introduction"::
 
 	Flow control covers programming language features like branches (if ... lese), loops, etc.

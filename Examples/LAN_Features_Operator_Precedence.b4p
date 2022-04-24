@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+echo(  3 + 10 *2 + 100*4 ); // 423
+echo( (3 + 10)*2 + 100*4 ); // 426
+
+echo( 3 + 2 >= 2 + 2 );     // True
+echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)

@@ -4,4 +4,3 @@
   echo( 123.45 );
   echo( 0123.450 );            // Same value as above
   echo( 0123.450 *1);          // Operation applied (multplied by 1), therefore text representation has been dropped
-  echo( num( '1.2E+3' ) ); // Scientific notation (must contain capital or lower-case E, + is optional, use - (minus) for small numbers)

@@ -1,13 +1,9 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = 10;                // Assign 10 to variable a[]
-        a[color] = Red;          // Assign the string value 'Red' to the structure member named 'color'
-  a[color,red] = Crimson;
-  a[approved] = true;      // Assign a boolean value
-  a[set] = { 1,2,a,b}; // Assign a parameter set
 
-  table initialize( table, { Name } );
-  [table:Name,2] = Nic;
-  [table:Name,2] = Jane;  
-
-  see( a[] );
-  table list( table );
+  echo(Some simple assignments);
+  a[]     = 1;
+  a[text] = Hello World;
+  a[bool] = true;
+  a[today] = date(today);
+  a[calc]  = 3 + 12*5;
+  see(a[]);

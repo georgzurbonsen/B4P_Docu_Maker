@@ -7,7 +7,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Transactions" ],
-    "Keywords":		[ "Transaction" ],
+    "Keywords":		[ "Transaction", "Transaction operator", "Transaction operators" ],
     "Description 01:Introduction"::
 
 	Simple __assignments__ in B4P program statements, such as <b>a[] = b[];</b>, affect only the __base variables__. Possibly existing members of

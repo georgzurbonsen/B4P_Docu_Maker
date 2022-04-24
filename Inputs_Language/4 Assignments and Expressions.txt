@@ -6,46 +6,269 @@ B4PDOCU.START
 "Assignments and Expressions" :
 {
     "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Assignments and expressions" ],
+    "Description 01:Overview"::
+
+	This section addresses the following B4P building blocks:
+
+	* __Assignments__ which are stand-alone statements where a specified, retrieved or calculated value is assigned to a variable or table entry
+	* __Expressions__, which break down into
+	** __Left-Hand Side Expressions__ (LHS Expressions) to specify destination variables and table entries, and
+	** __Right-Hand Side Expressions__ (RHS Expressions) to specify, retrieve and/or calculate return values.
+
+	+++,
+    "See also": [ "Assignments", "LHS Expressions", "RHS Expressions" ]
+
+},
+
+"Assignments" :
+{
+    "Documentation":		"General Description", // Required value
     "Feature Names":		[ "assignments" ],
-    "Keywords":			[ "assignment", "expression", "expressions" ],
-    "Description 01:Assignments"::
+    "Keywords":			[ "Assignment", "Assignment symbol" ],
+    "Description 01:Overview"::
 
 	Assignments are one of the key building blocks in B4P and most other programming languages where a value is written (i.e. assigned) 
 	to a destination variable or a table entry.  Only the actual target variable will be updated, regardless if that variable contains
-	array and/or structure members.
-	+++,
+	further array and/or structure members.
+
+	All assignments consist of 3 elements:
+	* A __LHS Expression__ located on the <i>Left-Hand Side</i> of the assignment symbol or __assignment operator__, followed by
+	* the <b>assignment symbol</b> <b>=</b> or a valid __assignment operator__, and concluded by
+	* a __RHS Expression__ located on the <i>Right-Hand Side</i>.
+
+	__LHS Expressions__ specify destination locations in variables and tables, while __RHS Expressions__ return specified, retrieved, or
+	calculated values.
+
+	<br/><img src="Images/LAN_Assignments.png" alt="Assignments"><br/>
+
+
+     +++,
     "Examples 01:Examples"::
 	include( Support Library );
-	a[] = 10;                // Assign 10 to variable a[]
-        a[color] = Red;          // Assign the string value 'Red' to the structure member named 'color'
-	a[color,red] = Crimson;
-	a[approved] = true;      // Assign a boolean value
-	a[set] = { 1,2,a,b}; // Assign a parameter set
 
-	table initialize( table, { Name } );
-	[table:Name,2] = Nic;
-	[table:Name,2] = Jane;	
-
-	see( a[] );
-	table list( table );
+	echo(Some simple assignments);
+	a[]     = 1;
+	a[text] = Hello World;
+	a[bool] = true;
+	a[today] = date(today);
+	a[calc]  = 3 + 12*5;
+	see(a[]);
 	+++,
     "Output 01:": "automatic",
-    "Description 02:Expressions"::
+    "See also": [ "Expressions", "Transactions" ]
 
-	Like in common programming languages, the pexression is a syntactic entity to calculate its value.  It can be one of the following, or a combination of the following:
-	* __Text__ and __numbers__ string values, boolean values and numbers
-	* __Parameter sets__ (e.g. constants in braces and separated with commas, nested parameter sets)
-	* __Variables__
-	* __Table references__
-	* __Functions__ (with or without function parameters which are also expressions)
-	* Calculations which combine the above with
-	** __Unary operators__
-	** __Binary operators__
-	** __ad-hoc operators__
-	** Parentheses (to infulence the calculation precedence)
+},
+
+
+
+"Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions" ],
+    "Keywords":			[ "Expression" ],
+    "Description 01:Overview"::
+
+	Expressions are combinations of __values__, __variables__, __table references__, __function calls__ and __calculations__
+	which are intended to create new values or refer to a particular destination location in a variable or table.
+
+	<br><br>
+	Similar to other programming languages, B4P distinguishes between 
+	* __Left-Hand Side Expressions__ (LHS Expressions), and
+	* __Right-Hand Side Expressions__ (RHS Expressions).
 	
-	Use parentheses to influence the precedence, e.g. <b>2*(5+7)</b> returns 24 and not 17.
-	As long no parentheses are used in the expressions and calculations, following algorithmic precedence rules apply:
+	+++,
+
+    "See also": [ "LHS Expressions", "RHS Expressions" ]
+
+},
+
+
+
+
+"Left-Hand Side Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Left-Hand Side Expression" ],
+    "Keywords":			[ "LHS Expression", "LHS Expressions","Left-Hand Side Expressions" ],
+    "Description 01:Overview"::
+
+	The <b>LHS Expressions</b> are expressions on the <i>Left-Hand Side</i> of the assignment symbol or __assignment operator__, as well as on both
+	sides of the __transaction operator__ in __transactions__ which are used to specify a destination in a variable or table.
+	* __Variables__:
+	** Both __base variables__ and members in __arrays__ and __structures__ may be referenced
+	* __Tables__:
+	** Individual table fields
+	** Combination of multiple fields
+
+	LHS Expressions are applicable in following cases:
+	* On the left-hand-side of all __Assignments__,
+	* In __transactions__ on both left-hand side and right-hand-side of the __transaction operators__
+	* __I/O Parameters__ and __Output Parameters__ in procedure and function calls
+
+	The following are not allowed in RHS expressions:
+	* Applying any form of __calculations__.
+
+     +++,
+
+    "Examples 01:Examples"::
+	include( Support Library );
+
+	echo(LHS Examples with variables);
+	a[]        = 10;
+	a[name]    = 'My Name';    // Structure member 'name' added to a[]
+	a[name,0]  = First Name;   // Array added to a[name]
+	a[name,1]  = Middle Initial;
+	a[name,2]  = Last Name;
+	see(a[]);
+
+	echo(RHS Examples with a table);
+	table create( List );
+	[ List: ..,    0 ]   = { Name, Score }; // Write two values into row 0
+	[ List: Name,  1 ]   = Amy;
+	[ List: Score, 1 ]   = 10;
+	[ List: Name,  2..]  = { Bea,  Claus }; // Write two values into column 0, beginning on row 2
+	[ List: Score, 2  ]  = 20;
+	[ List: Score, -1 ]  = 30;              // Negative indexing: -1 refers to last entry
+	table list( List );
+
+	+++,
+    "Output 01:": "automatic",
+    "See also": ["Left-Hand Side Expressions", "Expressions" ]
+
+},
+
+
+
+
+
+
+"Right-Hand Side Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Right-Hand Side Expression" ],
+    "Keywords":			[ "RHS Expression", "RHS Expressions","Right-Hand Side Expressions" ],
+    "Description 01:Overview"::
+
+	The <b>RHS Expressions</b> are expressions on the <i>Right-Hand Side</i> of the assignment symbol or __assignment operator__ which
+	are used to specify, retrieve and/or calculate values. Following rules apply:
+	* Constant values like __numbers__ (for __numeral__ values) and __text__ (for __string__ and __boolean__ values)
+	* __Parameter sets__,
+	* __Variables__,
+	** For variables, individual __Member variables__ using array subscripts and member names may be referenced:
+	* __Table references__,
+	** For tables, either single cells or a combination of mulitple cells (including whole rows and columns) may be specified:
+	* __Function calls__ to functions which return values of any type,
+	* Any calcualations:
+	** With __unary operators__, __binary operators__ and/or __parentheses__:
+	** Parentheses are useful to overrule __operator precedence__.
+	* __Ad-hoc operations__ are allowed on specified variables and table entries.  Example: <b>a[]++ = 5;</b>. The 5 will be incremented by 1 to 6 after the assignment.
+
+	RHS Expressions are applicable in following cases:
+	* On the right-hand-side of all __Assignments__,
+	* __Input Parameters__ in procedure and function calls
+	* Variable names, example: <b>('Category '+name[])[]</b>
+	** Parentheses are mandatory if the variable specified as a __LHS expression__, e.g. <b>(name[])[] = Hello;</b>
+	** Otherwise, parentheses are mandatory if any calculations are applied in order to encompass the whole result, e.g. <b>('My '+name[])[] = Nick;</b> where \
+	   it is ensured that 'My ' is part of the variable name to use.
+
+	The following are not allowed in RHS expressions:
+	* Applying __ad-hoc operations__ on calculated expressions and function calls, e.g. <b>(a[]+4)++</b>.
+	* Applying them on the left-hand-side of assignment symbols, as I/O parameters in function and procedure calls, and transactions
+
+	<br>
+	<u>Note:</u> Whenever the term <b>Expression</b> is referred without indications on left/right-hand sides, then <u>the right-hand-side is assumed</u>.
+
+     +++,
+
+    "Examples 01:Examples"::
+	include( Support Library );
+
+	echo(RHS Examples with variables);
+
+	a[]        = 10;
+	a[name]    = 'My Name';
+	a[four]    = (a[] - 2)/2;
+	a[colors]  = { red, yellow, green, blue };
+	a[nine]    = sqrt(81);
+	see(a[]);
+
+	echo(RHS Examples with a table);
+	table initialize ( List, {{Name, Score}, { Amy, 10}, { Bea, 20}, {Claus, 30}} );
+	echo( [List: Name, 2] );          // Bea
+	echo( [List: Name, Amy, Score] ); // Amy's Score: 10
+	echo( [List: Name, ..] );         // All names in a parameter set
+
+	+++,
+    "Output 01:": "automatic",
+    "See also": ["Left-Hand Side Expressions", "Expressions" ]
+
+},
+
+
+
+"Calculations" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Calculations" ],
+    "Keywords":			[ "Calculation" ],
+    "Description 01:Overview"::
+
+	Calculations are seen as part of __RHS expressions__ where a calculation is applied on 1 or more values using
+	__operators__ or __function calls__ are made.
+
+     +++,
+
+    "Examples 01:Examples"::
+	echo( 1 + 2 * sqrt(9) ); // Returns 7
+	echo( "Drive" + ("Highway" - "High") ); // Returns "Driveway"
+	+++,
+    "Output 01:": "automatic",
+    "See also": ["Operators", "Expressions", "RHS Expressions"]
+
+},
+
+
+
+
+"Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Operator", "Operators" ],
+    "Keywords":			[ "Precedence" ],
+    "Description 01:Overview"::
+
+	Operators are symbols which represent an action or process and are basic elements in arithmetics.
+	B4P distinguishes between following semantic operator types:
+
+	* __Unary operators__ are simple operators added in front of a value or expression, e.g. a minus sign for negation, logical NOT, etc.
+	* __Binary operators__ are operators between two expressions, e.g. to describe additions, multiplications, etc.
+	* __Assignment operators__ allow a simplified formulation such as <b>a[] -= b[];</b> which is equivalent to <b>a[] = a[] - b[];</b>
+	* __Ad-hoc operators__ can be applied on __LHS expressions__ able to reference to tables and variables.  Example: <b>a[]++;</b> is equivalent to <b>a[] = a[] + 1;</b>
+
+	In a different dimension, B4P distinguishes between follwoing algorithmic operator types applicable to both binary operators and assignment operators:
+	* __Arithmetic operators__ covers the four basic arithmetic operators
+	* __Logical operators __ covers lgoical AND and OR
+	* __Comparison operators __ covers equal, less and greater-than, etc.
+
+	+++,
+    "See also": ["Unary operators", "Binary operators", "Assignment operators", "Ad-hoc operators", "Arithmetic operators", "Logical operators", "Comparison operators"]
+
+},
+
+
+
+"Operator Precedence and Parentheses" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Operator Precedence" ],
+    "Keywords":			[ "Precedence", "Parentheses" ],
+    "Description 01:Overview"::
+
+	B4P applies meaningful <b>operator precedence</b> rules when carrying out calculations with
+	unary and binary operators.  For calculation examples, do the multiplications and divisions
+	first, and then the additions and subtractions (briefly said in German: <i>Punktrechnung vor Strichrechnung</i>).
+	Use parentheses to influence the precedence rules.
 
 	=== 100, 200, 700, bold_column_1 bold_column_2
 	Precedence	| Symbols	| Description
@@ -55,11 +278,23 @@ B4PDOCU.START
 	4		| =, ==, &lt;&gt;, !=, &gt, &gt;, &lt;, &lt;= | Comparison operators
 	5 (lowest)	| &amp;, &vert;	| Logical operators
 	===
-	<br>
-
 	The operators are described in the following section.
 
-	+++
+    "Description 02:Parentheses"::
+
+	Parentheses can be used to overrule the operator precdences.
+     +++,
+
+    "Examples 02:Examples"::
+echo(  3 + 10 *2 + 100*4 ); // 423
+echo( (3 + 10)*2 + 100*4 ); // 426
+
+echo( 3 + 2 >= 2 + 2 );     // True
+echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
+	+++,
+    "Output 02:": "automatic",
+    "See also": ["Binary Operators", "Unary Operators"]
+
 },
 
 
@@ -118,7 +353,8 @@ B4PDOCU.START
 "Arithmetic Operators" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "arithmetic operators" ],
+    "Feature Names":		[ "arithmetic operator" ],
+    "Keywords":			[ "arithmetic operators" ],
     "Description 01:Introduction"::
 	Arithmetic operators cover the four basic mathematical operations:
 	* __addition__
@@ -301,6 +537,7 @@ B4PDOCU.START
 
 	+++,
     "Examples 01:"::
+	include ( Support Library );
 	a[0] = 5 / 3;
 	a[1] = '' / 10; // Blank = 0
 	a[2] = 0.5 * true;
@@ -318,7 +555,7 @@ B4PDOCU.START
 "Comparison Operators" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "comparison operators", "comparison expression", "comparisons" ],
+    "Feature Names":		[ "comparison operators", "comparison expression", "comparisons", "selection of multiple values", "value ranges", "value range" ],
     "Description 01:Introduction"::
 	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators which can be combined with __comparison options__
 	to make adjustments on the comparison rules:
@@ -326,8 +563,8 @@ B4PDOCU.START
 	* <b>&lt;=</b> Less than or equal to
 	* <b>&gt;</b> Greater than
 	* <b>&gt;=</b> Greater than or equal to
-	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.  
-	* <b>&lt;&gt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a selection of values) and/or ranges.
+	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values</b> separated with commas) and/or <b>ranges</b>.
+	* <b>&lt;&gt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values<b> separated with commas) and/or <b>ranges</b>.
 	* <b>==</b> __strictly Equal to__, expecting 1 operand only
 	* <b>!=</b> __strictly not equal to__, expecting 1 operand only
 

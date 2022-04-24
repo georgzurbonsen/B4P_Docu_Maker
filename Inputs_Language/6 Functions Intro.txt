@@ -124,7 +124,7 @@ B4PDOCU.START
 "Function Parameter Directions" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Function parameter directions", "parameter directions" ],
+    "Feature Names":		[ "Function parameter directions", "parameter directions", "input parameters", "output parameters", "I/O parameters" ],
     "Description 01:Introduction"::
 
 	B4P distinguishes among following function parameter directions which are described next.
