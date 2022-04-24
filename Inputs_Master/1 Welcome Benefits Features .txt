@@ -12,7 +12,7 @@ B4PDOCU.START
 	<b>B4P is a Low-Code Solution for data analysts to improve their performance in extracting insights from big data.</b>  
 
 	B4P is a data integration and analytics engine with built-in programming language, and is purpose-built for integration
-	and analysis of large complex datasets, generating easily understood results in Excel and other business intelligence tools. 
+	and analysis of large complex datasets, rapidily generating results in Excel and other business intelligence tools. 
 
 	<br/><br/>
 
@@ -56,22 +56,21 @@ B4PDOCU.START
     "Feature Names":		[ "Key Benefits" ],
     "Description 01:Introduction"::
 
-	B4P, with its full name <b>Beyond Former Expectations</b> is a language which builds on long-lasting experience focussing on handling large amounts of data
-	from different sources and providing efficient means to gather, align an analyze the data quickly and efficiently.  The language is based on 
-	following key principles aiming to delivering performance, productivity and professionalism:
+	B4P is a language built on long-lasting experience handling large complex data
+	from different sources and providing efficient means to integrate, align an analyze the data quickly and efficiently.
 
 	* Learn the language quickly
-	* Minimize the number of statements needed to solve challenging data processing problems
-	* No advanced programming skills required (e.g. object oriented programming)
-	* Minimize the time required to find solutions for your problems
-	* B4P delivers maximum processing performance, especially with large data
-	* The language is easy to read and understand
-	* Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.
-	* The language and execution engine requires no further installation of external libraries
-	* Focus on the problem to solve, without wasting time coding algorithic details
-	* A respectable library of procedures and functions, with focus on table data processing, is available
+	* Low-Code: Minimizes the number of statements needed to solve challenging data processing problems
+	* Simple:  No advanced programming skills required
+	* Rapid: Minimizes the time required to find solutions for your problems
+	* Powerful: Provides maximum processing performance, especially with large data
+	* Legible: The language is easy to read and understand
+	* Universal: Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.
+	* Portable: The language and execution engine requires no further installation of external libraries
+	* Focused: Focus on the problem to solve, without wasting time coding algorithic details
+	* Comprehensie: Contains library of over 800 functions, with focus on table data processing
 
-	<b>Focus on solving the problems and nothing else:</b>
+	<b>Focus on solving the problems</b>
 
 	<br/><img src="Images/Description_Introduction_Flowchart.png" alt="B4P Typical Data Processing Steps">
 
