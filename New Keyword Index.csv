@@ -1,105 +1,4 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
-MAS;B 2.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
-MAS;B 1;Benefits and Features;MAS_Features_Benefits_and_Features.html;General Description;Benefits and Features
-MAS;B 2.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
-MAS;B 2.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
-MAS;B 1.01;Key Benefits;MAS_Features_Key_Benefits.html;General Description;Key Benefits
-MAS;B 1.02;Key Features;MAS_Features_Key_Features.html;General Description;Key Features
-MAS;B 2.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
-MAS;B 2;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
-MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 5.01;A - Import;GUI_Features_Import_source_data.html;General Description;Import source data
-GUI;B 5.02;B - Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
-GUI;;B4P Analytics Engine - User Guide;GUI_Features_User_Guide.html;General Description;User Guide
-GUI;;B4P Analytics Engine - User Guide;GUI_Features_User_Guide.html;General Description;B4P Analytics Engine
-GUI;B 4.04;Basic Commands;GUI_Features_Basic_Commands.html;General Description;Basic Commands
-GUI;B 5.03;C - Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
-GUI;B 3.05.01;Command Line Arguments;GUI_Features_Command_line_arguments.html;General Description;Command line arguments
-GUI;B 3.05;Command Line Arguments and Options;GUI_Features_Command_Line_Arguments_and_Options.html;General Description;Command Line Arguments and Options
-GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;Command line switches
-GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;;Command line switch
-GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;;Command line options
-GUI;B 5.04;D - Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
-GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
-GUI;B 5.05;E - Augment;GUI_Features_Enrichment.html;General Description;Enrichment
-GUI;B 4.02;Entering Interactive Mode;GUI_Features_entering_interactive_mode.html;General Description;entering interactive mode
-GUI;B 6;Examples;GUI_Features_Examples.html;General Description;Examples
-GUI;B 4.07;Execute B4P Expressions Interactively;GUI_Features_Execute_B4P_expressions_interactively.html;General Description;Execute B4P expressions interactively
-GUI;B 4.07;Execute B4P Expressions Interactively;GUI_Features_Execute_B4P_expressions_interactively.html;General Description;;interactive expressions
-GUI;B 4.06;Execute B4P Statements Interactively;GUI_Features_Execute_B4P_statements_interactively.html;General Description;Execute B4P statements interactively
-GUI;B 4.06;Execute B4P Statements Interactively;GUI_Features_Execute_B4P_statements_interactively.html;General Description;;interactive statements
-GUI;B 5.06;F - Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
-GUI;B 6.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
-GUI;B 6.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
-GUI;B 5.07;G - Format;GUI_Features_Format_the_results.html;General Description;Format the results
-GUI;B 5.08;H - Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
-GUI;;Index;GUI_Features_Index.html;General Description;Index
-GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
-GUI;B 4.03;Interactive Help;GUI_Features_Interactive_help.html;General Description;Interactive help
-GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;General Description;Interactive input
-GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;General Description;Interactive editing
-GUI;B 4;Interactive Mode;GUI_Features_interactive_mode.html;General Description;interactive mode
-GUI;B 4.08.01;Interactive Visualization;GUI_Features_Interactive_Visualization.html;General Description;Interactive Visualization
-GUI;B 2.07;License Activation;GUI_Features_License_Activation.html;General Description;License Activation
-GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
-GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
-GUI;B 2.02.02;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
-GUI;B 2.02.03;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
-GUI;B 2.02.01;Linux - Prerequisites;GUI_Features_Linux_Prerequisites.html;General Description;Linux Prerequisites
-GUI;B 3.02.01;Linux Edit B4P Programs;GUI_Features_Edit_B4P_Programs_on_Linux.html;General Description;Edit B4P Programs on Linux
-GUI;B 3.02.03;Linux Start B4P Engine;GUI_Features_Starting_the_B4P_Engine_with_Linux.html;General Description;Starting the B4P Engine with Linux
-GUI;B 3.02.02;Linux Start B4P Programs;GUI_Features_Starting_a_B4P_Program_with_Linux.html;General Description;Starting a B4P Program with Linux
-GUI;B 3.02.02.01;Linux Start B4P Programs as Executables;GUI_Features_Start_B4P_Programs_as_Executables_on_Linux.html;General Description;Start B4P Programs as Executables on Linux
-GUI;B 3.02.02.02;Linux Start B4P to run B4P programs;GUI_Features_Linux_Start_B4P_to_run_B4P_programs.html;General Description;Linux Start B4P to run B4P programs
-GUI;B 3.05.03;Long Options;GUI_Features_Long_Options.html;General Description;Long Options
-GUI;B 3.05.03;Long Options;GUI_Features_Long_Options.html;General Description;;Long command line options
-GUI;B 2.03;MacOS;GUI_Features_Installation_on_MacOS.html;General Description;Installation on MacOS
-GUI;B 2.03.04;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
-GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
-GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
-GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
-GUI;B 3.03.01;MacOS Edit B4P Programs;GUI_Features_Edit_B4P_Programs_on_MacOS.html;General Description;Edit B4P Programs on MacOS
-GUI;;MacOS Start B4P Engine;GUI_Features_Starting_the_B4P_Engine_with_MacOS.html;General Description;Starting the B4P Engine with MacOS
-GUI;B 3.03.02;MacOS Start B4P Programs;GUI_Features_Starting_a_B4P_Program_with_MacOS.html;General Description;Starting a B4P Program with MacOS
-GUI;B 3.03.02.01;MacOS Start B4P Programs as Executables;GUI_Features_Start_B4P_Programs_as_Executables_on_MacOS.html;General Description;Start B4P Programs as Executables on MacOS
-GUI;B 3.03.02.02;MacOS Start B4P to run B4P programs;GUI_Features_MacOS_Start_B4P_to_run_B4P_programs.html;General Description;MacOS Start B4P to run B4P programs
-GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;Operating System Commands
-GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;;OS Commands
-GUI;B 7;Recent Releases;GUI_Features_Recent_Releases.html;General Description;Recent Releases
-GUI;B 7.01;Release 8.00;GUI_Features_Release_8.00.html;General Description;Release 8.00
-GUI;B 7.02;Release 8.01;GUI_Features_Release_8.01.html;General Description;Release 8.01
-GUI;B 7.03;Release 8.02;GUI_Features_Release_8.02.html;General Description;Release 8.02
-GUI;B 7.04;Release 8.03;GUI_Features_Release_8.03.html;General Description;Release 8.03
-GUI;B 7.05;Release 8.04;GUI_Features_Release_8.04.html;General Description;Release 8.04
-GUI;B 7.06;Release 9.00;GUI_Features_Release_9.00.html;General Description;Release 9.00
-GUI;B 7.08;Release 9.01;GUI_Features_Release_9.01_Golden_Cut.html;General Description;Release 9.01 Golden Cut
-GUI;B 7.09;Release 9.02 RC;GUI_Features_Release_9.02_Release_Candiate.html;General Description;Release 9.02 Release Candiate
-GUI;B 3.04.01;Starting Behavior Advanced;GUI_Features_Starting_Behavior_Advanced.html;General Description;Starting Behavior Advanced
-GUI;B 3.04;Starting Behavior Basics;GUI_Features_Starting_Behavior.html;General Description;Starting Behavior
-GUI;B 3.02;Starting on Linux;GUI_Features_Starting_B4P_on_Linux.html;General Description;Starting B4P on Linux
-GUI;B 3.03;Starting on MacOS;GUI_Features_Starting_B4P_on_MacOS.html;General Description;Starting B4P on MacOS
-GUI;B 3.01;Starting on Windows;GUI_Features_Starting_B4P_on_Windows.html;General Description;Starting B4P on Windows
-GUI;B 3;Starting the Engine;GUI_Features_Starting_the_Engine.html;General Description;Starting the Engine
-GUI;B 6.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
-GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;B 5;Typical Workflow;GUI_Features_Typical_Workflow.html;General Description;Typical Workflow
-GUI;B 6.04;U.S. Presidents from Wikipedia;GUI_Features_Example_-_U.S._Presidents_from_Wikipedia.html;General Description;Example - U.S. Presidents from Wikipedia
-GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
-GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;User initialization program
-GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;;custom initialization program
-GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;;My B4P Init.b4p
-GUI;B 4.08;View Directory Listings;GUI_Features_View_directory_listings.html;General Description;View directory listings
-GUI;B 4.09;View Tables Interactively;GUI_Features_View_Tables_Interactively.html;General Description;View Tables Interactively
-GUI;B 4.10;View Variables Interactively;GUI_Features_View_variables_interactively.html;General Description;View variables interactively
-GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
-GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
-GUI;B 2.01.02;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
-GUI;B 2.01.03;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
-GUI;B 2.01.01;Windows - Prerequisites;GUI_Features_Windows_Prerequisites.html;General Description;Windows Prerequisites
-GUI;B 3.01.01;Windows Edit B4P Programs;GUI_Features_Edit_B4P_Programs_on_Windows.html;General Description;Edit B4P Programs on Windows
-GUI;B 3.01.03;Windows Start B4P Engine;GUI_Features_Starting_the_B4P_Engine_with_Windows.html;General Description;Starting the B4P Engine with Windows
-GUI;B 3.01.02;Windows Start B4P Programs;GUI_Features_Starting_a_B4P_Program_with_Windows.html;General Description;Starting a B4P Program with Windows
 LAN;B 5.04;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 LAN;B 5.04.04;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 LAN;B 5.04.01;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -375,9 +274,9 @@ LAN;B 3.02;Tables - Naming Rules;LAN_Features_Table_names.html;General Descripti
 LAN;B 1.01.01;Text;LAN_Features_Text.html;General Description;Text
 LAN;B 1.01.01.03;Text Inside Double Quotation Marks;LAN_Features_Text_inside_double_quotation_marks.html;General Description;Text inside double quotation marks
 LAN;B 1.01.01.02;Text Inside Single Quotation Marks;LAN_Features_Text_inside_single_quotation_marks.html;General Description;Text inside single quotation marks
-LAN;;The Language;LAN_Features_Language_Guide.html;General Description;Language Guide
-LAN;;The Language;LAN_Features_Language_Guide.html;General Description;B4P Language
-LAN;;The Language;LAN_Features_Language_Guide.html;General Description;B4P Program
+LAN;B 1;The Language;LAN_Features_Language_Guide.html;General Description;Language Guide
+LAN;B 1;The Language;LAN_Features_Language_Guide.html;General Description;B4P Language
+LAN;B 1;The Language;LAN_Features_Language_Guide.html;General Description;B4P Program
 LAN;B 2.06.02;Through-Referencing;LAN_Features_through-referencing.html;General Description;through-referencing
 LAN;B 5;Transactions;LAN_Features_Transactions.html;General Description;Transactions
 LAN;B 5;Transactions;LAN_Features_Transactions.html;General Description;;Transaction
@@ -414,6 +313,107 @@ LAN;B 4.03.05.01;Wildcards;LAN_Features_wildcards.html;General Description;wildc
 LAN;B 4.03.05.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
 LAN;B 5.01;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;B 2.05.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
+MAS;B 2.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
+MAS;B 1;Benefits and Features;MAS_Features_Benefits_and_Features.html;General Description;Benefits and Features
+MAS;B 2.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
+MAS;B 2.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
+MAS;B 1.01;Key Benefits;MAS_Features_Key_Benefits.html;General Description;Key Benefits
+MAS;B 1.02;Key Features;MAS_Features_Key_Features.html;General Description;Key Features
+MAS;B 2.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
+MAS;B 2;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
+MAS;;Welcome;MAS_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;B 5.01;A - Import;GUI_Features_Import_source_data.html;General Description;Import source data
+GUI;B 5.02;B - Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
+GUI;;B4P Analytics Engine - User Guide;GUI_Features_User_Guide.html;General Description;User Guide
+GUI;;B4P Analytics Engine - User Guide;GUI_Features_User_Guide.html;General Description;B4P Analytics Engine
+GUI;B 4.04;Basic Commands;GUI_Features_Basic_Commands.html;General Description;Basic Commands
+GUI;B 5.03;C - Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
+GUI;B 3.05.01;Command Line Arguments;GUI_Features_Command_line_arguments.html;General Description;Command line arguments
+GUI;B 3.05;Command Line Arguments and Options;GUI_Features_Command_Line_Arguments_and_Options.html;General Description;Command Line Arguments and Options
+GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;Command line switches
+GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;;Command line switch
+GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;;Command line options
+GUI;B 5.04;D - Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
+GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
+GUI;B 5.05;E - Augment;GUI_Features_Enrichment.html;General Description;Enrichment
+GUI;B 4.02;Entering Interactive Mode;GUI_Features_entering_interactive_mode.html;General Description;entering interactive mode
+GUI;B 6;Examples;GUI_Features_Examples.html;General Description;Examples
+GUI;B 4.07;Execute B4P Expressions Interactively;GUI_Features_Execute_B4P_expressions_interactively.html;General Description;Execute B4P expressions interactively
+GUI;B 4.07;Execute B4P Expressions Interactively;GUI_Features_Execute_B4P_expressions_interactively.html;General Description;;interactive expressions
+GUI;B 4.06;Execute B4P Statements Interactively;GUI_Features_Execute_B4P_statements_interactively.html;General Description;Execute B4P statements interactively
+GUI;B 4.06;Execute B4P Statements Interactively;GUI_Features_Execute_B4P_statements_interactively.html;General Description;;interactive statements
+GUI;B 5.06;F - Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
+GUI;B 6.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
+GUI;B 6.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
+GUI;B 5.07;G - Format;GUI_Features_Format_the_results.html;General Description;Format the results
+GUI;B 5.08;H - Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
+GUI;;Index;GUI_Features_Index.html;General Description;Index
+GUI;B 2;Installation and Setup;GUI_Features_Installation_and_Setup.html;General Description;Installation and Setup
+GUI;B 4.03;Interactive Help;GUI_Features_Interactive_help.html;General Description;Interactive help
+GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;General Description;Interactive input
+GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;General Description;Interactive editing
+GUI;B 4;Interactive Mode;GUI_Features_interactive_mode.html;General Description;interactive mode
+GUI;B 4.08.01;Interactive Visualization;GUI_Features_Interactive_Visualization.html;General Description;Interactive Visualization
+GUI;B 2.07;License Activation;GUI_Features_License_Activation.html;General Description;License Activation
+GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
+GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
+GUI;B 2.02.02;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
+GUI;B 2.02.03;Linux - Installation;GUI_Features_Linux_Installation.html;General Description;Linux Installation
+GUI;B 2.02.01;Linux - Prerequisites;GUI_Features_Linux_Prerequisites.html;General Description;Linux Prerequisites
+GUI;B 3.02.01;Linux Edit B4P Programs;GUI_Features_Edit_B4P_Programs_on_Linux.html;General Description;Edit B4P Programs on Linux
+GUI;B 3.02.03;Linux Start B4P Engine;GUI_Features_Starting_the_B4P_Engine_with_Linux.html;General Description;Starting the B4P Engine with Linux
+GUI;B 3.02.02;Linux Start B4P Programs;GUI_Features_Starting_a_B4P_Program_with_Linux.html;General Description;Starting a B4P Program with Linux
+GUI;B 3.02.02.01;Linux Start B4P Programs as Executables;GUI_Features_Start_B4P_Programs_as_Executables_on_Linux.html;General Description;Start B4P Programs as Executables on Linux
+GUI;B 3.02.02.02;Linux Start B4P to run B4P programs;GUI_Features_Linux_Start_B4P_to_run_B4P_programs.html;General Description;Linux Start B4P to run B4P programs
+GUI;B 3.05.03;Long Options;GUI_Features_Long_Options.html;General Description;Long Options
+GUI;B 3.05.03;Long Options;GUI_Features_Long_Options.html;General Description;;Long command line options
+GUI;B 2.03;MacOS;GUI_Features_Installation_on_MacOS.html;General Description;Installation on MacOS
+GUI;B 2.03.04;MacOS - Batch Installation;GUI_Features_MacOS_-_Batch_Installation.html;General Description;MacOS - Batch Installation
+GUI;B 2.03.02;MacOS - Download;GUI_Features_MacOS_Download.html;General Description;MacOS Download
+GUI;B 2.03.03;MacOS - Installation;GUI_Features_MacOS_Installation.html;General Description;MacOS Installation
+GUI;B 2.03.01;MacOS - Prerequisites;GUI_Features_MacOS_Prerequisites.html;General Description;MacOS Prerequisites
+GUI;B 3.03.01;MacOS Edit B4P Programs;GUI_Features_Edit_B4P_Programs_on_MacOS.html;General Description;Edit B4P Programs on MacOS
+GUI;;MacOS Start B4P Engine;GUI_Features_Starting_the_B4P_Engine_with_MacOS.html;General Description;Starting the B4P Engine with MacOS
+GUI;B 3.03.02;MacOS Start B4P Programs;GUI_Features_Starting_a_B4P_Program_with_MacOS.html;General Description;Starting a B4P Program with MacOS
+GUI;B 3.03.02.01;MacOS Start B4P Programs as Executables;GUI_Features_Start_B4P_Programs_as_Executables_on_MacOS.html;General Description;Start B4P Programs as Executables on MacOS
+GUI;B 3.03.02.02;MacOS Start B4P to run B4P programs;GUI_Features_MacOS_Start_B4P_to_run_B4P_programs.html;General Description;MacOS Start B4P to run B4P programs
+GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;Operating System Commands
+GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;;OS Commands
+GUI;B 7;Recent Releases;GUI_Features_Recent_Releases.html;General Description;Recent Releases
+GUI;B 7.01;Release 8.00;GUI_Features_Release_8.00.html;General Description;Release 8.00
+GUI;B 7.02;Release 8.01;GUI_Features_Release_8.01.html;General Description;Release 8.01
+GUI;B 7.03;Release 8.02;GUI_Features_Release_8.02.html;General Description;Release 8.02
+GUI;B 7.04;Release 8.03;GUI_Features_Release_8.03.html;General Description;Release 8.03
+GUI;B 7.05;Release 8.04;GUI_Features_Release_8.04.html;General Description;Release 8.04
+GUI;B 7.06;Release 9.00;GUI_Features_Release_9.00.html;General Description;Release 9.00
+GUI;B 7.08;Release 9.01;GUI_Features_Release_9.01_Golden_Cut.html;General Description;Release 9.01 Golden Cut
+GUI;B 7.09;Release 9.02 RC;GUI_Features_Release_9.02_Release_Candiate.html;General Description;Release 9.02 Release Candiate
+GUI;B 3.04.01;Starting Behavior Advanced;GUI_Features_Starting_Behavior_Advanced.html;General Description;Starting Behavior Advanced
+GUI;B 3.04;Starting Behavior Basics;GUI_Features_Starting_Behavior.html;General Description;Starting Behavior
+GUI;B 3.02;Starting on Linux;GUI_Features_Starting_B4P_on_Linux.html;General Description;Starting B4P on Linux
+GUI;B 3.03;Starting on MacOS;GUI_Features_Starting_B4P_on_MacOS.html;General Description;Starting B4P on MacOS
+GUI;B 3.01;Starting on Windows;GUI_Features_Starting_B4P_on_Windows.html;General Description;Starting B4P on Windows
+GUI;B 3;Starting the Engine;GUI_Features_Starting_the_Engine.html;General Description;Starting the Engine
+GUI;B 6.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
+GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
+GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;B 5;Typical Workflow;GUI_Features_Typical_Workflow.html;General Description;Typical Workflow
+GUI;B 6.04;U.S. Presidents from Wikipedia;GUI_Features_Example_-_U.S._Presidents_from_Wikipedia.html;General Description;Example - U.S. Presidents from Wikipedia
+GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
+GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;User initialization program
+GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;;custom initialization program
+GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;;My B4P Init.b4p
+GUI;B 4.08;View Directory Listings;GUI_Features_View_directory_listings.html;General Description;View directory listings
+GUI;B 4.09;View Tables Interactively;GUI_Features_View_Tables_Interactively.html;General Description;View Tables Interactively
+GUI;B 4.10;View Variables Interactively;GUI_Features_View_variables_interactively.html;General Description;View variables interactively
+GUI;B 2.01;Windows;GUI_Features_Installation_on_Windows.html;General Description;Installation on Windows
+GUI;B 2.01.04;Windows - Batch Installation;GUI_Features_Windows_-_Batch_Installation.html;General Description;Windows - Batch Installation
+GUI;B 2.01.02;Windows - Download;GUI_Features_Windows_Download.html;General Description;Windows Download
+GUI;B 2.01.03;Windows - Installation;GUI_Features_Windows_Installation.html;General Description;Windows Installation
+GUI;B 2.01.01;Windows - Prerequisites;GUI_Features_Windows_Prerequisites.html;General Description;Windows Prerequisites
+GUI;B 3.01.01;Windows Edit B4P Programs;GUI_Features_Edit_B4P_Programs_on_Windows.html;General Description;Edit B4P Programs on Windows
+GUI;B 3.01.03;Windows Start B4P Engine;GUI_Features_Starting_the_B4P_Engine_with_Windows.html;General Description;Starting the B4P Engine with Windows
+GUI;B 3.01.02;Windows Start B4P Programs;GUI_Features_Starting_a_B4P_Program_with_Windows.html;General Description;Starting a B4P Program with Windows
 LIB;B 9.04;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;B 9.07.04.05.01;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;B 5.03.01;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add

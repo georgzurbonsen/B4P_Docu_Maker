@@ -15,13 +15,8 @@ B4PDOCU.START
 	are needed for the whole variable tree, including all underlying __structure__ and __array__ members.  Transactions are an advanced form of
 	assignments which also include the variable members.
 
-	<br><br>
+	<br/><br/><img src="Images/LAN_Transactions.png" alt="Transactions"><br/>
 
-	B4P supports transactions between
-	* Two variables
-	* One variable and one table row (in both directions)
-	* Two table rows inside the same or in two different tables
-	
 	<br>
 	The syntax for transactions is as follows:
 

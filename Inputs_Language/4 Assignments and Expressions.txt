@@ -248,8 +248,8 @@ B4PDOCU.START
 
 	In a different dimension, B4P distinguishes between follwoing algorithmic operator types applicable to both binary operators and assignment operators:
 	* __Arithmetic operators__ covers the four basic arithmetic operators
-	* __Logical operators __ covers lgoical AND and OR
-	* __Comparison operators __ covers equal, less and greater-than, etc.
+	* __Logical operators__ covers lgoical AND and OR
+	* __Comparison operators__ covers equal, less and greater-than, etc.
 
 	+++,
     "See also": ["Unary operators", "Binary operators", "Assignment operators", "Ad-hoc operators", "Arithmetic operators", "Logical operators", "Comparison operators"]
