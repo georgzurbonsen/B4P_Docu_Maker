@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( table 1,
+  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  table delete rows( table 1, 1, 2 );  // Deltess Worm and Bird
+  table delete rows( table 1, -1, 1 ); // Deletes Tick
+
+  table list( table 1 ); // Only Dog and Fly are left

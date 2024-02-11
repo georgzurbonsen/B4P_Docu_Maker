@@ -1,0 +1,31 @@
+﻿#!/usr/local/bin/b4p
+
+      r[] = get differences(Good taste of coffee counts, Good taste of coffee counts, c[], d[] );
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // '', '', 0 (equal)
+
+      r[] = get differences(Good taste of coffee counts, Good taste of caffè counts, c[], d[] );
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // offee, affè, 1
+
+      r[] = get differences(Good taste of coffee counts, Good taste of caffè counts, c[], d[], words );
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // coffee, caffè, 3
+
+      r[] = get differences(Good taste of coffee counts, Good taste counts, c[], d[], words );
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // coffee, '', 2
+
+      r[] = get differences(Good tasting of coffee counts, Good taste of caffè counts, c[], d[], words );
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // tasting of coffee, taste of caffè, 3
+
+      r[] = get differences(Year 2015 begins, Year 2016 begins, c[], d[], characters);
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // 5, 6, 1
+
+      r[] = get differences(Year 2015 begins, Year 2016 begins, c[], d[], words);
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // 5, 6, 1
+
+      r[] = get differences(Year 2015 begins, Year 2016 begins, c[], d[], numbers);
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // 2015, 2016, 3
+
+      r[] = get differences( "20-Mar-2015", "21-Mar-2015" , c[], d[], characters);
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // 0, 1, 1
+
+      r[]  = get differences( "20-Mar-2015", "21-Mar-2015" , c[], d[], spaces);
+      echo("1st string: '", c[], "',    2nd string: '", d[], "'   Result: ", r[] ); // 20-Mar-2015, 20-Mar-2016, 1

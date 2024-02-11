@@ -1,0 +1,1345 @@
+// ü (Recognize as UTF8)
+B4PDOCU.START
+
+"Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "tables" ],
+    "Description 01:Introduction"::
+
+	Tables are the key objects on which this programming language has been developed for, namely to process tables of any size
+	effectively and efficiently with minimum amount of coding and delivering maximum possible execution performance.  An extensive
+	function library with rich features is available to process and verify tables.
+
+	<br><br>
+	All tables are 2-dimensional data structures which hold all information as strings (text), including numeric values,
+	boolean values, dates and parameter sets.  Different access methods are avaialble when accessing table contents directly.
+
+	<br/><img src="Images/LAN_Tables.png" alt="Tables"><br/>
+
+
+	+++
+}, 
+
+"Tables - Example File" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Tables - Example used in the Following Sections" ],
+    "Description 01:A list of CCities"::
+
+	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
+	+++,
+    "Examples 01:"::
+	include( Support Library );
+	table load( table, "Examples\Cities.csv" );
+	table list( table );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"Tables - Naming Rules" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table names" ],
+    "Description 01:Table Naming Rules"::
+	* All tables are identified with table names which are string values
+	* You can either use table names with or without quotation marks.
+	* Similar to variable names, speaces are supported.  Use quotation marks if the name contains multiple consecutive spaces and/or special symbols
+	** Multiple consecutive white spaces in strings without quotation marks reduce to one space.
+	* You can also specify an __RHS Expression__ which returns a string containing the retrieved or calculated name
+	* Names may begin or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
+	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but not recommended if you want to keep code quality high.
+
+    +++
+},
+
+
+"Table Properties" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table properties" ],
+    "Description 01:Table Properties"::
+	* All tables are global, i.e. accessible by called procedure and functions, no matter in which code file they are running, and retained if created \
+	  inside user-defined procedures and functions and then returned.
+	* The tables are fully stored and managed in working memory (dynamic RAM).  In case you work with very large tables and your system has not enough memory space, \
+	  the the operating system will move data to the <i>page file</i> in order to provide additional space.  With the very large memory space available \
+	  systems, this should not be an issue for most applications.  B4P uses full 64-bit performance, so you will not encounter the 4GB limit.
+	* Row counting starts with 0 (row 0 is the header row).
+	* Tables may contain any number of rows, including 0 (= no) row.
+	* __Negative indexing__ is supported for referencing row numbers.  -1 refers to the last row in the table, -2 to the next one above, etc.
+	* Blank rows are allowed <br>
+	* Column counting starts with 0.
+	* __Negative indexing__ is supported for referencing column numbers.  -1 refers to the last column in the table, -2 to the next one to the left, etc.
+	* The rows may contain different number of columns.
+	* The number of entries in a table row may exceed the number of header entries, but in this case these entries cannot be identified by column header names.  They can only be accessed with column numbers.
+	* Blank columns are allowed
+	* Multiple identical column header names are allowed, but referencing them by names will always match with the first occurrence (from left to right).
+	* Tables loaded, e.g. from HTML, XML, Excel, contain no formatting attributes (e.g. font size, frame and cell background color, alignments, typefaces like bold, underline, etc.).  \
+	  However, before saving the tables, you may want to append formatting attributes which will then be parts of the data contents. See the section on __styles__.
+	* Regarding tables loaded from Excel files: The calculated values will be loaded and not the underlying formulas.
+	* The function __table configure(__) is available to change table-specific properties.
+	+++
+},
+
+"Creating Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Creating tables" ],
+    "Description 01:Creating tables"::
+
+	Various methods are available to create tables:<br>
+	* Function calls such as __table create(__), __table initialize(__), etc.
+	* Loading data into tables, e.g. with __table load(__), table load excel file(__)
+	* Copying tables, e.g. with __table copy table(__), or using other functions which create new tables as output, e.g. __directory listing(__).
+
+	The next sections describe the synatax which allows for straightforward and powerful access to table contents, be it simple values, whole (or parts of) rows and
+	columns, or a combination of both (e.g. accessing a matrix from the table).
+	<br><br>
+	+++
+
+},
+
+
+
+
+"Accessing Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "accessing tables" ],
+    "Keywords":			[ "table access methods", "table references", "table reference" ],
+    "Description 01:Introduction"::
+
+	B4P provides the following four <i>table access methods</i> to access table contents:
+	* __Simple table access__ to access individual table cells
+	* __Horizontal table access__ to access multiple cells in a specified row:
+		** a selection of different columns,
+		** a range containing mulitiple consecutive columns, and
+		** all cells in the entire row.
+	* __Vertical table access__ to access multiple cells in a specified column:
+		** a selection of different rows,
+		** a range containing mulitiple consecutive rows, and
+		** all cells in the entire column.
+	* __Matrix table access__ is the combination of the both:
+		** a selection of different cells over the table
+		** a range containing multiple rows and columns
+		** all cells in the entire table.
+
+	In addition to these basic acces modes, __transactions__ and various functions do also provide powerful means to access the tables.
+
+	+++,
+
+    "Description 02:Reading Contents"::
+
+	Data can only read from tables if they are existing or initialized.
+	<br><br>
+
+	By default, following read access rules apply:
+	* Numeric contents (excl. scientific notation) will be read as numerals
+	* Text contents (incl. blanks) will be read as strings
+	* Dates, 'true', 'false', etc. will also be read as string.
+
+	However, the function __table configure(__) lets you decide whether to read dates, booleans, etc. as dates and not as
+	strings.  Oppositely, this function can also force reading numbers as strings.
+
+	<br><br>
+	Attempting to read values which lie outside the table (except if referencing above the header row or left of the first column) 
+	will return blanks (empty strings).
+
+	+++,	
+
+    "Description 03:Writing Contents"::
+
+	Data can only written to tables if the tables are existing or initialized.
+	<br><br>
+
+	All data written to tables will be converted to strings first. This also includes for numbers, dates, times, parameter sets, etc.
+	For boolean values, the text values 'true' and 'false' will be used.  If you want to read the text values 'true' and 'false' as booleans,
+	the use __table configure(__) to activate this: <b>table configure(<i>table name</i>, read booleans, yes );</b>
+
+	<br><br>
+	Attempting to write values which lie outside the table (except if referencing above the header row or left of the first column) will work successfully.
+	If necessary, the size of the table will be extended accordingly.  Valid example: <b>[ table: 999, 999] = "nine nine nine";</b> 
+
+    "Description 04:Advanced Features"::
+
+	Following features are supported to facilitate accessing table contents:
+	* __Partial Table Specifications__ provide table contexts so tables can be accessed with just the column name or number,
+	* __Shifted Table Column Specifications__: Neighboring columns can be accessed if a particular header name is known, but want to access the next column to the left or right instead,
+	* __Header Name Exception Handling__ to define direct actions without asserting exceptions if the header name has not been found, and
+	* __Lookup Access Exception Handling__ to define default table rows in case the table row cannot be found by matching the contents.
+
+	+++
+},
+
+
+"Simple Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple table access" ],
+    "Description 01:Introduction"::
+
+	The <b>simple table access</b> is one of the four basic __table access methods__ where this one accesses exactly one cell in the table.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The table must be referenced inside brackets using a combination of strings and/or numerals.  These may be constant strings and numbers
+	or expressions providing strings and numerals.  __Negative indexing__ is supported for both rows and columns.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ]
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|
+		|				|	| - Negative column number	|	| - Negative row number			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Simple Column Specifier 2		| ]
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Header name, or			|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - Positive row number, or		|
+		|				|	| - Negative column number	|	| - Negative row number			|	| - Negative row number			|
+	===
+
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Simple_Access_Full.jpg" alt="Simple table access, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1,    5 ] );
+	echo( [ table: -7, -10 ] );
+	echo( [ table:  1, -10 ] );
+	echo( [ table: -7,    5 ], new line );
+
+	echo( [ table: City,    5 ] );
+	echo( [ table: City, -10 ], new line );
+
+	echo( [ table: City, San Francisco] ); // Exception to rule: Returns row numbers
+	echo( [ table: 1, San Francisco] );
+	echo( [ table: -7, San Francisco], new line );
+
+	echo( [ table: City, San Francisco, Famous attraction] );
+	echo( [ table: 1, 5, 4] );
+	echo( [ table: -7, -10, -4] );
+	+++,
+	"Output 03:Output - Consider travelling": "automatic",
+
+    "Description 04:Rule on Column Header Names"::
+	You have full freedom to specify the header names as you wish.  Some rules need to be followed:
+	* If the header name contains 1 or more words and optionally single spaces inbetween, and they contain no special symbol which could be interpreted by \
+	  B4P otherwise (e.g. hypen as minus sign), then the name can be used without quotation marks.
+	* If you want to refer a header name which is a number (e.g. 1, 24.12, etc.), then make sure to provided these numbers as strings, e.g. with quotation \
+	  marks or using the __str(__) function to convert numeric results to strings.
+	+++
+},
+
+
+
+"Horizontal Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "horizontal table access" ],
+    "Keywords":			[ "horizontal table accesses" ],
+    "Description 01:Introduction"::
+
+	The <b>horizontal table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table row.
+	Multiple columns can be specified with following approaches:
+	* __Horizontal table access using parameter sets__
+	* __Horizontal table access using wildcards__ with the colon (:) prefix
+	* __Horizontal table access using ranges__ with the '..' or leaving out the column specification to access all exsting columns
+
+	The value(s) read from the table will be provided in a __parameter set__.  This does also apply if only one or even no value being retrieved.  In the latter case,
+	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
+	* All elements in the parameter set have been written (not all specified cells in the table are updated), 
+	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+
+	+++,
+    "Description 02:Read Accesses"::
+	The value(s) read from the table will be provided in a __parameter set__, regardless of the number of cells accessed. Empty parameter sets are returned
+	if the read access results in no matches (e.g. empty parameter set for headers specified, wildcard yields no match, specified range is in the wrong
+	(right to left) direction.
+	+++,
+    "Description 03:Write Accesses"::
+	When writing a parameter set horizontally to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	one of the two conditions are met:
+	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
+	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a string in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+
+	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the horizontal table access.
+	+++
+},
+
+
+
+"Horizontal Table Access w. Param. Sets":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Horizontal table access using parameter sets" ],
+    "Description 01:Introduction"::
+
+	Instead of specifying one column header name (string) or column number (numeral), a parameter set can be used to specify
+	multiple columns in order to access multiple cells in a specific row at a time.  The resulting data read out is a parameter set
+	containing the data which corresponds to the headers specified accordingly.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals, as well as parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Multiple Column Specifier	| ,	| Simple Row Specifier			| ]
+		| Must be a string		|	| - Parameter set containing	|	| - Matching contents (string), or 	|
+		|				|	| header names and/or positive	|	| - Positive row number, or		|
+		|				|	| or negative column numbers	|	| - Negative row number			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	| Multiple Column Specifier 2		| ]
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Parameter set containing		|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| header names and/or positive		|
+		|				|	| - Negative column number	|	| - Negative row number			|	| or negative column numbers		|
+	===
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Horizontal_Access_Parameter_Set_Full.jpg" alt="Horizontal table access using parameter sets, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table: {1,4}, 5 ] );
+	echo( [ table: {-7,-4}, -10 ], new line );
+
+	echo( [ table: { City, 4 }, -10 ] );
+	echo( [ table: { City, Famous attraction }, 5 ], new line );
+
+	echo("Special case");	
+	echo( [ table: { }, -10 ] ); // returns empty set
+
+
+	echo( [ table: { City, Famous attraction }, San Francisco ] );
+	// No exception to rule: It retrieves "San Francisco" and "Golden Gate"
+
+	echo( [ table: City, San Francisco, { Famous attraction, Country } ] );
+	+++,
+	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+
+"Horizontal Table Access w. Wildcards":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Horizontal table access using wildcards" ],
+    "Description 01:Introduction"::
+
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
+	to compare the header row and pick up all matches.  A leading colon (<b>:</b>) is required to instruct B4P to search the table for matching
+	contents. All headers matching to the string pattern will be included in the selecction.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
+	by the __softquoted string__ value.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| : Header Name Pattern		| ,	| Simple Row Specifier			| ]
+		| Must be a string		|	| - Must be a softquoted	|	| - Matching contents (string), or 	|
+		|				|	| string, recommended to use	|	| - Positive row number, or		|
+		|				|	| wildcard symbols		|	| - Negative row number			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  : Header Name Pattern		| ]
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Must be a softquoted 		|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| string, recommended to use		|
+		|				|	| - Negative column number	|	| - Negative row number			|	| wildcard symbols			|
+	===
+	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
+	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Horizontal_Access_Wildcard_Full.jpg" alt="Horizontal table access using wildcads, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  :'F*',   5 ] ); // 2 matches: looks for headers starting with "F*"
+	echo( [ table:  :'F*', -10 ] ); // Same result
+	echo( [ table:  :"F*",   5 ] ); // No match. Qquoted string, looks for header name "F*"
+	echo;
+
+	echo( [ table: :'F*', Golden Gate] ); // Golden Gate is 1st match
+	echo( [ table: :'F*', SFMOMA] );      // SFMOMA is not 1st match, empty set returned
+	echo;
+
+	echo( [ table : : 'F*', Golden Gate, { City, Famous cultural place } ] );
+	echo;
+
+	echo( [ table : City, San Francisco, :'F*' ] );
+	echo( [ table : City, 5, :'F*' ] );
+	echo( [ table : 1, 5, :'F*' ] );
+	echo( [ table : -7, -10, :'F*' ] );
+
+	echo( "Output entire row with wildcards:");
+	echo( [ table : :'*', 5 ] );
+
+	+++,
+	"Output 03:Output - Forgot to recommend Fisherman's Wharf": "automatic"
+},
+
+
+
+"Horizontal Table Access w. Ranges":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Horizontal table access using ranges" ],
+    "Description 01:Introduction"::
+
+	Ranges can be specified to select multiple adjacent table columns.  Ranges come in four flavors:
+	
+	=== 200, 800, noframe_1stcolbold, noheader
+	From .. To	| From starting header name or column number to ending header name or colum number
+	.. To		| From 1st column (column 0) to ending header name or column number
+	From ..		| From starting header name or column number to last column in table with header name
+	..		| From 1st column (column 0) to last column in table with header name
+	(blank)		| From 1st column (column 0) to last existing column in the current table row (ignoring the header row)
+	===	
+	In all cases, the data read will be in parameter sets, even if no or only 1 cell has been accessed.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals or parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Range Column Specifier	| ,	| Simple Row Specifier			| ]
+		| Must be a string		|	| - Starting .. Ending column	|	| - Matching contents (string), or 	|
+		|				|	| - .. Ending column		|	| - Positive row number, or		|
+		|				|	| - Starting column ..		|	| - Negative row number			|
+		|				|	| - .. or (blank)		|	| 					|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	|  Range Column Specifier 2	| ]
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Starting .. Ending column	|
+		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| - .. Ending column		|
+		|				|	| - Negative column number	|	| - Negative row number			|	| - Starting column ..		|
+		|				|	|				|	|					|	| - .. or left blank		|
+	===
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Horizontal_Access_Range_Full.jpg" alt="Horizontal table access using ranges, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1..4,    5 ] );
+	echo( [ table:  1..-4,   5 ] );
+	echo( [ table: City..Famous attraction, -10 ] );
+
+	echo( [ table:  4..1,    5 ] ); // Empty set returned (ending column is left of starting column)
+	echo;
+
+	echo( [ table:  1..4, San Francisco ] );
+	echo( [ table:  City..Famous attraction, San Francisco  ] );
+	echo;
+
+	echo( [ table: ..4, 5 ] );         		// San Francisco
+	echo( [ table: City, San Francisco, ..4 ]);	// 
+	echo;
+	echo( [ table: 1.., Vienna] );    		// Vienna
+	echo( [ table: City, Vienna, City..] );
+	echo( [ table: City.., Vienna] );
+	echo( [ table: 1.., 10] );
+	echo;
+
+	[table:table row width(table, 0)..,5] = {"Sightseeing boat","RV"}; // Append 2 vehicles
+	echo( [ table: .., 5 ] );		    // San Francisco
+	echo( [ table: , 5 ] );			    // San Francisco  inclduing the boat & RV
+	echo( [ table: City, San Francisco, .. ] ); // Without the boat
+	echo( [ table: City, San Francisco, ] );    // With the boat & RV
+	+++,
+	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+
+
+
+"Vertical Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "vertical table access" ],
+    "Keywords":			[ "vertical table accesses" ],
+    "Description 01:Introduction"::
+
+	The <b>vertical table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table column.
+	Multiple columns can be specified with following approaches:
+	* __Vertical table access using parameter sets__
+	* __Vertical table access using wildcards__ with the colon (:) prefix
+	* __Vertical table access using ranges__ with the '..' or leaving out the column specification to access all exsting columns
+
+	+++,
+    "Description 02:Read Accesses"::
+	The value(s) read from the table will be provided in a __parameter set__, regardless of the number of cells accessed. Empty parameter sets are returned
+	if the read access results in no matches (e.g. empty parameter set for headers specified, wildcard yields no match, specified range is in the wrong
+	(right to left) direction.
+	+++,
+    "Description 03:Write Accesses"::
+	When writing a parameter set vertically to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	one of the two conditions are met:
+	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
+	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a string in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+
+	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
+	+++
+},
+
+
+
+
+"Vertical Table Access w. Param. Sets":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Vertical table access using parameter sets" ],
+    "Description 01:Introduction"::
+
+	Instead of specifying one row number (numeral) or matching contents (string), a parameter set can be used to specify
+	multiple rows in order to access multiple cells in a specific column at a time.  The resulting data read out is a parameter set
+	containing the data which corresponds to the row numbers specified accordingly.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals, as well as parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ]
+		| Must be a string		|	| - Header name, or		|	| - Parameter set containing		|
+		|				|	| - Positive column number, or	|	| row numbers or contents to match	|
+		|				|	| - Negative column number	|	| with the data in the table		|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by one or more rows, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ,	|  Simple Column Specifier 2	| ]
+		| Must be a string		|	| - Header name, or		|	| - Parameter set containing 		| 	| - Header name, or		|
+		|				|	| - Positive column number, or	|	| row numbers or contents to match	|	| - Positive column number, or	|
+		|				|	| - Negative column number	|	| with the data in the table		|	| - Negative column number	|
+	===
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Vertical_Access_Parameter_Set_Full.jpg" alt="Vertical table access using parameter sets, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1, {12,4,8} ] );     // Zürich, Boston, Venice
+	echo( [ table: -7, {-3,-11,-7} ] );
+	echo;
+
+	echo( [ table: City, {12,4,8} ] );
+	echo( [ table: City, { Zürich, Boston, Venice } ] );	// Loads own contents
+	echo( [ table: City, { Zürich, 4, Venice } ] );		// 4 -> Boston
+	echo;
+	echo( [ table: City, {  } ] );				// Returns empty set
+	echo;
+	echo( [ table: City, { 12,4,8 }, Moving along ] ); // Tram, walking, gondola
+	echo;
+	
+	echo( [ table : 1, { 12,4,8}, -1 ] );
+	echo( [ table : -7, {-3,-11,-7}, 7 ] );
+	+++,
+	"Output 03:Output - Staying in San Francisco": "automatic"
+},
+
+
+
+"Vertical Table Access w. Wildcards":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Vertical table access using wildcards" ],
+    "Description 01:Introduction"::
+
+
+	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
+	to compare the entries in the specified column and pick up all row numbers with matching comparisons.  A leading colon (<b>:</b>) is required 
+	to instruct B4P to search the table for matching contents.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	The header name patterns must begin with a colon (2 consecutive colons are actually needed if the table name specified before), followed
+	by the softquoted string value.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier		| ,	| : Contents Search Pattern		| ]
+		| Must be a string		|	| - Matching contents (string), or	|	| - Must be a softquoted  		|
+		|				|	| - Positive row number, or		|	| string, recommended to use		|
+		|				|	| - Negative row number			|	| wildcard symbols			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| : Contents Search Pattern		| ,	| Simple Column Specifier		| ]
+		| Must be a string		|	| - Header name, or		|	| - Must be a softquoted  		| 	| - Header name, or			|
+		|				|	| - Positive column number, or	|	| string, recommended to use		|	| - Positive column number, or		|
+		|				|	| - Negative column number	|	| wildcard symbols			|	| - Negative column number		|
+	===
+	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
+	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Vertical_Access_Wildcard_Full.jpg" alt="Vertical table access using wildcads, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1, :'*n' ] );     // Cities ending with n
+	echo( [ table: -7, :'*n*' ] );	  // Cities containing n
+	echo( [ table:  1, :'*n,*s' ] );  // Ending with n or s
+	echo( [ table:  1, :"*n" ] );     // No match (No data entry = "*n*)
+	echo;
+
+	echo( [ table:  City, :'*n' ] );     // Cities ending with n
+	echo;
+
+	echo( [ table: City, :'*n', Moving along ] );
+	echo;
+
+	[ table: City, 2, Moving along ] = Ambulance; // Makes more sense for the moment.
+	echo( [ table: 1, :'*n',  -1 ] );
+	echo( [ table: -7, :'*n',  7 ] );
+	+++,
+	"Output 03:Output - Prefer choosing a climate friendly vehicle ...": "automatic"
+},
+
+
+
+"Vertical Table Access w. Ranges":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Vertical table access using ranges" ],
+    "Description 01:Introduction"::
+
+	Ranges can be specified to select multiple adjacent table rows.  Ranges come in four flavors:
+	
+	=== 200, 800, noframe_1stcolbold, noheader
+	From .. To	| From starting row number to ending row number
+	.. To		| From 1st data row (row 1) to ending row number
+	From ..		| From starting row number to last table row (end of table)
+	..		| From 1st data row (row 1) to last table row (end of table)
+	(blank)		| From top row (row 0 / header row) to last table row (end of table)
+	===	
+	In all cases, the data read will be in parameter sets, even if no or only 1 cell has been accessed.
+
+	+++,
+    "Description 02:Syntax for Full Table Specification"::
+
+	
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals or parameter sets.
+
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier		| ,	| Range Column Specifier		| ]
+		| Must be a string		|	| - Matching contents (string), or	|	| - Starting .. Ending row		|
+		|				|	| - Positive row number, or		|	| - .. Ending row			|
+		|				|	| - Negative row number			|	| - Starting row ..			|
+		|				|	| 					|	| - .. or (blank)			|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Simple Column Specifier	| ,	| Contents Search Pattern		| ,	| Simple Column Specifier		| ]
+		| Must be a string		|	| - Header name, or		|	| - Starting .. Ending row		| 	| - Header name, or			|
+		|				|	| - Positive column number, or	|	| - .. Ending row			|	| - Positive column number, or		|
+		|				|	| - Negative column number	|	| - Starting row ..			|	| - Negative column number		|
+		|				|	| 				|	| - .. or (blank)			|	|					|
+	===
+
+	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
+
+	+++,
+
+    "Description 03:Principle"::
+
+	<br/><img src="Images/Description_Table_Vertical_Access_Range_Full.jpg" alt="Vertical table access using ranges, full table specification"><br/>
+
+	+++,
+    "Examples 03:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table:  1, 6..12 ] );
+	echo( [ table: -7, -9..-3 ] );
+	echo( [ table: -7, 6..-3 ] );
+	echo( [ table: City, 6..Zürich ] );
+	echo( [ table:  1, Montréal..Zürich ] );
+	echo( [ table:  1, Zürich..Montréal ] );  // Empty set - Zürich is after Montréal
+	echo;
+
+	echo( [ table:  1, .. 6 ] );
+	echo( [ table:  1, ..-9 ] );
+	echo( [ table: City, .. Montréal ] );
+	echo;
+
+	echo( [ table:  1, 12.. ] );
+	echo( [ table:  1,  -3.. ] );
+	echo( [ table: City, Zürich .. ] );
+	echo;
+
+	echo( [ table: 1, .. ] );	// Reads all rows except header row
+	echo( [ table: City, .. ] );	// "
+	echo( [ table: -7, ] );		// Note the required final comma. Reads header row, too
+	echo( [ table: City,  ] );	// "
+
+	echo( new line, "Some lookup examples:");
+	echo( [ table: City, .. Montréal, Moving along ] );
+	echo( [ table:  1,  -3.. , Famous attraction ] );
+	+++,
+	"Output 03:Output - Hope to come back next year": "automatic"
+},
+
+
+
+
+
+"Matrix Table Access" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "matrix table access" ],
+    "Keywords":			[ "matrix table accesses" ],
+    "Description 01:Introduction"::
+
+	The <b>matrix table access</b> is one of the four basic __table access methods__ which combines both __horizontal table access__ and __vertical table access__
+	in order to access cells in multiple rows and columns in one.  You can freely combine different ways to access the rows and columns, for example
+	parameter sets for the rows and wildcards for the columns, and so forth.
+	+++,
+    "Description 02:Principle"::
+	The following illustrations hows how the different approaches can be freely combined horizontally and vertically.
+
+	<br/><img src="Images/Description_Table_Matrix_Access_Full.jpg" alt="Matrix table access using different methods, full table specification"><br/>
+	+++,
+
+    "Examples 02:Programming examples"::
+	table load( table, "Examples\Cities.csv");
+
+	echo( [ table : {1,7,4}, {12, 4, 8}] );
+	echo;
+
+	echo( [ table : :'C*', :'*T*' ] );
+	echo;
+	// 1st horizontal match is country, therefore it checks for all countries containing 'T'
+	// Country and City are retrieved
+
+	echo( [ table: ..'State/Province', 12..] );
+	echo( [ table: 1..Inhabitants, Boston..6] );
+	a[] = [ table: Inhabitants .. 'Alt. (m)', ]; // Read all rows incluuding the header
+	for all parameters( a[], b[] ) echo( b[] );
+
+
+	// Reading no data
+
+	echo;
+	echo( [ table: :'xxx', :'yyy' ] );  // Returns 0 rews
+	echo( [ table: :'C*', :'yyy' ] ); // Found 2 columns, but number of rows is 0.
+	echo( [ table: :'xxx', :'*' ] ); // All rows, no column
+	echo( [ table: {2,3,4}, {} ] );	// 3 columns, no row
+	echo( [ table: {}, {2,3,4} ] );	 // No column, 3 rows
+	echo( [ table: {}, {} ] ); // Nothing
+	echo;
+
+	// Matrix access on one single row, column, cell.  Note: Always nested parameter sets
+	// First level: Rows, 2nd level: COlumns
+
+	echo( [ table: {City}, 1..3 ] ); // One column
+	echo( [ table: City..Inhabitants, {Venice} ] ); // One row
+	echo( [ table: {Moving along}, {3} ] ); // One cell
+	+++,
+    "Output 02:Output:": "automatic",
+
+    "Description 03:Read Accesses"::
+	The value(s) read from the table will be provided in nested __parameter sets__: One complete set containing sets resembling rows which in turn
+	contain the columns in their rows.<br>
+	Example: <b>{ { Row 1 Column 1, Row 1 Column 2 }, { Row 2 Column 1, Row 2 Column 2 } } </b>.
+	Even if the matrix access results in a single row, single column or even single cell, all such values are returned in nested parameter sets.
+	Example: <b>[ table: { City }, { 4 } ]</b> returns <b>{ { Boston } }</b>.
+	If the read access results in no matches (e.g. empty parameter sets provided to specify rows or columns, wildcard patterns yielding no matches
+	and/or ranges in wrong direction), then empty sets will be returned.
+
+	+++,
+    "Description 04:Write Accesses"::
+	Write access using matrix access method appears tricky but is not.  The most simple approach is to specify staring ranges for rows and columns
+	and do the writing, e.g. <b>[ table: 3.., 4.. ]</b>.  Write access begins in row 4 and column 3.
+	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
+	+++,
+    "Examples 04:Programming examples"::
+	include( Support Library );
+	table initialize( table, { { A0 .. O0 } } );
+	[ table: .., 1..15 ] = '.'; // Initialize with points
+
+	// Writing some data (actually on row 3 and 5)
+
+	a[] = { { 3, 4, 5, 6 }, {}, { 23, 24, 25 } };
+
+	[ table: 2.., 3.. ] = a[]; // Write all values (as long if inside the table
+	[ table: J0..K0, 3.. ] = a[];  // Note: Limited to 2 columns (5,6 and 25 are not written)
+	[ table: N0.., 10.. ] = a[]; // Writes beyond the existing headers (note 2 unnamed columns added)
+
+	table list( table );
+
+	echo("Further write accesses:");
+	table initialize( table, { { A0 .. O0 } } );
+	[ table: .., 1..15 ] = '.'; // Initialize again
+
+	[ table: ..1, ..2] = { { aa, bb, cc }, { dd, ee, ff }, { gg, hh, ii } }; // Only 4 elements written
+	[ table: 2.., -3.. ] = { 1,2,3,4,5 }; // Last 3 rows
+	[ table: 10.., -3.. ] = {{ 1,2,3,4,5 }}; // Only 1 row
+	[ table: H0.., 1.. ] = { {1},{2},{3},{4},{5} }; // Only 1 column
+	[ table: B0..D0, 6..8 ] = X; // 1 value written everywhere
+
+	[ table: { N0, M0, K0 }, {3,2,1}  ] = a[]; // Write in opposite directions
+
+	table list( table );
+	+++,
+    "Output 04:Output:": "automatic"
+},
+
+
+
+"Partial Table Specifications" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "partial table specifications" ],
+    "Keywords":			[ "table context" ],
+    "Description 01:Introduction"::
+
+	<b>Partial table specifications</b> provide a method to access table contents in a simpler way, for example by only mentioning the
+	table column.  This is only possible if a current <b>table context</b> is provided.  
+
+    "Description 02:Table Context"::
+
+	The table context provides and makes use of following default information for partial table specifications:
+	* The current table name
+	* The current table row
+	* Optionally, (but not in all cases) the current table column
+
+	Various B4P functions provide the <b>table context</b> for the code which does either follow these functions inside a statement or block,
+	or apply to the code provided as function parameters to these functions.
+
+	<br><br>
+
+	Examples of some functions which provide table contexts with table names and rows:
+	* __with table(__) with 2 function parameters (table name and row)
+	* __for all table rows(__)
+	* __table process(__) and __table process selected rows(__)
+	* All standard table functions which contain the ending <b>... selected rows</b>.  In this case, partial table specifciation is allowed in the __expression__ calculated for every row
+
+	Examples of some functions which do also provide the table colums:
+	* __with table(__) with 3 function parameters (table name and row and column)
+	* __table process cells(__) and likes
+	* __table process columns(__) and  __table process selected columns(__)
+
+	With such a context available, the row number can also be retrieved directly with the function __row(__).
+
+	+++,
+    "Description 03:Syntax for Partial Table Specification"::
+
+	The table must be referenced inside brackets using a combination of strings and/or numerals.  These may be constant strings and numbers
+	or expressions providing strings and numerals.
+	<br><br>
+
+	Example 1: Current table name, current row number, specified column	
+	=== 10, 230, 10, noframe table_syntax
+	[	| Column Specifier		|  ]
+		| - Header name(s)		|
+		| - Column number(s)		|
+		| - : Wildcards			|
+		| - Ranges			|
+	===
+
+	<br>Example 2: Other table name, current row number, specified column	
+	=== 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Table Name			| :	| Column Specifier		|  ]
+		| Must be a string		|	| - Header name(s)		|
+		|				|	| - Column number(s)		|
+		|				|	| - : Wildcards			|
+		|				|	| - Ranges			|
+	===
+
+	<br>Example 3: Current table name, specified row number, specified column	
+	=== 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Column Specifier		| ,	| Row Specifier				| ]
+		| - Header name(s)		|	| - Matching contents (string), or 	|
+		| - Column number(s)		|	| - Row numbers				|
+		| - : Wildcards			|	| : Wildcards				|
+		| - Ranges			|	| - Ranges				|
+	===
+
+	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
+	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
+	[	| Column Specifier		| ,	| Row Specifier				| ,	| Column Specifier 2	| ]
+		| - Header name(s)		|	| - Matching contents (string), or 	|	| - Header name(s)	|
+		| - Column number(s)		|	| - Row numbers				|	| - Column number(s)	|
+		| - : Wildcards			|	| : Wildcards				|	| - : Wildcards		|
+		| - Ranges			|	| - Ranges				|	| - Ranges		|
+	===
+
+	+++,
+    "Description 04:Principle"::
+
+	<br/><img src="Images/Description_Table_Simple_Access_Partial.jpg" alt="Simple table access, partial table specification"><br/>
+
+	+++,
+    "Examples 04:Programming Examples"::
+	table load( table, "Examples\Cities.csv");
+	with table( table, 5 ) // Row 5
+	{
+	    echo( [ 1 ] );
+	    echo( [ -7 ], new line );
+
+	    echo( [ City ], new line );
+
+	    echo( [ City, San Francisco], new line ); // Exception to rule: Returns row number
+
+	    echo( [ City, San Francisco, Famous attraction] );
+	    echo( [ 1, row(), 4] );
+	    echo( [ -7, row(), -4] );
+
+	    echo("Horizontal access:");
+	    [table row width( table, row() )] = Street roller;
+	    echo( [0.."State/Province"] );
+	    echo( [..] ); // Entire row (till column with last header on top row)
+	    echo( [] )  ; // Entire row (all elements, inclding the Street roler)
+	    echo( [,6] )  ; // Read data in next row
+	    echo( [,row()-1] )  ; // Read data in previous row
+
+	    echo( [,0] ); // All header names
+
+	    echo("Vertical access:");
+	    echo( trim( [0,] ) ); // Column 0, including header ( trim: Countries listed only once )
+	}	
+	+++,
+    "Output 04:Output - Staying in San Francisco": "automatic",
+    "Description 05:Specifying Current Columns"::
+
+	If the context information is also providing the current column number, then the lone point (<b>.</b>) acts as a shortcut
+	to reference the current column.  Please note that the lone point is interpreted as a string string consisting of 1 
+	character (unless it is part of a numeral acting as a decimal point) and not a programming language specific symbol.
+	This does even apply if the point is a softquoted or quoted string ( <b>'.'</b> or <b>"."</b> ).
+	Alternatively, you can use the function __col(__) to get the current column number.
+
+	<br><br>
+
+	If you use the point in single quotation marks, then __shifted table column specifications__ are also supported here.
+	For example '<.' refers to the next column to the left of the current column.
+
+
+	+++,
+    "Examples 05:Programming Examples"::
+	include ( Support Library );
+	table load( table, "Examples\Cities.csv");
+
+	[ table: Inhabitants      , 0] = '>.'; // Change header to ">." for the test below
+	[ table: Famous attraction, 0] = '.';  // Change header to '.' for the test below
+
+	table list( table );
+
+	with table( table, 5, City ) // Row 5
+	{
+	    echo( "City: ", [.] );                            // Single quotation marks not needed for lone point
+	    echo( "City: ", ['.'], " and State: ", ['>.'] );  // Next column after current one is referenced
+	    echo( "Attraction: ", ["."], " and inhabitants: ", [">."] );  // Note: Header ">." is referenced instead
+	}
+
+	// Do the same without column context.  Lookig fore header called '.':
+
+	echo(new line, "And Philadelphia:");
+	with table( table, 3 ) // Row 3
+	{
+	    echo( "Attraction: ", ["."], " and inhabitants: ", [">."] );
+	}
+	+++,
+    "Output 05:Output:": "automatic",
+    "See also": [ "Nested partial table specifications", "shifted table column specifications" ]
+},
+
+
+"Nested Partial Table Specifications" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "nested partial table specification" ],
+    "Keywords":			[ "nested partial table specifications" ],
+    "Description 01:Introduction"::
+
+	B4P supports nested table contexts and facilitates working with 2 tables directly with miminum coding effortsa.
+	In order to access a table using the next outer context, use the <b>deep</b> symbol (circumflex ^) after the opening bracket.
+        If 3 or more nested table contextsare specified, then use additional ^ symbols to reference the further outer contexts.
+
+	<br><br>
+
+	The __row(__) and __col(__) functions also provide one parameter which can be used to reference the next or further outer context.
+
+	<br><br>
+	Visualized example:
+
+	<br/><img src="Images/Description_Table_Nested_Contexts.jpg" alt="Nested Table Context"><br/>
+
+	+++,
+
+    "Examples 01:Example"::
+	include( Support Library );
+	table initialize( master, { { Name, Score }, { Angela, 10 }, { Bob, 12 }, { Charlotte, 14 }, { Dan, 10 } } );
+
+	table initialize( new scores,
+	{ { Name, Score },
+	  { Bob,  3 }, { Angela, 5}, { Dan, 1 }, { Bob, 5 }, { Charlotte, 2 }, { Bob, 1 }, { Angela, 2 } } );
+
+	echo("Master table:");	table list ( master );
+	echo("New scores to add:"); table list( new scores );
+
+	table process( master,  
+	    table process selected rows( new scores, [Name] == [^Name], [^Score] += [Score] ) );
+
+	echo("Updated master table:"); table list( master );
+
+	echo("Demonstrate row numbers: ");
+	with table( master, 1 ) with table ( new scores, 3 )
+	{
+	    echo( [Name], " in 'new scores' row ", row() );
+	    echo( [^Name], " in 'master' row ", row(1) );
+	}
+	+++,
+    "Output 01:Output": "automatic",
+    "Description 02:Specifying Current Columns"::
+
+	At present, this symbol cannot be used to sepecify current columns in superior tables like '^.'.
+	Please use the function __col(__) with a non-zero parameter instead, e.g. <b>[^col(1)]</b>
+	to get current row and current column of the superior table.  See the example below.
+	+++,
+
+    "Examples 02:Example"::
+	include( Support Library );
+	table initialize( t1, { { Name, Score }, { Angela, 10 }, { Bob, 12 } } );
+
+	table initialize( t2, { { Name, Town }, { Bob,  Denver }, { Angela, Chicago }, { Dan, Albany } } );
+
+	with table( t1, 2, Name )
+	{
+	    echo("From t1: ", [.] ); // Bob
+	    with table( t2, 3, Town )
+	    {
+		echo("Name in t2: ", [Name], " and t1: ", [^Name] ); // Dan, Bob
+		echo;
+		echo("From t2: ", [.] ); // Albany
+		echo("From t1: ", [^col(1)] ); // Bob  (Note: [^.] would access t1, but use column number in t2)
+		echo;
+		echo("t2: Row: ", row(),  " Column: ", col()  ); // Row 3, column 1
+		echo("t1: Row: ", row(1), " Column: ", col(1) ); // Row 2, column 0
+	    }
+	}
+	+++,
+    "Output 02:Output:Output": "automatic"
+},
+
+
+
+"Shifted Table Column Specifications" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "shifted table column specification","shifted table column specifications" ],
+    "Description 01:Introduction"::
+
+	In some situations, you know a specific column number for orientation, and want to use this column to reference a different
+	column nearby, i.e. further to the left or to the right.  In this case, provide the header name as __softquoted string__, for example with
+	__Text inside single quotation marks__, and start the text with one or multiple '&lt;' or '&gt' symbols.
+	Multiple consecutive symobls can be cascaded to refer to nearby columns which are not immediate neighbors.
+
+	=== 40, 960, bold_column_1 noframe, noheader
+	&lt;		| Refer to the next column to the left.  Example:  '&lt;First Name'
+	&gt;		| Refer to the next column to the right.  Example:  '&lt;State or Province'
+	&lt;&lt;	| Refer to 2 columns to the left left.  Example:  '&lt;&lt;First Name'
+	&gt;&gt;	| Refer to 2 columns to the left right..  Example:  '&lt;&lt;State or Province'
+	&lt;&gt;	| The two symbols neutralize each other
+	&gt;&lt;	| Same here
+	===
+	<u>Attention</u>: The &lt; and &gt; symbols must be the 1st characters after the quotation marks.  If spaces lie inbetween, then these symbols are considered as part of header names.<br>
+	<u>Attention</u>: Shifting does not happen in quoted strings, e.g. "&gt;Last Name". It assumes the header name containing the &gt; symbol.<br>
+	
+	<br><br>
+	Left-shifting stops at column 0.  Attempts to go beyond will also refer to column 0. Attempting to right-shift beyond the last column is OK as long
+	the function allows it.  Otherwise exceptions will be asserted, too.
+
+	<br><br>
+	Shifted table column specifications are supported referencing tables as well as in selected function parameters expecting __table columns as function parameters__.
+
+    "Examples 01:"::
+	table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },
+	                        { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );
+
+	echo("Accessing the table directly:");
+	echo( [ t: '<Col D', 1 ] ); // Col C
+	echo( [ t: '>>Col D', 1 ] ); // Col F
+	with table( t, 1 ) echo( [ '>Col A'] ); // Partial table specifcation used here, too.
+
+	echo(new line, "And with function parameters:");
+	echo( table read column selected rows ( t, Col B, true ) ); // Val B
+	echo( table read column selected rows ( t, '<Col B', true ) ); // Val A
+	// echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception
+	echo( table read column selected rows ( t, '<>Col B', true ) );	// Val B
+	echo( table read column selected rows ( t, '>Col E', true ) ); // Val F
+	echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+"Header Name Exception Handling":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "header name exception handling" ],
+    "Description 01:Exception on headers not found"::
+
+	Normally, exceptions will be asserted column header names specified are not existing, e.g. <b>[ cities : Best Restaurant, .. ]</b>.
+	However, the function __table configure(__) allows differnt options such as
+	* Referring to the 1st column (column 0) to return some default value
+	* Referring to the last column to return some default value
+	* Create a new column with header name Useful for write access.  E.g. <b>[ cities: City, Boston, Best Restaurant ] = Legal Seafood;</b> would add a new row.
+	+++,
+    "Examples 01:"::
+
+	include ( Support Library );
+
+	table load( table, "Examples\Cities.csv" );
+
+	table keep columns( table, { Country, City, Famous attraction, Moving along} );
+
+	table configure( table, column not found, first column );
+	echo( [ table : City, Boston, Nation ] );
+
+	table configure( table, column not found, last column );
+	echo( [ table : City, Boston, Nation ] ); // Walking
+
+	table configure( table, column not found, new column );
+	[ table : City, Boston, Best Restaurant ] = Legal Seafood;
+	[ table : City, Los Angeles, Best Restaurant ] = Jack in the Box; // A chain ...
+	[ table : City, Zürich, Pizza Takeaway ] = Dieci; // A chain ...
+
+	table list( table  ); 
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+"Lookup Access Exception Handling" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "lookup access exception handling" ],
+    "Description 01:Exception on rows not found"::
+
+	Normally, exceptions will be asserted when a table reference with lookup access fails, e.g. <b>[ cities : City, Tokyo ]</b>
+	would assert an error message and stops program execution.
+
+	However, the function __table configure(__) allows differnt options such as
+	* Referring to the header row and returning the header name
+	* Referring to the 1st row (below the header row) to return some default value
+	* Referring to the last row (below the header row) to return some default value
+	* Create a new row. Useful for write access.  E.g. <b>[ cities: City, Toyko, Moving along ]</b> would add a new row.
+	+++,
+
+    "Examples 01:"::
+	include ( Support Library );
+
+	table load( table, "Examples\Cities.csv" );
+
+	table keep columns( table, { City, Famous attraction, Moving along} );
+
+	table configure( table, row not found, header row );
+	echo( [ table : City, Boston   , Moving along]  ); // 'Walking'
+	echo( [ table : City, New Haven, Moving along]  ); // 'Moving along' (Header row)
+	echo;
+
+	table configure( table, row not found, new row );
+	[ table : City, Kiruna, Moving along ] = Cross Country Skis; // Adds new row
+
+	table list( table, 1st row, -3 ); // List last 3 rows
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+
+"Header Names - Memory Effect" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "memory effect" ],
+    "Description 01:Benefit - Increasing Performance"::
+
+	In order to increase overall performance, all header names which are explicitly mentioned with string values,
+	for example <b>[Family Name]</b>, <b>['Family Name]</b> or <b>["Family Name]</b>, the physical column position of these
+	headers will normally be identified only once by comparing all headers from left to right, and are then memorized.
+	<b>behind</b> the header name.  This will improve the performance when processing through entire tables whiles referencing the same headers, e.g.
+	
+	<br><br>
+	<b>table process( table, [Full Name] = [First Name] + ' ' + [Last Name] )</b>.
+	
+	Beginning with the 2nd round, the column positions of <b>Full Name</b> and <b>First Name</b> are known and referencing these
+	columns becomes much faster, especially on very large tables containing many columns.
+
+	<br><br>
+	<u>Note:</u> Column numbers will not be memorized if variables, table references or any expressions with some algorithems are used instead.
+
+	+++,
+    "Description 02:Attentions - Memorized Columns can Strike Back!"::
+
+	In a different case, you create a user-defined function which proceses a particular table and refernce
+	the the colum numbers.  See following example:
+
+	+++,
+    "Examples 02:"::
+	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
+	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
+
+	define procedure ( legs, { { table name, string } } )
+	{
+		table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
+	}
+
+	legs( table 1 );
+	legs( table 2 ); // Note: Weapons are listed and not the legs
+	+++,
+    "Output 02:": "automatic",
+    "Description 03:Solving the Drawback"::
+	The column numbers for 'Animal' and 'leg count' are memorized after their first reference, and becomes an issue when
+	called with the 2nd table where the "leg count" lies in a different column further to the right and a column called "weapon" has taken is place there.
+	The 2nd function call lists the weapons.
+
+	<br><br>
+	Three different approches are available to solve this issue:
+	* Instead of referencing the text value directly, do a simple <i>calculation</i> with it, e.g. putting parentheses around them: <b>[(Full Name)]</b>
+	* Force B4P to forget the column numbers in the current program by calling __forget memorized table columns(__)
+	* Deactivate memorizing by changing runtime settings
+
+	+++,
+    "Examples 03:Using Parentheses:"::
+	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
+	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
+
+	define procedure ( legs, { { table name, string } } )
+	{
+		table process( table name[], echo( str([Animal],"8#" ),": ", [(leg count)] ) );
+	}
+
+	legs( table 1 );
+	legs( table 2 );
+	+++,
+    "Output 03:Note the right output of leg count": "automatic",
+    "Description 04:"::
+	You can apply the parentheses where you suspect table columns to shift.  The position of the column will then be recalculated every time it is 
+	referenced.  For the example code, it's six times.  
+	+++,
+
+    "Description 05:Consider Forgetting Column Positions"::
+	Alternativly, consider B4P to become forgetful using the function __forget memorized table columns(__).  This is a one-time acction over the
+	entire code in the currently loaded and running B4P program file, covering all code lines.
+
+	<br><br>
+	In the following program example, the column number for 'leg count' will be forgotten and re-memorized every time the user-defined 
+	function is called again.  The advantage of this compared to adding simple algorithmes like parentheses around header names is that you 
+	ill not have a performance comprormise particularly for very large tables since the header positions will only be calculated once after
+	having them forgotten.
+	+++,
+
+    "Examples 05:Let B4P forget memorized columns:"::
+	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
+	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
+
+	define procedure ( legs, { { table name, string } } )
+	{
+		forget memorized table columns; // All memorized columns in this B4P program file will be forgotten
+		table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
+	}
+
+	legs( table 1 );
+	legs( table 2 ); 
+	+++,
+    "Output 05:The output is OK": "automatic",
+    "Description 06:Deactivate Memorizing"::
+	Finally, the <i>brute force</i> appraoch is to disable all columns being memorized.  This makes programming very safe, but may also slow
+	overall performance a bit, particularly if the tables contain many columns, because the header name provided is compared with the existing
+	table header names every time.  You can disable it by setting the __system variable__ <b>runtime settings[memorize table columns]</b> to <b>false</b>.
+	This setting will apply until the B4P program has ended or the variable has been enabled again.
+	+++,
+    "Examples 06:Disable memorizing"::
+	table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
+	table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
+
+	define procedure ( legs, { { table name, string } } )
+	{
+		table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
+	}
+
+	runtime settings[memorize table columns] = false;
+	legs( table 1 );
+	legs( table 2 );
+	+++,
+    "Output 06:The output is OK": "automatic"
+
+
+
+}
+
+
+
+
+ 	
+B4PDOCU.STOP

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" 
+xmlns:o="urn:schemas-microsoft-com:office:office" 
+xmlns:x="urn:schemas-microsoft-com:office:excel" 
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" 
+xmlns:html="http://www.w3.org/TR/REC-html40"> 
+<Styles>
+<Style ss:ID="St1"> <NumberFormat ss:Format = "DD.MMM.YYYY" /></Style>
+
+</Styles>
+<Worksheet ss:Name="t">
+<Table >
+<Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  /><Column ss:Width="77.4730557876" ss:AutoFitWidth="0"  />
+<Row ><Cell ><Data ss:Type="String" >Dates Lit 1</Data></Cell><Cell ><Data ss:Type="String" >Dates Lit 2</Data></Cell><Cell ><Data ss:Type="String" >Dates Num</Data></Cell><Cell ><Data ss:Type="String" >Boolean EN</Data></Cell><Cell ><Data ss:Type="String" >Boolean DE</Data></Cell><Cell ><Data ss:Type="String" >Boolean Num</Data></Cell><Cell ><Data ss:Type="String" >Numbers</Data></Cell><Cell ><Data ss:Type="String" >Formulas</Data></Cell></Row>
+<Row ><Cell ><Data ss:Type="String" >2017-01-30</Data></Cell><Cell ><Data ss:Type="String" >30.01.2017</Data></Cell><Cell ><Data ss:Type="Number" >42765</Data></Cell><Cell ><Data ss:Type="String" >TRUE</Data></Cell><Cell ><Data ss:Type="String" >WAHR</Data></Cell><Cell ><Data ss:Type="Number" >1</Data></Cell><Cell ><Data ss:Type="Number" >123.45</Data></Cell><Cell ><Data ss:Type="String" >=WURZEL(4)</Data></Cell></Row>
+<Row ><Cell ss:StyleID="St1"><Data ss:Type="String" >2017-01-30</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="String" >30.01.2017</Data></Cell><Cell ss:StyleID="St1"><Data ss:Type="Number" >42765</Data></Cell><Cell ><Data ss:Type="String" >TRUE</Data></Cell><Cell ><Data ss:Type="String" >WAHR</Data></Cell><Cell ><Data ss:Type="Number" >1</Data></Cell><Cell ><Data ss:Type="Number" >123.45</Data></Cell><Cell ><Data ss:Type="String" >=G2*2</Data></Cell></Row>
+<Row ><Cell ><Data ss:Type="String" >2017-01-30</Data></Cell><Cell ><Data ss:Type="String" >30.01.2017</Data></Cell><Cell ><Data ss:Type="String" >42765</Data></Cell><Cell ><Data ss:Type="String" >TRUE</Data></Cell><Cell ><Data ss:Type="String" >WAHR</Data></Cell><Cell ><Data ss:Type="String" >1</Data></Cell><Cell ><Data ss:Type="String" >123.45</Data></Cell><Cell ><Data ss:Type="String" >=G2*2</Data></Cell></Row>
+<Row ><Cell ><Data ss:Type="String" >2017-01-30</Data></Cell><Cell ><Data ss:Type="String" >30.01.2017</Data></Cell><Cell ><Data ss:Type="Number" >42765</Data></Cell><Cell ><Data ss:Type="String" >TRUE</Data></Cell><Cell ><Data ss:Type="String" >WAHR</Data></Cell><Cell ><Data ss:Type="Boolean" >1</Data></Cell><Cell ><Data ss:Type="Number" >123.45</Data></Cell><Cell ><Data ss:Type="String" >=SQRT(4)</Data></Cell></Row>
+</Table>
+</Worksheet>
+</Workbook>

@@ -1,0 +1,22 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  [ table: Inhabitants      , 0] = '>.'; // Change header to ">." for the test below
+  [ table: Famous attraction, 0] = '.';  // Change header to '.' for the test below
+
+  table list( table );
+
+  with table( table, 5, City ) // Row 5
+  {
+      echo( "City: ", [.] );                            // Single quotation marks not needed for lone point
+      echo( "City: ", ['.'], " and State: ", ['>.'] );  // Next column after current one is referenced
+      echo( "Attraction: ", ["."], " and inhabitants: ", [">."] );  // Note: Header ">." is referenced instead
+  }
+
+  // Do the same without column context.  Lookig fore header called '.':
+
+  echo(new line, "And Philadelphia:");
+  with table( table, 3 ) // Row 3
+  {
+      echo( "Attraction: ", ["."], " and inhabitants: ", [">."] );
+  }

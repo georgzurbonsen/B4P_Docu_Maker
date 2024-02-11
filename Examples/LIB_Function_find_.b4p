@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+      echo( find( { a,b,c,A,B,C}, A ) );              // returns 3
+      echo( find ignore case ( { a,b,c,A,B,C}, A ) ); // returns 0
+      echo( find ignore case ( { a,b,c,A,B,C}, A, 1 ) ); // 3 (Skip first element in parameter set)
+      echo( find( { {}, " ", 1, '1', {1} }, {} ) ); // returns 0 (2 empty sets compared)
+      echo( find( { {}, " ", 1, '1', {1} }, " " ) );  // returns 1 (blanks compared)
+      echo( find( { {}, " ", 1, '1', {1} }, "?" ) );  // returns -1 (not found)
+      echo( find( { {}, " ", 1, '1', {1} }, 1) );   // returns 2 (Numeral 1 compared)
+      echo( find( { {}, " ", 1, '1', {1} }, '1') ); // returns 3 (String 1 compared)
+      echo( find( { {}, " ", 1, '1', {1} }, {1} ) );// returns 4 (1 in nested parameter set compared)

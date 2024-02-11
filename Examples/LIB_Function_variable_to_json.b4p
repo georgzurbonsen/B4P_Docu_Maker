@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+  a[] = Hello World;
+  j[] = variable to json( a[] );
+  echo("Simple variable in JSON: ", j[] );
+  json to variable( b[], j[], JSON B4P );
+  see(b[]);

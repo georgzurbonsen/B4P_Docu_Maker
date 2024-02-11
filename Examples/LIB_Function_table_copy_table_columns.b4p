@@ -1,0 +1,14 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( t, {{ Name, Age, Hobby },
+      { Ann, 45, Skiing }, { Dan, 35, Skating }, { Eva, 40, Bee keeping }, { Nic, 10, Reading } } );
+
+  echo("Original table:");
+  table list( t );
+
+  echo("Copy Hobby and Name:");
+  table copy table columns ( t, u, {Hobby, Name} );
+  table list( u );
+
+  echo("Copy Name and Age of young people:");
+  table copy table columns selected rows ( t, v, {Name, Age}, [Age]<40 );
+  table list( v );

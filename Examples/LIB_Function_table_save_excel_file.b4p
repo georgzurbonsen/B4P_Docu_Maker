@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+
+  table load( c, "Cities.csv" );
+
+  echo("Original table: "); 
+  table list ( c );
+
+  table save excel file( c, Cities, "Cities.xlsx" );
+  table load excel file( d, "Cities.xlsx" );
+
+  echo("Table save in Excel format and loaded again: ");    
+  table list ( d );

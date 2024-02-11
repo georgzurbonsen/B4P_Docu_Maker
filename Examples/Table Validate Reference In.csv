@@ -1,0 +1,14 @@
+Vehicle Type;Equipment;Power;Speed;Qty;Additional Check;Quantity Check
+E-Loco;Converter;5000..6000;;1..2;;
+E-Loco;Motor;1000..1500;140..200;4;;equal 1
+E-Loco;Gear;*;*;4;;
+E-Loco;Control;*;*;1;[Comments]='*Safe*';
+E-Loco;Engine;300;;1;;
+DE-Loco;Engine;1700..2400;;1;;
+DE-Loco;Engine;425..600;;4;;
+DE-Loco;Alternator;1700..2400;;1;;min 1
+DE-Loco;Alternator;425..600;;4;;min 1
+DE-Loco;Converter;2400;;1;;
+DE-Loco;Motor;425..600;100..140;4;;
+DE-Loco;Gear;;;4;;
+DE-Loco;Control;;;4;;

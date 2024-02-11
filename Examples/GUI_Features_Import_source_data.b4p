@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+  file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes", ISO_Codes.html );
+  table load                     ( countries, ISO_Codes.html, HTML, Current ISO 3166 country codes);
+
+  table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
+  table save                     ( countries, temp.csv); // Hide!  Step 1 ends

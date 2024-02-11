@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+  array( a[], { a, b, c, { d, e }, f, g, h } );
+  see( a[] );
+
+  b[] <== a[];
+  array to structure( b[] );
+  echo("Conversion with 1 paramemter only:");
+  see( b[] );
+
+
+  b[] <== a[];
+  array to structure recursive( b[], 3);
+  echo("Conversion with number in 2nd parameter: 3 digits ");
+  see( b[] );
+
+  b[] <== a[];
+  array to structure recursive( b[], "No. " );
+  echo("Conversion with string in 2nd parameter:");
+  see( b[] );
+
+  b[] <== a[];
+  array to structure recursive( b[], {A,B,C,F} );
+  echo("Conversion with parameter set in 2nd parameter:");
+  see( b[] );
+
+  b[] <== a[];
+  array to structure ( b[], {true, a, date("31.12.2015"), 123 } );
+  echo("Conversion with diverse contents in parameter set in 2nd parameter:");
+  see( b[] );

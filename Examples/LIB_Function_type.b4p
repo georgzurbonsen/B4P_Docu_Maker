@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+      a[num 1] = 1;
+      a[num 2] = a[num 1] + 0;
+      a[lit 1] = Plain text;
+      a[lit 2] = 'A softquoted string';
+      a[lit 3] = "A quoted string";
+      a[lit 4] = soft( a[lit 3] );
+      a[date] = date(today);
+      a[bool] = true;
+      a[pset] = { 1,2,3 };
+      a[void] = null();
+
+      for all variables( a[], value[], counter[], name[] )
+      {
+          echo( name[], ": ", value[], " --> ", type( value[] ), ", ", subtype( value[] ) );
+      }

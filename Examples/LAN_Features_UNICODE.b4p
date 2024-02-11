@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+  inhabitants [ Zürich ] = 402000;
+  Пётр Чайкoвский [ famous concert ] = Nutcracker; // Piotr Tschaikowski
+  echo( inhabitants [ Zürich ] );
+  echo( Пётр Чайкoвский [ famous concert ] );

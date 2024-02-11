@@ -1,0 +1,24 @@
+﻿#!/usr/local/bin/b4p
+      set[] = { the, taste, of, the, 12, coffees, '!' };
+
+      echo( outside( set[], 4,  2 ), " / ", outside until( set[], 1, 5 ) );
+      echo( outside( set[], -3, 2 ), " / ",  outside until( set[], -6, -2 ) );
+      echo;
+      echo( outside( set[],  99, 3 ), " / ",  outside until ( set[],  99, 3 ) ); // empty sets
+      echo( outside( set[], -99, 3 ), " / ",  outside until ( set[], -99, 3 ) ); // the taste of / ... the
+      echo;
+      echo( outside( set[], {taste}, 4 ), " / ", outside exclude( set[], {taste}, 4 ) ); // 4 elements in both cases
+      echo( outside until( set[], {taste}, -2 ), " / ", outside until exclude( set[], {taste}, -2 ) );
+      echo( outside ( set[], {taste}, {coffees} ), " / ", outside exclude( set[], {taste}, {coffees} ) );
+
+      echo( outside ( set[], {}, {coffees} ), " / ", outside exclude( set[], {taste}, {} ) );
+      echo( outside ( {}, {}, {coffees} ), " / ", outside exclude( {}, {taste}, {} ) ); // empty sets
+      echo;
+      echo( "Demonstrate the follower feature: ");
+
+      set2[] = { A, fragrance, coming, from, 120, espressos, '!' };
+      set3[] = { Der, Geschmack, kommt, von, 120, Tassen Kaffee, '!' };
+
+      echo( "Extraction 1: ", outside( set[], {of}, 3, set2[], set3[] ) );
+      echo( "Extraction 2: ", set2[] );
+      echo( "Extraction 3: ", set3[] );

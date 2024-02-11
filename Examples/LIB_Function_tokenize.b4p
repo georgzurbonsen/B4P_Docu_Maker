@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+  echo( new line, "Basic use of tokenize. Separators are blank and new line" );
+  echo( tokenize( "This   is a" + new line + " test" ) );
+
+  echo( new line, "Demonstrate 'include blanks' and 'trim token'" );
+  echo( tokenize( ",Ha, He ,,Hi,", {}, "," ) );
+  echo( tokenize( ",Ha, He ,,Hi,", include blanks, "," ) );
+  echo( tokenize( ";Ha; He ,,Hi,", trim token, {",",";"} ) );
+  echo( tokenize( ",Ha, He ,,Hi,", {include blanks, trim token}, "," ) );
+
+  echo( new line, "New line inside quotations allowed" );
+  echo( tokenize( "'Me, and"+new line+"You','and us'" , allow new line inside quotations, ",", "'" ) );
+
+  echo( new line, "Demonstrate usage of quotations" );
+  echo( tokenize( "<text>A gnu</text>,<text>A gnat</text>" , {}, ",", { "<text>", "</text>" } ) );
+  echo( tokenize( "<text>A gnu</text>,<text>A gnat</text>" , include quotations as tokens, ",", { "<text>", "</text>" } ) );
+
+  echo( new line, "Read numerals, dates, booleans" );
+  echo( tokenize( "1 true 1E+3 FALSE text 2020-05-07 15:30:00", { read numerals, scientific notation, read dates, read booleans } ) );
+
+  echo( new line, "Thousand and Decimal separators" );
+  echo( tokenize( "1,234 1.234", { read numerals, thousand separator, ".", decimal separator, "," } ) );
+
+  echo( new line, "Additional tokens" );
+  echo( tokenize( "for a=1to5 'do something'", {}, " ", "'", { "=", to, for } ) );
+
+  echo( new line, "Ignore comments" );
+  echo( tokenize( "for a=1to5 /: for a = 3 to 4 :/ 'do something'", {}, " ", "'", { "=", to, for }, { "/:", ":/" } ) );
+  echo(tokenize("for a=1to5 // 'do something'", {}, " ", "'", { "=", to, for }, { }, "//"));

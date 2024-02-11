@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+  table create ( a );
+
+  [a:0,0] += 1;
+  [a:0,1] += 'Hello';
+  [a:0,1] -= 'llo';
+  [a:0,1] += 'y'; // Hey
+  [a:0,2] = true; // converts to string
+  [a:0,2] += ' false'; // 'true false'
+
+  table list(a);

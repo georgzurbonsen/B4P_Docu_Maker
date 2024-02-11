@@ -1,0 +1,25 @@
+﻿#!/usr/local/bin/b4p
+  st[] = "We ate pizza, pasta and desert delights like gelati, and conclude with a caffè.";
+
+  // 1st two finds point on 'pizza', the 3rd fine points to 'pasta'
+  echo( "Testing '", st[], "':" );
+
+  // Examples include quoted (1st 2 examples) and softquoted strings (last 2 examples)
+  echo( find( st[], "pizza" ), " / ", find( st[], "p???a" ), " / ", find( st[], 'p???a' ), " / ", find( st[], 'p???a', 10 ) );
+
+  echo( "Looking for Desert: ", find ignore case( st[], "Desert" ) );
+  echo( "Ignore spaces: ", find ignore both( st[], "pizza,PASTA" ) );
+  echo( "No match case: ", find ( st[], "pizza,PASTA" ) );
+
+  // Demonstrate use of non-string values:
+  // In 1st case, it's a numeral with preserved string, 2nd case it's a plain numeral after a calculation
+  echo( "Locating a digit: ", find ( 00001234.56, 34, 0 ), " / ", find ( 0 + 00001234.56, 34, 0 ) );
+
+  foods[] = { Gelati, Pizza, Pasta, Caffè };
+  index[] = -1;
+
+  for ( i[] = 1, i[] <= 4, i[] ++ )
+  {
+      index[] = find ignore case( st[], { gelati, pasta, desert }, index[]+1, choice[] );
+      echo  ( i[], ". order is ", foods[]{choice[]} );
+  }

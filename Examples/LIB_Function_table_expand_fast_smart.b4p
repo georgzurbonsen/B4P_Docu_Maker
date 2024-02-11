@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+  table load( lookup, "Table Lookup Example 2.csv" );
+  table delete remaining rows ( lookup, -2 ); // Remove last 2 rows (the mom's place and 'not found' row)
+
+  table initialize( target, { Seating, inside, balcony, outside, bar } );
+
+  echo("Target table before lookup:");
+  table list( target );
+
+  count[] = table expand fast smart ignore case
+        ( target,   Seating, {Place to go, Table size},
+          lookup, Ambience, {Restaurant Name, Table size}, {}, true, Counter );
+
+  echo("Lookup table:");
+  table list( lookup );
+
+  echo("Target table after lookup (", count[], " items found):");
+  table list( target );
+

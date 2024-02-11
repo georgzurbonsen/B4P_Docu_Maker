@@ -1,0 +1,47 @@
+﻿#!/usr/local/bin/b4p
+
+  my file[] = "My attributes.json";
+  attribute write ( "", my file[], { Name, First Name }, Nic );  // Use 'write' in 1st call so it creates the JSON file
+  attribute write ( "", my file[], { Name, Middle Initial }, M. );
+  attribute modify( "", my file[], { Name, Middle Initial }, N. );
+  attribute write ( "", my file[], { Name, Last Name },  Nicholas );
+  attribute write ( "", my file[], { Name, Graduated at MIT }, true  );
+  attribute write ( "", my file[], { Name, Birth Date },  date( "2000-02-03")  );
+
+  attribute listing( "", my file[], Name, listing[] );
+  echo("List all attribute names behind 'Name': ", listing[] );
+
+  for all parameters( listing[], attribute name[] )
+  {
+      attribute read( "", my file[], {Name, attribute name[]}, attribute value[] );
+      echo("    ", attribute name[], ": ", attribute value[] );
+  }
+
+  echo(new line, "Take a quick look at the JSON file:" );
+  table load( t, my file[], TEXT );
+  table list (t);
+
+  echo("Try deleting some items");
+
+  res[1] = attribute delete( "", my file[], {Name, Birth Date });
+  res[2] = attribute delete( "", my file[], {Name, Graduated at Harvard } );
+  res[3] = attribute delete( "", my file[],  Name );
+
+  echo("Success: Delete birth date: ", res[1],";  Harvard U.: ", res[2], ";  Name: ", res[3] );
+
+  for all parameters( listing[], attribute name[] )
+  {
+      attribute read( "", my file[], {Name, attribute name[]}, attribute value[] );
+      echo("    ", attribute name[], ": ", attribute value[] );
+  }
+
+  echo("Try removing the Name");
+
+  attribute remove( "", my file[], Name );
+
+  echo(new line, "Take a quick look at the empty JSON file:" );
+  table load( t, my file[], TEXT );
+  table list (t);
+  file delete( my file[] );
+
+

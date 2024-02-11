@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+  b[] = 12; 
+  // Want to compare b[] == 9 and include the result in the parameter set between 'false' and 12
+  // Good luck!
+
+  a[0] = { 3, 6, false, b[] =  9 , 12, 15 }; // Comparison has hijacked the last two parameters
+  a[1] = { 3, 6, false,(b[] =  9), 12, 15 }; // OK
+  a[2] = { 3, 6, false, b[] == 9 , 12, 15 }; // OK
+
+  for all variables( a[], b[] ) echo( b[] );

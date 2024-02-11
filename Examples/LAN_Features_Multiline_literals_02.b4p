@@ -1,0 +1,27 @@
+﻿#!/usr/local/bin/b4p
+example[A] = """This 1st
+text fits on
+3 rows""";
+
+example[B] = """
+This 2st
+text fits on
+3 rows""";
+
+example[C] = """
+
+This 3rd
+text fits on
+5 rows (blank rows above and below)
+
+""";
+
+example[D] = """Use Following quotation marks: "Hello" or 'Hello' or '''Hello'''.""";
+
+
+echo("--------");
+for all variables( example[], ex[] )
+{
+    echo(ex[]);
+    echo("--------");
+}

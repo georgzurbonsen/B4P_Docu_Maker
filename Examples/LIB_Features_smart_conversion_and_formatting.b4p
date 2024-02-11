@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+  for all parameters( { 5678.91, 0, true, "Abc" }, v[] )
+  {
+      echo( str( v[], {
+          { positive, "#,##0.0", de_ch },
+          { string,  "x x x x", '', '-' },
+          { numeral,  "0 'zero or negative'" },
+          { boolean,  "'Boolean: ' TT" } } ) );
+  }

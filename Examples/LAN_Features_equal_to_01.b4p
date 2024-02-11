@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+  d [] = date('2020-07-14');
+  dt[] = date('2020-07-14 12:30:00');
+  t [] = date('12:30:00');
+  o [] = date(''); // blank date
+  dz[] = date('2020-07-14 12:30:01');
+
+  a[0] = d[] = dt[];   // true, dates same, time not compared
+  a[1] = t[] = dt[];   // true, times same, date not compared
+  a[2] = d[] = date("2020-07-15") - 1; // true
+  a[3] = dt[] = dz[];   // false (time differs)
+  
+  for all variables( a[], b[] ) echo( b[] );

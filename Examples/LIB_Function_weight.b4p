@@ -1,0 +1,15 @@
+﻿#!/usr/local/bin/b4p
+  dim( a[], 10, 0 ); // Level 1
+  a[0] = null();
+
+  dim( a[3], 5, 0 ); // Level 2
+  a[3,0] = null();
+  a[3,1] = null();
+  structure( a[3,2], { Ha, He, Hi, Ho }, { 1, 2, 3, 4 } ); // Level 3
+
+  see( a[] );
+
+  for all parameters( { all, members, valid, valid members, leaves, valid leaves }, option[] )
+      echo( option[], '  --  weight: &tab32;', weight( a[], option[]), "   Profile: ", weight profile( a[], option[]) );
+
+  // Note: '&tab32;' is a B4P specific HTML like entity to advance to any tab position between 1 and 300.  Here position 32 is chosen.

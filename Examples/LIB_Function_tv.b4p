@@ -1,0 +1,2 @@
+﻿#!/usr/local/bin/b4p
+      echo( tv ( 100, 0.05, 0.12 ) ); // Returns 1500

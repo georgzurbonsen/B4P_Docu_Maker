@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+      directory create( My Folder );
+
+      file copy ( {3 : Example_Program.b4p}, { Test123.txt, Test456.txt, "My Folder\Test789.txt" } );
+      echo(file delete multiple all ( ".", "Test???.txt" ) ); // Returns 2
+
+      file copy overwrite ( {3 : Example_Program.b4p}, { Test123.txt, Test456.txt, "My Folder\Test789.txt" } );
+      echo(file delete recursive all ( ".", "Test???.txt" ) ); // Returns 3
+
+      directory delete( My Folder );
+

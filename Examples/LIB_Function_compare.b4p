@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+  a[] = 3; b[] = 5; c[] = 7;
+  ex[] = ">6";
+
+  echo("Greater than 4: ", compare( a[],  >4 ), " ", compare( b[],  >4 ), " ", compare( c[],  >4 ) );
+  echo("Greater than 6: ", compare( a[],:ex[]), " ", compare( b[],:ex[]), " ", compare( c[],:ex[]) );
+
+  // Note the required colon.  Otherwise ex[] is seen as variable to compare with.

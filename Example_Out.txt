@@ -1,0 +1,25 @@
+
+Row #: Code Text _______________________________________________________
+   10: table delete rows               ( presidents, table length( presidents ) -1 );
+   11: table process all cells         ( presidents, [.] = replace all( str([.]), { '[?]', new line, '- '}, {'','','-' } ) );
+   12: 
+   13: // Remove the blank column originally containing portraits and put president name into all rows
+   14: 
+   15: 
+   16: table save( presidents, "as saved.csv" );
+   17: 
+   18: table delete columns            ( presidents, {Portrait, Party } );
+   19: table rename column headers   ( presidents, {"Term", "Party (1)","Name (Birth–Death)"}, {Period, Party,President} );
+                                                                                                                           ^
+Function call: table rename column headers(presidents,{'Term','Party (1)','Name (Birth–Death)'},{'Period','Party','President'})
+Table headers: No.,Name (Birth–Death),Term[14],Party[15],Party[15] (1),Election,Vice President[16]
+
+2nd function parameter (existing columns to rename) = {'Term','Party (1)','Name (Birth–Death)'}:
+
+Header name 'Term' not found.
+Specified table column name or number is invalid.
+Code execution will stop.  Going to interactive mode
+-------------------------------------------------------------------------------
+
+Type 'help' for help, 'docs' or 'toc' for online B4P documentation.
+>> 

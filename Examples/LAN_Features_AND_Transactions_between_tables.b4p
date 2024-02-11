@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals1,
+      { { Name,  Leg count, Special ability  },
+        { Owl,   2,         Night vision     },
+        { Dog,   4,         Sensitive nose   },
+        { Ape,   2 or 4,    Relatively smart } } );
+
+  table initialize( animals2,
+      { { Name,  Leg count, Special ability, Weapon  },
+        { Bee,   6,         Makes honey,     sting   },
+        { Gnu,   4,         Knows UNIX,      horns   },
+        { Cat,   4,         Empathy to humans, sharp claws } } );
+
+  [ animals1: Name, Dog, .. ] &<== [ animals2: Name, Cat, ]; // sharp claws will not be copied due to &-Rules
+  [ animals1: {Name,Leg count}, 3 ]  &<== [ animals2: Name, Bee, { Weapon, Name } ]; // Only name will be transferred: Bee
+  [ animals2: Name, 2 ] &<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers
+
+  table list( animals1 ); // Cat with sensitive nose, relatively smart bee
+  table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu.

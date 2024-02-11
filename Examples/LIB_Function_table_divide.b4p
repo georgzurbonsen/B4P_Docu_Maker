@@ -1,0 +1,22 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( numerator,
+      { { Father,    Mother,   Child,   Age },
+        { Franz,     Helga,    Harald,    5 },
+        { Franz,     Helga,    Maria,     4 }, // No match - different parents
+        { Franz,     Ursula,   Sabine,    2 }, // "
+        { Moritz,    Melanie,  Gertrud,   7 },
+        { Moritz,    Melanie,  Maria,     4 }, // Match
+        { Moritz,    Melanie,  Sabine,    2 }, // Match
+        { Peter,     Lisa,     Robert,    9 },
+        { Johann,    Lisa,     Maria,     4 }, // Match
+        { Johann,    Lisa,     Sabine,    2 }  // Match
+      } );
+
+  table initialize( denominator,
+      { { Child,   Age },
+        { Maria,     4 },
+        { Sabine,    2 } } );
+
+  table divide( numerator, denominator, quotient );
+
+  table list( quotient );

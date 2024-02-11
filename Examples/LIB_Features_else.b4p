@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+
+  define procedure ( else echo, {{ contents, all }} )
+  {
+      echo("Haha! Cought you!!  You tried to output ", contents[]);
+  }
+
+  define procedure( test 1, {{ value, numeral }} )
+  {
+      if (value[] = 5)
+      {
+          echo(five);
+      }
+      else: echo(not five); // This is the right formulation
+  }
+
+  define procedure( test 2, {{ value, numeral }} )
+  {
+      if (value[] = 5)
+      {
+          echo(five);
+      }
+      else echo(value[]); // Oops! Forgot the colon. Calling 'else echo' as procedure.
+  }
+
+  test 1 ( 5 );
+  test 1 ( 6 );
+  test 2 ( 5 ); // Watch the output
+  test 2 ( 6 ); // Watch the output, too

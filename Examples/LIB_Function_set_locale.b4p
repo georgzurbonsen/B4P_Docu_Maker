@@ -1,0 +1,17 @@
+﻿#!/usr/local/bin/b4p
+    orig locale[] = local settings[locale];
+    echo("Keep the original locale in order to restore orig. settings later on: ", orig locale[] );
+
+    date[] = date( "2020-01-14" );
+    num[] = 12345678.90;
+
+    for all parameters( { en_IN, es_US, de_AT, it_IT, Switzerland }, loc[], i[] )
+    {
+        echo(loc[],":");
+        set locale( loc[] );
+        echo( str( date[], "  Tttt, DD.Mmmm.YYYY", local ) );
+        echo( str( num[],  "  #,###.##", local ) );
+        if (i[]==0) list system variables( "local settings" ); //  Do this for 1 example
+    }
+
+    set locale( orig locale[] );

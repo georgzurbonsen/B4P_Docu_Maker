@@ -1,0 +1,30 @@
+﻿#!/usr/local/bin/b4p
+
+  pets[] = "All my pets";
+  structure( pets[], { Cat, Dog, { Shepard, Dachshund }, Bird,  { Parrot,  Parakeet } },
+             { Katze, Hund, { Schäfer, Dackel }, Vogel, { Papagei, Sittich } } );
+  array( pets[Cat], { Hauskatze, Puma, Tiger } );
+
+  see( pets[] );
+
+  variable save( pets[], "Outputs\pets.json" );
+
+  // With 'All my pets' defined in the base variable, the JSON code will be a 'plain array'
+  // beginning with '[' and not with '{^'.
+
+  table load( t, "Outputs\pets.json", TEXT ); // Show the JSON file
+  table list( t );
+
+  echo("Load the JSON file, assuming it originated from B4P output");
+  variable load( animals[], "Outputs\pets.json", JSON B4P );
+
+  see( animals[] ); // You will see that all contents are preserved.
+
+  echo("Now load the JSON file as if the file originated from somewhere else ...");
+
+  // B4P saves intermediate nodes in intermediate arrays containing 2 elements:
+  // Element 0:  The base variable at that level
+  // Element 1:  Further structured data
+
+  variable load( animals[], "Outputs\pets.json", JSON );
+  see( animals[] );

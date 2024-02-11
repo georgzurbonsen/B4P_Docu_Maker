@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+  define function( foo, {{ old value, string }, {new value, string}, {header name, string}, {row number, numeral}} )
+  {
+      if (num(new value[])<>0)
+      {
+           return( select if ( new value[] > old value[], "Older", "Younger" ) );
+      }
+      return( old value[] + " --> " + new value[] );
+  }
+
+  table initialize( t1,
+        { { Name, Age, Town },
+          { Ann,  35,  Boston },      { Bea,  45,  Cambridge },
+          { Beat, 46,  Chicago },     { Chuck,55,  New Heaven },
+          { Emil, 21,  Albany }} );
+
+  table initialize( t2,
+        { { Name, Age, Town },
+          { Ann,  34,  Boston },      { Bea,  46,  Cambridge },
+          { Beat, 46,  Chicago },     { Chuck,55,  New Haven },
+          { Dale, 65,  Newport }} );
+
+  table compare ( t2, t1, report, Name, differences, foo, true );
+
+  table delete columns( report, {Statistics Parameters, Statistics Values} ); // Ignore for now
+  table delete blank rows( report );
+  echo("Comparison Report:");
+  table list ( report );
+

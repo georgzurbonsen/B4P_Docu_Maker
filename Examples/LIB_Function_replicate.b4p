@@ -1,0 +1,3 @@
+﻿#!/usr/local/bin/b4p
+      echo( replicate( Café, 10 ) );
+      echo( replicate characters( Café, 10 ) );

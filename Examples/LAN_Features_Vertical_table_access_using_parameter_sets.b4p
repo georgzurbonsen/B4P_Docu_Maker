@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  echo( [ table:  1, {12,4,8} ] );     // Zürich, Boston, Venice
+  echo( [ table: -7, {-3,-11,-7} ] );
+  echo;
+
+  echo( [ table: City, {12,4,8} ] );
+  echo( [ table: City, { Zürich, Boston, Venice } ] );   // Loads own contents
+  echo( [ table: City, { Zürich, 4, Venice } ] );        // 4 -> Boston
+  echo;
+  echo( [ table: City, {  } ] );              // Returns empty set
+  echo;
+  echo( [ table: City, { 12,4,8 }, Moving along ] ); // Tram, walking, gondola
+  echo;
+  
+  echo( [ table : 1, { 12,4,8}, -1 ] );
+  echo( [ table : -7, {-3,-11,-7}, 7 ] );

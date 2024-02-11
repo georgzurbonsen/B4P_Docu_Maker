@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( table 1,
+  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  table insert rows( table 1, 1, 2 );  // Insert 2 rws above row 1 (below header row)
+  table insert rows( table 1, -1, 1 ); // Insert 1 row before last row
+
+  table list( table 1 );

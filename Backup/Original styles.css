@@ -1,0 +1,396 @@
+
+body
+{
+  font-family: calibri,arial,sans-serif;
+}
+
+span
+{
+  font-family: calibri,arial,sans-serif;
+}
+
+
+code
+{
+  font-family: Lucida console,Courier New,Courier,monospace;
+  font-size: 12px;
+}
+
+/* color the text */
+
+.black_text {
+  color: black;
+}
+
+.navy_text {
+  color: navy;
+}
+
+.red_text {
+  color: red;
+}
+
+.bold_text 
+{
+    font-weight: bold;
+}
+
+
+a {
+    color: navy;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    background: #ccc;
+}
+
+
+
+
+ul.bullets
+{
+  list-style: disc outside none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+ul ul.bullets
+{
+  list-style: circle outside none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+li.bullets
+{
+  line-height: 100%;  
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+li li.bullets
+{
+  line-height: 100%;  
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+
+div.navi:hover
+{
+    color: blue;
+    background: #ccc;
+}
+
+div.navi-selected
+{
+    background: #ddd;
+}
+
+
+li.navi
+{
+  font-weight: bold;
+  line-height: 100%;  
+  text-indent: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+}
+
+li li.navi
+{
+  font-weight: 500;
+  line-height: 100%;  
+  text-indent: 8px;
+  padding-left: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
+}
+
+li li li.navi
+{
+  font-weight: normal;
+  line-height: 100%;  
+  padding-left: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
+}
+
+li li li li.navi
+{
+  line-height: 100%;  
+  padding-left: 9px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
+}
+
+li li li li li.navi
+{
+  line-height: 100%;  
+  padding-left: 11px;
+  padding-top: 0px;
+  padding-bottom: 1px;
+  font-size: 12px;
+}
+
+.booktitle_field
+{
+  font-weight: bold;
+  background-color: #808080;
+  color: white;
+  padding-left: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px
+}
+
+
+
+/* Format the layout */
+
+.logo {
+  float:left;
+  padding: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background: #F8F8F8;
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  font-size: 12px;
+  color: black;
+}
+
+
+/* Style the header */
+.header {
+  float:left;
+  padding: 5px;
+  background: #F8F8F8;
+  width: 1000px;
+  height: 80px;
+  text-align: left;
+  font-size: 20px;
+  color: black;
+}
+
+.wrapper {
+
+	width: 1320px;
+}
+
+/* Create two columns/boxes that floats next to each other */
+.nav {
+  clear:both;
+  float:left;
+  width: 300px;
+/*  height: 300px; only for demonstration, should be removed */
+  background: #F8F8F8;
+  padding: 5px;
+}
+
+/* Style the list inside the menu */
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.article {
+  float: left;
+  padding: 5px;
+  width: 1000px;
+  background: #FFFFFF;
+
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  width: 1300px;
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+
+h1, h2, h3, h4, h5, h6
+{
+  margin-top:10px;
+  margin-bottom:3px;
+}
+
+p
+{
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+
+
+h3
+{
+  color: navy;
+  font-size: 175%;
+}
+
+h4
+{
+  font-size: 125%;
+  color: navy;
+}
+
+h5
+{
+  font-size: 100%;
+  color: black;
+}
+
+
+
+
+
+table
+{
+  border-spacing: 0px;
+  table-layout: fixed;
+ border-collapse: collapse;
+}
+
+table, tr, th, td {
+  padding: 3px;
+}
+
+th, td
+{
+  padding: 3px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid black;
+}
+
+/* Table style for overall outline */
+
+.outline th, .outline td, .outline tr
+{
+    border: 0px;
+}
+
+
+.boxonly th, .boxonly td, .boxonly tr
+{
+    border: 0px;
+}
+
+.noframe table, .noframe th, .noframe td, .noframe tr
+{
+    border: 0px;
+}
+
+.simple th, .simple td, .simple tr
+{
+  border: 1px solid black;
+}
+
+
+.noframe_1stcolbold th, .noframe_1stcolbold td, .noframe_1stcolbold tr
+{
+    border: 0px;
+    padding-left: 0px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.noframe_1stcolbold td:first-child
+{
+    font-weight: bold;
+}
+
+
+.bold_column_1 td:first-child
+{
+    font-weight: bold;
+}
+
+.bold_column_2 td:nth-child(2)
+{
+    font-weight: bold;
+}
+
+.bold_column_3 td:nth-child(3)
+{
+    font-weight: bold;
+}
+
+
+
+.zebra tr:nth-child(even) {
+  background-color: #eee;
+}
+.zebra tr:nth-child(odd) {
+  background-color: #fff;
+}
+.zebra th {
+  color: white;
+  background-color: black;
+}
+
+
+
+
+.code_background_color {
+    background-color: #f0f0f0;
+}
+
+.output_background_color {
+    background-color: #f0f4ff;
+}
+
+.white_background_color {
+    background-color: #ffffff;
+}
+
+
+/*
+
+
+table#full
+{
+    border: 0px
+    border-spacing: 25px;
+}
+
+table#full th, table#full td, table#full tr
+{
+    border: 1px solid red;
+}
+
+
+
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+  background-color: #fff;
+}
+table#t01 th {
+  color: white;
+  background-color: black;
+}
+
+
+
+*/

@@ -1,0 +1,59 @@
+//
+B4PDOCU.START
+
+"Football Club Merger - Program" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Example: Merge football clubs" ], // 1st overview item is used for HTML file name.  All overview items can be cross-referenced.
+
+
+    "Description 01:Merging two footbal teams - Done in one step"::
+
+	The following code examples shows how the two soccer clubs are merged with a handful of statements.
+
++++,
+
+"Examples 01:The Full Program"::
+include ( Support Library );
+include ( Utility Library );
+include ( Office Library );
+include ( Style Library );      // Include this library if you want to use the 'table style ...' functions.
+    table load excel file       ( football club, "Examples\Football Membership List.xlsx" ); 
+    table load                  ( soccer club,   "Examples\Soccer Membership List.csv" ); // Beginners are Novices here
+
+    table rename column headers ( football club, { Family Name, City }, { Last Name, Town } );
+    table process selected rows ( soccer club,   [Level]==Novice, [Level]=Beginner );
+    table merge                 ( football club, soccer club, { Last Name, First Name }, { Level, Town }, append, " or " );
+    table sort rows             ( soccer club,   { Level, Last Name,  First Name });
+    table rearrange columns     ( soccer club,   { Level, First Name, Last Name, Town } );
+
+
+    // Done processing.  Before saving to Excel fie, do some formatting.
+
+    table style theme           ( soccer club, Zebra );
+    table style auto width      ( soccer club );
+    table process selected rows ( soccer club, ([Level] = '*Questionable*'),
+        table style cells           ( soccer club, Level, row(), single, text color, red ) );
+
+
+    // Save the work as HTML and Excel
+
+    translate style attributes for html (soccer club);
+    table save                  ( soccer club, "Images\New Soccer Club Membership List.html", HTML );
+
+    table save excel file       ( soccer club, Soccer Club, "Images\New Soccer Club Membership List.xlsx" );
+    table list                  ( soccer club );
+    echo ("New soccer club has ", table length( soccer club ), " members. Enjoy playing.");
+
++++,
+    "Output 01:The Output": "automatic",
+    "Description 02:View the generated Excel and HTML files with the formatting included:"::
+
+	Test Click on the file name open the file with Excel (.xlsx) :<br>
+	<a href="Images/New Soccer Club Membership List.xlsx" >New Soccer Club Membership List.xlsx</a>, and <br>
+	<a href="Images/New Soccer Club Membership List.html" >New Soccer Club Membership List.html</a>.
+    +++
+
+}
+
+B4PDOCU.STOP

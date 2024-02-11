@@ -1,0 +1,16 @@
+Vehicle Name;Vehicle Type;Equipment;Power;Speed;Qty;Comments
+AC Loco;E-Loco;Converter;5400;;2;
+AC Loco;E-Loco;Motor;1200;160;4;
+AC Loco;E-Loco;Gear;;140;4;Different speeds
+AC Loco;E-Loco;Control;;;1;Safe TCMS
+AC Hybrid;E-Loco;Converter;6000;;1;
+AC Hybrid;E-Loco;Motor;6000;120;4;Power  too high, speed too low
+AC Hybrid;E-Loco;Motor;1000;150;4;But 2 motors listed
+AC Hybrid;E-Loco;Control;;;1;
+AC Hybrid;E-Loco;Bogie;;150;;Bogie not in reference list
+AC Hybrid;E-Loco;Engine;300;;1;
+DE Loco;DE-Loco;Engine;2000;;4;Alternator missing !
+DE Loco;DE-Loco;Converter;2400;;1;
+DE Loco;DE-Loco;Motor;600;140;4;Wrong power
+DE Loco;DE-Loco;Gear;;;4;
+DE Loco;DE-Loco;Control;;;4;

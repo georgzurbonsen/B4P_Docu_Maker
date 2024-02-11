@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals1,
+      { { Name,  Surface,   Leg count, Special ability  },
+        { Owl,   Feathers,  2,         Night vision     },
+        { Dog,   Fur,       4,         Sensitive nose   },
+        { Ape,   Hair,      2 or 4,    Relatively smart } } );
+
+  table initialize( animals2,
+      { { Name,  Leg count, Special ability, Weapon  },
+        { Bee,   6,         Makes honey,     sting   },
+        { Gnu,   4,         Knows UNIX,      horns   },
+        { Cat,   4,         Empathy to humans, sharp claws } } );
+
+  [ animals2: Name, Gnu, .. ] +<<= [ animals1: Name, Dog, Special ability ];  // Dog: Nose without Dog
+  [ animals1: Name, Owl,    ] +<<= [ animals2: Name, Bee, .. ]; // Bee without sting
+
+  table list( animals1 );  // Dog moved to table 2 (just the nose)
+  table list( animals2 );  // Bee moved to table 1

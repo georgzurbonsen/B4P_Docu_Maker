@@ -1,0 +1,273 @@
+//
+B4PDOCU.START
+
+
+
+
+"Starting on Linux":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting B4P on Linux" ],
+    "Description 01:Introduction"::
+
+    The <i>ubuntu</i> distribution is the preferred choice for B4P.  All verifications have been
+    carried out on ubuntu.
+
+    This section provides an introduction on how to __edit B4P Programs on Linux__ as well
+    as different variants to start the B4P Data Engine and B4P Programs:
+
+    * __Starting a B4P Program with Linux__
+    * __Starting the B4P Data Engine with Linux__
+
+	+++,
+    "Description 02:The personal B4P folder"::
+
+    Under Linux, the personal B4P folder is subdirectory <b>b4p</b> in your home directory.
+    This folder, which is also the initial __starting directory__ after completing the installation, contains some a few programs:
+    * <b>main.b4p</b> - Started if B4P is started without B4P program and finds this directory as starting directory.
+    * <b>hello world.b4p</b> - Displays 'Hello World'
+    * <b>interactive.b4p</b> - Starts B4P and goes directly into __interactive mode__
+    * <b>start B4P here.b4p</b> - Simple utility to change starting directory.  Copy this file into a different directory and run it from there. B4P will then look for "main.b4p" in that location.
+    * <b>B4P Reference Manual.b4p</b> - Opens online documentation
+
+    +++,
+    "Examples 02:"::
+username@domain:~$ cd b4p
+username@domain:~/b4p$ ls
+'B4P Reference Manual.b4p'  'hello world.b4p'   interactive.b4p   main.b4p  'start B4P here.b4p'
+username@domain:~/b4p$
+    +++
+},
+	
+
+
+
+"Linux Edit B4P Programs":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Edit B4P Programs on Linux" ],
+
+    "Description 01:Edit B4P on Linux"::
+
+    B4P programs are standard text files in ANSI or UNICODE formaT. B4P will recognize the character format
+    automatically.
+
+    LINUX provides a wide selection of editors, such as <i>vi</i>, <i>emacs</i>, <i>gedit</i> and <i>Visual Studio Code</i>.  They are all fine as long
+    the do not embed any text formattings such as different fonts, colors, etc.
+
+    +++
+
+},
+
+
+
+"Linux Start B4P Programs":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting a B4P Program with Linux" ],
+
+    "Description 01:Starting a B4P Program on Linux - Hello World"::
+
+    Two possibilites exist to start B4P programs:
+
+    * __Start B4P Programs as Executables on Linux__, e.g. by typing <b>./"hello world.b4p"</b> . <br>\
+      <u>Good to know:</u> Wildcards are allowed as long the file does not become ambiguous, e.g. <b>./hello*</b> .
+    * __Linux Start B4P to run B4P programs__, e.g. <b>b4p "hello world.b4p"</b> .
+
+    Quotation marks are needed on files if they contain spaces.
+
+    +++
+},
+
+"Linux Start B4P Programs as Executables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Start B4P Programs as Executables on Linux" ],
+
+    "Description 01:Starting Hello World - Do the following steps"::
+
+    Make sure that the B4P programs you are creating fulfill follwing two requirements:
+
+    * The mode settings must allow file execution.  Use <b>chmod 755 <i>filename.b4p</i></b> to do so
+    * Add the chebang statement at the very beginning of the file: <b>#!/usr/local/bin/b4p</b>.  Linux recognizes the \
+      chebang and ensures that B4P and not a different runtime engine or interpreter, for example the Linux shells, is trying to run this program.
+
+    <u>Good to know:</u> The "hello world.b4p" file does already fulfilll these two prerequistes.
+
+    <br><br>
+
+    <u>Note:</u>If B4P is started for the first time, the it will search and memorize the location of the 7-Zip compression utility.
+    This will happen only once after the installation and needs a few seconds of time.
+
+    "Examples 01:Go into the available B4P directory"::
+username@domain:~$ cd b4p
+username@domain:~/b4p$ ls
+	+++,
+
+    "Output 01:"::
+'B4P Reference Manual.b4p'   interactive.b4p  'start B4P here.b4p'
+'hello world.b4p'            main.b4p
+	+++,
+
+    "Examples 02:Take a look at 'hello world.b4p'"::
+username@domain:~/b4p$ cat 'hello world.b4p'
+	+++,
+
+    "Output 02:"::
+#!/usr/local/bin/b4p
+
+// The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a "Shebang".
+// It specifies the language interpreter to use when started as an executable file.
+// You can delete this line it if you plan to use B4P under Windows only.
+
+// Shebangs are ignored in Microsoft Windows environments.
+
+echo(Hello World);
+	+++,
+
+    "Examples 03:Run the program"::
+username@domain:~/b4p$ ./'hello world.b4p'
+	+++,
+
+    "Output 03:Note - The 7-Zip utility message occurs only one single time after installation"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensed info ...
+
+Look for the 7Z compression/decomopression utility
+
+Found following program file paths: {'C:\Program Files','C:\Program Files (x86)'}
+ - 7z.exe Zip-utility found in {'C:\Program Files\7-Zip\7z.exe'} (OK)
+
+Hello World
+Done - Press ENTER key
+username@domain:~/b4p$
+	+++,
+
+    "Examples 04:Run the program again, using a wildcard"::
+username@domain:~/b4p$ ./hello*
+	+++,
+
+    "Output 04:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensed info ...
+
+Hello World
+Done - Press ENTER key
+username@domain:~/b4p$
+	+++
+},
+
+
+
+
+"Linux Start B4P to run B4P programs":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Linux Start B4P to run B4P programs" ],
+
+    "Description 01:Starting Hello World - Do the following steps"::
+
+    <u>Note:</u>If B4P is started for the first time, the it will search and memorize the location of the 7-Zip compression utility.
+    This will happen only once after the installation and needs a few seconds of time.
+
+    "Examples 01:Go into the available B4P directory"::
+username@domain:~$ cd b4p
+username@domain:~/b4p$ b4p "hello world.b4p"
+	+++,
+
+    "Output 01:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensed info ...
+
+Hello World
+Done - Press ENTER key
+username@domain:~$
+	+++
+},
+
+
+
+"Linux Start B4P Data Engine" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting the B4P Data Engine with Linux" ],
+
+    "Description 01:Starting a B4P Program on Linux"::
+
+	B4P can also be started without specifying a dedicated file name.  In this case, it will first look for "main.b4p" in the current
+	directory (if started from command line).  If the file is not found, then it will look for "main.b4p" in __starting directory__.
+	If not successful, then interactive mode is started.
+
+	<br><br>
+
+	In the next example, B4P starts and finds 'main.b4p' in the initial starting directory which is the subdirectory 'b4p' in your home directory.
+
+	+++,
+    "Examples 01:Start B4P Data Engine"::
+username@domain:~$ b4p
+	+++,
+
+    "Output 01:"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensing info ...
+
+Starting 'Main.b4p' in two seconds...  Press any key to interrupt. 
+
+Started Main.b4p.
+This is the main program
+Feel free to add some code here ...
+
+Type 'help' for help, 'docs' for online B4P documentation.
+>> 
+	+++,
+    "Description 02:B4P started"::
+
+	You are in interactive mode. The next example shows that B4P as entered into the starting directory (subdirectory b4p)
+	and that you can start 'hello world'.
+
+   "Examples 02:Start B4P Program from Interactive mode"::
+>> $ pwd
+	+++,
+
+    "Output 02:"::
+/home/username/b4p
+	+++,
+
+    "Examples 03:"::
+>> start(hello world.b4p)
+	+++,
+
+    "Output 03:"::
+Hello World
+	+++,
+
+    "Examples 04:"::
+>> exit
+	+++,
+
+    "Output 04:"::
+Done - Press Enter Key
+username@domain:~$
+	+++
+
+}
+
+
+B4PDOCU.STOP
+

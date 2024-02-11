@@ -1,0 +1,30 @@
+﻿#!/usr/local/bin/b4p
+  echo(new line, "Example on vectors:");
+  a[] = { 8, 4, 2, 1 };
+  b[] = { 1, 2, 3, 4 };
+  c[] = { 10, 11 };
+  d[] = c[];
+  e[] = c[];
+
+  a[] -^= b[]; // { 7, 2, -1, -3 }
+  echo(a[]);
+
+  c[] +^= b[]; // {11, 13, 3, 4}
+  echo(c[]);
+
+  d2[] +^:= b[]; // With repetition suffix: {11, 13, 13, 15}
+  echo(d[]);
+
+  e[] /^= 2; // With a scalar:  { 5, 5.5 }
+  echo( e[] );
+
+  echo(new line, "Example on matrices:");
+
+  a[] =  { { 8, 7, 6 }, { 1, 2, -1 }, { -5, 4, 6 } };
+
+  a[] -^^= 1; // Subtract 1 from all elements
+
+  echo( a[] );
+
+  a[] *^^= { { 1,1,1}, {2,2,2}, {3,3,3} };
+  echo( a[] );

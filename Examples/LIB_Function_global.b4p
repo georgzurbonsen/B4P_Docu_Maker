@@ -1,0 +1,21 @@
+﻿#!/usr/local/bin/b4p
+  d[] = 10; // Global variable defined outside the function
+
+  define procedure ( foo )
+  {
+      a[] = 1;
+      global
+      {
+          b[] = 2;
+          a[c] = 3; // This one stays a local variable
+
+          delete( d[] ); // If not in the global block, then exception happens.
+      }
+      echo( "Scope of b[] : ", scope( b[] ) ); // globa
+      echo( "Scope of a[] : ", scope( a[] ) ); // local
+      echo( "Scope of a[c]: ", scope( a[c]) ); // local
+      echo( "Scope of d[] : ", scope( d[] ) ); // Not found.
+  }
+
+  foo;
+  echo( "Global variable b[] = ", b[] );

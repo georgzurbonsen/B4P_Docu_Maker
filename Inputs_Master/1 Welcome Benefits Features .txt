@@ -1,0 +1,181 @@
+
+//
+B4PDOCU.START
+
+"Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Overview" ],
+
+    "Description 01:"::
+
+
+<<<<<<< HEAD
+	<img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
+=======
+	B4P is a data integration and analytics engine with built-in programming language, and is purpose-built for integration
+	and analysis of large complex datasets, generating results rapidly in Excel and other business intelligence tools. 
+>>>>>>> 7b5d8819f8fff86b97f407559300a8e46be00421
+
+
+	+++,
+
+    "Description 02:Getting Started"::
+
+	=== 300, 700, noheader, noframe column_1_bold
+	<a href="Images/B4P_Introduction.pdf" target="_blank"><b>Presentation</b></a>		| Introduction into the B4P Data Engine
+	__User Guide__			| Overview and getting started
+	__Language Guide__		| Comprehensive introduction to the feature-rich B4P language
+	__Function Library Guide__	| Library containing ca. 800 procedures and functions
+	===
+
+	+++
+},
+
+
+"Problem Statement" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Problem Statement" ],
+
+<<<<<<< HEAD
+    "Description 01:"::
+=======
+	The B4P Analytics Engine ("Data Engine") is a powerful yet light-weight interpreter 
+	which executes the B4P language reliably and with high performance.
+	The B4P Data Engine is portable and optimized to run on Windows, LINUX 
+	and MacOS platforms with both 64-bit Intel/AMD and ARM processors.
+>>>>>>> 7b5d8819f8fff86b97f407559300a8e46be00421
+
+	<img src="Images/MAS_Problem_Statement_1.png" alt="Problem Statement">
+	
+	<br>
+	<br/><img src="Images/MAS_Problem_Statement_References.png" alt="Known Problems">
+
+    "Description 02:External References"::
+
+	[1] <a href="https://www.businessinsider.com/satya-nadella-excel-is-microsofts-best-consumer-product-2016-6" target="_blank">www.businessinsider.com/satya-nadella-excel-is-microsofts-best-consumer-product-2016-6</a><br>
+	[2] European Spreadsheet Risks Interest Group: <a href="https://eusprig.org/" target="_blank">https://eusprig.org/</a><br>
+	[3] <a href="https://www.forbes.com/sites/bernardmarr/2016/06/16/spreadsheet-reporting-5-reasons-why-it-is-bad-for-business" target="_blank">https://www.forbes.com/sites/bernardmarr/2016/06/16/spreadsheet-reporting-5-reasons-why-it-is-bad-for-business</a><br>
+	[4] <a href="https://www.forbes.com/sites/metabrown/2017/10/30/why-spreadsheets-are-eating-your-business-from-the-inside-out/" target="_blank">https://www.forbes.com/sites/metabrown/2017/10/30/why-spreadsheets-are-eating-your-business-from-the-inside-out/</a><br>
+	[5] <a href="https://www.marketwatch.com/story/88-of-spreadsheets-have-errors-2013-04-17" target="_blank">https://www.marketwatch.com/story/88-of-spreadsheets-have-errors-2013-04-17</a><br>
+	[6] <a href="https://www.cio.com/article/2438188/eight-of-the-worst-spreadsheet-blunders.html" target="_blank">https://www.cio.com/article/2438188/eight-of-the-worst-spreadsheet-blunders.html</a><br>
+	[7] <a href="https://www.businessinsider.com/excel-partly-to-blame-for-trading-loss-2013-2" target="_blank">https://www.businessinsider.com/excel-partly-to-blame-for-trading-loss-2013-2</a><br>
+	[8] <a href="https://blog.trginternational.com/7-worst-financial-fiascos-caused-by-excel-errors" target="_blank">https://blog.trginternational.com/7-worst-financial-fiascos-caused-by-excel-errors</a><br>
+	[9] <a href="https://www.forbes.com/sites/salesforce/2014/09/13/sorry-spreadsheet-errors" target="_blank">https://www.forbes.com/sites/salesforce/2014/09/13/sorry-spreadsheet-errors</a><br>
+	[10] <a href="https://www.nytimes.com/2003/10/30/business/fannie-mae-corrects-mistakes-in-results.html" target="_blank">https://www.nytimes.com/2003/10/30/business/fannie-mae-corrects-mistakes-in-results.html</a><br>
+
+
+
+
+
+	+++
+},
+
+
+"Features and Benefits" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Features and Benefits" ],
+    "Description 01:Key Features"::
+
+Bla Bla Bla
++++,
+
+    "Description 02:Key Benefits"::
+
+	The overall aim of B4P is to provide a tool which helps to solve sophisticated problems with 
+	multiple, large complex data sets:
+	* <b>Simple</b> procedural language easy to read, understand and lear.
+	* Powerful langauge semantics <b>minimizes the number of statements</b> needed to solve the problem.
+	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this
+	* <b>No programming bureaucracy</b> such as declaring all the variables you need.
+	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.
+	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly
+	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).
+	* The B4P Data Engine and all libary files are very lean, very robust and start quickly.
+	** Powerful table processing functions available such as merging, consolidating and applying pivots on tables
+	** Powerful vector and matrix operations available for high-performance calculations on your tables and data
+	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same B4P program on different platforms.
+
+	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro
+	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage
+	big data (e.g. indexing).  The syntax is, even though looking differently from other langauges, incredibly easy to understand and to use.
+	In contrast to other programming langages, much fewer statements and time are needed, no additional libraries need to be installed 
+	separately (like Panda for Python) and you experience unparalleled machine performance, forgetting the fact that B4P is an interpreted language.
+
+
+	+++,
+    "Description 03:No Graphic Gadgets"::
+
+	Intentionally, B4P does not make use of any visual features such as graphical user interfaces.  For visualization purposes, powerful
+	and highly standardized tools such as Microsoft Excel providie all features to do the visualziation, creating all required charts, etc.
+	to round up you presentation.   The philosophy of B4P is to do all data processing first and very rapidly, and creating final Excel files
+	for visualization purposes.
+
+	<br><br>
+	However, B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already
+	included (e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.).
+	+++
+
+
+},
+
+
+"Workflow Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Workflow Overview" ],
+    "Description 01:Workflow Overview - Focus on Solving Problems"::
+
+	Large scale data processing and analytics often follow a workflow process beginning with gathering 
+	all input data, cleaning up and verifying them, do the actual processing task and finally save the results
+	in the required data formats.
+
+	<br/>
+	<br/>
+
+	<br/><img src="Images/Description_Introduction_Flowchart_Blue.png" alt="B4P Typical Data Processing Steps">
+
+
++++
+
+}
+
+
+
+
+B4PDOCU.STOP
+
+
+/*
+
+	<br/><br/>
+
+	B4P is a language built on long-lasting experience handling large complex data
+	from different sources and providing efficient means to integrate, align an analyze the data quickly and efficiently.
+
+	* Learn the language quickly
+	* Low-Code: Minimizes the number of statements needed to solve challenging data processing problems
+	* Simple:  No advanced programming skills required
+	* Rapid: Minimizes the time required to find solutions for your problems
+	* Powerful: Provides maximum processing performance, especially with large data
+	* Legible: The language is easy to read and understand
+	* Universal: Able to access the Internet and negotiate with standard file formats like Excel, HTML, JSON, CSV, etc.
+	* Portable: The B4P Data Engine requires no further installation of external libraries
+	* Focused: Focus on the problem to solve, without wasting time coding algorithic details
+	* Comprehensie: Contains library of over 800 functions, with focus on table data processing
+
+
+	<br><br>
+	By experience, successful solutions have been provided already <b>during the first consultation</b> with colleagues who needed solutions for
+	their data processing needs.  They originally expected a cost and time estimation and a project plan for the project in order to approve the 
+	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem
+	and a lot of money saved.
+
+	<br><br>
+	The full web documentation has been compiled with a B4P program which extracts embedded raw documentation from source code and text files,
+	creates one master file (JSON) and generates all pages including tables of contents, illustrations, and code examples which are automatically executed
+	and their results included in the documentation.
+
+*/

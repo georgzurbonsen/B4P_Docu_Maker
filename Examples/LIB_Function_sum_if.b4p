@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+      echo( sum if  ( { 1, 2, 3, 4, 5 }, { 10, 8, 6, 4, 2 }, >4 ) ); // 6, because first 3 elements are added
+
+      echo( sum if  ( { 1, 2, 3, 4, 5 }, { 2, 8, 6, 4, 2 }, >=4, { a, b, c, d, e }, c..e ) );
+      // Returns 7 because comparisons of the 2nd-4th elements in 2nd parameter and last 3 elements in the 4th
+      // parameter givei true.  Intersecting both, the 3rd and 4th elements will be summed.
+
+      echo( sum if any  ( { 1, 2, 3, 4, 5 }, { 2, 8, 6, 4, 2 }, >=4, { a, b, c, d, e }, c..e ) );
+      // Returns 14 because comparisons of the 2nd-4th elements in 2nd parameter and last 3 elements in the 4th
+      // parameter give true.  Taking the union of both, the 2nd - 5th elements will be summed.
+
+      echo( join if ( { Jim, Jane, John, Kate, Nic }, { 25, 18, 30, 17, 40 }, >=20, {"(", ", ",")"} ) );
+      // Returns (Jim, John, Nic) because their ages are 20 or higher.

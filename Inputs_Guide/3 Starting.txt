@@ -1,0 +1,307 @@
+//
+B4PDOCU.START
+
+
+"Starting the Engine" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting the Engine" ],
+    "Description 01:Introduction"::
+
+	Windows, LINUX and MacOS provide easy means to start B4P, either by
+
+	* Starting the __B4P Data Engine__ directly, or
+	* Starting a __B4P Program__ directly.
+
+	The following sections provide B4P launching instructions for the operating systems Windows, Linux and MacOS.
+
+	+++
+},
+
+
+
+
+
+"Starting Behavior Basics":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting Behavior" ],
+    "Description 01:Introduction"::
+
+	As long B4P is started with a specified B4P program file, then the program file will start running immediately.
+	If the B4P Data Engine is started without a B4P file, then it does the following:
+
+	* Look for "main.b4p" in the current directory (if B4P Data Engine is started from command line)
+	* If not successful, then look for "main.b4p" in the starting directory.
+	* If still not successful, the __interactive mode__ is started.
+
+	If "main.b4p" is found, then B4P waits for 1-2 seconds allowing you to interrupt program execution to force entering into
+	__interactive mode__ directly.
+
+	<br><br>
+	<b>For advanced users:</b> For more details on the starting behavior, see section __Starting Behavior Advanced__.
+
+
+    "Description 02:What is a Starting Directory"::
+
+	B4P can memorize a starting directory where it will look for "main.b4p" whenever B4P is started without a program file name.
+	Two options are possible:
+
+	* Use the file <b>start B4P here.b4p</b>
+	* Use the function __starting directory__ interactively
+
+    "Description 03:Using 'start B4P here.b4p'"::
+
+	This file is found in your initial working directory (if enabled during installation process) or in the installation directory.
+	Make a copy of this program into the target directory and run it.
+
+
+    "Output 03:Example Output"::
+B4P - Beyond Former Performance
+_______________________________________________________________________________
+
+Version 10.00 Release Candidate 2 (2022-03-27)
+Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
+Licensing info ...
+
+
+    When starting, then Beyond4P now looks for 'Main.b4p'
+    in the following directory:
+    C:\Users\username\Documents\Programs\B4P
+Done - Press ENTER key
+	+++,
+
+    "Description 04:Using starting directory Function"::
+
+	In interactive mode, enter <b>starting directory("<i>full path name</i>")</b> to specify and memorize the starting directory.
+	For more details, see the B4P function description for __starting directory__.
+
+    +++
+
+},
+
+
+
+
+"Starting Behavior Advanced":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Starting Behavior Advanced" ],
+    "Description 01:Introduction (As beginner, you can skip this page)"::
+
+	The B4P Data Engine undertakes a few steps before the specified B4P is started up.  The flow chart shown below illustrates this.
+	Start-up begins with a common initialzation procedure, beginnign with identifying __command line switches__ if they are provided, and then
+	show a welcome-text (if not disabled with <b>-q</b> or <b>-w</b>), initialize all system variables and retrieve the locale settings from <b>B4P Locale Settings.json</b>
+	located in the application data directory.  The locale settings has originally been selected during installation, and the function __set locale(__) 
+	is available to change tem without new installation.
+
+	<br><br>
+
+	A decision point follows the initial sequence which does either branch right to load a specified B4P Program file, or to the left if no such file has been
+	specified, or straight down to enter interactive mode, e.g. with the __command line switch__ <b>-i</b>.  On the left-hand path, B4P looks for 'main.b4p' in the
+	current directory and then in the memmorized starting directory.  On the right-and path, B4P opens the specified program file.
+	In all three cases, unless if the command line switch <b>-w</b> is applied, the <b>B4P Init.b4p</b> initialization program in the library directory will be called to
+	carry out some initial preparations which include:
+
+	* "Utility Library": A collection of supplementary B4P functions
+	* "Zip Library": File compression and decompression
+	* "Office Library": Ability to access Microsoft office meta data and load Excel files
+	* "Style Library": Provides style and formatting features for tables saved in Excel or HTML format
+	* "Support Library": Comprehensive help and support features
+
+	The intialization prgraom <b>B4P Init.b4p</b> will also call the user initialization program __My B4P Init.b4p__, a user customizable initialization program twice (before and after including
+	the library files), as long the file is available in the user application directory.  For more details, see the section on __user initialization program__
+
+
+	Once this has happend, then the loaded B4P program will be started or interactive mode is activated, depending on the parameters provided.
+
+	<br/><img src="Images/REF_Starting_Behavior.png" alt="B4P Starting Behavior"><br/>
+
+	+++
+},
+
+
+"Command Line Arguments and Options":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Command Line Arguments and Options" ],
+    "Description 01:Introduction"::
+
+	B4P supports 
+	* __Command line arguments__ are additional text items supplied to the B4P Data Engine in addition to the B4P Program name.
+	* __Command line switches__ to influence the __starting behavior__ of the B4P Data Engine (the short ones, like <b>-w</b> to suppress the welcome text), and
+	* __Long options__ to provide additional information to B4P programs which can pick up and make use of the information provided with the long options.
+
+	+++,
+
+     "See also": [ "Command Line Switches", "Long Options" ]
+},
+
+
+
+
+"Command Line Arguments":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Command line arguments" ],
+    "Description 01:Introduction"::
+
+	Command line arguments are supplied to the B4P Data Engine in addition to the B4P file name.  The path and file name of the B4P program is actually considered as
+	the first command line argument.  Additional arguments can be provided in text form, such as further file names, names, locations, values, etc. 
+
+	<br><br>
+	Following rules apply:
+	* In contrast to __command line switches__ and __long options__, the sequential order of these arguments is relevant.
+	* The command line arguments must not start with 1 or more minus signs '-'.
+	* The command line arguments do not influence the starting behavior of B4P.
+
+	Ways to provide command line arguments:
+	* Windows: <b>b4p Example.b4p Data1.txt Data2.txt</b>
+	* Linux / MacOS: <b>./Example.b4p Data1.txt Data2.txt</b>
+
+	+++,
+    "Description 02:Accessibility to B4P Programs"::
+
+	The B4P program can access all command line arguments in the __system variable__ <b>command line arguments[<i>n</i>]</b> which is an array.<br>
+	Use the function __member count(__) to check for the number of command line arguments provided, e.g.  <b>member count(command line arguments[])</b>.
+	+++,
+
+    "Examples 02:At least 1 command line argument is always available"::
+n[] = member count( command line arguments[] );
+echo( "Number of command line arguments: ", n[] );
+for (a[]=0, a[]<n[], a[]++) echo("Argument ", a[], ": ", command line arguments[a[]] );
+	+++,
+    "Output 02:Result":"automatic"
+},
+
+
+
+"Command Line Switches":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Command line switches" ],
+    "Keywords":			[ "Command line switch", "Command line options" ],
+    "Description 01:Introduction"::
+
+	If B4P is started with typed commands (from console command line, batch scripts, etc.) then command line switches can be provided which
+	influence the starting and execution behavior of the B4P Data Engine.
+
+	<br><br>
+	Following rules apply:
+	* The actual Command line switches consist of single letters. All switches must start with one minus sign (-).
+	* Command line switches may be specified in any order or combination (e.g. <b>-w -x, -x -w, -wx, -xw</b>)
+	* Command line swithces may be located anywhere before, between and after __command line arguments__.
+	* Invalid command line switches will provide descriptive error messages and stop the B4P Data Engine.
+	* Chosen command line switches are not visible to the running B4P programs
+
+	<br>
+	Available command line switches
+
+	=== 100, 900, bold_column_1
+	Swtich	| Description
+	-c	| Suppress all console specific features (use standard input instead of console input, no console control like cursor movement and colors).  Use this switch for batch processing.
+	-d	| Normally, at start-up, B4P changes the working directory to the directory where the B4P program file to execute is located. <br>\
+		  This command line switch suppresses this and leaves the working directory unchanged.
+	-i	| (lower-case i) Start B4P and enter __interactive mode__ immediately.  Even if a B4P program has been specified, the program will not be loaded and started</b>.
+	-I	| (upper-case i) MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for regular B4P program use.  The switch '-c' will also come effective here to suppress console features.
+	-w	| Suppress B4P welcome text. <br>\
+		  <u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br>\
+		  <u>Attention 2:</u> The B4P initialization program "B4P Init.b4p" will not be started.  This file would otherwise load the default B4P library files (e.g. "Support Library").<br>\
+		  The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.
+	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.<br>\
+		  To suppress the welcome text, too, use teh command lie swtich -w, too.
+	-x	| Skip the "<i>Press [Enter] to end the program</i>" before B4P is exiting.  Useful for running B4P programs from batch scripts without user interaction
+	===
+
+	+++,
+
+    "Examples 07:5 ways to start B4P with the same command line switches"::
+	b4p -wx myprogram.b4p	// All 5 variations are equivalent.
+	b4p myprogram.b4p -wx
+	b4p myprogram.b4p -xw
+	b4p -w -x myprogram.b4p
+	b4p myprogram.b4p -w -x
+	+++,
+
+     "See also": [ "Starting Behavior" ]
+},
+
+
+
+
+
+"Long Options":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Long Options" ],
+    "Keywords":			[ "Long command line options" ],
+    "Description 01:Introduction"::
+
+	<i>Long options</i> are command line options beginning wtih two consecutive minus signs (--) followed by an option name.  In addition, option values
+	may be assigned to that name if immediately followed by an equal sign and further values.  For example <b>b4p test.b4p --silent --use_value=3</b>
+	specifies two long options.  
+
+	<br><br>
+	Following rules apply:
+	* All long options must start with two consecutive minus signs (--)
+	* Spaces are not allowed.  <b>--use_value=3</b> is OK, but <b>--use_value = 3</b> is not.
+	* The sequential order is not relevant
+	* The long options may be placed anywhere before, between or after the __command line arguments__
+	* Long options are solely available for your B4P programs. They do not influence the starting and execution behavior of the B4P Data Engine.
+
+	+++,
+    "Description 02:Accessibility to B4P Programs"::
+
+	THe long options do not influence the ordering and contents of the  __command line parameters__ as they are treated independently.<br>
+	See the B4P function description of __get long options(__) where some code examples are shown.
+
+	+++,
+     "See also": [ "get long options" ]
+},
+
+
+
+
+"User Initialization Program" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User initialization program" ],
+    "Keywords":			[ "custom initialization program","My B4P Init.b4p" ],
+    "Description 01:Introduction"::
+
+	If a file called <b>My B4P Init.b4p</b> is avaiable in the directory for user application data, then it will be loadeod executed:
+	The directory name is specified in the system variable <b>system info[user app data directory b4p]</b> and is typically
+	* <b>Windows:</b> C:\users\Your User Name\AppData\Local\b4p
+	* <b>Linux/MacOS:</b> /home/username/.profile/b4p/
+	
+	This file will be executed twice, namely before the library files are loaded, and after this.  For this reason, the template code prepared
+	in this file makes use of the __once(__) {...} __else__ {...} clause where the first code block after <b>once</b> is executed at the first
+	instance, and the code block after <b>else</b> is executed at the 2nd instance.
+
+	<br><br/><img src="Images/REF_Starting_Behavior_2.png" alt="B4P Starting Behavior"><br/><br>
+
+	The original file <b>My B4P Init.b4p</b> provided to you contains the following simple contents:  Silencing output messages while loading
+	the libraries by setting <b>system info[verbose]</b> to <b>quiet</b>, and in the 2nd call back to <b>low</b> to allow minimum messages
+	and progress information to occur. See __verbose__ for more information about this.
+
+	+++,
+    "Examples 01:"::
+once // Following code is executed at the 1st call before loading library files begins
+{
+
+//	echo("Starting to load the standard library files ...");
+	runtime settings[verbose] = quiet;
+
+}
+else // Following code is executed at the 2nd call after all library files have been loaded
+{
+
+//	echo("... Done.");
+	runtime settings[verbose] = low;
+}
+	+++
+}
+
+
+B4PDOCU.STOP
+

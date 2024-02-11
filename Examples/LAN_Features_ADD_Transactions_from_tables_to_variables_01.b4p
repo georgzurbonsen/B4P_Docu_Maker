@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals,
+      { { Name,  Leg count, Special ability  },
+        { Owl,   2,         Night vision     },
+        { Dog,   4,         Sensitive nose   },
+        { Ape,   2 or 4,    Relatively smart } } );
+
+
+  structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+  array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+  animal1[] = "A kind of flying dog";
+  animal2[] = "A kind of big mouse";
+
+  animal1[] +<<= [ animals: .., 1 ];
+  animal2[] +<<=^  [ animals: .., 2 ]; // Ape on row 2 (was on row 3 before the transaction on previous row)
+  see( animal1[] ); // Adds leg count, but name and special ability are maintained
+  see( animal2[] ); // animal2[] gets all table entries for the ape
+
+  table list( animals ); // Dog with its nose is left over.

@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+      echo( time ( now ) );
+      echo( pure time ( today ) );   // 00:00:00
+      echo( time ( "08:30 p.m." ));  // 20:30:00
+      a[] = { 20, 15, 30 };
+      echo( time ( a[] ));           // 20:15:30
+      echo( time ( '2020-12-31' ) ); // Blank date value
+      echo( time ( 19/24 ));         // 19:00:00

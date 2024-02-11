@@ -1,0 +1,282 @@
+﻿
+{
+
+"Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Overview" ],
+
+"Description 01:" : [
+"",
+"",
+"	<img src=\"Images/B4P_General_Overview.png\" alt=\"B4P Overview\"><br/>",
+"",
+""
+ ]
+	,
+
+"Description 02:Getting Started" : [
+"",
+"	=== 300, 700, noheader, noframe column_1_bold",
+"	<a href=\"Images/B4P_Introduction.pdf\" target=\"_blank\"><b>Presentation</b></a>		| Introduction into the B4P Data Engine",
+"	__User Guide__			| Overview and getting started",
+"	__Language Guide__		| Comprehensive introduction to the feature-rich B4P language",
+"	__Function Library Guide__	| Library containing ca. 800 procedures and functions",
+"	===",
+""
+ ]
+	
+},
+
+
+"Problem Statement" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Problem Statement" ],
+
+"Description 01:" : [
+"",
+"	<img src=\"Images/MAS_Problem_Statement_1.png\" alt=\"Problem Statement\">",
+"	",
+"	<br>",
+"	<br/><img src=\"Images/MAS_Problem_Statement_References.png\" alt=\"Known Problems\">",
+"" ],
+"Description 02:External References" : [
+"",
+"	[1] <a href=\"https://www.businessinsider.com/satya-nadella-excel-is-microsofts-best-consumer-product-2016-6\" target=\"_blank\">www.businessinsider.com/satya-nadella-excel-is-microsofts-best-consumer-product-2016-6</a><br>",
+"	[2] European Spreadsheet Risks Interest Group: <a href=\"https://eusprig.org/\" target=\"_blank\">https://eusprig.org/</a><br>",
+"	[3] <a href=\"https://www.forbes.com/sites/bernardmarr/2016/06/16/spreadsheet-reporting-5-reasons-why-it-is-bad-for-business\" target=\"_blank\">https://www.forbes.com/sites/bernardmarr/2016/06/16/spreadsheet-reporting-5-reasons-why-it-is-bad-for-business</a><br>",
+"	[4] <a href=\"https://www.forbes.com/sites/metabrown/2017/10/30/why-spreadsheets-are-eating-your-business-from-the-inside-out/\" target=\"_blank\">https://www.forbes.com/sites/metabrown/2017/10/30/why-spreadsheets-are-eating-your-business-from-the-inside-out/</a><br>",
+"	[5] <a href=\"https://www.marketwatch.com/story/88-of-spreadsheets-have-errors-2013-04-17\" target=\"_blank\">https://www.marketwatch.com/story/88-of-spreadsheets-have-errors-2013-04-17</a><br>",
+"	[6] <a href=\"https://www.cio.com/article/2438188/eight-of-the-worst-spreadsheet-blunders.html\" target=\"_blank\">https://www.cio.com/article/2438188/eight-of-the-worst-spreadsheet-blunders.html</a><br>",
+"	[7] <a href=\"https://www.businessinsider.com/excel-partly-to-blame-for-trading-loss-2013-2\" target=\"_blank\">https://www.businessinsider.com/excel-partly-to-blame-for-trading-loss-2013-2</a><br>",
+"	[8] <a href=\"https://blog.trginternational.com/7-worst-financial-fiascos-caused-by-excel-errors\" target=\"_blank\">https://blog.trginternational.com/7-worst-financial-fiascos-caused-by-excel-errors</a><br>",
+"	[9] <a href=\"https://www.forbes.com/sites/salesforce/2014/09/13/sorry-spreadsheet-errors\" target=\"_blank\">https://www.forbes.com/sites/salesforce/2014/09/13/sorry-spreadsheet-errors</a><br>",
+"	[10] <a href=\"https://www.nytimes.com/2003/10/30/business/fannie-mae-corrects-mistakes-in-results.html\" target=\"_blank\">https://www.nytimes.com/2003/10/30/business/fannie-mae-corrects-mistakes-in-results.html</a><br>",
+"",
+"",
+"",
+"",
+""
+ ]
+	
+},
+
+
+"Features and Benefits" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Features and Benefits" ],
+"Description 01:Key Features" : [
+"",
+"Bla Bla Bla"
+ ]
+,
+
+"Description 02:Key Benefits" : [
+"",
+"	The overall intention is to provide a tool for you which helps to solve sophisticated problems with large amounts of data involved:",
+"	* <b>Simple</b> procedural language easy to read, understand and lear.",
+"	* Powerful langauge semantics <b>minimizes the number of statements</b> needed to solve the problem.",
+"	* <b>Tables</b> of any size are one of the main data storage models and B4P is optimized for this",
+"	* <b>No programming bureaucracy</b> such as declaring all the variables you need.",
+"	* Significantly less need for <i>fine grained</i> programming like formulating loops, detailed algorithms, etc.",
+"	* B4P understands data formats such as <b>Excel, HTML, XML, JSON, CSV</b>, etc. to retrieve data from Excel, database and the Internet directly",
+"	* Extremely <b>flexible in naming</b> variables, tables, functions, procedures, etc. (natural language).",
+"	* The B4P Data Engine and all libary files are very lean, very robust and start quickly.",
+"	** Powerful table processing functions available such as merging, consolidating and applying pivots on tables",
+"	** Powerful vector and matrix operations available for high-performance calculations on your tables and data",
+"	* High focus on <b>cross-platform portability</b> (Windows, LINUX, etc.), enabling to run the same B4P program on different platforms.",
+"",
+"	You will get to full speed quickly if you have some basic programming experience with a high level programming language or a macro",
+"	language such as Visual Basic inside Excel.  B4P requires no knowledge about object oriented programming and specific algorithms to manage",
+"	big data (e.g. indexing).  The syntax is, even though looking differently from other langauges, incredibly easy to understand and to use.",
+"	In contrast to other programming langages, much fewer statements and time are needed, no additional libraries need to be installed ",
+"	separately (like Panda for Python) and you experience unparalleled machine performance, forgetting the fact that B4P is an interpreted language.",
+"",
+""
+ ]
+	,
+"Description 03:No Graphic Gadgets" : [
+"",
+"	Intentionally, B4P does not make use of any visual features such as graphical user interfaces.  For visualization purposes, powerful",
+"	and highly standardized tools such as Microsoft Excel providie all features to do the visualziation, creating all required charts, etc.",
+"	to round up you presentation.   The philosophy of B4P is to do all data processing first and very rapidly, and creating final Excel files",
+"	for visualization purposes.",
+"",
+"	<br><br>",
+"	However, B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already",
+"	included (e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.)."
+ ]
+	
+
+
+},
+
+
+"Workflow Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Workflow Overview" ],
+"Description 01:Workflow Overview - Focus on Solving Problems" : [
+"",
+"	Large scale data processing and analytics often follow a workflow process beginning with gathering ",
+"	all input data, cleaning up and verifying them, do the actual processing task and finally save the results",
+"	in the required data formats.",
+"",
+"	<br/>",
+"	<br/>",
+"",
+"	<br/><img src=\"Images/Description_Introduction_Flowchart_Blue.png\" alt=\"B4P Typical Data Processing Steps\">",
+"",
+""
+ ]
+
+
+}
+
+
+
+
+,
+
+
+
+"Use Cases" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use cases" ],
+"Description 01:Overview" : [
+"",
+"	A few use cases are described next where B4P can be used easily to address the problem statements and",
+"	provide the solutions with maximum performance and accuracy.",
+"",
+"	<br><br>",
+"",
+"",
+"	B4P is predestined to let you <b>focus on the 'what'</b>, and hot 'how'.  The philosophy with this language is to express the",
+"	steps briefly, with very few smart statements and using loops and variables as little as possible.  A large __function library__ is available",
+"	to provide various means to solve your data processing solutions efficiently.",
+"",
+""
+ ]
+	
+},
+
+"Different data from different sources" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Different data from different sources" ],
+"Description 01:Problem Statement" : [
+"",
+"	Your organization has more than 25 branch offices in various countries around the world.  You are requesting product forecasts",
+"	from them in regular time intervals.    Because every office is using different systems to store and manage their data,",
+"	you will likely receive the information in different formats.  Past attempts asking them to harmonize their systems did not",
+"	work because the switchover costs appeared too high.  Some are database exports, and others are hand-crafted",
+"	Excel tables.",
+"" ],
+"Description 02:The Solution" : [
+"",
+"	* Use different short B4P program routines to read the different data from every branch office",
+"	* Automatically check for any inconsistencies, especially if data is provided in hand-made Excel sheets",
+"	* Align the data using common header names, e.g. 'Customer Name', 'Deliery Date', etc.",
+"	* Merge the data from the different sites",
+"	* Notify you if two sites start dealing with the same customer",
+"	* Consolidate and aggregate all forecast data according to your specifications",
+"	* Add formatting, colors and style to make the report easy to use",
+"	* Save the final report.",
+""
+ ]
+	
+},
+
+
+
+"Machine to Machine Data Transfer" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Machine to Machine Data Transfer" ],
+"Description 01:Problem Statement" : [
+"",
+"	You want to automate the information exchange between your ERP system (Enterprise Resource Planning) and the web-base",
+"	CRM system (Customer Relationship Management).  Both systems provide means to upload and downlaod data with commands,",
+"	so you can automate the data exchange entirely.  You want to be notified on discrepancies discovered in both databases",
+"	which require manual alignment involving the sales managers.",
+"" ],
+"Description 02:The Solution" : [
+"",
+"	* Let B4P initiate the data exports from both CRM and ERP systems",
+"	* Check if the customer data and opportunities are matching with each other.  Inform about new customers and opportunities.",
+"	* Check consistencies of key dates, for example planned order date.  Consider correcting minor differences (e.g. 1 week or less) automatically or notify sales to check the data",
+"	* Refer to a foreign exchange information from a website in case the opportunities are valued in a different currency",
+"	* Do necessary format conversions, such as numeric format (One generates EUR values, the other requires them in k EUR, etc.)",
+"	* Initiate the data uploads into the ERP and CRM systems respectively",
+"	* Generate a report with transactions made and issues requiring attention by sales management.",
+""
+ ]
+	
+},
+
+
+"Analyzing Stock Data" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Analyzing Stock Data" ],
+"Description 01:Problem Statement" : [
+"",
+"	Do the best with your savings by investing your money in a smart way better than others do.  You have identified multiple web pages which provide",
+"	structured corporate information such as",
+"	* Stock market data (in HTML format)",
+"	* Credit rating information (e.g. from rating agencies like Standard and Poors)",
+"	* Financial data of selected businesses (compiled in Excel files you can download)",
+"	With all the infomation, you have a neat appraoch to make up you own idea whether the shares are fairly valued, overvalued",
+"	or undervalued, so you your own decision base available whether to intiate buying or selling shares.",
+"" ],
+"Description 02:The Solution" : [
+"",
+"	* Let download all stock market data on a daily base, as well as credit rating info and othe data.",
+"	* Align the data to the company names, making sure no mistakes happen with similarly named businesses.  Use their symbol names as a common key.",
+"	* Provide som accompanying information, e.g. the market areas the businesses are active in (e.g. banking and finance, pharmaceuticals, nutrition, etc.)",
+"	* Do some calculation, for example if a business is doing better than the average market",
+"	* Condense the analytics to a list which is easy to understand",
+"	* Add color, formatting and style to make it even easier to read",
+"	* Save the file and start investing.",
+""
+ ]
+	
+},
+
+
+
+"Comparing Bills of Material" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Use case - Comparing Bills of Material" ],
+"Description 01:Problem Statement" : [
+"",
+"	Your enterprise has developed lots of different products which have similarities to a certain extent.  After some time, you have sufficient sales",
+"	data available for the different products so you can do a cross-product analysis by checking for commonalities of the components and pre-assembly",
+"	units used.  The engineers have provided a large number (200+) of bill of materials (part lists) for the various products, each of them listing",
+"	several thousand parts.  You want to identify the commonalities (i.e. same or similar parts used)",
+"	among the product variants, and weigh them up with the number of products sold, in order to initiate some strategic improvements in the product portfolio",
+"	in order to optimize operational efficiency and profitability.",
+"" ],
+"Description 02:The Solution" : [
+"",
+"	* Use a simple statement to identify all bill of material files (do not name them individually in your program)",
+"	* Load one file after the other and apply relational algebraic operations (e.g. intersections) in order to spot commonalities",
+"	* Identify individual parts and similar pre-assembly units used frequently",
+"	* Consolidate the information to an abstraction level you can use a a decision base",
+"	* Add format, style and save the work.",
+""
+ ]
+	
+}
+
+
+
+
+  }
+
+
+}

@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+  dir[] = directory create temp();
+  echo("Created temp directory '", dir[], "'.");
+
+  // Do something
+  table initialize ( little table, { Name, Andy, Beata, Charly, Daniela } );
+  table save( little table, dir[] + "Little Table.csv"  );
+
+  // pause; // Remove comment symbols so you can look where the file has been saved.
+
+  directory delete recursive( dir[] ); // Clean up: Remove the temp directory

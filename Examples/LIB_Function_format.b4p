@@ -1,0 +1,17 @@
+﻿#!/usr/local/bin/b4p
+declaration of independence[] = "In Congress, July 4, 1776" + tab + """
+The unanimous Declaration of the thirteen united States of America, When in the Course of human events,
+it becomes necessary for one people to dissolve the political bands which have connected them with another,
+and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature
+and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should
+declare the causes which impel them to the separation.
+""";
+
+substitute all( declaration of independence[], new line, ' ' ); // Do it without line breaks
+
+echo(new line, "Declaration of independence, center aligned");
+format print( {paragraph, true, first tab, 30, indent, 30, align, center }, declaration of independence[] );
+
+echo(new line, "Declaration of independence, fully aligned, indentation by 4 only");
+format print( {paragraph, true, first tab, 30, indent, 4, align, full }, declaration of independence[] );
+

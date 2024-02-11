@@ -1,0 +1,8 @@
+﻿#!/usr/local/bin/b4p
+  a[0] = 5 / 3;
+  a[1] = '' / 10; // Blank = 0
+  a[2] = 0.5 * true;
+  a[3] = { a, b, c, c, d } / { b, c }; // Removes all matching elements
+  a[4] = This is a great tiger / i; // All i's removed
+
+  for all variables( a[], b[] ) echo( b[] );

@@ -1,0 +1,17 @@
+﻿#!/usr/local/bin/b4p
+table create ( my table, another table );
+
+table initialize( table with data,
+    { { Name,  Favorite Color },
+      { Nick },
+      { Nicola, Blue },
+      { Nicolas, Green, and Yellow } } );
+
+list tables;
+
+echo( new line, "Now list all tables containing 'm' in the name", new line );
+
+list tables('*m*');
+
+// Note: You will also see additional tables like __ excel number formats __ which
+// have been created by the library files loaded.

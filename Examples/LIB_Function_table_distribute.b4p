@@ -1,0 +1,25 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( demo table,
+  {
+      { Total Value, Start Date, End Date,    Batch Size    },
+      { #days,       01.01.2017, 20.08.2017,  1 },  // Count number of days
+      { 500,         01.01.2017, 20.08.2017,  0 },  // Produce 500 in 200 days (shifts on 7 days/week)
+      { 500,         01.01.2017, 20.08.2017,  1 },  // Use whole numbers
+      { 500,         01.01.2017, 20.08.2017, 10 },  // Deliver in batches of 10
+      { 500,         01.01.2018, 20.08.2017, 10 },  // Skipped (end date is before start date)
+                                                    // and causes return value to be 'false'
+      { 500,         01.01.2017, 2         , 10 },  // Capacity: 2 per unit
+      { 500,         01.12.2016, 2         , 10 }   // Start a month earlier
+  } );
+
+  holidays[] = { 01.08.1900 };                      // Public holiday every year
+  vacation[] = { 01.07.2017,31.07.2017 };           // Summer vacation
+
+  ret[] = table distribute( demo table, Total Value, Batch Size, Start Date, End Date,
+          months, calendar, '15.01.2017', '15.08.2017',Mmm,-1, Earlier, Later, holidays[], vacation[] );
+
+          // Note: For monthly intervals, output start date is moved back
+          // to 1st day and output end date to last day of month.
+
+  table list( demo table);
+  echo("return value = ", ret[] );

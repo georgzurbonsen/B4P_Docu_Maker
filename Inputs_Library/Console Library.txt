@@ -1,0 +1,185 @@
+			
+
+This text file contains all relevant function descriptions in the "Console Library".
+
+
+B4PDOCU.START
+
+
+"print bar":
+{
+	"Function Names":	[ "print bar" ],
+	"Documentation":	"Function Description",
+	"Library":		"Console Library",
+	"Description"::
+		This function prints a sequence of characters, for example a horizontal line, across the full width of the screen.
+
+	+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0 - 3",
+	"Restrictions":		"Under normal conditions, the 'Console Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "Pattern",
+		  "Direction": "input",
+		  "Types": [ "string" ],
+		  "Default value": "'_' (underscore character)",
+		  "Description"::
+			The supplied pattern will be applied repeatedly until the screen or specified boundaries have been reached.
+			If a blank string is provided, then it will be replaced by the default pattern, namely the underscore character '_'.
+			The patterns will be stopped when the final position has been reached, even if the last used pattern as supplied is incomplete.
+			+++
+		},
+		{ "Number": "Opt. 2.",
+		  "Name": "Count",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "-1 (full screen width)",
+		  "Description"::
+			The count can be specified with following three approaches
+			=== 200, 600, noframe_1stcolbold, noheader
+			1 or bigger	| Specifies a fixed pattern width in number of single characters.
+			0		| Nothing
+			negative	| Specifies current screen width minus the number of single characters.  A -10 leaves 10 columns blank on the right hand side.
+			>0...<1 (fractional) | The number of single characters is specified by multiplying the fractional value with the screen width
+			===
+
+			+++
+		},
+		{ "Number": "Opt. 3.",
+		  "Name": "Offset",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Default value": "0",
+		  "Description"::
+			The offset provides a specified number of spaces and will then reduce the number of characters as specified in the 2nd function parameter.
+			=== 200, 600, noframe_1stcolbold, noheader
+			1 or bigger	| Specifies a fixed number of characters.  If the 2nd function parameter specifies a negative or fractional value, then the count will be reduced by the offset.
+			0		| Offset is 0.
+			negative	| Specifies current screen width minus the number of single characters.  A -30 provides an offset of 50 characters for a console with width of 80 characters.
+			>0 .. <1 (fractional) | The number of single characters is specified by multiplying the fractional value with the screen width
+			===
+
+			+++
+		}
+
+	],
+	"Examples"::
+	include (Console Library);
+	echo( "Width of console is: ", console(width) );
+	print bar( '.*.' );
+	print bar( '+',   0.5, 10);
+	print bar( '_', -60 );
+	+++,
+	"Output": "automatic",
+	"See also": [ "format print", "print", "echo" ]
+},
+
+
+
+
+"format, format print":
+{
+	"Function Names":	[ "format", "format print" ],
+	"Documentation":	"Function Description",
+	"Library":		"Console Library",
+	"Description"::
+		
+
+		The function <b>format print</b> provides formatted output on the console, using the knowledge of the current console width (number of columns).<br>
+		The function <b>format</b> puts the formatted rows of text into a parameter set of strings in the return value, with one element per row.<br>
+		The text contents provided may contain the B4P-private UNICODE chracters to apply formatting for the console such as changing text color.
+		The formatting is not suitable for contents saved as tables and expecting Excel to see the formatting made.
+		<br><br>
+
+		Following formatting features are supported:
+
+		=== 150, 200, 550, 100, bold_column_1 bold_column_2
+		Formatting Type		| Formatting Values		| Explanation																| Default value
+		align			| left, center, right, full	| Applies justification.  With full justificaiton, additional spaces will be inserted in random positions where spaces are existing.  	| left
+		left margin		| Numeric value			| Specify a margin in number of characters.  Negative values count from console width leftward.	  Allow for at least 10 characters between left and right margin.					| 1
+		right margin		| Numeric value			| Specify a margin in number of characters from right to left.  Negative values count from right to left.  Allow for at least 10 characters between left and right margin.\
+									  Prohibitive margins, e.g. left margin too big or beyond end of screen, will result in exceptions.					| console width-1
+		wrap			| no, yes, word			| Specifies wrapping.  if 'no' is selected, then excessive contents will be truncated.							| word
+		indent			| Numeric value			| After every wraparound, the indent will be applied in addition to the left margin.  \
+									  Negative indents shift the position leftward if the margin position is greater than 0.  						| 0
+		tab interval		| Numeric value			| Sets the interval. Range: 0 - 10 characters before right margin.  <br> \
+									  0 = Only the first tab is considered.<br>\
+									  1 = Tab is same as a space <br>\
+									  2  and higher: Advances till next tab stop.  For 4, it is 5, 9, 13, etc. Advice: For showing source code text, consider 4 instead. <br> \
+									  Note that tabs do always advance to the next position after the column divisible by the specified tab value.				| 8
+		first tab		| Numeric value			| Apply a different value (Range: 2 - 10 characters before right margin) for the first tab in order to provide structured output. 	| 9
+		style			| true, false			| If 'true' is specified, then all style related contents in the text, such as underscoring, different colors, etc., will be suppressed.| true
+		paragraph		| true, false			| true: Multiple consecutive non-blank parameters belong to the same paragraph. false: Every parameter end output with new line and continues with next paragraph. | true
+		===
+		<u>Note:</u> The number of usable columns is 1 less than the scrren width, i.e. 79 characters for a 80-character wide screen.  This is due to effects in
+		some consoles where outputting exactly 80 characters (on an 80 character wide console) would issue a line break on some terminals and console programs.
+
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"Min. 1",
+	"Restrictions":		"Under normal conditions, the 'Console Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "Pattern",
+		  "Direction": "input",
+		  "Types": [ "parameter set" ],
+		  "Default value": "Default settings apply as specified in the table above",
+		  "Description"::
+			The supplied pattern will be applied repeatedly until the screen or specified boundaries have been reached.
+			If a blank string is provided, then it will be replaced by the default pattern, namely the underscore character '_'.
+			The patterns will be stopped when the final position has been reached, even if the last used pattern as supplied is incomplete.
+			+++
+		},
+		{ "Number": "Opt. 1, 2,..",
+		  "Name": "Raw text contents",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+		  "Default value": "-1 (full screen width)",
+		  "Description"::
+			Text and other contents to be printed out.
+
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Number of rows printed",
+		  "Types": [ "numeral"  ],
+		  "Description": "Applicable to __format print(__): The number of rows printed onthe console"
+		},
+		{ "Name": "Formatted output",
+		  "Types": [ "parameter set" ],
+		  "Description": "Applicable to __format(__): Generated output.  Every parameter set element contains one row of text."
+		}
+	],
+	"Examples"::
+include( Console Library );
+declaration of independence[] = "In Congress, July 4, 1776" + tab + """
+The unanimous Declaration of the thirteen united States of America, When in the Course of human events,
+it becomes necessary for one people to dissolve the political bands which have connected them with another,
+and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature
+and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should
+declare the causes which impel them to the separation.
+""";
+
+substitute all( declaration of independence[], new line, ' ' ); // Do it without line breaks
+
+echo(new line, "Declaration of independence, center aligned");
+format print( {paragraph, true, first tab, 30, indent, 30, align, center }, declaration of independence[] );
+
+echo(new line, "Declaration of independence, fully aligned, indentation by 4 only");
+format print( {paragraph, true, first tab, 30, indent, 4, align, full }, declaration of independence[] );
+
+	+++,
+	"Output": "automatic",
+	"See also": [ "print", "echo" ]
+}
+
+
+
+
+
+B4PDOCU.STOP

@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( table 1,
+  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+  echo( table length( table 1 ) );
+
+  table create ( table 2 );
+  [ table 2: 0, 10 ] = Hi; // Note: row counting begins with zero
+
+  echo( table length( table 2 ) );

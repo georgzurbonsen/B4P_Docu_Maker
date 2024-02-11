@@ -1,0 +1,1907 @@
+//
+B4PDOCU.START
+
+
+
+"Assignments and Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Assignments and expressions" ],
+    "Description 01:Language Pyramid Context"::
+
+	<a href="LAN_Features_Language_Guide.html">
+	<img src="Images/LAN_Pyramid_Assgts_Expressions.png" alt="B4P Language Pyramid - Assignments and Expressions"></a><br/>
+
+    "Description 02:Overview"::
+
+	This section addresses the following B4P building blocks:
+
+	* __Assignments__ which are stand-alone statements where a specified, retrieved or calculated value is assigned to a variable or table entry
+	* __Expressions__, which break down into
+	** __Left-Hand Side Expressions__ (LHS Expressions) to specify destination variables and table entries, and
+	** __Right-Hand Side Expressions__ (RHS Expressions) to specify, retrieve and/or calculate return values.
+
+	+++,
+    "See also": [ "Assignments", "LHS Expressions", "RHS Expressions" ]
+
+},
+
+"Assignments" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "assignments" ],
+    "Keywords":			[ "Assignment", "Assignment symbol" ],
+    "Description 01:Overview"::
+
+	Assignments are one of the key building blocks in B4P and most other programming languages where a value is written (i.e. assigned) 
+	to a destination variable or a table entry.  Only the actual target variable will be updated, regardless if that variable contains
+	further array and/or structure members.
+
+	All assignments consist of 3 elements:
+	* A __LHS Expression__ located on the <i>Left-Hand Side</i> of the assignment symbol or __assignment operator__, followed by
+	* the <b>assignment symbol</b> <b>=</b> or a valid __assignment operator__, and concluded by
+	* a __RHS Expression__ located on the <i>Right-Hand Side</i>.
+
+	__LHS Expressions__ specify destination locations in variables and tables, while __RHS Expressions__ return specified, retrieved, or
+	calculated values.
+
+	<br/><img src="Images/LAN_Assignments.png" alt="Assignments"><br/>
+
+
+     +++,
+    "Examples 01:Examples"::
+	include( Support Library );
+
+	echo(Some simple assignments);
+	a[]     = 1;
+	a[text] = Hello World;
+	a[bool] = true;
+	a[today] = date(today);
+	a[calc]  = 3 + 12*5;
+	see(a[]);
+	+++,
+    "Output 01:": "automatic",
+    "See also": [ "Expressions", "Transactions" ]
+
+},
+
+
+
+"Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions" ],
+    "Keywords":			[ "Expression" ],
+    "Description 01:Language Pyramid Context"::
+
+	<a href="LAN_Features_Language_Guide.html">
+	<img src="Images/LAN_Pyramid_Expressions.png" alt="B4P Language Pyramid - Assignments and Expressions"></a><br/>
+
+    "Description 02:Overview"::
+
+	Expressions are combinations of __values__, __variables__, __table references__, __function calls__ and __calculations__
+	which are intended to create new values or refer to a particular destination location in a variable or table.
+
+	<br><br>
+	Similar to other programming languages, B4P distinguishes between 
+	* __Left-Hand Side Expressions__ (LHS Expressions), and
+	* __Right-Hand Side Expressions__ (RHS Expressions).
+	
+	+++,
+
+    "See also": [ "LHS Expressions", "RHS Expressions" ]
+
+},
+
+
+
+
+"Left-Hand Side Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Left-Hand Side Expression" ],
+    "Keywords":			[ "LHS Expression", "LHS Expressions","Left-Hand Side Expressions" ],
+    "Description 01:Overview"::
+
+	The <b>LHS Expressions</b> are expressions on the <i>Left-Hand Side</i> of the assignment symbol or __assignment operator__, as well as on both
+	sides of the __transaction operator__ in __transactions__ which are used to specify a destination in a variable or table.
+	* __Variables__:
+	** Both __base variables__ and members in __arrays__ and __structures__ may be referenced
+	* __Tables__:
+	** Individual table fields
+	** Combination of multiple fields
+
+	LHS Expressions are applicable in following cases:
+	* On the left-hand-side of all __Assignments__,
+	* In __transactions__ on both left-hand side and right-hand-side of the __transaction operators__
+	* __I/O Parameters__ and __Output Parameters__ in procedure and function calls
+
+	The following are not allowed in RHS expressions:
+	* Applying any form of __calculations__.
+
+     +++,
+
+    "Examples 01:Examples"::
+	include( Support Library );
+
+	echo(LHS Examples with variables);
+	a[]        = 10;
+	a[name]    = 'My Name';    // Structure member 'name' added to a[]
+	a[name,0]  = First Name;   // Array added to a[name]
+	a[name,1]  = Middle Initial;
+	a[name,2]  = Last Name;
+	see(a[]);
+
+	echo(RHS Examples with a table);
+	table create( List );
+	[ List: ..,    0 ]   = { Name, Score }; // Write two values into row 0
+	[ List: Name,  1 ]   = Amy;
+	[ List: Score, 1 ]   = 10;
+	[ List: Name,  2..]  = { Bea,  Claus }; // Write two values into column 0, beginning on row 2
+	[ List: Score, 2  ]  = 20;
+	[ List: Score, -1 ]  = 30;              // Negative indexing: -1 refers to last entry
+	table list( List );
+
+	+++,
+    "Output 01:": "automatic",
+    "See also": ["Right-Hand Side Expressions", "Expressions" ]
+
+},
+
+
+
+
+"Right-Hand Side Expressions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Right-Hand Side Expression" ],
+    "Keywords":			[ "RHS Expression", "RHS Expressions","Right-Hand Side Expressions" ],
+    "Description 01:Overview"::
+
+	The <b>RHS Expressions</b> are expressions on the <i>Right-Hand Side</i> of the assignment symbol or __assignment operator__ which
+	are used to specify, retrieve and/or calculate values. Following rules apply:
+	* Constant values like __numbers__ (for __numeral__ values) and __text__ (for __string__ and __boolean__ values)
+	* __Parameter sets__,
+	* __Variables__,
+	** For variables, individual __Member variables__ using array subscripts and member names may be referenced:
+	* __Table references__,
+	** For tables, either single cells or a combination of mulitple cells (including whole rows and columns) may be specified:
+	* __Function calls__ to functions which return values of any type,
+	* Any calcualations:
+	** With __unary operators__, __binary operators__ and/or __parentheses__:
+	** Parentheses are useful to overrule __operator precedence__.
+	* __Ad-hoc operations__ are allowed on specified variables and table entries.  Example: <b>a[]++ = 5;</b>. The 5 will be incremented by 1 to 6 after the assignment.
+
+	RHS Expressions are applicable in following cases:
+	* On the right-hand-side of all __Assignments__,
+	* __Input Parameters__ in procedure and function calls
+	* Variable names, example: <b>('Category '+name[])[]</b>
+	** Parentheses are mandatory if the variable specified as a __LHS expression__, e.g. <b>(name[])[] = Hello;</b>
+	** Otherwise, parentheses are mandatory if any calculations are applied in order to encompass the whole result, e.g. <b>('My '+name[])[] = Nick;</b> where \
+	   it is ensured that 'My ' is part of the variable name to use.
+
+	The following are not allowed in RHS expressions:
+	* Applying __ad-hoc operations__ on calculated expressions and function calls, e.g. <b>(a[]+4)++</b>.
+	* Applying them on the left-hand-side of assignment symbols, as I/O parameters in function and procedure calls, and transactions
+
+	<br>
+	<u>Note:</u> Whenever the term <b>Expression</b> is referred without indications on left/right-hand sides, then <u>the right-hand-side is assumed</u>.
+
+     +++,
+
+    "Examples 01:Examples"::
+	include( Support Library );
+
+	echo(RHS Examples with variables);
+
+	a[]        = 10;
+	a[name]    = 'My Name';
+	a[four]    = (a[] - 2)/2;
+	a[colors]  = { red, yellow, green, blue };
+	a[nine]    = sqrt(81);
+	see(a[]);
+
+	echo(RHS Examples with a table);
+	table initialize ( List, {{Name, Score}, { Amy, 10}, { Bea, 20}, {Claus, 30}} );
+	echo( [List: Name, 2] );          // Bea
+	echo( [List: Name, Amy, Score] ); // Amy's Score: 10
+	echo( [List: Name, ..] );         // All names in a parameter set
+
+	+++,
+    "Output 01:": "automatic",
+    "See also": ["Left-Hand Side Expressions", "Expressions" ]
+
+},
+
+
+
+"Calculations" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Calculations" ],
+    "Keywords":			[ "Calculation" ],
+    "Description 01:Overview"::
+
+	Calculations are seen as part of __RHS expressions__ where a calculation is applied on 1 or more values using
+	__operators__ or __function calls__ are made.
+
+     +++,
+
+    "Examples 01:Examples"::
+	echo( 1 + 2 * sqrt(9) ); // Returns 7
+	echo( "Drive" + ("Highway" - "High") ); // Returns "Driveway"
+	+++,
+    "Output 01:": "automatic",
+    "See also": ["Operators", "Expressions", "RHS Expressions"]
+
+},
+
+
+
+
+"Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Operator", "Operators" ],
+    "Keywords":			[ "Precedence" ],
+    "Description 01:Overview"::
+
+	Operators are symbols which represent an action or process and are basic elements in arithmetics.
+	B4P distinguishes between following semantic operator types:
+
+	* __Unary operators__ are simple operators added in front of a value or expression, e.g. a minus sign for negation, logical NOT, etc.
+	* __Binary operators__ are operators between two expressions, e.g. to describe additions, multiplications, etc.
+	* __Assignment operators__ allow a simplified formulation such as <b>a[] -= b[];</b> which is equivalent to <b>a[] = a[] - b[];</b>
+	* __Ad-hoc operators__ can be applied on __LHS expressions__ able to reference to tables and variables.  Example: <b>a[]++;</b> is equivalent to <b>a[] = a[] + 1;</b>
+
+	In a different dimension, B4P distinguishes between follwoing algorithmic operator types applicable to both binary operators and assignment operators:
+	* __Arithmetic operators__ covers the four basic arithmetic operators
+	* __Logical operators__ covers lgoical AND and OR
+	* __Comparison operators__ covers equal, less and greater-than, etc.
+
+	+++,
+    "See also": ["Unary operators", "Binary operators", "Assignment operators", "Ad-hoc operators", "Arithmetic operators", "Logical operators", "Comparison operators"]
+
+},
+
+
+
+"Operator Precedence and Parentheses" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Operator Precedence" ],
+    "Keywords":			[ "Precedence", "Parentheses" ],
+    "Description 01:Overview"::
+
+	B4P applies meaningful <b>operator precedence</b> rules when carrying out calculations with
+	unary and binary operators.  For calculation examples, do the multiplications and divisions
+	first, and then the additions and subtractions (briefly said in German: <i>Punktrechnung vor Strichrechnung</i>).
+	Use parentheses to influence the precedence rules.
+
+	=== 100, 200, 700, bold_column_1 bold_column_2
+	Precedence	| Symbols	| Description
+	1 (highest)	| +, -, ~, !	| All unary operators
+	2		| *, /		| Arithmetic operators: multiplication and division
+	3		| +, -		| Arithmetic operators: addition and subtraction
+	4		| =, ==, &lt;&gt;, !=, &gt, &gt;, &lt;, &lt;= | Comparison operators
+	5 (lowest)	| &amp;, &vert;	| Logical operators
+	===
+	The operators are described in the following section.
+
+    "Description 02:Parentheses"::
+
+	Parentheses can be used to overrule the operator precdences.
+     +++,
+
+    "Examples 02:Examples"::
+echo(  3 + 10 *2 + 100*4 ); // 423
+echo( (3 + 10)*2 + 100*4 ); // 426
+
+echo( 3 + 2 >= 2 + 2 );     // True
+echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
+	+++,
+    "Output 02:": "automatic",
+    "See also": ["Binary Operators", "Unary Operators"]
+
+},
+
+
+
+"Unary Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "unary operators" ],
+    "Description 01:Introduction"::
+
+	<br/><img src="Images/Description_Formulas_Unary_Operators.jpg" alt="Unary Operators"><br/>
+
+	<sup>1</sup> First character is capitalized.  All other characters are not touched.<br>
+	<sup>2</sup> Mirroring, example: !{a,b,c} returns {c,b,a}.  Contents in nested parameter sets remain unaffected (no mirroring there).<br>
+	<sup>3</sup> Sorting order across different data types: parameter set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
+	             the longer one is considered as the "greater" one.  Nested sets will also be sorted.
+
+	+++,
+    "Examples 01:"::
+	a[0] = -1;
+	a[1] = -'heLLO world';
+	a[2] = +'heLLO world';
+	a[3] = !'heLLO world';
+	a[4] = ~ Hello World;
+	a[5] = + { 3, a, f, { a, b, d}, { c, a, b }, 1, true, date(today), 5, b,  };
+	a[6] = - { 3, a, f, { a, b, d}, { c, a, b }, 1, true, date(today), 5, b,  };
+	a[7] = + false;
+	a[8] = - false;
+	a[9] = + true;
+	a[10] = - true;
+	a[11] = ! true;
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+"Binary Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "binary operators" ],
+    "Description 01:Introduction"::
+	Binary operators consist of the following:
+	* __arithmetic operators__
+	* __comparison operators__
+	* __logical operators__
+
++++
+
+},
+
+
+
+"Arithmetic Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "arithmetic operator" ],
+    "Keywords":			[ "arithmetic operators" ],
+    "Description 01:Introduction"::
+	Arithmetic operators cover the four basic mathematical operations:
+	* __addition__
+	* __subtraction__
+	* __multiplication__
+	* __division__
+
+	The operators can also be imposed on non-numeric data types which result in different operations (e.g. string operations)
+	or implicit conversion to numerals before operation (e.g. boolean values converted to 0 or 1 before operation is carried out).
+
++++
+
+},
+
+
+"Additions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "addition" ],
+    "Description 01:Introduction"::
+
+	Basic rules to additions:
+	* Numbers are added together as learnt in 1st grade.
+	* Boolean values are converted to 0 and 1 first.
+	* Strings are catenated.
+	* The elements in parameter sets are also catenated.
+	* Special rules apply on arithmetics with dates and times which are described further below.
+	* Special rules apply to some operations with different data types.  See the table below for details.
+	
+
+	<br/><img src="Images/Description_Formulas_Additions.jpg" alt="Additions"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[0] = 5 + 3;
+	a[1] = Hello + ' ' + World;
+	a[2] = 0.5 + true;
+	a[3] = { a, b, c } + { c, d };
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Addition of Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Additions_of_Dates.jpg" alt="Additions of Dates"><br/>
+
+	'Date 1' and 'Time 1' refer to the data from the left operand whereas 'Date 2' and 'Time 2' refer to the right operand.<br>
+	<sup>1</sup> Only fractional part (digits behind decimal point) are used to add time value.  Value must be between 0 and (24*60*60-1)/(24*60*60).  Calculated sum must lie within 00:00:00 and 23:59:59.<br>
+	<sup>2</sup> Only the integer (whole number before decimal point) is used for the calculation.<br>
+	<sup>3</sup> Sorting order across different data types: parameter set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
+	             the longer one is considered as the "greater" one.  Nested sets will also be sorted.
+
+	+++,
+    "Examples 02:"::
+	d [] = date('2020-07-14');
+	dt[] = date('2020-07-14 12:30:00');
+	t [] = date('09:15:00');
+	o [] = date(''); // blank date
+
+	a[0] = d[] + 3.25;     // Just integer is used
+	a[1] = dt[]+ 3.25;    // 3 days, 6 hours
+	a[2] = t[] + 0.25;     // 6 hours
+	a[3] = d[] + t[];     // Date + time combind
+	a[4] = d[] + true;     // add 1 day
+	a[5] = o[] + d[];      // Add date to blank date
+
+	for all variables( a[], b[] ) echo( b[] );
+
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+"Subtractions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "subtraction" ],
+    "Description 01:Introduction"::
+
+	Basic rules to subtractions:
+	* Numbers are subtracted from each other as learnt at school.
+	* Boolean values are converted to 0 and 1 first.
+	* Strings: The first occurrences of the (sub-)string in the right operand found in the left operand will be removed, but not all.
+	* Parameter sets: The first occurrences of the elements in the right operand found in the left operand will be removed, but not all.
+	* Special rules apply on arithmetics with dates and times which are described further below.
+	* Special rules apply to some operations with different data types.  See the table below for details.
+
+
+	<br/><img src="Images/Description_Formulas_Subtractions.jpg" alt="Subtractions"><br/>
+
+
+	+++,
+    "Examples 01:"::
+	a[0] = 5 - 3;
+	a[1] = Hello - ell;
+	a[2] = 0.5 - true;
+	a[3] = { a, b, c, c } - { c, d }; // Removes one c, not all
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Subtraction of Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Subtractions_of_Dates.jpg" alt="Subtraction of Dates"><br/>
+
+	'Date 1' and 'Time 1' refer to the data from the left operand whereas 'Date 2' and 'Time 2' refer to the right operand.<br>
+	<sup>1</sup> Only fractional part (digits behind decimal point) are used to add time value.  Value must be between 0 and (24*60*60-1)/(24*60*60).  Calculated sum must lie within 00:00:00 and 23:59:59.<br>
+	<sup>2</sup> Only the integer (whole number before decimal point) is used for the calculation.<br>
+	<sup>3</sup> Sorting order across different data types: parameter set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
+	             the longer one is considered as the "greater" one.  Nested sets will also be sorted.
+
+	+++,
+    "Examples 02:"::
+	d [] = date('2020-07-14');
+	dt[] = date('2020-07-14 12:30:00');
+	t [] = date('09:15:00');
+	o [] = date(''); // blank date
+
+	a[0] = d[] - 3.25;    // Just integer is used
+	a[1] = dt[]- 3.25;    // 3 days, 6 hours
+	a[2] = t[] - 0.25;    // 6 hours
+	a[3] = d[] - true;    // subtract 1 day
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+"Multiplications" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "multiplication" ],
+    "Description 01:Introduction"::
+
+	Basic rules to subtractions:
+	* Numbers are multiplied with each other as learned in business school (probably a bit too late).
+	* Boolean values are converted to 0 and 1 first.
+	* Parameter sets: Parameter sets can be multiplied with numbers in order to repeat the elements.
+	* Special rules apply to some operations with different data types.  See the table below for details.
+
+	<br/><img src="Images/Description_Formulas_Multiplications.jpg" alt="Multiplications"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[0] = 5 * 3;
+	a[1] = '' * 10; // Blank = 0
+	a[2] = 0.5 * true;
+	a[3] = { a, b, c } * 3; // Repetition
+	a[4] = { a, b, c } * 0; // Empty set
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+"Divisions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "division" ],
+    "Description 01:Introduction"::
+
+	Basic rules to divisions:
+	* Numbers are divided with each other as learned in 2nd grade.
+	* Boolean values are converted to 0 and 1 first.
+	* Strings: All occurrences of the (sub-)string in the right operand found in the left operand will be removed.
+	* Parameter sets: All occurrences of the elements in the right operand found in the left operand will be removed.
+	* Special rules apply on arithmetics with dates and times which are described further below.
+	* Special rules apply to some operations with different data types.  See the table below for details.
+
+	<br/><img src="Images/Description_Formulas_Divisions.jpg" alt="Divisions"><br/>
+
+	+++,
+    "Examples 01:"::
+	include ( Support Library );
+	a[0] = 5 / 3;
+	a[1] = '' / 10; // Blank = 0
+	a[2] = 0.5 * true;
+	a[3] = { a, b, c, c, d } / { b, c }; // Removes all matching elements
+	a[4] = This is a great tiger / i; // All i's removed
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+
+"Comparison Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		"comparison operators",
+    "Keywords":			[ "comparison operator", "comparison expression", "comparisons", "selection of multiple values", "value ranges", "value range" ],
+    "Description 01:Introduction"::
+	Unlike other programming languages which define 6 comparison operators, B4P supports 8 comparison operators which can be combined with __comparison options__
+	to make adjustments on the comparison rules:
+	* <b>&lt;</b> Less than
+	* <b>&lt;=</b> Less than or equal to
+	* <b>&gt;</b> Greater than
+	* <b>&gt;=</b> Greater than or equal to
+	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values</b> separated with commas) and/or <b>ranges</b>.
+	* <b>&lt;&gt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values<b> separated with commas) and/or <b>ranges</b>.
+	* <b>==</b> __strictly Equal to__, expecting 1 operand only
+	* <b>!=</b> __strictly not equal to__, expecting 1 operand only
+
+	Comparisons with b>=</b> and <b>&gt;&lt;</b> are more tolerant in comparing numbers and strings containing numbers, and also support
+	wildcard symbols on the right-hand operands if they are defined as __softquoted strings__ (e.g. __text inside single quotation marks__).
+
+
+	+++,
+    "Description 02:Attention! = and &lt;&gt; may Hijack Parameters"::
+
+	<u>Attention</u>: As the two comparison operators <b>=</b> and <b>&gt;&lt;</b> expect 1 or more operands on the right hand side,
+	you may risk situations where the comparison hijacks the remaining comma-separated values on the right-hand-side typically encountered
+	in function parameters and values in parameter sets.  To avoid this, put the comparison into parentheses, or use the <b>==</b> and <b>!=</b>
+	symbols.
+	+++,
+    "Examples 02"::
+	b[] = 12; 
+	// Want to compare b[] == 9 and include the result in the parameter set between 'false' and 12
+	// Good luck!
+
+	a[0] = { 3, 6, false, b[] =  9 , 12, 15 }; // Comparison has hijacked the last two parameters
+	a[1] = { 3, 6, false,(b[] =  9), 12, 15 }; // OK
+	a[2] = { 3, 6, false, b[] == 9 , 12, 15 }; // OK
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 02": "automatic"
+},
+
+
+
+
+"Wildcards" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "wildcards" ],
+    "Keywords":			[ "wildcard symbols" ],
+    "Description 01:Introduction"::
+
+	B4P supports wildcards which enables for more effective search and comparison functions as they enable pattern matching with concepts such as
+	* Begins with ...
+	* Ends with ...
+	* Contains ...
+	* Multiple patterns separated by commas ...
+
+
+	Wildcards are used, amongst others, in following functionalities:
+	* Comparison operators __equal to__ <b>=</b> and __not equal to__ <b>&lt;&gt;</b> where the operands on the right hand side may consist of strings containing wildcards
+	* __Horizontal table access using wildcards__ and __vertical table access using wildcards__
+	* Various B4P functions accepting parameters allowign wildcards for pattern matching
+	* Searching for files, e.g. __directory listing(__) and __resolve path name(__) function.
+
+	Unless specified otherwise (like in searching files), wildcard symbols in strings will only work if specified as __softquoted strings__ (e.g. __text inside single quotation marks__).
+
+ 	=== 100, 200, 100, 600, bold_column_1 bold_column_3
+	Symbol	| Meaning						| Example			| Explanation
+	*	| Plaholder for any number of characters (incl. 0)	| A*<br>*s<br>*-*<br>A*E	| Begins with 'A' <br>Ends with 's'<br>Contains '-' <br>\
+													  Begins with 'A' and ends with 'E'
+	~	| Placeholder for any number of letters (incl. 0)<br>\
+		  Foreign (non-ANSI) characters are accepted here, too.	| ~ Street			| Expecting a name for the street (letters only)
+	&amp;	| Placeholder for any number of numeric digits 0..9	| &amp; kg			| Expects a number of any size before ' kg'
+	?	| Placeholder for exactly 1 character			| ???<br>A?			| Contains 3 characters of choice<br>A follwed by 1 character of choice
+	#	| Placeholder for exactly 1 numeric digit 0..9		| ###-##-####			| Expect a social security number (U.S. number format)
+	^	| Placeholder for exactly 1 alphanumeric character<br>\
+		  Foreign (non-ANSI) characters are accepted here, too.	| ^^^				| Expect 3 letters
+	,	| Defines additional pattern to compare			| A*,B*,C*			| May begin with A, B or C.
+	===
+
+	For searching files using directory and file functions, the wildcards are limited to * and ?.
+
+	+++,
+	"Examples 01:Programming example"::
+	include( Support Library );
+
+	table initialize ( demo wildcards,
+	{ { Target string, '*', '~', 'A*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*' },
+	    Hello,
+	    1234,
+	    12345,              // Column headers contain wildcard symbols
+	    Zip 12010,          // 1st column contain target strings to compare with these patterns
+	    Cat,                // The blank rows will be filled in with comparison results
+	    Bat,                // 'true' and 'false'.
+	    halt } );
+
+	table configure( demo wildcards, read numerals, no ); // Read numbers from tables as strings
+
+	table process( demo wildcards,
+	    for (c[] = 1, c[] < table row width( demo wildcards, 0 ), c[]++ )
+	    {
+	        [c[]]      = [0]      = soft( [c[], 0 ] ); // Compare and write the result
+	        // Current   Column   Compared with corresponding header name above
+	        // column    zero
+	    } );
+
+	table list( demo wildcards );
+	+++,
+	"Output 01": "automatic"
+},
+
+
+"Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "equal to" ],
+    "Description 01:Introduction"::
+
+	Basic rules to equal-to comparisons which are a bit more relaxed than the __strictly equal to__ comparison operator:
+	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.
+	* __Wildcards__ are supported in the right-hand operand if the value is a __softquoted string__ (e.g. specified inside single quotation marks)
+	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
+	* Dates, Booleans and numerals can be compared with strings if they have the same text value / string representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.
+	* Comparing two void values will always return true.
+
+	<br/><img src="Images/Description_Formulas_Equal_to.jpg" alt="Comparison Equal to"><br/>
+
+	<sup>1</sup> If a numeral is compared with a string, then a string copy will be made of the numeral and both strings are compared.<br>
+	<sup>2</sup> If a date is compared with a string, then a string copy will be made of the date and both strings are compared.  Depending on the state of the date, the format is "YYYY-MM-DD", "HH:II:SS", or "YYYY-MM-DD HH:II:SS".<br>
+	<sup>3</sup> If a boolean value is compared with a string, then a string copy will be made of the boolean value and both strings are compared.<br>
+	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.  Values (but not subsets) inside the parameter sets are compared with the __strictly equal to__ <b>==</b> operator.
+
+
+	+++,
+    "Examples 01:"::
+	echo("Basic comparisons:");
+
+	a[0] = 3 = 3;		// true
+	a[1] = 5.1 = 5;         // false
+	a[2] = 5 = 2,3,5,7;     // true
+	a[3] = 5 = 2,2+1,5,7;	// true
+	a[4] = 5 = 1..3;	// false
+	a[5] = 5 = 4..7;	// true
+	a[6] = 5 = 1..3,5,7;	// true
+	a[7] = {1,2,3} = {3,2,1}; // true
+
+	for all variables( a[], x[] ) echo( x[] );
+
+	echo("String with other types:");
+
+	b[0] = 123 = "123";         // true
+	b[1] = '123' = 123;         // true
+	b[2] = false = 'false';     // true
+	b[3] = false = 'False';     // false
+	b[4] = date("2020-08-01") = "2020-08-01";  // true
+	b[5] = date("2020-08-01") = "01.08.2020";  // false
+	// The last one is 'false' because string representation of date is YYYY-MM-DD
+
+	for all variables( b[], x[] ) echo( x[] );
+
+	echo("Compare with wildcards:");
+
+	c[0] = Hello World = '*o*'; // Contains 0, true
+	c[1] = Hello World = "*o*"; // Not equal to string "*o*", false
+	c[2] = Hi = 'Ha,Hi,Ho';     // Wildcard with commas, true
+	c[3] = Hi = Ha,Hi,Ho;       // Selection with commas, true
+
+	for all variables( c[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Comparing Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Equal_to_of_Dates.jpg" alt="Comparison Equal to of dates"><br/>
+	
+	Note that in some cases, only the time or only the dates are compared.
+
+	+++,
+    "Examples 02:"::
+	d [] = date('2020-07-14');
+	dt[] = date('2020-07-14 12:30:00');
+	t [] = date('12:30:00');
+	o [] = date(''); // blank date
+	dz[] = date('2020-07-14 12:30:01');
+
+	a[0] = d[] = dt[];   // true, dates same, time not compared
+	a[1] = t[] = dt[];   // true, times same, date not compared
+	a[2] = d[] = date("2020-07-15") - 1; // true
+	a[3] = dt[] = dz[];   // false (time differs)
+	
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+
+"Not Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "not equal to" ],
+    "Description 01:Introduction"::
+
+	Basic rules to not-equal-to comparisons which are a bit more relaxed than the __strictly not equal to__ comparison operator:
+	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.
+	* __Wildcards__ are supported in the right-hand operand if the value is a __softquoted string__ (e.g. __text inside single quotation marks__).
+	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
+	* Dates, Booleans and numerals can be compared with strings if they have the same text value / string representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.
+	* Comparing two void values will always return true.
+
+	<br/><img src="Images/Description_Formulas_Not_Equal_to.jpg" alt="Comparison not Equal to"><br/>
+
+
+	<sup>1</sup> If a numeral is compared with a string, then a string copy will be made of the numeral and both strings are compared.<br>
+	<sup>2</sup> If a date is compared with a string, then a string copy will be made of the date and both strings are compared.  Depending on the state of the date, the format is "YYYY-MM-DD", "HH:II:SS", or "YYYY-MM-DD HH:II:SS".<br>
+	<sup>3</sup> If a boolean value is compared with a string, then a string copy will be made of the boolean value and both strings are compared.<br>
+	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} <> {3,2,1} returns false, however strictly comparison {1,2,3} != {3,2,1} returns true.  Values (but not subsets) inside the parameter sets are compared with the __strictly not equal to__ <b>!=</b> operator.
+
+	+++,
+    "Examples 01:"::
+	echo("Basic comparisons:");
+
+	a[0] = 3 <> 3;		// false
+	a[1] = 5.1 <> 5;         // true
+	a[2] = 5 <> 2,3,5,7;     // false
+	a[3] = 5 <> 2,2+1,5,7;	// false
+	a[4] = 5 <> 1..3;	// true
+	a[5] = 5 <> 4..7;	// false
+	a[6] = 5 <> 1..3,5,7;	// false
+	a[7] = {1,2,3} <> {3,2,1}; // false
+
+	for all variables( a[], x[] ) echo( x[] );
+
+	echo("String with other types:");
+
+	b[0] = 123 <> "123";         // false
+	b[1] = '123' <> 123;         // false
+	b[2] = false <> 'false';     // false
+	b[3] = false <> 'False';     // true
+	b[4] = date("2020-08-01") <> "2020-08-01";  // false
+	b[5] = date("2020-08-01") <> "01.08.2020";  // true
+	// The last one is 'true' because string representation of date is YYYY-MM-DD
+
+	for all variables( b[], x[] ) echo( x[] );
+
+	echo("Compare with wildcards:");
+
+	c[0] = Hello World <> '*o*'; // Contains o, false
+	c[1] = Hello World <> "*o*"; // Not equal to string "*o*", true
+	c[2] = Hi <> 'Ha,Hi,Ho';     // Wildcard with commas, false
+	c[3] = Hi <> Ha,Hi,Ho;       // Selection with commas, false
+
+	for all variables( c[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Comparing Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Not_Equal_to_of_Dates.jpg" alt="Comparison Equal to of dates"><br/>
+	
+	Note that in some cases, only the time or only the dates are compared.
+
+	+++,
+    "Examples 02:"::
+	d [] = date('2020-07-14');
+	dt[] = date('2020-07-14 12:30:00');
+	t [] = date('12:30:00');
+	o [] = date(''); // blank date
+	dz[] = date('2020-07-14 12:30:01');
+
+	a[0] = d[] <> dt[];   // false, dates same, time not compared
+	a[1] = t[] <> dt[];   // false, times same, date not compared
+	a[2] = d[] <> date("2020-07-15") - 1; // false
+	a[3] = dt[] <> dz[];   // true (time differs)
+	
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+
+"Strictly Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "strictly equal to" ],
+    "Description 01:Introduction"::
+
+	Basic rules to strictly-equal-to comparisons:
+	* The number of operands on the right-hand-side is always 1.  No risk of hijacking parameters.
+	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
+	* Comparing values of different types, e.g. numerals with strings, will always be unequal.
+	* When comparing parameter sets, the same elements in both left and right hand side must exist, and they need to be in the same order.
+	* Comparing two void values will always return true.
+
+	<br/><img src="Images/Description_Formulas_Strictly_Equal_to.jpg" alt="Comparison Equal to"><br/>
+
+	<sup>1</sup> Contents in both sets must be the same and in the same ordering E.g. {1,2,3} = {3,2,1} returns false.
+
+	+++,
+    "Examples 01:"::
+	echo("Basic comparisons:");
+
+	a[0] = 3 == 3;             // true
+	a[1] = 5.1 == 5;           // false
+	a[2] = {1,2,3} == {3,2,1}; // false
+	a[3] = {1,2,3} == {1,2,3}; // true
+
+	for all variables( a[], x[] ) echo( x[] );
+
+	echo("String with other types always return false:");
+
+	b[0] = 123 == "123";         // false
+	b[1] = '123' == 123;         // false
+	b[2] = false == 'false';     // false
+	b[3] = date("2020-08-01") == "2020-08-01";  // false
+
+	for all variables( b[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Comparing Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Strictly_Equal_to_of_Dates.jpg" alt="Comparison Equal to of dates"><br/>
+
+	+++,
+    "Examples 02:"::
+	d [] = date('2020-07-14');
+	dt[] = date('2020-07-14 12:30:00');
+	t [] = date('12:30:00');
+	o [] = date(''); // blank date
+	dz[] = date('2020-07-14 12:30:01');
+
+	a[0] = d[] != dt[];   // true (one contains time, the other not)
+	a[1] = t[] != dt[];   // true (one contains date, the other not)
+	a[2] = d[] != date("2020-07-15") - 1; // false
+	a[3] = dt[] != dz[];   // true (time differs)
+	
+	for all variables( a[], b[] ) echo( b[] );
+
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+
+"Strictly Not Equal to" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "strictly not equal to" ],
+    "Description 01:Introduction"::
+
+	Basic rules to strictly-equal-to comparisons:
+	* The number of operands on the right-hand-side is always 1.  No risk of hijacking parameters.
+	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
+	* Comparing values of different types, e.g. numerals with strings, will always be unequal.
+	* When comparing parameter sets, the same elements in both left and right hand side must exist, and they need to be in the same order.
+	* Comparing two void values will always return true.
+
+	<br/><img src="Images/Description_Formulas_Strictly_Not_Equal_to.jpg" alt="Comparison not Equal to"><br/>
+
+	<sup>1</sup> Contents in both sets must be the same and in the same ordering E.g. {1,2,3} = {3,2,1} returns false.
+
+	+++,
+    "Examples 01:"::
+	echo("Basic comparisons:");
+
+	a[0] = 3 != 3;             // false
+	a[1] = 5.1 != 5;           // true
+	a[2] = {1,2,3} != {3,2,1}; // true
+	a[3] = {1,2,3} != {1,2,3}; // false
+
+	for all variables( a[], x[] ) echo( x[] );
+
+	echo("String with other types always return false:");
+
+	b[0] = 123 != "123";         // true
+	b[1] = '123' != 123;         // true
+	b[2] = false != 'false';     // true
+	b[3] = date("2020-08-01") != "2020-08-01";  // true
+
+	for all variables( b[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Comparing Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Not_Equal_to_of_Dates.jpg" alt="Comparison Equal to of dates"><br/>
+	
+	Note that in some cases, only the time or only the dates are compared.
+
+	+++,
+    "Examples 02:"::
+	d [] = date('2020-07-14');
+	dt[] = date('2020-07-14 12:30:00');
+	t [] = date('12:30:00');
+	o [] = date(''); // blank date
+	dz[] = date('2020-07-14 12:30:01');
+
+	a[0] = d[] != dt[];   // true (one contains time, the other not)
+	a[1] = t[] != dt[];   // true (one contains date, the other not)
+	a[2] = d[] != date("2020-07-15") - 1; // false
+	a[3] = dt[] != dz[];   // true (time differs)
+	
+	for all variables( a[], b[] ) echo( b[] );
+
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+
+"Smaller than (or Equal to)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "smaller than or equal to" ],
+    "Keywords":			[ "smaller than" ],
+    "Description 01:Introduction"::
+
+	Basic rules to smaller than / smaller than or equal to comparisons:
+	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
+	* Comparing values of different types, e.g. numerals with strings, will always return false.
+	* When comparing parameter sets, the sorting order of the parameter is compared.
+
+	<br/><img src="Images/Description_Formulas_Smaller_than_or_Equal_to.jpg" alt="Comparison Smaller than (or Equal to)"><br/>
+
+	<sup>1</sup> When comparing parameter sets, the following sorting order across different data types applies: parameter set > string > date > numeral > boolean, 
+	then followed by contents if types are equal. For sets with common contents and different lengths,
+	the longer one is considered as the "greater" one.  Nested sets will also be compared.
+
+	+++,
+    "Examples 01:"::
+	echo("Basic comparisons:");
+
+	a[0] = 3   <  3;            // false
+	a[1] = 3   <= 3;            // true
+	a[2] = 4.9 <  5;            // true
+	a[3] = Ha  < He;            // true (sorting order)
+	a[4] = {1,2,3} <  {3,2,1};  // true
+	a[5] = {1,2,3} <  {1,2,3};  // false
+	a[6] = {1,2,3} <= {1,2,3};  // true
+	a[7] = {1,2,3} < {1,2,3,4}; // true
+	a[8] = false < true;        // true
+	a[9] = a < 1;               // always false
+
+	for all variables( a[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Comparing Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Smaller_than_or_Equal_to_of_Dates.jpg" alt="Comparison Smaller than (or Equal to) of dates"><br/>
+
+	+++,
+    "Examples 02:"::
+	dt1[] = date('2020-07-14 12:30:00');
+	dt2[] = date('2020-08-01 06:45:00');
+	d1 [] = date('2020-07-14');
+	d2 [] = date('2020-08-01');
+	t1 [] = date('12:30:00');
+	t2 [] = date('06:45:00');
+
+	a[0] = dt1[] < dt2[]; // true
+	a[1] = dt1[] < t2 []; // Times compared, false
+	a[2] = dt2[] < d1 []; // Dates compared, false
+	a[3] = dt2[] < t2 []; // Times compared, false
+	a[4] = dt2[] <=t2 []; // Times compared, true
+	a[5] = dt1[] < d1 []; // Dates compared, false
+	a[6] = dt1[] <=d1 []; // dates compared, true
+	a[7] = dt1[] < dt1[]; // false
+	a[8] = dt1[] <=dt1[]; // true
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+
+"Greater than (or Equal to)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "greater than or equal to" ],
+    "Keywords":			[ "greater than" ],
+    "Description 01:Introduction"::
+
+	Basic rules to greater than / greater than or equal to comparisons:
+	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
+	* Comparing values of different types, e.g. numerals with strings, will always return false.
+	* When comparing parameter sets, the sorting order of the parameter is compared.
+
+	<br/><img src="Images/Description_Formulas_Greater_than_or_Equal_to.jpg" alt="Comparison Greater than (or Equal to)"><br/>
+
+	<sup>1</sup> When comparing parameter sets, the following sorting order across different data types applies: parameter set > string > date > numeral > boolean, 
+	then followed by contents if types are equal. For sets with common contents and different lengths,
+	the longer one is considered as the "greater" one.  Nested sets will also be compared.
+
+	+++,
+    "Examples 01:"::
+	echo("Basic comparisons:");
+
+	a[0] = 3   >  3;            // false
+	a[1] = 3   >= 3;            // true
+	a[2] = 4.9 >  5;            // false
+	a[3] = Ha  > He;            // false (sorting order)
+	a[4] = {1,2,3} >  {3,2,1};  // false
+	a[5] = {1,2,3} >  {1,2,3};  // false
+	a[6] = {1,2,3} >= {1,2,3};  // true
+	a[7] = {1,2,3} > {1,2,3,4}; // false
+	a[8] = false > true;        // false
+	a[9] = a > 1;               // always false
+
+	for all variables( a[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Comparing Dates"::
+
+	Note that value of type date may assume 4 states: date only, time only, date and time combined and blank date (no value).  Even for the same operator,
+	the rules of calculating dates and numeric operands differ.
+
+	<br/><img src="Images/Description_Formulas_Greater_than_or_Equal_to_of_Dates.jpg" alt="Comparison Greater than (or Equal to) to of dates"><br/>
+
+	+++,
+    "Examples 02:"::
+	dt1[] = date('2020-07-14 12:30:00');
+	dt2[] = date('2020-08-01 06:45:00');
+	d1 [] = date('2020-07-14');
+	d2 [] = date('2020-08-01');
+	t1 [] = date('12:30:00');
+	t2 [] = date('06:45:00');
+
+	a[0] = dt1[] > dt2[]; // false
+	a[1] = dt1[] > t2 []; // Times compared, true
+	a[2] = dt2[] > d1 []; // Dates compared, true
+	a[3] = dt2[] > t2 []; // Times compared, false
+	a[4] = dt2[] >=t2 []; // Times compared, true
+	a[5] = dt1[] > d1 []; // Dates compared, false
+	a[6] = dt1[] >=d1 []; // dates compared, true
+	a[7] = dt1[] > dt1[]; // false
+	a[8] = dt1[] >=dt1[]; // true
+
+	for all variables( a[], b[] ) echo( b[] );
+	+++,
+    "Output 02:": "automatic"
+},
+
+
+"Logical Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "logical operators" ],
+    "Description 01:Introduction"::
+	Logical operators cover the follwoing two operators:
+	* __logical and__
+	* __logical or__
+
+	The operators are only applicable to boolean values and parameter sets.
+	__Comparison operators__ can be used to calculate exclusive OR (not equal operator) and equivalence (equal operator).
+
+    +++
+},
+
+
+"Logical And" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "logical and" ],
+    "Description 01:Introduction"::
+
+	Basic rules to logical AND (Symbol: <b>&amp;</b>):
+	* For boolean values the logical AND operator is applied.
+	* For parameter sets, the intersection of equal elements will be identified.
+	* All other data types wll be rejected
+
+	<br/><img src="Images/Description_Formulas_Logical_And.jpg" alt="Logical And"><br/>
+
+	+++,
+    "Examples 01:"::
+	echo("On boolean values:");
+
+	a[0] = false & false;
+	a[1] = true & false;
+	a[2] = true & true;
+
+	for all variables( a[], x[] ) echo( x[] );
+
+	echo("On parameter sets:");
+
+	b[0] = { a, b, c, 1, 2 } & { d, f, 3 }; // Empty set
+	b[1] = { a, b, c, 1, 2 } & { c, b, 3 }; // {b, c}
+	b[2] = { a, b, c, 1 ,2 } & { 1, 2, c }; // {c, 1, 2}
+	b[3] = { a, b, b, c } & { b, a, b, b }; // {a, b, b}
+
+	for all variables( b[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+"Logical Or" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "logical or" ],
+    "Description 01:Introduction"::
+
+	Basic rules to logical OR  (Symbol: <b>&vert;</b>):
+	* For boolean values the logical OR operator is applied.
+	* For parameter sets, the union of equal elements will be identified.
+	* All other data types wll be rejected
+
+	<br/><img src="Images/Description_Formulas_Logical_Or.jpg" alt="Logical Or"><br/>
+
+	+++,
+    "Examples 01:"::
+	echo("On boolean values:");
+
+	a[0] = false | false;
+	a[1] = true | false;
+	a[2] = true | true;
+
+	for all variables( a[], x[] ) echo( x[] );
+
+	echo("On parameter sets:");
+
+	b[0] = { a, b, 1 } | { 1, b, a }; // {a, b, 1}
+	b[1] = { a, b, 1 } | { 1, b, c }; // {a, b, 1, c}
+	b[2] = { a, b, b } | { b, b, c }; // {a, b, b, c}
+
+	for all variables( b[], x[] ) echo( x[] );
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+"Comparison Options" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "comparison options" ],
+    "Keywords":			[ "Epsilon" ],
+    "Description 01:Introduction"::
+
+	Comparison options provide further adjustments on the comparison rules.  The rules affect the following:
+	* String comparisons: Ignoring case and/or blanks
+	* Numeric comparisons: Using epsilon as tolerance value.
+
+	<br/><img src="Images/Description_Formulas_Comparison_Options.jpg" alt="Comparison Options"><br/>
+	+++,
+    "Description 02:Options for String Comparisons"::
+	Specify '+' after the comparison operator to ignore upper/lower case checking, and '~' to ignore all blanks.
+	Both symbols may be used where it does not matter if specified as '+~' or the '~+'.
+
+	+++,
+    "Examples 02:Comparing varieties of ahorns and the F horn (an instrument)"::
+	include( Support Library );
+	runtime settings[ epsilon ] = 0.001; // Make comparisons very tolerant for now to show how it works
+
+	// 1st number is on left side of comparison, the others are on the right sides
+	numbers[] = { A horn, A Horn, AHorn, A horn, Ahorn, a horn, ahorn, F horn };
+	symbols[] = { '=',  '=~',  '=+',  '=+~',  '', // Blanks cause line breaks for better visibility
+	              '<>', '<>~', '<>+', '<>+~', '',
+	              '>',   '>~', '>+',  '>+~',  '',
+	              '>=',  '>=~','>=+', '>=+~', '',
+	              '<',   '<~', '<+',  '<+~',  '',
+	              '<=',  '<=~','<=+', '<=+~' };
+
+	table initialize( overview, {numbers[]} + symbols[] );
+
+	table process selected rows( overview, [0]!='',
+	    for (col[] = 1, col[] < table row width( overview, 0 ), col[]++ )
+	    {
+		// Formulate the coparison expression in a string and use 'compare' to use it. Colon required for this.
+		// [0,0] = Current table (overview), column 0, row 0.   [0] = Current table, column 0, current row
+
+	        [col[]] = compare ( [0,0], : [0] + [col[],0] );
+	    } );
+
+	table list( overview );	
+	+++,
+    "Output 02": "automatic",
+    "Description 03:Options for Numeric Comparisons"::
+	For numeric comparisons, the plus sign is ignored.  However, the '~' sign provides a numeric tolerance of value epsilon.
+	This value is maintained in the system variable <b>run time settings[epsilon]</b> and may be changed to a different
+	meaningful value if needed.  Tolerant comparisons make sense for comparing two values which have gone through some
+	calculatons and minor numeric imprecisions may have occurred which should not adversely influence numeric comparisons.
+
+	The following overview illustrates how the epsilon comparison tolerance is applied for the different operators:
+
+	<br/><img src="Images/Description_Formulas_Comparison_Epsilon.jpg" alt="Comparison Options"><br/>
+
+	+++,
+    "Examples 03:Simple example of comparisons dealing with minor imperfections from calculations"::
+	a[] = 1.2156;
+	b[] = a[] * 1.9123 * 2.591271 / 1.9123 / 2.591271; // Result should be unchanged  ...theoretically.
+
+	echo( a[], ", ", b[] );
+	echo( "Epsilon: ", runtime settings[epsilon] );
+	echo( "Hard comparison    : ", a[] = b[] );	// Falsely outputting false
+	echo( "Tolerant comparison: ", a[] = ~b[] );	// Now it's OK (both values are within epsilon tolerance)
+	+++,
+    "Output 03": "automatic",
+    "Examples 04:Comprehensive overview"::
+	include( Support Library );
+	runtime settings[ epsilon ] = 0.001; // Make comparisons very tolerant for now to show how it works
+
+	// 1st number is on left side of comparison, the others are on the right sides
+	numbers[] = { 15.0000, 14.9989, 14.9990, 14.9991, 15.0000, 15.0009, 15.0010, 15.0011 };
+	symbols[] = { '=', '=~', '<>', '<>~', '>', '>~', '>=', '>=~', '<', '<~', '<=', '<=~' };
+
+	table initialize( overview, {numbers[]} + symbols[] );
+
+	table process( overview, 
+	    for (col[] = 1, col[] < table row width( overview, 0 ), col[]++ )
+	    {
+		// Formulate the coparison expression in a string and use 'compare' to use it. Colon required for this.
+		// [0,0] = Current table (overview), column 0, row 0.   [0] = Current table, column 0, current row
+
+	        [col[]] = compare ( [0,0], : [0] + str( [col[],0] ) );
+	    } );
+
+	table list( overview );	
+	+++,
+    "Output 04:": "automatic"
+},
+
+
+
+"Assignment operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Assignment operator", "Assignment operators" ],
+    "Description 01:Introduction"::
+
+	Similar to C/C++, B4P supports assignment operators as listed in the table below. An assignment operator such as <b>a[]+=3</b>; 
+	is equivalent to <b>a[]=a[]+3</b>, making use of the same type checking and conversion rules.  Spaces between the assignment operator and
+	the equal sign are allowed.  The execution performance of assignment operators is faster than conventional formulation because fewer
+	language elements (symbols, names, values) are interpreted, e.g. from 9 (<b>a[]=a[]+3</b>) to 6 (<b>a[]+=3</b>).
+
+	=== 100, 200, 700, bold_column_1
+	Operator	| Examples				| Equivalent traditional formulation
+	+=		| a[] += 3;<br>a[] += ' km/h';		| a[] = a[] + 3;<br>a[] = a[] + ' km/h';
+	-=		| a[] -= 4;<br>a[] -= {'1','2'};	| a[] = a[] - 4;<br>a[] = a[] - { '1','2' };
+	*=		| a[] *= 5;<br>				| a[] = a[] * 5;
+	/=		| a[] /= 2;<br>a[] /= '.';		| a[] = a[] / 2;<br>a[] = a[] / '.';
+	&amp;=		| a[] &amp;= b[];			| a[] = a[] &amp; b[];
+	&vert;=		| a[] &vert;= b[];			| a[] = a[] &vert; b[];
+	== =		| a[] == = b[];				| a[] = a[] == b[];
+	!= =		| a[] != = b[];				| a[] = a[] != b[];
+	===
+	In the last two rows, the symbols may be written together, but have been shown separately for better clarity.<br><br>
+
+	In the destination variable is not existing yet and an assignment operator is applied, then the destination variable will
+	be initialized implicitly with following values:
+
+	=== 200, 100, 200, 500, bold_column_1
+	Type		| Value		| Examples		| Equivalen traditional formulation
+	Numeral		| 0		| a[] += 5;		| a[] = 0; a[] = a[] + 5; 
+	String		| '' (blank)	| a[] += 's';		| a[] = ''; a[] = a[] + 's';
+	Date		| (blank date)	| a[] += date(today);	| a[] = date(''); a[] = a[] + date(today);
+	Boolean		| false		| a[] &vert;= b[];	| a[] = false; a[] = a[] &vert; b[];
+	parameter set	| {} (empty set)| a[] &vert;= {1,2};	| a[] = {}; a[] = a[] &vert; {1,2};
+	===
+
+	+++,
+    "Examples 01:"::
+	// Implicit initialization cases
+
+	a[0] += 3;
+	a[1] += 'Hello';
+	a[2] += date("2020-10-12");
+	a[3] |= false;
+	a[4] |= { 1,2,3 };
+	a[5] += true;   // Arithmetic operator converts true to 1 first
+	a[6] = ''; a[6] -= 1; // a[] = '' - 1 is legitimate because arithmetic calculation 
+	// of numbers with blank strings is valid where blanks are treated as zero.
+
+	// Doing some calculations
+
+	a[0] *= 2;      // 3 --> 6
+	a[1] -= llo;    // Hello --> He
+	a[2] += 1;      // Next day
+	a[3] |= true;	// true
+	a[4] *= 2;      // { 1,2,3, 1,2,3 }
+	a[5] /= 2;      // 1 -> 0.5	
+
+	for all variables( a[], x[] ) echo ( x[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Assignment operators on table cells"::
+
+	Using assignment operators on tables is supported to a limited extent since the type of the destination is either a string or
+	numeral (legitimate positive or negative number with or without decimal point recognized) unless the table has been configured
+	differently using the __table configure(__) function.
+	+++,
+    "Examples 02:"::
+	include( Support Library );
+	table create ( a );
+
+	[a:0,0] += 1;
+	[a:0,1] += 'Hello';
+	[a:0,1] -= 'llo';
+	[a:0,1] += 'y'; // Hey
+	[a:0,2] = true; // converts to string
+	[a:0,2] += ' false'; // 'true false'
+
+	table list(a);
+	+++,
+    "Output 02:": "automatic",
+    "See also": "Deep assignment operators"
+},
+
+
+
+
+"Ad-hoc Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ad-hoc operators" ],
+    "Keywords":			[ "ad-hoc operations", "ad-hoc operation" ],
+    "Description 01:Introduction"::
+
+	Ad-hoc operators are features which apply an immediate action on the variable or table field referenced.
+	The increment and decrement operators (++ and --) common in C/C++, Java and Python are just two of a variety
+	of ad-hoc operators.  Ad-hoc operators can be applied in following ways:
+
+	* Stand-alone use
+	** As prefix: <b>++a[];</b>
+	** As postfix: <b>a[]--;</b>
+	* As part of a left-hand expression of assignments
+	** As postfix: <b>a[]++ = 1;</b> (Prefix use would not make sense as it increments the value before being overwritten.
+	* As part of a right-hand expression of
+	** As prefix: <b>b[] = 3 + ++a[];</b>
+	** As postfix: <b>b[] = 3 + a[]++;</b>
+	** Combination of prefix and postfix use is allowed, e.g. <b>++a[]--</b>.  Actually, (a[]+1) in an expression is more meaningful.
+	** In parameters for function calls, e.g. <b>echo( ++a[] )</b>
+
+
+	=== 100, 900, noheader, noframe bold_column_1
+	++		| Increment
+	--		| Decrement
+	++(<i>n</i>)	| Increment by specified numeral or numeric expression (negative values will obviously decrement the target value)
+	--(<i>n</i>)	| Decrement by specified numeral or numeric expression (negative values will obviously increment the target value)
+	**(<i>n</i>)	| Apply scaling factor, with numeral or numeric expression in parentheses.  An equivalent symbol for division does \
+			  not exist.  Use a reciprocal value in combination with the scaling factor instead.
+	===
+	<u>Note</u>: The two consecutive characters need to be written together without spaces.  Otherwise they are recognized as
+	plus, minus and multiplication symbols.  False example: <b>c[] = - - a[];</b> where the value of a[] is negated twice and
+	assigned to c[].
+
+	Ad-hoc operators are allowed on target value with following types:
+	* Numerals
+	* Blank strings, which are treated as 0
+	* Non-blank strings: All ad-hoc operations will be ignored.  No error messages occur, which may be beneficial when processing tables with mix of numbers and text
+	* Dates: 
+	** If containing dates: +/-1 represents next/previous days
+	** If containing times: For example Adding a fraction of 1, e.g. <b>**(0.25)</b> for 6 hous, is possible
+	* Parameter sets: All elements, including nested ones, are affected
+	* Booleans: ++ sets to true -- sets to false.
+
+	Ad-hoc operators can be applied on variable as well as table cells.  However following restrictions apply:
+
+	* Applying ad-hoc operators on unknown variables.
+	** Exception to rule: Post-fix use in assignments, e.g. <b>b[]++ = 3;</b> because the incrementation is carried out after the assignemnt is completed.
+	* Variables where specific protections apply (read only)
+	* Ad-hoc operators are not allowed in __transactions__, e.g. <b>a[]++ <== b[];</b>
+	* They are also not allowed in function call requiring variables as code pices, e.g. in __dim(__), __protect(__), etc.
+	* Ad-hoc operatoros on multiple table cells (e.g. in __horizontal table access__).  Only single cells are allowed.
+
+	B4P provides following ad-hoc operators;
+
+	<br><br>
+	Ad-hoc operators can also be cascaded, e.g. <b>a[]++ ++</b>, <b>a[] **(3) ++</b>. Following restriction applies: All scaling operations must 
+	happen before ++ and/or -- operators.  Not valid: <b>a[] ++ **(3)</b>.  However <b>++a[]**(3)</b> is OK.
+	+++,
+    "Examples 01:"::
+	a[] = 10;
+	b[] = 20;
+	d[] = 30;
+
+	echo("Demonstrate ad-hoc operations in right-hand expressions:");
+
+	//    10          11            9             11
+	echo( a[]++, ' ', a[]--, ' ', --a[], ' ', ++ ++a[] );
+
+	//    22             22 -> 66               6
+	echo( **(2)a[], ' ', a[]**(3), ' ', **(1/11)a[] );
+
+	x[] = --(2) a[]++;  // Decrement a by 2, assign, then increment by 1. Result: 4, 5
+
+	echo( x[], ' ', a[]);
+
+	echo(new line, "Demonstrate ad-hoc operations in left-hand expressions:");
+
+	e[]++ = b[];       // becomes 21
+	f[]**(2) = 10;     // becomes 20
+
+	echo( e[], ' ', f[]) ;
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations:");
+
+	d[]++;             // Simple one, 31.
+	**(2)e[]--;        // Double 21 to 42, subract by 1 becomes 41.
+
+	echo( d[], ' ', e[]) ;
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations in tables:");
+
+	table create ( t );    // Ad-hoc operators applied on table cells
+
+	[t:0,0]++;             // Table entry was blank. Arithmetics interpret blanks as zero;  Contains 1.
+	[t:0,0]**(3);	       // Multiplied by 3.
+	echo( [t:0,0] );       // 3
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations with dates:");
+
+	d[] = date( "2020-08-01 18:30:00" );
+	echo( --d[] ); // Previous day
+	echo( ++(0.5)d[] ); // Next day, 06:30
+
+	echo(new line, "Demonstrate stand-alone ad-hoc operations with parameter sets:");
+
+	a[] = { 1, 2, 5, 10, { 20, 50 } };
+	a[]++;
+	echo(a[]);
+	+++,
+    "Output 01:": "automatic",
+    "See also": "Ad-hoc operators overview"
+},
+
+"Cascading ad-hoc Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "cascading ad-hoc operators" ],
+    "Description 01:Introduction"::
+
+	Unlike in other common programming languages, B4P supports cascaded ad-hoc operators.  Cascading is realized
+	by applying multiple ad-hoc operators in sequence which are then always calculated from left to right.
+	Cascading may be used for both prefix and postfix usages.
+	<br>
+	Some examples:
+	=== 200, 800, noheader, noframe bold_column_1
+	++ ++		| Increment twice
+	++ --		| Makes no sense (original value)
+	-- --		| Decrements twice
+	++(3) ++	| Adds 4
+	++ ++(3)	| Adds 4
+	**(2) ++	| Multiplies 2, adds 1
+	++ **(2)	| Syntax error. Scaling not allowed after ad-hoc incrementing or decrementing
+	**(2) **(3)	| This combination is OK.  Multiples by 6
+	**(1/2)		| Divides by 2
+	===
+	+++,
+    "Examples 01:"::
+	a[] = 10;
+	b[] = date( "2020-05-01 15:00:00" );
+	c[] = { { 1, 2 }, { 3, 4 }, 5 };
+
+	a[] ++ ++ ++ -- ++;        // Becomes 13, even if code appears less meaningful
+	b[] ++(3.75) ++;	   // 4 days and 18 hours later
+	c[] **(2) ++(2);	   // Double all elements, then add 2 on all of them
+
+	echo("a[] = ", a[],"  b[] = ", b[] );
+	echo("c: ", c[] );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"Ad-hoc Operators Overview" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ad-hoc operators overview" ],
+    "Description 01:Introduction"::
+
+	The following table provides a summary of the ad-hoc rules.
+	<br>
+	<br>Ad-hoc operations on variables and table cells containing or assigned with numerals:
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Increment by 1		| --		| Decrement by 1		| **		| Syntax error (factor missing)
+	++ ++		| Increment by 2		| -- --		| Decrement by 2		| ** **		| "
+	++ (3)		| Add 3				| -- (3)	| Subtract 3			| **(3)		| Multiply by 3
+	++ (-3)		| Subtract 3			| -- (-)	| Add 3				| **(1/3)	| Divide by 3
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with blank strings <b>''</b>  assumed zero:
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Sets to 1			| --		| Sets to -1			| **		| Syntax error (factor missing)
+	++ ++		| Sets to 2			| -- --		| Sets to -2			| ** **		| "
+	++ (3)		| Sets to 3			| -- (3)	| Sets to -3			| **(3)		| 0 Multiplied by 3 = 0
+	++ (-3)		| Sets to -3			| -- (-)	| Sets to 3			| **(1/3)	| 0 Multiplied by 3 = 0
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with non-blank strings  have no impact, and cause no exceptions.
+
+	<br><br>Ad-hoc operations on variables and table cells containing or assigned with blank dates <b>date('')</b> have no impact, and cause no exceptions.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+
+	<br><br>Ad-hoc operations on variables and table cells containing or assigned with dates (e.g. <b>date("2020-01-01")</b> ) are supported.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Tomorrow			| --		| Yesterday			| **		| Syntax error (factor missing)
+	++ ++		| Day after tomorrow		| -- --		| 2 days before			| ** **		| "
+	++ (0.25)	| Same day			| -- (0.25)	| Same day			| 		| Results in blank date
+	++ (3)		| 3 days later			| -- (3)	| 3 days before			| **(0)		| Results in blank date
+	++ (3.75)	| 3 days later (same)		| -- (3.75)	| 3 days before (same)		| **(1)		| Unchanged date
+	++ (-7)		| 1 week before			| -- (-7)	| 1 week later			| **(...)	| All other values: Exceptions (dates cannot be multiplied)
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with dates and times (e.g. <b>date("2020-01-01 12:45:00")</b>) are supported.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Tomorrow			| --		| Yesterday			| **		| Syntax error (factor missing)
+	++ ++		| Day after tomorrow		| -- --		| 2 days before			| ** **		| "
+	++ (0.25)	| 6 hours later			| -- (0.25)	| 6 hours earlier		| 		| Results in blank date
+	++ (3)		| 3 days later			| -- (3)	| 3 days before			| **(0)		| Results in blank date
+	++ (3.75)	| 3 days + 18 hours later	| -- (3.75)	| 3 days + 18 hours before	| **(1)		| Unchanged date and time
+	++ (-7)		| 1 week before			| -- (-7)	| 1 week later			| **(...)	| All other values: Exceptions (dates cannot be multiplied)
+	===
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with and times (e.g. <b>time("12:45:00")</b>) are supported.<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Exception (not same day)	| --		| Exception (not same day)	| **		| Syntax error (factor missing)
+	++ ++		| Exception (not same day)	| -- --		| Exception (not same day)	| ** **		| "
+	++ (0.25)	| 6 hours later (if same day)	| -- (0.25)	| 6 hours earlier (if same day)	| **(0)		| Results in blank date
+	++ (3)		| Exception (not same day)	| -- (3)	| Exception (not same day)	| **(1)		| Unchaned time
+	===
+
+
+	<br>Ad-hoc operations on variables and table cells containing or assigned with booleans:<br>
+	<u>Note</u>: Table cells do only apply if configured to retrieve dates as dates.
+	=== 100, 233, 100, 233, 100, 233
+	Operator	| Description			| Operator	| Description			| Operator	| Description
+	++		| Sets to true			| --		| Sets to false			| **		| Syntax error (factor missing)
+	++ ++		| Sets to true			| -- --		| Sets to false			| ** **		| "
+	++ (3)		| Sets to true			| -- (3)	| Sets to false			| **(0)		| Sets to false
+	++ (-1)		| Sets to false 		| -- (-1)	| Sets to true			| **(1)		| Non-zero: Value unchanged
+	++ (-3)		| Sets to false 		| -- (-3)	| Sets to true			| **(-1)	| "
+	===
+
+	<br>Ad-hoc operations on variables containing parameter sets:<br>
+	All elements will be affected by this operation, including elements in nested parameter sets.  This is a clear difference from all other arithmetic operations 
+	where you need to distinguish between regular operators (affects one individual value) and deep operators (affects elements in a parameter set at a specified depth).<br>
+	<u>Note</u>: No impact on empty cells.
+
+	<br><br>
+	<u>Note</u>: Ad-hoc operations on void values will cause exceptions.
+	+++
+},
+
+
+"Deep Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "deep operators" ],
+    "Description 01:Introduction"::
+
+
+	Deep Operators are very unique features specifically designed for B4P.
+	Deep operators are unary and binary operators followed by accent circumflex <b>^</b> symbols which
+	indicate that the operator shall be applied on the elements inside parameter sets.
+	This concept allows vector and matrix calculations without programming loops.
+
+	<br><br>
+	Applying deep operator in simple parameter sets (vectors) requiers adding one <b>^</b>-symbol after the
+	operator.  For further nesting, e.g. matrices (e.g. <b>{ {1,2,3},{4,5,6} }</b>), 2 or more consecutive
+	<b>^</b>-symbols are needed to specify the right <i>depth</i>.  Not using these symboles result in applying the operators on the
+	parameter set directly, e.g. '+' for catenating two parameter sets together.
+
+	<br><br>
+	Following deep operators are described next:
+	* __Deep unary operators__, and
+	* __Deep binary operators__.
+
+	+++,
+    "See also": "deep"
+},
+
+
+"Deep Unary Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "deep unary operators" ],
+    "Description 01:Introduction"::
+
+	All valid __unary operators__ can be applied as deep operators in order to address the parameter set elements directly.
+	The number of accent circumflex symbols behind the operator determines the depth to use.
+
+	+++, 
+
+    "Examples 01:"::
+	echo("Deep unary operators on simple parameter sets (vectors):");
+
+	a[] = { 1,2,3,4,5 };
+	b[] = { hu, ha, he, ho, hi };
+
+
+	echo( -a[] );      // Descending sorting order
+	echo( -^a[] );     // Negating elements
+	echo;
+
+	echo( + b[] );     // Ascending sorting order
+	echo( +^b[] );     // Upper case on elements
+	echo( !^b[] );     // Capitalizing elements
+	echo;
+
+	echo("Deep unary operators on nested parameter sets (matrices):");
+
+	a[] = { { 5, 15, 10 }, { 16, 6, 26 }, { 37, 17, 7 } };  
+
+	echo( - a [] );    // Descending sorting of all elements
+	echo( -^a [] );    // Desending sorting of each marix row
+	echo( -^^a[] );    // Negating the elements
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+
+"Deep Binary Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "deep binary operators" ],
+    "Description 01:Introduction"::
+
+	All valid __binary operators__ can be applied as deep operators in order to address the parameter set elements directly.
+	The number of accent circumflex symbols behind the operator determines the depth to use.
+	A mix of combining simple values (scalars) and parameter sets (vectors, matrics) is supported.  In this case, the scalar
+	provided as one operand will be calculated with every element in the parameter set specified as the other operand.
+
+	<br><br>
+	If parameter sets are specified in both sides of the operator, and the number of elements differ, then the shorter parameter
+	set will be stuffed with neutral values to match the length of the longer parameter set before doing the calculation.<br>
+	Example: { 3, 4 } * { 2, 1, 3, 2 } extends to { 3, 4, 1, 1 } * { 2, 1, 3, 2 } where 1 is used as a neutral value for
+	multiplication.
+
+	<br><br>
+	List of neutral values:
+	* String:  Blank string
+	* Numeral:  0 for + and -; 1 for * and /
+	* Dates: 0
+	* Boolean: true (for AND: &amp;), 0 (for OR: &vert;)
+	* Parameter set: Empty set {}
+
+	+++, 
+    "Examples 01:"::
+	echo("Deep binary operators on simple parameter sets (vectors):");
+
+	a[] = {  1, 2, 3, 4, 5 };
+	b[] = { 10,15,20,25,30 };
+	c[] = {  2,-2,'',-2, 2 };
+
+	s[] = { Ha, He, Ho, Hu, Hi };
+	t[] = { ngar, ring, ney, nger, ll };
+
+	echo( a[] + b[]);         // Conventional way: Concatenates vectors
+	echo( a[] *^ b[]);        // Multiplies the elements together
+
+	echo( s[] +^ t[]);        // Combines strings
+
+	echo( { rein, 1, date("2020-04-30") } +^ { deer, 2, 1 } );
+	                          // Mixed types are OK
+
+	echo(new line, "Vectors of different sizes");
+
+	echo( a[] *^ { 10, 100, 1000 } );      // First 3 elements are multiplied
+	echo( b[] -^ { 2,4,5} );               // First 3 elements are negated
+	echo( { 3,3,3,} -^ a[] );              // First 3 elements are calculated, remaining ones negated
+
+	echo( a[] /^ { 2,4,6 } );              // First 3 elemnts are divided
+
+	echo( a[] +^ c[] );                    // Like with normal arithmetic operators, blank strings
+	                                       // are interpreted as zero.
+
+
+	echo(new line, "Matrices");
+
+	a[] =  {  { 1,  2, 3 }, { 4,  5,  6 } };
+	b[] =  {  { 1, -1, 0 }, { 2, -2, 10 } };
+
+	echo( a[] +   b[] );                   // Simple concatenation
+	echo( a[] +^  b[] );                   // The elements containing 3 numbers are concatenated
+	echo( a[] +^^ b[] );                   // What you want: Addition of the elements
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Repetition Suffix"::
+
+	Particularly useful for operations with matrices of differen length is the repetition suffix which is a colon <b>:</b>.
+	Add the colon after the last accent circumflex symbol to repeat the values in the shorter parameter set until all
+	values in the longer parameter set have been calculated.
+
+    "Examples 02:Adding the colon as repetition suffix"::
+	a[] = { 1, 2, 4, 8, 16 };
+	b[] = { 2, 3 };
+
+	echo( a[] +^ b[] );  // 3, 5, 4,  8, 16
+	echo( a[] +^:b[] );  // 3, 5, 6, 11, 18
+	+++,
+    "Examples 03:Combining vectors and matrices with scalars"::
+	echo("Deep binary operators on simple parameter sets (vectors) and scalars:");
+
+	a[] = {  1, 2, 3, 4, 5 };
+	b[] = { 10,15,20,25,30 };
+	c[] = {  2,-2,'',-2, 2 };
+
+	s[] = { Ha, He, Ho, Hu, Hi };
+	t[] = { ngar, ring, ney, nger, ll };
+
+	echo( a[] +^ 1 );         // Add 1 to all elements
+	echo( 120 /^ b[]);        // Divide 120 by all elements
+
+
+	echo(new line, "Matrices combined with vectors and scalars");
+
+	a[] = { {1,2},{3,4} };	
+	b[] = { {5,6},{7,8} };
+
+	echo( a[] +   b[] );                     // Catenation: { {1,2},{3,4},{5,6},{7,8} }
+	echo( a[] +^  b[] );                     // Catenating the 1st level elements: { {1,2,5,6},{3,4,7,8} }
+	echo( a[] +^^ b[] );                     // Calculating elements: { {6,8},{10,12} }
+	echo;
+	echo( a[] +^^ 10 );                      // Adds 10 to all elements
+	echo( a[] +^^ {10} );                    // {10} acts as scalar to {1,2} -> { {11,12},{3,4} }	
+	echo( a[] +^^:{10} );                    // Repetition suffix - Repeat the {10}:Like { {1,2},{3,4} } +^^ {10,10} } -> { {11,12},{13,14} }	
+	echo( a[] +^^ {10,10} );                 // Like above
+	echo;
+	echo( a[] +^^ {{10}} );                  // Affects the 1st nested element only: { {11,2},{3,4} }
+	echo( a[] +^^:{{10}} );                  // Repetition suffix - Repeat the {10}: All elements affected: { {11,12},{13,14} }	
+	echo( a[] +^^ {10,20} );                 // Calculates { {11,12},{23,24} }
+	echo( a[] +^^:{10,20} );                 // Same result  (Repetition suffix)
+	echo;
+	echo( a[] +^^ {{10,20}}	);               // Calculates { {11,22},{ 3, 4} }
+	echo( a[] +^^ {{10},{20}} );             // Calculates { {11, 2},{23, 4} }
+	echo( a[] +^^:{{10},{20}} );             // Calculates { {11,12},{23,24} }  (Repetition suffix)
+	+++,
+    "Output 03:": "automatic",
+    "See also": [ "Deep assignment operators", "Matrix Operations Summary" ]
+},
+
+
+
+"Matrix Operations Summary" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "matrix operations summary" ],
+    "Keywords":			[ "matrix mathematics" ],
+    "Description 01:Introduction"::
+	The following illustration shows how the deep operator is applied for the different mathematical matrix operations:
+
+	<br/><img src="Images/Description_Formulas_Matrix_Operations_Summary.jpg" alt="Matrix Operations"><br/>
+	+++
+},
+
+
+
+
+"Deep Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "deep assignment operators" ],
+    "Description 01:Introduction"::
+	Like with regular __binary operators__, __deep binary operators__ can also be formulated as deep __assignment operators__,
+	both with and without __repetition suffix__.
+
+	+++,
+    "Examples 01:"::
+	echo(new line, "Example on vectors:");
+	a[] = { 8, 4, 2, 1 };
+	b[] = { 1, 2, 3, 4 };
+	c[] = { 10, 11 };
+	d[] = c[];
+	e[] = c[];
+
+	a[] -^= b[]; // { 7, 2, -1, -3 }
+	echo(a[]);
+
+	c[] +^= b[]; // {11, 13, 3, 4}
+	echo(c[]);
+
+	d2[] +^:= b[]; // With repetition suffix: {11, 13, 13, 15}
+	echo(d[]);
+
+	e[] /^= 2; // With a scalar:  { 5, 5.5 }
+	echo( e[] );
+
+	echo(new line, "Example on matrices:");
+
+	a[] =  { { 8, 7, 6 }, { 1, 2, -1 }, { -5, 4, 6 } };
+
+	a[] -^^= 1; // Subtract 1 from all elements
+
+	echo( a[] );
+
+	a[] *^^= { { 1,1,1}, {2,2,2}, {3,3,3} };
+	echo( a[] );
+	+++,
+    "Output 01:": "automatic",
+    "Description 02:Deep Operators on Table Cells"::
+	Deep assignment operators are not possible on table cells if they are targets because with standard
+	table configuration settings: Strings and numerals.  It works if the left-hand value is a numeral and the right-hand value
+	a parameter set.  In this case, the parameter set will then be converted to a string representation and written to the
+	table cell.
+	+++,
+    "Examples 02:"::
+	include ( Support Library );
+
+	table create( t );
+
+	[t:0,0] = 10;
+	[t:0,1] = "Hi ";
+
+	[t:0,0] *^= { 5, 6, 7, 8 };
+	[t:0,1] +^= { volks, everyone, to all of you };
+
+	table list ( t ); // Parameter sets have been converted to strings.
+	+++,
+    "Output 02:": "automatic",
+    "See also": "Assignment operators"
+}
+
+
+
+
+
+
+
+B4PDOCU.STOP

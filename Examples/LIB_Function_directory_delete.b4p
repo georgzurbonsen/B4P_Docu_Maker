@@ -1,0 +1,9 @@
+﻿#!/usr/local/bin/b4p
+      file copy ( {3 : Example_Program.b4p}, { Test123.txt, Test456.txt, Test789.txt } );
+      print( file delete all ( Test123.txt, TestXXX.txt, Test456.txt ), " / " ); // Returns 2
+      print( file delete ( Test789.txt ), " / " ); // Returns OK
+      echo( file delete silently ( Test789.txt )); // Returns "File not found"
+
+      files[] = { Test123.txt, Test456.txt, Test789.txt };
+      file copy ( {3 : Example_Program.b4p}, files[] );
+      echo( file delete all ( files[] ) ); // Returns 3

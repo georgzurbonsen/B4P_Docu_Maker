@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+    simple[] = 0123.00;
+    array( words[], { 1, Me, you, true } );
+    words[1] = { one, 2, { 2.5, two point six, 2.8 } };
+    structure( sizes[], { whale, dog, ant }, {huge, small, tiny } );
+    structure( sizes[dog], { jack russel, poodle, setter }, { smaller, medium, bigger } );
+
+    see(simple[]);
+    see(words []);
+    see(sizes []);

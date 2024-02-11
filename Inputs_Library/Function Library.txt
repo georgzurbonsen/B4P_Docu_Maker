@@ -1,0 +1,1841 @@
+
+
+B4PDOCU.START
+
+
+"Table of Contents" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table of Contents" ],
+    "Description 01:Table of Contents"::
+
+	See the navigator bar for full table of contents.
+
+	+++
+},
+
+"Function Library" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function Library", "Function Library Guide" ],
+    "Description 01:Introduction"::
+
+	B4P provides a large and comprehenisve library of different functions.
+	Use the navigator bar to deep-dive into them.  Various fucntions can be called as <b>procedures</b>, others as
+	functions in __expressions__ only, or in both.
+
+	<br><br>
+
+	Control flow functions are a variant of functions called as procedures which will then determineif the
+	subsequent __statements__ or __blocks__ will be executed once, repeatedly, or not.
+
+	<br/><img src="Images/LIB_Function_Overview.png" alt="Function overview"><br/><br/>
+
+	+++
+},
+
+
+"Control Flow Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Control flow functions", "Control flow statements" ],
+    "Description 01:Introduction"::
+
+	Flow control covers programming language features like branches (if ... lese), loops, etc.
+	Unlike in other common programming langauges, control flow in B4P is implmented as functions which are then
+	called as procedures which will then determine whether to execute the subsequent statements or blocks or not.
+
+	<br><br>
+
+	For example, a keyword as simple as __if(__) is a B4P function called as a procedure taking one Boolean parameter. It decides whether to execute the
+	next statement or block or not.
+
+	<br><br>
+
+	B4P provides a large variety of control flow functions, covering:
+	* __Branches__
+	* __Loops__
+	* __User-defined procedures and functions__
+	* __Launch other B4P programs__
+	* __Exception Functions__ (e.g. stop, exit, interactive, throw - catch)
+	* __Code execution functions__
+
+	In case you miss the <b>goto</b> statement, there is a good reason for this.  The highly structured
+	B4P interpreter would have faced risky challenge if that statement would have been impleemented.
+
+	Further more, see the seeparate section on __control flow functions for tables__ where the following functions, mostly loops, are defined:
+
+	$functions$
+
+	+++
+},
+
+
+"Branches" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Branches" ],
+    "Description 01:Introduction"::
+
+	Branches are control flow functions which rule whether following statements or blocks shall be executed or not.
+
+	* __if(__) ... __else__: Conditional branches
+	* __once(__) ... __else__: Following statement or block is executed once only
+	* __switch(__) ... __case(__): Branches to statements or blocks where the condition is met.  Only 1 case where the expression matches will be executed.
+	* __check(__) ... __case(__): Branches to statements or blocks where the condition is met.  All cases where the expression matches will be executed.
+
+	See also the exception functions __throw(__) / __catch(__) for skipping the remaining code inbetween.
+
+	$functions$
+
+	+++
+},
+
+"Loops" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loops" ],
+    "Description 01:Introduction"::
+
+	Loops are control flow functions where the following statements or blocks are executed repeatedly until a condition to stop repeating is met.
+
+	* __while(__) / __until(__): The subsequent statements or block are exected repeatedly as long the condition inside the while-function call is met.
+	* __do__ ... __while(__) / __until(__): Checking the condition whether to continue the loop is done after the loop is executed for the first time.
+	* __for(__): Loop statement where an interator variable is initialized, then repeatedly checked and updated (typically incremented) at the end over every loop.
+
+	In addition, a sesries of <b>for all ...()</b> statements exist which loop throgh __parameter sets__, __variables__
+
+	* __for all parameters(__)
+	* __for all variables(__)
+
+	Further more, see the seeparate section on __control flow functions for tables__ where the following functions, mostly loops, are defined:
+
+	* __with table(__)<br>
+	* __for all table rows(__)
+	* __for all table selected rows(__)
+	* __for all table columns(__)
+	* __for all table selected columns(__)
+	* __for all current table columns(__)
+	* __for all current table selected columns(__)
+
+	$functions$
+
+	+++
+},
+
+
+"User-Defined Procedures and Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User-defined procedures and functions" ],
+    "Keywords":			[ "user-defined procedures", "user-defined functions", "user procedures", "user functions" ],
+    "Description 01:Introduction"::
+
+	B4P supports standard procedures which are in fact used to defined user-specific procedures and functions. 
+	Procedures are defined as functions which do not provide a return value and must be called as a procedure.
+	Functions are defined to always provide return values and must be called as functions where the return value must be used further.
+	A combination of both is allowed which provides flexibility to use defined code either as a procedure or function.
+
+	<br><br>
+	Additional function names may be defined for the same user code.  In this case, the local variable <b>function name[]</b> will be
+	available to identify the function name used.
+
+
+	<br><br>
+	Inside the user-defined procedures and functions, following local variables are available, but cannot be deleted using __delete(__) function:
+
+	=== 300, 700, bold_column_1
+	Name of local variable | Description
+	function name[] | Name of called function.  This is insofar useful if __additional function names__ have been defined for the same code
+	<i>parameter name</i>[] | Name of parameter provided.  Example: <b>hello[]</b> is defined if one of the parameters is called <b>hello</b>.
+	parameter <i>n</i>[] | Numbered parameter provided.  If the number of parameter is not limited, then all remaining parameters are numbered, with 1 as 1st parameter.
+	parameter count[] | Contains the number of parameters passed.  This is useful if the defined function allows for flexibility regarding number of parameters passed.
+	===
+
+	$functions$
+
+	+++
+},
+
+
+
+
+
+"Launch other B4P programs" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Launch other B4P programs" ],
+    "Description 01:Introduction"::
+
+	B4P provides __start(__) to start other B4P programs.  Execution of this calling program continues when the B4P program has ended.
+	The __include(__) behaves similarly like __start(__), but memorizes the loaded program including the defined functions.  This features is useful
+	to define and include user specific function libraries which can be re-used in different B4P programs.
+
+	$functions$
+
+	+++
+},
+
+
+"Exception Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Exception functions" ],
+    "Description 01:Introduction"::
+
+	Exception functions include the following: 
+
+	* __pause__: Pauses program execution.  User can choose whether to continue or stop running
+	* __stop__: Progam execution stops entirely
+	* __end__: Current program ends.  If called by a superior program, then the superior program continues running.
+	* __exit__: Exit program execution
+	* __abort__: Exit program execution
+	* __throw__: Skips following code until __catch__ or __catch if__ is encountered. Values thrown are referred as frisbees.
+	* __catch__: Arrival point for frisbees thrown.  Execution continues here with the values picked up
+	* __catch if__ : The frisbee will only be caught if the value matches with the condition expression specified.  Otherwise the frisbee keeps flying.
+	* __interactive__: Enters interactive mode so you can inspect variables, tables, and do other works interactively.  Type <b>return</b> to continue program execution.<br>
+	* __null__: Null function. Does nothing, returns void value.  Suitable as placeholder function calls.
+
+
+	+++
+},
+
+
+"Comparison and Selection Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison and selection functions" ],
+    "Description 01:Introduction"::
+
+	Common programming languages use standard constructs like <b>if ... else</b> or condensed statements
+	such as <i>[condition]</i> <b>?</b> <i>[expression if true]</i> <b>?</b> <i>[expression if false]</i>,
+	Aiming to allow for more dense and efficient coding, B4P provides a set of effective comparison and
+	selection functions.  The functions come in two fragrances:
+
+	+++,
+    "Description 02:select ... ()"::
+	In these functions all parameters are fully calculated regardless of the condition and/or if the values are finally selected or discarded.
+	This approach is most efficient if the values are constants or simple expression (e.g. a constant, referring to variable, a table entry,
+	a simple calculation, etc.) or if manipulations must be made in any case, e.g. doing a function call or incrementing/decrementing variables.
+	+++,
+    "Examples 02:Program example - all expressions are calculated:"::
+	a[] = select if( true, echo(yes), echo(no) ); // Note. Both 'yes' and 'no' are printed here
+	echo("Result is ", a[] );
+	+++,
+    "Output 02:Result:": "automatic",
+    "Description 03:pick ... ()"::
+	In these functions, the expressions for the values to select are only calculated if the results are needed.  Otherwise, these expressions
+	will be skipped.  This approach saves a lot of computation effort if more sophisticated expressions are contained.  In addition, if a variable
+	in an expression not selected is not defined, this does not matter because that expression is skipped.
+	+++,
+    "Examples 03:Program example - 'echo(no)' is not executed:"::
+	a[] = pick if( true, echo(yes), echo(no) ); // Note: Only 'yes' if printed
+	echo("Result is ", a[] );
+	+++,
+    "Output 03:Output": "automatic",
+
+    "Description 04:"::
+
+	$functions$
+
+	+++
+},
+
+
+"Code Execution Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Code Execution Functions" ],
+    "Description 01:Introduction"::
+
+	The following functions provide additional flexibility in code execution, e.g. calling functions with function names provided
+	as strings, or ad-hoc execution of B4P code provided as strings.
+
+	* __call(__): Call a B4P procedure or function with function name provided in a string
+	* __deep(__): Call a B4P procedure or function repeatedly on a parameter set
+	* __statements(__): Execute one or more __B4P statements__ provided directly or in a string
+	* __expression(__): Execute a __B4P expression__ provided directly or in a string
+	* __compare(__): Compare a value with a __comparison expression__ provided directly or in a string
+	* __assign(__): Assign a value to a B4P variable where the varialbe name (including members if needed) are provided directly or in a string.
+
+	$functions$
+
+	+++
+},
+
+
+
+
+
+"Console I/O Functions":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Console I/O Functions" ],
+    "Description 01:Introduction"::
+
+	The following functions deal with basic input/output using the console.
+	* __Text input/output__ covers basic functions like __input(__) and __echo(__).
+	* __Console special effects__ adds clear screen, cursor control and some color to the console.
+	* __Inspection and debugging__ contain functions which are helpful for interactive use, e.g. to __inspect__ variables.
+
+	$functions$
+
+	+++
+},
+
+
+"Text Input / Output":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "text input/output" ],
+    "Description 01:Introduction"::
+
+	This subsection covers text-based input/output such as __input(__), __echo(__), __print(__) and so forth.
+
+	$functions$
+
+	+++
+},
+
+
+"Console Special Effects":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Console special effects" ],
+    "Description 01:Introduction"::
+
+	This subsection covers special effects such as clearing screens, moving cursors and changing text and background colors.
+
+	$functions$
+
+	+++
+},
+
+
+
+
+"Inspection and Debugging":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Inspection and debugging" ],
+    "Description 01:Introduction"::
+
+	The functions described in the following section are suited for __interactive mode__ and program use.  These functions provide
+	convenient insight into variables and tables.
+
+	$functions$
+
+	+++
+},
+
+
+
+
+"Type Conversion and Formatting" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Type Conversion Functions" ],
+    "Keywords":			[ "type conversion" ],
+    "Description 01:Introduction"::
+
+	A set of functions are available to convert data in one type (e.g. __strings__) into other types (e.g. __dates__ and __numerals__).
+	Converting values to __string__ type supports a broad library of smart formatting features in order to output numbers, dates, etc. 
+	in a desirable format.
+
+	$functions$
+
+	+++
+},
+
+
+
+
+"Mathematics and Statistics" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Mathematics and Statistics" ],
+    "Description 01:Introduction"::
+
+	B4P provides a broad range of advanced mathematics and statistics functions.
+
+	$functions$
+
+	+++
+},
+
+
+
+"Basic Math Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "basic math functions" ],
+    "Description 01:Introduction"::
+
+	B4P provides various functions to check numeric values and carry out basic mathematis functions.
+
+	$functions$
+
+	+++
+   },
+
+
+"Transcendental Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "transcendental functions" ],
+    "Description 01:Introduction"::
+
+	Transcendental functions are less mystic than you are believing.
+	They include advanced mathematical functions covering logarithmic, exponential, trigonomietric and hyperbolic functions
+	and suitable for everyday mathematics tasks.
+	
+	$functions$
+
+	+++
+},
+
+
+
+"Series Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "series functions" ],
+    "Description 01:Introduction"::
+
+	This section covers all functions which can process value series of variable sizes.
+
+	$functions$
+
+	+++
+   },	
+
+"Matrix Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "matrix functions" ],
+    "Description 01:Introduction"::
+
+	B4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
+	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
+
+	Example: <b>{{ 1, 2, 3 }, { 4, 5, 6 }}</b> is a matrix consisting of 2 rows and 3 columns:<br><br>
+
+	| 1  2  3 |<br>
+	| 4  5  6 |<br>
+
+	<br>
+
+	* __mmul__:	Matrix multiplication
+	* __minv__: Matrix inversion
+	* __mdiv__: Matrix division
+	* __mdet__: Calculates determinant
+	* __linear__: Solves a set of linear equations (Gaussian elimination)
+
+	You may possibly be missing the functions like <b>madd</b> and <b>msub</b> for addition and subtraction.  These two operations can be
+	implmented with direct __matrix mathematics__ using __deep operators__ as shown below:
+
+	* Matrix addition: <b>a[] +^^ b[]</b>
+	* Matrix subtraction: <b>a[] -^^ b[]</b>
+	* Scalar multiplication: <b>a[] *^^ b[]</b>
+	* Scalar division: <b>a[] /^^ b[]</b>
+
+	<br>
+
+	Following functions, also described in this section, allow any types in their matrices because contents are only moved and not calculated:
+
+	* __horizontal__:  Converts a flat or vertical matrix to a horizontal matrix (1 row, several column elements)
+	* __vertical__: Converts a flat or horizontal matrix to a vertical matrix (1 column, several row elements)
+	* __flat__: Flattens the matrix to all values arranged in a simple parameter set
+	* __diagonal__: Creates a matrix with values along the diagonal and zero in the remaining fields
+	* __transpose__: Transposes a matrix
+
+	$functions$
+
+	+++
+   },	
+
+ "Statistics Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "statistics functions" ],
+    "Description 01:Introduction"::
+
+	This section covers all statistics functions.
+
+	$functions$
+
+	+++
+  },
+
+
+
+ "Finance and Business Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "finance functions" ],
+    "Keywords":			[ "business functions" ],
+    "Description 01:Introduction"::
+
+	This section various functions needed for financial calculations, business and capacity planning.
+
+	$functions$
+
+	+++
+  },
+
+
+
+
+ "Parameter Set Functions" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "parameter set functions" ],
+    "Description 01:Introduction"::
+
+	This section describes various functions used to process or check parameter sets.
+	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, 
+	__statistics functions__ and __conditional combination functions__.
+
+	$functions$
+
+	+++
+  },
+
+
+
+"Set Search and Extraction Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "parameter set search and extraction" ],
+    "Keywords":			[ "parameter set search functions", "parameter set extraction functions" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.
+
+	$functions$
+
+	+++
+  },
+
+
+
+
+"Date and Time Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "date and time functions" ],
+    "Description 01:Introduction"::
+
+
+	B4P provides some powerful functions to process date and time information (particularly the variable type __date__) as well as stopwatch functions.
+
+	The sections are:
+	* __Date functions__
+	* __Time functions__
+	* __Stopwatch functions__
+
+	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __strings__, to __dates__.:
+	* __date(__)
+	* __pure date(__)
+	* __date time(__)
+	* __time(__)
+	* __pure time(__)
+
+	$functions$
+
+	+++
+  },
+
+"Date Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "date functions" ],
+    "Description 01:Introduction"::
+
+
+	B4P provides some powerful functions to process date .
+
+	<br><br>
+
+	The following important date functions are found in the section __Type Conversion Functions__ and convert data of other types, e.g. __strings__, to __dates__.:
+	* __date(__)
+	* __pure date(__)
+	* __date time(__)
+	* __time(__)
+	* __pure time(__)
+
+	$functions$
+
+	+++
+  },
+
+
+"Time and Stopwatch Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "time and stopwatch functions" ],
+    "Keywords":			[ "time functions", "stopwatch functions" ],
+    "Description 01:Introduction"::
+
+	B4P provides some powerful functions to process time information (particularly the variable type __date__ with time info contained)
+	as well as stopwatch functions to measure the performance of your applications.
+
+	$functions$
+
+	+++
+  },
+
+
+"Sleep and Wait Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "sleep and wait functions" ],
+    "Description 01:Introduction"::
+
+	The following functions suspend program execution for a specified time or until a specific time has been reached.
+	The delay will pause B4P's process and lets other application run at full speed.
+
+	$functions$
+
+	+++
+  },
+
+
+"String Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "string functions" ],
+    "Keywords":			[ "string functions" ],
+    "Description 01:Introduction"::
+
+	This section describes procedures and functions for character and string manipulations.
+
+	$functions$
+
+	+++
+  },
+
+
+"String Search and Extraction Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "string search and extraction" ],
+    "Keywords":			[ "string search functions", "string extraction functions" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to search for string patterns and extract substrings from stings.
+
+	$functions$
+
+	+++
+  },
+
+
+"Character Encoding and Decoding":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "character coding" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to search for string patterns and extract substrings from stings.
+
+	$functions$
+	+++
+  },
+
+
+"Miscellaneous String Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Other string functions" ],
+    "Description 01:Introduction"::
+
+	All other string functions, including random string generation, are summarized next.
+
+	$functions$
+	+++
+  },
+
+
+
+"Table Functions":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "table functions" ],
+    "Description 01:Introduction"::
+
+	The chapter on table functions covers following four sections
+	* Loading, saving and console I/O
+	* Basic table access (creating, writing, reading, deleting)
+	* Searching and expoorig tables
+	* Processing tables with powerful functions
+	* Multi-Table Integration (comparing, validating, lookups, merging, etc.)
+	* Formatting and Styling Tables (color, column widths, fonts, borders, setting autofilters, etc.)
+
+	$functions$ 
+	+++
+},
+
+
+
+"Loading and Saving Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loading and saving tables" ],
+    "Description 01:Introduction"::
+
+	The procedures and functions described next cover loading and saving tables with a broad variety of data formats such as
+	* CSV (with various separation symbols like tabs, commas, semicolons)
+	* HTML
+	* XML
+	* Text files
+	* Excel file (.xlsx / .xlsm)
+	* JSON
+
+	$functions$
+
+	+++
+},
+
+
+"Console I/O with Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Console I/O with tables" ],
+    "Description 01:Introduction"::
+
+	The following functions relate to table-specific input / output features. They include:
+
+	* Listing tables
+	* Using tables as menus and asking for choices
+
+	$functions$
+
+	+++
+},
+
+
+
+"Creating, Writing, Reading, Deleting":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Create / read / write / delete tables" ],
+    "Description 01:Introduction"::
+
+	The following functions basic functions to create and access tables:
+
+	* Creating tables and adding contents
+	* Writing and writing tables
+	* Clearing and deleting tables
+	* Accessing table information
+
+	$functions$
+
+	+++
+},
+
+
+	
+"Creating and Building up Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Creating tables and building up tables" ],
+    "Description 01:Introduction"::
+
+	This subsection contains basic functions to create tables and add first contents:
+
+	* Create blank tables
+	* Initialize tables with first contents
+	* Adding further rows with contents
+
+	See the chapter on __tables__ to take advantage of various ways to read and write table contents effectively.
+
+	$functions$
+
+	+++
+},
+
+
+
+"Writing Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Functions for writing tables" ],
+    "Description 01:Introduction"::
+
+	See the chapter on __tables__  to explore the various simple features to write contents to tables without function calls:
+	* __Simple table access__ to access individual table cells
+	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.
+	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.
+	* __Matrix table access__ to access multiple cells in different rows and columns as well.
+
+	<br><br>
+
+	The functions described next provide additional powerful ways to write data to the tables such as:
+	* Accessing row and column numbers if context for __partial table specifications__ is available
+	* Writing  data from table rows selected with an algorithmic expression
+	* Forget memorized table columns during program execution
+
+	$functions$
+
+	+++
+},
+
+
+
+"Reading Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Functions for reading tables" ],
+    "Description 01:Introduction"::
+
+	See the chapter on __tables__  to explore the various simple features read write contents from tables without function calls:
+	* __Simple table access__ to access individual table cells
+	* __Horizontal table access__ to access multiple cells in different columns in a specific row.  Accessing entire rows belongs to this category, too.
+	* __Vertical table access__ to access multiple cells in different rows in a specific colum.  Accessing entire columns belongs to this category, too.
+	* __Matrix table access__ to access multiple cells in different rows and columns as well.
+
+	<br><br>
+
+	The functions described next provide additional powerful ways to read data from the tables such as:
+	* Reading data from table rows selected with an algorithmic expression
+
+	$functions$
+
+	+++
+},
+
+
+"Deleting Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Clearing and deleting tables" ],
+    "Description 01:Introduction"::
+
+	This subsection contains basic functions to clear and delete tables
+
+	* Clear tables (remove all contents, but keep the table existing)
+	* Delete tables entirely
+
+	$functions$
+
+	+++
+},
+
+
+
+"Accessing Table Information":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Accessing table information" ],
+    "Description 01:Introduction"::
+
+	This subsection contains basic table functions to access following information:
+
+	* Does the specified table exist?
+	* Table lengths
+	* Table widths in specific rows and overall table widths
+
+	$functions$
+
+	+++
+},
+
+
+
+"Searching and Exploring Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Searching and exploring tables" ],
+    "Description 01:Introduction"::
+
+	This subsection contains various search and exploration functions.
+
+	* Search functions across rows, columns and the entire table using different comparing methods
+	* Exploration: explore - filter - extract sub-tables
+	* Table widths in specific rows and overall table widths
+
+	$functions$
+
+	+++
+},
+
+
+
+"Search Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Search functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes the basic fuctions which include the following:
+
+	* Search entire table for specific values
+	* Search rows
+	* Identify all rows with selection criteria met
+	* Identify all columns or headers with selection criteria met
+	* Search the header row
+
+	$functions$
+
+
+	+++
+},
+
+
+
+"Explore, Filter, Extract Sub-Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Explore and filter and extract sub-tables" ],
+    "Description 01:Introduction"::
+
+	A new powerful B4P feature, consisting of three functions, is to identify, select and extract one or more sub-tables located inside a table.
+	This becomes very useful when dealing with sophisticated tables created by external sources where you cannot advise them how to
+	structure the data so you can use them easily.  Following three functions need to be called in sequence:
+
+	<br><br>
+
+	__table explore(__): This function identifies all sub-tables inside a table where a few criteria settings are available to identify tables and keep them 
+	separate from other contents, e.g. title texts.
+
+	<br><br>
+
+	This function returns a parameter set containing 0, 1 or more coordinates for every sub-table found.
+	The sub-tables beginning on the same row must contain a spacing of 1 column.  Direct neighboring is possible if the next table begins at a different tow (Illustration: See sub-table 2 and 3).
+
+	<br><br>
+
+	__table filter(__): The collection of coordinates can be narrowed down by matching header contents with given patterns and specifying minimum 
+	table widths and heights.  This function also returns the same kind of parameter set, but probably with fewer coordinates.
+
+	<br><br>
+
+	__table extract(__): This final function will extract a selected sub-table based on the coordinates and sub-table chosen.  
+	Tables can be extracted either into new blank tables or added to existing tables, allowing to arrange them horizontally and/or vertically.
+
+	<br/><br/><img src="Images/Description_Exploring_and_Extracting_Tables.jpg" alt="Exploring and Extracting Tables"><br/><br/>
+
+	$functions$
+
+	+++
+},
+
+
+
+
+
+
+"Control Flow Functions for Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Control Flow Functions for Tables" ],
+    "Description 01:Introduction"::
+
+	This section describes special-purpose __control flow functions__ specifically developed to process table contents.
+
+	$functions$
+
+	+++
+},
+
+
+
+
+"Processing Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to process tables effectively, including:
+	
+	* Checking and processing headers
+	* Processing table columns
+	* Processing table rows, and
+	* Processing table contents
+	* Pivoting and consolidating tables
+	* Copying, renaming and splitting tables
+
+	$functions$
+
+	+++
+},
+
+
+"Checking and Processing Headers":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Checking headers", "Processing headers" ],
+    "Description 01:Introduction"::
+
+	This subsection various functions which check table headers.
+	It is highly advisable to check the input data to ensure that the corresponding headers and structures
+	are available and error messages can be issued very early rather than somewhere in the middle of data processing steps.
+
+	$functions$
+
+	+++
+},
+
+
+"Processing Table Columns":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing table columns" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to process table columns, i.e. 
+	inserting, deleting, rearranging, processing, etc.
+
+	$functions$
+
+	+++
+},
+
+
+"Processing Table Rows":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing table rows" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means process table rows, i.e.
+	inserting, deleting, rearranging, manipulating, etc.
+
+	$functions$
+
+	+++
+},
+
+
+
+"Processing Table Contents":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing table contents" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means process table contents.
+
+	$functions$
+
+	+++
+},
+
+
+"Pivoting and Conosolidating Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Pivoting and consolidating tables" ],
+    "Description 01:Introduction"::
+
+	The functions described in this sections are building blocks to do powerful pivoting and consolidating tables.
+	All functions have been optimized to deliver maximum performance, even with very large tables.  The functions
+	described in the following sections cover follwing aspects:
+
+	* Transposing contents (i.e. contents in 1st column become row headers)
+	* Serializing horizontally laid out data
+	* Spreading serialized data out horizontally (opposite of above), and
+	* Consolidating tables (boiling tables down to fewer rows with specific consolidation actions serving as ingredients)
+
+	$functions$
+
+	+++
+},
+
+
+"Copying, Renaming and Splitting Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Copying and renaming and spitting tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to copy and split tables.
+
+	$functions$ 
+	+++
+},
+
+
+
+"Multi-Table Integration":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Multi-table integration" ],
+    "Description 01:Introduction"::
+
+	This section summarizes the basic fuctions which include the following:
+	* Comparing two tables
+	* Checking tables according to rules provided
+	* Looking up data from other tables
+	* Combining multiple tables (e.g. merging data)
+	* Exploring and extracting tables
+
+	$functions$ 
+	+++
+},
+
+
+
+"Comparing and Validating Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparing and validating tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next provide efficient means to check tables for consistency and duplications 
+	as well as a simple-to-use function to compare tables and generate comparison reports.
+
+	$functions$ 
+
+	+++
+},
+
+
+
+"Looking up Other Tables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Looking up other tables" ],
+    "Description 01:Introduction"::
+
+	The functions described in following sections provide efficient lookup features to retrieve selected information from other tables (referred
+	to as lookup tables) which will then be written into the target table.  All function varieties follow the same basic
+	lookup principle in similar ways:  For the target table, one or more <b>input columns</b> need
+	to be specified where the corresponding contents in every row will be compared with the <b>search columns</b> in the lookup table.
+	When a matching row has been found, then the corresponding contents in the <b>output columns</b> in the lookup table will be
+	transferred to the <b>destination columns</b> in the target table.
+
+
+	B4P provides following function families:
+
+	=== 150, 850, noheader, noframe_1stcolbold
+	__table lookup__      | Information found in the lookup table will be retrieved and written into the target table.
+	__table integrate__   | Information found in the lookup table will be combined with the existing contents in the target table, using \
+				underlying rules of the specified __table integration operation identifiers__.  Example: Retrieved numeric scores \
+				can be added to the existing value in the destination colum, instead of simply overwriting them.
+	__table expand__      | Works similar to __table integrate__, but if two or more matches are identified in the lookup table, \
+				then additional rows will be inserted in the target table, original contents repeated downwards in the target table, and then \
+				updated with the contents retrieved from the lookup table.
+	__table expand fast__ | A variant where the additional rows are added to the end of the table in order to avoid wasting time shifting other rows downward
+	__table digest__      | Works similar like __table integrate__ where all matches instead of just the first one in the lookup table are integrated into the target table.
+	===
+
+	These functions come with following variants where these variants are added to the function names above:
+	
+	=== 150, 850, noheader, noframe_1stcolbold
+	... <b>top down</b> ...       | The table will always be searched from top to bottom.  No automatic indexing made for large lookup tables.  Beneficial for lookup \
+					tables where the first rew rows at the top would be found most frequently in order to save search time.
+	... <b>fast</b> ...	      | The row number of the last match in the lookup table will be memorized.  The search continues there when the search begins with \
+					the next row in the target table.  Very useful if both target table and lookup table are already in an alphabetic order and this \
+					can accelerate the lookup performance significantly.  Not applicable for __table digest(__).
+	... <b>once</b> ...	      | Every row in the lookup table can be retrieved only once.  For the next search, the next match below that row would apply, as long \
+					there are matches.
+	... <b>smart</b> ...	      | The lookup table contains smart patterns supporting comparison operators, wildcareds, multiple values and ranges.  In addition, \
+					B4P expressions returning boolean results can be specified.
+	... <b>smart once</b> ...     | Combination of both <b>once</b> and <b>smart</b>.
+	... <b>with rules</b> ...     | An opposite variant of <b>smart</b>: The matching patterns and possibly B4P expressions are specified in the target table and the \
+					lookup table contains the contents compared with and returned where matches are identified.
+	... <b>with rules once</b> ...| Combination of both <b>once</b> and <b>smarty/b>.
+	===
+
+	Finally, the function names can be rounded up with the ... <b>ignore case</b> suffix which makes all comparisons case insensitive.  Only exception: B4P expressions
+	returning boolean results are not affected by this rule, but the ignore-case ruling can be included in the expression, for example using the '+' __comparison options__.
+
+	$functions$ 
+	
+	+++
+},
+
+
+"Combining Multiple Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Combining multiple tables" ],
+    "Description 01:Introduction"::
+
+	The functions described next cover the art of combining two (or more) tables using the fine arts of <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank">relational algebra</a>
+	where different algebraic rules can be applied to rows and columns.
+
+	<br><br>
+
+	In a simple example, two tables with members of two clubs (e.g. tennis and squash) need to be merged into one where the last and first names of the
+	members shall act as matching identifiers.  In case no person has a membership in both clubs, no overlap applies, and the list will simply be
+	appended where the data are aligned to the right columns, using header names as orientation.  The columns in both tables do not need to be aligned
+	before the merger.  If one or more persons possess memberships in both clubs, then the information will be consolidated where the same 
+	__consolidation actions__ rules are available as used by __table consolidate__.  As an example, the account receivable (e.g.
+	indoor court reservation fees to be balanced) can be added up whereas the preferences at the club bar can be consolidated with <b>append once</b>
+	so the preference for tonic water at one club and beer at the other club will appended into "tonic water, beer".
+
+	<br><br>
+
+	If no identifier columns are defined in the functions described next, then every row will be considered unique.  Merging the table is treated appending two tables,
+	with aligning the data into the right columns.	 
+
+	<br><br>
+
+	The following table summarizes the 25 functions in a 5 x 5 matrix with specifc rules to be applied on rows as wll as columns.
+	The table contains illustrations on how the rows are combined (shades of red / orange / yellow) and how columns are combined (shades of
+	gray and light blue).  The syntax of the function name does first describe the operation on the rows (e.g. __table merge__) followed by
+	the operation on the columns (e.g. __table merge extend columns(__)).  If no extension like <b>... extend columns</b> is specified, then
+	no additional columns are added in the target table and the data in the source table not fitting in the target table structure will not be taken over.
+
+	
+		<br/><img src="Images/Description_Combining_Multiple_Tables.jpg" alt="Combining Multiple Tables"><br/><br/>
+
+	The term <i>exclusivity</i> is also known as <i>symmetric difference</i> and <i>disjunctive union</i>.
+
+
+    "Description 02:Additional Functions"::
+
+	Following table operations are also described in this section:
+	* Multiplying tables
+	* Dividing tables (binary division in relational algebra)
+	* Arranging tables sideways.
+
+	$functions$ 
+
+	+++
+  },
+
+
+
+
+"Formatting and Styling Tables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Formatting and styling tables", "Styles" ],
+    "Description 01:Introduction"::
+
+	B4P provides a generic set of functions for giving a final touch to your tables.  They include:
+	* Setting row widths and column hights
+	* Formatting text (font name, font size, color, bold, underscore, line wraps, etc.)
+	* Formatting tables (cell colors, etc.)
+	* Number and date formats
+	* Freezing panes
+	* Setting the autofilter
+	* and many more.
+
+	At present, the formatting and styling functions are supported for following file formats when saving the tables where minor differences in the
+	interpretation of the formatting may apply:
+
+	* HTML (understood by both Excel and web browsers)
+	* Excel (XML 2003) format
+
+	You can add formatting and style to multiple tables and then save them as multiple sheets in one Excel file.
+
+	<br><br>
+
+	<u>Note</u>: The whole function library has been written in B4P and is in the file "Style Library.b4p" in your installed library directory.
+	In order to use these functions, you need to do the following function call at first:
+	<br><br>
+	<b>include ( Style Library );</b>
+	<br><br>
+	+++,
+
+    "Description 02:Formatting Procedure"::
+
+	Follow the seven basic steps described below in order to do a successful and attractive finish .
+
+	=== 50, 950, noheader, noframe_1stcolbold
+	1.	| <b>Finalize the table with all necessary contents.</b>  You may want to have some helper columns on the right hand side which you \
+		  can delete after adding formatting features, but the formatted table contents must not move in any direction because the formatting info will not move along with them.
+	2.	| A broad pallette of named colors is already available. Optionally, you can define __user-specific colors__ so you can reference them conveniently by color name and not by red-green-blue codes: <br>\
+		  __add color(__): Add user-defined colors<br>\
+		  __lighten colors(__): Lighten the set of standard colors according to your specifications<br>\
+		  __darken colors(__): Darken the set of standard colors according to your specifications<br>\
+		  __weaken colors(__): Weaken the intensity of standard colors according to your specifications<br>
+	3.	| <b>Be creative. Do the artistic work</b> on the table using the following four functions:<br>\
+		  __table style table(__): Formatting instructions applicable for the whole table, e.g. general font name, font size, location of autofilter row, etc.<br>\
+		  __table style rows(__): E.g row height, formatting all entries in the specified rows, etc.<br>\
+		  __table style columns(__): E.g. column width, formatting all entries in the specified columns, etc.<br>\
+		  __table style cells(__): Style individual cells, a set of cells, a matrix of cells, or a rectangular area in the table, and applying Excel <i>mouse-over</i> comments.
+	3a.	| <b>Or use more convenient approaches:</b><br>\
+		  __table style auto width(__) to set the column widths automatically so all contents are fully visible and not cut off by the next columns<br>\
+		  __table style theme(__) to apply an overall style them on the table, applying formatting on the header and data rows with frames, colors, and much more.
+	4.	| If needed, <b>delete redundant contents on the right hand side or below the table</b> but without moving the final table around (e.g. with inserting / deleting \
+		  columns and/or rows. The formatting you have applied have a fixed association to the rows and columns.  If you delete a row, then the next row below will get the formatting.\
+		  The same applies to sorting and rearranging table rows and columns after the formatting.<br>\
+		  <u>General advice</u>: Finalize the table first, then do the creative artwork.
+	5.	| <b>Generate the final formatting instructions specific to the file format</b> you intend to use for saving.  You need to call one of the two functions listed below<br>\
+		  __translate style attributes for excel xml 2003(__) - Excel legacy format <br>\
+		  __translate style attributes for html(__) - HTML format for web browsers and Excel<br>\
+		  __translate style attributes for excel(__) - Excel only: This function will be called automatically when you save the file, so you can skip calling this function explicitly.
+	6.	| <b>Save your (art-)work</b> using one of the following functions:<br>\
+		  __table save(__), and <br>\
+		  __table save multiple(__) to save multiple sheets in 1 file,<br>\
+		  __table save excel file(__) to save one or multiple sheets in 1 contemporary Excel file.\
+		  <u>Note</u>: Make sure you choose the format as specified in step 5.  You can do the style attribute translation for multiple formats on the same table.\
+		  If you save the file in a format for which no tranlsation has been made, then the table will be saved as if no formatting has been applied at all. The CSV file format\
+		  and close relatives (e.g. tab separated files, text files) do not support any formatting.
+	7.	| If needed, <b>reset all format attributes</b> using the function<br>\
+		  __table style reset(__)<br>\
+		  in order to start doing a different formatting artwork on the same table.
+	===
+	+++,
+    "Description 03:Important Info"::
+	<b>The "Style Library" works with following global variables which shall not be manipulated directly as this could result in unexpected and erratic outcome</b>
+	* <b>table style descriptions[]</b>: This variable contains all formatting attributes for all tables.
+	* <b>hex[]</b>: Conversion of hexadecimal values
+	* <b>table style rules[]</b>: Defines rules to properly interpret formatting codes
+	* <b>table style html comments[]</b>: Template to put comments into HTML file format so opening them with Excel will make the comments show up.
+	In addition, this library maintains one table called <b>global color table</b> which describes all available colors with their names.  See next section for details.
+
+	$functions$ 
+
+	+++
+
+},
+
+// See "Style Library.txt" for further documentation on styles.
+
+
+
+
+
+
+
+
+"Variables Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "variables functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes all functions processing variables.  The functions are categorized into the following:
+	* Obtaining information about the variables
+
+	$functions$ 
+
+	+++
+  },
+
+
+"Basic Variables Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "basic variables functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes all basic functions aroun variables
+	* Information about variables
+	* Simple data movements
+	* Deleting variables
+
+	__Arrays and structures__ will be addressed in the following section.
+
+	$functions$ 
+
+	+++
+  },
+
+
+"Arrays and Structures":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Arrays and Structures" ],
+    "Description 01:Introduction"::
+
+	This section provides an overview of functions defining and working with __arrays__ and __structures__.
+
+	$functions$ 
+
+	+++
+  },
+
+
+"Loading and Saving Variables":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Loading and saving variables" ],
+    "Description 01:Introduction"::
+
+	The following functions provide convenient methods to save variables (including all the structure and array members and sub-members) into files or $
+	text strings (strings) and vice versa in JavaScriopt Object Notation (JSON).  Focus is given on full data preservation in round trip cases, 
+	i.e. data is saved as JSON and covered again, and vice versa.
+
+	<br><br>
+
+	Following rules will be applied when saving variables into JSON text. 
+	These rules are insofar important because the B4P can consist of both base variables, array and structure members and sub-members, 
+	and the simple JSON representation focuses on leaf data, meaning the final members and sub-members without the intermediate one.  
+	In addition, special rules are applied to save B4P specific formats such as dates (and times) and parameter sets.
+
+	Following special rules apply
+	=== 200, 800, noframe_1stcolbold, noheader
+	General			| The base variable as well as all members and sub-members, regardless if array or structures, will be saved.
+	__Simple Variables__	| If the variable is a simple variable, then it will be saved as a JSON plain array containing 1 element.  Using 'JSON B4P' option in the loading process will recover the variable properly.
+	__Arrays__		| B4P arrays are stored as JSON arrays
+	__Structures__		| B4P structures are stored as JSON objects
+	strings		| string string contents are stored as text in double quotation marks
+	Numerals		| Numerals are written as numbers without quotation marks.  When saving, scientific notation is not used.  However, JSON files containing scientific notation will be loaded correctly.
+	Booleans		| Will be written as <b>true</b> and <b>false</b>.  B4P will recognize boolean values and convert them to Boolean type
+	Void values		| Are written as <b>null</b> in JSON output.
+	Dates			| Dates (and times) are written as text in following formats: "YYYY-MM-DD", "hh:mm:ss", "YYYY-MM-DD hh:mm:ss", and "0000-00-00".  The last value refers to a blank date and will be recognized as such. When reading JSON data, dates and times must adhere strictly with the given formats, otherwise they will be loaded as text (e.g. "01 April 2020").
+	Parameter Sets		| Parameter sets will be converted to string format (similarly implemented as in the __str(__) function) and stored as text.  strings are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested parameter sets are supported.
+	Loading strings	| All loaded strings are declared as <b>quoted strings</b>
+	Special characters	| Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside strings, etc. 
+	===
+	+++,
+    "Description 02:Intermediate Nodes"::
+	The JSON model describes a tree containing data at the end nodes only (leaves) whereas B4P variable model also supports data in intermediate
+	nodes as well.  In these case, intermediate arrays containing 2 elements are introduced to describe the intermediate node followed by the 
+	remaining data up the data tree.  See the program example below:
+    "Examples 02:JSON code without and with intermediate nodes"::
+	b[Red] = Rot;
+	b[Green,light] = Hellgrün;
+	b[Green,dark] = Dunkelgrün;
+	b[Blue,light] = Hellblau;
+	b[Blue,dark] = Dunkelblau;
+
+	see(b[]);
+
+	j[] = variable to json( b[], JSON);
+
+	echo("JSON code:", new line, j[], new line, "_______" );
+
+	json to variable( c[], j[], JSON B4P );
+	see( c[] );
+
+	echo(new line, "Add data to intermediate nodes");
+
+	b[] = Colors;
+	b[Green] = Shades of green;
+
+	j[] = variable to json( b[], JSON);
+
+	echo("JSON code:", new line, j[], new line, "_______" );
+
+	json to variable( c[], j[], JSON B4P );
+	see( c[] ); // Same as before.
+	+++,
+	"Output 02": "automatic",
+	"Description 03:"::
+	$functions$ 
+	+++
+
+  },
+
+
+
+"Variable References Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable references functions" ],
+    "Description 01:Introduction"::
+
+	This section describes functions related to __variable references__.
+
+	$functions$ 
+
+	+++
+  },
+
+
+"Resident Attributes Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Resident attributes functions" ],
+    "Description 01:Introduction"::
+
+	Resident attributes are values which can be stored in dedicated files.  In contrast to loading and saving variables, attributes are tuples
+	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, string, date, Boolean and parameter set.
+	Attribute names can be either flat (just one name) or hierarchical (parameter set containing multiple names representng a sort of path name).
+
+	<br><br>
+	In contrast to Microsoft Windows registry, the B4P resident attributes is an operating-system independent solution to store small amounts of data
+	or settings conveniently.  One file may contain one or more settings.  Thd data format used is JavaScript Object Notation (JSON).
+
+	<br><br>
+	If a nested sub-attribute is created, then the values associated to the attributes are blank strings "", and not void.
+	Example:  attribute write ( path[ ], file[ ], {local machine, local settings, date format}, "YYYY-MM-DD" ) will automatically assign "" to attribute name local machine, 
+	and local settings if not yet existing.
+
+	$functions$ 
+
+	+++
+  },
+
+
+
+
+
+"Directory and File System Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "directory and file system functions", "Short error messages on directories and files" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to access and process files and directories.  Following key features 
+	are included.
+
+	* Accessing, searching and manipulating directories (create, change to, rename, remove directories)
+	* Accessing, searching and manipulating files (directory listings, copy files, rename files, delete files)
+	* Disk functions (e.g. disk size info)
+	* Internet access (download files)
+
+	+++,
+
+    "Description 02:Path and File Names"::
+
+	Under Windows, the path names are a chain of directory and subdirectory names separated with backslash '\' symbols.  Under LINUX and MACOS,
+	the forward slash '/' is used.  Unless specified otherwise do add quotation marks to (sub-) directory and file names if they contain spaces.
+	Avoid using symbols not supported or recommended by the operating systems, e.g. '<', , '&', '>' and ':'.
+
+	<br><br>
+
+	B4P tolerates both slash symbols and does the operating system conversions automatically. Even a mix of both symbols are OK. Following examples are valid:
+	* C:/Program Files\B4P.exe
+	* \usr\local/bin\B4P
+
+	<br><br>
+
+	If the specified directory or file name contains no path name in front, then the current drive and working directory are assumed.
+
+	<br><br>
+
+	<u>Attention:</u> Directory and file names are case sensitive in LINUX and MACOS systems, but not in Windows.
+
+	+++,
+    "Description 03:Exception Handling"::
+
+	Various procedures and functions contain <b>... silently</b> as ending part of their names.  This suffix
+	lets B4P to issue return values which are either "OK" or contain <b>short error messages on directoies and files</b>.  Without the
+	suffix, an exception happens, program execution will stop and enters __interactive mode__.
+
+	=== 250, 250, 500
+	Return values for file functions	| Return values for directory functions | Description
+	OK					| OK					| Successful execution
+	Path not found				| Path not found			| Specified directory path not found or invalid
+	File not Found				| Directory not found			| File / directory not found
+	File access denied			| Directory access denied		| File / directory access denied. Insufficient privileges.
+	File write-protected			| (n/a)					| File is write-protected.  Check protection settings.
+	(n/a)					| Directory not empty			| Directory is not empty (contains files and/or sub-directories)
+	File locked				| Directory locked			| File / directory is locked by other applications. Close the other application.
+	File already existing			| Directory already existing		| File / The file already exists (e.g. attempt to overwrite with file copy function). For files, use the equivalent function name containing the suffix <b>overwrite</b>.
+	File error				| Directory error			| Invalid file / directory name or file locked by other application.
+	File invalid chars			| (n/a)					| File name contains invalid characters
+	Can't move files across devices		| Can't move files across devices	| Can't move files across devices (with __file rename(__) function)
+	File found directory expected		| Directory found file expected		| Specified directory name refers to an existing file, and vice versa
+	===
+
+	$functions$
+
+	+++
+  },
+
+
+
+"Basic Directory and File Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "basic directory and file functions" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to search to accesss directories and files.
+	$functions$ 
+
+	+++
+  },
+
+
+"Listing and Searching Directories and Files":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "listing directories and files" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to obtain list of existing filse and directories, as well as searching for files and directories.
+	$functions$ 
+
+	+++
+  },
+
+"Manipulating Directories and Files":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "manipulating directories and files" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions to create, copy, rename and delete files and directories
+	$functions$ 
+
+	+++
+  },
+
+
+
+
+"File Compression and Decompression":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "file compression decompression" ],
+    "Description 01:Introduction"::
+
+	This subsection describes various functions compress and decompress files.  The data compression and decompression features are
+	implemented in B4P in the library file 'Zip Library' and makes use of the zip program in the standard installation (Linux, MacOS)
+	or relies on the installed 7-Zip program on Windows installations because 7-zip provides a set of compression and decompression commands
+	which Windows does not.  See  <a class="bold_text" target="_blank" href="http://www.7-zip.org">7-zip</a> for details.
+	<br><br>
+	<u>Note</u>: All Microsoft office featuers, e.g. loading Excel files, rely on these file compression and decompression functions.
+
+	$functions$ 
+
+	+++
+  },
+
+
+
+"System Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "system functions" ],
+    "Description 01:Introduction"::
+
+	This section summarizes system specific functions including executing operating system commands (like Windows CMD, Linux shell, etc.)
+	$functions$ 
+
+	+++
+  },
+
+
+"Executing System Commands":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "executing system commands" ],
+    "Description 01:Introduction"::
+
+	This section describes the __system(__) function to execute system commands and also provides a function called __quote path(__) to precondition 
+	path and file names so they can be used as command line parameters for system commands accordingly.
+
+	$functions$ 
+
+	+++
+  },
+
+
+"Registry Access Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "registry access functions" ],
+    "Description 01:Introduction"::
+
+	The Microsoft Windows operating system provides a <i>registry</i> which is a hierarchical database to store sytem and application
+	settings.  The contents in the registry affect the behavior of the operating system, windows graphical user interface and application
+	program.  B4P provides a set of registry access functions, however access to them have been restricted due to a considerable risk
+	that unexperienced usage could cause severe and irreversible harm to the system.  The B4P installer program is actually accessing the registry in order to
+	assign the file type ".b4p" to the B4P program, and to assign the icon to that file type.
+
+	<br><br>
+	For the reason above, the B4P contains no description of the registry access functions.  Linux and MacOS do not maintain such a registry.
+	If you intended to use the registry for storing individual values, then consider using the __resident attributes functions__ instead, and this one
+	works on all supported operating systems.
+
+	<br><br>
+	Please contact us if you need to write a B4P program which needs to access the registry and you have a good reason for that.
+
+
+	+++
+  },
+
+
+"Licensing and Privileges":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "licensing and privileges" ],
+    "Description 01:Introduction"::
+
+	The following functions relate to system and B4P programming privileges as well as functions needed to activate licensing.
+	As an example, these functions are used in the B4P installation script.
+
+	$functions$ 
+
+	+++
+  },
+
+
+
+
+"Help and Support Functions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "help and support functions" ],
+    "Description 01:Introduction"::
+
+	The functions described next are ideally suited for interactive use in order to obtain more information
+	about specific functions and features and access on-line and off-line documentation directly.
+
+	$functions$ 
+
+	+++
+  },
+
+// ________________________________________________________________________________________ "/
+
+
+"Cross-Functional Info":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Cross-functional info" ],
+    "Description 01:Introduction"::
+
+	This section contains various information which apply to different functions across the function library,
+	for example applicable sorting and consolidating options.
+
+	+++
+  },
+
+
+"Sorting and Ranking Options":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Sorting options", "Ranking options" ],
+    "Description 01:Introduction"::
+
+	The sorting options are used (amongst others) by following functions:
+	* __table sort columns(__)
+	* __table sort rows(__)
+	* __table sort selected rows(__)
+	* __table rank rows(__)
+	* __table rank selected rows(__)
+
+	+++,
+    "Description 02:Overview of Available Options"::
+
+	=== 200, 800, bold_column_1
+	Sorting / Ranking Option 		| Description
+	alphabetic					| Alphabetic order by UNICODE character set.
+	alphabetic down				| Opposite direction of above
+	alphabetic ignore case		| Alphabetic order, but ignores case (e.g. 'the Hague' comes before 'Uruguay')
+	alphabetic down ignore case	| Opposite direction of above
+	alphabetic ignore blanks		| Same as alphabetic. Blanks (incl. new line, tabs, space) are ignored.  'St. Moritz' and 'St.Moritz' are equivalent.
+	alphabetic down ignore blanks	| Opposite direction of above
+	alphabetic ignore both		| Same as alphabetic, ignoring both case and blanks
+	alphabetic down ignore both	| Opposite direction of above
+	numeric					| Sorts by numbers.  Non-numeric contents are interpreted like zero.  Smallest number comes first.
+	numeric down				| Opposite direction of above
+	date						| Sorts by dates.  Fields containing no qualified dates are interpreted like blank dates.  See rules below the table.
+	date down					| Opposite direction of above
+	time						| Sorts by dates.  Fields containing no qualified dates are interpreted like blank dates.  See rules below the table.
+	time down					| Opposite direction of above
+	date and time				| Sorts by dates.  Fields containing no qualified dates are interpreted like blank dates.  See rules below the table.
+	date and time down			| Opposite direction of above
+	===
+
+	Rules on strings:
+	* Blank string '' comes first
+	* One space symbol ' ' (UNICODE 32) comes next.
+	* Sorting is done based on UNICODE character codes.
+	* Sorting takes no cultural implications into consideration (e.g. Spanish: LL follows L).
+	* Numbers are also treated as strings: 0100 comes before 10.
+
+	Rules on numerals:
+	* For contents beginning a number: The 1st number will be recognized.
+	* For contents beginning with non-numeric symbols: Interpreted as zero.
+
+	Rules on dates:
+	* Blank dates come first.
+	* If year is missing, current year is assumed.
+	* If day is missing, the 1st day of month is assumed.
+	* Month names in key languages like "Jan", "feb", "März", "avril", "May", "juni", etc. are recognized as months and sorted accordingly.
+	* Local settings are used as rules to resolve country dependent date formats like 01/02/2015 (day and month ordering: 2. Jan 2015 or 1. Feb 2015).  Local settings are in the system variables and can be changed.
+	* Time values in the date are ignored.  E.g. "14.07.2016 10:00" and "14.07.2016 11:00" are treated as identical values
+
+	Rules on dates and times:
+	* Blank dates come first.
+	* Date values without time come before date values with time (e.g. "00:00:00") if date are on the same day.
+	* Time values are not ignored
+
+	Rules on times:
+	* Blank dates come first.
+	* Date values are ignored.  "14.07.2016 10:00” and “15.07.2016 10:00” are treated as identical values
+
+	Following example shows a ranking based on the different options applied.
+	+++,
+
+    "Examples 02:"::
+	include( Support Library );
+	
+	table initialize ( t,
+	{ { Scheme, alphabetic, alphabetic down, alphabetic ignore case, alphabetic down ignore case, numeric, numeric down, date, date down, time, time down },
+	    "02-Dec-2020 10:00", "02-Nov-2020 11:00", "05", "1", "Dec", "apr 15", "-1", "", "begin" } );
+
+	for all parameters( [t:1..,0], option[] )  table rank rows( t, option[], Scheme, option[], 113 ); // 113 - Same ranking share same ranking position
+	table transpose (t);
+	table list (t);		
+	+++,
+
+    "Output 02:": "automatic"
+
+  },
+
+
+
+"Consolidation Actions":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "consolidation actions" ],
+    "Description 01:Introduction"::
+
+	The sorting options are used (amongst others) by following functions:
+	* __table consolidate(__)
+	* __table merge(__) function family
+
+	+++,
+    "Description 02:Overview of Available Consolidation Actions"::
+
+	The consolidation actions does only take place if a matching row further down in the table (or source table if 2 tables are combined) needs
+	to be consolidated to the target fields.  No actions are applied if only one row exists with same identifer contents. 
+
+	=== 200, 800, bold_column_1
+	Consolidation Action		| Description
+	none				| No consolidation: The destination fields will not be overwritten.<br>At the end of the consolidation run, the destination field contains the data from the first row belonging to the group.
+	overwrite			| Source field overwrites destination field. <br>At the end of the consolidation run, the destination field contains the data from the last row belonging to the group.
+	overwrite if blank		| Source field overwrites destination field if the destination field is still blank. See <sup>1</sup>
+	overwrite except blank		| Source field overwrites destination field if the soruce field is not blank. See <sup>1</sup>
+	blank				| Destination field will be blanked.  Useful to void contents no longer needed after consolidation.
+	zero				| Destination field will be set to 0. Useful to void contents no longer needed after consolidation.
+	delete				| This column will be deleted after the consolidation run.  Useful to get rid of contents no longer needed.
+	append				| Append string contents from source fields to destination fields.  A separator string will be inserted if available.
+	append once			| Like above, but contents are only appended if not yet found in the destination string.
+	must match			| Checks source and destination fields.  If they differ, then <b>(Inconsistent)</b> will be written.
+	blank if different		| Checks source and destination fields.  If they differ, then the destination fields will be blanked.
+	min abc				| Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have highest priority. 
+	min abc ignore blanks		| Choose the entry in the lower alphabetc sorting order (e.g. abc preferred over def). Blanks have lowest priority. See <sup>1</sup>
+	max abc				| Choose the entry in the higher alphabetc sorting order (e.g. def preferred over abc). Blanks have lowest priority.
+	min				| Choose the entry with the smaller value. Blanks and non-numeric contents are treated as zero.
+	min ignore blanks		| Choose the entry with the smaller value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup>
+	min ignore zero			| Choose the entry with the smaller value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup>
+	max				| Choose the entry with the greater value. Blanks and non-numeric contents are treated as zero.
+	max ignore blanks		| Choose the entry with the greater value. Blanks have lowest priority. Non-numeric contents are treated as zero. See <sup>1,2</sup>
+	max ignore zero			| Choose the entry with the greater value.  Blanks and non-numeric contents and zero have lowest priority. See <sup>2</sup>
+	sum				| Calculates the sum: Adds source fields to destination fields.
+	sum blank if zero		| Calculates the sum: Adds source fields to destination fields. If destination field is 0, it will be set to blank.
+	product				| Calculates the product: Multiplies source fields to destination fields.  Blanks and non-numeric contents are treated as zero.
+	product ignore blanks		| Calculates the product: Multiplies source fields to destination fields.  Blanks are ignore, but non-numeric contents are treated as zero. See <sup>1,2</sup>
+	product ignore zero		| Calculates the product: Multiplies source fields to destination fields.    Blanks and non-numeric contents and zero are ignored.  See <sup>2</sup>
+	average				| Calculates the average (sum divided by number of rows consolidated). Blanks and non-numeric contents are treated as zero.
+	average ignore blanks		| Calculates the average (sum divided by number of rows consolidated). Non-numeric contents are treated as zero. See <sup>1,2</sup>
+	average ignore zero		| Calculates the average (sum divided by number of rows consolidated).  Blanks and non-numeric contents and zero are ignored. See <sup>2</sup>
+	count				| Count all fields.  Is always 1 or bigger.
+	count ignore blanks		| Count non-blank fields only. See <sup>1</sup>
+	count ignore zero		| Count non-zero fields. 0, blanks and non-numerals are ignored.
+	count positive			| Count if value is > 0. 0, blanks and non-numerals are ignored.
+	count positive or zero		| Count if value is >= 0.  Blanks and non-numerals are treated as 0 and will be counted.
+	count negative			| Count if value is < 0. 0, blanks and non-numerals are ignored.
+	count negative or zero		| Count if value is <= 0.  Blanks and non-numerals are treated as 0 and will be counted.
+	===
+
+	<sup>1</sup> Fields are considered blank if they are absolutely blank, i.e. containing zero characters.  Fields containing white spaces (spaces, tabs, new lines, etc.) are not considered blank.<br>
+	<sup>2</sup> If none of the fields qualify for calculation (e.g. min ignore blanks where all fields are blank), then the result will be zero.
+
+	+++
+
+  }
+
+
+
+
+
+B4PDOCU.STOP

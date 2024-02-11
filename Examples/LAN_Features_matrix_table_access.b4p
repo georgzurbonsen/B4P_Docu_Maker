@@ -1,0 +1,34 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  echo( [ table : {1,7,4}, {12, 4, 8}] );
+  echo;
+
+  echo( [ table : :'C*', :'*T*' ] );
+  echo;
+  // 1st horizontal match is country, therefore it checks for all countries containing 'T'
+  // Country and City are retrieved
+
+  echo( [ table: ..'State/Province', 12..] );
+  echo( [ table: 1..Inhabitants, Boston..6] );
+  a[] = [ table: Inhabitants .. 'Alt. (m)', ]; // Read all rows incluuding the header
+  for all parameters( a[], b[] ) echo( b[] );
+
+
+  // Reading no data
+
+  echo;
+  echo( [ table: :'xxx', :'yyy' ] );  // Returns 0 rews
+  echo( [ table: :'C*', :'yyy' ] ); // Found 2 columns, but number of rows is 0.
+  echo( [ table: :'xxx', :'*' ] ); // All rows, no column
+  echo( [ table: {2,3,4}, {} ] ); // 3 columns, no row
+  echo( [ table: {}, {2,3,4} ] );  // No column, 3 rows
+  echo( [ table: {}, {} ] ); // Nothing
+  echo;
+
+  // Matrix access on one single row, column, cell.  Note: Always nested parameter sets
+  // First level: Rows, 2nd level: COlumns
+
+  echo( [ table: {City}, 1..3 ] ); // One column
+  echo( [ table: City..Inhabitants, {Venice} ] ); // One row
+  echo( [ table: {Moving along}, {3} ] ); // One cell

@@ -1,0 +1,20 @@
+﻿#!/usr/local/bin/b4p
+  table load                     ( countries, temp.csv); // Hide! Step 4 begins
+
+  // Download a list of languages from Wikipedia and do the clean-up first.
+
+  file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory", languages.html );
+  table load                     ( languages, languages.html, HTML, List of countries );
+  table process all cells        ( languages, [.] = replace all( str([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
+  table clean            ( languages, trim spaces );
+  table delete selected rows     ( languages, [Country]=Country ); // Headers are repeated inside the long table.
+  table keep columns             ( languages, {Country, Official language} );
+  table rename headers           ( languages, {Country, Official language}, { Country name, Languages } );
+
+  // Merge the data.
+  // Note Some languages come without countries (see bottom of table), and vice versa.
+
+  table merge extend columns     ( languages, countries, Country name );
+  table list( countries, briefly, 8 ); // List first and last 8 rows only
+
+  table save                     ( countries, temp.csv); // Hide!

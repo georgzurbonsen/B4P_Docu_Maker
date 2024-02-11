@@ -1,0 +1,26 @@
+﻿#!/usr/local/bin/b4p
+  define procedure( print coordinates, { { coordinates, parameters }, { msg, string } } )
+  {
+      echo( msg[] );
+      for all parameters( coordinates[], c[], i[] )
+      {
+          print("    Table ", i[], ":  (", c[]{0}, ", ", c[]{1},") ... ( ", c[]{2}, ", ", c[]{3},") " );
+          echo ("    ('", [test:c[]{0},c[]{1}],"', ...)" );
+      }
+  }
+
+  table load( test, "Table Explore Demo.csv" );
+  table list ( test );
+  coords[] = table explore ( test, 1, 2 ); // 2 = left table includes the lone row at the bottom
+
+  coords 2[] = table filter( test, coords[], '*Name' );
+  print coordinates ( coords 2[], "All tables with at least 1 header containing 'Name'" );
+
+  coords 2[] = table filter( test, coords[], {}, 1, { 2,2, 6,13 } );
+  print coordinates ( coords 2[], "All tables in 'Inside Area': Given Name and Cities" );
+
+  coords 2[] = table filter( test, coords[], {}, 1, {}, { 2,2, 6,13 } );
+  print coordinates ( coords 2[], "All tables in 'Overlay Area': All except Country" );
+
+  coords 2[] = table filter( test, coords[], {}, 1, {}, {}, { 2, 2, 3, 4 } );
+  print coordinates ( coords 2[], "2 tables meet size specs (2-3 columns, 2-4 rows)" );

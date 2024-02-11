@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+      if ( system info[operating system] = Windows)
+      {
+          echo( resolve path name( "C:\Program*\*\*4P.exe" ) ); // Look for B4p Program
+      }
+      else
+      {
+          echo( resolve path name( "/usr/*l/*n/*4p" ) ); // Look for /usr/local/bin/b4p
+      }
+      echo( resolve path name( "~/" ) );    // Your home directory
+      echo( resolve path name( "~/.." ) );  // Parent directory of home directory
+

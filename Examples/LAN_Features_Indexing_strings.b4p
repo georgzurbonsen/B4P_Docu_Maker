@@ -1,0 +1,6 @@
+﻿#!/usr/local/bin/b4p
+  echo( abcde{} );     // Returns 5 (character count)
+  echo( abcde{0} );   // Access the 1st element
+  echo( abcde{-2} );  // Access the 2nd last element
+  echo( abcde{10} );  // Attempts to access characters outside the string returns blank strings.
+  echo( abcde{-10} ); // Same case here.

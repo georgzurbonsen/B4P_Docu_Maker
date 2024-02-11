@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+  table load ( t, "Cities.csv" );
+
+  // Begin with row 2, skip last 3 columns, and for the rows to list, list only the first and last 3 of them.
+  table list ( t, 1st row, 2, briefly, 3, last col, -3 );

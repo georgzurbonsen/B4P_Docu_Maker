@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals,
+      { { Name,  Leg count, Special ability  },
+        { Owl,   2,         Night vision     },
+        { Dog,   4,         Sensitive nose   },
+        { Ape,   2 or 4,    Relatively smart } } );
+
+  structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+                        { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+  array( animal2[], { Crab, 10  } );
+
+  animal1[] &<=>  [ animals: .., 1 ]; // Animal1: Owl with night vision, no info on legs, keeps bat wings and hangs while sleeping
+  animal2[] &<=>^ [ animals: .., 2 ]; // Animal2: Dog with 4 legs.  Circumflex symbol: Do not transfer table name.
+
+  see( animal1[] );
+  see( animal2[] );
+  table list( animals ); // Contains bat and crab and ape with some info

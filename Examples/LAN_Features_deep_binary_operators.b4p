@@ -1,0 +1,38 @@
+﻿#!/usr/local/bin/b4p
+  echo("Deep binary operators on simple parameter sets (vectors):");
+
+  a[] = {  1, 2, 3, 4, 5 };
+  b[] = { 10,15,20,25,30 };
+  c[] = {  2,-2,'',-2, 2 };
+
+  s[] = { Ha, He, Ho, Hu, Hi };
+  t[] = { ngar, ring, ney, nger, ll };
+
+  echo( a[] + b[]);         // Conventional way: Concatenates vectors
+  echo( a[] *^ b[]);        // Multiplies the elements together
+
+  echo( s[] +^ t[]);        // Combines strings
+
+  echo( { rein, 1, date("2020-04-30") } +^ { deer, 2, 1 } );
+                            // Mixed types are OK
+
+  echo(new line, "Vectors of different sizes");
+
+  echo( a[] *^ { 10, 100, 1000 } );      // First 3 elements are multiplied
+  echo( b[] -^ { 2,4,5} );               // First 3 elements are negated
+  echo( { 3,3,3,} -^ a[] );              // First 3 elements are calculated, remaining ones negated
+
+  echo( a[] /^ { 2,4,6 } );              // First 3 elemnts are divided
+
+  echo( a[] +^ c[] );                    // Like with normal arithmetic operators, blank strings
+                                         // are interpreted as zero.
+
+
+  echo(new line, "Matrices");
+
+  a[] =  {  { 1,  2, 3 }, { 4,  5,  6 } };
+  b[] =  {  { 1, -1, 0 }, { 2, -2, 10 } };
+
+  echo( a[] +   b[] );                   // Simple concatenation
+  echo( a[] +^  b[] );                   // The elements containing 3 numbers are concatenated
+  echo( a[] +^^ b[] );                   // What you want: Addition of the elements

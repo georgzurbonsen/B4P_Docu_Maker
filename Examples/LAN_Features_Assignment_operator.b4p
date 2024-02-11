@@ -1,0 +1,22 @@
+﻿#!/usr/local/bin/b4p
+  // Implicit initialization cases
+
+  a[0] += 3;
+  a[1] += 'Hello';
+  a[2] += date("2020-10-12");
+  a[3] |= false;
+  a[4] |= { 1,2,3 };
+  a[5] += true;   // Arithmetic operator converts true to 1 first
+  a[6] = ''; a[6] -= 1; // a[] = '' - 1 is legitimate because arithmetic calculation 
+  // of numbers with blank strings is valid where blanks are treated as zero.
+
+  // Doing some calculations
+
+  a[0] *= 2;      // 3 --> 6
+  a[1] -= llo;    // Hello --> He
+  a[2] += 1;      // Next day
+  a[3] |= true;   // true
+  a[4] *= 2;      // { 1,2,3, 1,2,3 }
+  a[5] /= 2;      // 1 -> 0.5 
+
+  for all variables( a[], x[] ) echo ( x[] );

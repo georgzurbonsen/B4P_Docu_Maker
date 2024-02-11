@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+  b[Green] = Grün;
+  b[Blue] = Blau;
+  b[Blue,light] = Hellblau;
+  b[Blue,dark] = Dunkelblau;
+
+  variable save( b[], "Outputs/colors.json");
+
+  variable load( c[], "Outputs/colors.json", JSON B4P );
+
+  see( c[] );

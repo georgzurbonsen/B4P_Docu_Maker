@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+  table initialize ( t, { { Product, Price per 100kg, Discount },
+      { Apples,  45.5, 0.05 },
+      { Oranges, 90.5, 0.10 },
+      { Durian,  1240, none } } );
+
+  table format numbers( t, Price per 100kg, "'EUR '?,??0.00", de_DE, '*'  );
+  table format numbers( t, Discount, "?0.00 %" );
+
+  table list ( t );

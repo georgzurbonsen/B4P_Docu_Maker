@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( animals,
+      { { Name,  Leg count, Special ability  },
+        { Owl,   2,         Night vision     },
+        { Dog,   4,         Sensitive nose   },
+        { Ape,   2 or 4,    Relatively smart } } );
+
+  structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+                        { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+  array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+  [ animals: .., 2 ] |<=> animal1[];  // Swap, with table name in base variable
+  [ animals: .., 3 ] |<=>^ animal2[]; // Swap
+
+  see( animal1[] ); // Dog, ...
+  see( animal2[] ); // Ape, ...
+  table list( animals ); // Contains owl, bat and crab and ape with some info

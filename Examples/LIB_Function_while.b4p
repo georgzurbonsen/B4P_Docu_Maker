@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+    a[] = 0;
+    while ( a[]++ < 10)  print( a[], ' ' );
+    until ( a[]-- <= 5)  print( a[], ' ' );
+    echo;

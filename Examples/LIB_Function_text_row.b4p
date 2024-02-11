@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+example[] = """
+The quick brown
+fox jumps over the great and big, but
+lazy dog.""";
+
+echo("Example 1: 2 parameters passed");
+for (i[] = 0, i[] < height(example[]), i[]++) echo( 'Row ', i[],': "', text row(example[], i[] ),'"' );
+
+echo(new line, "Example 2: 3 parameters passed");
+for (i[] = 0, i[] < height(example[]), i[]++) echo( 'Row ', i[],': "', text row(example[], i[], 18),'"' );

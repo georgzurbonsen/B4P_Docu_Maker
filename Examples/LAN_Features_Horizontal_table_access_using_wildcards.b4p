@@ -1,0 +1,23 @@
+﻿#!/usr/local/bin/b4p
+  table load( table, "Cities.csv");
+
+  echo( [ table:  :'F*',   5 ] ); // 2 matches: looks for headers starting with "F*"
+  echo( [ table:  :'F*', -10 ] ); // Same result
+  echo( [ table:  :"F*",   5 ] ); // No match. Qquoted string, looks for header name "F*"
+  echo;
+
+  echo( [ table: :'F*', Golden Gate] ); // Golden Gate is 1st match
+  echo( [ table: :'F*', SFMOMA] );      // SFMOMA is not 1st match, empty set returned
+  echo;
+
+  echo( [ table : : 'F*', Golden Gate, { City, Famous cultural place } ] );
+  echo;
+
+  echo( [ table : City, San Francisco, :'F*' ] );
+  echo( [ table : City, 5, :'F*' ] );
+  echo( [ table : 1, 5, :'F*' ] );
+  echo( [ table : -7, -10, :'F*' ] );
+
+  echo( "Output entire row with wildcards:");
+  echo( [ table : :'*', 5 ] );
+

@@ -1,0 +1,5 @@
+﻿#!/usr/local/bin/b4p
+      // Function 'string' adds thousand separators to make numbers readable
+      echo( str( file size( system info[bin directory] + "\b4p.exe" ), "#,000", local ) );   // Finds a file in Windows
+      echo( str( file size( system info[bin directory] + "/b4p" ),     "#,000", local ) );   // Finds a file in Linux/MacOS
+      echo( file size( "Non-existing File.txt" ) ); // -1

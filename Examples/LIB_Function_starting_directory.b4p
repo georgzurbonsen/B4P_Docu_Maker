@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+      saved starting directory[] = starting directory();
+      echo(" Old starting directory: ", saved starting directory [] );
+      starting directory( working directory () );
+      echo(" New starting directory: ", starting directory () );
+      starting directory( saved starting directory[] );
+      echo(" Back to old starting directory: ", saved starting directory [] );

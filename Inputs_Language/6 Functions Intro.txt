@@ -1,0 +1,721 @@
+//
+B4PDOCU.START
+
+"Functions and Procedures" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Functions and Procedures" ],
+    "Keywords":			[ "Procedures", "Functions", "Function call", "Function calls", "Procedure call", "Procedure calls" ],
+    "Description 01:Introduction"::
+
+	B4P provides an extensive library of standard functions with an emphasis on processing complex tables and data structures.  Some of the standard functions
+	are part of the B4P Data Engine where other functions are provided in B4P function libraries (which are coded in B4P).   You can also define your own functions.
+	
+	<br/><br/><img src="Images/LAN_Functions.png" alt="Functions"><br/>
+
+    "Description 02:Rules"::
+	* The term <b>Function</b> is the generic term related to all B4P procedures and functions defined.
+	* Function names support spaces.  More info, see seciton on __Function Naming__.
+	* Some of them can only be called as procedures, as functions, and as both procedures and functions.
+	* Some functions require a fixed number of __function parameters__ where other functions provide allow a variable number of parameters.
+	** Procedure calls with zero parameters require not parentheses.  Example: <b>print bar;</b>
+	** Function calls witzh zero parameters require parentheses.  Example: <b>sum()</b>
+	* The function parameters may have different __function parameter directions__ (input, output, etc.).
+
+	+++,
+    "Description 03:User-Defined Procedures and Functions"::
+
+	B4P provide a convenient method to create __user-defined procedures__ and __user-defined functions__ and call them up as if they would be part of the standard B4P function library. 
+	You can even create you own B4P library files containing your frequently used functions you have written so they are available at your discretion whenever
+	you need them.  See __Introduction to user-defined functions__ for details.
+
+	+++
+},
+
+
+"Function Naming" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Procedure Names", "Function Names", "Function Naming" ],
+    "Description 01:Introduction"::
+
+	B4P function names must be formulated __plain text__ and may consist of multiple words with spaces inbetween and allow special characters as long they do not interfere
+	with the B4P syntax (For example single points ( <b>.</b> ) and underscore symbols (<b>_</b>) are OK).  This makes function names easy to read and memorize, for example
+	__table lookup ignore case(__).  Quotation marks (e.g. to force up multiple consecutive spaces in function names) are not allowed.
+
+
+	<br><br>
+	Please note the following rules for function names, especially when creating __user-defined procedures__ and __user-defined functions__ on your own:
+	* Function names are case sensitive
+	* Function names are always specified as __plain text__, i.e. always without quotation marks
+	** Multiple words sparated with spaces are allowed
+	** Multiple spaces and tabs are interpreted as one single space
+	** Special symbols may be used as long they do not interfere with the B4P syntax.  Example: single points ( <b>.</b> ) and underscore symbols (<b>_</b>) are OK, but the hypen (minus sign) is not.
+	* Function names do not interfere with __variable names__ and __table names__, i.e. table and variable names 'echo' are allowed like in this valid example: <br><b>echo( echo[], [echo:1,2] );</b>
+
+
+    "Description 03:Function Naming Examples"::
+
+	The first two function names listed below are equivalent, but all the remaining ones are not.
+	
+	===  200, 800, bold_column_1
+	Function call	| Explanation
+	table process(...)						| Calls __table process(__) which is a valid function in this B4P library
+	&nbsp;&nbsp;table&nbsp;&nbsp;&nbsp;process&nbsp;&nbsp;(...);	| Same function as above: Multiple spaces collapse to 1 space, leading and trailing spaces are ignored
+	Table process(...)						| Function names are case sensitive.  This is a different funtion name.
+	table_process(...)						| <i>Snake-case</i> formulation: Underscore and other symbols differ from spaces.
+	table-process(...)						| <u>Attention</u>: <i>Kebab-case</i> does not work.  It attempts to execute 'process(...)', then do a text subtraction of 'table' minus return value of process(...).
+	tableprocess(...)						| Single-word 'tableprocess' differs from double-word 'table process'
+	TableProcess(...)						| <i>Camel case</i> formulation: Capitalized letter for each word makes it a distinct function name from 'tableprocess'
+	'table process'(...)						| Syntax error (only plain text is allowed)
+	"table process"(...)						| Syntax error (see above)
+	===
+
+	+++
+
+},
+
+
+
+"Function Parameters" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function Parameters" ],
+    "Keywords":			[ "Function parameter" ],
+    "Description 01:Introduction"::
+
+	B4P applies a flexible scheme to specify parameters to be passed into functions.
+
+	* Functions may accept a fixed or variable number of parameters.
+	* Variable number of parameters is typically specified with a minimum, maximum and incremental count, Example: min 3, max 9, and increments of 2, so even number parameters are rejected.
+	* If 0 parameters are allowed, then functions called as procedures can be specified without parentheses, e.g. <b>echo;</b>.
+	* Following __parameter directions__ are supported: input, output, input/output, and __variable references__
+	* Function parameters can be values, variables (including references to variables), expressions, table references and __code pieces__.
+
+	Details are ruled in the respective function definitions.
+
+	<br><br>
+
+	Type checking of function parameters takes place at run-time.  Depending on the parameter requested, a specific type (e.g. numeral), multiple different types,
+	or all types are accepted.  Various functions dealing with tables do also accept __table columns as function parameters__ which is a flexible parameter
+	type and accepts one of the following: individual header names, individual column numbers or several of them provided in a __parameter set__.
+
+	<br><br>
+
+	The ability to pass __code pieces__ as parameters into functions, which are then executed by the function once or repeatedly on when needed,
+	are unique to B4P and not common in other programming languges. This feature is actually used in __control flow functions__ (e.g. __if(__),
+	__while(__), etc.) which are, in other languages, defined as fixed keywords and are inherent parts of the programming language.  
+	In addition, this feature allows convenient operations through tables without specifying loops, e.g. with the __table process(__) function.
+
+	+++
+},
+
+
+
+"Function Parameter Directions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function parameter directions", "parameter directions", "input parameters", "output parameters", "I/O parameters" ],
+    "Description 01:Introduction"::
+
+	B4P distinguishes among following function parameter directions which are described next.
+
+	=== 200, 150, 150, 200, 200, bold_column_1
+	Direction			| Constants 	| Expressions 	| Variables			| Table references
+	Input parameters		| allowed	| allowed	| allowed (must be defined)	| allowed
+	Output parameters		| not allowed	| not allowed	| allowed (may be defined)	| allowed
+	Input / output parameters	| not allowed	| not allowed	| allowed (must be defined)	| allowed
+	References			| not allowed	| not allowed	| allowed (must be defined)	| not allowed
+	__Code pieces__			| 		| 		| See section on __code pieces__   | 
+	===
+
+	+++,
+    "Description 02:Input Parameters"::
+
+	For input parameters, __right-hand side expressions__ are expected, for exmpple __values__, __variables__, __table references__, __calculations__, etc.
+	All variables used in these input parameters must be existing, i.e. values assigned.
+
+	+++,
+    "Examples 02:"::
+	a[] = World;
+	echo( "Hello ", a[], ' ', abs(-1)+2+3 );
+	+++,
+
+    "Output 02:": "automatic",
+
+    "Description 03:Output Parameters"::
+
+	For output parameters, __left-hand side expressions__ are expected in order to specify a destination location in a table or variable.
+	Constants and calculated expressions are not allowed.  Before the function is called, variables which are not yet existing,
+	will be defined automatically. After the function call has been completed, the value will be written back to the variable or table location.
+
+	+++,
+    "Examples 03:"::
+	a[] = find( 'Say Hi!', { Ha, Hä, He, Hi, Ho }, 0, which[] );
+	echo( which[] ); // 3, because Hi is in position 3 in the parameter set
+	+++,
+
+    "Output 03:": "automatic",
+
+    "Description 04:Input / Output Parameters"::
+
+
+	For output parameters, __left-hand side expressions__ are expected in order to specify a destination location in a table or variable.
+	Constants and calculated expressions are not allowed.  Specified variables must be existing.  Before the function is called, the specified
+	parameter will be applied to retrieve the input value. After the call has been completed, the value will be written back to the variable or table location.
+
+
+    "Examples 04:"::
+	table initialize( t, {{ Hi, He }} );
+	a[] = Ho;
+	exchange( [t:0,0], a[] );
+	echo( [t:..,0], " and ", a[] );
+	+++,
+
+    "Output 04:": "automatic",
+
+    "Description 05:References"::
+
+	Some functions take over the reference to the variables provided in the function parameters.  References provide following benefits:
+	* Higher performance (no payload data, e.g. big parameter sets, are copied in before the call and copied back after the call)
+	* Direct access to the variable contents, especially applicable in __user-defined procedures__ and __user-defined functions__
+	* Access to member variables (__structure__ and __array__ members and their sub-members if available)
+	* Access to variable properties, e.g. __variable protection__ settings.
+
+	The following code example shows how the user-defined procedure <b>my funct</b> accesses a member variable and defines an additional
+	member variable.
+
+	+++,
+    "Examples 05:"::
+	define procedure( my func, { { a, all, reference } } )
+	{
+	    echo(a[one]);
+	    a[two] = TWO;
+	}
+	
+	b[one] = ONE;
+	my func( b[] );
+	echo(b[two]);
+	+++,
+
+    "Output 05:": "automatic",
+    "Description 06:Code Pieces"::
+
+	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a string.
+	When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
+	called multiple times, or in specific cases not at all.
+
+	<br><br>
+	See section on __code pieces__ for further details.
+	+++
+},
+
+
+
+
+
+"Function Parameter Types" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Function parameter types" ],
+    "Description 01:Introduction"::
+
+	B4P supports different parameter types (e.g. string, etc.) as well as more specialized parameter types.
+
+	=== 200, 800, bold_column_1
+	Parameter Types		| Description
+	All			| Accepts 
+	Numeral			| Accepts numerals and expressions returning numeral values
+	String			| Accepts strings and expressions returning lterals
+	Boolean			| Accepts <b>true</b>, <b>false</b> or expressions returning boolean values, e.g. comparisons
+	Date			| Accepts dates and/or time values or expressions returning date/time values.
+	Date or string		| In this case, strings will be converted to dates automatically, e.g. "29.Feb. 20" to 2020-02-29, or "today" to today's date
+	Parameter set		| Accepts parameter sets or expressiosn returning parameter sets
+	Combinations of above	| Various functions accept values of different types
+	Table columns		| Parameter to specify one or multiple table columns in a flexible way. See section on __table columns as function parameters__.
+	Parameter set or string | Various functions accept either parameter sets or strings.  See section on __parameter set or string__  for details
+	All types		| Accepts values of all types, including void
+	Valid types		| Accepts values of all types, except void
+	Variable		| __Code piece__, expecting a variable name
+	Comparison expression	| __Code piece__, expecting a comparison expression
+	Expression		| __Code piece__, expecting an expression
+	Statements		| __Code piece__, expecting a statement, multiple statements or a block of statements (inside braces)
+	===
+
+	Special parameter types and rulings are desrbied in the next section.
+
+	+++
+},
+
+
+"Parameter Set or String (Func. Param. Type)":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "parameter set or string" ],
+    "Keywords":			[ "parameter set or string" ],
+    "Description 01:Introduction"::
+
+	Various functions accept either parameter sets or strings when expecting one or multiple strings, for example file names
+	as supported by various file functions. The rules are described below
+
+	Whenever a function expects a __function parameter__ for table columns, the following types are supported and automatically
+	put into parameter sets.
+
+	=== 150, 500, 350, bold_column_1
+	Type			| Description												| Example
+	__Quoted strings__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
+				  Empty strings "" are treated as they are.			 					| "Last,First Name" is such an example
+	__Softquoted strings__	| The content of the entire string is interpreted as <b>one single string value</b> <br>\
+				  Empty strings '' are treated as they are.			 					| 'Last,First Name' is such an example
+	__Parameter set__	| Parameter sets can contain any number of values <br>\
+				  Empty sets {} provide zero values.									| { Last Name, First Name, "Value [EUR]", 123 }
+	===
+
+	<br><br>
+	The following code example demonstrates this parameter type ruling using a user-defined function.  The user-defined function gets all
+	values in form of parameter sets and prints the contents.
+
+	+++,
+
+    "Examples 01:"::
+	define procedure( demonstrate, { { parameter 1, to parameters } }, 1, unlimited )
+	{
+	    for (i[] = 1, i[] <= parameter count[], i[]++)
+	    {
+		var name[] = 'parameter ' + str(i[]);
+	    	print( var name[][], "  (", var name[][]{}," items) " );
+	    }
+	    echo;
+	}
+
+	demonstrate( A, B );
+	demonstrate( Hello World,  Hello   World  ); // Both are same
+	demonstrate( "A,B", " A, B " ); // Both are different
+	demonstrate( 'A,B', ' A , B '); // Both are same
+	demonstrate( "", '', '  ' ); // Blank, empty, empty
+	demonstrate( 'Hello World,  Hello   World  ,"   Hello   World   "');
+	demonstrate( { Hello   World, '  Hello   World  ',"   Hello   World   "}); // Note the differences
+
+	echo;
+
+	define additional procedure( demonstrate 2, demonstrate, 
+	    { { parameter 1, to parameters members to string } }, 1, unlimited );
+	
+	demonstrate   ( { 1, 2, '3' } );
+	demonstrate 2 ( { 1, 2, '3' } ); // Note: All numbers are converted to strings
+
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+"Table Columns (Func. Param. Type)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Table columns" ],
+    "Keywords":			[ "table columns as function parameters" ],
+    "Description 01:Introduction"::
+
+	Whenever a function expects a __function parameter__ for table columns, the following types are supported:
+
+	=== 200, 500, 300, bold_column_1
+	Type			| Description				| Example
+	Numeral			| Specifies a __table column number__, beginning with 0.  __Negative indexing__ is allowed, i.e. -1 is last column in the top row, counting leftward. | 0 (left most column)<br> -2 (2nd. last column)
+	Quoted string		| The content of the entire string is interpreted as one header name. <br>\
+				  Empty strings ("") refer to the first column with blank header name.		 | "Last,First Name" refers to one header name<br>"" is a blank header name
+	Softquoted string	| The content of the entire string is interpreted as one header name. <br>\
+				  Empty strings ('') refer to the first column with blank header name.<br>\
+				  __shifted table column specifications__ are allowed here to reference neighboring columns.<br>\
+				  Some function-specific exceptions may apply and are explicitly documented in the function library documentation. | 'Last,First Name' refers to one header name<br>'' is a blank header name
+	Parameter set		| Parameter sets contain a colection of header names and/or column numbers 	 | { 1, Last Name, first Name, "Value [EUR]" }
+	===
+
+
+	Addtional function-specific rules may apply.  Below are some examples:
+	* Header names must exist
+	* Header names may exist (missing ones may be created as additinal columns in the table)
+	* Header names must not exist (e.g. to check if specific header names are <i>not</i> used in a specific table
+	* Column numbers are allowed, or not allowed
+	* Column numbers may only refer to existing colums, or alternatively all columns even if not yet existing
+	* Header names or column numbers must be unique
+	* etc.
+
+	<br>
+	<u>Note</u>: If Table headers contain numbers, then you can find these headers by specifying the numbers as strings, e.g. <b>'10'</b>, or <b>{ ..., '10'. ...}</b>.
+
+	+++
+},
+
+
+
+"Code Pieces (Func. Param. Type)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Code piece" ],
+    "Keywords":			[ "Code pieces" ],
+    "Description 01:Introduction"::
+
+	Passing code pieces as function parameters is a unique feature in B4P.  Code pieces can either be provided directly or as a string.
+	When the function is called, the code piece is checked for correct syntax.  While the function is running, the code pieces provided may be
+	called multiple times, or in specific cases not at all.
+
+	<br><br>
+
+	Code pieces provided in strings must be referenced with a preceding colon (:) symbol in order to avoid interpreting the string
+	value or expression as actual code to execute.
+
+	Code pieces come in 4 different flavors:
+
+	=== 200, 600, 200, bold_column_1 bold_column_3
+	Code Piece Type			| Description																					| Syntax Examples
+	Comparison expression		| Expression to compare something without value on left hand side.<br>The parameter inside the __case(__) function is a comparison expression.					| &gt;30<br>3..4<br>A  (equals A)
+	Expression			| Any form of B4P expression as expected on right hand side of assignments<br>The parameter inside the __while(__) function is an expression which must return a boolean result.	| a[]+1<br>abs(-1)
+	Variables			| Expression on left hand side of assignments, which are destination variables, but not tables.<br>The __dim(__) function makes use of this. 	| a[]<br>[table:Name,1]
+	Statements			| 1 or more statements, separated with semicolons. Braces are allowed.<br>The __for(__) function expects two such statements.			| a[]=b[]+2;<br>{ echo(test); c[]=1 }
+	===
+
+	+++
+},
+
+"Comparison Expressions (func. params)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Comparison Expression [func. params]" ],
+    "Keywords":			[ "Comparison Expressions", "Comparison Expression" ],
+    "Description 01:Introduction"::
+
+	A comparison expression is part of an expression where one left-hand value is compared with one or more other right-hand values.  While the a regular
+	expression contains left-hand value, comparison operator and right values, the comparison expression leaves out the left-hand value out.
+	<br><br>
+
+	__case(__) and __compare select(__) are two common functions which utilize comparison expressions.
+
+	<br><br>
+	<u>Attention</u>: Extra arentheses are required when specifying individual values, multiple values spearated with commas, ranges, and when using following comparison operators in front: = and &lt;&gt;.  The reason is
+	that with out parentheses, the comparison tries to hijack all further parameters separated with commas as their own right-hand values to compare, too.<br>
+	No extra parentheses are required when the comparison expression is in the last function parameter or is the only one function parameter.<br>
+	No extraparentheses are required if the comparison expression begins with following operators: &lt;, &lt;=, &gt;, &lt;=, ==, and !=.<br>
+	No extra parentheses are required if the comparison expression is provided in a string value.
+
+	+++,
+    "Examples 01:"::
+	p[] = { 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello };
+
+	for all parameters( p[], var[] )
+	{	
+		result[] = compare select( var[], other, 
+				(11,37),      is 11 or 37, // Parentheses required if no operator put in front
+				==13, 	      thirteen, 	
+				(=+a),        1st letter in alphabet, // Parentheses required with = and <>
+				('H*'),	      Begins with H,
+				>15,          greater than 15,
+				(3..5,10),    "is one of 3..5, 10" );
+		print(var[],": ", result[],"  / ");
+
+		// Demonstrate the same with comparison expressions in strings.  Note the colons used in front.
+
+		c[] = '(3..5,10)';
+		result[] = compare select( var[], other, 
+				:str(11)+",37", is 11 or 37,    // Expression returning a string
+				:'==13',      thirteen,     // Softquoted string: No difference to quoted string
+				:'=+a',       1st letter in alphabet, 
+				:"'H*'",      Begins with H, // See note below !
+				:">15",       greater than 15,
+				:c[],         "is one of 3..5, 10" ); // Referring to a variable
+		echo(result[]);
+	}
+
+	// Note :"'H*'" with nested quotation marks:  Expression inside requires a single quotation mark to
+	// let the comparison expression support wildcard symbols.
+
+
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Expressions (func. params)" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions [func params]" ],
+    "Description 01:Introduction"::
+
+	A expression is a a value, a fuction call or a calculation which returns a value.
+	The individual functions may impose additional requirements, for exmplae that the expression must return boolean
+	values <b>true</b> or <b>false</b>.
+
+	<br><br>
+
+	The __while(__) loop function is a good example where the expression inside is calculated several times while the
+	function is executed.  In addition, various functions containing <b>... selected rows ...</b> in their names make
+	use expressions as code pieces.
+
+	<br><br>
+
+	<u>Attention</u>: Parentheses are required when the expression coontains a comparison operator using = or &lt;&gt.  The reason is that
+	these two comparison operators may expect more than one value separated with commas and they would, if parenthese are not used,
+	hijack the remaining function parameters as additional values to compare.
+	No extra parentheses are required when the expression is in the last function parameter or is the only one function parameter.<br>
+	No extra parentheses are required if the expression begins with following operators: &lt;, &lt;=, &gt;, &lt;=, ==, and !=.<br>
+	No extra parentheses are required if the expression is provided in a string value.
+
+	+++,
+    "Examples 01:"::
+	table initialize( primes, 
+	  { Number, 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello } );
+
+	table process selected rows( primes, ([Number]=11,37),   echo( [Number],": ", "is 11 or 37" ) );
+	table process selected rows( primes,  [Number]==13,      echo( [Number],": ", "thirteen" ) );
+	table process selected rows( primes, ([Number]='H*'),    echo( [Number],": ", "Begins with H" ) );
+	table process selected rows( primes, ([Number]=3..5,10), echo( [Number],": ", "is one of 3..5,10" ) );
+
+	echo; // Do the same with expression in strings.  No parentheses needed-
+
+	c[] = '[Number] = 3..5,10'; //
+	table process selected rows( primes, :c[], echo( [Number],": ", "is one of 3..5,10" ) );
+
+	c[] = "[Number] = 'H*'";
+	table process selected rows( primes, :c[], echo( [Number],": ", "Begins with H" ) );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+"Variables (func. params)":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variables [func params]" ],
+    "Description 01:Introduction"::
+
+	Variable are expressions which must refer directly to a variable.  Any other forms of expressions such as constants, calculations,
+	function calls, table references, etc, are forbidden and assert exceptions.  However, variable members (in __structures__ and __arrays_
+	are allowed).
+
+	__dim(__), __structure(__), __array(__) and __protect(__) are common functions which utilize this variant of code pieces.
+
+	+++,
+    "Examples 01:"::
+	var 1[] = my array;
+	var 2[] = 'my array[]';
+
+	   array(  var 0[],   {hog, bat, pig} );
+	// array(  var 1[][], {dog, cat, rat} );   // This one is wrong
+	   array( :var 2[],   {dog, cat, rat} );   // This one is OK
+	
+	echo( var 0[1] ); // bat
+	echo( my array[1] ); // cat
+	+++,
+    "Output 01:": "automatic"
+  },
+
+  "Statements (func. params)":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Statements [func params]" ],
+    "Description 01:Introduction"::
+
+	Statements may consist of one single statement, multiple statements separated with semicolons, and blocks.  Blocks are one or more
+	statements encapsulated with { ... } braces.
+
+	<br><br>
+
+	The __for(__) and __table process(__) are common functions making use of statements.<br>
+
+	<u>Attention: </u>Don't confuse with C/C++: The three parameters inside the for-function must be separated with commas, not semicolons.  And use semicolons instead of commas to separate statements.<br>
+	+++,	
+    "Examples 01:"::
+	// Demonstrates direct use of code and code in string using colon
+
+	next[] = "a[]++; print( Next )";
+	for ( a[] = 1; print( Start ), a[] < 5, :next[] )
+	{
+	    echo( " ", a[] );
+	}
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"Expressions to Select Rows" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expression to select rows", "Expressions to select rows" ],
+    "Description 01:Introduction"::
+
+	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions
+	are typically used in functions with names containing <b>... selected rows ... </b> where expressions are applied to chosses specifc rows to
+	include in the data processing.
+
+	<br><br>
+	Like expressions specified as code pieces, these expressions can be coded directly or provided as strings with preceding colon (:) symbols.
+
+	<br><br>
+	The expressions may return values of following types:
+	=== 200, 800, noheader, noframe bold_column_1
+	boolean		| If it is an expression returning boolean values, then this expression will be calculated for every row, starting with row 1 (excluding the header row).  \
+			  Typically, processing will be done on the corresponding rows if the outcome is <b>true</b>.
+	numeral		| If the expression returns a numeral, then one single row number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last row.
+	parameter set	| If the expression returns a parameter set, the the row numbers inside the parameter sets will be used.  Negative indexing is allowed. \
+			  The parameter set must contain numerals (row numbers) or may be an empty set if no rows shall be selected.  __Negative indexing__ is allowed, i.e. -1 refers to the last row. <br>\
+			  <u>Note</u>: Even if row numbers are specified in different orders or multiple times, the table will be processed from top to bottom, and every matching row will processed only once.
+	===
+
+	+++,
+    "Examples 01:"::
+	table initialize ( table,
+	{ { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+
+	table process selected rows( 
+		table, ([Animal]=Tick,Bird), 
+		echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
+
+	echo;
+	table process selected rows( 
+		table, -1, // -1 -> Row 5 (Negative indexing)
+		echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
+
+	echo;
+	table process selected rows( 
+		table, {1,3,-2},  // -2 -> Row 4 (Negative indexing)
+		echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+"Expressions to Select Columns" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Expressions to select columns" ],
+    "Description 01:Introduction"::
+
+	<i>Expressions to select rows</i> are a variant of code pieces containing expressions, but provide additional flexibility.  These expressions
+	are typically used in functions with names containing <b>... selected columns ... </b> where expressions are applied to chosses specifc columns to
+	include in the data processing.
+
+
+	<br><br>
+	Like expressions specified as code pieces, these expressions can be coded directly or provided as strings with preceding colon (:) symbols.
+
+	<br><br>
+	The expressions may return values of following types:
+	=== 200, 800, noheader, noframe bold_column_1
+	boolean		| If it is an expression returning boolean values, then this expression will be calculated for every column, starting from the left with column 0.  \
+			  Typically, processing will be done on the corresponding columns if the outcome is <b>true</b>.
+	string		| if the expression returns a string, then a header name is assumed.  Only existing header names will be accepted.
+	numeral		| If the expression returns a numeral, then one single column number is meant.  __Negative indexing__ is allowed, e.g. -1 refers to the last column with respect to the header row.
+	parameter set	| If the expression returns a parameter set, the the column  numbers inside the parameter sets will be used.  Negative indexing is allowed as described above. \
+			  The parameter set may also contain existing header names.  No columns will be processed if an empty set is provided.
+	===
+
+	<br>
+	<u>Note</u>: Execution of selected columns will always be from left to right.  Every column will be executed at most once, even if specified multiple times.
+	Example: <b>{5,2,1,2,4}</b> will execute columns 1, 2, 4 and finally 5 in this order only once.
+
+	+++,
+    "Examples 01:"::
+	include ( Support Library );
+	table initialize ( animals,
+	{ { Animal,    Snake, Bird, Dog, Fly, Lobster, Decapod, Woodlice, Centipede },
+	  { Leg count, 0,     2,    4,   6,   8,       10,      14,       100       },
+	    Result 1,
+	    Result 2,
+	    Result 3 } );
+
+	counter[] = 0; // Process columns in specified order. (9..8..5 is from right to left)
+	table process selected columns  ( animals, 2, {1..3, 10, 5..7}, [.] = ++counter[], [.] = '-' );
+
+	counter[] = 0; // Process columns in specified order
+	table process selected columns  ( animals, 3, {Decapod, Bird, Fly, Dog, Dog, Dog}, [.] = ++counter[], [.] = '-' );
+
+	counter[] = 0; // From left to right: All animals beginning with A..D, excl. 1st column
+	table process selected columns  ( animals, 4, col()>0 & [.,0] < 'E', [.] = ++counter[], [.] = '-' ); 
+
+	table list( animals );
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+"Indirect Parameter Passing" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Indirect parameter passing" ],
+    "Description 01:Introduction"::
+
+	Some functions which only use input parameters support <i>indirect parameter passing</i> where instead of providing
+	the function parameters directly, the function parameters are put into a __parameter set__ and then pass as one
+	single function parameter instead.
+
+	<br><br>
+	In the function descriptions, the support for indirect parameter passing is described under the item <i>Restrictions</i>
+	where you find a statement where indirect parameter passing is either enabled or disabled. 
+
+	<br><br>
+	In general indirect parameter passing is not enabled whenever the functions include output parameters, 
+	input/output parameters, references and/or code pieces.  Indirect parameter passing is also not allowed for
+	__control flow functions__ and __user-defined functions__.
+
+	+++,
+    "Examples 01:"::
+	table create( table1, table 2 ); // The direct way
+
+	indirect[]= { table 1, table 2 }; // The indirect way
+	table create( indirect[] );
+	echo("Created two tables in both cases" );
+
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+
+"Introduction to User-Defined Functions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Introduction to User-Defined Functions" ],
+    "Description 01:Introduction"::
+
+	B4P provides means to define your own procedures and functions, assign plausible names for them and call them up like
+	standard B4P functions.  Following __control flow functions__ are available to define your own functions:
+
+	* __define procedure(__): The user-defined function can only be called as a procedure in statements.  Even if provided, return values are discarded.
+	* __define function(__): The user-defined function can only be called inside expressions where the returned value is used.
+	* __define procedure and function(__): The user-defined function can be called as both procedure in statements and functions inside expressions.
+
+	All three functions expect a block (inside braces) containing the code.  Variables created inside are local variables.  Parameters are available
+	as pure input parameters, output parameters, bi-directional I/O parameters, and references to variables so the whole sub-structure containing thee
+	the members can be accessed.  Return values can be provided with the __return(__) function call.
+
+	<br><br>
+	Additional procedure and function names can be defined on the same implementation.  The local variable <b>function name[]</b> is visible inside the code block and
+	can be used to provide distinguished functionality for every additional procedure and function name.  For more info, see
+
+	* __define additional procedure(__): Assign an additional procedure name to an existing user-specific procedure or function.
+	* __define additional function(__): Assign an additional function name to an existing user-specific procedure or function.
+	* __define additional procedure and function(__): Assign an additional name, which can be used as as procedure and function calls, to an existing user-specific procedure or function.
+
+	Fore more details, see the section on __user-defined functions__.
+    "Examples 01:"::
+	define function( hypotenuse, { { x, numeral }, { y, numeral } } )
+	{
+	    return( sqrt( x[]*x[] + y[]*y[] ) );
+	}
+
+	define procedure( say hello ) { echo("Hello !"); }
+
+	say hello;
+	echo( hypotenuse(3,4) );  //  5
+	echo( hypotenuse(5,12) ); // 13
+	echo( hypotenuse(8,15) ); // 17
+	echo( hypotenuse(1,1) );  //  1.41...	
+	+++,
+    "Output 01:": "automatic"
+
+}
+
+B4PDOCU.STOP

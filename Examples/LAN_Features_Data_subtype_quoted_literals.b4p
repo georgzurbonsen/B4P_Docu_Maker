@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+  a[] = "Hello World";
+  b[] = "Hello   World";
+  c[] = "  Hello World  ";
+
+  echo( 'a[] = "', a[], '"');
+  echo( 'b[] = "', b[], '"');
+  echo( 'c[] = "', c[], '"');
+  echo( 'Subtype of a[] is ', subtype( a[] ) );
+  echo( "Simple comparison returning 'false': ", Hello = "*llo" ); // Quoted literals support no wildcards

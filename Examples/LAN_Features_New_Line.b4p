@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+  echo( Hello, new line, World, new line );   // Hello World on 2 rows, plus additional new line
+  echo( Hello, chr(10), World, chr(10) );     // New line represented as a character codes
+  echo( 'Hello&#10;World&#nl;' );         // New line represented as a character entities
+  echo( 'new line' );             // This is just text and not a new line symbol
+  echo( code( new line ) );           // Code 10, line feed
+  echo( 'Character count: ', new line{} );    // new line contains one character

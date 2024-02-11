@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+code example[] = """
+    /* Comments are part of the multi-line string */
+
+    a[] = 4;
+    b[] = sqrt(a[]) + 1; // Square root calculation
+    echo( "    sqrt(4)+1 equals ", b[] );
+""";
+
+echo(  code example[] );
+echo( new line, "Code output:" );
+exec( :code example[] );

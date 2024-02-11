@@ -1,0 +1,1074 @@
+//
+B4PDOCU.START
+
+
+
+"Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable", "Variables"  ],
+    "Description 01:Introduction to Variables"::
+
+	B4P provides a unique storage model for variables.  You can create simple variables like in any programming language, but also
+	define structures with named variable members and values as well as arrays. You can build up large and sophisticated variable trees containing
+	a free combination of different array and structures and work with them, without elaborate declarations needed.
+
+	<br/><br/><img src="Images/LAN_Variables.png" alt="Variables"><br/>
+
+	+++
+},
+
+
+
+
+"Variables - Naming Rules" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable names" ],
+    "Description 01:Overview"::
+	Different than in common programming languages, variables in B4P may appear outlandish, but there is a reason for this:
+
+	=== 230, 10, 10, noframe table_syntax
+	Base Variable Name		| [ 	| ]
+	- String value or expression	|	|
+	  as variable name		|	|
+	===
+
+	All variable names must follow with 2 bracket symbols <b>[ ]</b>.  For __simple variables__, no additional info needs to be spefified inside the
+	brackets.  For for structures and arrays, member names or array index numbers need to be specified inside them.  This format provides the freedom
+	to use any variable name, even with special symbols, and you can reference variables indirectly by picking up variable names from other variables
+	or expressions.  And the contents inside the bracket allows for additional freedoms other programming languages do not provide.
+
+	<br><br>
+
+	Naming variables:
+	* The naming rule applies to __base variables__ as well as __member variables__ in __structures__.
+	* Table names must be of type __string__ and may take practially any contents, even spaces, special symbols and foreign and non-ANSI characters
+	* Table names may be referenced as string constants (with or without single or double quotation marks) or as expressions returing strings (e.g. variables, string calculations, etc.)
+	* Multiple consecutive spaces (and tabs) in names not put into quotation marks will collapse to 1 space.  Example: <b>Last&nbsp;&nbsp;&nbsp;Name</b> collapses to <b>Last Name</b>.
+	* Quotation marks must be used for table name if they contain special symbols which confuse with B4P code syntax, e.g. hyphens misinterpreted as minus signs.
+	* Names may or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
+	* Blank variable names are also allowed, e.g. <b>''[]</b>.
+	** <u>Attention:</u> Inside __structures__, blank member names will be referred as default __member variables__, e.g. <b>names[''] = All others;</b>.
+	* Any __expression__ returning a string is allowed, e.g. <b>("Hel" + "lo")[]</b> are allowed.
+	* Indirect variable referencingis are upported,
+	** In __LHS expressions__ where parentheses are mandatory.  Example:  <b>(a[])[] = 1;</b> where 1 is written to the variable name as stored in variable a[]. 
+	** in __RHS expressions__ where parentheses are optional.  Example: <b> echo( a[][] );</b> meaning writing 1 to variable with name retrieved from variable a.
+
+	<br><br>
+	Declaring variables:
+	* No explicit variable declarations are required, unless you want to fully initialize arrays or structures using __dim(__), __array(__), __structure(__) or similar functions.
+	* Variables are declared with their first assignment
+	* If no __variable protections__ apply, the values of different (i.e. changing) __basic data types__ can be written.
+
+	See also next section on __variable scopes__ (global, regional, local and sysstem variables).
+
+    +++
+},
+
+
+
+
+"Creating Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Creating Variables" ],
+    "Description 01:Overview"::
+	B4P requires no variable declarations.  Variables are created at their first __assignments__.  The __type__ may change dynamically.  It is allowed
+	to assign a number, and later on a value of a different type.  This may however be restricted if __protection settings__ are applied.
+
+	+++,
+    "Examples 01:"::
+	a[] = 123;
+	a variable[] = 456;
+	a   variable[] = 789; 	// redundant spaces collapse to 1 space if not put in quotation marks
+	"Total Value [€]"[] = 98.95;
+
+	b[] = City;
+	(b[])[] = Milano; // Write access: Don't forget the parentheses in LHS expressions
+	
+	echo( a[] );
+	echo( a  variable[] );
+	echo( "Total Value [€]"[] );
+	echo( b[] ); // City
+	echo( City[], ' and ', b[][] ); // 2 x Milano
+
+	b[] = 555.55; // Contained 'City' before.  Assign a number.
+	echo( b[] ); // 555.55
+	+++,
+    "Output 01:": "automatic"
+
+},
+
+
+
+
+
+
+
+"Variable Scopes" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable scopes" ],
+    "Description 01:Introduction"::
+
+	B4P variables are created (also known as <i>declared</i>) at their first assignments.  For example, <b>a[] = 1;</b> creates the variable
+	<b>a</b> and assigns the numeric value 1 to it.  3 different variable scopes exist:
+
+	* __Global variables__: Visible througout entire program execution
+	* __Local variables__: Visible within a local context such as code inside a user-defined procedure or function
+	* __Regional variables__: Local variables made visible in the code of user-defined functions being called
+	* __System variables__: Set of variables with system-related information and configuration settings you can change
+	+++
+},
+
+"Global Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Global variables" ],
+    "Description 01:Introduction"::
+
+	If the variable is created in the B4P program file started first, and this happens outside user-defined procedures and functions, then it will be
+	a global variable.  Global variables are visible during the entire program execution, even while running user-defined functions or other B4P programs
+	using the __start(__) or __include(__) function.
+
+	<br><br>
+	Global variables can also be created inside __user-defined procedures__ and __user-defined functions__, as well as in B4P programs which have been started from other
+	B4P programs using __start(__) or __include(__) functions if they are put into a code block following the __global(__) function.
+
+	<br><br>
+	Global varibles will exist until the B4P program has ended or the variable has been been deleted explicityl with the function __delete(__).
+
+	+++,
+    "Examples 01:Defining global variables inside user functions:"::
+	g[] = 4;
+	define procedure( foo )
+	{
+	    global
+	    {
+	        a[] = 5;
+	    }
+	    global() b[] = 6; // Alternative formulation for 1 statement
+	    echo( g[] ); // Global variables are always visible.
+	}
+
+	foo;
+	echo( a[] );
+	echo( b[] );
+	+++,
+    "Output 01:": "automatic",
+    "See also": "global"
+},
+
+
+
+"Local Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Local variables" ],
+    "Description 01:Introduction"::
+	Variables created inside __user-defined procedures__ and __user-defined functions__, as well as in B4P programs which have been started from other
+	B4P programs using __start(__) or __include(__) functions, will be local variables.  Local variables are only visible locally, i.e.
+	* Inside the presently running user-defined procedure or function
+	* Inside a B4P program started with __start(__) or __include(__) from a different B4P program (or the same one because recursive calls are allowed).
+	The local variables are not visible if a further procedure, function or B4P program is called.
+
+	<br><br>
+	Variables may be deleted using the __delete(__) function.  Local variables will be deleted automatically when leaving (returning from) user-defined
+	procedures and functions or called programs.
+
+	+++,
+    "Examples 01:Demonstrating global and local variables"::
+	define procedure( foo, { { a, numeral } } )
+	{
+	    if (a[] < 4) // If a[] exists a local variable, then the local variable will be used preferentially.
+	    {
+	        foo( 4 ); // Recursive call
+	        a[] = 5;
+	        echo( a[] ); // Called 3rd: 5
+	    }
+
+	    echo( a[] ); // Called 1st and 4th: 4
+	    a[] = 3;
+	    echo( a[] ); // Called 2nd and 5th: 3
+	}
+
+	a[] = 1;
+	foo( 2 );
+	echo(a[] ); // Called 6th: 1 (Global variable)
+	+++,
+    "Output 01:": "automatic",
+    "See also": "local"
+},
+
+
+
+"Regional Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Regional variables" ],
+    "Description 01:Introduction"::
+	Local variables created inside __user-defined procedures__ and __user-defined functions__, as well as in B4P programs can be made visible as regional
+	variable in the code of user-defined functions called from here.  This approach is useful if you want to provide numerous variables to the function, 
+	but don't want to create processing overhead for passing them as function parameters, nor using global variables as other side effects cannot be
+	avoided.
+
+	+++,
+    "Examples 01:Demonstrating regional variables"::
+	define procedure( zoo )
+	{
+	    echo('Zoo in ', city[], ' ', country[]);
+	    city[] = Cambridge;                  // city and country are regional variables
+	    country[] = United Kingdom;
+	    echo( "   Scope of country[] in 'zoo': ", scope(country[]), " and city[]: ", scope( city[]) );
+	}
+
+	define procedure( bar )
+	{
+	    country[] = USA;                     // country is a local variable, but city is not
+	    echo('Bar in ', city[], ' ', country[]);
+
+	    regional  // Alternative formulation
+	    {
+	        zoo;
+	    }
+	    echo('Bar in ', city[], ' ', country[]); // Cambridge, UK
+	    echo( "   Scope of country[] in 'bar': ", scope(country[]), " and city[]: ", scope( city[]) );
+
+	}
+
+	define procedure( foo )
+	{
+	    city[] = Boston;
+	    regional() bar;
+	    echo('Foo(d) in ', city[]); // Cambridge
+	}
+
+	// Main program
+	foo;
+	+++,
+    "Output 01:": "automatic",
+    "See also": "regional"
+},
+
+
+
+
+"System Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "system variables" ],
+    "Keywords":			[ "system variable" ],
+    "Description 01:Introduction"::
+	System variables are predefined variables which contain system-related information (e.g. <b>system info[user name]</b>) or configuration settings. e.g.
+	<b>runtime settings[verbose]</b>.  For most system variables, __variable protections__ apply which may permit read-accesses, or impose restrictions
+	on write accesses, e.g. limiting values to write to a selection of permitted values.  See the __list of system variables__ for existing system variables.
+	+++,
+    "Examples 01:Demonstrating system and local variables"::
+	define procedure( foo, { { system info, numeral } } )
+	{
+		// Local variable system info[] is not accessible here because system
+		// variables are treated preferentially over local and global variables.
+		echo( "This is a ", scope( system info[]), " variable." );
+		echo( system info[operating system] );
+	}
+
+	foo( 123 );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"List of System Variables":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "list of system variables" ],
+    "Description 01:"::
+
+	=== 300, 100, 100, 500, bold_column_1
+	Variable Name				| Variable Type	| Protection Settings	| Description
+	command line arguments[]		| numeral	| read only		| Number of command line arguments, at least 1
+	&nbsp;&nbsp;...[0]			| string	| full access		| 1st command line argument (typically the name of the B4P program file)
+	&nbsp;&nbsp;...[1, 2, ...]		| string	| full access		| Additional command line arguments if available
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
+	local settings[]			| void		| locked		| <b>Following variables refer to local settings</b>
+	&nbsp;&nbsp;...[locale]			| string	| read only		| Configured locale as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[country name]		| string	| read only		| Configured country as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[language]		| string	| read only 		| Configured language as part of locale settings.  Use __set locale(__) to change.
+	&nbsp;&nbsp;...[currency symbol]	| string	| limited access	| Currency symbol as configured in locale settings
+	&nbsp;&nbsp;...[decimal separator]	| string	| limited access	| Typically 1 chracter, e.g. '.', ','
+	&nbsp;&nbsp;...[thousand separator]	| string	| limited access	| Typically 1 chracter, e.g. ',', '.', ' ', "'"
+	&nbsp;&nbsp;...[date format]		| string	| limited access	| E.g. "DD.MM.YYYY", "MM/DD/YY", etc.  See __date to string formatting parameters__.
+	&nbsp;&nbsp;...[date format short]	| string	| limited access	| E.g. "DMY" or "MDY", used for resolving ambiguities in extracting dates from strings
+	&nbsp;&nbsp;...[date separator]		| string	| limited access	| Typically 1 chracter, e.g. '.', '/', '-'
+	&nbsp;&nbsp;...[time format]		| string	| limited access	| E.g. "HH:II:SS" Note the "I" for minute digits. See __date to string formatting parameters__.
+	&nbsp;&nbsp;...[time separator]		| string	| limited access	| Typically 1 chracter, e.g. ':'
+	&nbsp;&nbsp;...[list separator]		| string	| limited access	| Typically 1 chracter, e.g. ',', ';'. Used for CSV file format.  Excel uses different symbols around the world.
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
+	libraries[]				| boolean	| prevent deleting	| This system variable is reserved for libraries to add structured info such as version and other important info.  It helps to unclutter the global variable space.
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
+	runtime settings[]			| void		| locked		| <b>Following variables refer to run-time settings</b>
+	&nbsp;&nbsp;...[crlf]			| boolean	| limited access	| If true, then new-lines in files saved will be CR+LF, otherwise just line feed (LF).  For Linux and MACOS \
+											  releases, this variable is true, for Windows it is false.
+	&nbsp;&nbsp;...[epsilon]		| numeral	| limited access	| __Epsilon__ as numeric tolerance value used for comparisons.  E.g. values below epsilon may be interpreted as zero.  Inital value is 1E-09.
+	&nbsp;&nbsp;...[exit directly]		| boolean	| limited access	| Normally false, i.e. user must press [Enter] to finally leave the program and the console window may close.  If set to true, then B4P programs exist directly.
+	&nbsp;&nbsp;...[search files ignore case]| boolean	| limited access	| Normally true under Windows and false under Linux/MACOS.  In Windows systems, finding files is not case sensitive.
+	&nbsp;&nbsp;...[input file character set]| string	| limited access	| Default character set assumed if text file are loaded, are not of UTF-16 type and have no byte order marks, \
+											  and too few special symbols were inside to recognize the files properly.  Presently, its <b>win-1252</b> for Windows and <b>utf-8</b> for Linux/MACOS systems.<br>\
+											  Following character sets are supported: <b>ansi, iso8859-1, win1252, utf-8, utf-16, utr-16 big endian</b>.
+	&nbsp;&nbsp;...[output file character set]| string	| limited access	| Default character set assumed for saving files if no other format specified.  Presently it's <b>utf-8</b>.
+	&nbsp;&nbsp;...[memorize table columns]	| boolean	| limited access	| See __memory effect__ regarding table header names begin memorized. Set to false to deactivate memorizing.
+	&nbsp;&nbsp;...[prompt]			| string	| limited access	| Current prompt as used in the __interactive mode__.  Change it using the __prompt(__) function.
+	&nbsp;&nbsp;...[registry my space]	| string	| limited access	| Obsolete.
+	&nbsp;&nbsp;...[verbose]		| string	| limited access	| Verbose levels.  See __verbose__ for more details.
+	&nbsp;&nbsp;...[found main]		| boolean	| read only		| true if B4P was started without a specified B4P program file, but has found 'main.b4p' in the current or starting directory.
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
+	system info[]				| void		| locked		| <b>Following variables refer to operating-system specific characeristics</b>
+	&nbsp;&nbsp;...[app data directory]	| string	| read only		| Local machine application data directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
+	&nbsp;&nbsp;...[app data directory b4p]	| string	| read only		| Local machine application data directory with B4P subdirectory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[user app data directory]     | string	| read only		| User application data directory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local"<br>Linux/MACOS: "/home/<i>user name</i>/.config"
+	&nbsp;&nbsp;...[user app data directory b4p] | string	| read only		| User application data directory with B4P subdirectory<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[bin directory]		| string	| read only		| Location of binary executable file<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/home/<i>user name</i>/.config/b4p"
+	&nbsp;&nbsp;...[program directory]	| string	| read only		| Program directory<br>Windows: "C:\ProgramData\b4p"<br>Linux/MACOS: "/usr/local/etc"
+	&nbsp;&nbsp;...[program directory b4p]	| string	| read only		| Program directory with B4P subdirectory<br>Windows: "C:\Program Files\b4p"<br>Linux/MACOS: "/usr/local/etc/b4p"
+	&nbsp;&nbsp;...[temp directory]		| string	| read only		| Directory for temporary data storage:<br>Windows: "C:\Users\<i>user name</i>\AppData\Local\TEMP"<br>Linux/MACOS: "/tmp"
+	&nbsp;&nbsp;...[user directory]		| string	| read only		| User directory after login:<br>Windows: "C:\Users\<i>user name</i>\"<br>Linux/MACOS: "/home/<i>user name</i>"
+	&nbsp;&nbsp;...[directory separator]	| string	| read only		| Windows: '\' and Linux/MACOS: '/'
+	&nbsp;&nbsp;...[operating system]	| string	| read only		| e.g. "Windows", "Linux", "MACOS"
+	&nbsp;&nbsp;...[operating system product] | string	| read only		| e.g. specific Windows OS product like "Windows 10 Pro" or Linux distribution name like "Ubuntu"
+	&nbsp;&nbsp;...[user name] 		| string	| read only		| Your login user name
+	&nbsp;&nbsp;...[user domain] 		| string	| read only		| Your user domain
+	&nbsp;&nbsp;...[host name]		| string	| read only		| Name of your system
+	&nbsp;&nbsp;...[privileges]		| string	| read only		| Your privilege level for the operating system: <br>\
+											  <b>standard</b>: Standard user privileges <br>\
+											  <b>elevated</b>: Enhanced privileges, entitled to install software <br>\
+											  <b>administrator</b>: Administrator privileges.  Applicable if program is started with administration rights (e.g. 'sudo' added in front in Linux/MACOS systems)
+	&nbsp;&nbsp;...[operating system version] | string	| read only		| Version number of installed operating system
+	===
+	<br>
+	=== 300, 100, 100, 500, bold_column_1, noheader
+	time stamp[]				| void		| read only		| Provides date and time at start-up. Example under Windows: "Sat Oct 10 10:17:34 2020"
+	version info[]				| void		| read only		| Provides B4P version and release info
+	===
+
+	+++
+},
+
+
+
+
+"Variable Attributes" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable attributes" ],
+    "Description 01:Introduction"::
+	In B4P, every variable stored contains following information which help to describe the data stored and the variable form:
+
+	=== 200, 800, noframe_1stcolbold
+	Attribute       | Description 
+	Variable Name   | A string of choice.  Exception: Array members have no names as they are just numbered
+	Value		| Stored value (Base Variable)
+	Data Type       | Variables can assume any __Basic Data Types__ and __subtypes__ such as __string__, __numeral__, etc.
+	Variable Form   | Distinguishes whether the variable is a __simple variable__, an __array__ or a __structure__, or a simple variable containing __zero members__
+	Members		| Contains all member variables (in __arrays__ and __structures__).  Every member is treated like an individual variable, too.
+	Member count	| Number of existing members (0 for simple variables)
+	Protection Setting | Applies rules on accessing and/or modifying these variables, e.g. read-only, prevent deleting, etc.  See function __protect(__)
+	Locked          | Variables may be temporarily locked during the time while an assignment on that variable is executed or a __reference__ is pointing on this variable.  Locked variables cannot be deleted.
+	===
+	+++
+},
+
+
+
+"Variable Forms and Trees":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Variable forms", "base variable", "base variables", "member variable", "member variables" ],
+    "Description 01:Introduction"::
+
+	B4P lets you create variable trees which consist of __structures__, __arrays__ or free combinations of both and with quasi unlimited
+	number of hierarchical levels.  Availabe memory space is the only limitation.  The illustartion below shows the impressive structures
+	you can build up rapidly with a few write accesses:
+
+	<br/><img src="Images/Description_Variable_Forms_and_Trees.jpg" alt="Illustration of a variable tree"><br/>
+	+++,
+
+    "Description 02:Building Variable Trees with Member Variables using Arrays and Structures"::
+
+	With Beyond4P, you can create simple variables as well as arrays (containing numbered member variables) and structures (containing named member
+	variables).  Full nesting flexibility is supported: Arrays and structures may contain further structures and/or arrays as you wish.
+	In short, the variable storage model is a tree structure which can hold data in the root node (base variable), intermediate nodes (e.g. member
+	variable also containing sub-members) and leaf nodes (final member variables without further members defined).
+
+	=== 200, 600, 200, noframe_1stcolbold
+	Variable Form | Description | Example
+	__Simple Variables__ | Simple variables hold one base variable value of any data type (numeral, string, date, boolean, void and paramter set) and contain no members. | last name[]
+        __Arrays__           | In addition to the base variable, arrays a defined number of numerically indexed members | member [1], member[3]
+	__Structures__       | In addition to the base variable, structures contain one or more named member variables | animal[dog], animal[cat]
+	__Zero Members__     | Very similar to simple variables.  Contains base variable and zero members, but has previously had array or structure members which have been deleted meanwhiel.  The variable form changes to __structure__ if a structure element is added, or to __array__ if an array member is added.
+	===
+	+++
+  },
+
+  "Simple Variables" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple variables" ],
+    "Keywords":			[ "simple variables", "simple variable" ],
+    "Description 01:Simple Variables"::
+
+	Simple variables contain only one value and posesses no further member variables in form of structures or arrays.  Syntax:
+
+
+	=== 230, 10, 10, noframe table_syntax
+	Base Variable Name		| [ 	| ]
+	- String value or expression	|	|
+	  as variable name		|	|
+	===
+
+	+++,
+
+    "Examples 01:"::
+	a[] = Hello;
+	(a[])[] = Hi; // Parentheses required on left hand side, 
+	              // otherwise seen as "right hand" expression and not "left hand" expression
+	(a[] + ' World')[] = Ahoi;
+	echo("a[]     = ", a[] );
+	echo("a[][]   = ", a[][] ); // Here it's OK
+	echo("Hello[] = ", Hello[] );
+	echo("Hello World[] = ", Hello World[], new line );
+
+	'1'[] = One; // Even these variable names are valid !
+	' '[] = Space;
+	''[] = Blank;
+	'a[]'[] = aaaah;
+	echo('1'[], " ", ' '[], " ", ''[], " ", 'a[]'[], new line );
+
+	me too[] = Hmm;
+	me  too[] = Me;   // Plain text ignores redundant spaces, same as 'me too'
+	'me  too'[] = Mee too;
+	echo( me too[], ", ", me  too[], ", ", 'me  too'[] );
+	+++,
+    "Output 01:":		"automatic"
+
+
+  },
+
+  "Arrays" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "arrays" ],
+    "Keywords":			[ "array", "arrays", "array member", "array members", "spontaneous array creation" ],
+    "Description 01:Arrays"::
+
+	Arrays are variables with members which are only referenced numerically using an index value.  Arrays support negative indexing, meaning that -1, -2, etc. references
+	the last, 2nd last and further array elements.  A variable cannot be an array and a structure at the same time, i.e referencing an array with a member name
+	causes an error.
+
+
+	=== 230, 10, 230, 10, noframe table_syntax
+	Base Variable Name		| [ 	| Index			 		| ]
+	- String value or expression	|	| - Numeral or numeric expression	|
+	  as variable name		|	|   as index number			|
+	===
+
+
+
+	<br/><br/>
+	Syntax for referencing arrays:  <b>Variable Name [ index ]  </b>
+	<br/><br/>
+
+	Following rules apply to the index:
+	* The index must always be a numeric value.
+	* Indexing begins with 0 (zero).
+	* The value will be rounded in case it does not contain an integer value.  Example: <b>a[4.99]</b> accesses the same member as <b>a[5]</b>.
+	* Negative index values are supported. -1 refers to the last element in the array. -2, -3, etc. refer to the next members above.
+	* Exceptions are asserted when attempting to read non-existing members
+	* Arrays will be extended when attempting to write using index values bigger than the current array size.
+
+
+	<br><br>
+	Following approaches are available to create arrays:
+	=== 200, 800, noframe_1stcolbold, noheader
+	dim...() function family | Functions such as __dim(__), __redim(__), __dim protect(__) and __redim protect(__) initialize arrays with a specified number of elements and initial values.
+	array...() | Functions like __array(__) and __array protect(__) create arrays with initial values provided in parameter sets.
+	Direct referencing | (Spontaneous array creation) Assigning a simple variable with an index will automatically create an array with members 0...<i>index</i> where the members inbetween are not initialized and return __void__ values.
+	===
+
+	<br><br>
+	Individual member variables may be deleted using the __delete(__) function.  If a member in the beginning or middle of the arrary is deleted, then all other members move up accordingly.
+
+
+
+	+++,
+    "Examples 01:"::
+	
+	echo("Initialize variable with dim function:");
+	dim( a[], 5, '.' );
+	see( a[] );
+
+	echo(new line, "Initialize variable with array function:");
+	array( a[], { Ha, He, Hi, Ho, Hu, Ahoi } );
+	see( a[] );
+
+	+++,
+    "Output 01:":		"automatic",
+
+    "Description 02:Nesting"::
+	Nesting is supported: Every array element may be a simple variable, a further array of any size or a structure.
+	A (m x n) multi-dimensional array is a nested array with <i>m</i> members and each member containing <i>n</i> sub-members.
+	Since Beyond4P variable structure is a tree with values possible in both root, intermediate and end nodes, the base variables as well as
+	member variables of those containing sub-members are preserved.
+
+
+	<br>Nested arrays:
+	=== 230, 10, 230, 10, 230, 10, noframe table_syntax
+	Base Variable Name		| [ 	| Index			 		| ,	| Index					| ]
+	- String value or expression	|	| - Numeral or numeric expression	|	| - Numeral or numeric expression	|
+	  as variable name		|	|   as index number			|	|   as index number			|
+	===
+	* Nesting structures in arrays and vice versa is also allowed.
+	* For deeper nesting, specify addtional index numbers and/or member names separated with commas.
+
+	+++,
+
+    "Examples 02:"::
+
+	echo("Initialize a 2-dimensional array:");
+	dim( a[], {2,3}, '0' );
+	see( a[] );
+
+	echo(new line, "Initialize two arrays (2nd one is nested) implicitly:");
+	b[2] = true;
+	b[1,2] = 123;
+	see( b[] );
+
+	+++,
+    "Output 02:":		"automatic"
+
+  },
+
+  "Structures" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "structures" ],
+    "Keywords":			[ "structure", "default members", "default member", "structure members", "structure member" ],
+    "Description 01:Structures"::
+
+	Structures are variables with members which are referenced by <i>member names</i>.  Structures are useful for following pruposes: 1) managing
+	your variables in a structured manner, and 2) providing a form of associative storage.  Beyond4P maintains the members in alphabetical order automaatically
+	and uses a very fast bisectional algorithm to find the specified variable.  For example, max. 16 internal queries are needed to
+	access a a member with a given member name in a structure containing more than 65,536 members.
+
+
+	=== 230, 10, 230, 10, noframe table_syntax
+	Base Variable Name		| [ 	| Member Name		 		| ]
+	- String value or expression	|	| - String value or expression		|
+	  as variable name		|	|   as variable member name		|
+	===
+	<br>
+	* Existing structures may be index like arrays where the indexing reflects the alphabetic order of the member names.
+	* Numeric indexing (like in arrays) is allowed to access <u>existing</u> members, e.g. 0..9 (and -1..-10 with __negative indexing__).
+
+
+	Similar to arrays, existing structures may also be referenced with numeric <i>index</i> values.  This is useful when using loops to process
+	through the structure rapidly.  Please note that the structure is always held in an alphabetic order.  Negative indexing is also supported, where
+	-1 refers to the last element (last in alphabetical order), and -2, etc., to the next ones above.
+
+	<br><br>
+	Following approaches are avialable to create structures:
+	=== 200, 800, noframe_1stcolbold, noheader
+	structure...() | Functions like __structure(__) and __structure protect(__) create structures with intial member names and values provided in two parameter sets.
+	Direct referencing | Assigning a simple variable with a member name will initialize it with a structure.  This will not be possible if the variable is already an array.
+	===
+	+++,
+    "Examples 01:"::
+	
+	echo("Initialize a structure directly");
+	a[dog] = Hund;
+	a[cat] = Katze;
+	a[gnu] = Gnu;
+	echo(a[cat]);
+	see( a[] );
+
+	echo(new line, "Initialize with the structure function");
+	structure( leg count[], { snake, bird, dog, fly, tick }, { 0, 2, 4, 6, 8 } );
+	see( leg count[] );
+
+	+++,
+    "Output 01:":		"automatic",
+
+    "Description 02:Nesting"::
+	Nesting is supported: Every structure element may be a simple variable, a further structure or array of any size.
+	Since Beyond4P variable structure is a tree with values possible in both root, intermediate and end nodes, the base variables as well as
+	member variables of those containing sub-members are preserved.
+
+
+	<br>Nested structures:
+	=== 230, 10, 230, 10, 230, 10, noframe table_syntax
+	Base Variable Name		| [ 	| Member Name				| ,	| Member Name				| ]
+	- String value or expression	|	| - String value or expression		|	| - § value or expression		|
+	  as variable name		|	|   as variable member name		|	|   as variable member name		|
+	===
+	<br>
+	* Numeric indexing (like in arrays) is allowed to access <u>existing</u> members, e.g. 0..9 (and -1..-10 with __negative indexing__).
+	* Nesting arrays in structures and vice versa is also allowed.
+	* For deeper nesting, specify addtional member names and/or index numbers separated with commas
+
+
+	+++,
+
+    "Examples 02:"::
+	
+	echo("Initialize a nested structure containing structure and array");
+
+	city[] = Paris;
+	array( city[district], {ignoe 0, Louvre, Bourse, Temple, Hotel de Ville, etc. } );
+	city[district,2,area] = 99; // 99 hectars
+	city[district,2,inhabitants] = 19500;
+	echo("1st  district = ", city[district,1], "   last district = ", city[district,-1] );
+
+	see( city[] );
+	+++,
+    "Output 02:":		"automatic",
+
+    "Description 03:Default Members"::
+
+	Normally, attempting to access a structure with a non-existing element name will cause an error.  Beyond4P supports default members
+	which will be returned in case of no matches.  Assign the default value using a blank string ('') as member name and that's it.
+
+	+++,
+
+    "Examples 03:"::
+	
+	echo("Demonstrate default values"); // a[''] is defined below and is used as default variable.
+
+	structure( a[], { cow, horse, pig, sheep, '' }, { Kuh, Pferd, Schwein, Schaf, No translation } );
+	echo( "cow : ", a[horse] );
+	echo( "goat: ", a[goat] );
+
+	+++,
+    "Output 03:":		"automatic",
+    "Description 04:Referencing structures with numbers"::
+	Similar to arrays, structure members can also be referenced with index numbers.
+	The only difference is that the members will be rearranged in alphabetical order whenever a new member is added.
+    "Examples 04:"::
+    names[Mozart] = Wolfgang Amadeus Mozart;
+    names[Williams] = John Williams;
+    names[Strauss] = Johan Strauss;
+    names[Bach] = Johan Sebastian Bach;
+    names[Beethoven] = Ludwig van Beethoven;
+
+    for (i[] = 0, i[] < member count(names[]), i[]+=1)
+    {
+        echo(i[], ": ", names[i[]]);
+    }
+
+    echo("names[2] = ", names[2] );
+    names[Bartok] = Bela Bartok;
+    echo("names[2] = ", names[2] ); // List of names has shifted down
+
+    echo("Last entry is ", names[-1] ); // Negative indexing	
+	+++,
+    "Output 04:": "automatic"
+  },
+
+
+"Zero Members Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "zero members" ],
+    "Description 01:Zero Members"::
+
+	Zero members avariables are very closely related to simple variables.
+	The only difference is that these variables have contained __array__ or __structure__ members before, but all members have
+	been deleted meanwhile.  In some application cases, e.g. loading variables from JSON files, zero members may be useful to distinguish
+	between loading empty arrys and no arrays at all.
+
+	+++,
+
+    "Examples 01:"::
+	
+	echo("Distinguish between simple and zero members variables");
+	a[] = Hi;
+	echo(identify(a[0])); // simple
+
+	a[0] = Ho;
+	echo(identify(a[0])); // array
+
+	delete(a[0]);
+	echo(identify(a[0])); // not found
+	echo(identify(a[])); // zero members
+
+	a[dog] = Hund;
+	echo(identify(a[])); // structure
+
+
+	+++,
+    "Output 01:":		"automatic"
+
+},
+
+
+
+"Parameter Sets Specifying Members" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "specifying members with parameter sets" ],
+    "Description 01:Introduction"::
+
+	Variable members can either be specified with constant values, and expressions such as variables.
+	This provides flexibility, but sometimes you need the flexibility to access different members
+	in differently deep levels dynmically.  This is best done with using parameter sets which make up
+	a part of the sequence of member names and/or index numbers or the whole one. See the following example:
+	+++,
+    "Examples 01:"::
+	var[me,you,we,they] = those people;
+	var[me,you,we,us] = we the people;
+	var[me,you,we] = all of us;
+	var[] = grandfather;
+
+	a[] = you;
+	b[] = we;
+	echo( var[ me, a[], b[] ] );
+
+	c[] = { you, we, us };
+	echo( var[me, c[]] );	// Use parameter set to specify sub-members behind 'me'
+
+	c[] = {me} + c[];
+	echo( var[c[]] );	// Use parameter set to specify all nested members
+
+	c[] = c[]{0..2}; 	// me, you we only
+	echo( var[c[]]  );      // Use paramter set to specify first part of all nested members
+
+	echo( var[ {} ] );	// Empty set refers to base variable
+	echo( var[ {}, {me, you}, {}, {we, they} ] );	// Combinations like this one are OK
+	// Empty sets in the middle of the 'path' are considered as 'same location'
+	+++,
+    "Output 01": "automatic"
+},
+
+
+
+"References to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "references to variables", "variable references", "variable reference", "reference", "references" ],
+    "Description 01:Introduction"::
+
+
+	In several cases, sophisticated variable structures with multiple levels, e.g. a[b,c,d,e] need to be referenced repeatedly where every reference checks for the existence of
+	of the base variable name and all names a through e.  To address this problem, B4P provides the feature called <i>refrences to variables</i> which allows you to define 
+	variables which poinnt to other base variables, regardless if they are base variables, intermediate or leaf members inside variable structures.
+
+	<br><br>
+	References to variables in B4P have similarities with references in other modern programming languges such as C++, C# and Java.  References are not pointers, i.e. any for of
+	mingling up pointers with pointer arithmetics is not supported here. 
+
+	<br><br>
+	Destination variables which are pointed by references carry along a kind of blocking notice which forbids deleting them until all references applied on them have been
+	released again.  This protection mechanism avoids working with disconnected references pointing to nowhere.  Automatic releases will happen with locally defined references to
+	variables in program, procedure and function blocks when leaving.  The remaining references will be released in a coordinated manner when the program ends execution.
+
+	+++,
+    "Description 02:References in Function Parameters"::
+	Some B4P functions and user-defined functions can accept parameters as references to variables, too.  These parameters provide access to the base variable as well as
+	to all mebmer variables.
+	+++
+},
+
+"Simple References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "simple references to variables" ],
+    "Keywords":			[ "simple references" ],
+    "Description 01:Introduction"::
+
+	The following exmaple shows how a simple reference is designed and describes how to use the '^' symbol to do a reference.
+
+	<br/><img src="Images/Description_Variables_Simple_References.jpg" alt="Simple References to Variables"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]    = Hello;
+	ref1[] =^ a[]; // ref1[] references a[]
+
+	a[]    = Hi;
+	echo( a[],", ",ref1[] ); // Outputs "Hi, Hi"
+
+	ref1[] = He;
+	echo( a[],", ",ref1[] ); // Outputs "He, He"
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Through-Referencing" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "through-referencing" ],
+    "Description 01:Introduction"::
+
+	Note that the variable name used to establish a reference must either be vacant (no variable defined yet) or just a __simple variable__ containing no members.
+	This rules is insofar relevant because member (and subname) names and array index numbers specified in the references will be applied on the target variables directly.
+	The following examples shows a typical through-referencing:
+
+	<br/><img src="Images/Description_Variables_Through_References.jpg" alt="Through-Referencing"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]     = Hello;
+	ref1[]  =^ a[]; // ref1[] references a[]
+
+	ref1[b] = Ho;   // Both assignments build members on a[]
+	a[c]    = Hi;
+
+	echo( a[b],", ",ref1[b] ); // Ho, Ho
+	echo( a[c],", ",ref1[c] ); // Hi, Hi
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+"Redirecting References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "redirecting references" ],
+    "Description 01:Introduction"::
+
+	<br/><img src="Images/Description_Variables_Redirecting_References.jpg" alt="Redirecting References"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]     = Hello;
+	a[b]	= Hi;
+
+	ref1[]  =^ a[]; // ref1[] references a[]
+	echo( ref1[] ); // Hello
+
+	ref1[]  =^ a[b];
+	echo( ref1[] ); // Hi
+
+	a[b]    = Ho;	
+	echo( ref1[] ); // Ho
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Copying References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "copying references" ],
+    "Description 01:Introduction"::
+
+	Two flavors of copying references exist:
+	* If <b>=^</b> is used, then the referencing process passes through all intermediate references and establishes the link to the target variable directly.
+	* If <b>=^^</b> is used, then the reference will be made on the specified intermediate reference.
+	The 1st choice ensures that all referncing are fast and direct.  The 2nd choice provides the flexibiltiy to make modifications on the intermediate
+	references such as redirecting only the intermediate reference and not all intial references attached to them.
+
+	<br/><img src="Images/Description_Variables_Copying_References.jpg" alt="Copying References"><br/>
+
+	+++,
+    "Examples 01:"::
+	a[]    = Hello;
+	a[b]   = Hi;
+
+	ref1[] =^ a[b]; 	// References a[b]
+	ref2[] =^  ref1[];	// References a[b] directly
+	ref3[] =^^ ref2[];	// References ref2[]
+	ref4[] =^  ref3[];	// References a[] directly
+
+	ref3[] = He;
+	echo( a[b],", ",ref1[],", ",ref2[],", ",ref3[] );    // 4 x He
+
+	a[c]   = Ho;		// Visible in ref[2] and ref[3]
+	ref2[] =^  a[c];	// Detach ref2[] from a[b] and link to a[c]
+
+	echo( ref1[],", ",ref2[],", ",ref3[],", ",ref4[] );    // He, Ho, Ho, He
+	+++,
+    "Output 01:": "automatic"
+},
+
+"Releasing References" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Releasing references" ],
+    "Description 01:Introduction"::
+
+	Following methods are available to release references:
+	* Function call __release(__): 	Specify references to variables directly.  Example: <b>release ( ref1[ ], ref2[ ], ref3[ ] );</b>
+	* Function call __release all(__): All locally defined references to variables will be released.  When called from the main program (neither function nor other program called), then all globally defined references will be released.
+	* Function call __release all(__): Specify references to variables directly, or variables which contain one or more members / sub-members which are references to variables.  All of them will be released.
+	* Exiting a user-defined procedure or function, or a B4P program called with __start(__) or __include(__): All locally defined references to variables will be released.
+	* __Redirecting references__: The original reference will be leased and moved to a different variable.
+
+	<br/><img src="Images/Description_Variables_Releasing_References.jpg" alt="Releasing References"><br/>
+
+	<u>Note</u>: Please note that the target variables remain unaffected while releasing the references.  Once all references on a target variable are released, then the target variable may be deleted.
+
+	<br><br>
+	Released references will not be deleted but mutate to simple variables containing void values.
+
+	+++,
+    "Examples 01:"::
+	a[]    = Hello;
+
+	ref1[] =^ a[];
+	echo( ref1[] );
+
+	release( ref1[] );
+	echo( ref1[] );
+	+++,
+    "Output 01:": "automatic"
+},
+
+
+
+
+"References in Member Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "References in member variables" ],
+    "Description 01:Introduction"::
+
+	The past examples have been made with simple references.  However B4P also allows declaring member variables in structures and arrays as references.
+	Here, a similar rule applies that references can only be made on member variables which are not yet existing or do not contain their own sub-members.
+	Two code examples below illustrate this powerful feature.
+
+    "Description 02:Example 1"::
+
+	In the following example, 3 members in variable c[] point to variable a[] and a[g] accordingly.  In addition, a[g] is a reference which
+	referst to c[]. An "eight-loop" has been created, and the code example demonstrates that you can walk the path through the loop multiple times.
+	
+	<br/><img src="Images/Description_Variables_References_in_Member_Variables_1.jpg" alt="References in Member Variables 2"><br/>
+
+	+++,
+    "Examples 02:"::
+// Black part in illustration
+
+a[] = Ha;
+a[b] = He;
+c[] = Hi;
+
+// Greeen part in illustration
+
+c[d] = ^a[];
+c[e] = ^a[b];
+c[f] = ^c[e]; // references to a[b]
+echo( c[d],", ", c[e] ); // Ha,He
+
+// Blue part of illustration
+
+a[g] = ^c[];
+echo( a[g],", ", a[g,d] ); // Hi, Ha
+
+// You can loop around multiple times if you wish:
+
+echo( a[g,d,b] ); // He
+echo( a[g,d,g],", ", a[g,d,g,d], ", ", a[g,d,g,d,g] ); // Hi, Ha, Hi
+	+++,
+    "Output 02:": "automatic",
+    "Description 03:Example 2"::
+
+
+	In the following example, 3 members in variable c[] point to variable a[] and a[g] accordingly.  In addition, a[g] is a reference which
+	referst to c[]. An "eight-loop" has been created, and the code example demonstrates that you can walk the path through the loop multiple times.
+	
+	<br/><img src="Images/Description_Variables_References_in_Member_Variables_2.jpg" alt="References in Member Variables 2"><br/>
+
+	+++,
+    "Examples 03:"::
+
+// Black part in illustration
+
+array( a[ ],{Ha,He,Hi,Ho} );
+
+// Green part in illustration
+
+a[0] =^  a[3];
+a[1] =^^ a[0]; // a[1] refers to a[0] (and not to a[3] directly)
+
+echo( a[0],", ", a[1] ); // Ho, Ho
+
+// Blue part in illustration
+
+a[0] =^ a[2];
+echo( a[0],", ", a[1] ); // Hi, Hi
+	+++,
+    "Output 03:": "automatic",
+    "Description 04:Avoid Tail-Biting"::
+
+	Be aware that you do not build up references resembling infinite loops because B4P will start circling around through 1 or more variables.
+	See the following code examples with one variables and the tail-biting effect with two variables.
+	+++,
+     "Examples 04:"::
+	// Bad example 1: 1 dog runs in a circle, attempting to bite its own tail 
+	a[] = a[];
+
+	// Bad example 2: 2 dogs run in a circle, attempting to bite each other's tails
+	x[] = 5;
+	y[] =^x[];
+	x[] =^y[];
+	+++
+
+},
+
+
+"Protecting Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "protecting variables" ],
+    "Keywords":			[ "protecting setting", "variable protection", "protection settings", "variable protections" ],
+    "Description 01:Introduction"::
+
+	The functions __protect(__), __dim protect(__), __redim protect(__), __array protect(__), and structure protect(__) are available apply
+	protection rules on the target variables.  It is always possible to change protection settings on local variable.  For global variables, this
+	is only allwed in the global context (i.e. not in the code of user-defined procedures and functions and B4P programs started with __start(__) or __include(__)).
+	Protection settings of system variables cannot be altered. If not specified otherwise, all newly created variables bear the protection setting <i>full access</i>.
+
+	The follwoing table provides an overview of the available protection settings and their functional impacts:
+
+	=== 400, 100, 100, 100, 100, 100, 100
+	Protection Settings			| full access		| prvent deleting	| limited access			| read only		| locked		| tightly locked
+	Read variables				| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| -			| -
+	Read member variables <sup>1</sup>	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| -
+	Use as input parameter to functions	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| -			| -
+	Write variables				| &#x2714;		| &#x2714;		| Data of same type only <sup>2</sup>	| -			| -			| -
+	Write member variables <sup>1</sup>	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| -
+	Use as I/O paramters to functions	| &#x2714;		| &#x2714;		| -					| -			| -			| -
+	Delete varibles				| local variables only	| -			| -					| -			| -			| -
+	Create / add member variables		| &#x2714;		| &#x2714;		| -					| -			| -			| -
+	Modify __variable forms__ <sup>3</sup>	| &#x2714;		| -			| -					| -			| -			| -
+	Create arrays				| &#x2714;		| &#x2714; <sup>4</sup>	| -					| -			| -			| -
+	Do __Transactions__			| &#x2714;		| -			| -					| -			| -			| -
+	Use __protect(__) to check settings	| &#x2714;		| &#x2714;		| &#x2714;				| &#x2714;		| &#x2714;		| &#x2714;
+	===
+	<sup>1</sup> Provided no additional protection seetings restrict usage of the member variables.<br>
+	<sup>2</sup> E.g. forbidden to overwrite string contents with numeric contents.  Additional restrictions may apply on system variables, e.g. only specific values may be written.<br>
+	<sup>3</sup> E.g. converting structures to arrays and back using __array to structure(__) or __structure to array(__) functions.<br>
+	<sup>4</sup> Only possible if variable contains no other members so far.<br>
+
+    "Description 02:Variables temporarily locked with Blocking Notices"::
+
+	Variables may be temporarily locked with blocking notices in order to prevent adverse system behavior if they are deleted.  All other accesses are possible.  Blocking notices
+	are temporarily applied in following cases:
+	* Target variable is blocked during the time an assignment is calculated
+	* A __transaction__ is applied between target and source variable
+	* The variable is referenced as an I/O or reference function parameter to a B4P or user-defined function
+	* __References to variables__ refer to the affected variable.
+	Only if all block notices are removed again (assignment resp. transactions completed, function execution finished, references released), then the variable may be deleted again.
+
+	+++
+}
+
+
+ 	
+B4PDOCU.STOP

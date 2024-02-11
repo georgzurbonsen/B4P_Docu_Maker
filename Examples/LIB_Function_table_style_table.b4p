@@ -1,0 +1,12 @@
+﻿#!/usr/local/bin/b4p
+
+  table load( t, "Cities.csv" );
+
+  table style table( t, sheet, column width, 24, wrap text, true );
+  table style table( t, body, text color, navy );
+
+  table save( t, "Images/Style_Function_table_style_sheet.html", HTML );
+  table save( t, "Images/Style_Function_table_style_sheet.xls", EXCEL );
+  table save excel file( t, Contents, "Images/Style_Function_table_style_sheet.xlsx" );
+  echo("Done.");
+

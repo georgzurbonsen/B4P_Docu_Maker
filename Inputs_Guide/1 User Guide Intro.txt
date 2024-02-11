@@ -1,0 +1,49 @@
+	//
+B4PDOCU.START
+
+
+"User Guide" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "User Guide", "B4P Data Engine" ],
+    "Description 01:Introduction"::
+
+	The B4P Data Engine, including some library files written in B4P langauge, is the key software you need to install in order to make full use of the
+	language.  The engine contains a poweful <b>language interpreter</b> which understands and executes the B4P source code directly and without cluttering up your
+	drive with additional files.  A wide spectrum of high-performing functions to handle large data structures such as tables and variable trees are integrated
+	in the engine.
+
+    "Description 02:Lean and Simple"::
+
+	Intentionally, the B4P Data Engine is exceptionally lean (few megabytes). Its compactness make it so powerful, i.e. starting immediately after the 
+	mouse click and no waiting time until your B4P program starts processing.
+
+    "Description 03:Intentionally no Graphic User Interface"::
+
+	The B4P Data Engine is a (probably old-fashioned) console application.  For a good reason, we have left out the nice Windows user interface features,
+	and there are some very good rasons for that:
+
+	* <b>Unparalleled start-up performance</b>: The B4P program runs instantaneouly after the mouse click or pushing [Enter].
+	* <b>Cross-Platform Portability</b>: B4P runs equally well under Windows, Linux and MacOS.  Additional operating systems can be included in the future.
+	* <b>On-line documentation</b> is fully integrated in the B4P Data Engineand is available on your fingertips any time.
+
+	GUI features are in most cases more platform-dependent than you are thinking and may slow down overall start-up and execution performance.  
+	This pretended disadvantage is compensated by its superior machine processing performance. Long story short:<br>
+	<b>We minimize our footprint to provide highest performance, and you maximize from these benefits to get your work done quickly!</b>
+
+    "Description 04:Excel with Excel"::
+
+	For visualization purposes, powerful and highly standardized tools existing today such as Microsoft Excel providie all features to do the visual parts
+	such as creating all the charts you need for your presentations.  It makes no sense to let B4P compete against such tools.  The philosophy of B4P is
+	to focus on performing all data processing with <i>bare metal</i> machine performance and creating all Excel files (and other file formats like HTML)
+	which you can open with such tools to complete the visualization tasks.
+
+	<br><br>
+
+	B4P is able to save tables into Excel files, with multiple sheets in one workbook, and, if needed, some formatting and styling already included 
+	(e.g. column widths, fonts, colors, number formats, autofilter, freezing panes, etc.).
+
+	+++
+}
+
+B4PDOCU.STOP

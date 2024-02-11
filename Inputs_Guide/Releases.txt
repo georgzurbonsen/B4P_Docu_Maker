@@ -1,0 +1,141 @@
+-//
+B4PDOCU.START
+
+
+"Recent Releases" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Recent Releases" ],
+
+    "Description 01:Overview"::
+	The roots of B4P date back to 2007 when the first C/C++ object class library has been developed to process
+	tables, but the solutions were still coded in C/C++.  The first version of the B4P language appeared in 2013,
+	following a series of improvments and extensions aiming to solve any form of business and analytical problems
+	involving big data.
+
+	<br><br>
+	The updates made in the most recent releases are summarized in the following subsections.
+	+++
+
+},
+
+
+
+
+
+"Release 10.0" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 10.0 Labour Day" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 10.0, updated 2022-05-01, "Labour Day"</b><br>
+	<i>The date of the Internationl Labour Day was chosen to commemorate the Haymarket Affair in Chicago, May 4, 1886.</i>
+
+    "Description 02:Bugfixes"::
+
+	* Function __dir(__) - Poor error message when specifying invalid path name, has been fixed
+	* Parsing error resolved (if a '(' is found but not allowed here, the symbol was not shown)
+
+    "Description 03:New Functions"::
+
+	* __toc__ - Table of contents
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* Functions renamed: numeral to __num__, literal to __str__, etc.
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	None in this release
+
+    "Description 06:Other new Features"::
+
+	None in this release
+
+    "Description 07:Clean-ups and Streamlining"::
+
+	* The type __string__ consist of two subtypes (__softquoted string__ and __quoted string__) and no longer three.
+	* The term 'string' has replaced the term 'literal' for better clarity
+	* Various clean-ups done in B4P docs
+
+    "Description 08:Performance Improvements"::
+
+	* Clean-up in the B4P Data Engine results in minor performance improvements.
+
+    "Description 09:Depreciated and retired features"::
+
+	Softquoted literals: Header names and likes in a single string and separate with commas will no longer be separated into
+	individual parameters as it created more confustion and processing time than providing benefits. Put multiple parameters into
+	a parameter set instead.
+
+	<br><br>
+
+	The function <b>type detailed</b> has been renamed to <b>subtype</b>.
+
+
+	+++
+
+},
+
+
+"Release 10.1" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 10.1 Charles Dow" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 10.1, updated 2022-07-03, "Charles Dow"</b><br>
+	<i>On that date in 1884 he introduced the first stock market index: Dow Jones Railroad Average.</i>
+
+    "Description 02:Bugfixes"::
+
+	* When subtracting dates with times, the seconds may be off by 1 value.  Fixed.
+	* Resolved some issues with saving multiple sheets in excel files
+	* Time data loaded from Excel files did not work properly for afternoon hours (13:00 +).  Has been fixed.
+	* Table contents beginning with a number and ending with 'E' (e.g. 101E)  were interpreted as numbers (e.g. 101) and not as strings ('101E').
+
+    "Description 03:New Functions"::
+
+	Not in this release
+
+
+    "Description 04:Improvements in Existing Functions"::
+
+	Not in this release
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	Not in this release
+
+    "Description 06:Other new Features"::
+
+	Not in this release
+
+    "Description 07:Clean-ups and Streamlining"::
+
+	Not in this release
+
+
+    "Description 08:Performance Improvements"::
+
+	Not in this release
+
+    "Description 09:Depreciated and retired features"::
+
+	Not in this release
+
+
+
+	+++
+
+}
+
+
+
+
+
+
+B4PDOCU.STOP

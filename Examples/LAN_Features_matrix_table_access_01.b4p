@@ -1,0 +1,27 @@
+﻿#!/usr/local/bin/b4p
+  table initialize( table, { { A0 .. O0 } } );
+  [ table: .., 1..15 ] = '.'; // Initialize with points
+
+  // Writing some data (actually on row 3 and 5)
+
+  a[] = { { 3, 4, 5, 6 }, {}, { 23, 24, 25 } };
+
+  [ table: 2.., 3.. ] = a[]; // Write all values (as long if inside the table
+  [ table: J0..K0, 3.. ] = a[];  // Note: Limited to 2 columns (5,6 and 25 are not written)
+  [ table: N0.., 10.. ] = a[]; // Writes beyond the existing headers (note 2 unnamed columns added)
+
+  table list( table );
+
+  echo("Further write accesses:");
+  table initialize( table, { { A0 .. O0 } } );
+  [ table: .., 1..15 ] = '.'; // Initialize again
+
+  [ table: ..1, ..2] = { { aa, bb, cc }, { dd, ee, ff }, { gg, hh, ii } }; // Only 4 elements written
+  [ table: 2.., -3.. ] = { 1,2,3,4,5 }; // Last 3 rows
+  [ table: 10.., -3.. ] = {{ 1,2,3,4,5 }}; // Only 1 row
+  [ table: H0.., 1.. ] = { {1},{2},{3},{4},{5} }; // Only 1 column
+  [ table: B0..D0, 6..8 ] = X; // 1 value written everywhere
+
+  [ table: { N0, M0, K0 }, {3,2,1}  ] = a[]; // Write in opposite directions
+
+  table list( table );

@@ -1,0 +1,19 @@
+﻿#!/usr/local/bin/b4p
+      include( Zip Library );
+
+      zip compress( "Cities.csv" );
+      zip compress( "*.csv", "All csv.zip" );
+
+      a[] = search files( "*.zip" );
+      echo("Found following ZIP files: ", a[]);
+
+      zip extract all( "All csv.zip" );
+
+      echo("List the extracted contents from 'All csv.zip':", new line);
+      directory listing recursive( d, "All csv" );
+      table keep columns( d, {Path,Name,Date Created,Directory,Size} );
+      table list( d );
+
+      directory delete recursive ( "", "All csv" );
+      file delete( "All csv.zip" );
+      file delete( "Cities.zip" );

@@ -1,0 +1,1632 @@
+//
+B4PDOCU.START
+
+
+
+"Transactions" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions" ],
+    "Keywords":		[ "Transaction", "Transaction operator", "Transaction operators" ],
+    "Description 01:Overview"::
+
+	Simple __assignments__ in B4P program statements, such as <b>a[] = b[]+5;</b>, address only the __base variables__ and the members (if the variable is also containing
+	__structures__ and/or __arrays__) will not be touched.  However, you may wish to assign variables were the full payload of their members and sub-members need to be
+	considered too.  <b>Transactions</b> provide this advanced form of assignments.
+
+	<br/><br/><img src="Images/LAN_Transactions.png" alt="Transactions"><br/>
+	<br>
+	+++,
+
+    "See also": "Transaction Syntax"
+
+},
+
+
+"Transactions - Syntax and Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transaction Syntax" ],
+    "Keywords":			[ "Transaction operator", "Transaction operators" ],
+
+    "Description 02:Syntax and Operator Usage"::
+	=== 150, 300, 200, 200, 150, noframe table_syntax
+	Left-hand destination		| Transaction Prefix<br>(optional)		| Transaction Operator		| Transaction Suffix<br>(optional)	| Right-hand destination	
+	- Variable			| No symbol: Replacement			| <b>&lt;==</b> : Copy 		| No symbol				| - Variable
+	- Table row			| <b>&amp;</b> : intersection (AND combination)	| <b>&lt;&lt;</b>= : Move	| <b>^</b> : Members only		| - Table row
+					| <b>&vert;</b> : union	(OR combination)	| <b>&lt;=&gt;</b> : Swap	| (Base variable will not		|
+					| <b>+</b> : add data				|				| be touched)				|
+	===
+	<br>
+	The 3-character <b>Transaction Operators</b> must be written together without spaces inbetween because they are treated as dedicated language tokens.
+	Spaces are allowed between the prefix and the symbols and between the symbols and the suffix.
+	Both left-hand and right-hand destinations specify table cells or destination variables in the same way as if they would be on the left-hand side of
+	assignments.  Specifying member variables in (nested) arrays and/or structures is allowed (Example: <b>b[kid1] &lt;== a[kid2,grandchild]</b>).
+	Using this in combination with moving or swapping data, you can do easy data manipulations such as balancing binary trees.
+
+	+++,
+    "Examples 02:First Example:"::
+	array( a[], { Ape, Bat, Cat, Dog } );
+	array( b[], { Granite, Gneiss } );
+
+	a[] = Animals;
+	b[] = Varieties of Rocks;
+	c[] = Pets;
+
+	c[] <==^ a[]; // Base variable stays unchanged (Pets)
+
+	a[] <=> b[]; // Swap
+
+	see( c[] ); // Pets
+	see( a[] ); // Rocks
+	see( b[] ); // Animals
+	+++,
+    "Output 02:": "automatic"	
+
+},
+
+
+
+"Without Transaction Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Without Transaction Assignment Operators" ],
+    "Description 01:Introduction"::
+	The following sections provide an introduction of carrying out transactions without assignment operators.
+	In this case, destination variables or table entries are cleared first before they are overwritten.  The following
+	illustration shows a typical <b>copy</b> transaction:
+
+	<br/><br/><img src="Images/Description_Transactions_Basics.jpg" alt="Transactions Basics"><br/>
+
+	+++
+},
+
+
+"Transactions between Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions between variables" ],
+    "Description 01:Introduction"::
+
+	Transactions can be carried out on base variables as well as member variables.  The following rulesa pply:
+	* If the destination variable does not yet exist, then it will be created before the transaction begins.  Hoever, the source variable on the right-hand side must exist.
+	* All member variables of the specified destination variable will be cleared.
+	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.
+	* All structure and array members and sub-members of the source variable will be included in the transaction.
+
+	<br>
+
+	The table below uses the variable names <b>a[]</b> and <b>b[]</b> which may also be replaced with array or structure member variables of any hierarchical depth.  This flexible setup allows you to shape up your
+	variable trees as you like.
+	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3
+	Transaction	| Symbol	| Example		| Description
+	Copy		| &lt;==	| a[] &lt;== b[];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise, the variable will \
+								  be initialized, including deleting all members.<br>\
+								  Step 2: Value from b[] to a[] will be copied like in an assignment.<br>\
+								  Step 3: All members and sub-members will be copied from b[] to a[].
+	Copy Members	| &lt;==^	| a[] &lt;==^ b[];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise all members will be deleted.  The base variable will be preserved.<br>\
+								  Step 2: Will be skipped.<br>\
+								  Step 3: Like above.
+	Move		| &lt;&lt;=	| a[] &lt;&lt;= b[];	| Steps 1-3: Like the copy-transaction<br>\
+								  Step 4: Deletes variable b[] entirely including its members.  If a member variable is specified on the right-hand side, then that member variable with its sub-members will be deleted.
+	Move Members	| &lt;&lt;=^	| a[] &lt;&lt;=^ b[];	| Steps 1-3: Like the copy-members-transaction<br>\
+								  Step 4: Deletes all members and sub-members of variable b[], but the base variable remains unaffected. If a member variable is specified on the right-hand side, then those sub-members will be deleted.
+	Swap		| &lt;=&gt;	| a[] &lt;=&gt; b[];	| Swaps all contents (base variable and all members and sub-members) between the two variables
+	Swap Members	| &lt;=&gt;^	| a[] &lt;=&gt;^ b[];	| Swaps all members (and sub-members) between the two variables, but the base variables are not swapped.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	animals1[] = Mikes collection;
+	b[] = My pets;
+
+	a[] <==  animals1[];
+	b[] <==^ animals1[];
+
+	see(a[]);
+	see(b[]);
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	animals2[] <== animals1[]; // Make a copy
+	animals1[] = Mikes collection;
+	b[] = My pets;
+
+	a[] <<=  animals1[];
+	b[] <<=^ animals2[];
+
+	see(a[]);
+	see(b[]);
+	echo("animals1[] existing? ", existing(animals1[]));
+	see(animals2[]);
+
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+	array    ( plants1[],  { tulip, sunflower, fir } );
+
+	animals1[] = Pets and animals;
+	plants1 [] = Plants and flowers;
+
+	animals2[] <== animals1[];
+	plants2 [] <== plants1[];
+
+	animals1[] <=> plants1[];
+	animals2[] <=>^ plants2[];
+
+	see( animals1[] );
+	see( plants1[] );
+
+	see( animals2[] );
+	see( plants2[] );
+	+++,
+    "Output 03:": "automatic"
+
+},
+
+
+
+"Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions from tables to variables" ],
+    "Description 01:Introduction"::
+
+	Transactions provide a powerful way to read one row or a specified part of the row and store the contents into a __structure__.
+	For every item read from the table, a new member will be created, given the name of the corresponding column header name and the contents placed into the 
+	member variable variable.  The following rules apply for these transactions:
+
+	* Only simple and __horizontal table accesses__ are allowed. __Vertical table accesses__ and __matrix table accesses__ will be rejected and cause exceptions.
+	* Use '..' or keep blank to specify all column entries in the specified row, e.g. <b>[t:..,1]</b> or <b>[t:,1]</b>.
+	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the function parameters of the __table process(__) call)
+	* Transactions from tables to variables generate only one level of structure members and no further nesting.  Arrays are not created.
+	* For automatic type conversions from tables to variables the same rules as if table contents are read out.  See __table configure(__) to modify the rules.
+	* The table name is assigned to the base variable unless the <b>^</b> suffix is used behind the transction operator to preserve the __base variable__ value if existing.
+	* Table accesses resulting in no values read (empty sets) will at least intialize the destination variable with __zero members__ variable form, but contains no members.
+	* Make sure every table header in the table to include are unique.  Otherwise, the same member variable will be overwritten since the same name is used repeatedly.  Alternatively, you can use column numbers.
+	* Blank table header names translate into blank member names which are valid.  Note that members with blank member names are also treated as __default members__.
+
+	The following table applies to transactions from a table row (example: table name 't', row 1, all columns) to a variable.
+	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3
+	Transaction	| Symbol	| Explanation		| Description
+	Copy		| &lt;==	| a[] &lt;== [t:..,1];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise, the variable will \
+								  be initialized, including deleting all members.<br>\
+								  Step 2: The table name will be copied into the base variable a[].<br>\
+								  Step 3: For every cell retrieved from the table, a dedicated member will be created.  The header name (row 0) will \
+								  be used for the member name and the contents will be written into the member variables.
+	Copy Members	| &lt;==^	| a[] &lt;==^ [t:..,1];	| Step 1: If a[] does not yet exist, then it will be created.  Otherwise all members will be deleted.  The base variable will be preserved.<br>\
+								  Step 2: Will be skipped.<br>\
+								  Step 3: Like above.
+	Move		| &lt;&lt;=	| a[] &lt;&lt;= [t:..,1];| Steps 1-3: Like the copy-transaction<br>\
+								  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.
+	Move Members	| &lt;&lt;=^	| a[] &lt;&lt;=^ [t:..,1];	| Steps 1-3: Like the copy-members-transaction<br>\
+									  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.
+	Swap		| &lt;=&gt;	| a[] &lt;=&gt; [t:..,1];	| The contents in the member variable and the table row will be exchanged.  Void value will be assigned to the base variable.
+	Swap Members	| &lt;=&gt;^	| a[] &lt;=&gt;^ [t:..,1];	| The contents in the member variable and the table row will be exchanged.  The base variable will be preserved.
+	===
+
+	In the swap transaction, all members in the original variable will be written back to the table.  For further details, see __transactions from variables to tables__ 
+	how members are transferred to the table row.
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	animal1[] = "My animal";	
+	animal2[] = "My animal";	
+
+	animal1[] <==  [ animals: Name, Dog, .. ]; // Pick up entire row
+	animal2[] <==^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
+
+	see( animal1[] );
+	see( animal2[] );
+
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	animal1[] = "My animal";	
+	animal2[] = "My animal";	
+
+	animal1[] <<=  [ animals: Name, Dog, .. ]; // Pick up entire row
+	animal2[] <<=^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // The owl is left over
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
+	structure( animal2[], { Name, Leg count, Weapon, Special ability }, { Wolf, 4, teeth, teamwork } );
+
+	animal1[] = "Was a snake";
+	animal2[] = "Was a wolf";
+
+	animal1[] <=>  [ animals: Name, Dog, .. ]; // Pick up entire row
+	animal2[] <=>^ [ animals: Name, Owl,    ]; 
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)
+	+++,
+    "Output 03:": "automatic"
+
+},
+
+
+
+"Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions from variables to tables" ],
+    "Keywords":			[ "Open-ended ranges" ],
+    "Description 01:Introduction"::
+
+	This is the opposite direction where member contents of structures or arrays are transferred into tables.
+	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the
+	destination row will be cleared entirely before writing. Generally, only one nesting level (direct members of specified variables) will be used for the data transfer.
+
+	Following rules apply:
+	* Only simple and __horizontal table accesses__ are allowed. __Vertical table accesses__ and __matrix table accesses__ will be rejected and cause exceptions.
+	* Use '..' or keep blank to specify all column entries in the specified row, e.g. <b>[t:..,1]</b> or <b>[t:,1]</b>.  Otherwise only the specified columns will be written.
+	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the function parameters of the __table process(__) call)
+	* Only one level of __array members__ or __structure members__ will be transferred to the table.
+	* Further nested members will not be considered and transferred.
+	* The base variable will also not be considered and transferred (i.e. the name of the table will not be altered).
+	* During the transaction, the values will be converted to strings automatically because tables maintain all contents as strings.
+	* Transactions of variables without members (e.g. __simple variables__, __zero members__ variables) result in no data transfers.  Only row in the destination table will be cleared.
+	* Structure members with blank member names (so called __default members__) correspond with blank headers
+	* <b>Open-ended ranges</b>: Additional table columns with header names are only added if <i>open-ended ranges</i> are specified for the table row.  Open-ended ranges apply in following cases:
+	** <b>[t:..,1]</b> - All columns under existing headers selected.  Further columns may be added
+	** <b>[t:,1]</b> - All columns in the current row are selected.  Further columns may be added
+	** <b>[t:3..,1]</b> - All columns beginning with column 3 (example value) till end of row.
+
+	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification
+	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then an additional
+	header with that name will be added to the table and the data will be written into the designated field below.
+
+	<br><br>
+
+	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).
+	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.
+	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table unless
+	open-ended ranges have been specified, for example: <b>[t:5..,1], [t:..,1], [t:,1]</b>.
+
+	<br><br>
+
+	The following table applies to transactions from a table row (example: table name 't', row 1, all columns) to a variable.
+	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3
+	Transaction	| Symbol	| Explanation			| Description
+	Copy		| &lt;==	| [t:..,1] &lt;== a[];		| Step 1: Checks that exactly one table row and one or more or all columns are specified.<br>\
+									  Step 2: Clears all contents in the specified table row<br>\
+									  Step 3: Data transfer from variable to table as described above.<br>\
+									  Note: The base variable will not be copied.
+	Copy Members	| &lt;==^	| [t:..,1] &lt;==^ a[];		| Same mas copy-transaction.
+	Move		| &lt;&lt;=	| [t:..,1] &lt;&lt;= a[];	| Steps 1-3: Like the copy-transaction<br>\
+									  Step 4: Deletes variable b[] entirely including its members.  If a member variable is specified on the right-hand side, then that member variable with its sub-members will be deleted.
+	Move Members	| &lt;&lt;=^	| [t:..,1] &lt;&lt;=^ a[];	| Steps 1-3: Like the copy-members-transaction<br>\
+									  Step 4: Deletes all members and sub-members of variable b[], but the base variable remains unaffected. If a member variable is specified on the right-hand side, then those sub-members will be deleted.
+	Swap		| &lt;=&gt;	| [t:..,1] &lt;=&gt; a[];	| The contents in the member variable and the table row will be exchanged.  Void value will be assigned to the base variable.
+	Swap Members	| &lt;=&gt;^	| [t:..,1] &lt;=&gt;^ a[];	| The contents in the member variable and the table row will be exchanged.  The base variable will be preserved.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
+	structure( animals1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table
+
+	structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );
+
+	[ animals : Name, Owl, .. ] <== animal1[]; 				// All columsns are written, plus new ones
+	[ animals : Name, Ape, {Name, Leg count} ] <==^ animal2[];		// Only name and leg count are written
+
+	table list ( animals );
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Copy Transaction Example from an array"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	array( animal1[], { Boa, 0, Kills by constricting, Likes rats, and mice } ); // Addt'l colum without header added
+	
+	[ animals : .., 1 ] <== animal1[];   // All columsns are written, plus new ones
+
+	table list ( animals );
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
+	structure( animal1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table
+
+	structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );
+	animal2[] = Pets;
+
+	[ animals : Name, Owl, .. ] <<= animal1[]; 				// All columns are written, plus new ones
+	[ animals : Name, Ape, {Name, Leg count} ] <<=^ animal2[];		// Only name and leg count are written
+
+	table list ( animals );
+	echo("animal1[] existing? ", existing(animal1[]) );
+	see(animal2[]); 
+	+++,
+    "Output 03:": "automatic",
+    "Examples 04:Swap Transaction Example"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
+	structure( animal2[], { Name, Leg count, Weapon, Special ability }, { Wolf, 4, teeth, teamwork } );
+
+	animal1[] = "Was a snake";
+	animal2[] = "Was a wolf";
+
+	[ animals: Name, Dog, .. ] <=> animal1[]; // Pick up entire row
+	[ animals: Name, Owl, {Name,Special ability} ] <=>^ animal2[];  // E.g. leg count not included
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Snake, Wolf, Ape.  Additional column included (weapon)	
+
+	+++,
+    "Output 04:": "automatic"
+},
+
+
+
+
+"Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions between tables" ],
+    "Description 01:Introduction"::
+
+	Transactions between table rows in the same or two different tables are also supported.  
+	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the
+	destination row will be cleared entirely before writing.
+
+	Following rules apply:
+	* Only simple and __horizontal table accesses__ are allowed. __Vertical table accesses__ and __matrix table accesses__ will be rejected and cause exceptions.
+	* Use '..' or keep blank to specify all column entries in the specified row, e.g. <b>[t:..,1]</b> or <b>[t:,1]</b>.  Otherwise only the specified columns will be written.
+	* __Partial table specifications__ are allowed, provided the context information for the table and row number is available (e.g. inside the function parameters of the __table process(__) call)
+	* The transactions uses the header names and not physical column positions for orientation.  Make sure you are using unique header names.  Otherwise, the first matching column from the left will be used.
+	* Additional table columns with header names are only added if __open-ended ranges__ are specified for the table row.  Open-ended ranges apply in following cases:
+	** <b>[t:..,1]</b> - All columns under existing headers selected.  Further columns may be added
+	** <b>[t:,1]</b> - All columns in the current row are selected.  Further columns may be added
+	** <b>[t:3..,1]</b> - All columns beginning with column 3 (example value) till end of row.
+	* The <b>^</b> suffix behind the transaction operator is irrelvant because no base variables are involved.
+
+	<u>Attention</u>: In case no __open-ended ranges__ have been specified, then only the columns with header names found in both source and destination tables will be transferred.
+	<br><br>
+
+	The following table applies to transactions between table rows (example: table names 't' and 'u', row 1 and 2, all columns) to a variable.
+	=== 100, 100, 150, 650, bold_column_1 bold_column_2 bold_column_3
+	Transaction	| Symbol	| Explanation			| Description
+	Copy		| &lt;==	| [t:..,1] &lt;== [u:,2]	| Step 1: Checks that exactly one table row and one or more or all columns are specified.<br>\
+									  Step 2: Clears all contents in the specified table row<br>\
+									  Step 3: Data transfer from variable to table as described above.<br>\
+									  Note: The base variable will not be copied.
+	Move		| &lt;&lt;=	| [t:..,1] &lt;&lt;= [u:,2];	| Steps 1-3: Like the copy-transaction<br>\
+									  Step 4: The specified row in the table will be deleted.  The rows below will shift upwards.
+	Swap		| &lt;=&gt;	| [t:..,1] &lt;=&gt; [u:,2];	| The contents in the member variable and the table row will be exchanged.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals1: Name, Dog, Name..Special ability ] <== [ animals2: Name, Cat, ]; // sharp claws will not be copied.
+	[ animals1: Name, Owl, .. ] <== [ animals2: Name, Bee, { Weapon, Name } ];
+
+	echo("Dog -> Cat without claws");
+	table list( animals1 ); // No additional column created
+	
+	echo("Unchanged");
+	table list( animals2 ); // Additional column created
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Gnu, .. ] <<= [ animals1: Name, Dog, ];  // Dog overwrites Gnu, Dog erased from animals 1
+	[ animals1: Name, Owl,    ] <<= [ animals2: Name, Bee, .. ]; // Open ended items, also copy the weapon
+
+	echo("Contains the bee, owl and dog removed");
+	table list( animals1 ); // No additional column created
+	
+	echo("Contains the dog, gnu and bee removed");
+	table list( animals2 ); // Additional column created
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Surface,   Leg count, Special ability  },
+		  { Owl,   Feathers,  2,         Night vision     },
+		  { Dog,   Fur,       4,         Sensitive nose   },
+		  { Ape,   Hair,      2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Cat, .. ] <=> [ animals1: Name, Dog,  ];
+	[ animals2: Name, Bee, Name..Special ability ] <=> [ animals1: Name, Owl, ]; // Excludes the weapon
+	
+	echo("Contains Bee, Cat and Ape");
+	table list( animals1 ); // No additional column created
+	
+	echo("Contains Owl, Gnu and Dog");
+	table list( animals2 ); // Additional column created
+	+++,
+    "Output 03:": "automatic"
+},
+
+
+
+"&amp; Transaction Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions with AND assignment operator" ],
+    "Description 01:Introduction"::
+	The following pages summarize the transactions using the <b>&amp;</b> prefix. Different from transactions without assignment operators where
+	the destination variable or table row is initialized first, the existing values in the destination are overwritten if the corresponding
+	source data is available in the same member variable position or with same table column header name or number.  More specifically, following rules apply:
+
+	* Existing structure members will be overwritten
+	* Missing structure members will <u>not</u> be created and the corresponding data will <u>not</u> be written
+	* Existing array members will be overwritten
+	* Existing arrays will <u>not</u>be extended with additional members if not all data fit in the existing members, meaning that the remaining data will not be transferred.
+	* If the destination is a table, then <u>no</u> additional columns will be added to fit the data.  Excessive data will not be transferred
+	* Missing arrays and/or structures will <u>not</u> be created (in order to transfer the remaining data which will not be the case)
+
+	+++,
+    "Description 02:Typical Example"::
+	<img src="Images/Description_Transactions_Variable_Variable_AND.jpg" alt="Variable to Variable Transaction with &amp; Assignment Operator"><br/>
+
+	+++
+},
+
+
+"&amp; Transactions between Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions between variables" ],
+    "Description 01:Introduction"::
+	Different from transactions without assignment operators, the <b>&amp;</b> assignment operator in front of the transaction symbol will assume the
+	following rules focussing on overlaying data from the source variable in the destination variable:
+
+	* Transactions can be carried out on base variables as well as member variables.
+	* If the destination variable does not yet exist, then it will be created as __simple variable__ containing void value before the transaction begins.  However, the source variable on the right-hand side must exist.
+	* The existing setup of structure and array members and sub-members in the destination variable will not be altered.
+	** No further arrays or structures will be added
+	** No additional members will be added to existing array and structure members
+	* Where possible, all structure and array members and sub-members of the source variable will be included in the transaction.
+	** Values in member positions in the source variables for which no corresponding position is existing in the destination variable will not be transferred.
+	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.
+
+	<br><br>Following actions are applied on the destination variables using this assignment operator:
+	=== 100, 100, 800
+	Destination		| Source			| Description
+	Simple or zero members	| Simple or zero members	| The value of the base variable will be transferred as long no <b>^</b> suffix is specified. 
+	Simple or zero members	| Array				| Base variable: See above.  The array nembers are not transferred.  Same applies to their sub-members.
+	Simple or zero members	| Structure			| Base variable: See above.  The structure nembers are not transferred. Same applies to their sub-members.
+	Structure		| Simple or zero members	| Base variable: See above.
+	Structure		| Array				| Base variable: See above.  The array members are not copied into structure members as they are incompatiable (missing names).
+	Structure		| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  - Existing members will be overwritten<br>\
+								  - No additional member names will be added.
+	Array			| Simple or zero members	| Base variable: See above. 
+	Array			| Array				| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  - If the destination has more members than the source, then the excess destination members remain unaffected.<br>\
+								  - If the destination has fewer members than the source, then the remaining members in the source variable will not be copied.
+	Array			| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br>\
+								  - If the destination has more members than the source, then the excess destination members remain unaffected.<br>\
+								  - If the destination has fewer members than the source, then the remaining members in the source variable will not be copied.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+	animals1[] &<== animals2[];  // Trout and cat overwritten, owl survives
+	see(animals1[]);
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+	animals1[mammal] &<<= animals2[mammal]; 
+	// Lynx replaces bear, and the deer continues living.
+
+	see(animals1[]);
+	see(animals2[]);
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+	animals1[] &<=> animals2[]; 
+
+	see(animals1[]); // animals1 gets cat, trout, lynx
+	see(animals2[]); // animals2 gets dog, eel and bear
+	+++,
+    "Output 03:": "automatic"
+
+},
+
+
+
+
+"&amp; Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions from tables to variables" ],
+    "Description 01:Introduction"::
+
+	This form of transaction picks up a table row and treats it as a 1-level structure with members named by the corresponding header names which will then be
+	integrated in the destination variable using the rules of the <b>&amp;</b> prefix.
+
+	<br><br>
+	Table access rules: See section on __Transactions from Tables to Variables__.<br>
+	Destination variable rules: See section on __AND Transactions between variables__.
+
+	<br><br>Following actions are applied on the destination variables using this assignment operator:
+	=== 100, 100, 800
+	Destination		| Source			| Description
+	Simple or zero members	| Table contents (1 row)	| Base variable: Updated with table name if no <b>^</b> suffix is specified.
+	Structure		| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  - Existing members will be overwritten<br>\
+								  - No additional member names will be added.
+	Array			| Table contents (1 row)	| Base variable: See above.  Existing array members will be overwritten.\
+								  - If the destination has more members than the source, then the excess destination members remain unaffected.<br>\
+								  - If the destination has fewer members than the source, then the remaining members in the source variable will not be copied.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+
+	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+	array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+	animal1[] = "A kind of flying dog";
+	animal2[] = "A kind of big mouse";
+
+	animal1[] &<== [ animals: .., 1 ]; // Owl with skin wings and night vision
+	animal2[] &<== [ animals: .., 1 ]; // Owl
+	see( animal1[] );
+	see( animal2[] );
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+	array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+	animal1[] = "A kind of flying dog";
+	animal2[] = "A kind of big mouse";
+
+	animal1[] &<<= [ animals: .., 1 ]; // Owl 
+	animal2[] &<<= [ animals: .., 1 ]; // Dog
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Ape left over
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10  } );
+
+	animal1[] &<=>  [ animals: .., 1 ]; // Animal1: Owl with night vision, no info on legs, keeps bat wings and hangs while sleeping
+	animal2[] &<=>^ [ animals: .., 2 ]; // Animal2: Dog with 4 legs.  Circumflex symbol: Do not transfer table name.
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Contains bat and crab and ape with some info
+	+++,
+    "Output 03:": "automatic"
+
+},
+
+
+
+"&amp; Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions from variables to tables" ],
+    "Description 01:Introduction"::
+
+	This is the opposite direction where member contents of structures or arrays are transferred into tables.  In contrast to transaction to tables
+	without assignment operators, the data in the destination table row will not be deleted.  Only the specifed data columns will be overwritten as long as
+	matching data from the source variable is available. No additional table columns are introduced here to insert the remaining data.
+
+	<br><br>
+	Destination table rules: See section on __Transactions from Variables to Tables__.<br>
+	The only exception is that destination table rows are not cleared, and the __open-ended ranges__ rule does not apply for the <b>&amp;</b> assignment operator.
+	The <b>^</b> suffix, if used, does not affect the functionality with copy- and swap-transactions because the destination is a table and table names will not be changed during transactions.
+
+	<br><br>
+	
+	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification
+	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then it will be ignored.
+
+	<br><br>
+
+	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).
+	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.
+	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table.
+
+	+++,
+    "Examples 01:Copy and Move Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+	[ animals: .., 2 ] &<== animal1[];
+	[ animals: .., 3 ] &<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Contains owl, bat and crab
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Swap Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+	[ animals: .., 2 ] &<=> animal1[];  // Swap, with table name in base variable
+	[ animals: .., 3 ] &<=>^ animal2[]; // Swap
+
+	see( animal1[] ); // Strange animal descriptions ...
+	see( animal2[] );
+	table list( animals ); // Contains owl, bat and crab with some info
+	+++,
+    "Output 02:": "automatic"
+
+},
+
+
+
+
+"&amp; Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "AND Transactions between tables" ],
+    "Description 01:Introduction"::
+
+	Transactions between table rows in the same or two different tables are also supported.  
+	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the
+	destination row will be cleared entirely before writing.
+
+	<br><br>
+	Table rules: See section on __Transactions between Tables__.<br>
+	The only exception is that tables are not cleared, and the __open-ended ranges__ rule does not apply for the <b>&amp;</b> assignment operator.
+	The <b>^</b> suffix has no impact on table-to-table transactions.
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals1: Name, Dog, .. ] &<== [ animals2: Name, Cat, ]; // sharp claws will not be copied due to &-Rules
+	[ animals1: {Name,Leg count}, 3 ]  &<== [ animals2: Name, Bee, { Weapon, Name } ]; // Only name will be transferred: Bee
+	[ animals2: Name, 2 ] &<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers
+
+	table list( animals1 ); // Cat with sensitive nose, relatively smart bee
+	table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu.
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Surface,   Leg count, Special ability  },
+		  { Owl,   Feathers,  2,         Night vision     },
+		  { Dog,   Fur,       4,         Sensitive nose   },
+		  { Ape,   Hair,      2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Gnu, .. ] &<<= [ animals1: Name, Dog, Special ability ];  // Gnu with sensitive nose
+	[ animals1: Name, Owl,    ] &<<= [ animals2: Name, Bee, .. ]; // Bee without sting
+
+	table list( animals1 );  // Without dog
+	table list( animals2 );  // Without bee
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability, Strange habit  },
+		  { Owl,   2,         Night vision, night time noise in the forest     },
+		  { Dog,   4,         Sensitive nose, "Man's best friend"   },
+		  { Ape,   2 or 4,    Relatively smart, often funny } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Cat, .. ] &<=> [ animals1: Name, Dog,  ];
+	[ animals2: Name, Bee, Name..Special ability ] &<=> [ animals1: Name, Owl, ]; // Excludes the weapon
+	
+	table list( animals1 ); // No additional column created
+	table list( animals2 ); // No additional column created
+	+++,
+    "Output 03:": "automatic"
+},
+
+
+
+"&vert; Transaction Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions with OR assignment operator" ],
+    "Description 01:Introduction"::
+	Transactions with the <b>+</b> prefix function similarily like the <b>&amp;</b> prefix, but following differences apply where the variable tree in the
+	destination table or variable will be extended to fit the data:
+
+	* Existing structure members will be overwritten
+	* Missing structure members will be created and the data will be written to them
+	* Existing array members will be overwritten
+	* Existing arrays will be extended with additional members if not all data can fit into the already existing members
+	* If the destination is a table, then additional columns may be added to fit the data (dependings on how the target table row is specified)
+	* New arrays and/or structures will be created if they are still missing in the destination in order to fit all data to be transferred
+	+++,
+    "Description 02:Typical Example"::
+
+	<img src="Images/Description_Transactions_Variable_Variable_OR.jpg" alt="Variable to Variable Transaction with &vert; Assignment Operator"><br/>
+
+	+++
+},
+
+
+"&vert; Transactions between Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions between variables" ],
+    "Description 01:Introduction"::
+	Different from transactions without assignment operators, the <b>&vert;</b> assignment operator in front of the transaction symbol will assume the
+	following rules focussing on overlaying data from the source variable in the destination variable:
+
+	* Transactions can be carried out on base variables as well as member variables.
+	* If the destination variable does not yet exist, then it will be created as __simple variable__ containing void value before the transaction begins.  However, the source variable on the right-hand side must exist.
+	* The existing setup of structure and array members and sub-members in the destination variable may be extended:
+	** Further arrays and/or structures may be added.
+	** Additional members may be added to existing arrays and/or structures.
+	** Destination memebers for which equivalent source members are existing will be overwritten.
+	* Where possible, all structure and array members and sub-members of the source variable will be included in the transaction.
+	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.
+
+	<br><br>Following actions are applied on the destination variables using this assignment operator:
+	=== 100, 100, 800
+	Destination		| Source			| Description
+	Simple or zero members	| Simple or zero members	| The value of the base variable will be transferred as long no <b>^</b> suffix is specified. 
+	Simple or zero members	| Array				| Base variable: See above.  The array (including sub-members) will be transferred.
+	Simple or zero members	| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred.
+	Structure		| Simple or zero members	| Base variable: See above.
+	Structure		| Array				| Base variable: See above.  The array members will be renamed to structure members where the member names are 8-digit text representations of the index number, e.g. '00000000', '00000001', etc.\
+								  After this, same rules as for structures described below apply.
+	Structure		| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred.\
+								  - Existing members will be overwritten<br>\
+								  - Additional members may be added<br>\
+								  - Additional arrays and/or structures may be added<br>
+	Array			| Simple or zero members	| Base variable: See above. 
+	Array			| Array				| Base variable: See above.  The array will be copied.\
+								  - If the destination has more members than the source, then the excess destination members remain unaffected.<br>\
+								  - If the destination has fewer members than the source, then the array will be extended in order to transfer all members.
+	Array			| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br>\
+								  - If the destination has more members than the source, then the excess destination members remain unaffected.<br>\
+								  - If the destination has fewer members than the source, then the array will be extended in order to transfer all members.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+	animals1[] |<== animals2[];  // animals1 contains overwritten fish, reptile and all mammal sub-members
+	see(animals1[]);
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Copy Transaction Example among Structures and Arrays"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { herbivore, carnivore }, { deer, bear } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	array( animals2[mammal], { lynx, skunk, shark, pig } );
+
+	animals2[] |<== animals1[];  // Note: bear, then deer replace lynx and skunk
+	animals1[] |<== animals2[];
+
+	see(animals2[]); // Array with 4 elements
+	see(animals1[]); // Addition of beer, dear, shark and pig
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Move Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+	animals1[mammal] |<<= animals2[mammal]; 
+	// Lynx replaces bear, skunk added, turtle added
+
+	see(animals1[]); // omnivore added, carnivore overwritten
+	see(animals2[]); // no more mammal subtypes (...vores)
+	+++,
+    "Output 03:": "automatic",
+    "Examples 04:Swap Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+
+	animals1[] |<=> animals2[]; 
+
+	see(animals1[]); // trout and eel; and dog and cat are exchanged, owl and turtle duplicated
+	see(animals2[]); 
+	+++,
+    "Output 04:": "automatic"
+
+},
+
+"&vert; Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions from tables to variables" ],
+    "Description 01:Introduction"::
+
+	This form of transaction picks up a table row and treats it as a 1-level structure with members named by the corresponding header names which will then be
+	integrated in the destination variable using the rules of the <b>&vert;</b> prefix.
+
+	<br><br>
+	Table access rules: See section on __Transactions from Tables to Variables__.<br>
+	Destination variable rules: See section on __OR Transactions between variables__.
+
+	<br><br>Following actions are applied on the destination variables using this assignment operator:
+	=== 100, 100, 800
+	Destination		| Source			| Description
+	Simple or zero members	| Table contents (1 row)	| Base variable: Updated with table name if no <b>^</b> suffix is specified.
+	Structure		| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  - Existing members will be overwritten<br>\
+								  - Additional members may be added<br>\
+								  - Additional arrays and/or structures may be added<br>
+	Array			| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br>\
+								  - If the destination has more members than the source, then the excess destination members remain unaffected.<br>\
+								  - If the destination has fewer members than the source, then the array will be extended in order to transfer all members.
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+
+	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+	array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+	animal1[] = "A kind of flying dog";
+	animal2[] = "A kind of big mouse";
+
+	animal1[] |<== [ animals: .., 1 ];
+	animal2[] |<==^	 [ animals: .., 1 ];
+	see( animal1[] );
+	see( animal2[] );
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+	array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+	animal1[] = "A kind of flying dog";
+	animal2[] = "A kind of big mouse";
+
+	animal1[] |<<= [ animals: .., 1 ]; // Owl, with skin wings like a bat
+	animal2[] |<<= [ animals: .., 1 ]; // Dog, but not a favorable pet
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Ape left over
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10  } );
+
+	animal1[] |<=>  [ animals: .., 1 ]; // Exchange owl with bat
+	animal2[] |<=>^ [ animals: .., 2 ]; // Exchange dog with crab
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Contains bat and crab and ape with some info
+	+++,
+    "Output 03:": "automatic"
+
+},
+
+
+"&vert; Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions from variables to tables" ],
+    "Description 01:Introduction"::
+
+	This is the opposite direction where member contents of structures or arrays are transferred into tables.  In contrast to transaction to tables
+	without assignment operators, the data in the destination table row will not be deleted.  Only the specifed data columns will be overwritten as long as
+	matching data from the source variable is available. Additional columns may be added as long __open-ended ranges__ have been specified.
+
+	<br><br>
+	Destination table rules: See section on __Transactions from Variables to Tables__.<br>
+	The only exception is that destination table rows are not cleared, and the __open-ended ranges__ rule does not apply for the <b>&vert;</b> assignment operator.
+	The <b>^</b> suffix, if used, does not affect the functionality with copy- and swap-transactions because the destination is a table and table names will not be changed during transactions.
+
+	<br><br>
+	
+	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification
+	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then an additional
+	header with that name will be added to the table and the data will be written into the designated field below as long __open-ended ranges__ have been specified.
+
+	<br><br>
+
+	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).
+	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.
+	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table unless
+	__open-ended ranges__ have been specified.</b>.
+
+	+++,
+    "Examples 01:Copy and Move Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+	[ animals: .., 2 ] |<== animal1[];
+	[ animals: .., 3 ] |<<=^ animal2[]; // If ^-symbol is not used, then animal2[] would be deleted.
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Contains bat and crab and ape with some info
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Swap Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+	[ animals: .., 2 ] |<=> animal1[];  // Swap, with table name in base variable
+	[ animals: .., 3 ] |<=>^ animal2[]; // Swap
+
+	see( animal1[] ); // Dog, ...
+	see( animal2[] ); // Ape, ...
+	table list( animals ); // Contains owl, bat and crab and ape with some info
+	+++,
+    "Output 02:": "automatic"
+
+},
+
+
+"&vert; Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "OR Transactions between tables" ],
+    "Description 01:Introduction"::
+
+	Transactions between table rows in the same or two different tables are also supported.  
+	As long the transaction operator has no assignment operator (described in the next sections further below), then the contents in the
+	destination row will be cleared entirely before writing.
+
+	<br><br>
+	Table rules: See section on __Transactions between Tables__.<br>
+	The <b>^</b> suffix has no impact on table-to-table transactions.
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals1: Name, Dog, .. ] |<== [ animals2: Name, Cat, ]; // sharp claws will not be copied due to &-Rules
+	[ animals1: {Name,Leg count}, 3 ]  |<== [ animals2: Name, Bee, { Weapon, Name } ]; // Only name will be transferred: Bee
+	[ animals2: Name, 2 ] |<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers
+
+	table list( animals1 ); // Cat with sensitive nose, relatively smart bee
+	table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu.
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Surface,   Leg count, Special ability  },
+		  { Owl,   Feathers,  2,         Night vision     },
+		  { Dog,   Fur,       4,         Sensitive nose   },
+		  { Ape,   Hair,      2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Gnu, .. ] |<<= [ animals1: Name, Dog, Special ability ];  // Gnu with sensitive nose
+	[ animals1: Name, Owl,    ] |<<= [ animals2: Name, Bee, .. ]; // Bee without sting
+
+	table list( animals1 );  // Without dog
+	table list( animals2 );  // Without bee
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability, Strange habit  },
+		  { Owl,   2,         Night vision, night time noise in the forest     },
+		  { Dog,   4,         Sensitive nose, "Man's best friend"   },
+		  { Ape,   2 or 4,    Relatively smart, often funny } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Cat, .. ] |<=> [ animals1: Name, Dog,  ];
+	[ animals2: Name, Bee, Name..Special ability ] |<=> [ animals1: Name, Owl, ]; // Excludes the weapon
+	
+	table list( animals1 );
+	table list( animals2 );
+	+++,
+    "Output 03:": "automatic"
+},
+
+
+
+"&#43; Transaction Assignment Operators" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Transactions with ADD assignment operator" ],
+    "Description 01:Introduction"::
+	Transactions with the <b>+</b> prefix operate in a similar way like the <b>&vert;</b> prefix, but following differences apply, aiming to 
+	add the data to the existing data in the destination without overwriting the data which is already existing:
+
+	* Existing structure members will <u>not</u> be overwritten
+	* However, missing structure members will be created and the data will be written to them
+	* Existing array members will <u>not</u> be overwritten
+	** For the additional data to be written, additional array members will be created for all of them
+	* If the destination is a table, then additional columns may be added to fit the data (dependings on how the target table row is specified)
+	* New arrays and/or structures will be created if they are still missing in the destination in order to fit all data to be transferred
+	+++,
+    "Description 02:Typical Example"::
+
+	<img src="Images/Description_Transactions_Variable_Variable_ADD.jpg" alt="Variable to Variable Transaction with &vert; Assignment Operator"><br/>
+
+	+++
+},
+
+
+"&#43; Transactions between Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions between variables" ],
+    "Description 01:Introduction"::
+	Different from transactions without assignment operators, the <b>&#43;</b> assignment operator in front of the transaction symbol will assume the
+	following rules focussing on overlaying data from the source variable in the destination variable:
+
+	* Transactions can be carried out on base variables as well as member variables.
+	* If the destination variable does not yet exist, then it will be created as __simple variable__ containing void value before the transaction begins.  However, the source variable on the right-hand side must exist.
+	* The existing setup of structure and array members and sub-members in the destination variable may be extended:
+	** Further arrays and/or structures may be added.
+	** Additional members may be added to existing arrays and/or structures.
+	** Destination memebers for which equivalent source members are existing will, which is different from the <b>&vert;</b> prfix, not be overwritten.
+	* Where possible, all structure and array members and sub-members of the source variable will be included in the transaction.
+	* The base variable of the specified destination will be overwritten if the <b>^</b> suffix is not used.
+
+	<br><br>Following actions are applied on the destination variables using this assignment operator:
+	=== 100, 100, 800
+	Destination		| Source			| Description
+	Simple or zero members	| Simple or zero members	| The value of the base variable will be transferred as long no <b>^</b> suffix is specified. 
+	Simple or zero members	| Array				| Base variable: See above.  The array (including sub-members) will be transferred.
+	Simple or zero members	| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred.
+	Structure		| Simple or zero members	| Base variable: See above.
+	Structure		| Array				| Base variable: See above.  The array members will be renamed to structure members where the member names are 8-digit text representations of the index number, e.g. '00000000', '00000001', etc.\
+								  After this, same rules as for structures described below apply.
+	Structure		| Structure			| Base variable: See above.  The structure (including sub-members) will be transferred.\
+								  - Existing members will <u>not</b> be overwritten<br>\
+								  - All members in the source variable will be added as furhter members to the destination array.<br>\
+								  - Existing members will not be overwritten
+	Array			| Simple or zero members	| Base variable: See above. 
+	Array			| Array				| Base variable: See above.  The array will be copied.\
+								  - All members in the source variable will be added as furhter members to the destination array.<br>\
+								  - Existing members will not be overwritten
+	Array			| Structure			| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br>\
+								  - All members in the source variable will be added as furhter members to the destination array.<br>\
+								  - Existing members will not be overwritten
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+	array ( animals1[insects], { bee, fly } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+	array ( animals2[insects], { ant, tick, mosquito } );
+
+	animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
+	see(animals1[]);
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Copy Transaction Example among Structures and Arrays"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+	array ( animals1[insects], { bee, fly } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	array( animals2[mammal], { lynx, skunk } );
+	structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );
+
+	animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
+	see(animals1[]);
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Move Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+	array ( animals1[insects], { bee, fly } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	array( animals2[mammal], { lynx, skunk } );
+	structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );
+
+	animals1[mammal] +<<= animals2[ mammal ];
+
+	see(animals1[]);
+	see(animals2[]); // Without the mammals
+	+++,
+    "Output 03:": "automatic",
+    "Examples 04:Swap Transaction Example"::
+	structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+	structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+	array ( animals1[insects], { bee, fly } );
+
+	structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+	structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+	array ( animals2[insects], { ant, tick, mosquito } );
+
+	animals1[] +<=> animals2[];  
+	see(animals1[]); // Keep dog, owl eel, bear, deer, bee, fly. Get turtle, skunk and all insects
+	see(animals2[]); // Keep cat, trout, turtle, lynx, skunk. Get owl, deer and all insects
+	+++,
+    "Output 04:": "automatic"
+
+},
+
+"&#43; Transactions from Tables to Variables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions from tables to variables" ],
+    "Description 01:Introduction"::
+
+	This form of transaction picks up a table row and treats it as a 1-level structure with members named by the corresponding header names which will then be
+	integrated in the destination variable using the rules of the <b>&vert;</b> prefix.
+
+	<br><br>
+	Table access rules: See section on __Transactions from Tables to Variables__.<br>
+	Destination variable rules: See section on __ADD Transactions between variables__.
+
+	<br><br>Following actions are applied on the destination variables using this assignment operator:
+	=== 100, 100, 800
+	Destination		| Source			| Description
+	Simple or zero members	| Table contents (1 row)	| Base variable: Updated with table name if no <b>^</b> suffix is specified.
+	Structure		| Table contents (1 row) 	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  - Existing members will <u>not</b> be overwritten<br>\
+								  - All members in the source variable will be added as furhter members to the destination array.<br>\
+								  - Existing members will not be overwritten
+	Array			| Table contents (1 row)	| Base variable: See above.  The members for which corresponding member positions are already existing in the destination variable will also be transferred.\
+								  The existing array members will be replaced by structure members from the source variable, sorted in alphabetic order by member names.<br>\
+								  - All members in the source variable will be added as furhter members to the destination array.<br>\
+								  - Existing members will not be overwritten
+	===
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+
+	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+	array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+	animal1[] = "A kind of flying dog";
+	animal2[] = "A kind of big mouse";
+
+	animal1[] +<== [ animals: .., 1 ];
+	animal2[] +<==^	 [ animals: .., 3 ];
+	see( animal1[] ); // Adds leg count, but name and special ability are maintained
+	see( animal2[] ); // animal2[] gets all table entries for the ape
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+
+	structure( animal1[], { Name, Special ability, Skin surface }, { Bat, "On-flight acoustic radar", skin wings } );
+	array( animal2[], { Rat, "Relatively intelligent", gray hair, not a favorable pet  } );
+	animal1[] = "A kind of flying dog";
+	animal2[] = "A kind of big mouse";
+
+	animal1[] +<<= [ animals: .., 1 ];
+	animal2[] +<<=^	 [ animals: .., 2 ]; // Ape on row 2 (was on row 3 before the transaction on previous row)
+	see( animal1[] ); // Adds leg count, but name and special ability are maintained
+	see( animal2[] ); // animal2[] gets all table entries for the ape
+
+	table list( animals ); // Dog with its nose is left over.
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10  } );
+
+	animal1[] +<=>  [ animals: .., 1 ]; // Exchange owl with bat
+	animal2[] +<=>^ [ animals: .., 2 ]; // Exchange dog with crab
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Contains bat (row 1) and crab (row 2) in addition
+	+++,
+    "Output 03:": "automatic"
+
+},
+
+
+"&#43; Transactions from Variables to Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions from variables to tables" ],
+    "Description 01:Introduction"::
+
+	This is the opposite direction where member contents of structures or arrays are transferred and added to the tables.  First the existing table contents
+	beginning at the specified row are moved down by 1 line in order to provide a new blank row without deleting any other data.  Then the transaction into the
+	new row takes place by transferring the data into the table. Only the specifed data columns will be overwritten as long as
+	matching data from the source variable is available. Additional columns may be added as long __open-ended ranges__ have been specified.
+
+	<br><br>
+	
+	<b>Structures to tables:</b><br> The member names will be matched with the existing column header names, provided they are part of the table specification
+	(where whole row, a set of columns, a range or just one column is defined).  If a member name cannot be matched with any column header, then an additional
+	header with that name will be added to the table and the data will be written into the designated field below as long __open-ended ranges__ have been specified.
+
+	<br><br>
+
+	<b>Arrays to tables:</b><br> The array members will be written into the table fields as defined in the table specification (whole row, set of columns, a range or just one column).
+	Normally, the members are written to the table from left to right except if a set of columns is specified.  In this case, the sequence inside the set will apply.
+	If the array contains more elements than the number of columns (header names) provided, then the remaining elements will not be written into the table unless
+	__open-ended ranges__ have been specified.</b>.
+
+	+++,
+    "Examples 01:Copy and Move Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+	[ animals: .., 3 ] +<== animal1[];  // Bat is added in row 3
+	[ animals: .., 2 ] +<<=^ animal2[]; // Crab is added to row 2 (bat moves from row 3 to row 4)
+
+	see( animal1[] );
+	see( animal2[] );
+	table list( animals ); // Contains bat and crab and ape with some info
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Swap Transaction Example"::
+	include ( Support Library );
+	table initialize( animals,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4 and 1 tail,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+	                      { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+
+	array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+
+	[ animals: .., 2 ] +<=> animal1[];  // Bat is written to row 2 (other rows move down), other data not overwritten
+	[ animals: .., 1 ] +<=>^ animal2[]; // Owl data added to array
+
+	see( animal1[] ); // Gets leg count from the dog
+	see( animal2[] ); // Ape, ...
+	table list( animals ); // Contains owl, bat and crab and ape with some info
+	+++,
+    "Output 02:": "automatic"
+
+},
+
+
+"&#43; Transactions between Tables" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "ADD Transactions between tables" ],
+    "Description 01:Introduction"::
+
+	Transactions between table rows in the same or two different tables are also supported.  
+	As long the transaction operator has no assignment operator (described in the next sections further below), then the destination
+	row is cleared by moving all data 1 line down before the writing take place, so no exiting data gets lost
+
+	+++,
+    "Examples 01:Copy Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability  },
+		  { Owl,   2,         Night vision     },
+		  { Dog,   4,         Sensitive nose   },
+		  { Ape,   2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals1: Name, Dog, .. ]        +<== [ animals2: Name, Cat, ]; // sharp claws will be added
+	[ animals1: {Name,Leg count}, 3 ]  +<== [ animals2: Name, Bee, { Weapon, Name, Leg count } ]; // Only name + leg count will be transferred: Bee
+	[ animals2: Name, 2 ]              +<== [ animals1: Special ability, 1 ]; // No transaction due to mismatching headers. Added row stays blank
+
+	table list( animals1 ); // Cat with sensitive nose, relatively smart bee
+	table list( animals2 ); // No changes.  Gnu (row 1) stays a gnu.
+	+++,
+    "Output 01:": "automatic",
+    "Examples 02:Move Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Surface,   Leg count, Special ability  },
+		  { Owl,   Feathers,  2,         Night vision     },
+		  { Dog,   Fur,       4,         Sensitive nose   },
+		  { Ape,   Hair,      2 or 4,    Relatively smart } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	[ animals2: Name, Gnu, .. ] +<<= [ animals1: Name, Dog, Special ability ];  // Dog: Nose without Dog
+	[ animals1: Name, Owl,    ] +<<= [ animals2: Name, Bee, .. ]; // Bee without sting
+
+	table list( animals1 );  // Dog moved to table 2 (just the nose)
+	table list( animals2 );  // Bee moved to table 1
+	+++,
+    "Output 02:": "automatic",
+    "Examples 03:Swap Transaction Example"::
+	include( Support Library );
+	table initialize( animals1,
+		{ { Name,  Leg count, Special ability, Strange habit  },
+		  { Owl,   2,         Night vision, night time noise in the forest     },
+		  { Dog,   4,         Sensitive nose, "Man's best friend"   },
+		  { Ape,   2 or 4,    Relatively smart, often funny } } );
+
+	table initialize( animals2,
+		{ { Name,  Leg count, Special ability, Weapon  },
+		  { Bee,   6,         Makes honey,     sting   },
+		  { Gnu,   4,         Knows UNIX,      horns   },
+		  { Cat,   4,         Empathy to humans, sharp claws } } );
+
+	// The +<=> is very useful for mutual data replication in both tables.
+
+	[ animals2: Name, Cat, .. ] +<=> [ animals1: Name, Dog,  ]; // Cats and dogs are on both tables
+	[ animals2: Name, Bee, Name..Special ability ] +<=> [ animals1: Name, Owl, ]; // Owl and be duplicated (names)
+	
+	table list( animals1 );
+	table list( animals2 );
+	+++,
+    "Output 03:": "automatic"
+}
+
+
+
+
+B4PDOCU.STOP		

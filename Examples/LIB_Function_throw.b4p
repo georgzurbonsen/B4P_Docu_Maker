@@ -1,0 +1,15 @@
+﻿#!/usr/local/bin/b4p
+  define procedure( foo )
+  {
+      echo("Test throw");
+      throw( "my Frisbee");
+      echo("This text does not appear");
+  }
+
+  foo;
+  echo("This text does not appear, too");
+  catch( c[] )
+  {
+      echo("Caught: ", c[] );
+  }
+  else: echo("Nothing thrown");
