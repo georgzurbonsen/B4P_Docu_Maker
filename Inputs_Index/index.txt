@@ -123,7 +123,7 @@ Function Library Guide: 5.5.1 Basic Statistics Functions<br><br>
 __average ignore zero if__, __average ignore zero if any__<br>
 Function Library Guide: 5.6 Conditional Combination Functions<br><br>
 "Description 03:B"::
-__B4P Data Engine__<br>
+__B4P Interpreter__<br>
 User Guide: 1 User Guide<br><br>
 __B4P Language__<br>
 Language Guide: 1 The Language<br><br>
@@ -574,11 +574,11 @@ __e.g. for production planning__<br>
 Function Library Guide: 9.7.5.6 table distribute ...<br><br>
 __echo__<br>
 Function Library Guide: 3.1.1 echo, print ...<br><br>
-__Edit B4P Programs on Linux__<br>
+__Edit B4P Programs under Linux__<br>
 User Guide: 3.2.1 Linux Edit B4P Programs<br><br>
-__Edit B4P Programs on MacOS__<br>
+__Edit B4P Programs under MacOS__<br>
 User Guide: 3.3.1 MacOS Edit B4P Programs<br><br>
-__Edit B4P Programs on Windows__<br>
+__Edit B4P Programs under Windows__<br>
 User Guide: 3.1.1 Windows Edit B4P Programs<br><br>
 __else__<br>
 Function Library Guide: 2.1.2 else<br><br>
@@ -602,8 +602,6 @@ __even__, __even numbers__<br>
 Function Library Guide: 5.1.2 even, odd, whole<br><br>
 __Example - Retrieve stock market data__<br>
 User Guide: 6.3 Stock Markets - Program<br><br>
-__Example - U.S. Presidents from Wikipedia__<br>
-User Guide: 6.4 U.S. Presidents from Wikipedia<br><br>
 __Example: Merge football clubs__<br>
 User Guide: 6.2 Football Club Merger - Program<br><br>
 __Example: Merging football clubs - interactive approach__<br>
@@ -932,8 +930,8 @@ __inspect__<br>
 Function Library Guide: 3.3.3 inspect<br><br>
 __Inspection and debugging__<br>
 Function Library Guide: 3.3 Inspection and Debugging<br><br>
-__Installation and Setup__<br>
-User Guide: 2 Installation and Setup<br><br>
+__Installation__<br>
+User Guide: 2 Installation<br><br>
 __Installation on Linux__<br>
 User Guide: 2.2 Linux<br><br>
 __Installation on MacOS__<br>
@@ -1033,8 +1031,6 @@ __LHS Expression__, __LHS Expressions__<br>
 Language Guide: 4.2.1 Left-Hand Side Expressions<br><br>
 __License Activation__<br>
 User Guide: 2.7 License Activation<br><br>
-__License Activation__<br>
-User Guide: 3 Starting B4P<br><br>
 __license apply key__<br>
 Function Library Guide: 12.4.3 license apply key<br><br>
 __license provide identification__<br>
@@ -1782,32 +1778,34 @@ __sqrt__, __Square Root__<br>
 Function Library Guide: 5.2.1 sqrt - Square Root<br><br>
 __start__, __start B4P program__<br>
 Function Library Guide: 2.4.1 start<br><br>
-__Start B4P Programs as Executables on Linux__<br>
+__Start B4P Programs as Executables under Linux__<br>
 User Guide: 3.2.2.1 Linux Start B4P Programs as Executables<br><br>
-__Start B4P Programs as Executables on MacOS__<br>
+__Start B4P Programs as Executables under MacOS__<br>
 User Guide: 3.3.2.1 MacOS Start B4P Programs as Executables<br><br>
-__Starting a B4P Program with Linux__<br>
+__Starting a B4P Program under Linux__<br>
 User Guide: 3.2.2 Linux Start B4P Programs<br><br>
-__Starting a B4P Program with MacOS__<br>
+__Starting a B4P Program under MacOS__<br>
 User Guide: 3.3.2 MacOS Start B4P Programs<br><br>
-__Starting a B4P Program with Windows__<br>
+__Starting a B4P Program under Windows__<br>
 User Guide: 3.1.2 Windows Start B4P Programs<br><br>
-__Starting B4P on Linux__<br>
-User Guide: 3.2 Starting on Linux<br><br>
-__Starting B4P on MacOS__<br>
-User Guide: 3.3 Starting on MacOS<br><br>
-__Starting B4P on Windows__<br>
-User Guide: 3.1 Starting on Windows<br><br>
+__Starting B4P__<br>
+User Guide: 3 Starting B4P<br><br>
+__Starting B4P Directly under Linux__<br>
+User Guide: 3.2.3 Linux Start B4P Directly<br><br>
+__Starting B4P Directly under Windows__<br>
+User Guide: 3.1.3 Windows Start B4P Directly<br><br>
+__Starting B4P under Linux__<br>
+User Guide: 3.2 Starting B4P under Linux<br><br>
+__Starting B4P under MacOS__<br>
+User Guide: 3.3 Starting B4P under MacOS<br><br>
+__Starting B4P under Windows__<br>
+User Guide: 3.1 Starting B4P under Windows<br><br>
 __Starting Behavior__<br>
 User Guide: 3.4 Starting Behavior Basics<br><br>
 __Starting Behavior Advanced__<br>
 User Guide: 3.4.1 Starting Behavior Advanced<br><br>
 __starting directory__<br>
 Function Library Guide: 11.1.4 starting directory<br><br>
-__Starting the B4P Data Engine with Linux__<br>
-User Guide: 3.2.3 Linux Start B4P Data Engine<br><br>
-__Starting the B4P Data Engine with Windows__<br>
-User Guide: 3.1.3 Windows Start B4P Data Engine<br><br>
 __Statements__<br>
 Language Guide: 1.5.2 Statements<br><br>
 __Statements [func params]__<br>

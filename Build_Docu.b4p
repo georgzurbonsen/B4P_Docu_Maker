@@ -1147,7 +1147,6 @@ define procedure ( create combined TOC )
 		index html file name [] = [RTOC:Category,Start,HTML File Name];
 		echo("Following HTML file name is duplicated to 'index.html': ", index html file name[] );
 		file copy overwrite ( destination path[] + index html file name [], destination path[] + index.html );
-interactive;
 	}
 
 

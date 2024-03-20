@@ -3,31 +3,42 @@ B4PDOCU.START
 
 
 
-"Starting on Windows":
+"Starting B4P under Windows":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting B4P on Windows" ],
+    "Feature Names":		[ "Starting B4P under Windows" ],
     "Description 01:Introduction"::
 
-    This section provides an introduction on how to __edit B4P Programs on Windows__ as well
-    as different variants to start the B4P Data Engine and B4P Programs:
+    This section provides an introduction on how to __edit B4P Programs under Windows__ as well
+    as different variants to start the B4P interpreter and B4P Programs:
 
-    * __Starting a B4P Program with Windows__
-    * __Starting the B4P Data Engine with Windows__
+    * __Starting a B4P Program under Windows__
+    * __Starting B4P Directly under Windows__
 
     +++,
 
-    "Description 02:The personal B4P folder"::
+    "Description 02:Starting Diretory - Your personal B4P folder"::
 
-    Under Linux, the personal B4P folder created after installation is subdirectory <b>Documents\Programs\B4P</b> in your home directory.
-    This folder, which is also the initial __starting directory__ after completing the installation, contains some a few programs:
-    * <b>main.b4p</b> - Started if B4P is started without B4P program and finds this directory as starting directory.
+    Under Windows, a personal B4P foldler has been created in <b>C:\users\<i>your user name</i>\B4P</b>. This is the
+    original __starting directory__ which you can change afterwards if needed.  You will find the following 3 programs:
+
     * <b>hello world.b4p</b> - Displays 'Hello World'
-    * <b>interactive.b4p</b> - Starts B4P and goes directly into __interactive mode__
-    * <b>start B4P here.b4p</b> - Simple utility to change starting directory.  Copy this file into a different directory and run it from there. B4P will then look for "main.b4p" in that location.
+    * <b>start B4P here.b4p</b> - Simple utility to change starting directory.  Copy this file into a different directory and run it from there to set the new starting directory.
+    * <b>main.b4p</b> - Started automatically if B4P is started by typing the command "B4P -m" in a console or a batch script.
+    * <b>interactive.b4p</b> - Start B4P in interactive mode in the folder where this file is located.
 
+    Feel free to create further B4P programs in this folder.
 
     <img src="Images/GUI_Windows_B4P_Folder.png" alt="Personal B4P Folder"><br/>
+
+
+    "Description 03:Changing Starting Directory"::
+
+    You can do one of the following to change the starting directory to another existing folder.
+
+    * Copy <b>start B4P here.b4p</b> into a different folder and run it
+    * Start B4P, interactive mode appears and type '__starting directory__( "<i>Full path name to the folder</i>" ); 
+
 
     +++
 
@@ -40,19 +51,19 @@ B4PDOCU.START
 "Windows Edit B4P Programs":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Edit B4P Programs on Windows" ],
+    "Feature Names":		[ "Edit B4P Programs under Windows" ],
 
-    "Description 01:Edit B4P on Windows"::
+    "Description 01:Edit B4P under Windows"::
 
 
-    B4P programs are standard text files in ANSI or UNICODE formaT. B4P will recognize the character format
+    B4P programs are standard text files in ANSI or UNICODE format. B4P will recognize the character format
     automatically.  The <i>Editor</i> App, also and formerly known as <i>Notepad</i> is a pre-installed editor on Windows systems.
 
-    Use the Microsoft file browser (Explorer) to visit directory <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b>.
-    Choose the B4P file (for example: <b>Hello World.b4p</b> and click on the right mouse button and choose <b>Edit</b>.
-    It is typically the 2nd menu entry and could appear in a different language, depending on the language settings of the system.
+    Use the Microsoft file browser (Explorer) to visit directory <b>C:\Users\<i>Your user name</i>\B4P</b>.
+    Choose the B4P file (for example: <b>Hello World.b4p</b> and click on the right mouse button and choose <b>Open with</b>
+    and then choose the editor.  Depending on your language settings, the menus may appear in a different language.
 
-    <br/><br/><img src="Images/GUI_Windows_Example_Files_Edit.png" alt="Windows Open in Explorer"><br/>
+    <br><br>
 
     You can also use alternative text editors as long they do not embed any text formattings such as different fonts, colors,
     underscoring, etc.  <i>Visual Studio Code</i> is also a popular editor for Windows and other platforms.
@@ -66,9 +77,9 @@ B4PDOCU.START
 "Windows Start B4P Programs" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting a B4P Program with Windows" ],
+    "Feature Names":		[ "Starting a B4P Program under Windows" ],
 
-    "Description 01:Starting a B4P Program on Windows - Hello World"::
+    "Description 01:Starting a B4P Program under Windows - Hello World"::
 
     Two possibilites exist to start B4P programs:
 
@@ -95,6 +106,7 @@ Look for the 7Z compression/decomopression utility
 Found following program file paths: {'C:\Program Files','C:\Program Files (x86)'}
  - 7z.exe Zip-utility found in {'C:\Program Files\7-Zip\7z.exe'} (OK)
 Hello World
+Today, the date is 2024-02-15
 Done - Press ENTER key
 	+++,
 
@@ -107,6 +119,7 @@ Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
 Licensing info ...
 
 Hello World
+Today, the date is 2024-02-15
 Done - Press ENTER key
 
     +++,
@@ -122,15 +135,14 @@ Done - Press ENTER key
 	* "Hello World.b4p"
 
 	If you want to suppress the "Press [Enter] ..." before finishing, add the __command line switch__ <b>-x</b>, for example
-	* B4P -x "Hellow World.b4p"
+	* B4P -x "Hello World.b4p"
 	
 	+++,
     "Output 03:"::
-PS C:\Users\Your user name> cd "C:\Users\Your user name\Documents\Programs\B4P"                     
-PS C:\Users\Your user name\Documents\Programs\B4P> ls *.b4p                                                           
+PS C:\Users\username> cd "C:\Users\username\B4P"                     
+PS C:\Users\userame\B4P> ls *.b4p                                                           
 
-    Verzeichnis: C:\Users\Your user name\Documents\Programs\B4P
-
+    Verzeichnis: C:\Users\username\B4P
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
@@ -140,16 +152,20 @@ Mode                LastWriteTime         Length Name
 -a----         06.11.20     22:34            555 Start B4P here.b4p
 
 
-PS C:\Users\Your user name\Documents\Programs\B4P> b4p -x "Hello World.b4p"                                           
+PS C:\Users\username\B4P> b4p "Hello World.b4p"
+	 
 B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 10.00 Release Candidate 2 (2022-03-27)
-Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
-Licensing info ...
+Version 10.04RC1 Release Candidate (2023-12-31)
+Copyright (C) 2012..2024 Georg zur Bonsen, all rights reserved.
+Licensed (local machine) ...
 
 Hello World
-PS C:\Users\Your user name\Documents\Programs\B4P>
+Today, the date is 2024-02-15
+Done - Press ENTER key
+
+PS C:\Users\username\B4P>
 	+++
 
 
@@ -157,14 +173,12 @@ PS C:\Users\Your user name\Documents\Programs\B4P>
 
 
 
-
-
-"Windows Start B4P Data Engine" :
+"Windows Start B4P Directly" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting the B4P Data Engine with Windows" ],
+    "Feature Names":		[ "Starting B4P Directly under Windows" ],
 
-    "Description 01:Starting a B4P Program on Windows"::
+    "Description 01:Starting a B4P Program under Windows"::
 
 	B4P can also be started without specifying a dedicated file name.  In this case, it will first look for "main.b4p" in the current
 	directory (if started from command line).  If the file is not found, then it will look for "main.b4p" in __starting directory__.
@@ -172,14 +186,14 @@ PS C:\Users\Your user name\Documents\Programs\B4P>
 
 	<br><br>
 
-	
 
-
-    * Use the start menu
+    * Use the start menu (Here B4P seeks for the starting directory)
     * Click on the B4P desktop icon (if activated during installation process)
+    * Command line: Type "B4P". 
 
+	+++,
 
-    "Description 02:Using the Start Senu"
+    "Description 02:Using the Start Menu"::
 
 	<br><br>
 	Start B4P using the start menu:
@@ -187,23 +201,20 @@ PS C:\Users\Your user name\Documents\Programs\B4P>
 	<br/><img src="Images/GUI_Windows_Start_Menu.png" alt="Windows Start Menu"><br/>
 
 	<br><br>
-	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start the B4P Data Engine.
+	Click on the yellow folder <b>B4P</b>, the folder opens up, and then on the blue icon <b>B4P</b> to start B4P.
 	The following output will occur:
 
     +++,
-    "Output 02:Wait 2 seconds and main.b4p starts, or hit any key to interrupt and enter interative mode"::
+    "Output 02:"::
 B4P - Beyond Former Performance
 _______________________________________________________________________________
 
-Version 10.00 Release Candidate 2 (2022-03-27)
-Copyright (C) 2012..2022 Georg zur Bonsen, all rights reserved.
-Licensing info ...
+Version 10.04RC1 Release Candidate (2023-12-31)
+Copyright (C) 2012..2024 Georg zur Bonsen, all rights reserved.
+Licensed (local machine) ...
 
-Starting 'Main.b4p' in two seconds...  Press any key to interrupt. Done.
-Main.b4p in C:\Users\Zur Bonsen Georg\Documents\Programs\B4P completed execution.
-Feel free to add or change the code in this file.
-
-Type 'help' for help, 'docs' or 'docs search' for online B4P documentation.
+Going to starting directory "C:\Users\username\B4P"
+Type 'help' for help, 'docs' or 'toc' for online B4P documentation.
 >> exit
 exit (); called
 Done - Press ENTER key
@@ -212,7 +223,7 @@ Done - Press ENTER key
 
     "Description 03:Clicking on the B4P desktop icon"::
 
-    Double-click on the B4P desktop icon and B4P starts.
+    Double-click on the B4P desktop icon and B4P starts.  B4P sees the desktop folder as workig directory.
 
 
     "Description 04:Start B4P Program with Windows Commands"::

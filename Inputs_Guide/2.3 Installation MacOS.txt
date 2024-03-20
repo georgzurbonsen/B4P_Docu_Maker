@@ -93,7 +93,7 @@ B4PDOCU.START
 	<br>
 	<b>Review</b> the contents of the b4p_installation as follows:
 	=== 200, 500, noheader, bold_column_1
-	b4p			| B4P Data Engine including the language interpreter.
+	b4p			| B4P interpreter.
 	setup			| B4P installation program
 	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)
 	lib\			| Directory containing B4P library files
@@ -122,7 +122,7 @@ B4PDOCU.START
 
 	"Description 04:Terms and Conditions"::
 	Note that by installing and using B4P you agree to accept the __Terms and Conditions__ 
-	for use of the B4P Data Engine and all asscociated files and libraries.
+	for use of the B4P interpreter and all asscociated files and libraries.
 
 
 	"Description 05:Ready for installation"::

@@ -2,18 +2,41 @@
 B4PDOCU.START
 
 
-"Starting the Engine" :
+"Starting B4P" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting the Engine" ],
+    "Feature Names":		[ "Starting B4P" ],
     "Description 01:Introduction"::
+
+	B4P can either be started directly where, by default, __interactive mode__ is activated, or
+	alternatively programs written in B4P (with the file ending <i>.b4p</i>) can be executed directly.
 
 	Windows, LINUX and MacOS provide easy means to start B4P, either by
 
-	* Starting the __B4P Data Engine__ directly, or
-	* Starting a __B4P Program__ directly.
+	* Starting a <b>B4P Program</b>.
+	* Starting <b>B4P Interpreter</b> directly to make use of interactive mode, or
 
-	The following sections provide B4P launching instructions for the operating systems Windows, Linux and MacOS.
+	+++,
+
+    "Description 02:Starting a B4P Program"::
+
+	With B4P installed, the B4P programs are directly executable files under the supported operating
+	systems.  For example you can start these programs by double-clicking on the file names in file browsers,
+	or typing "B4P program_name.b4p" in a command line.
+	Details are provided in the following sections specific to Windows, LINUX and MacOS.
+	The workflow is very simple and illustrated below:
+
+	<br/><br/><img src="Images/GUI_Starting_B4P_Program.png" alt="B4P Starting Behavior for Programs"><br/>
+
+	<br/>
+
+    "Description 03:Starting B4P Interpreter in interactive mode"::
+
+	Alternatively, you can B4P can be started directly and make use of the __interactive mode__.
+	Either double-click on the B4P icon on the start menu or desktop, or type "B4P" on a console for command line inputs.
+	If B4P is started from the start menu or desktop, then it will go to the __starting directory__ automatically.
+
+	<br/>	<br/><img src="Images/GUI_Starting_B4P_Directly.png" alt="B4P Starting Behavior Interactively"><br/>
 
 	+++
 },
@@ -29,9 +52,9 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	As long B4P is started with a specified B4P program file, then the program file will start running immediately.
-	If the B4P Data Engine is started without a B4P file, then it does the following:
+	If the B4P interpreter is started without a B4P file, then it does the following:
 
-	* Look for "main.b4p" in the current directory (if B4P Data Engine is started from command line)
+	* Look for "main.b4p" in the current directory (if the B4P interpreter is started from command line)
 	* If not successful, then look for "main.b4p" in the starting directory.
 	* If still not successful, the __interactive mode__ is started.
 
@@ -89,7 +112,7 @@ Done - Press ENTER key
     "Feature Names":		[ "Starting Behavior Advanced" ],
     "Description 01:Introduction (As beginner, you can skip this page)"::
 
-	The B4P Data Engine undertakes a few steps before the specified B4P is started up.  The flow chart shown below illustrates this.
+	The B4P interpreter undertakes a few steps before the specified B4P is started up.  The flow chart shown below illustrates this.
 	Start-up begins with a common initialzation procedure, beginnign with identifying __command line switches__ if they are provided, and then
 	show a welcome-text (if not disabled with <b>-q</b> or <b>-w</b>), initialize all system variables and retrieve the locale settings from <b>B4P Locale Settings.json</b>
 	located in the application data directory.  The locale settings has originally been selected during installation, and the function __set locale(__) 
@@ -128,8 +151,8 @@ Done - Press ENTER key
     "Description 01:Introduction"::
 
 	B4P supports 
-	* __Command line arguments__ are additional text items supplied to the B4P Data Engine in addition to the B4P Program name.
-	* __Command line switches__ to influence the __starting behavior__ of the B4P Data Engine (the short ones, like <b>-w</b> to suppress the welcome text), and
+	* __Command line arguments__ are additional text items supplied to the B4P interpreter in addition to the B4P Program name.
+	* __Command line switches__ to influence the __starting behavior__ of the B4P interpreter (the short ones, like <b>-w</b> to suppress the welcome text), and
 	* __Long options__ to provide additional information to B4P programs which can pick up and make use of the information provided with the long options.
 
 	+++,
@@ -146,7 +169,7 @@ Done - Press ENTER key
     "Feature Names":		[ "Command line arguments" ],
     "Description 01:Introduction"::
 
-	Command line arguments are supplied to the B4P Data Engine in addition to the B4P file name.  The path and file name of the B4P program is actually considered as
+	Command line arguments are supplied to the B4P interpreter in addition to the B4P file name.  The path and file name of the B4P program is actually considered as
 	the first command line argument.  Additional arguments can be provided in text form, such as further file names, names, locations, values, etc. 
 
 	<br><br>
@@ -184,14 +207,14 @@ for (a[]=0, a[]<n[], a[]++) echo("Argument ", a[], ": ", command line arguments[
     "Description 01:Introduction"::
 
 	If B4P is started with typed commands (from console command line, batch scripts, etc.) then command line switches can be provided which
-	influence the starting and execution behavior of the B4P Data Engine.
+	influence the starting and execution behavior of the B4P interpreter.
 
 	<br><br>
 	Following rules apply:
 	* The actual Command line switches consist of single letters. All switches must start with one minus sign (-).
 	* Command line switches may be specified in any order or combination (e.g. <b>-w -x, -x -w, -wx, -xw</b>)
 	* Command line swithces may be located anywhere before, between and after __command line arguments__.
-	* Invalid command line switches will provide descriptive error messages and stop the B4P Data Engine.
+	* Invalid command line switches will provide descriptive error messages and stop the B4P interpreter.
 	* Chosen command line switches are not visible to the running B4P programs
 
 	<br>
@@ -247,7 +270,7 @@ for (a[]=0, a[]<n[], a[]++) echo("Argument ", a[], ": ", command line arguments[
 	* Spaces are not allowed.  <b>--use_value=3</b> is OK, but <b>--use_value = 3</b> is not.
 	* The sequential order is not relevant
 	* The long options may be placed anywhere before, between or after the __command line arguments__
-	* Long options are solely available for your B4P programs. They do not influence the starting and execution behavior of the B4P Data Engine.
+	* Long options are solely available for your B4P programs. They do not influence the starting and execution behavior of the B4P interpreter.
 
 	+++,
     "Description 02:Accessibility to B4P Programs"::

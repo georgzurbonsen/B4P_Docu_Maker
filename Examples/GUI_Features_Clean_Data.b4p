@@ -7,7 +7,8 @@
   table process all cells        ( countries, [.] = replace all( str([.]), {'[?]', '[??]' }, '' ) );
   table clean                    ( countries, trim spaces );
 
-  table lift header row          ( countries ); // Find header row automatically
+  table lift header row          ( countries, Name ); // Find header row automatically
+  table correct headers          ( countries, {Name, 'A-2', 'A-3'}, {Country name, 'Alpha-2 code', 'Alpha-3 code' } );
   table process                  ( countries, [Country name]= left([Country name], ' (') ); // Remove name additions
 
   table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only

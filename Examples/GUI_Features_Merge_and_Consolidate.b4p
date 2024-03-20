@@ -4,12 +4,13 @@
   // Download a list of languages from Wikipedia and do the clean-up first.
 
   file download overwrite        ( "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory", languages.html );
-  table load                     ( languages, languages.html, HTML, List of countries );
+  table load                     ( languages, languages.html, HTML, References );
   table process all cells        ( languages, [.] = replace all( str([.]), {'[?]', '[??]', '[citation needed]' }, '' ) );
-  table clean            ( languages, trim spaces );
-  table delete selected rows     ( languages, [Country]=Country ); // Headers are repeated inside the long table.
-  table keep columns             ( languages, {Country, Official language} );
-  table rename headers           ( languages, {Country, Official language}, { Country name, Languages } );
+  table clean              ( languages, trim spaces );
+
+  table delete selected rows     ( languages, ['Country/Region']=Country ); // Headers are repeated inside the long table.
+  table keep columns             ( languages, {'Country/Region', Official language} );
+  table rename headers           ( languages, {'Country/Region', Official language}, { Country name, Languages } );
 
   // Merge the data.
   // Note Some languages come without countries (see bottom of table), and vice versa.

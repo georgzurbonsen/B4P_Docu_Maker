@@ -63,7 +63,7 @@ B4PDOCU.START
 
 	<br><br>
 
-	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P Data Engine and all
+	With the download carried out, you automatically agree to accept the __Terms and Conditions__ for use of the B4P interpreter and all
 	asscociated files such as libraries.  The terms and conditions are binding at any time you are using B4P.
 
 	<br><br>
@@ -78,7 +78,7 @@ B4PDOCU.START
 	You should see the following extracted files and directories:
 
 	=== 300, 700, noheader, bold_column_1
-	B4P.exe			| B4P Data Engine including the language interpreter. A link to this file will be included in the start menu and added to the desktop if requested.
+	B4P.exe			| B4P interpreter. A link to this file will be included in the start menu and added to the desktop if requested.
 	Setup.exe		| B4P installation program
 	Install.txt		| Installation script, open source, written in B4P.  This program is protected from modifications.
 	vcruntime140_1.dll	| Dynamic link library used by B4P.exe
@@ -226,7 +226,7 @@ Please select: B
 
 	+++,
     "Description 04:Add Shortcut on the Windows Desktop"::
-	If you reply positively, then two icons will be added to your desktop: The B4P Data Engine, and the link to the B4P online documentation.
+	If you reply positively, then two icons will be added to your desktop: The B4P interpreter, and the link to the B4P online documentation.
 
 	+++,
     "Examples 04:"::

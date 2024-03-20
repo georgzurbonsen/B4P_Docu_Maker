@@ -7,19 +7,19 @@ B4PDOCU.START
 
 
 
-"Starting on MacOS":
+"Starting B4P under MacOS":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting B4P on MacOS" ],
+    "Feature Names":		[ "Starting B4P under MacOS" ],
     "Description 01:Introduction"::
 
     B4P under MacOS is operational immediately after installation.  No system reboot is necessary.
 
-    This section provides an introduction on how to __edit B4P Programs on MacOS__ as well
-    as different variants to start the B4P Data Engine and B4P Programs:
+    This section provides an introduction on how to __edit B4P Programs under MacOS__ as well
+    as different variants to start the B4P languuage interpreter and B4P Programs:
 
-    * __Starting a B4P Program with MacOS__
-    * __Starting the B4P Data Engine with MacOS__
+    * __Starting a B4P Program under MacOS__
+    * __Starting B4P Directly under MacOS__
 
 	+++,
     "Description 02:The personal B4P folder"::
@@ -47,9 +47,9 @@ B4PDOCU.START
 "MacOS Edit B4P Programs":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Edit B4P Programs on MacOS" ],
+    "Feature Names":		[ "Edit B4P Programs under MacOS" ],
 
-    "Description 01:Edit B4P on MacOS"::
+    "Description 01:Edit B4P under MacOS"::
 
     B4P programs are standard text files in ANSI or UNICODE formaT. B4P will recognize the character format
     automatically.
@@ -65,13 +65,13 @@ B4PDOCU.START
 "MacOS Start B4P Programs":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting a B4P Program with MacOS" ],
+    "Feature Names":		[ "Starting a B4P Program under MacOS" ],
 
-    "Description 01:Starting a B4P Program on MacOS - Hello World"::
+    "Description 01:Starting a B4P Program under MacOS - Hello World"::
 
     Two possibilites exist to start B4P programs:
 
-    * __Start B4P Programs as Executables on MacOS__, e.g. by typing <b>./"hello world.b4p"</b> . <br>\
+    * __Start B4P Programs as Executables under MacOS__, e.g. by typing <b>./"hello world.b4p"</b> . <br>\
       <u>Good to know:</u> Wildcards are allowed as long the file does not become ambiguous, e.g. <b>./hello*</b> .
     * __MacOS Start B4P to run B4P programs__, e.g. <b>b4p "hello world.b4p"</b> .
 
@@ -83,7 +83,7 @@ B4PDOCU.START
 "MacOS Start B4P Programs as Executables":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Start B4P Programs as Executables on MacOS" ],
+    "Feature Names":		[ "Start B4P Programs as Executables under MacOS" ],
 
     "Description 01:Starting Hello World - Do the following steps"::
 
@@ -91,7 +91,7 @@ B4PDOCU.START
 
     * The mode settings must allow file execution.  Use <b>chmod 755 <i>filename.b4p</i></b> to do so
     * Add the chebang statement at the very beginning of the file: <b>#!/usr/local/bin/b4p</b>.  MacOS recognizes the \
-      chebang and ensures that B4P and not a different runtime engine or interpreter, for example the MacOS shells, is trying to run this program.
+      chebang and ensures that B4P and not another interpreter, for example the MacOS shells, is trying to run this program.
 
     <u>Good to know:</u> The "hello world.b4p" file does already fulfilll these two prerequistes.
 
@@ -118,7 +118,7 @@ B4PDOCU.START
 #!/usr/local/bin/b4p
 
 // The statement in the 1st row applies to UNIX/Linux/MacOS only and is called a "Shebang".
-// It specifies the language interpreter to use when started as an executable file.
+// It specifies the interpreter to use when started as an executable file.
 // You can delete this line it if you plan to use B4P under Windows only.
 
 // Shebangs are ignored in Microsoft Windows environments.
@@ -201,12 +201,12 @@ Done - Press ENTER key
 
 
 
-"MacOS Start B4P Data Engine" :
+"MacOS Start B4P Directly" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting the B4P Data Engine with MacOS" ],
+    "Feature Names":		[ "Starting B4P Directly under MacOS" ],
 
-    "Description 01:Starting a B4P Program on MacOS"::
+    "Description 01:Starting a B4P Program under MacOS"::
 
 	B4P can also be started without specifying a dedicated file name.  In this case, it will first look for "main.b4p" in the current
 	directory (if started from command line).  If the file is not found, then it will look for "main.b4p" in __starting directory__.
@@ -217,7 +217,7 @@ Done - Press ENTER key
 	In the next example, B4P starts and finds 'main.b4p' in the initial starting directory which is the subdirectory 'b4p' in your home directory.
 
 	+++,
-    "Examples 01:Start B4P Data Engine"::
+    "Examples 01:Start B4P"::
 [~]$ b4p
 	+++,
 

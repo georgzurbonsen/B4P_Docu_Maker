@@ -1,45 +1,42 @@
 ﻿#!/usr/local/bin/b4p
 include ( Style Library );      // Include this library if you want to use the 'table style ...' functions.
 //  Step 1: Download two web pages.
-
-    echo("Stock market originates from slickcharts.  Date downloaded: ", str( date(today), "Tttt DD. Mmmm. YYYY", en_US ) );
     for all parameters ( {nasdaq100, sp500} , listing[] )
     {
-        file download overwrite     ( "https://www.slickcharts.com/" + listing[], listing[] + .html);
-        table load                  ( listing[] ,listing[] + .html,  HTML, "Components of the" );
-        table rename column headers ( listing[], "Weight", "Weight " + listing[] ); 
-    }                                   // Weight info are specific to SP and Nasdaq, so add the listing name
+        file download overwrite       ( "https://www.slickcharts.com/" + listing[], listing[] + .html);
+        table load            ( listing[],listing[] + .html,  HTML, "Components" );
+        table clean           ( listing[], trim spaces );
+        table process         ( listing[], ['% Chg'] = smart num( middle( ['% Chg'], '(', ')' )); [Price] = clean num([Price]) );
+
+        table correct headers     ( listing[], "Portfolio%", Weight ); // SP500 uses different terminology
+        table rename column headers   ( listing[], Weight, "Weight " + listing[] ); // Weight info is specific to SP and Nasdaq, so add the listing name
+    }
 
 //  Step 2: Combine the two tables
 
-    table merge extend columns      ( nasdaq100, sp500, Symbol );
-    table rename                    ( sp500, stocks );
+    table merge extend columns        ( nasdaq100, sp500, Symbol );
+    table rename              ( sp500, stocks );
 
-//  Step 3: Cleanup
+//  Step 3: Rearrange
 
-    table correct headers           ( stocks, '*Price*', Price );
-    table rearrange columns         ( stocks, { '#', Company, Symbol, Price, Chg, '% Chg' } ); // Weightings follow afterwards
-  
-//  Percent value gets converted to regular number, price value is claned up
+    table sort rows               ( stocks, Company );
+    table process             ( stocks, ['#'] = row() ); // Number the items
+ 
+    table rearrange columns           ( stocks, { '#', Company, Symbol, Price, Chg, '% Chg' } );      // Weightings follow afterwards
 
-    table process                   ( stocks, ['% Chg'] = smart num( middle(['% Chg'],'(',')')); [Price] = clean num([Price]) );
-    table sort rows                 ( stocks, Company );
-    table process                   ( stocks, ['#'] = row() );
+//  Step 4: Add Style
 
-//  Step 4: Add some color
+    table style auto width            ( stocks );
+    table style theme         ( stocks, Zebra Vertical Lines, pattern, 2, table, "gridlines, false" );
+    table process             ( stocks, // Negative numbers: red; positive numbers: navy blue
+    table style cells             ( stocks, { 'Chg', '% Chg' }, { 2: row() }, single, text color, select if ( [Chg]>0, navy, red ) ) );
 
-    table style auto width          ( stocks );
-    table style theme               ( stocks, Zebra Vertical Lines, pattern, 2, table, "gridlines, false" ); // Double zebra patterns
-    table process                   ( stocks, // Negative numbers: red, positive numbers: navy blue
-        table style cells               ( stocks, {'Chg', '% Chg'}, {2:row()}, single, text color, select if ( [Chg]>0, navy, red ) ) );
-
-    table style columns             ( stocks, '% Chg', sheet, number format, "0.00%" ); // Value to show as percent. EXCEL only
-    table style table               ( stocks, sheet, freeze rows, 1, autofilter, 0);
+    table style columns           ( stocks, '% Chg', sheet, number format, "0.00%" ); // Value to show as percent.
+    table style table         ( stocks, sheet, freeze rows, 1, autofilter, 0);
 
 //  Step 5: Save the artwork
 
-    table save excel file           ( stocks, "NASDAQ and SP500", "Images/Stock Market Listing.xlsx" );
-    table list                      ( stocks, briefly, 5 ); // Show top and bottom 5 rows on the console
+    table save excel file         ( stocks, "NASDAQ and SP500", Stocks.xlsx );
 
 //  Step 6: Also demonstrate saving results in HTML
 

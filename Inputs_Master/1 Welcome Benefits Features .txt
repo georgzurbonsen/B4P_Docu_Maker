@@ -10,12 +10,10 @@ B4PDOCU.START
     "Description 01:"::
 
 
-<<<<<<< HEAD
 	<img src="Images/B4P_General_Overview.png" alt="B4P Overview"><br/>
-=======
+
 	B4P is a data integration and analytics engine with built-in programming language, and is purpose-built for integration
 	and analysis of large complex datasets, generating results rapidly in Excel and other business intelligence tools. 
->>>>>>> 7b5d8819f8fff86b97f407559300a8e46be00421
 
 
 	+++,
@@ -38,14 +36,13 @@ B4PDOCU.START
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Problem Statement" ],
 
-<<<<<<< HEAD
+
     "Description 01:"::
-=======
+
 	The B4P Analytics Engine ("Data Engine") is a powerful yet light-weight interpreter 
 	which executes the B4P language reliably and with high performance.
 	The B4P Data Engine is portable and optimized to run on Windows, LINUX 
 	and MacOS platforms with both 64-bit Intel/AMD and ARM processors.
->>>>>>> 7b5d8819f8fff86b97f407559300a8e46be00421
 
 	<img src="Images/MAS_Problem_Statement_1.png" alt="Problem Statement">
 	

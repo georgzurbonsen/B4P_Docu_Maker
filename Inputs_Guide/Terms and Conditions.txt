@@ -16,7 +16,7 @@ B4PDOCU.START
 	<br><br>
 
 	The following contents (hereinafter referred to as "Software"), are protected by the copyright laws and/or are property of the Owner as stated above:
-	* The B4P program package including the B4P Data Engine for all supported target platforms
+	* The B4P program package including the B4P interpreter for all supported target platforms
 	* The B4P programming language, including all language constructs and syntactic and semantic language features which are unique to B4P.
 	* All B4P library files and B4P library functions which are either part of the installation packages or optionally available from B4P to enhance the functionality.
 	* The trademark names "Beyond Former Performance" and the abbreviation "B4P" under the Nice Classification (#42) of <i>"Scientific and technological services and research and design relating thereto; \
@@ -29,7 +29,7 @@ B4PDOCU.START
 	irrevocably delete any related contents already downloaded or obtained.
 
 	+++,
-    "Description 02:B4P Data Engine - Free Usage"::
+    "Description 02:B4P Interpreter - Free Usage"::
 
 	The Software (here more precisely the installation package) can be downloaded, installed and used at free of charge for the following
 	<u>personal and non-commercial purposes</u> such as:
@@ -51,16 +51,16 @@ B4PDOCU.START
 	+++,
     "Description 03:Restrictions"::
 
-	The intellectual property inside the Software, particularly the unique syntactic and semantic language features, the Software (including, but not limited to the B4P Data Engine and all libraries provided), are trade secrets.
+	The intellectual property inside the Software, particularly the unique syntactic and semantic language features, the Software (including, but not limited to the B4P interpreter and all libraries provided), are trade secrets.
 	With the download of the Software, you agree not to do any of the following:
 	* Make duplicates of the Software to third parties except for passing original and unaltered downloaded B4P installation packages for approved non-commercial uses such as evaluation, demonstration and education.
-	* Make any modifications on the Software such as, but not limited to, manipulating the B4P Data Engine or altering the standard library files.
+	* Make any modifications on the Software such as, but not limited to, manipulating the B4P interpreter or altering the standard library files.
 	* Transfer, lease out, lend or otherwise distribute the Software or purchased or obtained B4P licences which have been granted to you to any third party.
 	* Reverse-engineer, decompile or disassemble the Software (including, but not limited to, the B4P Data Engine and/or any other files in whole or in part inside the B4P Software package), \
 	  aiming to access trade secrets, obtaining competitive advantages, intending to copy functional contents for other purposes and/or committing any other actions with illegal or fraudulent intentions.
 	* The Software contains license security functions which prevent unauthorized use.  You are not permitted to make any manipulations on these functions intending to circumvent any restrictions or license management functions \
 	  and/or implement or execute any kind of software aiming to fraudulently generate functioning license activation keys with the intention to unlock applicable restrictions and make full use of B4P functionality without holding a valid license issued by the Owner.
-	* Use the Software (including, but not limited to the B4P Data Engine and/or B4P library files) or the B4P programming language for benchmarking and/or for competitive analysis purposes with the intention to develop a competing product and/or similar programming language.
+	* Use the Software (including, but not limited to the B4P interpreter and/or B4P library files) or the B4P programming language for benchmarking and/or for competitive analysis purposes with the intention to develop a competing product and/or similar programming language.
 	* Intending to alter the Software and/or the B4P programming language in order to make it operational on other system platforms not yet supported without written approval by the Owner.
 	* Any attempt to rebrand the Software and/or the B4P programming language in any aspects or illegally assume ownership of the Software and/or the programming language.
 	* Using the Software and/or the B4P programming language for any illegal and/or unethical purposes, including, but not limited to,

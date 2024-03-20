@@ -7,7 +7,7 @@ B4PDOCU.START
     "Feature Names":		[ "interactive mode" ],
     "Description 01:Overview"::
 
-	The <b>interactive mode</b> allows direct user interaction with the B4P Data Engine and is particularly useful for following purposes:
+	The <b>interactive mode</b> allows direct user interaction with the B4P interpreter and is particularly useful for following purposes:
 	* Access __interactive help__ and documentation
 	* __Execute B4P statements interactively__
 	* __Execute B4P expressions interactively__
@@ -520,8 +520,8 @@ a                       3  ("3")                   (numeral,full access)
 	Command				| Description
 	start ( Program Name.b4p )	| Start executing a B4P program.  Note: All variables created in that program will be global variables, even if defined outside user-defined procedures and functions.
 	return				| Return to executing the program.  Very useful if interactive mode is activated using an <b>interactive;</b> statement.
-	exit				| Leaves B4P Data Engine
-	Pressing CTRL+C			| Leaves B4P Data Engine, too
+	exit				| Leaves B4P interpreter
+	Pressing CTRL+C			| Leaves B4P interpreter, too
 	prompt ("...")			| You can change the prompt.  See __prompt(__) for more details.  Qutoation marks are required here.
 	prompt ("working directory()" ) | Choose to show the working directory in the prompt.  It will be memorized until changed again or reset.
 	prompt ("system info[user name]") | Choose to show your user name in the prompt.  You can combine mulitple info, e.g. showing both user name and current path name.
