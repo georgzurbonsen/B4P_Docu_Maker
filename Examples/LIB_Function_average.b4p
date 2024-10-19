@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
-      echo( average(10,12,14,20 ) );         // returns 14
-      echo( average({10,12,14,20}, 1) );     // ~15.33 (1st parameter excluded in this case)
-      echo( geometric mean( 10,12,14,20 ) ); // ~13.54
-      echo( harmonic mean(10,12,14,20 ) );   //  13.125
-      echo( rms(10,12,14,20) );              // ~14.49
-      echo( parallel(1,3) );                 //   0.75
-      echo( product ignore zero( 0,3,4 ) );  //  12
-      echo( product ( 3,"",2) );             //   0
-      echo( product ignore blanks(3,"",2) ); //   6
+               echo( average(10,12,14,20 ) );         // returns 14
+               echo( average({10,12,14,20}, 1) );     // ~15.33 (1st parameter excluded in this case)
+               echo( geometric mean( 10,12,14,20 ) ); // ~13.54
+               echo( harmonic mean(10,12,14,20 ) );   //  13.125
+               echo( rms(10,12,14,20) );              // ~14.49
+               echo( parallel(1,3) );                 //   0.75
+               echo( product ignore zero( 0,3,4 ) );  //  12
+               echo( product ( 3,"",2) );             //   0
+               echo( product ignore blanks(3,"",2) ); //   6

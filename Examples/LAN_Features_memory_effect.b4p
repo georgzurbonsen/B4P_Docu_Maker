@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
-  table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
+       table initialize ( table 1, { { Animal, leg count }, { Bird, 2 }, { Dog, 4 }, { Fly, 6 } } );
+       table initialize ( table 2, { { Animal, weapon, leg count }, { Snake, poison, 0 }, { Tiger, teeth, 4 }, { Lobster, claws, 8 } } );
 
-  define procedure ( legs, { { table name, string } } )
-  {
-      table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
-  }
+       define procedure ( legs, { { table name, string } } )
+       {
+               table process( table name[], echo( str([Animal],"8#" ),": ", [leg count] ) );
+       }
 
-  legs( table 1 );
-  legs( table 2 ); // Note: Weapons are listed and not the legs
+       legs( table 1 );
+       legs( table 2 ); // Note: Weapons are listed and not the legs

@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = 123;
-  a variable[] = 456;
-  a   variable[] = 789;   // redundant spaces collapse to 1 space if not put in quotation marks
-  "Total Value [€]"[] = 98.95;
+       a[] = 123;
+       a variable[] = 456;
+       a   variable[] = 789;   // redundant spaces collapse to 1 space if not put in quotation marks
+       "Total Value [€]"[] = 98.95;
 
-  b[] = City;
-  (b[])[] = Milano; // Write access: Don't forget the parentheses in LHS expressions
-  
-  echo( a[] );
-  echo( a  variable[] );
-  echo( "Total Value [€]"[] );
-  echo( b[] ); // City
-  echo( City[], ' and ', b[][] ); // 2 x Milano
+       b[] = City;
+       (b[])[] = Milano; // Write access: Don't forget the parentheses in LHS expressions
+       
+       echo( a[] );
+       echo( a  variable[] );
+       echo( "Total Value [€]"[] );
+       echo( b[] ); // City
+       echo( City[], ' and ', b[][] ); // 2 x Milano
 
-  b[] = 555.55; // Contained 'City' before.  Assign a number.
-  echo( b[] ); // 555.55
+       b[] = 555.55; // Contained 'City' before.  Assign a number.
+       echo( b[] ); // 555.55

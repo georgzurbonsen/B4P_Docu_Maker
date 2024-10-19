@@ -1,0 +1,29 @@
+﻿#!/usr/local/bin/b4p
+echo("Break and continue loops");
+for (a[] = 1, a[] <= 4, a[]++)
+{
+       echo("  Loop begin ", a[] );
+       if (a[] = 2) continue;
+       if (a[] = 3) break;
+       echo("  Loop end ", a[] );
+}
+
+echo("Break and continue cases");
+for (a[] = 1, a[] <= 4, a[]++)
+{
+       echo("  Loop begin ", a[] );
+       switch(a[])
+       {
+               case (2) break; // Breaks case only
+               case (3)
+               {
+               repeat(5, b[])
+               {
+                       echo("Inner loop: ", b[]);
+                       if (b[]==2) break; // Break the inner loop
+               }
+               echo("Inner loop done");
+               }
+       }
+
+}

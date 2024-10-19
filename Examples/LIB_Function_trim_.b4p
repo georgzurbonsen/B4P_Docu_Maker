@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
-      echo( trim( { a, b, c, d, c, b, a } ) );
-      echo( trim( { 'a', "a", A, "A" } ) );   // No difference made on quoted strings
+               echo( trim( { a, b, c, d, c, b, a } ) );
+               echo( trim( { 'a', "a", A, "A" } ) );   // No difference made on quoted strings
 
-      echo( trim( { 1, {}, {a,b}, 1, {}, {b,a}, {a,b}, {a,b} } ) );   // No difference made on quoted strings
-      // Note: {a,b} is considered different to {b,a} and will not be trimmed
+               echo( trim( { 1, {}, {a,b}, 1, {}, {b,a}, {a,b}, {a,b} } ) );   // No difference made on quoted strings
+               // Note: {a,b} is considered different to {b,a} and will not be trimmed
 
-      echo( trim( { 1, '1', 2, '2' } ) );   // No trimming (numerals differ from strings)
-      echo( trim( { } ), " / ", trim( { {},{},{} } ) ); // No element and 1 element
+               echo( trim( { 1, '1', 2, '2' } ) );   // No trimming (numerals differ from strings)
+               echo( trim( { } ), " / ", trim( { {},{},{} } ) ); // No element and 1 element
 

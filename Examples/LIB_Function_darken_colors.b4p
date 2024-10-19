@@ -1,12 +1,12 @@
 ﻿#!/usr/local/bin/b4p
 
-  darken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
+       darken colors( table selected rows( global color table, [Cat 2]==primary), X, 5 );
 
-  table copy table selected rows( global color table, t, [Cat 2]==primary );
+       table copy table selected rows( global color table, t, [Cat 2]==primary );
 
-  table list ( t );
-  table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
+       table list ( t );
+       table process( t, table style rows( t, row(), table, fill color, [Color Name], text color, white ) );
 
-  table save( t, "Images/Style_Darkened_Colors.html", HTML );
-  table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
-  table save excel file( t, Contents, "Images/Style_Darkened_Colors.xlsx" );
+       table save( t, "Images/Style_Darkened_Colors.html", HTML );
+       table save( t, "Images/Style_Darkened_Colors.xls", EXCEL );
+       table save excel file( t, Contents, "Images/Style_Darkened_Colors.xlsx" );

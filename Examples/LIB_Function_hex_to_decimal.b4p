@@ -1,8 +1,9 @@
 ﻿#!/usr/local/bin/b4p
-  examples[] = { 20AC, 0x20AC, 20ACH, "#20AC", "", "-" };
+       examples[] = { 20AC, 0x20AC, 20ACH, "#20AC", "", "-" };
 
-  for all parameters( examples[], h[] )
-  {
-      print( hex to decimal( h[] ), "  " );
-      echo( "2nd char pos, len = 1: ", hex to decimal( h[], 2, 1 ) );
-  }
+       for all( examples[], h[] )
+       {
+           print( hex to decimal( h[] ), "  " );
+           echo( "2nd char pos, len = 1: ", hex to decimal( h[], 2, 1 ) );
+       }
+       echo("Using vectorization: ", hex to decimal( examples[] ) );

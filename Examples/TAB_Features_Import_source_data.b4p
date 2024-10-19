@@ -1,0 +1,26 @@
+﻿#!/usr/local/bin/b4p
+file download overwrite         ( "https://de.wikipedia.org/wiki/Liste_der_Staaten_der_Erde", countries 1.html );
+table load                      ( c1, countries 1.html, HTML, "international gebr" );
+
+file download overwrite         ( "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)", countries 2.html );
+table load                      ( c2, countries 2.html, HTML, "mid-year estimates" );
+
+table initialize                ( country names resolved,
+                                { { Country Name Pattern,              Country Name to use },
+                                  { 'Gambia*',                         Gambia },
+                                  { 'Congo*Democratic*,DR*Congo',      'Congo (DR)' },
+                                  { 'Congo,Congo*Brazzaville*',        'Congo (Brazzaville)' },
+                                  { 'Lao*',                            Laos },
+                                  { 'Korea*Democratic*,North Korea',   'Korea (North)' },
+                                  { 'Korea*Republic*,South Korea',     'Korea (South)' },
+                                  { 'Micronesia*',                     Micronesia },
+                                  { 'Brunei*',                         Brunei },
+                                  { 'Türkiye',                         Turkey } } );
+
+
+echo( "Table C1: ");
+table list                      ( c1, briefly, 4, last col, 1 ); // List just 2 columns and first and last 4 rows
+
+       table save                     ( c1, temp1.csv); // Hide!  Step 1 ends
+       table save                     ( c2, temp2.csv); // Hide!  Step 1 ends
+       table save                     ( country names resolved, temp3.csv);  // Hide!  Step 1 ends

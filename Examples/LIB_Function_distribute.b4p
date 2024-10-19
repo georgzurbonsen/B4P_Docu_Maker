@@ -1,4 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-      distribute( #days, 0, '06.01.2018', '25.01.2018', days, calendar, '01.01.2018','31.01.2018', date line[], distributed values[] );
-      echo( date line[]{0},", ", date line[]{1},", ", date line[]{2},", ", date line[]{date line[]{}-1} );
-      echo( join( distributed values[], ", " ) );
+               distribute( #days, 0, '06.01.2018', '25.01.2018', days, calendar, '01.01.2018','31.01.2018', date line[], distributed values[] );
+               echo( date line[]{0},", ", date line[]{1},", ", date line[]{2},", ", date line[]{date line[]{}-1} );
+               echo( join( distributed values[], ", " ) );

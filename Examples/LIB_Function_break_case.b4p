@@ -1,31 +1,79 @@
 ﻿#!/usr/local/bin/b4p
-      echo("Try 'break' and 'continue with next case':'");
-      for (a[] = 1, a[] <= 4, a[]++)
-      {
-          print ( "  ",a[], ": " );
-          switch( a [] )
-          {
-              case (1)
-              {
-                  print("= 1;   ");
-                  continue with next case;
-              }
-              case (2)
-              {
-                  print("= 2;   ");
-                  break;
-              }
-              case (4,1)  print("= 1 or 4;   ");
-              else:   print("else;  ");
-              else:       print("2nd else;  ");
-          }
-          echo;
-      }
-      echo("Break and continue loops");
-      for (a[] = 1, a[] <= 4, a[]++)
-      {
-          echo("  Loop begin ", a[] );
-          if (a[] = 2) continue;
-          if (a[] = 3) break;
-          echo("  Loop end ", a[] );
-      }
+for (a[] = 1, a[] <= 5, a[]++)
+{
+       print ( "Switch Loop ",a[], ":   " );
+       switch( a [] )
+       {
+           case (1)
+           {
+               print("Case 1; ");
+               }
+           case (2)
+           {
+               print("Case 2; ");
+               continue case;
+           }
+           case (3)
+           {
+               print("Case 3; ");
+               break case;
+           }
+           case (2)
+           {
+               print("Case 2 again; ");
+           }
+           case (1,2,3,4)
+           {
+               print("Case 4; ");
+           }
+               else
+               {
+                       print("Else 1; ");
+               }
+               else
+               {
+                       print("Else 2; ");
+               }
+       }
+       echo;
+}
+
+
+for (a[] = 1, a[] <= 5, a[]++)
+{
+       print ( "Check Loop ",a[], ":   " );
+       check( a [] )
+       {
+               case (1)
+               {
+                       print("Case 1; ");
+               }
+               case (2)
+               {
+                       print("Case 2; ");
+                       continue case;
+               }
+               case (3)
+               {
+                       print("Case 3; ");
+                       break case;
+        }
+               case (2)
+               {
+                       print("Case 2 again; ");
+           }
+               case (1,2,3,4)
+               {
+                       print("Case 4; ");
+               }
+               else
+               {
+                       print("Else 1; ");
+               }
+               else
+               {
+                       print("Else 2; ");
+               }
+       }
+    echo;
+}

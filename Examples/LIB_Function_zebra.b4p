@@ -1,16 +1,17 @@
 ﻿#!/usr/local/bin/b4p
 
-  table initialize( t, {{ "zebra(..,)", "zebra(..,2)", "zebra(..,3)", "zebra(..,3,1)", "zebra(..,1,3)", "zebra(..,0,2)", "zebra(..,2,0)" }} );
-  for (row[] = 1, row[] <= 15, row[]++)
-      with table( t, row[] )
-      {
-          [0] = zebra(row[]-1);  // Subtracted 1 to avoid odd pattern starts with header row
-          [1] = zebra(row[]-1, 2);
-          [2] = zebra(row[]-1, 3);
-          [3] = zebra(row[]-1, 3,1);
-          [4] = zebra(row[]-1, 1,3);
-          [5] = zebra(row[]-1, 0,2);
-          [6] = zebra(row[]-1, 2,0);
-      }
+       table initialize( t, {{ "zebra(..,)", "zebra(..,2)", "zebra(..,3)", "zebra(..,3,1)", "zebra(..,1,3)", "zebra(..,0,2)", "zebra(..,2,0)" }} );
+       for (row[] = 1, row[] <= 15, row[]++)
+           with table( t, row[] )
+           {
+               [0] = zebra(row[]-1);  // Subtracted 1 to avoid odd pattern starts with header row
+               [1] = zebra(row[]-1, 2);
+               [2] = zebra(row[]-1, 3);
+               [3] = zebra(row[]-1, 3,1);
+               [4] = zebra(row[]-1, 1,3);
+               [5] = zebra(row[]-1, 0,2);
+               [6] = zebra(row[]-1, 2,0);
+               }
 
-  table list(t);
+       table list(t);
+       echo( "Example with vectorization: ", zebra({1..10},2) );

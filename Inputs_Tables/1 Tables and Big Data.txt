@@ -1,0 +1,906 @@
+	//
+B4PDOCU.START
+
+
+"Processing Tables and Big Data" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Processing Tables and Big Data" ],
+    "Description 01:Overview"::
+
+	The follwing sections given an introduction to some common functions which support each of the eight
+	following processing steps conveniently.
+
+	<br/><img src="Images/Description_Introduction_Flowchart.png" alt="B4P Typical Data Processing Steps">
+
+
+	<br><br>
+	By experience, successful solutions have been provided already <b>during the first consultation</b> with colleagues who needed solutions for
+	their data processing needs.  They originally expected a cost and time estimation and a project plan for the project in order to approve the 
+	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem
+	and a lot of money saved.
+
+	+++
+},
+
+
+"A - Import" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Import source data" ],
+    "Description 01:Loading Data from Files"::
+
+	Below you find the B4P functions you can use to load files from the disk, server and the cloud environment:	
+	<br><br>
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table load(__)		| Load files in basic data formats such as CSV, HTML, JSON, XML, and various text formats
+	__table load excel file(__)	| Load data from Excel files (.xlsx, .xlsm)
+	__variable load(__)		| Load a JSON file into a B4P __variable__ structure seamlessly
+	===
+	<hr><br>
+
+	+++,
+
+    "Description 02:Loading Data from the Web"::
+
+	The Internet contains rich information sources which could be useful for data processing needs.
+	Only two function calls are needed to retrieve tables from the web or your SharePoint environment:
+	<br><br>
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__file download(__)		| Download a file from the web.  File type and contents do not matter.
+	__file download overwrite(__)	| Same as above: Overwrites previously loaded file without complaining-
+	===
+	<hr><br>
+
+	Once you have downloaded the file, proceed with __table load(__) or another function described above to load the contents
+	into B4P tables or variables.
+	<br><br>
+
+	+++,
+
+    "Description 03:Need to Create Additional Tables"::
+
+	You can also initialize and create your own tables.  They become useful if you need some lookup tables helpful
+	to enrich your analysis.
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table create(__)		| Creates an empty table
+	__table initialize(__)		| Creates a new table with initial contents provided with this function all
+	===
+	<hr><br>
+
+	+++,
+    "Description 04:View the Tables"::
+
+	You can also initialize and create your own tables.  They become useful if you need some lookup tables helpful
+	to enrich your analysis.
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table list(__)		| List the whole table or selected rows and columns on the console output
+	__view(__)			| Browse the table interactively in full-screen mode
+	===
+	<hr><br>
+
+	+++,
+    "Description 05:Example with two Country Tables from Wikipedia"::
+
+	Two tables with info about the countries in the world, both located in Wikipedia, serve as input files for the analysis.
+	The analysis shall address the following:
+
+	* By how many percent do the number of inhabitants deviate and calculate population density?
+	* Do the same in a consolidated manner for the five continents.
+	* Do a 2-dimensional histogram counting the countries across population and population density and highlight hot spots.
+	* Save the work in one Excel file containing two sheets.
+
+	<hr>
+
+	<b>Input files:	</b>
+	
+	<br/><br/><img src="Images/TAB_Input_Data.png" alt="Input Tables"><br/>
+
+	<br>
+
+	+++,
+    "Examples 05:Simple Example"::
+	include(Support Library);
+file download overwrite         ( "https://de.wikipedia.org/wiki/Liste_der_Staaten_der_Erde", countries 1.html );
+table load                      ( c1, countries 1.html, HTML, "international gebr" );
+
+file download overwrite         ( "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)", countries 2.html );
+table load                      ( c2, countries 2.html, HTML, "mid-year estimates" );
+
+table initialize                ( country names resolved,
+                                { { Country Name Pattern,              Country Name to use },
+                                  { 'Gambia*',                         Gambia },
+                                  { 'Congo*Democratic*,DR*Congo',      'Congo (DR)' },
+                                  { 'Congo,Congo*Brazzaville*',        'Congo (Brazzaville)' },
+                                  { 'Lao*',                            Laos },
+                                  { 'Korea*Democratic*,North Korea',   'Korea (North)' },
+                                  { 'Korea*Republic*,South Korea',     'Korea (South)' },
+                                  { 'Micronesia*',                     Micronesia },
+                                  { 'Brunei*',                         Brunei },
+                                  { 'Türkiye',                         Turkey } } );
+
+
+echo( "Table C1: ");
+table list                      ( c1, briefly, 4, last col, 1 ); // List just 2 columns and first and last 4 rows
+
+	table save                     ( c1, temp1.csv); // Hide!  Step 1 ends
+	table save                     ( c2, temp2.csv); // Hide!  Step 1 ends
+	table save                     ( country names resolved, temp3.csv);  // Hide!  Step 1 ends
+	+++,
+    "Output 05:Original table as retrieved from Wikipedia": "automatic",
+    "Description 06:"::
+	You may notice the following:
+	* The header names are not short and simple.
+	* Various fields contain references to further literature, e.g. [1], [a], etc.
+	* Some exotic spaces are used and result in some misalignments.
+	For these reasons above, some initial cleanups are needed which are described on the next page.
+	+++
+},
+
+
+
+
+"B - Clean" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Clean Data" ],
+    "Description 01:Overview"::
+
+	Most data obtained from database and external sources are not in the right format so you can start processing and
+	analyzing the contents.  Typical issues include, bugt are not limited to:
+
+	* The table of interest does not begin at the top and needs to be moved up or extracted, with garbage around it removed
+	* Non-ANSI spaces, e.g. non-break-spaces are used
+	* Unnecessary or empty rows and columns
+	* Contents contain leading and/or trailing spaces
+	* Numbers contain distracting formatting, e.g. <i>CHF 1'200,- </i>
+	* Incomplete and ambiguous dates, e.g. what is <i>"02/09/24"</i>?
+	* Header names different in similar tables from different sources and along the timeline
+	* Some contents are properly capitalized, other are not.
+
+	B4P provides rich set of functions which allows you to prepare and clean the data 
+
+	<br><br>
+	+++,
+
+
+    "Description 02:Cleaning Columns and Headers"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table lift header row(__)		| Identify the header row, then lift the header row to top row, with data blow moving up, too.
+	__table rename headers(__)		| Rename table headers.
+	__table correct headers(__)		| Correct the header names if wrong.  Do nothing if OK.  Useful to eliminate spelling and upper/lower case issues.
+	__table insert columns(__)		| Introduce additional columns.
+	__table insert missing columns(__)	| Introduce additional columns if missing, otherwise do nothing.
+	__table delete columns(__)		| Delete columns not needed.
+	__table keep columns(__)		| Keep specified columns and delete the other columns.
+	===
+	<hr><br>
+
+	+++,
+
+    "Description 03:Cleaning Rows"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table delete blank rows(__)		| Remove all blank rows.
+	__table delete rows(__)			| Remove 1 or more rows using a specified row number.
+	__table delete remaining rows(__)	| Delete remaining rows below a specified row number.  Various functions are available to search for the end of \
+						  the table and obtain the row number automatically, for example with __table search row(__).
+	__table keep selected rows(__)		| Keep selected rows matching the condition specified.
+	__table delete selected rows(__)	| The opposite.
+	===
+	<hr><br>
+
+	+++,
+
+    "Description 04:Cleaning Contents"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table clean(__)			| General replacement of exotic spaces and line breaks in the UNICODE space to the familar spaces and 'new line',\
+						  and trimming options for white spaces and line breaks.
+	__clean num(__)				| Cleans numbers by removing distracting symbols such as 1000-separators, currency symbols, etc.  \
+						  Numbers in parentheses are treated as negative numbers, e.g. <b>(1200)</b> changes to -1200 .
+	__table process selected rows(__)	| General-purpse function call to process table rows and contents without need to specify loops and variables
+	__table process cells(__)		| General-purpose function to process all table cells: Example: __table process cells__<b>( [.] = __trim__([.]) );</b>
+	===
+	<hr><br>
+	+++,
+
+    "Description 05:Wikipedia Example (continued from step 1)"::
+
+	The file downloaded from Wikipedia does indeed need some cleanup.
+
+	* Remove all dangling and redundant spaces in both tables.
+	* Remove the summary row for the whole world
+	* Exotic space characters are converted to standard space characters.
+	* Elimnate the footnote references
+	* In table c1, remove the last row as it repeats the header row
+
+	<br><br>
+
+	+++,
+    "Examples 05:Simple Example"::
+	include ( Support Library );
+	table load                     ( c1, temp1.csv); // Hide!  Step 2 begins
+	table load                     ( c2, temp2.csv); // Hide!  Step 2 begins
+
+table clean                     ( c1 );
+table delete selected rows      ( c1, [0]='',Erde );            // Remove blank and summary rows
+table process all cells         ( c1, [.] = left( [.], '[' ) ); // Remove cited references
+table delete rows               ( c1, -1 );                     // Delete last row (bottom header row - repeated)
+
+table clean                     ( c2, trim spaces );
+table delete selected rows      ( c2, [0]='',World );           // Remove blank and summary rows
+table process all cells         ( c2, [.] = left( [.], '[' ) ); // Remove cited references
+
+echo( "Table C2: ");
+table list                      ( c2, briefly, 4, last col, 2 ); // List just 3 columns and first and last 4 rows
+
+	table save                     ( c1, temp1.csv); // Hide!  Step 2 ends
+	table save                     ( c2, temp2.csv); // Hide!  Step 2 ends
+	+++,
+
+    "Output 05:The table has been cleaned up.": "automatic"
+
+},
+
+
+
+"C - Validate":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Validate and Explore" ],
+    "Description 01:Overview"::
+
+	In the third step, consider carrying out further checks and alignments.  Such steps may include the following:
+	* Check if all columns are existing and assert exceptions (automatic error messages) right not and not later.
+	* Clean up and align header names.
+	* Insert missing columns (in case you want to combine multiple tables later on).
+	* Remove any inconsistencies or disturbing contents.
+	* Fill in gaps, e.g. repeating contents from the rows above
+	* Align contents.  Example: You merge 2 country tables, one lists <i>Swasiland</i> and the other <i>Eswatini</i>. Decide for one.
+
+    +++,
+
+    "Description 02:Checking and Aligning Columns and Header Names"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table check headers(__)		| Check if all columns are existing.
+	__table correct headers(__)		| Check for header names matching with specified patterns and correct them.  Useful if tables originate from different \
+						  sources and everyone uses slightly different header names.
+	__table insert columns(__)		| Insert additional columns.
+	__table insert missing columns(__)	| Insert additional columns only if they are still missing.
+	__table rearrange columns(__)		| Put the columns in the order you desire.
+	__table check duplicates(__)		| Checks repeated entries in case redundant entries need to be removed or consolidated.
+	===
+	<hr><br>
+	+++,
+
+
+    "Description 03:Useful Processing functions to validate the Tables"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table process(__)			| Process every row in the table with the assignments specified.  No loops and variables need to be specified.
+	__table process selected rows(__)	| Same as above, but only on the rows fulfilling the condition critiera
+	__table process cells(__)		| General-purpose function to process all table cells: Example: __table process cells__<b>( [.] = __trim__([.]) );</b>
+	__table process columns(__)		| Work through the table columns.
+	__table describe(__)			| B4P checks the contents in selected columns and provides description.  E.g. you can easily identify if a particular \
+						  column contains telephone numbers, simple names, dates, and not something else.
+	__table compare(__)			| is useful to check a current and an older data and isolate all relevant differences for further processing.
+	===
+	<hr><br>
+	+++,
+
+    "Description 04:Look up Contents from other Tables"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table lookup(__)			| Look up for data from other tables.
+	__table lookup ignore case(__)		| Also useful, as lookup comparisons ignore cases.
+	__table lookup smart(__)		| In this case, the lookup table allows wildcards, commas for multiple choices, etc.
+	__table lookup smart ignore case(__)	| Also useful, as lookup comparisons ignore cases.
+	===
+	<hr><br>
+	+++,
+
+
+    "Description 05:Wikipedia Example (continued from step 2)"::
+
+	Do some validations
+
+	* Change column headers to more meaningful names in English.
+	* Remove disturbing thousad comma signs and decimal points in the numbers
+	* Remove summary rows applicable to the whole world.
+	* For table c2: Use the most recent population data (multiple heders exist)
+	* Some rows contain messy data.  Remove these rows in table c1.  Aplies to Denmark and China.
+	* Use a lookup table to align diverting or ambiguous country names
+
+	+++,
+    "Examples 05:Simple Example"::
+	include ( Support Library );
+
+	table load                     ( c1, temp1.csv); // Hide!  Step 3 begins
+	table load                     ( c2, temp2.csv); // Hide!  Step 3 begins
+	table load                     ( country names resolved, temp3.csv);  // Hide!  Step 3 begins
+
+table correct headers           ( c1, { 'Einwohner*', 'Fläche*', Englischer Name }, 
+				      { Inhabitants,  Area,      Country,        } );
+table keep columns              ( c1, { Country, Area, Inhabitants } );
+table process cells in columns  ( c1, { Area, Inhabitants }, [.] = replace(str([.]) / '.',',','.') );
+// Let's ignore messy data in CHINA and DENMARK (Free text on HK, Macao, Greenland, Faroer Is.)
+
+table keep selected rows        ( c1, is numeric( [Area] ) );
+table process                   ( c1, [Country] = left([Country],' oder ') ); // Remove country name in other language after ' oder'
+table lookup smart ignore case  ( c1, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+
+most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
+
+table delete selected rows      ( c2, [Country]=World );
+table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
+table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
+table keep columns              ( c2, { Country, Continent, Population } );
+table delete selected rows      ( c2, [Country]='*(*)*' ); 		// Overseas departements with home countries in parentheses
+table lookup smart ignore case  ( c2, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+echo( "Table C1: ");
+table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 columns and first and last 4 rows
+
+	table save                     ( c1, temp1.csv); // Hide!  Step 3 ends
+	table save                     ( c2, temp2.csv); // Hide!  Step 3 ends
+
+	+++,
+
+    "Output 05:The table has been validated.": "automatic"
+
+},
+
+
+
+
+"D - Merge":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Merge and Consolidate" ],
+    "Description 01:Overview"::
+
+	In many application cases, information from multiple sources need to be merged and overlapping information consolidated based on rules provided.
+	Data management associated with merging or rearanging mulitple organizations are typical examples.  
+	+++,
+
+    "Description 02:You can use the Lookup Function Family to merge data"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table lookup(__)			| Look up for data from other tables.
+	__table lookup ignore case(__)		| Also useful, as lookup comparisons ignore cases.
+	__table lookup smart(__)		| In this case, the lookup table allows wildcards, commas for multiple choices, etc.
+	__table lookup smart ignore case(__)	| Also useful, as lookup comparisons ignore cases.
+	__table integrate(__)			| Works similar like __table lookup(__), but applies rules to combine existing data with data looked up, e.g. adding them up. 
+	__table expand(__)			| Works similar like __table lookup(__), but in case of multiple matches, additional rows will be \
+						  inserted into the destination table automatically.
+	===
+	<hr><br>
+	+++,
+
+    "Description 03:Merge multiple tables"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table merge(__)			| Merge one source table into another existing destination table.
+	__table merge extend columns(__)	| Same as above, where the destination table may be extended with further columns found in the source table.
+	__table overlay(__)			| Merge contents of one table into the other table, but only if no additional rows need to be created.
+	__table subtract(__)			| Use one table to subtract, i.e. remove rows, in the other table.  E.g. remove particular people in table A from table B.
+	__table intersect(__)			| Obtain the intersection of two tables, e.g. with full names provided in both tables.
+	===
+	<hr><br>
+	+++,
+
+    "Description 04:Wikipedia Example (continued from step 3)"::
+
+	Do some validation on this table:
+
+	* Merge country table c2 into c1, with the additional columns with population counts from a different source.
+	* Remove questionable countries which are not globally recongnized.
+
+	+++,
+    "Examples 04:Simple Example"::
+  include ( Support Library );
+	table load                     ( c1, temp1.csv); // Hide!  Step 4 begins
+	table load                     ( c2, temp2.csv); // Hide!  Step 4 begins
+
+table merge extend columns      ( c2, c1, Country );
+table delete selected rows      ( c1, [Continent]='' ); // Questionable countries
+
+echo( "Table C1: ");
+table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 columns and first and last 4 rows
+
+	table save                     ( c1, temp1.csv); // Hide!  Step 4 ends
+	+++,
+
+    "Output 04:Merging has been done.": "automatic"
+
+},
+
+
+
+
+
+"E - Augment":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Enrichment" ],
+    "Description 01:Overview"::
+
+	Data augmentation (enrichment) typically involves adding further valuble information.   Consider a lookup table with some economic and demographic
+	data which you want to add to your analysis in order to provide a better statistical weighting.  Or for stock market data, obtain a list of
+	present credit ratings and key financial data of the corporation you are tracking.  We suggest to use the functions already described in the
+	previous sections.
+	<br>
+	<hr>
+    "Description 02:Wikipedia Example (continued from step 4)"::
+
+	Do some enrichment this table:
+
+	* Specify the plausible surface areas for China and Denmark (i.e. without Greenland and provinces pretending to claim).
+	* Add population density and variation between the number of inhabitants from two different sources.
+
+    "Examples 02:Simple Example"::
+	include ( Support Library );
+	table load                     ( c1, temp1.csv); // Hide!  Step 5 begins
+
+[c1:Country,{China,Denmark},Area] = {9597000,42952}; // km2  (Denmark without Greenland, and CN without China South Sea)
+
+table insert columns            ( c1, { Inhabitants Variation, Inhabitants per km2 } );
+table process selected rows     ( c1, [Inhabitants] == '', [Inhabitants] = [Population]);
+table process                   ( c1, [Inhabitants per km2]   = [Inhabitants] / [Area];
+                                      [Inhabitants Variation] = ([Inhabitants] - [Population])/[Inhabitants] );
+echo( "Table C1: ");
+table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 columns and first and last 4 rows
+
+	table save                     ( c1, temp1.csv); // Hide!  Step 5 ends
+
+	+++,
+
+    "Output 02:Enrichtment done.": "automatic"
+
+},
+
+
+
+"F - Analyze":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Align and Process" ],
+    "Description 01:Overview"::
+
+	Time to do the real world after all data inputs available in the quality needed.  Use the full B4P capabilities and function libraries
+	such as __statistics functions__ to analyze the data and draw meaningful conclusions.
+	The functions listed below could be of interest, but check the function library first before implementing something wtih 
+	low level code such as individual calculations..
+
+
+	+++,
+
+    "Description 02:Pivot Related Functions"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table serialize(__)			| Serialize data where values are spread horizontally, e.g. by quarterse and years to a pure sequential list.
+	__table spread(__)			| Spread sequential data horizontally, e.g. by month and year in separate columns.
+	__table consolidate(__)			| Condense the data and apply algorithms on the values to condense, e.g. adding up, taking maximum, etc.
+	__table distribute(__)			| Very useful for production planning.
+	__table transpose(__)			| Exchange rows with columns.
+	__table rotate left(__) <br>__table rotate right(__) | Rotate table contents
+	__table flip horizontally(__) <br>__table flip vertically(__) | Flip, i.e. mirror table contents
+	===
+	<hr><br>
+	+++,
+
+
+    "Description 03:Statistics"::
+
+	Below you find a selection of statistics functions.  B4P provides a large collection of functions able to fulfill your analytical needs.
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__histogram(__)				| Create a 1- or multi-dimensional histogram
+	__linear interpolation(__)		| Do linar interpolation for missing points
+	__cagr(__)				| Calculate compound average growth rate
+	__discount(__)				| Calculate discounted cash flow, i.e. net present value (NPV)
+	__average(__), __deviation(__)		| Calculate average and standard deviation of a set of values
+	__covariance(__), __correlation(__)	| Covariance and correlation
+	__gini(__)				| Calculate gini coefficient (and Lorenz curve) on income inequality
+	===
+	<hr><br>
+	+++,
+
+    "Description 04:Wikipedia Example (continued from step 5)"::
+
+	Do some validation on this table:
+
+	* Create a 2-dimensional histogram matrix showing population on one axis and population density on the other axis
+	* In addition, calculate the area, population, variation and density for the five continents
+
+	+++,
+    "Examples 05:Simple Example"::
+	include ( Support Library );
+
+	table load                     ( c1, temp1.csv); // Hide!  Step 6 begins
+
+// Create a histogram distribution across number of inhabitants and density
+
+intervals[inhabitants]          
+  = {  1000000, 2000000, 5000000, 10000000, 20000000, 50000000, 100000000, 200000000, 500000000, 1000000000 };
+intervals[density]              = { 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000 };
+intervals[]                     = { intervals[inhabitants], intervals[density] }; // Combine them in 1 set
+
+table histogram                 ( c1, histo, {Population,Inhabitants per km2}, intervals[] );
+table process selected rows     ( histo, is numeric([Intervals]), [Intervals] = ">=" + str([Intervals], "#,##0", local ) );
+table process selected columns  ( histo, 0, is numeric([.]), [.] = ">=" + str([.], "#,##0", local ) );
+
+// Remove the 'Others' as not needed.
+
+table delete columns		( histo, Others );
+table delete selected rows	( histo, [Intervals]=Others );
+
+// Provide consolidated info by continent
+
+table copy table                ( c1, c2 );
+table consolidate               ( c2, Continent, { Area, Population}, sum); // Consolidate by continent
+table process                   ( c2, [Inhabitants per km2]   = [Inhabitants] / [Area];
+                                      [Inhabitants Variation] = ([Inhabitants] - [Population])/[Inhabitants];
+                                      [Country] = "All countries in " + [Continent] );
+for all ( {c1, c2}, table[])	table delete columns( table[], Inhabitants);
+table merge                     ( c2, c1 );
+
+echo("Histogram generated:");
+table list ( histo );
+
+	table save                     ( c1, temp1.csv); // Hide!  Step 6 ends
+	table save                     ( histo, temp2.csv); // Hide!  Step 6 ends
+	+++,
+
+    "Output 05:Processing completed.": "automatic"
+
+},
+
+
+
+
+"G - Format":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Format the results" ],
+    "Description 01:Overview"::
+
+	Before saving the results, consider shaping up the data as you need present. 
+	This includes arranging the data you want to output, and adding some color and style for Excel files, HTML, etc.
+
+	+++,
+
+    "Description 02:Sorting and Rearranging the Data"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table sort rows(__)			| Sort table rows by alphabetic, numeric, date orders, etc.
+	__table sort selected rows(__)		| Sort only specific rows and leave all other rows unchanged.
+	__table sort columns(__) 		| Sort table columns accordingly.
+	__table rearrange columns(__)		| Rearrange columns in desired orders, all other columns are further to the right
+	__table rearrange selected rows(__)	| Rearrange rows in desired orders
+	__table substitute horizontally(__) <br>__table substitute vertically(__) | Replace repeating values with simple remarks, like <b>"</b> or <b>dito</b>.
+	===
+	<hr><br>
+	+++,
+
+    "Description 03:Add Style and Colors to Spruce up your Tables"::
+
+	If you plan to save the work in Excel (or HTML), then consider adding __styles__ such as applying colors, different typefaces,
+	freezing the header row, adjusting column width, applying autofilters, etc.
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table style auto width(__)		| Adapts the column widths based on the lengths of the contents.
+	__table style theme(__)			| Applies a graphic color theme on the table, e.g. highlighted header row and zebra pattern in the rows below for better readability
+	__table style table(__) 		| Apply overall table formats, e.g. autofilter row, freezing panes, default character sets, etc.
+	__table style rows(__)			| Apply styles for selected rows, e.g. highlighting them with colors, underlining, etc.
+	__table style columns(__)		| Apply styles for selected columns, e.g. specific number and date formats, highlighting of any kind, etc.
+	__table style cells(__)			| Apply styles for indiviual cells or groups of cells, e.g. highlighting specific values.
+	===
+	<hr><br>
+	+++,
+
+    "Description 04:Wikipedia Example (continued from step 6)"::
+
+	Do some validation on this table:
+
+	* Set column widths
+	* Set appropriate number formats
+	* Freeze the top row and activate the autofilter feature
+	* Histogram: Apply color accents for the values, aiming to improve visualization
+
+	+++,
+    "Examples 04:Simple Example"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+
+	table load                     ( c1, temp1.csv); // Hide!  Step 7 begins
+	table load                     ( histo, temp2.csv); // Hide!  Step 7 ends
+
+table sort selected rows        ( c1, [Country]{0..3}!="All ", Country );
+                                // Sort all country names, but leave continents at the bottom
+
+table style auto width          ( c1 );
+table style columns             ( c1, Area, sheet, column width, 16 );
+table style columns             ( c1, {Area, Population},    table, number format, "#,##0");
+table style columns             ( c1, Inhabitants Variation, table, number format, "0.00%");
+table style columns             ( c1, Inhabitants per km2,   table, number format, "#,##0.00");
+table style table               ( c1, sheet, freeze rows, 1, autofilter, 0 );
+table style rows                ( c1, 0, table, boldface, true );
+
+table style table               ( histo, sheet, column width, 10 );
+table style columns             ( histo, 0, sheet, column width, 20, boldface, true );
+table style rows                ( histo, 0, table, boldface, true, row height, 30 );
+table style cells               ( histo, 0, 0, single, wrap text, true );
+
+table process cells             ( histo, if (col()>0)
+                                  {
+                                      shade[] = limit(255-10*[.],0,255);
+                                      table style cells( histo, col(), row(), single, fill color, {shade[],255,shade[]});
+                                  } );
+	+++,
+
+    "Output 04:The table has been formatted.": "automatic"
+
+},
+
+
+
+"H - Export":
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Save and Export" ],
+    "Description 01:Overview"::
+
+	In a final step, save the tables in data formats needed, e.g. Excel, CSV, HTML, JSON and text files.
+
+	+++,
+
+    "Description 02:Sorting and Rearranging the Data"::
+
+	<hr>
+	=== 250, 750, bold_column_1, noframe, noheader
+	__table save(__)		| Saves tables in text formats, CSV, HTML, JSON tables, etc.
+	__table save excel file(__) 	| Save one or multiple tables in contemporary Excel format (.xlsx, .xlsm).
+	__table save multiple(__)	| Save multiple tables in legacy Excel format (Excel XML 2003) into one file.
+	__variable save(__)		| Saves a B4P variable tree in a JSON file
+	__variable load(__)		| This function loads JSON data into a variable.
+	===
+	<hr><br>
+	+++,
+
+    "Description 03:Wikipedia Example (continued from step 7)"::
+
+	Save as Excel file
+
+	* Save the country data and the histogram in one Excel file.
+	* The Excel file will contian two different sheets.
+	* The sheets contain the style and formatting as defined in the previous page.
+
+	+++,
+    "Examples 03:Simple Example"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+
+	table load                     ( c1, temp1.csv); // Hide!  Step 7 begins
+	table load                     ( histo, temp2.csv); // Hide!  Step 7 ends
+ // Hide!
+table sort selected rows        ( c1, [Country]{0..3}!="All ", Country ); // Hide!
+                                // Sort all country names, but leave continents at the bottom // Hide!
+ // Hide!
+table style auto width          ( c1 ); // Hide!
+table style columns             ( c1, Area, sheet, column width, 16 ); // Hide!
+table style columns             ( c1, {Area, Population},    table, number format, "#,##0"); // Hide!
+table style columns             ( c1, Inhabitants Variation, table, number format, "0.00%"); // Hide!
+table style columns             ( c1, Inhabitants per km2,   table, number format, "#,##0.00"); // Hide!
+table style table               ( c1, sheet, freeze rows, 1, autofilter, 0 ); // Hide!
+table style rows                ( c1, 0, table, boldface, true ); // Hide!
+ // Hide!
+table style table               ( histo, sheet, column width, 10 ); // Hide!
+table style columns             ( histo, 0, sheet, column width, 20, boldface, true ); // Hide!
+table style rows                ( histo, 0, table, boldface, true, row height, 30 ); // Hide!
+table style cells               ( histo, 0, 0, single, wrap text, true ); // Hide!
+ // Hide!
+table process cells             ( histo, if (col()>0) // Hide!
+                                  { // Hide!
+                                      shade[] = limit(255-10*[.],0,255); // Hide!
+                                      table style cells( histo, col(), row(), single, fill color, {shade[],255,shade[]}); // Hide!
+                                  } ); // Hide!
+// Hide!
+table save excel file            ( {c1, histo}, {Countries, Histogram}, "Images/Results.xlsx" );
+
+	file delete ( temp1.csv ); // Hide!
+	file delete ( temp2.csv ); // Hide!
+	file delete ( temp3.csv ); // Hide!
+	+++,
+	"Output 03:All done.": "automatic",
+	"Description 04:Viewing the Results:"::
+
+	Click on the file name download and open the file with Excel:<br><br>
+	<b><a href="Images/Results.xlsx" >Results.xlsx</a> </b>
+	<br>
+
+	<br/><br/><img src="Images/TAB_Output_Data.png" alt="Output Tables"><br/>
+	
+	+++
+},
+
+
+"The Whole Program" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "The Whole Program" ],
+    "Description 01:Overview"::
+
+	Below you see the whole program described above.
+
+	<br>
+	+++,
+    "Examples 01:Whole Program"::
+	include ( Support Library );
+	include ( Style Library );
+	include ( Office Library );
+
+// Part 1: Import
+
+file download overwrite         ( "https://de.wikipedia.org/wiki/Liste_der_Staaten_der_Erde", countries 1.html );
+table load                      ( c1, countries 1.html, HTML, "international gebr" );
+
+file download overwrite         ( "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)", countries 2.html );
+table load                      ( c2, countries 2.html, HTML, "mid-year estimates" );
+
+table initialize                ( country names resolved,
+                                { { Country Name Pattern,              Country Name to use },
+                                  { 'Gambia*',                         Gambia },
+                                  { 'Congo*Democratic*,DR*Congo',      'Congo (DR)' },
+                                  { 'Congo,Congo*Brazzaville*',        'Congo (Brazzaville)' },
+                                  { 'Lao*',                            Laos },
+                                  { 'Korea*Democratic*,North Korea',   'Korea (North)' },
+                                  { 'Korea*Republic*,South Korea',     'Korea (South)' },
+                                  { 'Micronesia*',                     Micronesia },
+                                  { 'Brunei*',                         Brunei },
+                                  { 'Türkiye',                         Turkey } } );
+
+// Part 2: Clean
+
+table clean                     ( c1 );
+table delete selected rows      ( c1, [0]='',Erde );		// Remove blank and summary rows
+table process all cells         ( c1, [.] = left( [.], '[' ) );	// Remove cited references
+table delete rows               ( c1, -1 );			// Delete last row (bottom header row - repeated)
+
+table clean                     ( c2, trim spaces );
+table delete selected rows      ( c2, [0]='',World );		// Remove blank and summary rows
+table process all cells         ( c2, [.] = left( [.], '[' ) );	// Remove cited references
+
+
+// Part 3: Validate
+
+table correct headers           ( c1, { 'Einwohner*', 'Fläche*', Englischer Name }, 
+				      { Inhabitants,  Area,      Country,        } );
+table keep columns              ( c1, { Country, Area, Inhabitants } );
+table process cells in columns  ( c1, { Area, Inhabitants }, [.] = replace(str([.]) / '.',',','.') );
+// Let's ignore messy data in CHINA and DENMARK (Free text on HK, Macao, Greenland, Faroer Is.)
+
+table keep selected rows        ( c1, is numeric( [Area] ) );
+table process                   ( c1, [Country] = left([Country],' oder ') ); // Remove country name in other language after ' oder'
+table lookup smart ignore case  ( c1, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+
+most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
+
+table delete selected rows      ( c2, [Country]=World );
+table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
+table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
+table keep columns              ( c2, { Country, Continent, Population } );
+table delete selected rows      ( c2, [Country]='*(*)*' ); 		// Overseas departements with home countries in parentheses
+table lookup smart ignore case  ( c2, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+
+// Part 4: Merge
+
+table merge extend columns      ( c2, c1, Country );
+table delete selected rows      ( c1, [Continent]='' ); // Questionable countries
+
+// Part 5: Augment
+
+[c1:Country,{China,Denmark},Area] = {9597000,42952}; // km2  (Denmark without Greenland, and CN without China South Sea)
+
+table insert columns            ( c1, { Inhabitants Variation, Inhabitants per km2 } );
+table process selected rows     ( c1, [Inhabitants] == '', [Inhabitants] = [Population]);
+table process                   ( c1, [Inhabitants per km2]   = [Inhabitants] / [Area];
+                                      [Inhabitants Variation] = ([Inhabitants] - [Population])/[Inhabitants] );
+
+
+// Part 6: Analyze
+
+// Create a histogram distribution across number of inhabitants and density
+
+intervals[inhabitants]          
+  = {  1000000, 2000000, 5000000, 10000000, 20000000, 50000000, 100000000, 200000000, 500000000, 1000000000 };
+intervals[density]              = { 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000 };
+intervals[]                     = { intervals[inhabitants], intervals[density] }; // Combine them in 1 set
+
+table histogram                 ( c1, histo, {Population,Inhabitants per km2}, intervals[] );
+table process selected rows     ( histo, is numeric([Intervals]), [Intervals] = ">=" + str([Intervals], "#,##0", local ) );
+table process selected columns  ( histo, 0, is numeric([.]), [.] = ">=" + str([.], "#,##0", local ) );
+
+// Remove the 'Others' as not needed.
+
+table delete columns		( histo, Others );
+table delete selected rows	( histo, [Intervals]=Others );
+
+// Provide consolidated info by continent
+
+table copy table                ( c1, c2 );
+table consolidate               ( c2, Continent, { Area, Population}, sum); // Consolidate by continent
+table process                   ( c2, [Inhabitants per km2]   = [Inhabitants] / [Area];
+                                      [Inhabitants Variation] = ([Inhabitants] - [Population])/[Inhabitants];
+                                      [Country] = "All countries in " + [Continent] );
+for all ( {c1, c2}, table[])	table delete columns( table[], Inhabitants);
+table merge                     ( c2, c1 );
+
+
+// Part 7: Format
+
+table sort selected rows        ( c1, [Country]{0..3}!="All ", Country ); // Ensure ascending order in English
+
+table style auto width          ( c1 );
+table style columns             ( c1, Area, sheet, column width, 16 );
+table style columns             ( c1, {Area, Population},    table, number format, "#,##0");
+table style columns             ( c1, Inhabitants Variation, table, number format, "0.00%");
+table style columns             ( c1, Inhabitants per km2,   table, number format, "#,##0.00");
+table style table               ( c1, sheet, freeze rows, 1, autofilter, 0 );
+table style rows                ( c1, 0, table, boldface, true );
+
+table style table               ( histo, sheet, column width, 10 );
+table style columns             ( histo, 0, sheet, column width, 20, boldface, true );
+table style rows                ( histo, 0, table, boldface, true, row height, 30 );
+table style cells               ( histo, 0, 0, single, wrap text, true );
+
+table process cells             ( histo, if (col()>0)
+                                  {
+                                      shade[] = limit(255-10*[.],0,255);
+                                      table style cells( histo, col(), row(), single, fill color, {shade[],255,shade[]});
+                                  } );
+
+
+// Part 8: Export
+
+table save excel file            ( {c1, histo}, {Countries, Histogram}, Result.xlsx );
+echo                             ( "The histogram");
+table list                       ( histo );	
+
+
+	+++,
+
+    "Output 01": "automatic"
+}
+
+
+
+B4PDOCU.STOP

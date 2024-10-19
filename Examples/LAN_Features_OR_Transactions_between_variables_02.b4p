@@ -1,12 +1,12 @@
 ﻿#!/usr/local/bin/b4p
-  structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
-  structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+       structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+       structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
 
-  structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
-  structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
+       structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+       structure( animals2[mammal], { carnivore, omnivores }, { lynx, skunk } );
 
-  animals1[mammal] |<<= animals2[mammal]; 
-  // Lynx replaces bear, skunk added, turtle added
+       animals1[mammal] |<<= animals2[mammal]; 
+       // Lynx replaces bear, skunk added, turtle added
 
-  see(animals1[]); // omnivore added, carnivore overwritten
-  see(animals2[]); // no more mammal subtypes (...vores)
+       see(animals1[]); // omnivore added, carnivore overwritten
+       see(animals2[]); // no more mammal subtypes (...vores)

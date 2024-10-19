@@ -9,11 +9,11 @@ B4PDOCU.START
 
 	Tables are the key objects on which this programming language has been developed for, namely to process tables of any size
 	effectively and efficiently with minimum amount of coding and delivering maximum possible execution performance.  An extensive
-	function library with rich features is available to process and verify tables.
+	function library for __table functions__ providing rich features is available to process and verify tables.
 
 	<br><br>
 	All tables are 2-dimensional data structures which hold all information as strings (text), including numeric values,
-	boolean values, dates and parameter sets.  Different access methods are avaialble when accessing table contents directly.
+	boolean values, dates and sets.  Different access methods are avaialble when accessing table contents directly.
 
 	<br/><img src="Images/LAN_Tables.png" alt="Tables"><br/>
 
@@ -25,9 +25,10 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Tables - Example used in the Following Sections" ],
-    "Description 01:A list of CCities"::
+    "Description 01:A list of Cities"::
 
-	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables.
+	The table "Cities.csv" shown below will be used to demonstrate the various examples on accessing tables as documented in the following sections.
+	<br>
 	+++,
     "Examples 01:"::
 	include( Support Library );
@@ -42,16 +43,35 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table names" ],
-    "Description 01:Table Naming Rules"::
-	* All tables are identified with table names which are string values
+    "Description 01:Introduction"::
+
+	In B4P, referencing tables do always begin with the opening bracket <b>[</b>, typically followed by the table name, specifying the columns and
+	finally the rows.  The table reference will eventually end with <b>]</b>.  The different methods and formulations for __Accessing tables__
+	are described in the next sections.
+
+	<br><br>
+	The top table row is row 0.  Column counting also starts with 0.
+	<br>
+
+	+++,
+    "Description 02:Rules"::
+	* All tables are identified with table names which are string values.
 	* You can either use table names with or without quotation marks.
-	* Similar to variable names, speaces are supported.  Use quotation marks if the name contains multiple consecutive spaces and/or special symbols
-	** Multiple consecutive white spaces in strings without quotation marks reduce to one space.
+	* Similar to variable names, spaces are supported.
+	** If no quotation marks are used, then multiple consecutive white spaces inside the name will be treated as 1 space.
+	** If you need table names with multiple consecutive spaces, then put the name into quotation marks.
 	* You can also specify an __RHS Expression__ which returns a string containing the retrieved or calculated name
 	* Names may begin or end with numbers, even with spaces inbetween, e.g. <b>4200 Pennsylvania Ave.</b>.
 	* Blank table names are also allowed, e.g. <b>['':0,0]</b>, but not recommended if you want to keep code quality high.
 
-    +++
+    +++,
+	"Examples 02:"::
+	include( Support Library );
+	table load( table, "Examples\Cities.csv" );
+	
+	echo( [table: City, 2 ] );  // Retrieve row 2 from column 'City'
+	+++,
+    "Output 02:": "automatic"
 },
 
 
@@ -63,7 +83,7 @@ B4PDOCU.START
 	* All tables are global, i.e. accessible by called procedure and functions, no matter in which code file they are running, and retained if created \
 	  inside user-defined procedures and functions and then returned.
 	* The tables are fully stored and managed in working memory (dynamic RAM).  In case you work with very large tables and your system has not enough memory space, \
-	  the the operating system will move data to the <i>page file</i> in order to provide additional space.  With the very large memory space available \
+	  the operating system will move data to the <i>page file</i> in order to provide additional space.  With the very large memory space available \
 	  systems, this should not be an issue for most applications.  B4P uses full 64-bit performance, so you will not encounter the 4GB limit.
 	* Row counting starts with 0 (row 0 is the header row).
 	* Tables may contain any number of rows, including 0 (= no) row.
@@ -90,7 +110,7 @@ B4PDOCU.START
 
 	Various methods are available to create tables:<br>
 	* Function calls such as __table create(__), __table initialize(__), etc.
-	* Loading data into tables, e.g. with __table load(__), table load excel file(__)
+	* Loading data into tables, e.g. with __table load(__), __table load excel file(__)
 	* Copying tables, e.g. with __table copy table(__), or using other functions which create new tables as output, e.g. __directory listing(__).
 
 	The next sections describe the synatax which allows for straightforward and powerful access to table contents, be it simple values, whole (or parts of) rows and
@@ -153,13 +173,12 @@ B4PDOCU.START
 	Data can only written to tables if the tables are existing or initialized.
 	<br><br>
 
-	All data written to tables will be converted to strings first. This also includes for numbers, dates, times, parameter sets, etc.
-	For boolean values, the text values 'true' and 'false' will be used.  If you want to read the text values 'true' and 'false' as booleans,
-	the use __table configure(__) to activate this: <b>table configure(<i>table name</i>, read booleans, yes );</b>
+	All data written to tables will be converted to strings first. This also includes for numbers, dates, times, sets, etc.
+	For boolean values, the text values using lower-case letters 'true' and 'false' will be used.
 
 	<br><br>
-	Attempting to write values which lie outside the table (except if referencing above the header row or left of the first column) will work successfully.
-	If necessary, the size of the table will be extended accordingly.  Valid example: <b>[ table: 999, 999] = "nine nine nine";</b> 
+	Attempting to write values which lie outside the table (except if referencing above the header row or left of the first column) is
+	allowed and will extend the size of the table where needed. Valid example: <b>[ table: 999, 999] = "nine nine nine";</b> 
 
     "Description 04:Advanced Features"::
 
@@ -231,7 +250,7 @@ B4PDOCU.START
 	+++,
 	"Output 03:Output - Consider travelling": "automatic",
 
-    "Description 04:Rule on Column Header Names"::
+    "Description 04:Rules on Column Header Names"::
 	You have full freedom to specify the header names as you wish.  Some rules need to be followed:
 	* If the header name contains 1 or more words and optionally single spaces inbetween, and they contain no special symbol which could be interpreted by \
 	  B4P otherwise (e.g. hypen as minus sign), then the name can be used without quotation marks.
@@ -251,54 +270,54 @@ B4PDOCU.START
 
 	The <b>horizontal table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table row.
 	Multiple columns can be specified with following approaches:
-	* __Horizontal table access using parameter sets__
+	* __Horizontal table access using sets__
 	* __Horizontal table access using wildcards__ with the colon (:) prefix
 	* __Horizontal table access using ranges__ with the '..' or leaving out the column specification to access all exsting columns
 
-	The value(s) read from the table will be provided in a __parameter set__.  This does also apply if only one or even no value being retrieved.  In the latter case,
+	The value(s) read from the table will be provided in a __set__.  This does also apply if only one or even no value being retrieved.  In the latter case,
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
-	* All elements in the parameter set have been written (not all specified cells in the table are updated), 
-	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
+	* All elements in the set have been written (not all specified cells in the table are updated), 
+	* The specified number of cells in the table is smaller than the number of elements in the set (not all elements are written to the table).
 
 	+++,
     "Description 02:Read Accesses"::
-	The value(s) read from the table will be provided in a __parameter set__, regardless of the number of cells accessed. Empty parameter sets are returned
-	if the read access results in no matches (e.g. empty parameter set for headers specified, wildcard yields no match, specified range is in the wrong
+	The value(s) read from the table will be provided in a __set__, regardless of the number of cells accessed. Empty sets are returned
+	if the read access results in no matches (e.g. empty set for headers specified, wildcard yields no match, specified range is in the wrong
 	(right to left) direction.
 	+++,
     "Description 03:Write Accesses"::
-	When writing a parameter set horizontally to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	When writing a set horizontally to a table, then the elements of the set will be written.  The write access stops prematurely if
 	one of the two conditions are met:
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
-	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
-	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
-	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a string in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+	* All elements in the set have been written (not all specified cells in the table are updated).  Writing empty sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the set (not all elements are written to the table).
+	<u>Note</u>:If an element in the set is in turn a set, then it will be converted to a string in order to visualize the set contents (with braces around, elements separated with commas).<br>
 
-	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the horizontal table access.
+	Alternatively, when writing a value (not set) to a table, then the same value will be written into all cells as specified with the horizontal table access.
 	+++
 },
 
 
 
-"Horizontal Table Access w. Param. Sets":
+"Horizontal Table Access with Sets":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Horizontal table access using parameter sets" ],
+    "Feature Names":		[ "Horizontal table access using sets" ],
     "Description 01:Introduction"::
 
-	Instead of specifying one column header name (string) or column number (numeral), a parameter set can be used to specify
-	multiple columns in order to access multiple cells in a specific row at a time.  The resulting data read out is a parameter set
+	Instead of specifying one column header name (string) or column number (numeral), a set can be used to specify
+	multiple columns in order to access multiple cells in a specific row at a time.  The resulting data read out is a set
 	containing the data which corresponds to the headers specified accordingly.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
-	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing strings and numerals, as well as parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals, as well as sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Multiple Column Specifier	| ,	| Simple Row Specifier			| ]
-		| Must be a string		|	| - Parameter set containing	|	| - Matching contents (string), or 	|
+		| Must be a string		|	| - Set containing	|	| - Matching contents (string), or 	|
 		|				|	| header names and/or positive	|	| - Positive row number, or		|
 		|				|	| or negative column numbers	|	| - Negative row number			|
 	===
@@ -306,18 +325,18 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by the row, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Simple Row Specifier			| ,	| Multiple Column Specifier 2		| ]
-		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Parameter set containing		|
+		| Must be a string		|	| - Header name, or		|	| - Matching contents (string), or 	| 	| - Set containing		|
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| header names and/or positive		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| or negative column numbers		|
 	===
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	Lookup access: If a set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
 
     "Description 03:Principle"::
 
-	<br/><img src="Images/Description_Table_Horizontal_Access_Parameter_Set_Full.jpg" alt="Horizontal table access using parameter sets, full table specification"><br/>
+	<br/><img src="Images/Description_Table_Horizontal_Access_Parameter_Set_Full.png" alt="Horizontal table access using sets, full table specification"><br/>
 
 	+++,
     "Examples 03:Programming examples"::
@@ -343,13 +362,13 @@ B4PDOCU.START
 
 
 
-"Horizontal Table Access w. Wildcards":
+"Horizontal Table Access with Wildcards":
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Horizontal table access using wildcards" ],
     "Description 01:Introduction"::
 
-	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
+	Alternatively to sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
 	to compare the header row and pick up all matches.  A leading colon (<b>:</b>) is required to instruct B4P to search the table for matching
 	contents. All headers matching to the string pattern will be included in the selecction.
 
@@ -373,7 +392,7 @@ B4PDOCU.START
 		|				|	| - Positive column number, or	|	| - Positive row number, or		|	| string, recommended to use		|
 		|				|	| - Negative column number	|	| - Negative row number			|	| wildcard symbols			|
 	===
-	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
+	Lookup access: If a set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
 	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 
@@ -381,7 +400,7 @@ B4PDOCU.START
 
     "Description 03:Principle"::
 
-	<br/><img src="Images/Description_Table_Horizontal_Access_Wildcard_Full.jpg" alt="Horizontal table access using wildcads, full table specification"><br/>
+	<br/><img src="Images/Description_Table_Horizontal_Access_Wildcard_Full.png" alt="Horizontal table access using wildcads, full table specification"><br/>
 
 	+++,
     "Examples 03:Programming examples"::
@@ -413,7 +432,7 @@ B4PDOCU.START
 
 
 
-"Horizontal Table Access w. Ranges":
+"Horizontal Table Access with Ranges":
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Horizontal table access using ranges" ],
@@ -428,14 +447,14 @@ B4PDOCU.START
 	..		| From 1st column (column 0) to last column in table with header name
 	(blank)		| From 1st column (column 0) to last existing column in the current table row (ignoring the header row)
 	===	
-	In all cases, the data read will be in parameter sets, even if no or only 1 cell has been accessed.
+	In all cases, the data read will be in sets, even if no or only 1 cell has been accessed.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
 	
-	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing strings and numerals or parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals or sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Range Column Specifier	| ,	| Simple Row Specifier			| ]
@@ -453,14 +472,14 @@ B4PDOCU.START
 		|				|	| - Negative column number	|	| - Negative row number			|	| - Starting column ..		|
 		|				|	|				|	|					|	| - .. or left blank		|
 	===
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	Lookup access: If a set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
 
     "Description 03:Principle"::
 
-	<br/><img src="Images/Description_Table_Horizontal_Access_Range_Full.jpg" alt="Horizontal table access using ranges, full table specification"><br/>
+	<br/><img src="Images/Description_Table_Horizontal_Access_Range_Full.png" alt="Horizontal table access using ranges, full table specification"><br/>
 
 	+++,
     "Examples 03:Programming examples"::
@@ -508,50 +527,50 @@ B4PDOCU.START
 
 	The <b>vertical table access</b> is one of the four basic __table access methods__ where this one accesses multiple cells in the same table column.
 	Multiple columns can be specified with following approaches:
-	* __Vertical table access using parameter sets__
+	* __Vertical table access using sets__
 	* __Vertical table access using wildcards__ with the colon (:) prefix
 	* __Vertical table access using ranges__ with the '..' or leaving out the column specification to access all exsting columns
 
 	+++,
     "Description 02:Read Accesses"::
-	The value(s) read from the table will be provided in a __parameter set__, regardless of the number of cells accessed. Empty parameter sets are returned
-	if the read access results in no matches (e.g. empty parameter set for headers specified, wildcard yields no match, specified range is in the wrong
+	The value(s) read from the table will be provided in a __set__, regardless of the number of cells accessed. Empty sets are returned
+	if the read access results in no matches (e.g. empty set for headers specified, wildcard yields no match, specified range is in the wrong
 	(right to left) direction.
 	+++,
     "Description 03:Write Accesses"::
-	When writing a parameter set vertically to a table, then the elements of the parameter set will be written.  The write access stops prematurely if
+	When writing a set vertically to a table, then the elements of the set will be written.  The write access stops prematurely if
 	one of the two conditions are met:
 	an empty set is returned.  Coming to write access, writing to the destination will stop whenever <u>either one of the two conditions is met first</u>:
-	* All elements in the parameter set have been written (not all specified cells in the table are updated).  Writing empty parameter sets will not result in a write opration because there is nothing to write.
-	* The specified number of cells in the table is smaller than the number of elements in the parameter set (not all elements are written to the table).
-	<u>Note</u>:If an element in the parameter set is in turn a parameter set, then it will be converted to a string in order to visualize the parameter set contents (with braces around, elements separated with commas).<br>
+	* All elements in the set have been written (not all specified cells in the table are updated).  Writing empty sets will not result in a write opration because there is nothing to write.
+	* The specified number of cells in the table is smaller than the number of elements in the set (not all elements are written to the table).
+	<u>Note</u>:If an element in the set is in turn a set, then it will be converted to a string in order to visualize the set contents (with braces around, elements separated with commas).<br>
 
-	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
+	Alternatively, when writing a value (not set) to a table, then the same value will be written into all cells as specified with the vertical table access.
 	+++
 },
 
 
 
 
-"Vertical Table Access w. Param. Sets":
+"Vertical Table Access with Sets":
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Vertical table access using parameter sets" ],
+    "Feature Names":		[ "Vertical table access using sets" ],
     "Description 01:Introduction"::
 
-	Instead of specifying one row number (numeral) or matching contents (string), a parameter set can be used to specify
-	multiple rows in order to access multiple cells in a specific column at a time.  The resulting data read out is a parameter set
+	Instead of specifying one row number (numeral) or matching contents (string), a set can be used to specify
+	multiple rows in order to access multiple cells in a specific column at a time.  The resulting data read out is a set
 	containing the data which corresponds to the row numbers specified accordingly.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
-	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing strings and numerals, as well as parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals, as well as sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ]
-		| Must be a string		|	| - Header name, or		|	| - Parameter set containing		|
+		| Must be a string		|	| - Header name, or		|	| - Set containing		|
 		|				|	| - Positive column number, or	|	| row numbers or contents to match	|
 		|				|	| - Negative column number	|	| with the data in the table		|
 	===
@@ -559,18 +578,18 @@ B4PDOCU.START
 	<br>Syntax for lookup access (Choose column, followed by one or more rows, and pick up data from a different column):
 	=== 10, 230, 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier	| ,	| Multiple Row Specifier		| ,	|  Simple Column Specifier 2	| ]
-		| Must be a string		|	| - Header name, or		|	| - Parameter set containing 		| 	| - Header name, or		|
+		| Must be a string		|	| - Header name, or		|	| - Set containing 		| 	| - Header name, or		|
 		|				|	| - Positive column number, or	|	| row numbers or contents to match	|	| - Positive column number, or	|
 		|				|	| - Negative column number	|	| with the data in the table		|	| - Negative column number	|
 	===
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	Lookup access: If a set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
 
     "Description 03:Principle"::
 
-	<br/><img src="Images/Description_Table_Vertical_Access_Parameter_Set_Full.jpg" alt="Vertical table access using parameter sets, full table specification"><br/>
+	<br/><img src="Images/Description_Table_Vertical_Access_Parameter_Set_Full.jpg" alt="Vertical table access using sets, full table specification"><br/>
 
 	+++,
     "Examples 03:Programming examples"::
@@ -597,14 +616,14 @@ B4PDOCU.START
 
 
 
-"Vertical Table Access w. Wildcards":
+"Vertical Table Access with Wildcards":
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Vertical table access using wildcards" ],
     "Description 01:Introduction"::
 
 
-	Alternatively to parameter sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
+	Alternatively to sets, __wildcards__ can be specified using __softquoted strings__ (i.e. with __Text inside single quotation marks__)
 	to compare the entries in the specified column and pick up all row numbers with matching comparisons.  A leading colon (<b>:</b>) is required 
 	to instruct B4P to search the table for matching contents.
 
@@ -628,7 +647,7 @@ B4PDOCU.START
 		|				|	| - Positive column number, or	|	| string, recommended to use		|	| - Positive column number, or		|
 		|				|	| - Negative column number	|	| wildcard symbols			|	| - Negative column number		|
 	===
-	Lookup access: If a parameter set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
+	Lookup access: If a set or a header name pattern is encountered in the Simple Column Specifier instead of a simple value (string or numeral), 
 	then the 1st column found will be used to identify the row. If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -662,7 +681,7 @@ B4PDOCU.START
 
 
 
-"Vertical Table Access w. Ranges":
+"Vertical Table Access with Ranges":
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Vertical table access using ranges" ],
@@ -677,14 +696,14 @@ B4PDOCU.START
 	..		| From 1st data row (row 1) to last table row (end of table)
 	(blank)		| From top row (row 0 / header row) to last table row (end of table)
 	===	
-	In all cases, the data read will be in parameter sets, even if no or only 1 cell has been accessed.
+	In all cases, the data read will be in sets, even if no or only 1 cell has been accessed.
 
 	+++,
     "Description 02:Syntax for Full Table Specification"::
 
 	
-	The table must be referenced inside brackets using a combination of strings and/or numerals and/or parameter sets.  These may be constant strings and numbers
-	or expressions providing strings and numerals or parameter sets.
+	The table must be referenced inside brackets using a combination of strings and/or numerals and/or sets.  These may be constant strings and numbers
+	or expressions providing strings and numerals or sets.
 
 	=== 10, 230, 10, 230, 10, 230, 10, noframe table_syntax
 	[	| Table Name			| :	| Simple Column Specifier		| ,	| Range Column Specifier		| ]
@@ -703,7 +722,7 @@ B4PDOCU.START
 		|				|	| 				|	| - .. or (blank)			|	|					|
 	===
 
-	Lookup access: If a parameter set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
+	Lookup access: If a set is encountered in the Simple Column Specifier instead of a simple value (string or numeral), then the 1st parameter element will be used
 	identifying the row.  If it contains no elements, then no lookup can be made and an empty set will be returned.
 
 	+++,
@@ -759,12 +778,12 @@ B4PDOCU.START
 
 	The <b>matrix table access</b> is one of the four basic __table access methods__ which combines both __horizontal table access__ and __vertical table access__
 	in order to access cells in multiple rows and columns in one.  You can freely combine different ways to access the rows and columns, for example
-	parameter sets for the rows and wildcards for the columns, and so forth.
+	sets for the rows and wildcards for the columns, and so forth.
 	+++,
     "Description 02:Principle"::
 	The following illustrations hows how the different approaches can be freely combined horizontally and vertically.
 
-	<br/><img src="Images/Description_Table_Matrix_Access_Full.jpg" alt="Matrix table access using different methods, full table specification"><br/>
+	<br/><img src="Images/Description_Table_Matrix_Access_Full.png" alt="Matrix table access using different methods, full table specification"><br/>
 	+++,
 
     "Examples 02:Programming examples"::
@@ -795,7 +814,7 @@ B4PDOCU.START
 	echo( [ table: {}, {} ] ); // Nothing
 	echo;
 
-	// Matrix access on one single row, column, cell.  Note: Always nested parameter sets
+	// Matrix access on one single row, column, cell.  Note: Always nested sets
 	// First level: Rows, 2nd level: COlumns
 
 	echo( [ table: {City}, 1..3 ] ); // One column
@@ -805,19 +824,19 @@ B4PDOCU.START
     "Output 02:Output:": "automatic",
 
     "Description 03:Read Accesses"::
-	The value(s) read from the table will be provided in nested __parameter sets__: One complete set containing sets resembling rows which in turn
+	The value(s) read from the table will be provided in nested __sets__: One complete set containing sets resembling rows which in turn
 	contain the columns in their rows.<br>
 	Example: <b>{ { Row 1 Column 1, Row 1 Column 2 }, { Row 2 Column 1, Row 2 Column 2 } } </b>.
-	Even if the matrix access results in a single row, single column or even single cell, all such values are returned in nested parameter sets.
+	Even if the matrix access results in a single row, single column or even single cell, all such values are returned in nested sets.
 	Example: <b>[ table: { City }, { 4 } ]</b> returns <b>{ { Boston } }</b>.
-	If the read access results in no matches (e.g. empty parameter sets provided to specify rows or columns, wildcard patterns yielding no matches
+	If the read access results in no matches (e.g. empty sets provided to specify rows or columns, wildcard patterns yielding no matches
 	and/or ranges in wrong direction), then empty sets will be returned.
 
 	+++,
     "Description 04:Write Accesses"::
 	Write access using matrix access method appears tricky but is not.  The most simple approach is to specify staring ranges for rows and columns
 	and do the writing, e.g. <b>[ table: 3.., 4.. ]</b>.  Write access begins in row 4 and column 3.
-	Alternatively, when writing a value (not parameter set) to a table, then the same value will be written into all cells as specified with the vertical table access.
+	Alternatively, when writing a value (not set) to a table, then the same value will be written into all cells as specified with the vertical table access.
 	+++,
     "Examples 04:Programming examples"::
 	include( Support Library );
@@ -882,11 +901,14 @@ B4PDOCU.START
 	* All standard table functions which contain the ending <b>... selected rows</b>.  In this case, partial table specifciation is allowed in the __expression__ calculated for every row
 
 	Examples of some functions which do also provide the table colums:
-	* __with table(__) with 3 function parameters (table name and row and column)
+	* __with table(__) with 3 function parameters (table name, row and column)
 	* __table process cells(__) and likes
 	* __table process columns(__) and  __table process selected columns(__)
+	* __for all table columns(__)
 
-	With such a context available, the row number can also be retrieved directly with the function __row(__).
+	With such a context available, the row number can also be retrieved directly with the function __row(__).<br>
+	The current column number can be tretrived with __col(__).<br>
+	Inside table references, the column can be referred using a point <b>.</b> specified directly or as a __softquoted string__.
 
 	+++,
     "Description 03:Syntax for Partial Table Specification"::
@@ -1242,7 +1264,7 @@ B4PDOCU.START
     "Description 02:Attentions - Memorized Columns can Strike Back!"::
 
 	In a different case, you create a user-defined function which proceses a particular table and refernce
-	the the colum numbers.  See following example:
+	the colum numbers.  See following example:
 
 	+++,
     "Examples 02:"::

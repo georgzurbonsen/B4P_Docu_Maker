@@ -1,7 +1,7 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize ( table 1,
-  { { Last Name, First Name, Phone No, Age }, { Larsson, Lara, "1-212-555-1212", 28 } } );
+       table initialize ( table 1,
+       { { Last Name, First Name, Phone No, Age }, { Larsson, Lara, "1-212-555-1212", 28 } } );
 
-  echo( table check header ( table 1, Phone No ) );
-//    echo( table check header ( table 1, Gender ) ); // Not executed now, would cause exception
+       echo( table check header ( table 1, Phone No ) );
+//     echo( table check header ( table 1, Gender ) ); // Not executed now, would cause exception
 

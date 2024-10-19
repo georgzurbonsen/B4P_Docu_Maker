@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+
+       echo("Break and continue loops");
+               for (a[] = 1, a[] <= 4, a[]++)
+               {
+                       echo("  Loop begin ", a[] );
+                       if (a[] = 2) continue loop;
+                       if (a[] = 3) break loop;
+                       echo("  Loop end ", a[] );
+               }

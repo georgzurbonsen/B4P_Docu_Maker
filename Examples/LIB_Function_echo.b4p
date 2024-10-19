@@ -9,7 +9,7 @@
     echo;
 
     s[] = { "Calculation: ", c[], " compared with 13 gives ", c[]==13, "." };
-    echo("Output parameter set with 'echo':");
+    echo("Output set with 'echo':");
     echo( s[] );
-    echo("Output parameter set with 'print line':");
+    echo("Output set with 'print line':");
     print line( s[] );

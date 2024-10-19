@@ -1,25 +1,25 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals,
-      {{ Name, Class, Number of Legs},
-       { Dog, Mammal, 4 }, { Snake, Reptile, 0 }, { Human, Mammal, 2 }} );
+       table initialize( animals,
+               {{ Name, Class, Number of Legs},
+                { Dog, Mammal, 4 }, { Snake, Reptile, 0 }, { Human, Mammal, 2 }} );
 
-  for all table columns( animals, 2, value[], i[] )
-  {
-      echo( i[],". ", [i[],0], ": ", value[] );
-  }
+       for all table columns( animals, 2, value[], i[] )
+       {
+               echo( i[],". ", [i[],0], ": ", value[] );
+       }
 
-  echo; // You can also use the current column number known in the partial table context:
-        // [.] = Current table, column and row.  [.,0] = Current table, column and row 0
-        // Also allowed: ['.'], ['<.'] where then 2nd one refers 1 column to the left.
+       echo; // You can also use the current column number known in the partial table context:
+                 // [.] = Current table, column and row.  [.,0] = Current table, column and row 0
+                 // Also allowed: ['.'], ['<.'] where then 2nd one refers 1 column to the left.
 
-  for all table columns( animals, 2 ) // A bit simpler
-  {
-      echo( [.,0], ": ", [.] );
-  }
+       for all table columns( animals, 2 ) // A bit simpler
+       {
+               echo( [.,0], ": ", [.] );
+       }
 
-  echo;
+       echo;
 
-  for all table columns( animals ) // Same output as above (row 0 assumed as default)
-  {
-      echo( [.], ": ", [.,2] );
-  }
+       for all table columns( animals ) // Same output as above (row 0 assumed as default)
+       {
+               echo( [.], ": ", [.,2] );
+       }

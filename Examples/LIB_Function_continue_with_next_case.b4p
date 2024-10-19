@@ -1,0 +1,25 @@
+﻿#!/usr/local/bin/b4p
+for (a[] = 1, a[] <= 3, a[]++)
+{
+    print ( "Switch Loop ",a[], ":   " );
+       switch( a [] )
+       {
+           case (1)
+           {
+               print("Case 1; ");
+               continue with next case;
+               print("Skipped;  "); // This statement will not be executed:
+           }
+           case (2)
+           {
+               print("Case 2; ");
+               continue case;
+           }
+           case (3)
+           {
+               print("Case 3; ");
+               break case;
+           }
+       }
+       echo;
+}

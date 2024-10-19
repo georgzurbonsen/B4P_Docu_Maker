@@ -1,16 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },
-                          { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );
+       table initialize( t,  { { Col A, Col B, Col C, Col D, Col E, Col F },
+                               { Val A, Val B, Val C, Val D, Val E, Val F, Val G } } );
 
-  echo("Accessing the table directly:");
-  echo( [ t: '<Col D', 1 ] ); // Col C
-  echo( [ t: '>>Col D', 1 ] ); // Col F
-  with table( t, 1 ) echo( [ '>Col A'] ); // Partial table specifcation used here, too.
+       echo("Accessing the table directly:");
+       echo( [ t: '<Col D', 1 ] ); // Col C
+       echo( [ t: '>>Col D', 1 ] ); // Col F
+       with table( t, 1 ) echo( [ '>Col A'] ); // Partial table specifcation used here, too.
 
-  echo(new line, "And with function parameters:");
-  echo( table read column selected rows ( t, Col B, true ) ); // Val B
-  echo( table read column selected rows ( t, '<Col B', true ) ); // Val A
-  // echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception
-  echo( table read column selected rows ( t, '<>Col B', true ) ); // Val B
-  echo( table read column selected rows ( t, '>Col E', true ) ); // Val F
-  echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G
+       echo(new line, "And with function parameters:");
+       echo( table read column selected rows ( t, Col B, true ) ); // Val B
+       echo( table read column selected rows ( t, '<Col B', true ) ); // Val A
+       // echo( table read column selected rows ( t, '<<Col B', true ) ); // would assert exception
+       echo( table read column selected rows ( t, '<>Col B', true ) ); // Val B
+       echo( table read column selected rows ( t, '>Col E', true ) ); // Val F
+       echo( table read column selected rows ( t, '>>Col E', true ) ); // Val G

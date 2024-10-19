@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize ( t, { {Name, Date, Tennis Scores},
-       { Jim,   "2020-06-20", "6:5 6:2 6:3" },
-       { "",    "same day"  , "7:6 6:4 5:6" },
-       { "",    "2020-06-21", "6:2 5:6 4:6" },
-       { Jane,  "same day",   "5:4 6:5 7:6" },
-       { "",    "",           "3:6 7:6 6:5" } } );
+       table initialize ( t, { {Name, Date, Tennis Scores},
+                { Jim,   "2020-06-20", "6:5 6:2 6:3" },
+                { "",    "same day"  , "7:6 6:4 5:6" },
+                { "",    "2020-06-21", "6:2 5:6 4:6" },
+                { Jane,  "same day",   "5:4 6:5 7:6" },
+                { "",    "",           "3:6 7:6 6:5" } } );
 
-  table copy table ( t, u );
+       table copy table ( t, u );
 
-  echo("Repeat blank entries");
-  table fill vertically( t, { Name, Date }, { "", 'same day,' } );
-  table list ( t );
+       echo("Repeat blank entries");
+       table fill vertically( t, { Name, Date }, { "", 'same day,' } );
+       table list ( t );
 
-  echo("Here: Ignore entries with blankn names. Jane played at the same date as Jim did.");
-  table fill vertically selected rows ( u, [Name]!="", { Name, Date }, { "", 'same day,' } );
-  table list ( u );
+       echo("Here: Ignore entries with blankn names. Jane played at the same date as Jim did.");
+       table fill vertically selected rows ( u, [Name]!="", { Name, Date }, { "", 'same day,' } );
+       table list ( u );

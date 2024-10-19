@@ -1,8 +1,8 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = 1.2156;
-  b[] = a[] * 1.9123 * 2.591271 / 1.9123 / 2.591271; // Result should be unchanged  ...theoretically.
+       a[] = 1.2156;
+       b[] = a[] * 1.9123 * 2.591271 / 1.9123 / 2.591271; // Result should be unchanged  ...theoretically.
 
-  echo( a[], ", ", b[] );
-  echo( "Epsilon: ", runtime settings[epsilon] );
-  echo( "Hard comparison    : ", a[] = b[] );   // Falsely outputting false
-  echo( "Tolerant comparison: ", a[] = ~b[] );  // Now it's OK (both values are within epsilon tolerance)
+       echo( a[], ", ", b[] );
+       echo( "Epsilon: ", runtime settings[epsilon] );
+       echo( "Hard comparison    : ", a[] = b[] );   // Falsely outputting false
+       echo( "Tolerant comparison: ", a[] = ~b[] );  // Now it's OK (both values are within epsilon tolerance)

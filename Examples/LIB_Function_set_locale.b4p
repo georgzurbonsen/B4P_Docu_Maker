@@ -5,7 +5,7 @@
     date[] = date( "2020-01-14" );
     num[] = 12345678.90;
 
-    for all parameters( { en_IN, es_US, de_AT, it_IT, Switzerland }, loc[], i[] )
+    for all( { en_IN, es_US, de_AT, it_IT, Switzerland }, loc[], i[] )
     {
         echo(loc[],":");
         set locale( loc[] );

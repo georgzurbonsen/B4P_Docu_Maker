@@ -1,13 +1,13 @@
 ﻿#!/usr/local/bin/b4p
-      include ( Support Library ); // for 'table list'. Will be included automatically when using B4P normally, i.e. not needed.
-      table initialize( t1,
-      { { Name, Street, Nr }, { Alex,Main St., 231 },Tom,Jerry,{ Tillman,South St., 1 }, { Jane,East Coast St.,3200 East Entrance } } );
-      // Notice: Tom and Jerry get their own rows for their cat and mouse play
+               include ( Support Library ); // for 'table list'. Will be included automatically when using B4P normally, i.e. not needed.
+               table initialize( t1,
+               { { Name, Street, Nr }, { Alex,Main St., 231 },Tom,Jerry,{ Tillman,South St., 1 }, { Jane,East Coast St.,3200 East Entrance } } );
+               // Notice: Tom and Jerry get their own rows for their cat and mouse play
 
-      table append             ( t1, { { Corinne, River Side Blvd., 987 } } );
-      table append on same row ( t1, { { Runs a Café, "Tel: +1 202 555 1212" } } ); // Takes additional columns
+               table append             ( t1, { { Corinne, River Side Blvd., 987 } } );
+               table append on same row ( t1, { { Runs a Café, "Tel: +1 202 555 1212" } } ); // Takes additional columns
 
-      table append               ( t1, { { Matteo, Springs Lane, 964 } } );
-      table append on same field ( t1, " Suite 3" );
+               table append               ( t1, { { Matteo, Springs Lane, 964 } } );
+               table append on same field ( t1, " Suite 3" );
 
-      table list( t1 );
+               table list( t1 );

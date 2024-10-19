@@ -1,13 +1,13 @@
 ﻿#!/usr/local/bin/b4p
 
-  table load( cities, "Cities.csv" );
+       table load( cities, "Cities.csv" );
 
-  table process columns          ( cities, 4, if (!is numeric([.])) [.] += '!' ); // ! after text items
+       table process columns          ( cities, 4, if (!is numeric([.])) [.] += '!' ); // ! after text items
 
-  table process selected columns ( cities, 4, [.,0]=="City", [.] = +[.] ); // City upper case
-  table process selected columns ( cities, 5, {0..2},        [.] = +[.] ); // Row 5, coluns 0..2 upper ase
+       table process selected columns ( cities, 4, [.,0]=="City", [.] = +[.] ); // City upper case
+       table process selected columns ( cities, 5, {0..2},        [.] = +[.] ); // Row 5, coluns 0..2 upper ase
 
-  // Copies 'Little Mermaid' (next row below) from Copenhagen to Montréal
-  table process selected columns ( cities, 6, 4,             [.] = [.,row()+1] );
+       // Copies 'Little Mermaid' (next row below) from Copenhagen to Montréal
+       table process selected columns ( cities, 6, 4,             [.] = [.,row()+1] );
 
-  table list ( cities );
+       table list ( cities );

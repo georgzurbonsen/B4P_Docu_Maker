@@ -7,7 +7,6 @@ B4PDOCU.START
 
 
 
-
 "get long options" :
 {
 	"Function Names":	[ "get long options" ],
@@ -281,7 +280,96 @@ Chosen file is: REF_Function_week.b4p
 	echo( abbreviate name( "Sherlock Holmes" ) );
 	+++,
 	"Output": "automatic"
+},
+
+
+
+
+
+"print / compose matrix" :
+{
+	"Function Names":	[ "print matrix", "echo matrix", "compose matrix" ],
+	"Documentation":	"Function Description",
+	"Library":		"Utility Library",
+	"Description"::
+		The function <b>print matrix</b> takes a combination of strings resp. scalar values and matrices embedded in
+		sets.  The output consist of mulitple rows of text where the matrices and text elements are properly aligned.
+		You can print out 1 or more matrices with text (e.g. variables, mathematical operators, scalrs) inbetween.<br>
+		The function <b>echo matrix</b> adds an additional 'new line' after printing out the matrix.
+		The function <b>compose matrix</b> does not print out, but provides the resulting text lines in the return value.
+	+++,
+	"Call as":		"procedure or function",
+	"Parameter count":	"Min 4",
+	"Restrictions":		"Under normal conditions, the 'Utility Library' is loaded automatically, so no 'include(...)' call is needed.",
+	"Parameters":
+	[
+		{ "Number": "1.",
+		  "Name": "Number format",
+		  "Direction": "input",
+		  "Types": [ "string" ],
+		  "Description"::
+			This number format is used to output numerals.  See __Numeral to String Formatting Parameters__.  Keep blank for generic output of numbers.
+			The number format will not be used for other types, e.g. dates and strings.  The matrix will appear wider if numbers with many digits are printed out.
+			<br>Examples:</br>
+			* # - Number without decimal digits, zero is shown as blank
+			* 0 - Numbers without decimal digits
+			* 0.00 - Numbers with 2 decimal digits
+			* #,##0 - Numbers with 1000 separators
+			+++
+		},
+		{ "Number": "2.",
+		  "Name": "Element length",
+		  "Direction": "input",
+		  "Types": [ "numeral" ],
+		  "Description": "This is the minimum width of every matrix element.  The field with the longest contents will widen the columns so no contents need to be truncated.."
+		},
+		{ "Number": "3.",
+		  "Name": "Separator line",
+		  "Direction": "input",
+		  "Types": [ "string" ],
+		  "Description": "Typically, use a vertical line, or for nicer formatting add one space before and behind the vertical line.  Other symbols such as spaces are also useful."
+		},
+		{ "Number": "4,...",
+		  "Name": "Contents",
+		  "Direction": "input",
+		  "Types": [ "valid types" ],
+		  "Description"::
+			Numerals, strings, date, Booleans, etc. are treated as text and scalers which can be used to create formulas consisting
+			of both matrices and formula elements, for example constants, variables and operators.<br>
+			Paramter sets are treated as matrices:<br>
+			* { 1, 2, 3 } translates to a vertical matrix.
+			* {{ 1, 2, 3 } tranlates to a horziontal matrix.
+			* { {1}, {2}, {3} } translates to a vertical matrix.
+			* { {1,2}, {3,4}, {5,6} } translates to a matrix containing 3 rows and 2 columns.
+			* { A, pi, 3 } Combination of text and numbers is allowed.
+			+++
+		}
+	],
+	"Return value":
+	[
+		{ "Name": "Matrix",
+		  "Types": [ "set" ],
+		  "Description": "Every element in the set contains one line of text."
+		}
+	],
+	"Examples"::
+	include ( Utility Library );
+	matrix 1[] = { { 1,20,300 }, {4, 50, 600}, {700, 8, 9} };
+	matrix 2[] = { 10, 20, 30, 40 };
+	matrix 3[] = horizontal( { 5, 10, 15, 20 } );
+	matrix 4[] = vertical( {100,200,300,400} );
+
+	echo matrix( "0.00", 6, " | ", "A = ", 
+		matrix 1[], "+", matrix 2[], ", ", matrix 3[], " and ", matrix 4[] );
+
+	o[] = compose matrix( "0.00", 6, " | ", "A = ", 
+		matrix 1[], "+", matrix 2[], ", ", matrix 3[], " and ", matrix 4[] );
+
+	echo("Alternative way to print the matrix:", new line, join( o[], new line ));
+	+++,
+	"Output": "automatic"
 }
+
 
 
 B4PDOCU.STOP

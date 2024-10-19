@@ -1,9 +1,9 @@
 ﻿#!/usr/local/bin/b4p
-  echo( "Hello World" );
-  echo( "  Hello   World  " );
-  echo( "One + One" );
-  echo( "'single quotation Marks'" );
-  echo( "Price tags: &euro; 10.00, &#x20ac; 10.00, &#8364; 10.00"); // No translation of entities here
-  echo( "3 * 2 = 6" );
-  echo( "A cheap way to continue on&#10;the next line" ); // No translation of entitites here
-  echo( new line, "Line 1", new line, "Line 2" ); 
+       echo( "Hello World" );
+       echo( "  Hello   World  " );
+       echo( "One + One" );
+       echo( "'single quotation Marks'" );
+       echo( "Price tags: &euro; 10.00, &#x20ac; 10.00, &#8364; 10.00"); // No translation of entities here
+       echo( "3 * 2 = 6" );
+       echo( "A cheap way to continue on&#10;the next line" ); // No translation of entitites here
+       echo( new line, "Line 1", new line, "Line 2" ); 

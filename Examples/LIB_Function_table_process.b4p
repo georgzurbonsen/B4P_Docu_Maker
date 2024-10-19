@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize ( animals, { {Animal, Group, Characteristics},
-       { parakeet, bird },  { moose, mammal },  { ape, mammal },  { sparrow, bird } , { trout, fish }, { bass, fish },
-       { canary, bird }, { penguin, bird }, { beluga, mammal} } );
+       table initialize ( animals, { {Animal, Group, Characteristics},
+                { parakeet, bird },  { moose, mammal },  { ape, mammal },  { sparrow, bird } , { trout, fish }, { bass, fish },
+                { canary, bird }, { penguin, bird }, { beluga, mammal} } );
 
-  table process           ( animals, [Animal] = ![Animal] ); // Capitalize
-  table process selected rows ( animals, ([Group] = bird), [Characteristics] = "Can fly", [Characteristics] = "Can't fly" );
-  table process selected rows ( animals, ([Group] = fish) | ([Animal]=Penguin,Beluga), [Characteristics] = "Can swim" );
+       table process                   ( animals, [Animal] = ![Animal] ); // Capitalize
+       table process selected rows     ( animals, ([Group] = bird), [Characteristics] = "Can fly", [Characteristics] = "Can't fly" );
+       table process selected rows     ( animals, ([Group] = fish) | ([Animal]=Penguin,Beluga), [Characteristics] = "Can swim" );
 
-  table list ( animals );
+       table list ( animals );

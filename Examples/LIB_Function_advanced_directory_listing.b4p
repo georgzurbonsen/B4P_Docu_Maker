@@ -1,8 +1,8 @@
 ﻿#!/usr/local/bin/b4p
 
-      rv[] = advanced directory listing( list, "", "*.xlsx,*.xls" );
-      table delete remaining rows(list, 4 ); 
-      // Just keep the first 3 rows to fit the output on the screen
+               rv[] = advanced directory listing( list, "", "*.xlsx,*.xls" );
+               table delete remaining rows(list, 4 ); 
+               // Just keep the first 3 rows to fit the output on the screen
 
-      table transpose( list ); // Make the list fit on the small output
-      table list( list );
+               table transpose( list ); // Make the list fit on the small output
+               table list( list );

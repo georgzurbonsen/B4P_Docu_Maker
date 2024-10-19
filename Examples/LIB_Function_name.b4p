@@ -1,16 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-  a[] =  Ah;
-  b[2] = two;
-  c[alex] = Alexander;
-  c[tim] = Timothy;
+       a[] =  Ah;
+       b[2] = two;
+       c[alex] = Alexander;
+       c[tim] = Timothy;
 
-  d[] = ^c[alex]; // Reference
+       d[] = ^c[alex]; // Reference
 
-  echo( name( a[]  ) );
-  echo( name( c[tim]  ) );
-  echo( name( c[tim], members named  ) );
-  echo( name( b[2],   members named  ) );   // Array members will always be numbered
-  echo( name( c[tim], members numbered) );  // All members are numbered
+       echo( name( a[]  ) );
+       echo( name( c[tim]  ) );
+       echo( name( c[tim], members named  ) );
+       echo( name( b[2],   members named  ) );   // Array members will always be numbered
+       echo( name( c[tim], members numbered) );  // All members are numbered
 
-  echo( name( d[] ) ); // References reveal their destination variables
+       echo( name( d[] ) ); // References reveal their destination variables
 

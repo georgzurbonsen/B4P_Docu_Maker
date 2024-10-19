@@ -1,0 +1,34 @@
+﻿#!/usr/local/bin/b4p
+table initialize( a,
+        { { Col 0,   Col 1,   Col 2,   Col 3,   Col 4,   Col 5,   Col 6 },
+          { Dog,     '',      Hog,     '',      '',      Pig },
+          { '',      '',      '',      '',      '',      ''  },
+          { Cat,     '',      '',      Gnu,     Ape,     ''  },
+          { '',      '',      '',      '',      '',      ''  },
+          { Bee,     '',      '',      '',      '',      Fly },
+          { '',      '',      '',      '',      '',      ''  },
+        } );
+
+
+more animals[] = {{ Rat, Olm }, Emu };
+
+table list (a);
+
+echo("Writing: 'Rat' to row 1 col 5 and further animals below");
+table copy table (a,t);
+table write cells( t, 1, 5, Rat );
+table write cells selected rows( t, ([Col 0]=Cat,Bee), {Col 1, Col 4}, more animals[], overwrite if blank );
+table list (t);
+
+echo("Write the animals but refuse overwriting if any destination cell is occupied:");
+table copy table (a,t);
+table write cells selected rows( t, ([Col 0]=Cat,Bee), {Col 1, Col 4}, more animals[], refuse overwriting );
+table list (t);
+
+echo("Write beyond end of table");
+table copy table (a,t);
+table write cells( t, 1, 5, more animals[] ); // Writes all animals
+table write cells( t, 3, 5, more animals[], strictly stay inside ); // Writes no animals
+table write cells( t, 5, 5, more animals[], stay inside ); // Write 2 animals
+table list (t);
+

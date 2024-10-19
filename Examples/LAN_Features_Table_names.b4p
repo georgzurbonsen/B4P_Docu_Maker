@@ -1,0 +1,4 @@
+﻿#!/usr/local/bin/b4p
+       table load( table, "Cities.csv" );
+       
+       echo( [table: City, 2 ] );  // Retrieve row 2 from column 'City'

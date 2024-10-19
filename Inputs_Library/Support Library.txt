@@ -462,7 +462,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 4.",
 		  "Name": "Options",
 		  "Direction": "input",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Default value": "{} (empty set) - No options specified",
 		  "Description"::
 			The parameters set may contain the following options.
@@ -612,7 +612,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 4.",
 		  "Name": "Options",
 		  "Direction": "input",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Default value": "{} (empty set) - No options specified",
 		  "Description"::
 			The parameters set may contain the following options.
@@ -772,7 +772,7 @@ Page [0]..[7], [N]ext / [P]revious page [C]lear screen on/off  [Q]uit:  Q
 		{ "Number": "Opt. 4.",
 		  "Name": "Options",
 		  "Direction": "input",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Default value": "{} (empty set) - No options specified",
 		  "Description"::
 			The parameters set may contain the following options.

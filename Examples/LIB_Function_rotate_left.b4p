@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+a[] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+
+echo matrix( "0", 3, '|', 'a[] = ', a[] );
+
+echo("Rotate original matrix counterclockwise:");
+l[] = rotate left( a[] );
+echo matrix( "0", 3, '|', 'l[] = ', l[] );
+
+echo("Rotate original matrix clockwise:");
+r[] = rotate right( a[] );
+echo matrix( "0", 3, '|', 'r[] = ', r[] );
+
+echo("Rotate clockwise again:");
+s[] = rotate right( r[] );
+echo matrix( "0", 3, '|', 's[] = ', s[] );

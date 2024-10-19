@@ -1,8 +1,9 @@
 ﻿#!/usr/local/bin/b4p
-      echo( smart num( "5.0 MUSD" )); // 5,000,000
-      echo( smart num( "EUR 1.2mn" )); // 1,200,000
-      echo( smart num( "INR 0.5 lk" )); // 50,000
-      echo( smart num( '50%' )); // 0.5
-      echo( smart num( 'Alc. 0.5 &permil;' )); // 0.0005
-      echo( smart num( "1.23cr" ));  // 12,300,000
-      echo( smart num( 1.23m, ".", { m, M }, {0.000001, 1000000} ));
+               echo( smart num( "5.0 MUSD" )); // 5,000,000
+               echo( smart num( "EUR 1.2mn" )); // 1,200,000
+               echo( smart num( "INR 0.5 lk" )); // 50,000
+               echo( smart num( '50%' )); // 0.5
+               echo( smart num( 'Alc. 0.5 &permil;' )); // 0.0005
+               echo( smart num( "1.23cr" ));  // 12,300,000
+               echo( smart num( 1.23m, ".", { m, M }, {0.000001, 1000000} ));
+               echo( smart num( {"5.0 MUSD","INR 0.5 lk"} )); // Vectorization example

@@ -1,0 +1,13 @@
+﻿#!/usr/local/bin/b4p
+       matrix 1[] = { { 1,20,300 }, {4, 50, 600}, {700, 8, 9} };
+       matrix 2[] = { 10, 20, 30, 40 };
+       matrix 3[] = horizontal( { 5, 10, 15, 20 } );
+       matrix 4[] = vertical( {100,200,300,400} );
+
+       echo matrix( "0.00", 6, " | ", "A = ", 
+               matrix 1[], "+", matrix 2[], ", ", matrix 3[], " and ", matrix 4[] );
+
+       o[] = compose matrix( "0.00", 6, " | ", "A = ", 
+               matrix 1[], "+", matrix 2[], ", ", matrix 3[], " and ", matrix 4[] );
+
+       echo("Alternative way to print the matrix:", new line, join( o[], new line ));

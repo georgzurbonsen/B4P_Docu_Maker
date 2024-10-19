@@ -1,22 +1,22 @@
 ﻿#!/usr/local/bin/b4p
-      define procedure (foo)
-      {
-          print("Function name = ", function name[],"  " );
-          if (function name[] = bar) echo("Message = ", message[] ); else: echo;
-      }
+               define procedure (foo)
+               {
+                       print("Function name = ", function name[],"  " );
+                       if (function name[] = bar) echo("Message = ", message[] ); else: echo;
+               }
 
-      define additional procedure (bar, foo, { { message, string } } );
+               define additional procedure (bar, foo, { { message, string } } );
 
-      {   // Main part
-          foo;
-          bar(salad bar);
-          delete user function( foo );
-          bar(desert bar);
-          define procedure(foo) { echo (new line, "Fooled."); };
-          foo;
-          bar(wine bar);
-          delete user function (bar);
-          define procedure(bar) { echo (new line, "Bar closed."); };
-          bar;
-      }
+               {   // Main part
+                       foo;
+                       bar(salad bar);
+                       delete user function( foo );
+                       bar(desert bar);
+                       define procedure(foo) { echo (new line, "Fooled."); };
+                       foo;
+                       bar(wine bar);
+                       delete user function (bar);
+                       define procedure(bar) { echo (new line, "Bar closed."); };
+                       bar;
+               }
 

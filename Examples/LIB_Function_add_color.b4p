@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
 
-  add color( crème, natural shades, {245, 238, 222} );
+       add color( crème, natural shades, {245, 238, 222} );
 
-  table initialize( t, { { Item, Color }, { Jacket, crème }, { Trousers, gray 12 }, { scarf, teal } } );
+       table initialize( t, { { Item, Color }, { Jacket, crème }, { Trousers, gray 12 }, { scarf, teal } } );
 
-  table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );
+       table process( t, table style cells( t, Color, row(), single, fill color, [Color] ) );
 
-  table save( t, "Images/Style_Custom_Colors.html", HTML );
-  table save( t, "Images/Style_Custom_Colors.xls", EXCEL );
-  table save excel file( t, Contents, "Images/Style_Custom_Colors.xlsx" );
+       table save( t, "Images/Style_Custom_Colors.html", HTML );
+       table save( t, "Images/Style_Custom_Colors.xls", EXCEL );
+       table save excel file( t, Contents, "Images/Style_Custom_Colors.xlsx" );

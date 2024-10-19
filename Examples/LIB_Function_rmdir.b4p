@@ -1,0 +1,10 @@
+﻿#!/usr/local/bin/b4p
+               include( Short Commands Library );
+               md( My Folder 1 ); // Create 5 directories
+               mkdir( My Folder 2 ); // Create 5 directories
+               if (system info[operating system]=Windows)
+                   system( 'dir /W "My Folder*"' ); // Show directory listing
+               else:
+                   system( "ls 'My Folder'* " ); // Show directory listing
+               rmdir( My Folder 1 );
+               rd( My Folder 2 );

@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  table load( lookup, "Table Lookup Example 1.csv" );
-  table initialize( target, { Town, Florence, Venice, Florence, Edinburgh, New York, Hamburg, Florence, Munich, New York } );
+       table load( lookup, "Table Lookup Example 1.csv" );
+       table initialize( target, { Town, Florence, Venice, Florence, Edinburgh, New York, Hamburg, Florence, Munich, New York } );
 
 
-  count[] = table lookup fast ( target, Town, { Food or Beverage, Recommended, Row Number },
-                                lookup, City, { Meal or Drink, Recommendation, '#row' }, true, Counter );
+       count[] = table lookup fast ( target, Town, { Food or Beverage, Recommended, Row Number },
+                                                                 lookup, City, { Meal or Drink, Recommendation, '#row' }, true, Counter );
 
 
-  echo("Lookup table after 1st lookup, note the 'Counter' column added:");
-  table list( lookup );
+       echo("Lookup table after 1st lookup, note the 'Counter' column added:");
+       table list( lookup );
 
-  echo("Note: First lookup for New York is after Edinburgh, so a glass of lager beer is offered instead of a pizza");
+       echo("Note: First lookup for New York is after Edinburgh, so a glass of lager beer is offered instead of a pizza");
 
-  echo("Target table after lookup (", count[], " items found):");
-  table list( target );
+       echo("Target table after lookup (", count[], " items found):");
+       table list( target );
 

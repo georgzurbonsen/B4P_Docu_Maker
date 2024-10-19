@@ -102,11 +102,11 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Content file names",
 		  "Direction": "input",
-		  "Types": [ "parameter set or string" ],
+		  "Types": [ "set or string" ],
 		  "Description"::
 			Specify all files to extract:
 			* Use string type to specify 1 file.
-			* Use aparameter set to specify multiple files
+			* Use a set to specify multiple files
 			* Alternatively use softquoted string (with single quotation marks) with file names spearated by comam to specify multiple files.
 			+++
 		},

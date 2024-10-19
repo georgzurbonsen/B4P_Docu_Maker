@@ -1,30 +1,30 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = Hello World;
-  b[] = Hello   World;
-  c[] =   Hello World  ;
-  
-  echo( 'a[] = "', a[], '"');
-  echo( 'b[] = "', b[], '"');
-  echo( 'c[] = "', c[], '"');
-  echo( 'Subtype of a[] is ', subtype( a[] ) );
-  echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // softquoted strings support wildcards
+       a[] = Hello World;
+       b[] = Hello   World;
+       c[] =   Hello World  ;
+       
+       echo( 'a[] = "', a[], '"');
+       echo( 'b[] = "', b[], '"');
+       echo( 'c[] = "', c[], '"');
+       echo( 'Subtype of a[] is ', subtype( a[] ) );
+       echo( "Simple comparison returning 'true': ", Hello = '*llo' ); // softquoted strings support wildcards
 
-  echo;
-  echo("Following texts are read as softquoted strings");
-  a[] = 07.04.2020;         // String constant, because it contains two points
-  b[] = 555 1212;           // Contains a space
-  c[] = 1 Main St.;         // This is a valid string constant
-  d[] = mike@example.com;   // Valid, too.  See note below.
+       echo;
+       echo("Following texts are read as softquoted strings");
+       a[] = 07.04.2020;         // String constant, because it contains two points
+       b[] = 555 1212;           // Contains a space
+       c[] = 1 Main St.;         // This is a valid string constant
+       d[] = mike@example.com;   // Valid, too.  See note below.
 
-  echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[]));
-  echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[]));
-  echo( 'c[] = "', c[], '"  Subtype: ', subtype(c[]));
-  echo( 'd[] = "', d[], '"  Subtype: ', subtype(d[]));
+       echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[]));
+       echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[]));
+       echo( 'c[] = "', c[], '"  Subtype: ', subtype(c[]));
+       echo( 'd[] = "', d[], '"  Subtype: ', subtype(d[]));
 
-  echo;
-  echo("Combine softquoted and quoted string:");
-  a[] = Hello + ' World';
-  b[] = Hello + " World";
-  echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[])); // softquoted string
-  echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[])); // quoted string
+       echo;
+       echo("Combine softquoted and quoted string:");
+       a[] = Hello + ' World';
+       b[] = Hello + " World";
+       echo( 'a[] = "', a[], '"  Subtype: ', subtype(a[])); // softquoted string
+       echo( 'b[] = "', b[], '"  Subtype: ', subtype(b[])); // quoted string
 

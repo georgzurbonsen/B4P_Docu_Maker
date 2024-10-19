@@ -1,16 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-  echo("On boolean values:");
+       echo("On boolean values:");
 
-  a[0] = false | false;
-  a[1] = true | false;
-  a[2] = true | true;
+       a[0] = false | false;
+       a[1] = true | false;
+       a[2] = true | true;
 
-  for all variables( a[], x[] ) echo( x[] );
+       for all variables( a[], x[] ) echo( x[] );
 
-  echo("On parameter sets:");
+       echo("On sets:");
 
-  b[0] = { a, b, 1 } | { 1, b, a }; // {a, b, 1}
-  b[1] = { a, b, 1 } | { 1, b, c }; // {a, b, 1, c}
-  b[2] = { a, b, b } | { b, b, c }; // {a, b, b, c}
+       b[0] = { a, b, 1 } | { 1, b, a }; // {a, b, 1}
+       b[1] = { a, b, 1 } | { 1, b, c }; // {a, b, 1, c}
+       b[2] = { a, b, b } | { b, b, c }; // {a, b, b, c}
 
-  for all variables( b[], x[] ) echo( x[] );
+       for all variables( b[], x[] ) echo( x[] );

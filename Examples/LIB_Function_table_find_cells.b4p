@@ -1,0 +1,27 @@
+﻿#!/usr/local/bin/b4p
+table initialize( t,
+               { { City,        State, Country },
+                 { Tuscon,      AZ,    United States },
+                 { Toronto,     ON,    Canada },
+                 { Missisauga,  ON,    Canada },
+                 { Zürich,      ZH,    Switzerland },
+                 { Lake Zurich, MI,    United States } } );
+
+table list(t);
+
+
+c[] = table find cells( t, {} );
+echo ("Nothing to look for: ", c[]);
+
+c[] = table find cells( t, { canada, 'swit*' }, ignore case );
+echo ("All countries except USA: ", c[]);
+
+c[] = table find cells in columns( t, City, '*Z*rich*' );
+echo ("All Cities somewhat sounding 'swiss', point on countries: ",c[]);
+
+c[] = table find cells selected rows in columns( t, [Country]==Canada, State, ON, {once,left} );
+echo ("1st Ontario match, point on city: ", c[]);
+echo ("City is ", [t:c[]{0}{1},c[]{0}{0}] );
+
+c[] = table find cells( t, Tuscon, left);
+echo ("Empty set, as attempting to return coordinates beyond left side of table: ", c[]);

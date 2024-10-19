@@ -1,0 +1,31 @@
+﻿#!/usr/local/bin/b4p
+       echo("Simple example with vectorization");
+       p[] = { 0, 30, 60, 90 };
+       echo( "With vectorization: ", sin deg( p[] ) );
+
+       // And the old way: Same results, but supports 1-level sets only.
+       echo( "with deep function: ", deep ( sin deg, {p[]} ) );
+
+       echo( new line, "Example with nested parameters:");
+       echo( log( { 1, 10, { 100, 1000 }, { 0.01, 0.001 } } ) );
+
+       echo(new line, "Example with matrices:");
+
+       m[]  = { { 1, 2 }, { 3, 4 } };
+       m[] *^^= m[]; // Square the four values in the matrix (^^ is 2 level deep operator prefix)
+
+       echo("Original value: ", m[], "  Square root: ", sqrt(m[]));
+
+       echo(new line, "2 vectorized parameters");
+
+       echo( "x^y repeated 4x: ", pow( { 1, 2, 3, 4 }, { 4, 3, 2, 1 } ) );
+       echo( "All squared    : ", pow( { 1, 2, 3, 4 }, 2 ) ); 
+       echo( "Powers of ten  : ", pow( 10, { 1, 2, 3, 4 } ) ); 
+
+       echo(new line, "Do something more sophisticated:");
+
+       echo( " Mod(x,7) on all values except the first one: ");
+       echo( mod( { 10, { 20, 30, { 8, 9 } }}, { 5, 7 } ) );
+
+       echo( " Mod(100,x) on all values: ");
+       echo( mod( 100, { 10, { 20, 30, { 40, 50 } }} ) );

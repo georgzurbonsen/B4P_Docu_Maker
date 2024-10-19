@@ -1,27 +1,27 @@
 ﻿#!/usr/local/bin/b4p
-  b[Red] = Rot;
-  b[Green,light] = HellgrÃ¼n;
-  b[Green,dark] = DunkelgrÃ¼n;
-  b[Blue,light] = Hellblau;
-  b[Blue,dark] = Dunkelblau;
+       b[Red] = Rot;
+       b[Green,light] = HellgrÃ¼n;
+       b[Green,dark] = DunkelgrÃ¼n;
+       b[Blue,light] = Hellblau;
+       b[Blue,dark] = Dunkelblau;
 
-  see(b[]);
+       see(b[]);
 
-  j[] = variable to json( b[], JSON);
+       j[] = variable to json( b[], JSON);
 
-  echo("JSON code:", new line, j[], new line, "_______" );
+       echo("JSON code:", new line, j[], new line, "_______" );
 
-  json to variable( c[], j[], JSON B4P );
-  see( c[] );
+       json to variable( c[], j[], JSON B4P );
+       see( c[] );
 
-  echo(new line, "Add data to intermediate nodes");
+       echo(new line, "Add data to intermediate nodes");
 
-  b[] = Colors;
-  b[Green] = Shades of green;
+       b[] = Colors;
+       b[Green] = Shades of green;
 
-  j[] = variable to json( b[], JSON);
+       j[] = variable to json( b[], JSON);
 
-  echo("JSON code:", new line, j[], new line, "_______" );
+       echo("JSON code:", new line, j[], new line, "_______" );
 
-  json to variable( c[], j[], JSON B4P );
-  see( c[] ); // Same as before.
+       json to variable( c[], j[], JSON B4P );
+       see( c[] ); // Same as before.

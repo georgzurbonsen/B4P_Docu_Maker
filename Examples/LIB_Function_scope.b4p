@@ -1,21 +1,21 @@
 ﻿#!/usr/local/bin/b4p
-  // In the main program area, variables created are global.
-  g[] = world;
+       // In the main program area, variables created are global.
+       g[] = world;
 
-  define procedure ( foo )
-  {
-      // Inside procedure, functions and B4P programs called with start(...),
-      // the variables declared are local unless the 'global' function is used.
+       define procedure ( foo )
+       {
+               // Inside procedure, functions and B4P programs called with start(...),
+               // the variables declared are local unless the 'global' function is used.
 
-      a[] = 1;
-      global { h[] = 1; }
-      g[me] = you;
+               a[] = 1;
+               global { h[] = 1; }
+               g[me] = you;
 
-      echo( "Variable a[]: ", scope( a[] ) );     // global
-      echo( "Variable g[]: ", scope( g[] ) );     // local
-      echo( "Variable g[me]: ", scope( g[me] ) );   // global
-      echo( "Variable h[]: ", scope( h[] ) );     // global
-      echo( "Verbose settings: ", scope( runtime settings[verbose] ) );     // system
-  }
+               echo( "Variable a[]: ", scope( a[] ) );     // global
+               echo( "Variable g[]: ", scope( g[] ) );     // local
+               echo( "Variable g[me]: ", scope( g[me] ) );   // global
+               echo( "Variable h[]: ", scope( h[] ) );     // global
+               echo( "Verbose settings: ", scope( runtime settings[verbose] ) );     // system
+       }
 
-  foo; // Call the function
+       foo; // Call the function

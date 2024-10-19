@@ -1,28 +1,28 @@
 ﻿#!/usr/local/bin/b4p
-  table load( table, "Cities.csv");
+       table load( table, "Cities.csv");
 
-  echo( [ table:  1..4,    5 ] );
-  echo( [ table:  1..-4,   5 ] );
-  echo( [ table: City..Famous attraction, -10 ] );
+       echo( [ table:  1..4,    5 ] );
+       echo( [ table:  1..-4,   5 ] );
+       echo( [ table: City..Famous attraction, -10 ] );
 
-  echo( [ table:  4..1,    5 ] ); // Empty set returned (ending column is left of starting column)
-  echo;
+       echo( [ table:  4..1,    5 ] ); // Empty set returned (ending column is left of starting column)
+       echo;
 
-  echo( [ table:  1..4, San Francisco ] );
-  echo( [ table:  City..Famous attraction, San Francisco  ] );
-  echo;
+       echo( [ table:  1..4, San Francisco ] );
+       echo( [ table:  City..Famous attraction, San Francisco  ] );
+       echo;
 
-  echo( [ table: ..4, 5 ] );              // San Francisco
-  echo( [ table: City, San Francisco, ..4 ]); // 
-  echo;
-  echo( [ table: 1.., Vienna] );          // Vienna
-  echo( [ table: City, Vienna, City..] );
-  echo( [ table: City.., Vienna] );
-  echo( [ table: 1.., 10] );
-  echo;
+       echo( [ table: ..4, 5 ] );                      // San Francisco
+       echo( [ table: City, San Francisco, ..4 ]);     // 
+       echo;
+       echo( [ table: 1.., Vienna] );                  // Vienna
+       echo( [ table: City, Vienna, City..] );
+       echo( [ table: City.., Vienna] );
+       echo( [ table: 1.., 10] );
+       echo;
 
-  [table:table row width(table, 0)..,5] = {"Sightseeing boat","RV"}; // Append 2 vehicles
-  echo( [ table: .., 5 ] );           // San Francisco
-  echo( [ table: , 5 ] );             // San Francisco  inclduing the boat & RV
-  echo( [ table: City, San Francisco, .. ] ); // Without the boat
-  echo( [ table: City, San Francisco, ] );    // With the boat & RV
+       [table:table row width(table, 0)..,5] = {"Sightseeing boat","RV"}; // Append 2 vehicles
+       echo( [ table: .., 5 ] );                   // San Francisco
+       echo( [ table: , 5 ] );                     // San Francisco  inclduing the boat & RV
+       echo( [ table: City, San Francisco, .. ] ); // Without the boat
+       echo( [ table: City, San Francisco, ] );    // With the boat & RV

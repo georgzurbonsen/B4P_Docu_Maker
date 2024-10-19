@@ -1,0 +1,11 @@
+﻿#!/usr/local/bin/b4p
+       table initialize( t,
+                { { Last Name,   First Name },
+                  { Andersen,    Anders },
+                  { Donaldson,   Donald },
+                  { Johansson,   John },
+                  { Poulsen,     Paul },
+                  { Svensson,    Sven } } );
+
+       table flip rows ( t, 1, 3 );
+       table list ( t );

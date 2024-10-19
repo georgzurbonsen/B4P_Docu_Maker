@@ -1,18 +1,18 @@
 ﻿#!/usr/local/bin/b4p
-  table load( table, "Cities.csv");
+       table load( table, "Cities.csv");
 
-  echo( [ table:  1,    5 ] );
-  echo( [ table: -7, -10 ] );
-  echo( [ table:  1, -10 ] );
-  echo( [ table: -7,    5 ], new line );
+       echo( [ table:  1,    5 ] );
+       echo( [ table: -7, -10 ] );
+       echo( [ table:  1, -10 ] );
+       echo( [ table: -7,    5 ], new line );
 
-  echo( [ table: City,    5 ] );
-  echo( [ table: City, -10 ], new line );
+       echo( [ table: City,    5 ] );
+       echo( [ table: City, -10 ], new line );
 
-  echo( [ table: City, San Francisco] ); // Exception to rule: Returns row numbers
-  echo( [ table: 1, San Francisco] );
-  echo( [ table: -7, San Francisco], new line );
+       echo( [ table: City, San Francisco] ); // Exception to rule: Returns row numbers
+       echo( [ table: 1, San Francisco] );
+       echo( [ table: -7, San Francisco], new line );
 
-  echo( [ table: City, San Francisco, Famous attraction] );
-  echo( [ table: 1, 5, 4] );
-  echo( [ table: -7, -10, -4] );
+       echo( [ table: City, San Francisco, Famous attraction] );
+       echo( [ table: 1, 5, 4] );
+       echo( [ table: -7, -10, -4] );

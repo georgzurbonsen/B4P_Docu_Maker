@@ -1,0 +1,24 @@
+﻿#!/usr/local/bin/b4p
+       Hi[ German ] = Hallo; Hi[ German, in Switzerland ] = Grüezi;
+       Hi[ German, in Bavaria ] = Grüss Gott;
+       Hi[ French ] = Allô; Hi [ English ] = Hello;
+       Hi[ Spanish, on the Phone ] = Diga;
+
+       v[] = variable members( Hi[ ] );
+       n[] = variable names( Hi[ ] );
+       echo("Names : ", n[]);
+       echo("Values: ", v[]);
+       echo;
+
+       // Include 'invalid value' in Hi[Spanish].
+       v[] = variable members( Hi[ ], 0, all );
+       n[] = variable names( Hi[ ], 0, all );
+       echo("Names : ", n[]);
+       echo("Values: ", v[]);
+       echo;
+
+       // Only 2nd level (like in Bavria ...)
+       v[] = variable members( Hi[ ], 2 );
+       n[] = variable names( Hi[ ], 2 );
+       echo("Names : ", n[]);
+       echo("Values: ", v[]);

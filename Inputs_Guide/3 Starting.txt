@@ -2,10 +2,10 @@
 B4PDOCU.START
 
 
-"Starting B4P" :
+"Getting Started" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Starting B4P" ],
+    "Feature Names":		[ "Getting Started" ],
     "Description 01:Introduction"::
 
 	B4P can either be started directly where, by default, __interactive mode__ is activated, or

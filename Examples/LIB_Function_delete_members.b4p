@@ -1,23 +1,23 @@
 ﻿#!/usr/local/bin/b4p
 
-  array( a[], { 0, 11, 22, 33, 44, 55, 66, 77, 88, 99 } );
-  a[] = This is the base variable;
+       array( a[], { 0, 11, 22, 33, 44, 55, 66, 77, 88, 99 } );
+       a[] = This is the base variable;
 
-  delete members( a[], 2, 4 );    // Delete 22, 33, 44
-  delete members( a[], -1 );  // Delete 99
+       delete members( a[], 2, 4 );    // Delete 22, 33, 44
+       delete members( a[], -1 );      // Delete 99
 
-  see(a[]);
+       see(a[]);
 
-  echo("Delete all remaining members");
-  delete members( a[] );
-  see(a[]);
+       echo("Delete all remaining members");
+       delete members( a[] );
+       see(a[]);
 
 
-  structure( a[], { Cat,   Dog,  Bird,  { Parrot, Parakeet  }, Rat,  Mouse, Elephant, Zebra },
-                  { Katze, Hund, Vogel, { Papagei, Sittich  }, Ratte, Maus, Elefant,  Zebra } );
+       structure( a[], { Cat,   Dog,  Bird,  { Parrot, Parakeet  }, Rat,  Mouse, Elephant, Zebra },
+                       { Katze, Hund, Vogel, { Papagei, Sittich  }, Ratte, Maus, Elefant,  Zebra } );
 
-  delete members( a[], Bird, Dog );   // Bird (incl. Parrot, Parakeet), Cat, Dog
-  delete members( a[], Rat);          // Delete Rat
-  delete members( a[], -2);           // Delete Mouse
+       delete members( a[], Bird, Dog );   // Bird (incl. Parrot, Parakeet), Cat, Dog
+       delete members( a[], Rat);          // Delete Rat
+       delete members( a[], -2);           // Delete Mouse
 
-  see(a[]);                       // Elephant, Zebra
+       see(a[]);                       // Elephant, Zebra

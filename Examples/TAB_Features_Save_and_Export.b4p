@@ -1,0 +1,32 @@
+﻿#!/usr/local/bin/b4p
+
+       table load                     ( c1, temp1.csv); // Hide!  Step 7 begins
+       table load                     ( histo, temp2.csv); // Hide!  Step 7 ends
+ // Hide!
+table sort selected rows        ( c1, [Country]{0..3}!="All ", Country ); // Hide!
+                                // Sort all country names, but leave continents at the bottom // Hide!
+ // Hide!
+table style auto width          ( c1 ); // Hide!
+table style columns             ( c1, Area, sheet, column width, 16 ); // Hide!
+table style columns             ( c1, {Area, Population},    table, number format, "#,##0"); // Hide!
+table style columns             ( c1, Inhabitants Variation, table, number format, "0.00%"); // Hide!
+table style columns             ( c1, Inhabitants per km2,   table, number format, "#,##0.00"); // Hide!
+table style table               ( c1, sheet, freeze rows, 1, autofilter, 0 ); // Hide!
+table style rows                ( c1, 0, table, boldface, true ); // Hide!
+ // Hide!
+table style table               ( histo, sheet, column width, 10 ); // Hide!
+table style columns             ( histo, 0, sheet, column width, 20, boldface, true ); // Hide!
+table style rows                ( histo, 0, table, boldface, true, row height, 30 ); // Hide!
+table style cells               ( histo, 0, 0, single, wrap text, true ); // Hide!
+ // Hide!
+table process cells             ( histo, if (col()>0) // Hide!
+                                  { // Hide!
+                                      shade[] = limit(255-10*[.],0,255); // Hide!
+                                      table style cells( histo, col(), row(), single, fill color, {shade[],255,shade[]}); // Hide!
+                                  } ); // Hide!
+// Hide!
+table save excel file            ( {c1, histo}, {Countries, Histogram}, "Images/Results.xlsx" );
+
+       file delete ( temp1.csv ); // Hide!
+       file delete ( temp2.csv ); // Hide!
+       file delete ( temp3.csv ); // Hide!

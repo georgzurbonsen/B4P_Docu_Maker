@@ -1,18 +1,18 @@
 ﻿#!/usr/local/bin/b4p
-      file create link( My Link.lnk, Images  );   // Link to existing directory
-      file create link( My Link 2.lnk, Example_Program.b4p ); // Link to filem will work under Windows only
+               file create link( My Link.lnk, Images  );       // Link to existing directory
+               file create link( My Link 2.lnk, Example_Program.b4p ); // Link to filem will work under Windows only
 
-      if (system info[operating system]=Windows)
-      {
-          system( 'dir /W "My Link*"' ); // Show directory listing
-          file delete multiple ( ".", "My Link*.lnk" );
-      }
-      else // Linux, MacOS
-      {
-          system( "ls 'My Link'* " ); // Show directory listing
-          system( "rm 'My Link'* " ); // 
-      }
+               if (system info[operating system]=Windows)
+               {
+                   system( 'dir /W "My Link*"' ); // Show directory listing
+                   file delete multiple ( ".", "My Link*.lnk" );
+           }
+               else // Linux, MacOS
+               {
+                       system( "ls 'My Link'* " ); // Show directory listing
+                       system( "rm 'My Link'* " ); // 
+               }
 
-      // Attention: LINUX / MacOS only supports links to directories only, and can only be removed with OS commands.
+               // Attention: LINUX / MacOS only supports links to directories only, and can only be removed with OS commands.
 
 

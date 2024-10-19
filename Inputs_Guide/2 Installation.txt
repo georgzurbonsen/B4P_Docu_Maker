@@ -64,10 +64,10 @@ B4PDOCU.START
 
 
 
-"De-installing B4P" :
+"Uninstallation" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "De-installing B4P" ],
+    "Feature Names":		[ "Uninstallation" ],
     "Description 01:Introduction"::
 
 	Use the same installation software to de-install B4P. All program an library images will be cleared.

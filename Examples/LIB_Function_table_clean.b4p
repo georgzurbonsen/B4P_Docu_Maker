@@ -1,28 +1,28 @@
 ﻿#!/usr/local/bin/b4p
 
-  table initialize    ( dirty, // Initialize table with messy line breaks and white spaces
-  { { Descr,        Dangling at Begin, Dangling at End, Dangling both, Multiple Spaces },
-    { Spaces,      '&nbsp;&nbsp;Hello', 'Hello &#8195;',      '&#5760;&#8287;Hello &#12288;', 'Hello &#8202;&#8201; World'},
-    { Line Breaks, '&#12;&#10;Hello',   'Hello &#133;&#8232;','&#10;Hello&#8233;&#10;',  'Hello&#10;&#12;World'} } );
+       table initialize        ( dirty, // Initialize table with messy line breaks and white spaces
+       { { Descr,        Dangling at Begin, Dangling at End, Dangling both, Multiple Spaces },
+         { Spaces,      '&nbsp;&nbsp;Hello', 'Hello &#8195;',      '&#5760;&#8287;Hello &#12288;', 'Hello &#8202;&#8201; World'},
+         { Line Breaks, '&#12;&#10;Hello',   'Hello &#133;&#8232;','&#10;Hello&#8233;&#10;',  'Hello&#10;&#12;World'} } );
 
-  echo("Demonstrate a simple clean-up:");
+       echo("Demonstrate a simple clean-up:");
 
-  table copy table    ( dirty, clean );
-  table clean         ( clean );
-  table process cells ( clean, [.] = "'" + [.] + "'" ); // Put some quotation marks around to see the true extent of the contents
-  table list          ( clean );
+       table copy table    ( dirty, clean );
+       table clean         ( clean );
+       table process cells ( clean, [.] = "'" + [.] + "'" ); // Put some quotation marks around to see the true extent of the contents
+       table list          ( clean );
 
-  echo("As a next step, demonstrate removing adjacent line breaks");
+       echo("As a next step, demonstrate removing adjacent line breaks");
 
-  table copy table    ( dirty, clean );
-  table clean         ( clean, remove adjacent line breaks );
-  table process cells ( clean, [.] = "'" + [.] + "'" ); // Put some quotation marks around to see the true extent of the contents
-  table list          ( clean );
+       table copy table    ( dirty, clean );
+       table clean         ( clean, remove adjacent line breaks );
+       table process cells ( clean, [.] = "'" + [.] + "'" ); // Put some quotation marks around to see the true extent of the contents
+       table list          ( clean );
 
-  echo("As a final step, demonstrate a good clean-up task:");
+       echo("As a final step, demonstrate a good clean-up task:");
 
-  table copy table    ( dirty, clean );
-  table clean         ( clean, {trim spaces, line breaks to spaces, remove adjacent spaces} );
-  table process cells ( clean, [.] = "'" + [.] + "'" ); // Put some quotation marks around to see the true extent of the contents
-  table list          ( clean );
+       table copy table    ( dirty, clean );
+       table clean         ( clean, {trim spaces, line breaks to spaces, remove adjacent spaces} );
+       table process cells ( clean, [.] = "'" + [.] + "'" ); // Put some quotation marks around to see the true extent of the contents
+       table list          ( clean );
 

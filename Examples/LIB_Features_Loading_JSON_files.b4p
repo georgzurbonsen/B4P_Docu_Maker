@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
-  table load( t, "Example1.json", TEXT );
+       table load( t, "Example1.json", TEXT );
 
-  echo("This is the JSON file:");
-  table list( t );
+       echo("This is the JSON file:");
+       table list( t );
 
-  table load( t, "Example1.json", JSON );
+       table load( t, "Example1.json", JSON );
 
-  echo; echo;
-  echo("This is the loaded table from the JSON file:");
-  table list( t );
+       echo; echo;
+       echo("This is the loaded table from the JSON file:");
+       table list( t );

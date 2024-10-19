@@ -166,6 +166,10 @@ LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function D
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;join if any
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;join unique ignore blanks if
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;join ignore blanks if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;include if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;include if any
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;exclude if
+LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;exclude if any
 LIB;B 5.06;Conditional Combination Functions;LIB_Function_sum_if.html;Function Description;;conditional combination functions
 LIB;B 3;Console I/O Functions;LIB_Features_Console_I_O_Functions.html;General Description;Console I/O Functions
 LIB;B 9.02;Console I/O with Tables;LIB_Features_Console_I_O_with_tables.html;General Description;Console I/O with tables
@@ -232,6 +236,7 @@ LIB;B 12.04;Licensing and Privileges;LIB_Features_licensing_and_privileges.html;
 LIB;B 5.05.05;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;regression
 LIB;B 5.05.05;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;;linear regression
 LIB;B 5.05.05;Linear and Exponential Regression;LIB_Function_regression.html;Function Description;;exponential regression
+LIB;B 3.02.04.01;List of Text and Background Colors;LIB_Features_Console_Text_and_Background_Colors.html;General Description;Console Text and Background Colors
 LIB;B 11.02;Listing and Searching Directories and Files;LIB_Features_listing_directories_and_files.html;General Description;listing directories and files
 LIB;B 9.01.01.02;Loading FULL HTML files;LIB_Features_Loading_FULL_HTML_files.html;General Description;Loading FULL HTML files
 LIB;B 9.01.01.02;Loading FULL HTML files;LIB_Features_Loading_FULL_HTML_files.html;General Description;;Loading FULL HTML files
@@ -255,9 +260,6 @@ LIB;B 6.03;Miscellaneous String Functions;LIB_Features_Other_string_functions.ht
 LIB;B 9.08;Multi-Table Integration;LIB_Features_Multi-table_integration.html;General Description;Multi-table integration
 LIB;B 4.01.03;Numeral to String Formatting;LIB_Features_numeral_to_string_conversion_and_formatting.html;General Description;numeral to string conversion and formatting
 LIB;B 4.01.03;Numeral to String Formatting;LIB_Features_numeral_to_string_conversion_and_formatting.html;General Description;;Numeral to String Formatting Parameters
-LIB;B 8;Parameter Set Functions;LIB_Features_parameter_set_functions.html;General Description;parameter set functions
-LIB;B 4.01.05;Parameter Set to String Formatting;LIB_Features_Parameter_Set_to_string_conversion_and_formatting.html;General Description;Parameter Set to string conversion and formatting
-LIB;B 4.01.05;Parameter Set to String Formatting;LIB_Features_Parameter_Set_to_string_conversion_and_formatting.html;General Description;;Parameter Set to String Formatting Parameters
 LIB;B 2.03.03;Parameter Types in User-Defined Functions;LIB_Features_user_parameter_types.html;General Description;user parameter types
 LIB;B 2.03.03;Parameter Types in User-Defined Functions;LIB_Features_user_parameter_types.html;General Description;;list of parameter types in user functions
 LIB;B 9.07.05;Pivoting and Conosolidating Tables;LIB_Features_Pivoting_and_consolidating_tables.html;General Description;Pivoting and consolidating tables
@@ -269,12 +271,15 @@ LIB;B 9.03.03;Reading Tables;LIB_Features_Functions_for_reading_tables.html;Gene
 LIB;B 12.03;Registry Access Functions;LIB_Features_registry_access_functions.html;General Description;registry access functions
 LIB;B 10.05;Resident Attributes Functions;LIB_Features_Resident_attributes_functions.html;General Description;Resident attributes functions
 LIB;B 9.01.02.01;Saving JSON files;LIB_Features_Saving_JSON_files.html;General Description;Saving JSON files
-LIB;B 9.05.01;Search Functions;LIB_Features_Search_functions.html;General Description;Search functions
+LIB;B 9.05.01;Search and Replace Functions;LIB_Features_Search_and_replace_functions.html;General Description;Search and replace functions
 LIB;B 9.05;Searching and Exploring Tables;LIB_Features_Searching_and_exploring_tables.html;General Description;Searching and exploring tables
 LIB;B 5.03;Series Functions;LIB_Features_series_functions.html;General Description;series functions
-LIB;B 8.01;Set Search and Extraction Functions;LIB_Features_parameter_set_search_and_extraction.html;General Description;parameter set search and extraction
-LIB;B 8.01;Set Search and Extraction Functions;LIB_Features_parameter_set_search_and_extraction.html;General Description;;parameter set search functions
-LIB;B 8.01;Set Search and Extraction Functions;LIB_Features_parameter_set_search_and_extraction.html;General Description;;parameter set extraction functions
+LIB;B 8;Set Functions;LIB_Features_Set_functions.html;General Description;Set functions
+LIB;B 8.01;Set Search and Extraction Functions;LIB_Features_Set_search_and_extraction.html;General Description;Set search and extraction
+LIB;B 8.01;Set Search and Extraction Functions;LIB_Features_Set_search_and_extraction.html;General Description;;Set search functions
+LIB;B 8.01;Set Search and Extraction Functions;LIB_Features_Set_search_and_extraction.html;General Description;;Set extraction functions
+LIB;B 4.01.05;Set to String Formatting;LIB_Features_Set_to_string_conversion_and_formatting.html;General Description;Set to string conversion and formatting
+LIB;B 4.01.05;Set to String Formatting;LIB_Features_Set_to_string_conversion_and_formatting.html;General Description;;Set to String Formatting Parameters
 LIB;B 7.03;Sleep and Wait Functions;LIB_Features_sleep_and_wait_functions.html;General Description;sleep and wait functions
 LIB;B 4.01.07;Smart Formatting;LIB_Features_smart_conversion_and_formatting.html;General Description;smart conversion and formatting
 LIB;B 4.01.07;Smart Formatting;LIB_Features_smart_conversion_and_formatting.html;General Description;;Smart Formatting Parameters
@@ -332,7 +337,7 @@ LIB;B 10;Variables Functions;LIB_Features_variables_functions.html;General Descr
 LIB;B 4.01.02;Void to String Formatting;LIB_Features_void_to_string_conversion_and_formatting.html;General Description;void to string conversion and formatting
 LIB;B 4.01.02;Void to String Formatting;LIB_Features_void_to_string_conversion_and_formatting.html;General Description;;Void to String Formatting Parameters
 LIB;B 9.03.02;Writing Tables;LIB_Features_Functions_for_writing_tables.html;General Description;Functions for writing tables
-LIB;B 6.03.04;abbreviate name;LIB_Function_abbreviate_name.html;Function Description;abbreviate name
+LIB;B 6.03.06;abbreviate name;LIB_Function_abbreviate_name.html;Function Description;abbreviate name
 LIB;B 2.05.06;abort;LIB_Function_abort.html;Function Description;abort
 LIB;B 5.01.04;abs - Absolute Value;LIB_Function_abs.html;Function Description;abs
 LIB;B 5.01.04;abs - Absolute Value;LIB_Function_abs.html;Function Description;;absolute value
@@ -360,14 +365,14 @@ LIB;B 3.02.06;blinking;LIB_Function_blinking.html;Function Description;;Console 
 LIB;B 3.02.07;boldface;LIB_Function_boldface.html;Function Description;boldface
 LIB;B 4.08;bool;LIB_Function_bool.html;Function Description;bool
 LIB;B 4.08;bool;LIB_Function_bool.html;Function Description;;boolean conversion function
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;break case
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;continue case
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;continue with next case
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;break loop
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;continue loop
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;break
-LIB;B 2.01.06;break, continue;LIB_Function_break_case.html;Function Description;continue
-LIB;;browser;LIB_Function_browser.html;Function Description;browser
+LIB;B 2.01.08;break case, continue case;LIB_Function_break_case.html;Function Description;break case
+LIB;B 2.01.08;break case, continue case;LIB_Function_break_case.html;Function Description;continue case
+LIB;B 2.01.07;break loop, continue loop;LIB_Function_break_loop.html;Function Description;break loop
+LIB;B 2.01.07;break loop, continue loop;LIB_Function_break_loop.html;Function Description;continue loop
+LIB;B 2.01.06;break, continue;LIB_Function_break.html;Function Description;break
+LIB;B 2.01.06;break, continue;LIB_Function_break.html;Function Description;continue
+LIB;B 2.01.06;break, continue;LIB_Function_break.html;Function Description;;Break and continue cases and loops
+LIB;B 13.06;browser;LIB_Function_browser.html;Function Description;browser
 LIB;B 5.07.01;cagr - Compond Annual Growth Rate;LIB_Function_cagr.html;Function Description;cagr
 LIB;B 5.07.01;cagr - Compond Annual Growth Rate;LIB_Function_cagr.html;Function Description;;compound annual growth rate
 LIB;B 2.07.04;calc;LIB_Function_calc.html;Function Description;calc
@@ -377,6 +382,9 @@ LIB;B 2.07.01;call;LIB_Function_call.html;Function Description;;Call function or
 LIB;B 2.01.05;case;LIB_Function_case.html;Function Description;case
 LIB;B 2.05.08;catch, catch if;LIB_Function_catch.html;Function Description;catch
 LIB;B 2.05.08;catch, catch if;LIB_Function_catch.html;Function Description;catch if
+LIB;B 11.01.05;change directory commands;LIB_Function_chdir.html;Function Description;chdir
+LIB;B 11.01.05;change directory commands;LIB_Function_chdir.html;Function Description;cd
+LIB;B 6.03.01;characters;LIB_Function_characters.html;Function Description;characters
 LIB;B 11.02.06;choose recent file;LIB_Function_choose_recent_file.html;Function Description;choose recent file
 LIB;B 6.02.01;chr;LIB_Function_chr.html;Function Description;chr
 LIB;B 6.02.01;chr;LIB_Function_chr.html;Function Description;;character encoding
@@ -405,23 +413,26 @@ LIB;B 3.02.05;console;LIB_Function_console.html;Function Description;console
 LIB;B 3.02.05;console;LIB_Function_console.html;Function Description;;get console size
 LIB;B 3.02.05;console;LIB_Function_console.html;Function Description;;get text position
 LIB;B 3.02.05;console;LIB_Function_console.html;Function Description;;get cursor position
+LIB;B 2.01.09;continue with next case;LIB_Function_continue_with_next_case.html;Function Description;continue with next case
 LIB;B 10.01.02;copy;LIB_Function_copy.html;Function Description;copy
 LIB;B 10.01.02;copy;LIB_Function_copy.html;Function Description;;Copy values to multiple variables or table entries
-LIB;B 5.03.05;count Functions;LIB_Function_count.html;Function Description;count
-LIB;B 5.03.05;count Functions;LIB_Function_count.html;Function Description;count ignore zero
-LIB;B 5.03.05;count Functions;LIB_Function_count.html;Function Description;count ignore blanks
-LIB;B 5.03.05;count Functions;LIB_Function_count.html;Function Description;count ignore both
-LIB;B 5.03.05;count Functions;LIB_Function_count.html;Function Description;;count functions
+LIB;B 5.03.07;count Functions;LIB_Function_count.html;Function Description;count
+LIB;B 5.03.07;count Functions;LIB_Function_count.html;Function Description;count ignore zero
+LIB;B 5.03.07;count Functions;LIB_Function_count.html;Function Description;count ignore blanks
+LIB;B 5.03.07;count Functions;LIB_Function_count.html;Function Description;count ignore both
+LIB;B 5.03.07;count Functions;LIB_Function_count.html;Function Description;;count functions
 LIB;B 8.01.08;count elements ...;LIB_Function_count_elements.html;Function Description;count elements
 LIB;B 8.01.08;count elements ...;LIB_Function_count_elements.html;Function Description;count elements ignore case
 LIB;B 8.01.08;count elements ...;LIB_Function_count_elements.html;Function Description;count elements ignore blanks
 LIB;B 8.01.08;count elements ...;LIB_Function_count_elements.html;Function Description;count elements ignore both
-LIB;B 8.01.08;count elements ...;LIB_Function_count_elements.html;Function Description;;Count elements in parameter sets
+LIB;B 8.01.08;count elements ...;LIB_Function_count_elements.html;Function Description;;Count elements in sets
 LIB;B 11.02.07;count files ...;LIB_Function_count_files.html;Function Description;count files
 LIB;B 11.02.07;count files ...;LIB_Function_count_files.html;Function Description;count files recursive
 LIB;B 5.05.03;covariance, correlation;LIB_Function_covariance.html;Function Description;covariance
 LIB;B 5.05.03;covariance, correlation;LIB_Function_covariance.html;Function Description;correlation
 LIB;B 5.05.03;covariance, correlation;LIB_Function_covariance.html;Function Description;;covariance and correlation
+LIB;B 11.03.02;create directory commands;LIB_Function_mkdir.html;Function Description;mkdir
+LIB;B 11.03.02;create directory commands;LIB_Function_mkdir.html;Function Description;md
 LIB;B 3.02.03;cursor;LIB_Function_cursor.html;Function Description;cursor
 LIB;B 3.02.03;cursor;LIB_Function_cursor.html;Function Description;;cursor position
 LIB;B 3.02.03;cursor;LIB_Function_cursor.html;Function Description;;move cursor
@@ -438,11 +449,11 @@ LIB;B 7.01.03;day of year;LIB_Function_day_of_year.html;Function Description;day
 LIB;B 6.02.03;decode entities;LIB_Function_decode_entities.html;Function Description;decode entities
 LIB;B 2.07.02;deep, deepr;LIB_Function_deep.html;Function Description;deep
 LIB;B 2.07.02;deep, deepr;LIB_Function_deep.html;Function Description;deepr
-LIB;B 2.07.02;deep, deepr;LIB_Function_deep.html;Function Description;;Call function for every parameter set element separately
+LIB;B 2.07.02;deep, deepr;LIB_Function_deep.html;Function Description;;Call function for every set element separately
 LIB;B 2.03.02;define additional procedure / function;LIB_Function_define_additional_procedure.html;Function Description;define additional procedure
 LIB;B 2.03.02;define additional procedure / function;LIB_Function_define_additional_procedure.html;Function Description;define additional function
 LIB;B 2.03.02;define additional procedure / function;LIB_Function_define_additional_procedure.html;Function Description;define additional procedure and function
-LIB;B 2.03.02;define additional procedure / function;LIB_Function_define_additional_procedure.html;Function Description;;additional function names
+LIB;B 2.03.02;define additional procedure / function;LIB_Function_define_additional_procedure.html;Function Description;;Additional function names
 LIB;B 2.03.01;define procedure / function;LIB_Function_define_procedure.html;Function Description;define procedure
 LIB;B 2.03.01;define procedure / function;LIB_Function_define_procedure.html;Function Description;define function
 LIB;B 2.03.01;define procedure / function;LIB_Function_define_procedure.html;Function Description;define procedure and function
@@ -454,11 +465,10 @@ LIB;B 10.01.09;delete members;LIB_Function_delete_members.html;Function Descript
 LIB;B 10.01.09;delete members;LIB_Function_delete_members.html;Function Description;;Delete variable members
 LIB;B 10.01.09;delete members;LIB_Function_delete_members.html;Function Description;;Delete array and structure members
 LIB;B 2.03.06;delete user function;LIB_Function_delete_user_function.html;Function Description;delete user function
-LIB;B 2.03.06;delete user function;LIB_Function_delete_user_function.html;Function Description;;delete user function
 LIB;B 10.02.07;depth;LIB_Function_depth.html;Function Description;depth
-LIB;B 6.03.03;describe;LIB_Function_describe.html;Function Description;describe
-LIB;B 5.04.08;diagonal;LIB_Function_diagonal.html;Function Description;diagonal
-LIB;B 5.04.08;diagonal;LIB_Function_diagonal.html;Function Description;;Put values diagonally into matrix
+LIB;B 6.03.05;describe;LIB_Function_describe.html;Function Description;describe
+LIB;B 5.04.09;diagonal;LIB_Function_diagonal.html;Function Description;diagonal
+LIB;B 5.04.09;diagonal;LIB_Function_diagonal.html;Function Description;;Put values diagonally into matrix
 LIB;B 10.02.01;dim / redim;LIB_Function_dim.html;Function Description;dim
 LIB;B 10.02.01;dim / redim;LIB_Function_dim.html;Function Description;redim
 LIB;B 10.02.01;dim / redim;LIB_Function_dim.html;Function Description;;Array functions
@@ -469,42 +479,42 @@ LIB;B 11.03.01;directory create ...;LIB_Function_directory_create.html;Function 
 LIB;B 11.03.01;directory create ...;LIB_Function_directory_create.html;Function Description;directory create all
 LIB;B 11.03.01;directory create ...;LIB_Function_directory_create.html;Function Description;directory create silently
 LIB;B 11.03.01;directory create ...;LIB_Function_directory_create.html;Function Description;;directory create ... Functions
-LIB;B 11.03.02;directory create temp;LIB_Function_directory_create_temp.html;Function Description;directory create temp
-LIB;B 11.03.05;directory delete ...;LIB_Function_directory_delete.html;Function Description;directory delete
-LIB;B 11.03.05;directory delete ...;LIB_Function_directory_delete.html;Function Description;directory delete all
-LIB;B 11.03.05;directory delete ...;LIB_Function_directory_delete.html;Function Description;directory delete silently
-LIB;B 11.03.05;directory delete ...;LIB_Function_directory_delete.html;Function Description;;directory delete ... Functions
-LIB;B 11.03.06;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete multiple
-LIB;B 11.03.06;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete multiple all
-LIB;B 11.03.06;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete recursive
-LIB;B 11.03.06;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete recursive all
-LIB;B 11.03.06;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete recursive if empty
-LIB;B 11.03.06;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;;directory delete multiple/recursive ... Functions
+LIB;B 11.03.03;directory create temp;LIB_Function_directory_create_temp.html;Function Description;directory create temp
+LIB;B 11.03.06;directory delete ...;LIB_Function_directory_delete.html;Function Description;directory delete
+LIB;B 11.03.06;directory delete ...;LIB_Function_directory_delete.html;Function Description;directory delete all
+LIB;B 11.03.06;directory delete ...;LIB_Function_directory_delete.html;Function Description;directory delete silently
+LIB;B 11.03.06;directory delete ...;LIB_Function_directory_delete.html;Function Description;;directory delete ... Functions
+LIB;B 11.03.07;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete multiple
+LIB;B 11.03.07;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete multiple all
+LIB;B 11.03.07;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete recursive
+LIB;B 11.03.07;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete recursive all
+LIB;B 11.03.07;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;directory delete recursive if empty
+LIB;B 11.03.07;directory delete multiple/recursive ...;LIB_Function_directory_delete_multiple.html;Function Description;;directory delete multiple/recursive ... Functions
 LIB;B 11.01.01;directory existing, file existing;LIB_Function_directory_existing.html;Function Description;directory existing
 LIB;B 11.01.01;directory existing, file existing;LIB_Function_directory_existing.html;Function Description;file existing
 LIB;B 11.02.01;directory listing ...;LIB_Function_directory_listing.html;Function Description;directory listing
 LIB;B 11.02.01;directory listing ...;LIB_Function_directory_listing.html;Function Description;directory listing recursive
 LIB;B 11.02.01;directory listing ...;LIB_Function_directory_listing.html;Function Description;;Listing directories
-LIB;B 11.03.08;directory rename ...;LIB_Function_directory_rename.html;Function Description;directory rename
-LIB;B 11.03.08;directory rename ...;LIB_Function_directory_rename.html;Function Description;directory rename all
-LIB;B 11.03.08;directory rename ...;LIB_Function_directory_rename.html;Function Description;directory rename silently
-LIB;B 11.03.08;directory rename ...;LIB_Function_directory_rename.html;Function Description;;directory rename ... Functions
-LIB;B 11.01.05;directory size;LIB_Function_directory_size.html;Function Description;directory size
+LIB;B 11.03.10;directory rename ...;LIB_Function_directory_rename.html;Function Description;directory rename
+LIB;B 11.03.10;directory rename ...;LIB_Function_directory_rename.html;Function Description;directory rename all
+LIB;B 11.03.10;directory rename ...;LIB_Function_directory_rename.html;Function Description;directory rename silently
+LIB;B 11.03.10;directory rename ...;LIB_Function_directory_rename.html;Function Description;;directory rename ... Functions
+LIB;B 11.01.07;directory size;LIB_Function_directory_size.html;Function Description;directory size
 LIB;B 5.07.04;discount - Discount Values;LIB_Function_discount.html;Function Description;discount
 LIB;B 5.07.04;discount - Discount Values;LIB_Function_discount.html;Function Description;;discount
-LIB;B 11.01.07;disk space ...;LIB_Function_disk_space.html;Function Description;disk space
-LIB;B 11.01.07;disk space ...;LIB_Function_disk_space.html;Function Description;disk space free
+LIB;B 11.01.09;disk space ...;LIB_Function_disk_space.html;Function Description;disk space
+LIB;B 11.01.09;disk space ...;LIB_Function_disk_space.html;Function Description;disk space free
 LIB;B 5.07.05;distribute - Value Distribution over Timeline;LIB_Function_distribute.html;Function Description;distribute
 LIB;B 5.07.05;distribute - Value Distribution over Timeline;LIB_Function_distribute.html;Function Description;distribute advance
 LIB;B 5.07.05;distribute - Value Distribution over Timeline;LIB_Function_distribute.html;Function Description;;distribution over timeline
 LIB;B 5.01.09;distribute amount;LIB_Function_distribute_amount.html;Function Description;distribute amount
-LIB;B 2.02.01;do;LIB_Function_do.html;Function Description;do
-LIB;B 2.02.01;do;LIB_Function_do.html;Function Description;;do-loop
+LIB;B 2.02.02;do;LIB_Function_do.html;Function Description;do
+LIB;B 2.02.02;do;LIB_Function_do.html;Function Description;;Do-loops
 LIB;B 13.03;docs;LIB_Function_docs.html;Function Description;docs
-LIB;B 13.12;dump entities;LIB_Function_dump_entities.html;Function Description;dump entities
-LIB;B 13.12;dump entities;LIB_Function_dump_entities.html;Function Description;;List of all entities
-LIB;B 13.11;dump functions;LIB_Function_dump_functions.html;Function Description;dump functions
-LIB;B 13.11;dump functions;LIB_Function_dump_functions.html;Function Description;;List of all functions
+LIB;B 13.13;dump entities;LIB_Function_dump_entities.html;Function Description;dump entities
+LIB;B 13.13;dump entities;LIB_Function_dump_entities.html;Function Description;;List of all entities
+LIB;B 13.12;dump functions;LIB_Function_dump_functions.html;Function Description;dump functions
+LIB;B 13.12;dump functions;LIB_Function_dump_functions.html;Function Description;;List of all functions
 LIB;B 3.01.01;echo, print ...;LIB_Function_echo.html;Function Description;echo
 LIB;B 3.01.01;echo, print ...;LIB_Function_echo.html;Function Description;print
 LIB;B 3.01.01;echo, print ...;LIB_Function_echo.html;Function Description;print line
@@ -524,6 +534,7 @@ LIB;B 4.15;excel coordinates;LIB_Function_excel_coordinates.html;Function Descri
 LIB;B 9.01.03;excel list sheets;LIB_Function_excel_list_sheets.html;Function Description;excel list sheets
 LIB;B 4.16;excel validate sheet name;LIB_Function_excel_validate_sheet_name.html;Function Description;excel validate sheet name
 LIB;B 2.05.09;exception;LIB_Function_exception.html;Function Description;exception
+LIB;B 2.05.09;exception;LIB_Function_exception.html;Function Description;;Invoke exceptions for error messages
 LIB;B 10.01.06;exchange;LIB_Function_exchange.html;Function Description;exchange
 LIB;B 10.01.06;exchange;LIB_Function_exchange.html;Function Description;;Exchange two values
 LIB;B 2.07.03;exec;LIB_Function_exec.html;Function Description;exec
@@ -535,47 +546,47 @@ LIB;B 10.01.01;existing (here and valid);LIB_Function_existing.html;Function Des
 LIB;B 10.01.01;existing (here and valid);LIB_Function_existing.html;Function Description;;Check if variable is existing
 LIB;B 2.05.04;exit;LIB_Function_exit.html;Function Description;exit
 LIB;B 11.02.03;file browser;LIB_Function_file_browser.html;Function Description;file browser
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;file copy
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;file copy all
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;file copy silently
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;file copy overwrite
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;file copy overwrite all
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;file copy overwrite silently
-LIB;B 11.03.09;file copy ...;LIB_Function_file_copy.html;Function Description;;file copy ... Functions
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple all
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple overwrite
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple overwrite all
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive all
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive overwrite
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive overwrite all
-LIB;B 11.03.10;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;;file copy multiple/recursive ... Functions
-LIB;B 11.03.11;file create link ...;LIB_Function_file_create_link.html;Function Description;file create link
-LIB;B 11.03.11;file create link ...;LIB_Function_file_create_link.html;Function Description;file create link all
-LIB;B 11.03.11;file create link ...;LIB_Function_file_create_link.html;Function Description;file create link silently
-LIB;B 11.03.11;file create link ...;LIB_Function_file_create_link.html;Function Description;;file create link ... Functions
-LIB;B 11.03.03;file delete ...;LIB_Function_file_delete.html;Function Description;file delete
-LIB;B 11.03.03;file delete ...;LIB_Function_file_delete.html;Function Description;file delete all
-LIB;B 11.03.03;file delete ...;LIB_Function_file_delete.html;Function Description;file delete silently
-LIB;B 11.03.03;file delete ...;LIB_Function_file_delete.html;Function Description;;file delete ... Functions
-LIB;B 11.03.04;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete multiple
-LIB;B 11.03.04;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete multiple all
-LIB;B 11.03.04;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete recursive
-LIB;B 11.03.04;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete recursive all
-LIB;B 11.03.04;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;;file delete multiple/recursive ... Functions
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;file download
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;file download all
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;file download silently
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;file download overwrite
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;file download overwrite all
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;file download overwrite silently
-LIB;B 11.03.12;file download ...;LIB_Function_file_download.html;Function Description;;file download ... Functions
-LIB;B 11.03.07;file rename ...;LIB_Function_file_rename.html;Function Description;file rename
-LIB;B 11.03.07;file rename ...;LIB_Function_file_rename.html;Function Description;file rename all
-LIB;B 11.03.07;file rename ...;LIB_Function_file_rename.html;Function Description;file rename silently
-LIB;B 11.03.07;file rename ...;LIB_Function_file_rename.html;Function Description;;file rename ... Functions
-LIB;B 11.01.06;file size;LIB_Function_file_size.html;Function Description;file size
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;file copy
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;file copy all
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;file copy silently
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;file copy overwrite
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;file copy overwrite all
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;file copy overwrite silently
+LIB;B 11.03.11;file copy ...;LIB_Function_file_copy.html;Function Description;;file copy ... Functions
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple all
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple overwrite
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy multiple overwrite all
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive all
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive overwrite
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;file copy recursive overwrite all
+LIB;B 11.03.12;file copy mulitple/recursive ...;LIB_Function_file_copy_multiple.html;Function Description;;file copy multiple/recursive ... Functions
+LIB;B 11.03.13;file create link ...;LIB_Function_file_create_link.html;Function Description;file create link
+LIB;B 11.03.13;file create link ...;LIB_Function_file_create_link.html;Function Description;file create link all
+LIB;B 11.03.13;file create link ...;LIB_Function_file_create_link.html;Function Description;file create link silently
+LIB;B 11.03.13;file create link ...;LIB_Function_file_create_link.html;Function Description;;file create link ... Functions
+LIB;B 11.03.04;file delete ...;LIB_Function_file_delete.html;Function Description;file delete
+LIB;B 11.03.04;file delete ...;LIB_Function_file_delete.html;Function Description;file delete all
+LIB;B 11.03.04;file delete ...;LIB_Function_file_delete.html;Function Description;file delete silently
+LIB;B 11.03.04;file delete ...;LIB_Function_file_delete.html;Function Description;;file delete ... Functions
+LIB;B 11.03.05;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete multiple
+LIB;B 11.03.05;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete multiple all
+LIB;B 11.03.05;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete recursive
+LIB;B 11.03.05;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;file delete recursive all
+LIB;B 11.03.05;file delete multiple/recursive ...;LIB_Function_file_delete_multiple.html;Function Description;;file delete multiple/recursive ... Functions
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;file download
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;file download all
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;file download silently
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;file download overwrite
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;file download overwrite all
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;file download overwrite silently
+LIB;B 11.03.14;file download ...;LIB_Function_file_download.html;Function Description;;file download ... Functions
+LIB;B 11.03.09;file rename ...;LIB_Function_file_rename.html;Function Description;file rename
+LIB;B 11.03.09;file rename ...;LIB_Function_file_rename.html;Function Description;file rename all
+LIB;B 11.03.09;file rename ...;LIB_Function_file_rename.html;Function Description;file rename silently
+LIB;B 11.03.09;file rename ...;LIB_Function_file_rename.html;Function Description;;file rename ... Functions
+LIB;B 11.01.08;file size;LIB_Function_file_size.html;Function Description;file size
 LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter
 LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter 1
 LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter n
@@ -585,35 +596,40 @@ LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter st
 LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter start n include
 LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter stop
 LIB;B 8.01.10;filter ...;LIB_Function_filter.html;Function Description;filter stop include
-LIB;B 8.01.02;find ... (parameter set function);LIB_Function_find_.html;Function Description;find 
-LIB;B 8.01.02;find ... (parameter set function);LIB_Function_find_.html;Function Description;find ignore case 
-LIB;B 8.01.02;find ... (parameter set function);LIB_Function_find_.html;Function Description;find ignore blanks 
-LIB;B 8.01.02;find ... (parameter set function);LIB_Function_find_.html;Function Description;find ignore both 
-LIB;B 8.01.02;find ... (parameter set function);LIB_Function_find_.html;Function Description;;find [parameter set function]
+LIB;B 8.01.02;find ... (set function);LIB_Function_find_.html;Function Description;find 
+LIB;B 8.01.02;find ... (set function);LIB_Function_find_.html;Function Description;find ignore case 
+LIB;B 8.01.02;find ... (set function);LIB_Function_find_.html;Function Description;find ignore blanks 
+LIB;B 8.01.02;find ... (set function);LIB_Function_find_.html;Function Description;find ignore both 
+LIB;B 8.01.02;find ... (set function);LIB_Function_find_.html;Function Description;;find [set function]
 LIB;B 6.01.01;find ... (string function);LIB_Function_find.html;Function Description;find
 LIB;B 6.01.01;find ... (string function);LIB_Function_find.html;Function Description;find ignore case
 LIB;B 6.01.01;find ... (string function);LIB_Function_find.html;Function Description;find ignore blanks
 LIB;B 6.01.01;find ... (string function);LIB_Function_find.html;Function Description;find ignore both
 LIB;B 6.01.01;find ... (string function);LIB_Function_find.html;Function Description;;find [string function]
-LIB;B 5.04.07;flat;LIB_Function_flat.html;Function Description;flat
-LIB;B 5.04.07;flat;LIB_Function_flat.html;Function Description;;Flatten matrix
-LIB;B 2.02.02;for;LIB_Function_for.html;Function Description;for
-LIB;B 2.02.02;for;LIB_Function_for.html;Function Description;;for-loop
+LIB;B 5.04.08;flat;LIB_Function_flat.html;Function Description;flat
+LIB;B 5.04.08;flat;LIB_Function_flat.html;Function Description;;Flatten matrix
+LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;flip horizontally
+LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;flip vertically
+LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;;flip matrix
+LIB;B 2.02.03;for;LIB_Function_for.html;Function Description;for
+LIB;B 2.02.03;for;LIB_Function_for.html;Function Description;;For-loops
+LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;for all
+LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;for all parameters
+LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;;For-loop across set elements
+LIB;B 2.02.08;for all characters;LIB_Function_for_all_characters.html;Function Description;for all characters
+LIB;B 2.02.08;for all characters;LIB_Function_for_all_characters.html;Function Description;;For-loop through characters
 LIB;B 9.06.06;for all current table columns;LIB_Function_for_all_current_table_columns.html;Function Description;for all current table columns
 LIB;B 9.06.07;for all current table selected columns;LIB_Function_for_all_current_table_selected_columns.html;Function Description;for all current table selected columns
-LIB;B 2.02.04;for all parameters;LIB_Function_for_all_parameters.html;Function Description;for all parameters
-LIB;B 2.02.04;for all parameters;LIB_Function_for_all_parameters.html;Function Description;;for-loop through parameter elements
-LIB;B 2.02.04;for all parameters;LIB_Function_for_all_parameters.html;Function Description;;parameter set
 LIB;B 9.06.04;for all table columns;LIB_Function_for_all_table_columns.html;Function Description;for all table columns
-LIB;B 9.06.04;for all table columns;LIB_Function_for_all_table_columns.html;Function Description;;for-loop through table columns
+LIB;B 9.06.04;for all table columns;LIB_Function_for_all_table_columns.html;Function Description;;For-loop through table columns
 LIB;B 9.06.02;for all table rows;LIB_Function_for_all_table_rows.html;Function Description;for all table rows
-LIB;B 9.06.02;for all table rows;LIB_Function_for_all_table_rows.html;Function Description;;for-loop through table rows
+LIB;B 9.06.02;for all table rows;LIB_Function_for_all_table_rows.html;Function Description;;For-loop through table rows
 LIB;B 9.06.05;for all table selected columns;LIB_Function_for_all_table_selected_columns.html;Function Description;for all table selected columns
 LIB;B 9.06.03;for all table selected rows;LIB_Function_for_all_table_selected_rows.html;Function Description;for all table selected rows
-LIB;B 2.02.05;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables
-LIB;B 2.02.05;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing
-LIB;B 2.02.05;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing and valid
-LIB;B 2.02.05;for all variables;LIB_Function_for_all_variables.html;Function Description;;for-loop through variables
+LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables
+LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing
+LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing and valid
+LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;;For-loop through variables
 LIB;B 9.03.01.04;forget memorized table columns;LIB_Function_forget_memorized_table_columns.html;Function Description;forget memorized table columns
 LIB;B 3.01.03;format, format print;LIB_Function_format.html;Function Description;format
 LIB;B 3.01.03;format, format print;LIB_Function_format.html;Function Description;format print
@@ -622,7 +638,7 @@ LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fin
 LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fiscal quarter
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;function existing
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;user function existing
-LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;;function existing
+LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;;Check if function existing
 LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;fy
 LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;financial year
 LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;fiscal year
@@ -652,13 +668,16 @@ LIB;B 13.02;help ...;LIB_Function_help_welcome.html;Function Description;help li
 LIB;B 13.02;help ...;LIB_Function_help_welcome.html;Function Description;help keywords
 LIB;B 13.02;help ...;LIB_Function_help_welcome.html;Function Description;help index
 LIB;B 5.01.08;hex to decimal;LIB_Function_hex_to_decimal.html;Function Description;hex to decimal
-LIB;B 5.04.05;horizontal;LIB_Function_horizontal.html;Function Description;horizontal
-LIB;B 5.04.05;horizontal;LIB_Function_horizontal.html;Function Description;;Make matrix horizontal
+LIB;B 5.05.07;histogram;LIB_Function_histogram.html;Function Description;histogram
+LIB;B 5.04.06;horizontal;LIB_Function_horizontal.html;Function Description;horizontal
+LIB;B 5.04.06;horizontal;LIB_Function_horizontal.html;Function Description;;Make matrix horizontal
 LIB;B 7.02.01;hour, minute, second;LIB_Function_hour.html;Function Description;hour
 LIB;B 7.02.01;hour, minute, second;LIB_Function_hour.html;Function Description;minute
 LIB;B 7.02.01;hour, minute, second;LIB_Function_hour.html;Function Description;second
 LIB;B 7.02.01;hour, minute, second;LIB_Function_hour.html;Function Description;;Time Info Functions
 LIB;B 10.01.03;identify;LIB_Function_identify.html;Function Description;identify
+LIB;B 5.04.01;identity;LIB_Function_identity.html;Function Description;identity
+LIB;B 5.04.01;identity;LIB_Function_identity.html;Function Description;;Identity Matrix
 LIB;B 2.01.01;if, unless;LIB_Function_if.html;Function Description;if
 LIB;B 2.01.01;if, unless;LIB_Function_if.html;Function Description;unless
 LIB;B 2.01.01;if, unless;LIB_Function_if.html;Function Description;;conditional branches
@@ -677,6 +696,7 @@ LIB;B 10.01.10;insert members (protect);LIB_Function_insert_members.html;Functio
 LIB;B 10.01.10;insert members (protect);LIB_Function_insert_members.html;Function Description;;Array functions
 LIB;B 3.03.03;inspect;LIB_Function_inspect.html;Function Description;inspect
 LIB;B 2.05.03;interactive;LIB_Function_interactive.html;Function Description;interactive
+LIB;B 2.05.03;interactive;LIB_Function_interactive.html;Function Description;;Exceptions
 LIB;B 5.07.02;irr - Internal Rate of Return;LIB_Function_irr.html;Function Description;irr
 LIB;B 5.07.02;irr - Internal Rate of Return;LIB_Function_irr.html;Function Description;;internal rate of return
 LIB;B 5.01.01;is numeric / integer - Functions;LIB_Function_is_numeric.html;Function Description;is numeric
@@ -692,30 +712,37 @@ LIB;B 4.11;join ...;LIB_Function_join.html;Function Description;join
 LIB;B 4.11;join ...;LIB_Function_join.html;Function Description;join ignore blanks
 LIB;B 4.11;join ...;LIB_Function_join.html;Function Description;join unique
 LIB;B 4.11;join ...;LIB_Function_join.html;Function Description;join unique ignore blanks
-LIB;B 4.11;join ...;LIB_Function_join.html;Function Description;;Join parameter set elements into a string
+LIB;B 4.11;join ...;LIB_Function_join.html;Function Description;;Join set elements into a string
 LIB;B 10.03.02;json to variable ...;LIB_Function_json_to_variable.html;Function Description;json to variable
-LIB;B 8.01.03;left ... (parameter set function);LIB_Function_left_.html;Function Description;left 
-LIB;B 8.01.03;left ... (parameter set function);LIB_Function_left_.html;Function Description;left include 
-LIB;B 8.01.03;left ... (parameter set function);LIB_Function_left_.html;Function Description;left last match 
-LIB;B 8.01.03;left ... (parameter set function);LIB_Function_left_.html;Function Description;left last match include 
-LIB;B 8.01.03;left ... (parameter set function);LIB_Function_left_.html;Function Description;;left [parameter set function]
+LIB;B 8.01.03;left ... (set function);LIB_Function_left_.html;Function Description;left 
+LIB;B 8.01.03;left ... (set function);LIB_Function_left_.html;Function Description;left include 
+LIB;B 8.01.03;left ... (set function);LIB_Function_left_.html;Function Description;left last match 
+LIB;B 8.01.03;left ... (set function);LIB_Function_left_.html;Function Description;left last match include 
+LIB;B 8.01.03;left ... (set function);LIB_Function_left_.html;Function Description;;left [set function]
 LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;left
 LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;left include
 LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;left last match
 LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;left last match include
+LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;vleft
+LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;vleft include
+LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;vleft last match
+LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;vleft last match include
 LIB;B 6.01.08;left ... (string function);LIB_Function_left.html;Function Description;;left [string function]
-LIB;B 8.01.01;length ... (parameter set function);LIB_Function_length_.html;Function Description;length 
-LIB;B 8.01.01;length ... (parameter set function);LIB_Function_length_.html;Function Description;;length [parameter set function]
+LIB;B 8.01.01;length ... (set function);LIB_Function_length_.html;Function Description;length 
+LIB;B 8.01.01;length ... (set function);LIB_Function_length_.html;Function Description;;length [set function]
 LIB;B 6.01.04;length ... (string function);LIB_Function_length.html;Function Description;length
+LIB;B 6.01.04;length ... (string function);LIB_Function_length.html;Function Description;vlength
 LIB;B 6.01.04;length ... (string function);LIB_Function_length.html;Function Description;;length [string function]
 LIB;B 12.04.03;license apply key;LIB_Function_license_apply_key.html;Function Description;license apply key
 LIB;B 12.04.02;license provide identification;LIB_Function_license_provide_identification.html;Function Description;license provide identification
 LIB;B 9.09.01.05;lighten color;LIB_Function_lighten_color.html;Function Description;lighten color
 LIB;B 9.09.01.07;lighten colors;LIB_Function_lighten_colors.html;Function Description;lighten colors
-LIB;B 5.04.04;linear - Solve Linear Equations;LIB_Function_linear.html;Function Description;linear
-LIB;B 5.04.04;linear - Solve Linear Equations;LIB_Function_linear.html;Function Description;;linear equation
-LIB;B 13.10;list / explain functions;LIB_Function_list_functions.html;Function Description;list functions
-LIB;B 13.10;list / explain functions;LIB_Function_list_functions.html;Function Description;explain functions
+LIB;B 5.03.06;limit;LIB_Function_limit.html;Function Description;limit
+LIB;B 5.03.06;limit;LIB_Function_limit.html;Function Description;;Limit values within lower and upper boundaries
+LIB;B 5.04.05;linear - Solve Linear Equations;LIB_Function_linear.html;Function Description;linear
+LIB;B 5.04.05;linear - Solve Linear Equations;LIB_Function_linear.html;Function Description;;linear equation
+LIB;B 13.11;list / explain functions;LIB_Function_list_functions.html;Function Description;list functions
+LIB;B 13.11;list / explain functions;LIB_Function_list_functions.html;Function Description;explain functions
 LIB;B 9.04.01;list tables;LIB_Function_list_tables.html;Function Description;list tables
 LIB;B 9.04.01;list tables;LIB_Function_list_tables.html;Function Description;;Access table information
 LIB;B 3.03.04;list variables ...;LIB_Function_list_variables.html;Function Description;list variables
@@ -726,18 +753,22 @@ LIB;B 3.03.04;list variables ...;LIB_Function_list_variables.html;Function Descr
 LIB;B 10.01.12;local;LIB_Function_local.html;Function Description;local
 LIB;B 10.01.12;local;LIB_Function_local.html;Function Description;;Define local variables when writing
 LIB;B 6.01.16;locate differences;LIB_Function_locate_differences.html;Function Description;locate differences
-LIB;B 5.04.03;mdet - Matrix Determinant;LIB_Function_mdet.html;Function Description;mdet
-LIB;B 5.04.03;mdet - Matrix Determinant;LIB_Function_mdet.html;Function Description;;matrix determinant
+LIB;B 5.04.04;mdet - Matrix Determinant;LIB_Function_mdet.html;Function Description;mdet
+LIB;B 5.04.04;mdet - Matrix Determinant;LIB_Function_mdet.html;Function Description;;matrix determinant
 LIB;B 10.02.05;member count;LIB_Function_member_count.html;Function Description;member count
-LIB;B 8.01.05;middle ... (parameter set function);LIB_Function_middle_.html;Function Description;middle 
-LIB;B 8.01.05;middle ... (parameter set function);LIB_Function_middle_.html;Function Description;middle include 
-LIB;B 8.01.05;middle ... (parameter set function);LIB_Function_middle_.html;Function Description;middle until 
-LIB;B 8.01.05;middle ... (parameter set function);LIB_Function_middle_.html;Function Description;middle until include 
-LIB;B 8.01.05;middle ... (parameter set function);LIB_Function_middle_.html;Function Description;;middle [parameter set function]
+LIB;B 8.01.05;middle ... (set function);LIB_Function_middle_.html;Function Description;middle 
+LIB;B 8.01.05;middle ... (set function);LIB_Function_middle_.html;Function Description;middle include 
+LIB;B 8.01.05;middle ... (set function);LIB_Function_middle_.html;Function Description;middle until 
+LIB;B 8.01.05;middle ... (set function);LIB_Function_middle_.html;Function Description;middle until include 
+LIB;B 8.01.05;middle ... (set function);LIB_Function_middle_.html;Function Description;;middle [set function]
 LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;middle
 LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;middle include
 LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;middle until
 LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;middle until include
+LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;vmiddle
+LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;vmiddle include
+LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;vmiddle until
+LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;vmiddle until include
 LIB;B 6.01.10;middle ... (string function);LIB_Function_middle.html;Function Description;;middle [string function]
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;min
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max ignore zero
@@ -746,41 +777,40 @@ LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max ignore zero
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;max ignore blanks
 LIB;B 5.03.02;min, max Functions;LIB_Function_min.html;Function Description;;min and max functions
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min 123
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max 123
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min 123 ignore zero
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max 124 ignore zero
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min numeral
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max numeral
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min numeral ignore zero
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max numeral ignore zero
-LIB;B 5.03.04;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;;min and max functions on numerals
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max abc
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore blanks
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore case
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max abc ignore case
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore both
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max string
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore blanks
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore case
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max string ignore case
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore both
-LIB;B 5.03.03;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;;min and max functions on strings
-LIB;B 5.04.02;minv - Matrix Inversion;LIB_Function_minv.html;Function Description;minv
-LIB;B 5.04.02;minv - Matrix Inversion;LIB_Function_minv.html;Function Description;;matrix inversion
-LIB;B 5.04.01;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;mmul
-LIB;B 5.04.01;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;mdiv
-LIB;B 5.04.01;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;;matrix multiplication
-LIB;B 5.04.01;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;;matrix division
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min 123
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max 123
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min 123 ignore zero
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max 124 ignore zero
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min numeral
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max numeral
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;min numeral ignore zero
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;max numeral ignore zero
+LIB;B 5.03.05;min, max Functions on Numerals;LIB_Function_min_123.html;Function Description;;min and max functions on numerals
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max abc
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore blanks
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore case
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max abc ignore case
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min abc ignore both
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max string
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore blanks
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore case
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;max string ignore case
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;min string ignore both
+LIB;B 5.03.04;min, max Functions on Strings;LIB_Function_min_abc.html;Function Description;;min and max functions on strings
+LIB;B 5.04.03;minv - Matrix Inversion;LIB_Function_minv.html;Function Description;minv
+LIB;B 5.04.03;minv - Matrix Inversion;LIB_Function_minv.html;Function Description;;matrix inversion
+LIB;B 5.04.02;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;mmul
+LIB;B 5.04.02;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;mdiv
+LIB;B 5.04.02;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;;matrix multiplication
+LIB;B 5.04.02;mmul, mmdiv - Multiplication and Division;LIB_Function_mmul.html;Function Description;;matrix division
 LIB;B 5.01.06;mod - Modulo function;LIB_Function_mod.html;Function Description;mod
 LIB;B 5.01.06;mod - Modulo function;LIB_Function_mod.html;Function Description;;modulo
 LIB;B 10.01.05;name;LIB_Function_name.html;Function Description;name
 LIB;B 10.01.05;name;LIB_Function_name.html;Function Description;;Get variable name
-LIB;B 2.05.10;null - Function;LIB_Function_null.html;Function Description;null
-LIB;B 2.05.10;null - Function;LIB_Function_null.html;Function Description;;Null function
-LIB;B 2.05.10;null - Function;LIB_Function_null.html;Function Description;;Do nothing
+LIB;B 2.05.10;null;LIB_Function_null.html;Function Description;null
+LIB;B 2.05.10;null;LIB_Function_null.html;Function Description;;Null function
 LIB;B 4.02;num;LIB_Function_num.html;Function Description;num
 LIB;B 4.02;num;LIB_Function_num.html;Function Description;;numeral conversion function
 LIB;B 11.02.09;office document properties;LIB_Function_office_document_properties.html;Function Description;office document properties
@@ -789,33 +819,45 @@ LIB;B 2.01.03;once;LIB_Function_once.html;Function Description;once
 LIB;B 2.01.03;once;LIB_Function_once.html;Function Description;;one-time execution
 LIB;B 12.01.01;open;LIB_Function_open.html;Function Description;open
 LIB;B 13.04;openweb;LIB_Function_openweb.html;Function Description;openweb
-LIB;B 8.01.06;outside ... (parameter set function);LIB_Function_outside_.html;Function Description;outside 
-LIB;B 8.01.06;outside ... (parameter set function);LIB_Function_outside_.html;Function Description;outside exclude 
-LIB;B 8.01.06;outside ... (parameter set function);LIB_Function_outside_.html;Function Description;outside until 
-LIB;B 8.01.06;outside ... (parameter set function);LIB_Function_outside_.html;Function Description;outside until exclude 
-LIB;B 8.01.06;outside ... (parameter set function);LIB_Function_outside_.html;Function Description;;outside [parameter set function]
+LIB;B 8.01.06;outside ... (set function);LIB_Function_outside_.html;Function Description;outside 
+LIB;B 8.01.06;outside ... (set function);LIB_Function_outside_.html;Function Description;outside exclude 
+LIB;B 8.01.06;outside ... (set function);LIB_Function_outside_.html;Function Description;outside until 
+LIB;B 8.01.06;outside ... (set function);LIB_Function_outside_.html;Function Description;outside until exclude 
+LIB;B 8.01.06;outside ... (set function);LIB_Function_outside_.html;Function Description;;outside [set function]
 LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;outside
 LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;outside exclude
 LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;outside until
 LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;outside until exclude
+LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;voutside
+LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;voutside exclude
+LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;voutside until
+LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;voutside until exclude
 LIB;B 6.01.11;outside ... (string function);LIB_Function_outside.html;Function Description;;outside [string function]
-LIB;B 4.09;parameter set;LIB_Function_parameter_set.html;Function Description;parameter set
-LIB;B 4.09;parameter set;LIB_Function_parameter_set.html;Function Description;;parameter set conversion function
+LIB;B 6.03.03;pad, align ...;LIB_Function_pad.html;Function Description;pad
+LIB;B 6.03.03;pad, align ...;LIB_Function_pad.html;Function Description;align
+LIB;B 6.03.03;pad, align ...;LIB_Function_pad.html;Function Description;pad right
+LIB;B 6.03.03;pad, align ...;LIB_Function_pad.html;Function Description;align right
+LIB;B 6.03.03;pad, align ...;LIB_Function_pad.html;Function Description;;pad strings
+LIB;B 6.03.03;pad, align ...;LIB_Function_pad.html;Function Description;;align strings
 LIB;B 2.05.01;pause;LIB_Function_pause.html;Function Description;pause
 LIB;B 5.02.02;pow - Power Function;LIB_Function_pow.html;Function Description;pow
 LIB;B 5.02.02;pow - Power Function;LIB_Function_pow.html;Function Description;;power function
+LIB;B 5.04.13;print / compose matrix;LIB_Function_print_matrix.html;Function Description;print matrix
+LIB;B 5.04.13;print / compose matrix;LIB_Function_print_matrix.html;Function Description;echo matrix
+LIB;B 5.04.13;print / compose matrix;LIB_Function_print_matrix.html;Function Description;compose matrix
 LIB;B 3.01.02;print bar;LIB_Function_print_bar.html;Function Description;print bar
 LIB;B 3.03.01;prompt;LIB_Function_prompt.html;Function Description;prompt
 LIB;B 3.03.01;prompt;LIB_Function_prompt.html;Function Description;;Change the prompt used in interactive mode
 LIB;B 10.01.07;protect ...;LIB_Function_protect.html;Function Description;protect
 LIB;B 10.01.07;protect ...;LIB_Function_protect.html;Function Description;protect recursive
 LIB;B 10.01.07;protect ...;LIB_Function_protect.html;Function Description;;Protect variables
+LIB;B 11.01.04;pwd working directory command;LIB_Function_pwd.html;Function Description;pwd
 LIB;B 5.05.02;quantile ...;LIB_Function_quantile.html;Function Description;quantile
 LIB;B 5.05.02;quantile ...;LIB_Function_quantile.html;Function Description;quantile ignore zero
 LIB;B 12.01.03;quote path;LIB_Function_quote_path.html;Function Description;quote path
 LIB;B 5.01.07;random - Random Integers;LIB_Function_random.html;Function Description;random
-LIB;B 6.03.02;random string, random letters;LIB_Function_random_string.html;Function Description;random string
-LIB;B 6.03.02;random string, random letters;LIB_Function_random_string.html;Function Description;random letters
+LIB;B 6.03.04;random string, random letters;LIB_Function_random_string.html;Function Description;random string
+LIB;B 6.03.04;random string, random letters;LIB_Function_random_string.html;Function Description;random letters
 LIB;B 11.01.02;read access ..., write access ...;LIB_Function_read_access.html;Function Description;read access
 LIB;B 11.01.02;read access ..., write access ...;LIB_Function_read_access.html;Function Description;read access repeat if locked
 LIB;B 11.01.02;read access ..., write access ...;LIB_Function_read_access.html;Function Description;write access
@@ -825,11 +867,17 @@ LIB;B 10.01.13;regional;LIB_Function_regional.html;Function Description;;Make re
 LIB;B 10.04.01;release;LIB_Function_release.html;Function Description;release
 LIB;B 10.04.01;release;LIB_Function_release.html;Function Description;;Release references to variables
 LIB;B 10.04.02;release all;LIB_Function_release_all.html;Function Description;release all
+LIB;B 11.03.08;remove directory commands;LIB_Function_rmdir.html;Function Description;rmdir
+LIB;B 11.03.08;remove directory commands;LIB_Function_rmdir.html;Function Description;rd
+LIB;B 2.02.01;repeat;LIB_Function_repeat.html;Function Description;repeat
+LIB;B 2.02.01;repeat;LIB_Function_repeat.html;Function Description;;Repetition loops
+LIB;B 2.06.07;replace if;LIB_Function_replace_if.html;Function Description;replace if
+LIB;B 2.06.07;replace if;LIB_Function_replace_if.html;Function Description;;Replacing values and set elements
 LIB;B 6.01.02;replace, replace all;LIB_Function_replace.html;Function Description;replace
 LIB;B 6.01.02;replace, replace all;LIB_Function_replace.html;Function Description;replace all
-LIB;B 6.03.01;replicate ... (string function);LIB_Function_replicate.html;Function Description;replicate
-LIB;B 6.03.01;replicate ... (string function);LIB_Function_replicate.html;Function Description;replicate characters
-LIB;B 6.03.01;replicate ... (string function);LIB_Function_replicate.html;Function Description;;replicate strings
+LIB;B 6.03.02;replicate ... (string function);LIB_Function_replicate.html;Function Description;replicate
+LIB;B 6.03.02;replicate ... (string function);LIB_Function_replicate.html;Function Description;replicate characters
+LIB;B 6.03.02;replicate ... (string function);LIB_Function_replicate.html;Function Description;;replicate strings
 LIB;B 7.01.09;reschedule;LIB_Function_reschedule.html;Function Description;reschedule
 LIB;B 3.02.10;reset console;LIB_Function_reset_console.html;Function Description;reset console
 LIB;B 11.02.08;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;resolve path name
@@ -837,18 +885,26 @@ LIB;B 11.02.08;resolve path/directory/file name;LIB_Function_resolve_path_name.h
 LIB;B 11.02.08;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;resolve file name
 LIB;B 11.02.08;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;;Resolve directory and file names
 LIB;B 2.03.04;return;LIB_Function_return.html;Function Description;return
+LIB;B 2.03.04;return;LIB_Function_return.html;Function Description;;Return from function calls
 LIB;B 3.02.08;reverse;LIB_Function_reverse.html;Function Description;reverse
 LIB;B 9.09.01.03;rgb;LIB_Function_rgb.html;Function Description;rgb
-LIB;B 8.01.04;right ... (parameter set function);LIB_Function_right_.html;Function Description;right 
-LIB;B 8.01.04;right ... (parameter set function);LIB_Function_right_.html;Function Description;right include 
-LIB;B 8.01.04;right ... (parameter set function);LIB_Function_right_.html;Function Description;right last match 
-LIB;B 8.01.04;right ... (parameter set function);LIB_Function_right_.html;Function Description;right last match include 
-LIB;B 8.01.04;right ... (parameter set function);LIB_Function_right_.html;Function Description;;right [parameter set function]
+LIB;B 8.01.04;right ... (set function);LIB_Function_right_.html;Function Description;right 
+LIB;B 8.01.04;right ... (set function);LIB_Function_right_.html;Function Description;right include 
+LIB;B 8.01.04;right ... (set function);LIB_Function_right_.html;Function Description;right last match 
+LIB;B 8.01.04;right ... (set function);LIB_Function_right_.html;Function Description;right last match include 
+LIB;B 8.01.04;right ... (set function);LIB_Function_right_.html;Function Description;;right [set function]
 LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;right
 LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;right include
 LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;right last match
 LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;right last match include
+LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;vright
+LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;vright include
+LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;vright last match
+LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;vright last match include
 LIB;B 6.01.09;right ... (string function);LIB_Function_right.html;Function Description;;right [string function]
+LIB;B 5.04.12;rotate left / right;LIB_Function_rotate_left.html;Function Description;rotate left
+LIB;B 5.04.12;rotate left / right;LIB_Function_rotate_left.html;Function Description;rotate right
+LIB;B 5.04.12;rotate left / right;LIB_Function_rotate_left.html;Function Description;;rotate matrix
 LIB;B 5.01.05;round, round up / down;LIB_Function_round.html;Function Description;round
 LIB;B 5.01.05;round, round up / down;LIB_Function_round.html;Function Description;round up
 LIB;B 5.01.05;round, round up / down;LIB_Function_round.html;Function Description;round down
@@ -878,11 +934,11 @@ LIB;B 2.06.04;select/pick if existing ...;LIB_Function_select_if_existing.html;F
 LIB;B 2.06.04;select/pick if existing ...;LIB_Function_select_if_existing.html;Function Description;pick if existing and valid
 LIB;B 2.06.04;select/pick if existing ...;LIB_Function_select_if_existing.html;Function Description;;Select value from variable if existing
 LIB;B 7.01.04;serial date;LIB_Function_serial_date.html;Function Description;serial date
+LIB;B 7.01.04;serial date;LIB_Function_serial_date.html;Function Description;serial date time
 LIB;B 7.01.04;serial date;LIB_Function_serial_date.html;Function Description;;date info functions
+LIB;B 4.09;set;LIB_Function_set.html;Function Description;set
+LIB;B 4.09;set;LIB_Function_set.html;Function Description;;set [function name]
 LIB;B 12.02;set locale;LIB_Function_set_locale.html;Function Description;set locale
-LIB;B 10.02.10;set, set names;LIB_Function_set.html;Function Description;set
-LIB;B 10.02.10;set, set names;LIB_Function_set.html;Function Description;set names
-LIB;B 10.02.10;set, set names;LIB_Function_set.html;Function Description;;Read variable members into parameter sets
 LIB;B 7.03.02;sleep until, sleep until countdown;LIB_Function_sleep_until.html;Function Description;sleep until
 LIB;B 7.03.02;sleep until, sleep until countdown;LIB_Function_sleep_until.html;Function Description;sleep until countdown
 LIB;B 7.03.01;sleep, sleep countdown;LIB_Function_sleep.html;Function Description;sleep
@@ -891,14 +947,17 @@ LIB;B 7.03.01;sleep, sleep countdown;LIB_Function_sleep.html;Function Descriptio
 LIB;B 4.04;smart num, smart if num;LIB_Function_smart_num.html;Function Description;smart num
 LIB;B 4.04;smart num, smart if num;LIB_Function_smart_num.html;Function Description;smart if num
 LIB;B 4.04;smart num, smart if num;LIB_Function_smart_num.html;Function Description;;smart numerals
-LIB;B 5.02.01;sqrt - Square Root;LIB_Function_sqrt.html;Function Description;sqrt
-LIB;B 5.02.01;sqrt - Square Root;LIB_Function_sqrt.html;Function Description;;Square Root
+LIB;B 5.02.01;sqrt, cbrt - Square and Cube Roots;LIB_Function_sqrt.html;Function Description;sqrt
+LIB;B 5.02.01;sqrt, cbrt - Square and Cube Roots;LIB_Function_sqrt.html;Function Description;cbrt
+LIB;B 5.02.01;sqrt, cbrt - Square and Cube Roots;LIB_Function_sqrt.html;Function Description;;Square Root
 LIB;B 2.04.01;start;LIB_Function_start.html;Function Description;start
 LIB;B 2.04.01;start;LIB_Function_start.html;Function Description;;start B4P program
-LIB;B 11.01.04;starting directory;LIB_Function_starting_directory.html;Function Description;starting directory
+LIB;B 11.01.06;starting directory;LIB_Function_starting_directory.html;Function Description;starting directory
 LIB;B 2.05.02;stop;LIB_Function_stop.html;Function Description;stop
 LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;str
 LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;soft
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;vstr
+LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;vsoft
 LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;;string conversion
 LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;;formatting template
 LIB;B 4.01;str, soft;LIB_Function_str.html;Function Description;;string conversion functions
@@ -916,7 +975,7 @@ LIB;B 8.01.09;subset ...;LIB_Function_subset.html;Function Description;subset re
 LIB;B 8.01.09;subset ...;LIB_Function_subset.html;Function Description;subset recursive ignore case
 LIB;B 8.01.09;subset ...;LIB_Function_subset.html;Function Description;subset recursive ignore blanks
 LIB;B 8.01.09;subset ...;LIB_Function_subset.html;Function Description;subset recursive ignore both
-LIB;B 8.01.09;subset ...;LIB_Function_subset.html;Function Description;;Subsets from parameter sets
+LIB;B 8.01.09;subset ...;LIB_Function_subset.html;Function Description;;Subsets from sets
 LIB;B 6.01.03;substitute, substitute all;LIB_Function_substitute.html;Function Description;substitute
 LIB;B 6.01.03;substitute, substitute all;LIB_Function_substitute.html;Function Description;substitute all
 LIB;B 2.01.04;switch, check;LIB_Function_switch.html;Function Description;switch
@@ -925,8 +984,11 @@ LIB;B 2.01.04;switch, check;LIB_Function_switch.html;Function Description;;alter
 LIB;B 12.01.02;system;LIB_Function_system.html;Function Description;system
 LIB;B 9.03.02.04;table (write or) add missing row;LIB_Function_table_add_missing_row.html;Function Description;table add missing row
 LIB;B 9.03.02.04;table (write or) add missing row;LIB_Function_table_add_missing_row.html;Function Description;table write or add missing row
-LIB;B 9.03.02.03;table add / write row;LIB_Function_table_add_row.html;Function Description;table add row
-LIB;B 9.03.02.03;table add / write row;LIB_Function_table_add_row.html;Function Description;table write row
+LIB;B 9.03.02.03;table add row, table write row;LIB_Function_table_add_row.html;Function Description;table add row
+LIB;B 9.03.02.03;table add row, table write row;LIB_Function_table_add_row.html;Function Description;table write row
+LIB;B 9.07.02.02;table add/insert calculated columns;LIB_Function_table_add_calculated_columns.html;Function Description;table add calculated columns
+LIB;B 9.07.02.02;table add/insert calculated columns;LIB_Function_table_add_calculated_columns.html;Function Description;table insert calculated columns
+LIB;B 9.07.02.02;table add/insert calculated columns;LIB_Function_table_add_calculated_columns.html;Function Description;;Inserting calculated table columns
 LIB;B 9.03.02.01;table append ...;LIB_Function_table_append.html;Function Description;table append
 LIB;B 9.03.02.01;table append ...;LIB_Function_table_append.html;Function Description;table append on same row
 LIB;B 9.03.02.01;table append ...;LIB_Function_table_append.html;Function Description;table append on same field
@@ -935,6 +997,8 @@ LIB;B 9.03.02.02;table append blank rows;LIB_Function_table_append_blank_rows.ht
 LIB;B 9.08.03.08;table arrange ...;LIB_Function_table_arrange.html;Function Description;table arrange
 LIB;B 9.08.03.08;table arrange ...;LIB_Function_table_arrange.html;Function Description;table arrange with spacing
 LIB;B 9.08.03.08;table arrange ...;LIB_Function_table_arrange.html;Function Description;;Arrange multiple tables side-by-side
+LIB;B 2.07.07;table assign;LIB_Function_table_assign.html;Function Description;table assign
+LIB;B 2.07.07;table assign;LIB_Function_table_assign.html;Function Description;;table assign
 LIB;B 9.08.01.03;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates
 LIB;B 9.08.01.03;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates ignore case
 LIB;B 9.08.01.03;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates ignore blanks
@@ -949,7 +1013,7 @@ LIB;B 9.07.01.03;table check headers ...;LIB_Function_table_check_headers.html;F
 LIB;B 9.07.01.03;table check headers ...;LIB_Function_table_check_headers.html;Function Description;table check headers silently
 LIB;B 9.07.03.08;table check row;LIB_Function_table_check_row.html;Function Description;table check row
 LIB;B 9.07.03.08;table check row;LIB_Function_table_check_row.html;Function Description;;Check table rows
-LIB;B 9.07.04.14;table clean;LIB_Function_table_clean.html;Function Description;table clean
+LIB;B 9.07.04.18;table clean;LIB_Function_table_clean.html;Function Description;table clean
 LIB;B 9.03.04.01;table clear ...;LIB_Function_table_clear.html;Function Description;table clear
 LIB;B 9.03.04.01;table clear ...;LIB_Function_table_clear.html;Function Description;;Clearing and deleting tables
 LIB;B 9.07.01.02;table column number;LIB_Function_table_column_number.html;Function Description;table column number
@@ -960,12 +1024,12 @@ LIB;B 9.08.01.01;table compare ...;LIB_Function_table_compare.html;Function Desc
 LIB;B 9.08.01.01;table compare ...;LIB_Function_table_compare.html;Function Description;;Compare two tables
 LIB;B 9.03.01.03;table configure;LIB_Function_table_configure.html;Function Description;table configure
 LIB;B 9.03.01.03;table configure;LIB_Function_table_configure.html;Function Description;;Table configuration settings
-LIB;B 9.07.05.05;table consolidate ...;LIB_Function_table_consolidate.html;Function Description;table consolidate
-LIB;B 9.07.05.05;table consolidate ...;LIB_Function_table_consolidate.html;Function Description;table consolidate selected rows
-LIB;B 9.07.05.05;table consolidate ...;LIB_Function_table_consolidate.html;Function Description;;Consolidate table rows
-LIB;B 9.07.02.02;table copy columns ...;LIB_Function_table_copy_columns.html;Function Description;table copy columns
-LIB;B 9.07.02.02;table copy columns ...;LIB_Function_table_copy_columns.html;Function Description;table copy columns selected rows
-LIB;B 9.07.02.02;table copy columns ...;LIB_Function_table_copy_columns.html;Function Description;;Copying table columns
+LIB;B 9.07.05.08;table consolidate ...;LIB_Function_table_consolidate.html;Function Description;table consolidate
+LIB;B 9.07.05.08;table consolidate ...;LIB_Function_table_consolidate.html;Function Description;table consolidate selected rows
+LIB;B 9.07.05.08;table consolidate ...;LIB_Function_table_consolidate.html;Function Description;;Consolidate table rows
+LIB;B 9.07.02.03;table copy columns ...;LIB_Function_table_copy_columns.html;Function Description;table copy columns
+LIB;B 9.07.02.03;table copy columns ...;LIB_Function_table_copy_columns.html;Function Description;table copy columns selected rows
+LIB;B 9.07.02.03;table copy columns ...;LIB_Function_table_copy_columns.html;Function Description;;Copying table columns
 LIB;B 9.07.06.02;table copy table;LIB_Function_table_copy_table.html;Function Description;table copy table
 LIB;B 9.07.06.02;table copy table;LIB_Function_table_copy_table.html;Function Description;;Copy and split tables
 LIB;B 9.07.06.04;table copy table columns ...;LIB_Function_table_copy_table_columns.html;Function Description;table copy table columns
@@ -980,17 +1044,17 @@ LIB;B 9.03.01.01;table create ...;LIB_Function_table_create.html;Function Descri
 LIB;B 9.03.04.02;table delete ...;LIB_Function_table_delete.html;Function Description;table delete
 LIB;B 9.03.04.02;table delete ...;LIB_Function_table_delete.html;Function Description;table delete silently
 LIB;B 9.07.03.07;table delete blank rows;LIB_Function_table_delete_blank_rows.html;Function Description;table delete blank rows
-LIB;B 9.07.02.09;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete blank columns
-LIB;B 9.07.02.09;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete all blank columns
-LIB;B 9.07.02.09;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete empty columns
-LIB;B 9.07.02.09;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete all empty columns
-LIB;B 9.07.02.09;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete unnamed columns
-LIB;B 9.07.02.09;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete all unnamed columns
-LIB;B 9.07.04.12;table delete cells selected columns;LIB_Function_table_delete_cells_selected_columns.html;Function Description;table delete cells selected columns
-LIB;B 9.07.04.11;table delete cells selected rows;LIB_Function_table_delete_cells_selected_rows.html;Function Description;table delete cells selected rows
-LIB;B 9.07.04.11;table delete cells selected rows;LIB_Function_table_delete_cells_selected_rows.html;Function Description;;Delete table contents
-LIB;B 9.07.02.07;table delete columns;LIB_Function_table_delete_columns.html;Function Description;table delete columns
-LIB;B 9.07.02.08;table delete remaining columns;LIB_Function_table_delete_remaining_columns.html;Function Description;table delete remaining columns
+LIB;B 9.07.02.10;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete blank columns
+LIB;B 9.07.02.10;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete all blank columns
+LIB;B 9.07.02.10;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete empty columns
+LIB;B 9.07.02.10;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete all empty columns
+LIB;B 9.07.02.10;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete unnamed columns
+LIB;B 9.07.02.10;table delete blank/empty/unnamed columns;LIB_Function_table_delete_blank_columns.html;Function Description;table delete all unnamed columns
+LIB;B 9.07.04.14;table delete cells in columns;LIB_Function_table_delete_cells_in_columns.html;Function Description;table delete cells in columns
+LIB;B 9.07.04.13;table delete cells selected rows;LIB_Function_table_delete_cells_selected_rows.html;Function Description;table delete cells selected rows
+LIB;B 9.07.04.13;table delete cells selected rows;LIB_Function_table_delete_cells_selected_rows.html;Function Description;;Delete table contents
+LIB;B 9.07.02.08;table delete columns;LIB_Function_table_delete_columns.html;Function Description;table delete columns
+LIB;B 9.07.02.09;table delete remaining columns;LIB_Function_table_delete_remaining_columns.html;Function Description;table delete remaining columns
 LIB;B 9.07.03.04;table delete remaining rows (if needed);LIB_Function_table_delete_remaining_rows.html;Function Description;table delete remaining rows
 LIB;B 9.07.03.04;table delete remaining rows (if needed);LIB_Function_table_delete_remaining_rows.html;Function Description;table delete remaining rows if needed
 LIB;B 9.07.03.03;table delete rows (if needed);LIB_Function_table_delete_rows.html;Function Description;table delete rows
@@ -1003,32 +1067,35 @@ LIB;B 9.08.02.28;table describe ...;LIB_Function_table_describe.html;Function De
 LIB;B 9.08.02.28;table describe ...;LIB_Function_table_describe.html;Function Description;table describe selected rows ignore case
 LIB;B 9.08.02.23;table digest ...;LIB_Function_table_digest.html;Function Description;table digest
 LIB;B 9.08.02.23;table digest ...;LIB_Function_table_digest.html;Function Description;table digest ignore case
-LIB;B 9.08.02.23;table digest ...;LIB_Function_table_digest.html;Function Description;;Looking up data from other tables, integrate results from one or more matching row into target table row
+LIB;B 9.08.02.23;table digest ...;LIB_Function_table_digest.html;Function Description;;Looking up data from other tables
+LIB;B 9.08.02.23;table digest ...;LIB_Function_table_digest.html;Function Description;;Integrate results from one or more matching row into target table row
 LIB;B 9.08.02.24;table digest smart ...;LIB_Function_table_digest_smart.html;Function Description;table digest smart
 LIB;B 9.08.02.24;table digest smart ...;LIB_Function_table_digest_smart.html;Function Description;table digest smart ignore case
 LIB;B 9.08.02.25;table digest with rules ...;LIB_Function_table_digest_with_rules.html;Function Description;table digest with rules
 LIB;B 9.08.02.25;table digest with rules ...;LIB_Function_table_digest_with_rules.html;Function Description;table digest with rules ignore case
 LIB;B 9.08.02.26;table digest with rules once ...;LIB_Function_table_digest_with_rules_once.html;Function Description;table digest with rules once
 LIB;B 9.08.02.26;table digest with rules once ...;LIB_Function_table_digest_with_rules_once.html;Function Description;table digest with rules ignore case once
-LIB;B 9.07.05.06;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute
-LIB;B 9.07.05.06;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute advance
-LIB;B 9.07.05.06;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute accumulate
-LIB;B 9.07.05.06;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute advance accumulate
-LIB;B 9.07.05.06;table distribute ...;LIB_Function_table_distribute.html;Function Description;;Distribute quantities over timeline, e.g. for production planning
+LIB;B 9.07.05.09;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute
+LIB;B 9.07.05.09;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute advance
+LIB;B 9.07.05.09;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute accumulate
+LIB;B 9.07.05.09;table distribute ...;LIB_Function_table_distribute.html;Function Description;table distribute advance accumulate
+LIB;B 9.07.05.09;table distribute ...;LIB_Function_table_distribute.html;Function Description;;Distribute quantities over timeline
 LIB;B 9.08.03.07;table divide ...;LIB_Function_table_divide.html;Function Description;table divide
 LIB;B 9.08.03.07;table divide ...;LIB_Function_table_divide.html;Function Description;table divide selected rows
 LIB;B 9.08.03.07;table divide ...;LIB_Function_table_divide.html;Function Description;;Relational division of two tables
-LIB;B 9.07.02.03;table duplicate columns;LIB_Function_table_duplicate_columns.html;Function Description;table duplicate columns
+LIB;B 9.07.02.04;table duplicate columns;LIB_Function_table_duplicate_columns.html;Function Description;table duplicate columns
 LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;table exclude
 LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;table exclude extend columns
 LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;table exclude exclude columns
 LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;table exclude columns
 LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;table exclude exclusive columns
-LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;;Derive disjoint union (exclusive or) from both tables
+LIB;B 9.08.03.05;table exclude ...;LIB_Function_table_exclude.html;Function Description;;Derive disjoint union from both tables
 LIB;B 9.04.02;table existing;LIB_Function_table_existing.html;Function Description;table existing
 LIB;B 9.08.02.15;table expand ...;LIB_Function_table_expand.html;Function Description;table expand
 LIB;B 9.08.02.15;table expand ...;LIB_Function_table_expand.html;Function Description;table expand ignore case
-LIB;B 9.08.02.15;table expand ...;LIB_Function_table_expand.html;Function Description;;Looking up data from other tables, integrate results, add rows in case of multiple matches
+LIB;B 9.08.02.15;table expand ...;LIB_Function_table_expand.html;Function Description;;Looking up data from other tables
+LIB;B 9.08.02.15;table expand ...;LIB_Function_table_expand.html;Function Description;;integrate results
+LIB;B 9.08.02.15;table expand ...;LIB_Function_table_expand.html;Function Description;;add rows in case of multiple matches
 LIB;B 9.08.02.16;table expand fast ...;LIB_Function_table_expand_fast.html;Function Description;table expand fast
 LIB;B 9.08.02.16;table expand fast ...;LIB_Function_table_expand_fast.html;Function Description;table expand fast ignore case
 LIB;B 9.08.02.18;table expand fast smart ...;LIB_Function_table_expand_fast_smart.html;Function Description;table expand fast smart
@@ -1044,7 +1111,8 @@ LIB;B 9.08.02.19;table expand with rules ...;LIB_Function_table_expand_with_rule
 LIB;B 9.08.02.20;table expand with rules once ...;LIB_Function_table_expand_with_rules_once.html;Function Description;table expand with rules once
 LIB;B 9.08.02.20;table expand with rules once ...;LIB_Function_table_expand_with_rules_once.html;Function Description;table expand with rules once ignore case
 LIB;B 9.05.02.01;table explore;LIB_Function_table_explore.html;Function Description;table explore
-LIB;B 9.05.02.01;table explore;LIB_Function_table_explore.html;Function Description;;Explore, filter and extract tables
+LIB;B 9.05.02.01;table explore;LIB_Function_table_explore.html;Function Description;;Explore
+LIB;B 9.05.02.01;table explore;LIB_Function_table_explore.html;Function Description;;filter and extract tables
 LIB;B 9.05.02.03;table extract ...;LIB_Function_table_extract.html;Function Description;table extract
 LIB;B 9.07.04.08;table fill horizontally ...;LIB_Function_table_fill_horizontally.html;Function Description;table fill horizontally
 LIB;B 9.07.04.08;table fill horizontally ...;LIB_Function_table_fill_horizontally.html;Function Description;table fill horizontally selected rows
@@ -1053,16 +1121,33 @@ LIB;B 9.07.04.07;table fill vertically ...;LIB_Function_table_fill_vertically.ht
 LIB;B 9.07.04.07;table fill vertically ...;LIB_Function_table_fill_vertically.html;Function Description;;Table filling and substitution functions
 LIB;B 9.05.02.02;table filter ...;LIB_Function_table_filter.html;Function Description;table filter
 LIB;B 9.05.02.02;table filter ...;LIB_Function_table_filter.html;Function Description;table filter ignore case
+LIB;B 9.05.01.07;table find cells ...;LIB_Function_table_find_cells.html;Function Description;table find cells
+LIB;B 9.05.01.07;table find cells ...;LIB_Function_table_find_cells.html;Function Description;table find cells seleted rows
+LIB;B 9.05.01.07;table find cells ...;LIB_Function_table_find_cells.html;Function Description;table find cells in columns
+LIB;B 9.05.01.07;table find cells ...;LIB_Function_table_find_cells.html;Function Description;table find cells selected rows in columns
 LIB;B 9.05.01.03;table find row;LIB_Function_table_find_row.html;Function Description;table find row
-LIB;B 9.07.04.15;table fit;LIB_Function_table_fit.html;Function Description;table fit
-LIB;B 9.07.04.13;table format numbers;LIB_Function_table_format_numbers.html;Function Description;table format numbers
-LIB;B 9.07.04.13;table format numbers;LIB_Function_table_format_numbers.html;Function Description;;Cleaning up and miscellaneous table functions
+LIB;B 9.07.04.19;table fit;LIB_Function_table_fit.html;Function Description;table fit
+LIB;B 9.07.05.01;table flip columns;LIB_Function_table_flip_columns.html;Function Description;table flip columns
+LIB;B 9.07.05.01;table flip columns;LIB_Function_table_flip_columns.html;Function Description;;Flip columns
+LIB;B 9.07.04.15;table flip horizontally / vertically;LIB_Function_table_flip_horizontally.html;Function Description;table flip horizontally
+LIB;B 9.07.04.15;table flip horizontally / vertically;LIB_Function_table_flip_horizontally.html;Function Description;table flip vertically
+LIB;B 9.07.04.15;table flip horizontally / vertically;LIB_Function_table_flip_horizontally.html;Function Description;;Rotate tables
+LIB;B 9.07.05.02;table flip rows;LIB_Function_table_flip_rows.html;Function Description;table flip rows
+LIB;B 9.07.05.02;table flip rows;LIB_Function_table_flip_rows.html;Function Description;;Flip rows
+LIB;B 9.07.05.03;table flip selected rows;LIB_Function_table_flip_selected_rows.html;Function Description;table flip selected rows
+LIB;B 9.07.04.17;table format numbers;LIB_Function_table_format_numbers.html;Function Description;table format numbers
+LIB;B 9.07.04.17;table format numbers;LIB_Function_table_format_numbers.html;Function Description;;Cleaning up and miscellaneous table functions
+LIB;B 9.07.05.10;table histogram;LIB_Function_table_histogram.html;Function Description;table histogram
+LIB;B 9.07.05.10;table histogram;LIB_Function_table_histogram.html;Function Description;;Create histograms from tables
 LIB;B 9.03.01.02;table initialize;LIB_Function_table_initialize.html;Function Description;table initialize
 LIB;B 9.07.02.01;table insert (missing) columns;LIB_Function_table_insert_columns.html;Function Description;table insert columns
 LIB;B 9.07.02.01;table insert (missing) columns;LIB_Function_table_insert_columns.html;Function Description;table insert missing columns
 LIB;B 9.07.02.01;table insert (missing) columns;LIB_Function_table_insert_columns.html;Function Description;;Inserting table columns
 LIB;B 9.07.03.02;table insert ... selected rows;LIB_Function_table_insert_selected_rows.html;Function Description;table insert selected rows
 LIB;B 9.07.03.02;table insert ... selected rows;LIB_Function_table_insert_selected_rows.html;Function Description;table insert above selected rows
+LIB;B 9.07.04.12;table insert cells in columns;LIB_Function_table_insert_cells_in_columns.html;Function Description;table insert cells in columns
+LIB;B 9.07.04.11;table insert cells selected rows;LIB_Function_table_insert_cells_selected_rows.html;Function Description;table insert cells selected rows
+LIB;B 9.07.04.11;table insert cells selected rows;LIB_Function_table_insert_cells_selected_rows.html;Function Description;;Insert table contents
 LIB;B 9.07.03.01;table insert rows (if needed);LIB_Function_table_insert_rows.html;Function Description;table insert rows
 LIB;B 9.07.03.01;table insert rows (if needed);LIB_Function_table_insert_rows.html;Function Description;table insert rows if needed
 LIB;B 9.07.03.01;table insert rows (if needed);LIB_Function_table_insert_rows.html;Function Description;;Insert table rows
@@ -1089,9 +1174,9 @@ LIB;B 9.08.03.03;table intersect ...;LIB_Function_table_intersect.html;Function 
 LIB;B 9.08.03.03;table intersect ...;LIB_Function_table_intersect.html;Function Description;table intersect columns
 LIB;B 9.08.03.03;table intersect ...;LIB_Function_table_intersect.html;Function Description;table intersect exclusive columns
 LIB;B 9.08.03.03;table intersect ...;LIB_Function_table_intersect.html;Function Description;;Row-wise intersection made from two tables
-LIB;B 9.07.02.06;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;table keep columns
-LIB;B 9.07.02.06;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;table keep existing columns
-LIB;B 9.07.02.06;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;;Keeping and deleting table columns
+LIB;B 9.07.02.07;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;table keep columns
+LIB;B 9.07.02.07;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;table keep existing columns
+LIB;B 9.07.02.07;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;;Keeping and deleting table columns
 LIB;B 9.07.03.06;table keep selected rows;LIB_Function_table_keep_selected_rows.html;Function Description;table keep selected rows
 LIB;B 9.04.03;table length;LIB_Function_table_length.html;Function Description;table length
 LIB;B 9.07.01.06;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift header row
@@ -1123,8 +1208,8 @@ LIB;B 9.08.02.07;table lookup with rules once ...;LIB_Function_table_lookup_with
 LIB;B 9.07.04.06;table manipulate (selected rows);LIB_Function_table_manipulate.html;Function Description;table manipulate
 LIB;B 9.07.04.06;table manipulate (selected rows);LIB_Function_table_manipulate.html;Function Description;table manipulate selected rows
 LIB;B 9.07.04.06;table manipulate (selected rows);LIB_Function_table_manipulate.html;Function Description;;Manipulate table contents
-LIB;B 9.02.02;table menu ...;LIB_Function_table_menu.html;Function Description;table menu
-LIB;B 9.02.02;table menu ...;LIB_Function_table_menu.html;Function Description;table menu quick
+LIB;B 9.02.02;table menu, table menu quick;LIB_Function_table_menu.html;Function Description;table menu
+LIB;B 9.02.02;table menu, table menu quick;LIB_Function_table_menu.html;Function Description;table menu quick
 LIB;B 9.08.03.01;table merge ...;LIB_Function_table_merge.html;Function Description;table merge
 LIB;B 9.08.03.01;table merge ...;LIB_Function_table_merge.html;Function Description;table merge extend columns
 LIB;B 9.08.03.01;table merge ...;LIB_Function_table_merge.html;Function Description;table merge intersect columns
@@ -1144,7 +1229,7 @@ LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Func
 LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay intersect columns
 LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay columns
 LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay exclusive columns
-LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;;One table overlays the other table, without adding rows
+LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;;Table overlays the other table
 LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process
 LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process rows
 LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process all rows
@@ -1158,53 +1243,64 @@ LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_
 LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;table process all cells
 LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;table process cells selected rows
 LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;;Process table cells
-LIB;B 9.07.04.05;table process cells in columns (selected rows);LIB_Function_table_process_cells_in_columns.html;Function Description;table process cells in columns
-LIB;B 9.07.04.05;table process cells in columns (selected rows);LIB_Function_table_process_cells_in_columns.html;Function Description;table process cells in columns selected rows
+LIB;B 9.07.04.05;table process cells (selected rows) in columns;LIB_Function_table_process_cells_in_columns.html;Function Description;table process cells in columns
+LIB;B 9.07.04.05;table process cells (selected rows) in columns;LIB_Function_table_process_cells_in_columns.html;Function Description;table process cells selected rows in columns
 LIB;B 9.07.04.02;table process selected rows fast;LIB_Function_table_process_selected_rows_fast.html;Function Description;table process selected rows fast
 LIB;B 9.07.03.13;table rank (selected) rows;LIB_Function_table_rank_rows.html;Function Description;table rank rows
 LIB;B 9.07.03.13;table rank (selected) rows;LIB_Function_table_rank_rows.html;Function Description;table rank selected rows
+LIB;B 9.03.03.03;table read cells ...;LIB_Function_table_read_cells.html;Function Description;table read cells
+LIB;B 9.03.03.03;table read cells ...;LIB_Function_table_read_cells.html;Function Description;table read cells seleted rows
+LIB;B 9.03.03.03;table read cells ...;LIB_Function_table_read_cells.html;Function Description;table read cells in columns
+LIB;B 9.03.03.03;table read cells ...;LIB_Function_table_read_cells.html;Function Description;table read cells selected rows in columns
 LIB;B 9.03.03.02;table read column selected rows;LIB_Function_table_read_column_selected_rows.html;Function Description;table read column selected rows
 LIB;B 9.03.03.01;table read row;LIB_Function_table_read_row.html;Function Description;table read row
 LIB;B 9.03.03.01;table read row;LIB_Function_table_read_row.html;Function Description;;Reading tables
-LIB;B 9.07.02.05;table rearrange ... columns;LIB_Function_table_rearrange_columns.html;Function Description;table rearrange columns
-LIB;B 9.07.02.05;table rearrange ... columns;LIB_Function_table_rearrange_columns.html;Function Description;table rearrange existing columns
+LIB;B 9.07.02.06;table rearrange ... columns;LIB_Function_table_rearrange_columns.html;Function Description;table rearrange columns
+LIB;B 9.07.02.06;table rearrange ... columns;LIB_Function_table_rearrange_columns.html;Function Description;table rearrange existing columns
 LIB;B 9.07.03.11;table rearrange selected rows;LIB_Function_table_rearrange_selected_rows.html;Function Description;table rearrange selected rows
 LIB;B 9.07.06.01;table rename;LIB_Function_table_rename.html;Function Description;table rename
 LIB;B 9.07.06.01;table rename;LIB_Function_table_rename.html;Function Description;;Renaming tables
 LIB;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename headers
 LIB;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename column headers
 LIB;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename existing headers
+LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells
+LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells seleted rows
+LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells in columns
+LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells selected rows in columns
+LIB;B 9.07.04.16;table rotate left / right;LIB_Function_table_rotate_left.html;Function Description;table rotate left
+LIB;B 9.07.04.16;table rotate left / right;LIB_Function_table_rotate_left.html;Function Description;table rotate right
+LIB;B 9.07.04.16;table rotate left / right;LIB_Function_table_rotate_left.html;Function Description;;Rotate tables
 LIB;B 9.04.04;table row width;LIB_Function_table_row_width.html;Function Description;table row width
 LIB;B 9.01.02;table save ...;LIB_Function_table_save.html;Function Description;table save
 LIB;B 9.01.02;table save ...;LIB_Function_table_save.html;Function Description;table save with local decimal separator
 LIB;B 9.01.02;table save ...;LIB_Function_table_save.html;Function Description;table save with decimal comma
 LIB;B 9.01.02;table save ...;LIB_Function_table_save.html;Function Description;table save multiple
 LIB;B 9.01.05;table save excel file;LIB_Function_table_save_excel_file.html;Function Description;table save excel file
-LIB;B 9.05.01.01;table search ...;LIB_Function_table_search.html;Function Description;table search
-LIB;B 9.05.01.01;table search ...;LIB_Function_table_search.html;Function Description;table search vertically
-LIB;B 9.05.01.01;table search ...;LIB_Function_table_search.html;Function Description;;Searching tables
 LIB;B 9.05.01.06;table search header row;LIB_Function_table_search_header_row.html;Function Description;table search header row
 LIB;B 9.05.01.02;table search row;LIB_Function_table_search_row.html;Function Description;table search row
+LIB;B 9.05.01.01;table search, table search vertically;LIB_Function_table_search.html;Function Description;table search
+LIB;B 9.05.01.01;table search, table search vertically;LIB_Function_table_search.html;Function Description;table search vertically
+LIB;B 9.05.01.01;table search, table search vertically;LIB_Function_table_search.html;Function Description;;Searching tables
 LIB;B 9.05.01.05;table selected columns/headers ...;LIB_Function_table_selected_columns.html;Function Description;table selected columns
 LIB;B 9.05.01.05;table selected columns/headers ...;LIB_Function_table_selected_columns.html;Function Description;table selected column numbers
 LIB;B 9.05.01.05;table selected columns/headers ...;LIB_Function_table_selected_columns.html;Function Description;table selected headers
 LIB;B 9.05.01.04;table selected rows;LIB_Function_table_selected_rows.html;Function Description;table selected rows
 LIB;B 9.05.01.04;table selected rows;LIB_Function_table_selected_rows.html;Function Description;table all selected rows
-LIB;B 9.07.05.02;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize
-LIB;B 9.07.05.02;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize all
-LIB;B 9.07.05.02;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize ignore zero
-LIB;B 9.07.05.02;table serialize ...;LIB_Function_table_serialize.html;Function Description;;Change tabular contents to serialized contents
+LIB;B 9.07.05.05;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize
+LIB;B 9.07.05.05;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize all
+LIB;B 9.07.05.05;table serialize ...;LIB_Function_table_serialize.html;Function Description;table serialize ignore zero
+LIB;B 9.07.05.05;table serialize ...;LIB_Function_table_serialize.html;Function Description;;Change tabular contents to serialized contents
 LIB;B 9.07.03.12;table sort (selected) rows;LIB_Function_table_sort_rows.html;Function Description;table sort rows
 LIB;B 9.07.03.12;table sort (selected) rows;LIB_Function_table_sort_rows.html;Function Description;table sort selected rows
 LIB;B 9.07.03.12;table sort (selected) rows;LIB_Function_table_sort_rows.html;Function Description;;Sort and rearrange table rows
-LIB;B 9.07.02.04;table sort columns;LIB_Function_table_sort_columns.html;Function Description;table sort columns
-LIB;B 9.07.02.04;table sort columns;LIB_Function_table_sort_columns.html;Function Description;;Sorting and rearranging table columns
+LIB;B 9.07.02.05;table sort columns;LIB_Function_table_sort_columns.html;Function Description;table sort columns
+LIB;B 9.07.02.05;table sort columns;LIB_Function_table_sort_columns.html;Function Description;;Sorting and rearranging table columns
 LIB;B 9.07.06.05;table split table columns ...;LIB_Function_table_split_table_columns.html;Function Description;table split table columns
-LIB;B 9.07.05.03;table spread ...;LIB_Function_table_spread.html;Function Description;table spread
-LIB;B 9.07.05.03;table spread ...;LIB_Function_table_spread.html;Function Description;table spread accumulating
-LIB;B 9.07.05.03;table spread ...;LIB_Function_table_spread.html;Function Description;;Spread serialized data across specified columns
-LIB;B 9.07.05.04;table spread given headers ...;LIB_Function_table_spread_given_headers.html;Function Description;table spread given headers
-LIB;B 9.07.05.04;table spread given headers ...;LIB_Function_table_spread_given_headers.html;Function Description;table spread given headers accumulating
+LIB;B 9.07.05.06;table spread ...;LIB_Function_table_spread.html;Function Description;table spread
+LIB;B 9.07.05.06;table spread ...;LIB_Function_table_spread.html;Function Description;table spread accumulating
+LIB;B 9.07.05.06;table spread ...;LIB_Function_table_spread.html;Function Description;;Spread serialized data across specified columns
+LIB;B 9.07.05.07;table spread given headers ...;LIB_Function_table_spread_given_headers.html;Function Description;table spread given headers
+LIB;B 9.07.05.07;table spread given headers ...;LIB_Function_table_spread_given_headers.html;Function Description;table spread given headers accumulating
 LIB;B 9.09.02.07;table style auto width;LIB_Function_table_style_auto_width.html;Function Description;table style auto width
 LIB;B 9.09.02.04;table style cells;LIB_Function_table_style_cells.html;Function Description;table style cells
 LIB;B 9.09.02.03;table style columns;LIB_Function_table_style_columns.html;Function Description;table style columns
@@ -1224,14 +1320,16 @@ LIB;B 9.08.03.04;table subtract ...;LIB_Function_table_subtract.html;Function De
 LIB;B 9.08.03.04;table subtract ...;LIB_Function_table_subtract.html;Function Description;table subtract columns
 LIB;B 9.08.03.04;table subtract ...;LIB_Function_table_subtract.html;Function Description;table subtract exclusive columns
 LIB;B 9.08.03.04;table subtract ...;LIB_Function_table_subtract.html;Function Description;;One table does row-subtraction on other table
-LIB;B 9.07.05.01;table transpose;LIB_Function_table_transpose.html;Function Description;table transpose
-LIB;B 9.07.05.01;table transpose;LIB_Function_table_transpose.html;Function Description;;Transpose tables
+LIB;B 9.07.05.04;table transpose;LIB_Function_table_transpose.html;Function Description;table transpose
+LIB;B 9.07.05.04;table transpose;LIB_Function_table_transpose.html;Function Description;;Transpose tables
 LIB;B 9.08.01.02;table validate;LIB_Function_table_validate.html;Function Description;table validate
 LIB;B 9.08.01.02;table validate;LIB_Function_table_validate.html;Function Description;;Validation functions
 LIB;B 9.08.01.02.02;table validate - Examples;LIB_Features_table_validate_-_examples.html;General Description;table validate - examples
 LIB;B 9.08.01.02.01;table validate - Row and Group Results;LIB_Features_table_validate_-_row_results.html;General Description;table validate - row results
 LIB;B 9.08.01.02.01;table validate - Row and Group Results;LIB_Features_table_validate_-_row_results.html;General Description;table validate - group results
-LIB;B 13.06;table view;LIB_Function_table_view.html;Function Description;table view
+LIB;B 13.07;table view;LIB_Function_table_view.html;Function Description;table view
+LIB;B 9.03.02.06;table write cells ...;LIB_Function_table_write_cells.html;Function Description;table write cells
+LIB;B 9.03.02.06;table write cells ...;LIB_Function_table_write_cells.html;Function Description;table write cells seleted rows
 LIB;B 9.03.02.05;table write column selected rows;LIB_Function_table_write_column_selected_rows.html;Function Description;table write column selected rows
 LIB;B 3.02.04;text / background color;LIB_Function_text_color.html;Function Description;text color
 LIB;B 3.02.04;text / background color;LIB_Function_text_color.html;Function Description;background color
@@ -1240,6 +1338,7 @@ LIB;B 3.02.04;text / background color;LIB_Function_text_color.html;Function Desc
 LIB;B 3.02.04;text / background color;LIB_Function_text_color.html;Function Description;;screen color
 LIB;B 6.01.07;text row;LIB_Function_text_row.html;Function Description;text row
 LIB;B 2.05.07;throw;LIB_Function_throw.html;Function Description;throw
+LIB;B 2.05.07;throw;LIB_Function_throw.html;Function Description;;Throw and catch
 LIB;B 4.06;time, pure time;LIB_Function_time.html;Function Description;time
 LIB;B 4.06;time, pure time;LIB_Function_time.html;Function Description;pure time
 LIB;B 4.06;time, pure time;LIB_Function_time.html;Function Description;;time conversion functions
@@ -1248,28 +1347,50 @@ LIB;B 9.09.03.01;translate style attributes ...;LIB_Function_translate_style_att
 LIB;B 9.09.03.01;translate style attributes ...;LIB_Function_translate_style_attributes_for_excel.html;Function Description;translate style attributes for excel xml 2003
 LIB;B 9.09.03.01;translate style attributes ...;LIB_Function_translate_style_attributes_for_excel.html;Function Description;translate style attributes for html
 LIB;B 9.09.03.01;translate style attributes ...;LIB_Function_translate_style_attributes_for_excel.html;Function Description;;Translate applied style to target file format
-LIB;B 5.04.09;transpose;LIB_Function_transpose.html;Function Description;transpose
-LIB;B 5.04.09;transpose;LIB_Function_transpose.html;Function Description;;transpose matrix
-LIB;B 8.01.07;trim ... (parameter set function);LIB_Function_trim_.html;Function Description;trim 
-LIB;B 8.01.07;trim ... (parameter set function);LIB_Function_trim_.html;Function Description;;trim [parameter set function]
+LIB;B 5.04.10;transpose;LIB_Function_transpose.html;Function Description;transpose
+LIB;B 5.04.10;transpose;LIB_Function_transpose.html;Function Description;;transpose matrix
+LIB;B 8.01.07;trim ... (set function);LIB_Function_trim_.html;Function Description;trim 
+LIB;B 8.01.07;trim ... (set function);LIB_Function_trim_.html;Function Description;;trim [set function]
 LIB;B 6.01.12;trim ... (string function);LIB_Function_trim.html;Function Description;trim
 LIB;B 6.01.12;trim ... (string function);LIB_Function_trim.html;Function Description;trim all
+LIB;B 6.01.12;trim ... (string function);LIB_Function_trim.html;Function Description;vtrim
+LIB;B 6.01.12;trim ... (string function);LIB_Function_trim.html;Function Description;vtrim all
 LIB;B 6.01.12;trim ... (string function);LIB_Function_trim.html;Function Description;;trim [string function]
 LIB;B 5.07.03;tv - Terminal Value;LIB_Function_tv.html;Function Description;tv
 LIB;B 5.07.03;tv - Terminal Value;LIB_Function_tv.html;Function Description;;terminal value
 LIB;B 4.12;type, subtype;LIB_Function_type.html;Function Description;type
 LIB;B 4.12;type, subtype;LIB_Function_type.html;Function Description;subtype
+LIB;B 4.12;type, subtype;LIB_Function_type.html;Function Description;vtype
+LIB;B 4.12;type, subtype;LIB_Function_type.html;Function Description;vsubtype
 LIB;B 4.12;type, subtype;LIB_Function_type.html;Function Description;;Identify variable types and subtypes
 LIB;B 3.02.09;underscore;LIB_Function_underscore.html;Function Description;underscore
 LIB;B 10.03.01;variable load ...;LIB_Function_variable_load.html;Function Description;variable load
 LIB;B 10.03.01;variable load ...;LIB_Function_variable_load.html;Function Description;;Loading and saving variables using JSON
+LIB;B 10.02.10;variable members, variable names;LIB_Function_variable_members.html;Function Description;variable members
+LIB;B 10.02.10;variable members, variable names;LIB_Function_variable_members.html;Function Description;variable names
+LIB;B 10.02.10;variable members, variable names;LIB_Function_variable_members.html;Function Description;;Read variable members into sets
 LIB;B 10.03.03;variable save ...;LIB_Function_variable_save.html;Function Description;variable save
 LIB;B 10.03.04;variable to json ...;LIB_Function_variable_to_json.html;Function Description;variable to json
-LIB;B 13.07;variable view;LIB_Function_variable_view.html;Function Description;variable view
-LIB;B 5.04.06;vertical;LIB_Function_vertical.html;Function Description;vertical
-LIB;B 5.04.06;vertical;LIB_Function_vertical.html;Function Description;;Make matrix vertical
-LIB;B 13.08;view;LIB_Function_view.html;Function Description;view
-LIB;B 13.09;view reset;LIB_Function_view_reset.html;Function Description;view reset
+LIB;B 13.08;variable view;LIB_Function_variable_view.html;Function Description;variable view
+LIB;B 5.04.07;vertical;LIB_Function_vertical.html;Function Description;vertical
+LIB;B 5.04.07;vertical;LIB_Function_vertical.html;Function Description;;Make matrix vertical
+LIB;B 13.09;view;LIB_Function_view.html;Function Description;view
+LIB;B 13.10;view reset;LIB_Function_view_reset.html;Function Description;view reset
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin 123
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax 123
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin numeral
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax numeral
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin abc
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax abc
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin abc ignore case
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax abc ignore case
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin string
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax string
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmin string ignore case
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;vmax string ignore case
+LIB;B 5.03.03;vmin ..., vmax ...;LIB_Function_vmin.html;Function Description;;Vectorizable min and max functions
 LIB;B 7.03.03;wait until, wait until countdown;LIB_Function_wait_until.html;Function Description;wait until
 LIB;B 7.03.03;wait until, wait until countdown;LIB_Function_wait_until.html;Function Description;wait until countdown
 LIB;B 7.03.04;wait, wait countdown;LIB_Function_wait.html;Function Description;wait
@@ -1281,9 +1402,9 @@ LIB;B 7.01.05;weekday;LIB_Function_weekday.html;Function Description;weekday
 LIB;B 7.01.05;weekday;LIB_Function_weekday.html;Function Description;;weekday from date
 LIB;B 10.02.06;weight, weight profile;LIB_Function_weight.html;Function Description;weight
 LIB;B 10.02.06;weight, weight profile;LIB_Function_weight.html;Function Description;weight profile
-LIB;B 2.02.03;while, until;LIB_Function_while.html;Function Description;while
-LIB;B 2.02.03;while, until;LIB_Function_while.html;Function Description;until
-LIB;B 2.02.03;while, until;LIB_Function_while.html;Function Description;;Loops
+LIB;B 2.02.04;while, until;LIB_Function_while.html;Function Description;while
+LIB;B 2.02.04;while, until;LIB_Function_while.html;Function Description;until
+LIB;B 2.02.04;while, until;LIB_Function_while.html;Function Description;;Loops
 LIB;B 6.01.05;width;LIB_Function_width.html;Function Description;width
 LIB;B 9.06.01;with table;LIB_Function_with_table.html;Function Description;with table
 LIB;B 11.01.03;working directory;LIB_Function_working_directory.html;Function Description;working directory
@@ -1360,6 +1481,8 @@ LAN;B 1.01.05;Characters;LAN_Features_Characters.html;General Description;Charac
 LAN;B 6.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_piece.html;General Description;Code piece
 LAN;B 6.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_piece.html;General Description;;Code pieces
 LAN;B 1.01.04;Comments;LAN_Features_comments.html;General Description;comments
+LAN;B 1.01.04;Comments;LAN_Features_comments.html;General Description;line comments
+LAN;B 1.01.04;Comments;LAN_Features_comments.html;General Description;comment blocks
 LAN;B 1.01.04;Comments;LAN_Features_comments.html;General Description;;markdown
 LAN;B 1.01.04;Comments;LAN_Features_comments.html;General Description;;github markdown
 LAN;B 6.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;General Description;Comparison Expression [func. params]
@@ -1380,8 +1503,8 @@ LAN;B 1.01.05.05;Console Input / Output;LAN_Features_Console_Input_Output.html;G
 LAN;B 2.06.04;Copying References;LAN_Features_copying_references.html;General Description;copying references
 LAN;B 3.04;Creating Tables;LAN_Features_Creating_tables.html;General Description;Creating tables
 LAN;B 2.02;Creating Variables;LAN_Features_Creating_Variables.html;General Description;Creating Variables
-LAN;B 1.03;Data Storage Abstracts;LAN_Features_Data_Storage_Abstracts.html;General Description;Data Storage Abstracts
-LAN;B 1.03;Data Storage Abstracts;LAN_Features_Data_Storage_Abstracts.html;General Description;;Variables and Tables
+LAN;B 1.03;Data Storage Model;LAN_Features_Data_Storage_Model.html;General Description;Data Storage Model
+LAN;B 1.03;Data Storage Model;LAN_Features_Data_Storage_Model.html;General Description;;Variables and Tables
 LAN;B 1.02.03;Dates;LAN_Features_data_types_dates.html;General Description;data types dates
 LAN;B 1.02.03;Dates;LAN_Features_data_types_dates.html;General Description;;date
 LAN;B 1.02.03;Dates;LAN_Features_data_types_dates.html;General Description;;dates
@@ -1416,7 +1539,9 @@ LAN;B 6.04;Function Parameter Types;LAN_Features_Function_parameter_types.html;G
 LAN;B 6.02;Function Parameters;LAN_Features_Function_Parameters.html;General Description;Function Parameters
 LAN;B 6.02;Function Parameters;LAN_Features_Function_Parameters.html;General Description;;Function parameter
 LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;Functions and Procedures
+LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedure
 LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Procedures
+LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function
 LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Functions
 LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function call
 LAN;B 6;Functions and Procedures;LAN_Features_Functions_and_Procedures.html;General Description;;Function calls
@@ -1429,17 +1554,17 @@ LAN;B 3.05.08;Header Name Exception Handling;LAN_Features_header_name_exception_
 LAN;B 3.06;Header Names - Memory Effect;LAN_Features_memory_effect.html;General Description;memory effect
 LAN;B 3.05.02;Horizontal Table Access;LAN_Features_horizontal_table_access.html;General Description;horizontal table access
 LAN;B 3.05.02;Horizontal Table Access;LAN_Features_horizontal_table_access.html;General Description;;horizontal table accesses
-LAN;B 3.05.02.01;Horizontal Table Access w. Param. Sets;LAN_Features_Horizontal_table_access_using_parameter_sets.html;General Description;Horizontal table access using parameter sets
-LAN;B 3.05.02.03;Horizontal Table Access w. Ranges;LAN_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
-LAN;B 3.05.02.02;Horizontal Table Access w. Wildcards;LAN_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
+LAN;B 3.05.02.03;Horizontal Table Access with Ranges;LAN_Features_Horizontal_table_access_using_ranges.html;General Description;Horizontal table access using ranges
+LAN;B 3.05.02.01;Horizontal Table Access with Sets;LAN_Features_Horizontal_table_access_using_sets.html;General Description;Horizontal table access using sets
+LAN;B 3.05.02.02;Horizontal Table Access with Wildcards;LAN_Features_Horizontal_table_access_using_wildcards.html;General Description;Horizontal table access using wildcards
 LAN;;Index;LAN_Features_Index.html;General Description;Index
-LAN;B 1.02.06.01;Indexing Parameter Sets;LAN_Features_data_types_parameter_sets_indexing.html;General Description;data types parameter sets indexing
-LAN;B 1.02.06.01;Indexing Parameter Sets;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;Indexing parameter sets
-LAN;B 1.02.06.01;Indexing Parameter Sets;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;Indexing elements
-LAN;B 1.02.06.01;Indexing Parameter Sets;LAN_Features_data_types_parameter_sets_indexing.html;General Description;;Length of parameter sets
+LAN;B 1.02.06.01;Indexing Sets;LAN_Features_data_types_sets_indexing.html;General Description;data types sets indexing
+LAN;B 1.02.06.01;Indexing Sets;LAN_Features_data_types_sets_indexing.html;General Description;;Indexing sets
+LAN;B 1.02.06.01;Indexing Sets;LAN_Features_data_types_sets_indexing.html;General Description;;Indexing elements
+LAN;B 1.02.06.01;Indexing Sets;LAN_Features_data_types_sets_indexing.html;General Description;;Length of sets
 LAN;B 1.02.01.03;Indexing Strings;LAN_Features_Indexing_strings.html;General Description;Indexing strings
-LAN;B 6.05;Indirect Parameter Passing;LAN_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
-LAN;B 6.06;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
+LAN;B 6.06;Indirect Parameter Passing;LAN_Features_Indirect_parameter_passing.html;General Description;Indirect parameter passing
+LAN;B 6.07;Introduction to User-Defined Functions;LAN_Features_Introduction_to_User-Defined_Functions.html;General Description;Introduction to User-Defined Functions
 LAN;B 1.07;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Language pitfalls
 LAN;B 1.07;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijacking parameters
 LAN;B 1.07;Language Pitfalls;LAN_Features_Language_pitfalls.html;General Description;Hijack
@@ -1483,18 +1608,6 @@ LAN;B 4.04;Operator Precedence and Parentheses;LAN_Features_Operator_Precedence.
 LAN;B 4.03;Operators;LAN_Features_Operator.html;General Description;Operator
 LAN;B 4.03;Operators;LAN_Features_Operator.html;General Description;Operators
 LAN;B 4.03;Operators;LAN_Features_Operator.html;General Description;;Precedence
-LAN;B 6.04.01;Parameter Set or String (Func. Param. Type);LAN_Features_parameter_set_or_string.html;General Description;parameter set or string
-LAN;B 6.04.01;Parameter Set or String (Func. Param. Type);LAN_Features_parameter_set_or_string.html;General Description;;parameter set or string
-LAN;B 2.05.05;Parameter Sets Specifying Members;LAN_Features_specifying_members_with_parameter_sets.html;General Description;specifying members with parameter sets
-LAN;B 1.02.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;data types parameter sets
-LAN;B 1.02.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter set
-LAN;B 1.02.06;Parameter sets;LAN_Features_data_types_parameter_sets.html;General Description;;parameter sets
-LAN;B 1.02.06.03;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;data types parameter sets value ranges
-LAN;B 1.02.06.03;Parameter sets - Value Ranges;LAN_Features_data_types_parameter_sets_value_ranges.html;General Description;;parameter set value ranges
-LAN;B 1.02.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;data types parameter sets value repetitions
-LAN;B 1.02.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;parameter set value repetitions
-LAN;B 1.02.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetition
-LAN;B 1.02.06.04;Parameter sets - Value Repetitions;LAN_Features_data_types_parameter_sets_value_repetitions.html;General Description;;value repetitions
 LAN;B 3.05.05;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;partial table specifications
 LAN;B 3.05.05;Partial Table Specifications;LAN_Features_partial_table_specifications.html;General Description;;table context
 LAN;B 1.06.04.01;Path and File Names;LAN_Features_path_names.html;General Description;path names
@@ -1534,6 +1647,17 @@ LAN;B 4.02.02;Right-Hand Side Expressions;LAN_Features_Right-Hand_Side_Expressio
 LAN;B 4.02.02;Right-Hand Side Expressions;LAN_Features_Right-Hand_Side_Expression.html;General Description;;Right-Hand Side Expressions
 LAN;B 1.06.04.03;Saving Files - Character sets;LAN_Features_saving_files.html;General Description;saving files
 LAN;B 1.01.02.01;Scientific Notation;LAN_Features_Scientific_Notation.html;General Description;Scientific Notation
+LAN;B 6.04.01;Set or String (Func. Param. Type);LAN_Features_set_or_string.html;General Description;set or string
+LAN;B 6.04.01;Set or String (Func. Param. Type);LAN_Features_set_or_string.html;General Description;;set or string
+LAN;B 1.02.06;Sets;LAN_Features_data_types_Sets.html;General Description;data types Sets
+LAN;B 1.02.06;Sets;LAN_Features_data_types_Sets.html;General Description;;Sets
+LAN;B 1.02.06.03;Sets - Value Ranges;LAN_Features_Data_types_sets_value_ranges.html;General Description;Data types sets value ranges
+LAN;B 1.02.06.03;Sets - Value Ranges;LAN_Features_Data_types_sets_value_ranges.html;General Description;;ranges
+LAN;B 1.02.06.04;Sets - Value Repetitions;LAN_Features_data_types_sets_value_repetitions.html;General Description;data types sets value repetitions
+LAN;B 1.02.06.04;Sets - Value Repetitions;LAN_Features_data_types_sets_value_repetitions.html;General Description;;set value repetitions
+LAN;B 1.02.06.04;Sets - Value Repetitions;LAN_Features_data_types_sets_value_repetitions.html;General Description;;value repetition
+LAN;B 1.02.06.04;Sets - Value Repetitions;LAN_Features_data_types_sets_value_repetitions.html;General Description;;value repetitions
+LAN;B 2.05.05;Sets Specifying Members;LAN_Features_specifying_members_with_sets.html;General Description;specifying members with sets
 LAN;B 3.05.07;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;General Description;shifted table column specification
 LAN;B 3.05.07;Shifted Table Column Specifications;LAN_Features_shifted_table_column_specification.html;General Description;shifted table column specifications
 LAN;B 2.06.01;Simple References;LAN_Features_simple_references_to_variables.html;General Description;simple references to variables
@@ -1542,7 +1666,7 @@ LAN;B 3.05.01;Simple Table Access;LAN_Features_simple_table_access.html;General 
 LAN;B 2.05.01;Simple Variables;LAN_Features_simple_variables.html;General Description;simple variables
 LAN;B 2.05.01;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variables
 LAN;B 2.05.01;Simple Variables;LAN_Features_simple_variables.html;General Description;;simple variable
-LAN;B 1.02.06.02;Slicing Parameter Sets;LAN_Features_Slicing_Parameter_sets.html;General Description;Slicing Parameter sets
+LAN;B 1.02.06.02;Slicing Sets;LAN_Features_Slicing_Sets.html;General Description;Slicing Sets
 LAN;B 1.02.01.04;Slicing Strings;LAN_Features_Slicing_strings.html;General Description;Slicing strings
 LAN;B 1.02.01.04;Slicing Strings;LAN_Features_Slicing_strings.html;General Description;Extracting substrings
 LAN;B 4.03.04.05;Smaller than (or Equal to);LAN_Features_smaller_than_or_equal_to.html;General Description;smaller than or equal to
@@ -1585,6 +1709,7 @@ LAN;B 1.01.01.02;Text Inside Single Quotation Marks;LAN_Features_Text_inside_sin
 LAN;;The Language;LAN_Features_Language_Guide.html;General Description;Language Guide
 LAN;;The Language;LAN_Features_Language_Guide.html;General Description;B4P Language
 LAN;B 2.06.02;Through-Referencing;LAN_Features_through-referencing.html;General Description;through-referencing
+LAN;B 5.02;Transaction Assignment Operators;LAN_Features_Transaction_Assignment_Operators.html;General Description;Transaction Assignment Operators
 LAN;B 5;Transactions;LAN_Features_Transactions.html;General Description;Transactions
 LAN;B 5;Transactions;LAN_Features_Transactions.html;General Description;;Transaction
 LAN;B 5;Transactions;LAN_Features_Transactions.html;General Description;;Transaction operator
@@ -1609,43 +1734,35 @@ LAN;B 2;Variables;LAN_Features_Variable.html;General Description;Variable
 LAN;B 2;Variables;LAN_Features_Variable.html;General Description;Variables
 LAN;B 6.04.03.03;Variables (func. params);LAN_Features_Variables_[func_params].html;General Description;Variables [func params]
 LAN;B 2.01;Variables - Naming Rules;LAN_Features_Variable_names.html;General Description;Variable names
+LAN;B 6.05;Vectorization;LAN_Features_Vectorization.html;General Description;Vectorization
 LAN;B 1.06.02;Verbose Levels;LAN_Features_verbose.html;General Description;verbose
 LAN;B 1.06.02;Verbose Levels;LAN_Features_verbose.html;General Description;;verbose levels
 LAN;B 3.05.03;Vertical Table Access;LAN_Features_vertical_table_access.html;General Description;vertical table access
 LAN;B 3.05.03;Vertical Table Access;LAN_Features_vertical_table_access.html;General Description;;vertical table accesses
-LAN;B 3.05.03.01;Vertical Table Access w. Param. Sets;LAN_Features_Vertical_table_access_using_parameter_sets.html;General Description;Vertical table access using parameter sets
-LAN;B 3.05.03.03;Vertical Table Access w. Ranges;LAN_Features_Vertical_table_access_using_ranges.html;General Description;Vertical table access using ranges
-LAN;B 3.05.03.02;Vertical Table Access w. Wildcards;LAN_Features_Vertical_table_access_using_wildcards.html;General Description;Vertical table access using wildcards
+LAN;B 3.05.03.03;Vertical Table Access with Ranges;LAN_Features_Vertical_table_access_using_ranges.html;General Description;Vertical table access using ranges
+LAN;B 3.05.03.01;Vertical Table Access with Sets;LAN_Features_Vertical_table_access_using_sets.html;General Description;Vertical table access using sets
+LAN;B 3.05.03.02;Vertical Table Access with Wildcards;LAN_Features_Vertical_table_access_using_wildcards.html;General Description;Vertical table access using wildcards
 LAN;B 1.02.05;Voids;LAN_Features_data_types_voids.html;General Description;data types voids
 LAN;B 1.02.05;Voids;LAN_Features_data_types_voids.html;General Description;;void
 LAN;B 1.02.05;Voids;LAN_Features_data_types_voids.html;General Description;;voids
 LAN;B 4.03.05.01;Wildcards;LAN_Features_wildcards.html;General Description;wildcards
 LAN;B 4.03.05.01;Wildcards;LAN_Features_wildcards.html;General Description;;wildcard symbols
-LAN;B 5.02;Without Transaction Assignment Operators;LAN_Features_Without_Transaction_Assignment_Operators.html;General Description;Without Transaction Assignment Operators
 LAN;B 2.05.04;Zero Members Variables;LAN_Features_zero_members.html;General Description;zero members
-GUI;B 5.01;A - Import;GUI_Features_Import_source_data.html;General Description;Import source data
-GUI;B 5.02;B - Clean;GUI_Features_Clean_Data.html;General Description;Clean Data
 GUI;B 4.04;Basic Commands;GUI_Features_Basic_Commands.html;General Description;Basic Commands
-GUI;B 5.03;C - Validate;GUI_Features_Validate_and_Explore.html;General Description;Validate and Explore
 GUI;B 3.05.01;Command Line Arguments;GUI_Features_Command_line_arguments.html;General Description;Command line arguments
 GUI;B 3.05;Command Line Arguments and Options;GUI_Features_Command_Line_Arguments_and_Options.html;General Description;Command Line Arguments and Options
 GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;Command line switches
 GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;;Command line switch
 GUI;B 3.05.02;Command Line Switches;GUI_Features_Command_line_switches.html;General Description;;Command line options
-GUI;B 5.04;D - Merge;GUI_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
-GUI;B 2.05;De-installing B4P;GUI_Features_De-installing_B4P.html;General Description;De-installing B4P
-GUI;B 5.05;E - Augment;GUI_Features_Enrichment.html;General Description;Enrichment
 GUI;B 4.02;Entering Interactive Mode;GUI_Features_entering_interactive_mode.html;General Description;entering interactive mode
 GUI;B 6;Examples;GUI_Features_Examples.html;General Description;Examples
 GUI;B 4.07;Execute B4P Expressions Interactively;GUI_Features_Execute_B4P_expressions_interactively.html;General Description;Execute B4P expressions interactively
 GUI;B 4.07;Execute B4P Expressions Interactively;GUI_Features_Execute_B4P_expressions_interactively.html;General Description;;interactive expressions
 GUI;B 4.06;Execute B4P Statements Interactively;GUI_Features_Execute_B4P_statements_interactively.html;General Description;Execute B4P statements interactively
 GUI;B 4.06;Execute B4P Statements Interactively;GUI_Features_Execute_B4P_statements_interactively.html;General Description;;interactive statements
-GUI;B 5.06;F - Analyze;GUI_Features_Align_and_Process.html;General Description;Align and Process
 GUI;B 6.01;Football Club Merger - Interactive;GUI_Features_Example__Merging_football_clubs_-_interactive_approach.html;General Description;Example: Merging football clubs - interactive approach
 GUI;B 6.02;Football Club Merger - Program;GUI_Features_Example__Merge_football_clubs.html;General Description;Example: Merge football clubs
-GUI;B 5.07;G - Format;GUI_Features_Format_the_results.html;General Description;Format the results
-GUI;B 5.08;H - Export;GUI_Features_Save_and_Export.html;General Description;Save and Export
+GUI;B 3;Getting Started;GUI_Features_Getting_Started.html;General Description;Getting Started
 GUI;;Index;GUI_Features_Index.html;General Description;Index
 GUI;B 2;Installation;GUI_Features_Installation.html;General Description;Installation
 GUI;B 4.03;Interactive Help;GUI_Features_Interactive_help.html;General Description;Interactive help
@@ -1653,7 +1770,7 @@ GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;Gen
 GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;General Description;Interactive editing
 GUI;B 4;Interactive Mode;GUI_Features_interactive_mode.html;General Description;interactive mode
 GUI;B 4.08.01;Interactive Visualization;GUI_Features_Interactive_Visualization.html;General Description;Interactive Visualization
-GUI;B 2.07;License Activation;GUI_Features_License_Activation.html;General Description;License Activation
+GUI;B 2.08;License Activation;GUI_Features_License_Activation.html;General Description;License Activation
 GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
 GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
 GUI;B 2.02.02;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
@@ -1678,25 +1795,25 @@ GUI;B 3.03.02.01;MacOS Start B4P Programs as Executables;GUI_Features_Start_B4P_
 GUI;B 3.03.02.02;MacOS Start B4P to run B4P programs;GUI_Features_MacOS_Start_B4P_to_run_B4P_programs.html;General Description;MacOS Start B4P to run B4P programs
 GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;Operating System Commands
 GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;;OS Commands
-GUI;B 7;Recent Releases;GUI_Features_Recent_Releases.html;General Description;Recent Releases
-GUI;B 7.01;Release 10.0;GUI_Features_Release_10.0_Labour_Day.html;General Description;Release 10.0 Labour Day
-GUI;B 7.02;Release 10.1;GUI_Features_Release_10.1_Charles_Dow.html;General Description;Release 10.1 Charles Dow
-GUI;B 3;Starting B4P;GUI_Features_Starting_B4P.html;General Description;Starting B4P
+GUI;B 7.01;Release 11.00;GUI_Features_Release_11.00_Jørn_Utzon.html;General Description;Release 11.00 Jørn Utzon
+GUI;B 7;Release History;GUI_Features_Release_History.html;General Description;Release History
 GUI;B 3.02;Starting B4P under Linux;GUI_Features_Starting_B4P_under_Linux.html;General Description;Starting B4P under Linux
 GUI;B 3.03;Starting B4P under MacOS;GUI_Features_Starting_B4P_under_MacOS.html;General Description;Starting B4P under MacOS
 GUI;B 3.01;Starting B4P under Windows;GUI_Features_Starting_B4P_under_Windows.html;General Description;Starting B4P under Windows
 GUI;B 3.04.01;Starting Behavior Advanced;GUI_Features_Starting_Behavior_Advanced.html;General Description;Starting Behavior Advanced
 GUI;B 3.04;Starting Behavior Basics;GUI_Features_Starting_Behavior.html;General Description;Starting Behavior
-GUI;B 6.03;Stock Markets - Program;GUI_Features_Example_-_Retrieve_stock_market_data.html;General Description;Example - Retrieve stock market data
 GUI;;Table of Contents;GUI_Features_Table_of_Contents.html;General Description;Table of Contents
-GUI;B 2.06;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
-GUI;B 5;Typical Workflow;GUI_Features_Typical_Workflow.html;General Description;Typical Workflow
-GUI;B 2.04;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
+GUI;B 2.07;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;General Description;Terms and Conditions
+GUI;B 2.06;Uninstallation;GUI_Features_Uninstallation.html;General Description;Uninstallation
+GUI;B 2.05;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;General Description;Updates and Upgrades
 GUI;;User Guide;GUI_Features_User_Guide.html;General Description;User Guide
 GUI;;User Guide;GUI_Features_User_Guide.html;General Description;B4P Interpreter
 GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;User initialization program
 GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;;custom initialization program
 GUI;B 3.05.04;User Initialization Program;GUI_Features_User_initialization_program.html;General Description;;My B4P Init.b4p
+GUI;B 2.04;VS Code Extension for B4P;GUI_Features_VS_Code_Extension_for_B4P.html;General Description;VS Code Extension for B4P
+GUI;B 2.04;VS Code Extension for B4P;GUI_Features_VS_Code_Extension_for_B4P.html;General Description;;Visual Studio Code
+GUI;B 2.04;VS Code Extension for B4P;GUI_Features_VS_Code_Extension_for_B4P.html;General Description;;VS Code
 GUI;B 4.08;View Directory Listings;GUI_Features_View_directory_listings.html;General Description;View directory listings
 GUI;B 4.09;View Tables Interactively;GUI_Features_View_Tables_Interactively.html;General Description;View Tables Interactively
 GUI;B 4.10;View Variables Interactively;GUI_Features_View_variables_interactively.html;General Description;View variables interactively
@@ -1708,12 +1825,26 @@ GUI;B 2.01.01;Windows - Prerequisites;GUI_Features_Windows_Prerequisites.html;Ge
 GUI;B 3.01.01;Windows Edit B4P Programs;GUI_Features_Edit_B4P_Programs_under_Windows.html;General Description;Edit B4P Programs under Windows
 GUI;B 3.01.03;Windows Start B4P Directly;GUI_Features_Starting_B4P_Directly_under_Windows.html;General Description;Starting B4P Directly under Windows
 GUI;B 3.01.02;Windows Start B4P Programs;GUI_Features_Starting_a_B4P_Program_under_Windows.html;General Description;Starting a B4P Program under Windows
-MAS;B 4.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
-MAS;B 4.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
-MAS;B 4.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
-MAS;B 2;Features and Benefits;MAS_Features_Features_and_Benefits.html;General Description;Features and Benefits
-MAS;B 4.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
-MAS;;Overview;MAS_Features_Overview.html;General Description;Overview
-MAS;B 1;Problem Statement;MAS_Features_Problem_Statement.html;General Description;Problem Statement
-MAS;B 4;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
-MAS;B 3;Workflow Overview;MAS_Features_Workflow_Overview.html;General Description;Workflow Overview
+GUI;B 5;Workflow;GUI_Features_Workflow.html;General Description;Workflow
+MAS;B 5.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
+MAS;B 5.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
+MAS;B 5.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
+MAS;B 3;Features and Benefits;MAS_Features_Features_and_Benefits.html;General Description;Features and Benefits
+MAS;;Index;MAS_Features_Index.html;General Description;Index
+MAS;B 5.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
+MAS;B 1;Overview;MAS_Features_Overview.html;General Description;Overview
+MAS;B 2;Problem Statement;MAS_Features_Problem_Statement.html;General Description;Problem Statement
+MAS;B 5;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
+MAS;B 4;Workflow Overview;MAS_Features_Workflow_Overview.html;General Description;Workflow Overview
+TAB;B 1.01;A - Import;TAB_Features_Import_source_data.html;General Description;Import source data
+TAB;B 1.02;B - Clean;TAB_Features_Clean_Data.html;General Description;Clean Data
+TAB;B 1.03;C - Validate;TAB_Features_Validate_and_Explore.html;General Description;Validate and Explore
+TAB;B 1.04;D - Merge;TAB_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
+TAB;B 1.05;E - Augment;TAB_Features_Enrichment.html;General Description;Enrichment
+TAB;B 1.06;F - Analyze;TAB_Features_Align_and_Process.html;General Description;Align and Process
+TAB;B 1.07;G - Format;TAB_Features_Format_the_results.html;General Description;Format the results
+TAB;B 1.08;H - Export;TAB_Features_Save_and_Export.html;General Description;Save and Export
+TAB;;Index;TAB_Features_Index.html;General Description;Index
+TAB;;Processing Tables and Big Data;TAB_Features_Processing_Tables_and_Big_Data.html;General Description;Processing Tables and Big Data
+TAB;;Table of Contents;TAB_Features_Table_of_Contents.html;General Description;Table of Contents
+TAB;B 1.09;The Whole Program;TAB_Features_The_Whole_Program.html;General Description;The Whole Program

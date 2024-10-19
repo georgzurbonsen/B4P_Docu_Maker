@@ -67,10 +67,10 @@ B4PDOCU.START
 
 
 
-"Without Transaction Assignment Operators" :
+"Transaction Assignment Operators" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Without Transaction Assignment Operators" ],
+    "Feature Names":		[ "Transaction Assignment Operators" ],
     "Description 01:Introduction"::
 	The following sections provide an introduction of carrying out transactions without assignment operators.
 	In this case, destination variables or table entries are cleared first before they are overwritten.  The following

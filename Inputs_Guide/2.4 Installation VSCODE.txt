@@ -1,0 +1,37 @@
+	//
+B4PDOCU.START
+
+
+
+"VS Code Extension for B4P":
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "VS Code Extension for B4P" ],
+    "Keywords":			[ "Visual Studio Code", "VS Code" ],
+    "Description 01:Introduction"::
+
+	<br>
+
+	<b><a target="_blank" href="https://code.visualstudio.com/">Visual Studio Code</a></b>, also commonly referred to as VS Code, 
+	is an integrated development environment developed by Microsoft for Windows,
+	Linux, macOS and web browsers. Features include support for debugging, syntax highlighting, intelligent code completion, snippets,
+	code refactoring, and embedded version control with Git. Users can change the theme, keyboard shortcuts, preferences, and install extensions that add functionality.
+	<b><a target="_blank" href="https://en.wikipedia.org/wiki/Visual_Studio_Code">(Source: Wikipedia)</a></b>.
+
+	+++,
+
+    "Description 02:Installing VS Code Extension"::
+
+	A VS Code extension is available for B4P in form of an <b>.vsix</b> file.  The extension supports the following:
+
+	* Color visualization of B4P code in the editor to improve ergonomics
+	* Starts B4P by pushing the start button (code will be saved and B4P starts immediaely).
+
+	The VS Code Extension is available on github: <b><a target="_blank" href="https://github.com/georgzurbonsen/B4P_VSCode/">github.com/georgzurbonsen/B4P_VSCode/</a></b>.
+	Downlaod the extension file and install it as instructed when opening this web page.
+	
+	+++
+}
+
+
+B4PDOCU.STOP

@@ -1,0 +1,27 @@
+//
+B4PDOCU.START
+
+
+"Workflow" :
+  {
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Workflow" ],
+    "Description 01:Overview"::
+
+	The follwing sections given an introduction to some common functions which support each of the eight
+	following processing steps conveniently.
+
+	<br/><img src="Images/Description_Introduction_Flowchart.png" alt="B4P Typical Data Processing Steps">
+
+	<br><br>
+	By experience, successful solutions have been provided already <b>during the first consultation</b> with colleagues who needed solutions for
+	their data processing needs.  They originally expected a cost and time estimation and a project plan for the project in order to approve the 
+	budget for hiring programmers or consultants, and all that ended up not necessary at all because a few lines of code solved the problem
+	and a lot of money saved.
+
+	+++
+}
+
+
+
+B4PDOCU.STOP

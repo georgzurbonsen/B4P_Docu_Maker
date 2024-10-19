@@ -161,7 +161,7 @@ B4PDOCU.START
 	The <b>RHS Expressions</b> are expressions on the <i>Right-Hand Side</i> of the assignment symbol or __assignment operator__ which
 	are used to specify, retrieve and/or calculate values. Following rules apply:
 	* Constant values like __numbers__ (for __numeral__ values) and __text__ (for __string__ and __boolean__ values)
-	* __Parameter sets__,
+	* __Sets__,
 	* __Variables__,
 	** For variables, individual __Member variables__ using array subscripts and member names may be referenced:
 	* __Table references__,
@@ -205,7 +205,7 @@ B4PDOCU.START
 	table initialize ( List, {{Name, Score}, { Amy, 10}, { Bea, 20}, {Claus, 30}} );
 	echo( [List: Name, 2] );          // Bea
 	echo( [List: Name, Amy, Score] ); // Amy's Score: 10
-	echo( [List: Name, ..] );         // All names in a parameter set
+	echo( [List: Name, ..] );         // All names in a set
 
 	+++,
     "Output 01:": "automatic",
@@ -316,8 +316,8 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	<br/><img src="Images/Description_Formulas_Unary_Operators.jpg" alt="Unary Operators"><br/>
 
 	<sup>1</sup> First character is capitalized.  All other characters are not touched.<br>
-	<sup>2</sup> Mirroring, example: !{a,b,c} returns {c,b,a}.  Contents in nested parameter sets remain unaffected (no mirroring there).<br>
-	<sup>3</sup> Sorting order across different data types: parameter set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
+	<sup>2</sup> Mirroring, example: !{a,b,c} returns {c,b,a}.  Contents in nested sets remain unaffected (no mirroring there).<br>
+	<sup>3</sup> Sorting order across different data types: set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
 	             the longer one is considered as the "greater" one.  Nested sets will also be sorted.
 
 	+++,
@@ -388,7 +388,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* Numbers are added together as learnt in 1st grade.
 	* Boolean values are converted to 0 and 1 first.
 	* Strings are catenated.
-	* The elements in parameter sets are also catenated.
+	* The elements in sets are also catenated.
 	* Special rules apply on arithmetics with dates and times which are described further below.
 	* Special rules apply to some operations with different data types.  See the table below for details.
 	
@@ -415,7 +415,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	'Date 1' and 'Time 1' refer to the data from the left operand whereas 'Date 2' and 'Time 2' refer to the right operand.<br>
 	<sup>1</sup> Only fractional part (digits behind decimal point) are used to add time value.  Value must be between 0 and (24*60*60-1)/(24*60*60).  Calculated sum must lie within 00:00:00 and 23:59:59.<br>
 	<sup>2</sup> Only the integer (whole number before decimal point) is used for the calculation.<br>
-	<sup>3</sup> Sorting order across different data types: parameter set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
+	<sup>3</sup> Sorting order across different data types: set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
 	             the longer one is considered as the "greater" one.  Nested sets will also be sorted.
 
 	+++,
@@ -449,7 +449,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* Numbers are subtracted from each other as learnt at school.
 	* Boolean values are converted to 0 and 1 first.
 	* Strings: The first occurrences of the (sub-)string in the right operand found in the left operand will be removed, but not all.
-	* Parameter sets: The first occurrences of the elements in the right operand found in the left operand will be removed, but not all.
+	* Sets: The first occurrences of the elements in the right operand found in the left operand will be removed, but not all.
 	* Special rules apply on arithmetics with dates and times which are described further below.
 	* Special rules apply to some operations with different data types.  See the table below for details.
 
@@ -477,7 +477,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	'Date 1' and 'Time 1' refer to the data from the left operand whereas 'Date 2' and 'Time 2' refer to the right operand.<br>
 	<sup>1</sup> Only fractional part (digits behind decimal point) are used to add time value.  Value must be between 0 and (24*60*60-1)/(24*60*60).  Calculated sum must lie within 00:00:00 and 23:59:59.<br>
 	<sup>2</sup> Only the integer (whole number before decimal point) is used for the calculation.<br>
-	<sup>3</sup> Sorting order across different data types: parameter set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
+	<sup>3</sup> Sorting order across different data types: set > string > date > numeral > boolean, then followed by contents if types are equal. For sets with common contents and different lengths,
 	             the longer one is considered as the "greater" one.  Nested sets will also be sorted.
 
 	+++,
@@ -507,7 +507,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	Basic rules to subtractions:
 	* Numbers are multiplied with each other as learned in business school (probably a bit too late).
 	* Boolean values are converted to 0 and 1 first.
-	* Parameter sets: Parameter sets can be multiplied with numbers in order to repeat the elements.
+	* Sets: They can be multiplied with numbers in order to repeat the elements.
 	* Special rules apply to some operations with different data types.  See the table below for details.
 
 	<br/><img src="Images/Description_Formulas_Multiplications.jpg" alt="Multiplications"><br/>
@@ -537,7 +537,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* Numbers are divided with each other as learned in 2nd grade.
 	* Boolean values are converted to 0 and 1 first.
 	* Strings: All occurrences of the (sub-)string in the right operand found in the left operand will be removed.
-	* Parameter sets: All occurrences of the elements in the right operand found in the left operand will be removed.
+	* Sets: All occurrences of the elements in the right operand found in the left operand will be removed.
 	* Special rules apply on arithmetics with dates and times which are described further below.
 	* Special rules apply to some operations with different data types.  See the table below for details.
 
@@ -573,7 +573,8 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* <b>&gt;</b> Greater than
 	* <b>&gt;=</b> Greater than or equal to
 	* <b>=</b> Equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values</b> separated with commas) and/or <b>ranges</b>.
-	* <b>&lt;&gt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values<b> separated with commas) and/or <b>ranges</b>.
+	* <b>&lt;&gt;</b> Not equal to, expecting 1 or more operands separated by comma (comparing with a <b>selection of multiple values</b> separated with commas) and/or 
+	<b>ranges</b>.
 	* <b>==</b> __strictly Equal to__, expecting 1 operand only
 	* <b>!=</b> __strictly not equal to__, expecting 1 operand only
 
@@ -586,12 +587,12 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	<u>Attention</u>: As the two comparison operators <b>=</b> and <b>&gt;&lt;</b> expect 1 or more operands on the right hand side,
 	you may risk situations where the comparison hijacks the remaining comma-separated values on the right-hand-side typically encountered
-	in function parameters and values in parameter sets.  To avoid this, put the comparison into parentheses, or use the <b>==</b> and <b>!=</b>
+	in function parameters and values in sets.  To avoid this, put the comparison into parentheses, or use the <b>==</b> and <b>!=</b>
 	symbols.
 	+++,
     "Examples 02"::
 	b[] = 12; 
-	// Want to compare b[] == 9 and include the result in the parameter set between 'false' and 12
+	// Want to compare b[] == 9 and include the result in the set between 'false' and 12
 	// Good luck!
 
 	a[0] = { 3, 6, false, b[] =  9 , 12, 15 }; // Comparison has hijacked the last two parameters
@@ -683,7 +684,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	Basic rules to equal-to comparisons which are a bit more relaxed than the __strictly equal to__ comparison operator:
 	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.
 	* __Wildcards__ are supported in the right-hand operand if the value is a __softquoted string__ (e.g. specified inside single quotation marks)
-	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
+	* When comparing sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
 	* Dates, Booleans and numerals can be compared with strings if they have the same text value / string representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.
 	* Comparing two void values will always return true.
 
@@ -692,7 +693,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	<sup>1</sup> If a numeral is compared with a string, then a string copy will be made of the numeral and both strings are compared.<br>
 	<sup>2</sup> If a date is compared with a string, then a string copy will be made of the date and both strings are compared.  Depending on the state of the date, the format is "YYYY-MM-DD", "HH:II:SS", or "YYYY-MM-DD HH:II:SS".<br>
 	<sup>3</sup> If a boolean value is compared with a string, then a string copy will be made of the boolean value and both strings are compared.<br>
-	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.  Values (but not subsets) inside the parameter sets are compared with the __strictly equal to__ <b>==</b> operator.
+	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} = {3,2,1} returns true.  Values (but not subsets) inside the sets are compared with the __strictly equal to__ <b>==</b> operator.
 
 
 	+++,
@@ -770,7 +771,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	Basic rules to not-equal-to comparisons which are a bit more relaxed than the __strictly not equal to__ comparison operator:
 	* The number of operands on the right-hand-side is not limited to 1.  A selection of multiple values may be specified as well as ranges.
 	* __Wildcards__ are supported in the right-hand operand if the value is a __softquoted string__ (e.g. __text inside single quotation marks__).
-	* When comparing parameter sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
+	* When comparing sets, the same elements in both left and right hand side must exist, but they do not need to be in the same order
 	* Dates, Booleans and numerals can be compared with strings if they have the same text value / string representation (e.g. if printed out). Example: '5' = 5, and 'true' = true are both true.
 	* Comparing two void values will always return true.
 
@@ -780,7 +781,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	<sup>1</sup> If a numeral is compared with a string, then a string copy will be made of the numeral and both strings are compared.<br>
 	<sup>2</sup> If a date is compared with a string, then a string copy will be made of the date and both strings are compared.  Depending on the state of the date, the format is "YYYY-MM-DD", "HH:II:SS", or "YYYY-MM-DD HH:II:SS".<br>
 	<sup>3</sup> If a boolean value is compared with a string, then a string copy will be made of the boolean value and both strings are compared.<br>
-	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} <> {3,2,1} returns false, however strictly comparison {1,2,3} != {3,2,1} returns true.  Values (but not subsets) inside the parameter sets are compared with the __strictly not equal to__ <b>!=</b> operator.
+	<sup>4</sup> Contents in both sets must be the same, but the ordering does not matter.  E.g. {1,2,3} <> {3,2,1} returns false, however strictly comparison {1,2,3} != {3,2,1} returns true.  Values (but not subsets) inside the sets are compared with the __strictly not equal to__ <b>!=</b> operator.
 
 	+++,
     "Examples 01:"::
@@ -858,7 +859,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* The number of operands on the right-hand-side is always 1.  No risk of hijacking parameters.
 	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
 	* Comparing values of different types, e.g. numerals with strings, will always be unequal.
-	* When comparing parameter sets, the same elements in both left and right hand side must exist, and they need to be in the same order.
+	* When comparing sets, the same elements in both left and right hand side must exist, and they need to be in the same order.
 	* Comparing two void values will always return true.
 
 	<br/><img src="Images/Description_Formulas_Strictly_Equal_to.jpg" alt="Comparison Equal to"><br/>
@@ -924,7 +925,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* The number of operands on the right-hand-side is always 1.  No risk of hijacking parameters.
 	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
 	* Comparing values of different types, e.g. numerals with strings, will always be unequal.
-	* When comparing parameter sets, the same elements in both left and right hand side must exist, and they need to be in the same order.
+	* When comparing sets, the same elements in both left and right hand side must exist, and they need to be in the same order.
 	* Comparing two void values will always return true.
 
 	<br/><img src="Images/Description_Formulas_Strictly_Not_Equal_to.jpg" alt="Comparison not Equal to"><br/>
@@ -992,11 +993,11 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	Basic rules to smaller than / smaller than or equal to comparisons:
 	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
 	* Comparing values of different types, e.g. numerals with strings, will always return false.
-	* When comparing parameter sets, the sorting order of the parameter is compared.
+	* When comparing sets, the sorting order of the parameter is compared.
 
 	<br/><img src="Images/Description_Formulas_Smaller_than_or_Equal_to.jpg" alt="Comparison Smaller than (or Equal to)"><br/>
 
-	<sup>1</sup> When comparing parameter sets, the following sorting order across different data types applies: parameter set > string > date > numeral > boolean, 
+	<sup>1</sup> When comparing sets, the following sorting order across different data types applies: set > string > date > numeral > boolean, 
 	then followed by contents if types are equal. For sets with common contents and different lengths,
 	the longer one is considered as the "greater" one.  Nested sets will also be compared.
 
@@ -1061,11 +1062,11 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	Basic rules to greater than / greater than or equal to comparisons:
 	* Contents are compared strictly, i.e. data type and contents must match perfectly.  No wildcards are supported here.
 	* Comparing values of different types, e.g. numerals with strings, will always return false.
-	* When comparing parameter sets, the sorting order of the parameter is compared.
+	* When comparing sets, the sorting order of the parameter is compared.
 
 	<br/><img src="Images/Description_Formulas_Greater_than_or_Equal_to.jpg" alt="Comparison Greater than (or Equal to)"><br/>
 
-	<sup>1</sup> When comparing parameter sets, the following sorting order across different data types applies: parameter set > string > date > numeral > boolean, 
+	<sup>1</sup> When comparing sets, the following sorting order across different data types applies: set > string > date > numeral > boolean, 
 	then followed by contents if types are equal. For sets with common contents and different lengths,
 	the longer one is considered as the "greater" one.  Nested sets will also be compared.
 
@@ -1128,7 +1129,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* __logical and__
 	* __logical or__
 
-	The operators are only applicable to boolean values and parameter sets.
+	The operators are only applicable to boolean values and sets.
 	__Comparison operators__ can be used to calculate exclusive OR (not equal operator) and equivalence (equal operator).
 
     +++
@@ -1143,7 +1144,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	Basic rules to logical AND (Symbol: <b>&amp;</b>):
 	* For boolean values the logical AND operator is applied.
-	* For parameter sets, the intersection of equal elements will be identified.
+	* For sets, the intersection of equal elements will be identified.
 	* All other data types wll be rejected
 
 	<br/><img src="Images/Description_Formulas_Logical_And.jpg" alt="Logical And"><br/>
@@ -1158,7 +1159,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	for all variables( a[], x[] ) echo( x[] );
 
-	echo("On parameter sets:");
+	echo("On sets:");
 
 	b[0] = { a, b, c, 1, 2 } & { d, f, 3 }; // Empty set
 	b[1] = { a, b, c, 1, 2 } & { c, b, 3 }; // {b, c}
@@ -1179,7 +1180,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	Basic rules to logical OR  (Symbol: <b>&vert;</b>):
 	* For boolean values the logical OR operator is applied.
-	* For parameter sets, the union of equal elements will be identified.
+	* For sets, the union of equal elements will be identified.
 	* All other data types wll be rejected
 
 	<br/><img src="Images/Description_Formulas_Logical_Or.jpg" alt="Logical Or"><br/>
@@ -1194,7 +1195,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	for all variables( a[], x[] ) echo( x[] );
 
-	echo("On parameter sets:");
+	echo("On sets:");
 
 	b[0] = { a, b, 1 } | { 1, b, a }; // {a, b, 1}
 	b[1] = { a, b, 1 } | { 1, b, c }; // {a, b, 1, c}
@@ -1332,7 +1333,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	String		| '' (blank)	| a[] += 's';		| a[] = ''; a[] = a[] + 's';
 	Date		| (blank date)	| a[] += date(today);	| a[] = date(''); a[] = a[] + date(today);
 	Boolean		| false		| a[] &vert;= b[];	| a[] = false; a[] = a[] &vert; b[];
-	parameter set	| {} (empty set)| a[] &vert;= {1,2};	| a[] = {}; a[] = a[] &vert; {1,2};
+	set	| {} (empty set)| a[] &vert;= {1,2};	| a[] = {}; a[] = a[] &vert; {1,2};
 	===
 
 	+++,
@@ -1428,7 +1429,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* Dates: 
 	** If containing dates: +/-1 represents next/previous days
 	** If containing times: For example Adding a fraction of 1, e.g. <b>**(0.25)</b> for 6 hous, is possible
-	* Parameter sets: All elements, including nested ones, are affected
+	* Sets: All elements, including nested ones, are affected
 	* Booleans: ++ sets to true -- sets to false.
 
 	Ad-hoc operators can be applied on variable as well as table cells.  However following restrictions apply:
@@ -1491,7 +1492,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	echo( --d[] ); // Previous day
 	echo( ++(0.5)d[] ); // Next day, 06:30
 
-	echo(new line, "Demonstrate stand-alone ad-hoc operations with parameter sets:");
+	echo(new line, "Demonstrate stand-alone ad-hoc operations with sets:");
 
 	a[] = { 1, 2, 5, 10, { 20, 50 } };
 	a[]++;
@@ -1617,9 +1618,9 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	++ (-3)		| Sets to false 		| -- (-3)	| Sets to true			| **(-1)	| "
 	===
 
-	<br>Ad-hoc operations on variables containing parameter sets:<br>
-	All elements will be affected by this operation, including elements in nested parameter sets.  This is a clear difference from all other arithmetic operations 
-	where you need to distinguish between regular operators (affects one individual value) and deep operators (affects elements in a parameter set at a specified depth).<br>
+	<br>Ad-hoc operations on variables containing sets:<br>
+	All elements will be affected by this operation, including elements in nested sets.  This is a clear difference from all other arithmetic operations 
+	where you need to distinguish between regular operators (affects one individual value) and deep operators (affects elements in a set at a specified depth).<br>
 	<u>Note</u>: No impact on empty cells.
 
 	<br><br>
@@ -1637,22 +1638,25 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	Deep Operators are very unique features specifically designed for B4P.
 	Deep operators are unary and binary operators followed by accent circumflex <b>^</b> symbols which
-	indicate that the operator shall be applied on the elements inside parameter sets.
+	indicate that the operator shall be applied on the elements inside sets.
 	This concept allows vector and matrix calculations without programming loops.
 
 	<br><br>
-	Applying deep operator in simple parameter sets (vectors) requiers adding one <b>^</b>-symbol after the
+	Applying deep operator in simple sets (vectors) requiers adding one <b>^</b>-symbol after the
 	operator.  For further nesting, e.g. matrices (e.g. <b>{ {1,2,3},{4,5,6} }</b>), 2 or more consecutive
 	<b>^</b>-symbols are needed to specify the right <i>depth</i>.  Not using these symboles result in applying the operators on the
-	parameter set directly, e.g. '+' for catenating two parameter sets together.
+	set directly, e.g. '+' for catenating two sets together.
 
 	<br><br>
 	Following deep operators are described next:
 	* __Deep unary operators__, and
 	* __Deep binary operators__.
 
+	<br><br>
+	Next to the deep operators, __vectorization__ provides similar features when using specific function calls.
+
 	+++,
-    "See also": "deep"
+    "See also": [ "Vectorization", "deep" ]
 },
 
 
@@ -1662,13 +1666,13 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
     "Feature Names":		[ "deep unary operators" ],
     "Description 01:Introduction"::
 
-	All valid __unary operators__ can be applied as deep operators in order to address the parameter set elements directly.
+	All valid __unary operators__ can be applied as deep operators in order to address the set elements directly.
 	The number of accent circumflex symbols behind the operator determines the depth to use.
 
 	+++, 
 
     "Examples 01:"::
-	echo("Deep unary operators on simple parameter sets (vectors):");
+	echo("Deep unary operators on simple sets (vectors):");
 
 	a[] = { 1,2,3,4,5 };
 	b[] = { hu, ha, he, ho, hi };
@@ -1683,7 +1687,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	echo( !^b[] );     // Capitalizing elements
 	echo;
 
-	echo("Deep unary operators on nested parameter sets (matrices):");
+	echo("Deep unary operators on nested sets (matrices):");
 
 	a[] = { { 5, 15, 10 }, { 16, 6, 26 }, { 37, 17, 7 } };  
 
@@ -1703,14 +1707,14 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
     "Feature Names":		[ "deep binary operators" ],
     "Description 01:Introduction"::
 
-	All valid __binary operators__ can be applied as deep operators in order to address the parameter set elements directly.
+	All valid __binary operators__ can be applied as deep operators in order to address the set elements directly.
 	The number of accent circumflex symbols behind the operator determines the depth to use.
-	A mix of combining simple values (scalars) and parameter sets (vectors, matrics) is supported.  In this case, the scalar
-	provided as one operand will be calculated with every element in the parameter set specified as the other operand.
+	A mix of combining simple values (scalars) and sets (vectors, matrics) is supported.  In this case, the scalar
+	provided as one operand will be calculated with every element in the set specified as the other operand.
 
 	<br><br>
-	If parameter sets are specified in both sides of the operator, and the number of elements differ, then the shorter parameter
-	set will be stuffed with neutral values to match the length of the longer parameter set before doing the calculation.<br>
+	If sets are specified in both sides of the operator, and the number of elements differ, then the shorter parameter
+	set will be stuffed with neutral values to match the length of the longer set before doing the calculation.<br>
 	Example: { 3, 4 } * { 2, 1, 3, 2 } extends to { 3, 4, 1, 1 } * { 2, 1, 3, 2 } where 1 is used as a neutral value for
 	multiplication.
 
@@ -1720,12 +1724,12 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	* Numeral:  0 for + and -; 1 for * and /
 	* Dates: 0
 	* Boolean: true (for AND: &amp;), 0 (for OR: &vert;)
-	* Parameter set: Empty set {}
+	* Set: Empty set {}
 
 	+++, 
     "Examples 01:"::
-	echo("Deep binary operators on simple parameter sets (vectors):");
-
+	echo("Deep binary operators on simple sets (vectors):");
+	include(Utility Library);
 	a[] = {  1, 2, 3, 4, 5 };
 	b[] = { 10,15,20,25,30 };
 	c[] = {  2,-2,'',-2, 2 };
@@ -1755,19 +1759,20 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 
 	echo(new line, "Matrices");
 
-	a[] =  {  { 1,  2, 3 }, { 4,  5,  6 } };
-	b[] =  {  { 1, -1, 0 }, { 2, -2, 10 } };
+a[] =  {  { 1,  2, 3 }, { 4,  5,  6 } };
+b[] =  {  { 1, -1, 0 }, { 2, -2, 10 } };
 
-	echo( a[] +   b[] );                   // Simple concatenation
-	echo( a[] +^  b[] );                   // The elements containing 3 numbers are concatenated
-	echo( a[] +^^ b[] );                   // What you want: Addition of the elements
+echo matrix( "0", 3, " | ", "a[]=", a[], " b[]=", b[] );
+echo matrix( "0", 3, " | ", "a[] +   b[] = ",  a[] +   b[] );
+echo matrix( "0", 3, " | ", "a[] +^  b[] = ",  a[] +^  b[] );
+echo matrix( "0", 3, " | ", "a[] +^^ b[] = ",  a[] +^^ b[] );
 	+++,
     "Output 01:": "automatic",
     "Description 02:Repetition Suffix"::
 
 	Particularly useful for operations with matrices of differen length is the repetition suffix which is a colon <b>:</b>.
-	Add the colon after the last accent circumflex symbol to repeat the values in the shorter parameter set until all
-	values in the longer parameter set have been calculated.
+	Add the colon after the last accent circumflex symbol to repeat the values in the shorter set until all
+	values in the longer set have been calculated.
 
     "Examples 02:Adding the colon as repetition suffix"::
 	a[] = { 1, 2, 4, 8, 16 };
@@ -1777,7 +1782,8 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	echo( a[] +^:b[] );  // 3, 5, 6, 11, 18
 	+++,
     "Examples 03:Combining vectors and matrices with scalars"::
-	echo("Deep binary operators on simple parameter sets (vectors) and scalars:");
+	include(Utility Library);
+	echo("Deep binary operators on simple sets (vectors) and scalars:");
 
 	a[] = {  1, 2, 3, 4, 5 };
 	b[] = { 10,15,20,25,30 };
@@ -1795,26 +1801,28 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	a[] = { {1,2},{3,4} };	
 	b[] = { {5,6},{7,8} };
 
-	echo( a[] +   b[] );                     // Catenation: { {1,2},{3,4},{5,6},{7,8} }
-	echo( a[] +^  b[] );                     // Catenating the 1st level elements: { {1,2,5,6},{3,4,7,8} }
-	echo( a[] +^^ b[] );                     // Calculating elements: { {6,8},{10,12} }
-	echo;
-	echo( a[] +^^ 10 );                      // Adds 10 to all elements
-	echo( a[] +^^ {10} );                    // {10} acts as scalar to {1,2} -> { {11,12},{3,4} }	
-	echo( a[] +^^:{10} );                    // Repetition suffix - Repeat the {10}:Like { {1,2},{3,4} } +^^ {10,10} } -> { {11,12},{13,14} }	
-	echo( a[] +^^ {10,10} );                 // Like above
-	echo;
-	echo( a[] +^^ {{10}} );                  // Affects the 1st nested element only: { {11,2},{3,4} }
-	echo( a[] +^^:{{10}} );                  // Repetition suffix - Repeat the {10}: All elements affected: { {11,12},{13,14} }	
-	echo( a[] +^^ {10,20} );                 // Calculates { {11,12},{23,24} }
-	echo( a[] +^^:{10,20} );                 // Same result  (Repetition suffix)
-	echo;
-	echo( a[] +^^ {{10,20}}	);               // Calculates { {11,22},{ 3, 4} }
-	echo( a[] +^^ {{10},{20}} );             // Calculates { {11, 2},{23, 4} }
-	echo( a[] +^^:{{10},{20}} );             // Calculates { {11,12},{23,24} }  (Repetition suffix)
+	echo matrix( "0", 3, " | ", a[], " +   ", b[], " = ", a[] +   b[] );
+	echo matrix( "0", 3, " | ", a[], " +^  ", b[], " = ", a[] +^  b[] );
+	echo matrix( "0", 3, " | ", a[], " +^^ ", b[], " = ", a[] +^^ b[] );
+
+	echo matrix( "0", 3, " | ", a[], " +^^ ", 10, " = ", a[] +^^ 10 ); // Add 10 to all scalars
+	echo matrix( "0", 3, " | ", a[], " +^^ ", {10}, " = ", a[] +^^ {10} ); // Added to top row
+	echo matrix( "0", 3, " | ", a[], " +^^:", {10}, " = ", a[] +^^:{10} ); // Repetition rule, add to both rows
+	echo matrix( "0", 3, " | ", a[], " +^^ ", {10,20}, " = ", a[] +^^{10,20} ); // Top row + 10, bottom row +20
+	echo matrix( "0", 3, " | ", a[], " +^^:", {10,20}, " = ", a[] +^^:{10,20} ); // Same results
+
+	echo matrix( "0", 3, " | ", a[], " +^^ ", {{10}}, " = ", a[] +^^ {{10}} ); // Add to 1st element only
+	echo matrix( "0", 3, " | ", a[], " +^^:", {{10}}, " = ", a[] +^^:{{10}} ); // Repetition rule, add to all elements
+
+	echo matrix( "0", 3, " | ", a[], " +^^ ", {10,20}, " = ", a[] +^^{10,20} ); // Top row + 10, bottom row +20
+
+	echo matrix( "0", 3, " | ", a[], " +^^ ", {{10,20}}, " = ", a[] +^^{{10,20}} ); // Addition to upper row
+	echo matrix( "0", 3, " | ", a[], " +^^:", {{10,20}}, " = ", a[] +^^:{{10,20}} ); // Repetition rule, Done on both rows
+	echo matrix( "0", 3, " | ", a[], " +^^ ", {{10},{20}}, " = ", a[] +^^{{10},{20}} ); // Addition to left column
+	echo matrix( "0", 3, " | ", a[], " +^^:", {{10},{20}}, " = ", a[] +^^:{{10},{20}} ); // Addition to both columns
 	+++,
     "Output 03:": "automatic",
-    "See also": [ "Deep assignment operators", "Matrix Operations Summary" ]
+    "See also": [ "Deep assignment operators", "Matrix Operations Summary", "echo matrix", "print matrix" ]
 },
 
 
@@ -1845,6 +1853,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	+++,
     "Examples 01:"::
 	echo(new line, "Example on vectors:");
+	include(Utility Library);
 	a[] = { 8, 4, 2, 1 };
 	b[] = { 1, 2, 3, 4 };
 	c[] = { 10, 11 };
@@ -1866,19 +1875,23 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	echo(new line, "Example on matrices:");
 
 	a[] =  { { 8, 7, 6 }, { 1, 2, -1 }, { -5, 4, 6 } };
+	a orig[] = a[];	
 
 	a[] -^^= 1; // Subtract 1 from all elements
 
-	echo( a[] );
+	echo matrix( "0", 3, " | ", a orig[], " - 1 = ", a[] ); 
 
+	a[] = a orig[];
+	b[] = { { 1,1,1}, {2,2,2}, {3,3,3} };
 	a[] *^^= { { 1,1,1}, {2,2,2}, {3,3,3} };
-	echo( a[] );
+
+	echo matrix( "0", 3, " | ", a orig[], " * ", b[], " = ", a[] ); 
 	+++,
     "Output 01:": "automatic",
     "Description 02:Deep Operators on Table Cells"::
 	Deep assignment operators are not possible on table cells if they are targets because with standard
 	table configuration settings: Strings and numerals.  It works if the left-hand value is a numeral and the right-hand value
-	a parameter set.  In this case, the parameter set will then be converted to a string representation and written to the
+	a set.  In this case, the set will then be converted to a string representation and written to the
 	table cell.
 	+++,
     "Examples 02:"::
@@ -1892,7 +1905,7 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	[t:0,0] *^= { 5, 6, 7, 8 };
 	[t:0,1] +^= { volks, everyone, to all of you };
 
-	table list ( t ); // Parameter sets have been converted to strings.
+	table list ( t ); // Sets have been converted to strings.
 	+++,
     "Output 02:": "automatic",
     "See also": "Assignment operators"

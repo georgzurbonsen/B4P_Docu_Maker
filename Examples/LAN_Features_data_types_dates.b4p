@@ -1,27 +1,27 @@
 ﻿#!/usr/local/bin/b4p
-  // Following assignments are still strings (text)
-  a[0] = "July 14. 2021";
-  a[1] = '20:15:00';
-  a[2] = "2022 August 01 22:15";
-  a[3] = today;  // Must be lower case
-  a[4] = now;    // "
-  a[5] = '' ;    // Blank date
+       // Following assignments are still strings (text)
+       a[0] = "July 14. 2021";
+       a[1] = '20:15:00';
+       a[2] = "2022 August 01 22:15";
+       a[3] = today;  // Must be lower case
+       a[4] = now;    // "
+       a[5] = '' ;    // Blank date
 
-  for all variables( a[], b[] )
-  {
-      // The 'date' function converts input strings (text) into plain dates without preserving text
+       for all variables( a[], b[] )
+       {
+           // The 'date' function converts input strings (text) into plain dates without preserving text
 
-      c[] = date( b[] ); 
-      d[] = pure date( b[] );
-      e[] = time ( b[] );
+           c[] = date( b[] ); 
+           d[] = pure date( b[] );
+           e[] = time ( b[] );
 
-      echo(new line, "For input value      : ", b[] );
-      echo("  Date: ", c[],"  Date only: ", d[], "  Time only: ", e[]);
-  }
-  echo( new line, Additional Features );
+           echo(new line, "For input value      : ", b[] );
+           echo("  Date: ", c[],"  Date only: ", d[], "  Time only: ", e[]);
+       }
+       echo( new line, Additional Features );
 
-  echo(date("2020 / 12 / 31 15:00")+1);     // Date and time
-  echo(date time("2020-12-31"));            // Add a time (default 00:00:00)
-  echo(time("2020-12-31 15:00"));           // Time
-  echo(time("2020-12-31 15:00")+1/24);      // Time, 1 hour later
-  echo(pure date("31. Dezember 2021")+1);       // Numeral
+       echo(date("2020 / 12 / 31 15:00")+1);         // Date and time
+       echo(date time("2020-12-31"));                        // Add a time (default 00:00:00)
+       echo(time("2020-12-31 15:00"));                       // Time
+       echo(time("2020-12-31 15:00")+1/24);          // Time, 1 hour later
+       echo(pure date("31. Dezember 2021")+1);               // Numeral

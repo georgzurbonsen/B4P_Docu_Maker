@@ -36,7 +36,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Property names",
 		  "Direction": "output",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Description"::
 			All identified property names will be stored in this variable.
 			+++
@@ -44,7 +44,7 @@ B4PDOCU.START
 		{ "Number": "3.",
 		  "Name": "Property values",
 		  "Direction": "output",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Description"::
 			All corresponding property values will be stored in this variable.  The number of elements in both 2nd and 3rd function 
 			parameters will be equal.
@@ -173,7 +173,7 @@ B4PDOCU.START
 	"Documentation":	"Function Description",
 	"Description"::
 
-		This function identifies all sheets (tabs) inside the Microsoft Excel workbook (Open Office format) and returns them in a parameter set containing strings.
+		This function identifies all sheets (tabs) inside the Microsoft Excel workbook (Open Office format) and returns them in a set containing strings.
 		This information may be necessary in order to load the right table in the Excel file afterwards.
 
 		<br><br>
@@ -198,7 +198,7 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "Sheet names",
-		  "Types": [ "parameter set"],
+		  "Types": [ "set"],
 		  "Description": "List of all sheet names from left to right as seen in the bottom tabs on Excel"
 		}
 	],
@@ -276,10 +276,10 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "name of target table",
 		  "Direction": "input",
-		  "Types": [ "string","parameter set" ],
+		  "Types": [ "string","set" ],
 		  "Description"::
 			If only one table needs to be loaded, then it is OK to provide the table name as a string.  If more tables need to be loaded
-			from the file, then include the names into a parameter set.  In case more than 1 table shall be loaded, then precisely
+			from the file, then include the names into a set.  In case more than 1 table shall be loaded, then precisely
 			3 function paramters need to be provided, not more and not less.  In case an empty set (zero tables) is provided, then nothing will be loaded.
 			If target tables are existing, then they will be initialized before loading.
 			+++
@@ -297,7 +297,7 @@ B4PDOCU.START
 		{ "Number": "Opt. 3",
 		  "Name": "Excel sheet name",
 		  "Direction": "input",
-		  "Types": [ "string", "numeral","parameter set" ],
+		  "Types": [ "string", "numeral","set" ],
 		  "Default value": "0 (Open the currently active and visible sheet in the Excel workbook)",
 		  "Description"::
 			This parameter specifies the Excel sheets in the workbook to be loaded.  It is optional when loading only one sheet.
@@ -401,17 +401,17 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "name(s) of table(s)",
 		  "Direction": "input",
-		  "Types": [ "parameter set or string" ],
+		  "Types": [ "set or string" ],
 		  "Description"::
 			Specify the table name directly, or to specify multiple tables:
-			* Use parameter sets containing table names
+			* Use sets containing table names
 			* Use softquoted string containing the table names separated with commas
 			+++
 		},
 		{ "Number": "2",
 		  "Name": "Corresonding sheet names",
 		  "Direction": "input",
-		  "Types": [ "parameter set or string" ],
+		  "Types": [ "set or string" ],
 		  "Description"::
 			Specify the sheet names (as seen on the bottom tabs when opened in Excel).  The number of sheet names must
 			match with the number of tables specified in the 1st function parameter.

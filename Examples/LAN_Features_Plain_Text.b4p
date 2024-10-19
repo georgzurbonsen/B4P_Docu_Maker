@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  echo( Hello World );
-  echo(   Hello   World   );  // Same as above (Spaces outside the strings are ignored, so are multiple spaces inside)
-  echo( One + One );          // + sign is an operator, result is 'OneOne'
-  echo( 'One + One' );        // This one is OK.
-  echo( Baden-Baden );        // Empty string.  Hyphen is treated as minus sign (subtraction of strings)
-  echo( 'Baden-Baden' );      // This one is OK.
-  echo( 1. 23 );              // This is a string because a space is inside.
-  echo( 1 200 );              // Same here.  Use function 'clean numeral' to extract 1200 as a number from here
-  echo( Dial 555 1212 );
-  echo( this is on, new line, the next line );  // new line is a reserved keyword
-  echo( Café in Zürich );     // Foreign characters inside
-  echo( . );                  // Lone point
-  echo( .     . . );          // A string containing 3 lone points (. . .), also showing how spaces are collapsing
-  // echo( .. );              // Would cause an error because .. is a b4p language symbol.
-  echo( '..' );               // This one is OK
-  echo( new line, Line 1, new line, Line 2 ); 
+       echo( Hello World );
+       echo(   Hello   World   );  // Same as above (Spaces outside the strings are ignored, so are multiple spaces inside)
+       echo( One + One );          // + sign is an operator, result is 'OneOne'
+       echo( 'One + One' );        // This one is OK.
+       echo( Baden-Baden );        // Empty string.  Hyphen is treated as minus sign (subtraction of strings)
+       echo( 'Baden-Baden' );      // This one is OK.
+       echo( 1. 23 );              // This is a string because a space is inside.
+       echo( 1 200 );              // Same here.  Use function 'clean numeral' to extract 1200 as a number from here
+       echo( Dial 555 1212 );
+       echo( this is on, new line, the next line );  // new line is a reserved keyword
+       echo( Café in Zürich );     // Foreign characters inside
+       echo( . );                  // Lone point
+       echo( .     . . );          // A string containing 3 lone points (. . .), also showing how spaces are collapsing
+       // echo( .. );              // Would cause an error because .. is a b4p language symbol.
+       echo( '..' );               // This one is OK
+       echo( new line, Line 1, new line, Line 2 ); 

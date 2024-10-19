@@ -1,21 +1,21 @@
 ﻿#!/usr/local/bin/b4p
-  // Remember the motor vehicles serialized ...
-  table initialize( bils, // Swedisch for 'cars', aka 'automo-bils'
-      { { Product, "2020-Q1".."2020-Q4" },
-        { Sedans,   24, 34, 44, 14 },  { Pickpus,  11, 21, 31, 21 },
-        { Cabrios,  '',  5, 10, '' },  { SUVs,     35, 25, 45, 55 } } );
+       // Remember the motor vehicles serialized ...
+       table initialize( bils, // Swedisch for 'cars', aka 'automo-bils'
+               { { Product, "2020-Q1".."2020-Q4" },
+                 { Sedans,   24, 34, 44, 14 },  { Pickpus,  11, 21, 31, 21 },
+                 { Cabrios,  '',  5, 10, '' },  { SUVs,     35, 25, 45, 55 } } );
 
-  echo("Car sales in sequential order (including blanks here):");
-  table serialize all( bils, Product, Quarter, { "2020-Q1".."2020-Q4" }, Cars sold );
-  table list ( bils );
+       echo("Car sales in sequential order (including blanks here):");
+       table serialize all( bils, Product, Quarter, { "2020-Q1".."2020-Q4" }, Cars sold );
+       table list ( bils );
 
-  echo("Let's shift to reverse gear: Spread the data");
+       echo("Let's shift to reverse gear: Spread the data");
 
-  count[] = table spread( bils, Cars sold, [Quarter] );
-  table list ( bils );
+       count[] = table spread( bils, Cars sold, [Quarter] );
+       table list ( bils );
 
-  echo("Number of new columns created. ", count[]);
-  echo("And do a final consolidation and you get the original list.");
-  table consolidate( bils, Product, { Quarter, Cars sold, "2020-Q1".."2020-Q4" }, { 2:delete, overwrite if blank }  );
-  table list ( bils );
+       echo("Number of new columns created. ", count[]);
+       echo("And do a final consolidation and you get the original list.");
+       table consolidate( bils, Product, { Quarter, Cars sold, "2020-Q1".."2020-Q4" }, { 2:delete, overwrite if blank }  );
+       table list ( bils );
 

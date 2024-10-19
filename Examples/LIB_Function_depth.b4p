@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
-  dim( a[], 10, 0 ); // Level 1
-  dim( a[3], 5, 0 ); // Level 2
-  structure( a[3,2], { Ha, He, Hi, Ho }, { 1, 2, 3, 4 } ); // Level 3
+       dim( a[], 10, 0 ); // Level 1
+       dim( a[3], 5, 0 ); // Level 2
+       structure( a[3,2], { Ha, He, Hi, Ho }, { 1, 2, 3, 4 } ); // Level 3
 
-  echo( "Variable a[]   :  ", depth(a[]), "  The entire variable tree" );
-  echo( "Variable a[1]  : ", depth(a[1]), "  Member variable of a[], but has no sub-members" );
-  echo( "Variable a[3]  : ", depth(a[3]), "  This one has sub-members" );
-  echo( "Variable a[3,2]: ", depth(a[3,2]), "  This variable contains 4 leaf variables" );
-  echo( "Variable a[3,2,Ha]: ", depth(a[3,2,Ha]), "  This leaf variable has depth 1 (no further variables)" );
+       echo( "Variable a[]   :  ", depth(a[]), "  The entire variable tree" );
+       echo( "Variable a[1]  : ", depth(a[1]), "  Member variable of a[], but has no sub-members" );
+       echo( "Variable a[3]  : ", depth(a[3]), "  This one has sub-members" );
+       echo( "Variable a[3,2]: ", depth(a[3,2]), "  This variable contains 4 leaf variables" );
+       echo( "Variable a[3,2,Ha]: ", depth(a[3,2,Ha]), "  This leaf variable has depth 1 (no further variables)" );

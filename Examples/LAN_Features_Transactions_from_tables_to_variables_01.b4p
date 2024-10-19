@@ -1,16 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals,
-      { { Name,  Leg count, Special ability  },
-        { Owl,   2,         Night vision     },
-        { Dog,   4,         Sensitive nose   },
-        { Ape,   2 or 4,    Relatively smart } } );
+       table initialize( animals,
+               { { Name,  Leg count, Special ability  },
+                 { Owl,   2,         Night vision     },
+                 { Dog,   4,         Sensitive nose   },
+                 { Ape,   2 or 4,    Relatively smart } } );
 
-  animal1[] = "My animal";  
-  animal2[] = "My animal";  
+       animal1[] = "My animal";      
+       animal2[] = "My animal";      
 
-  animal1[] <<=  [ animals: Name, Dog, .. ]; // Pick up entire row
-  animal2[] <<=^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
+       animal1[] <<=  [ animals: Name, Dog, .. ]; // Pick up entire row
+       animal2[] <<=^ [ animals: Name, Ape, {Name, Leg count} ]; // Pick up 2 fields only
 
-  see( animal1[] );
-  see( animal2[] );
-  table list( animals ); // The owl is left over
+       see( animal1[] );
+       see( animal2[] );
+       table list( animals ); // The owl is left over

@@ -1,0 +1,32 @@
+﻿#!/usr/local/bin/b4p
+
+       table load                     ( c1, temp1.csv); // Hide!  Step 3 begins
+       table load                     ( c2, temp2.csv); // Hide!  Step 3 begins
+       table load                     ( country names resolved, temp3.csv);  // Hide!  Step 3 begins
+
+table correct headers           ( c1, { 'Einwohner*', 'Fläche*', Englischer Name }, 
+                                     { Inhabitants,  Area,      Country,        } );
+table keep columns              ( c1, { Country, Area, Inhabitants } );
+table process cells in columns  ( c1, { Area, Inhabitants }, [.] = replace(str([.]) / '.',',','.') );
+// Let's ignore messy data in CHINA and DENMARK (Free text on HK, Macao, Greenland, Faroer Is.)
+
+table keep selected rows        ( c1, is numeric( [Area] ) );
+table process                   ( c1, [Country] = left([Country],' oder ') ); // Remove country name in other language after ' oder'
+table lookup smart ignore case  ( c1, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+
+most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
+
+table delete selected rows      ( c2, [Country]=World );
+table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
+table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
+table keep columns              ( c2, { Country, Continent, Population } );
+table delete selected rows      ( c2, [Country]='*(*)*' );             // Overseas departements with home countries in parentheses
+table lookup smart ignore case  ( c2, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+echo( "Table C1: ");
+table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 columns and first and last 4 rows
+
+       table save                     ( c1, temp1.csv); // Hide!  Step 3 ends
+       table save                     ( c2, temp2.csv); // Hide!  Step 3 ends
+

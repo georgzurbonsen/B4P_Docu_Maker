@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
 
-  table load excel file( table, "Formulas_Inside.xlsx", 0, formulas, formula table);
+       table load excel file( table, "Formulas_Inside.xlsx", 0, formulas, formula table);
 
-  echo("Values: ");
-  table list( table );
+       echo("Values: ");
+       table list( table );
 
-  echo("Formulas: ");
-  table list( formula table );
+       echo("Formulas: ");
+       table list( formula table );
 

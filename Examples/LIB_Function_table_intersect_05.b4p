@@ -1,8 +1,8 @@
 ﻿#!/usr/local/bin/b4p
-      table load( hb, "Table Merge Examples Hillboro.csv");
-      table load( hv, "Table Merge Examples Hillville.csv");
+               table load( hb, "Table Merge Examples Hillboro.csv");
+               table load( hv, "Table Merge Examples Hillville.csv");
 
-      count[] = table intersect exclusive columns( hv, hb, Farmer );
+               count[] = table intersect exclusive columns( hv, hb, Farmer );
 
-      echo("Hilltown is a merger of Hillboro and Hillville (", count[], " rows consolidated):");
-      table list( hb );
+               echo("Hilltown is a merger of Hillboro and Hillville (", count[], " rows consolidated):");
+               table list( hb );

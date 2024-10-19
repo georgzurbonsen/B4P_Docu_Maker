@@ -1,40 +1,40 @@
 ﻿#!/usr/local/bin/b4p
 
-  table load             ( t, "Cities.csv" );
-  themes[]                   = list themes();     // List will also be shown on the screen
+       table load                 ( t, "Cities.csv" );
+       themes[]                   = list themes();     // List will also be shown on the screen
 
 
 
-  //  Plain Vanilla approach
+       //  Plain Vanilla approach
 
-  for all parameters( themes[], theme[], i[] )
-  {
-      table copy table       ( t, theme[] );
-      table style theme      ( theme[], theme[] );
-      table style auto width ( theme[]);
-  }
-  table save excel file( themes[], themes[], "Images\Style_Themes_Examples_1.xlsx" );
-
-
-
-  table style reset;
-  some colors[]              = { burgundy, ocre, forest, navy };
+       for all parameters( themes[], theme[], i[] )
+       {
+           table copy table       ( t, theme[] );
+           table style theme      ( theme[], theme[] );
+           table style auto width ( theme[]);
+       }
+       table save excel file( themes[], themes[], "Images\Style_Themes_Examples_1.xlsx" );
 
 
-  //  Fruits and extra toppings added
 
-  for all parameters( themes[], theme[], i[] ) 
-  {
-      color[]= some colors[]{mod(i[], 4)};
-      table copy table       ( t, theme[] );
-      table style theme      ( theme[], theme[],
-                                      pattern,     2,                                    // Make zebra pattern wider
-                                      table,       "text color, chestnut",
-                                      fill color,  color[],                              // Vary fill colors
-                                      frame,       "{ thick, gray 4 }",                  // Apply a frame around the table
-                                      sheet,       "freeze rows, 1, autofilter, 0" );    // Freeze header, add autofilter feature
-      table style columns    ( theme[], Inhabitants, body, number format, "#,###" );
-      table style auto width ( theme[]);
-  }
-  table save excel file( themes[], themes[], "Images\Style_Themes_Examples_2.xlsx" );
-  echo("Done");
+       table style reset;
+       some colors[]              = { burgundy, ocre, forest, navy };
+
+
+       //  Fruits and extra toppings added
+
+       for all parameters( themes[], theme[], i[] ) 
+       {
+           color[]= some colors[]{mod(i[], 4)};
+           table copy table       ( t, theme[] );
+           table style theme      ( theme[], theme[],
+                                           pattern,     2,                                    // Make zebra pattern wider
+                                           table,       "text color, chestnut",
+                                           fill color,  color[],                              // Vary fill colors
+                                           frame,       "{ thick, gray 4 }",                  // Apply a frame around the table
+                                           sheet,       "freeze rows, 1, autofilter, 0" );    // Freeze header, add autofilter feature
+           table style columns    ( theme[], Inhabitants, body, number format, "#,###" );
+           table style auto width ( theme[]);
+       }
+       table save excel file( themes[], themes[], "Images\Style_Themes_Examples_2.xlsx" );
+       echo("Done");

@@ -1,0 +1,167 @@
+
+
+This text file contains all relevant function descriptions in the "Short Commands Library".
+
+
+B4PDOCU.START
+
+
+"change directory commands" :
+{
+	"Function Names":	[ "chdir", "cd" ],
+	"Documentation":	"Function Description",
+	"Description"::
+		If no parameter is provided: Under Windows, the working directory path is printed out.  Under LINUX and MacOS, the user home directory is chosen.<br>
+		If a directory path is provided: Change to a different working directory<br>
+		Both <b>chdir</b> and <b>cd</b> do exactly the same.
+		<br><br>
+		These functions are ideally suited for interactive use.
+
+		+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0 - 1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "Opt. 1",
+		  "Name": "new path and directory name",
+		  "Direction": "input",
+		  "Types": [ "string" ],
+		  "Description"::
+			This is the path to change directory.
+			* <b>Absolute paths:</b> e.g. "C:\Program Files", "/usr/local/bin"
+			* <b>Relative paths:</b> e.g. "Temp"
+			* <b>One directory back:</b> e.g. ".."
+			* <b>Stay in current working directory</b> e.g. "."
+			* <b>Combinations of above</b> e.g. "..\lib"
+			
+			+++
+		  }
+	],
+	"Exceptions": "Specified working directory does not exist or is not accessible, will be printed out as a short message",
+	"Examples"::
+		include( Short Commands Library );
+		echo( working directory() );
+		cd("..");               	// One directory out
+		echo( working directory() );
+		echo("Jump to ", system info[bin directory] );
+		chdir(system info[bin directory]); // Absolute path
+		echo( working directory() );
+	  +++,
+	"Output": "automatic",
+	"See also": [ "working directory" ]
+},
+
+
+
+"create directory commands" :
+{
+	"Function Names":	[ "mkdir", "md" ],
+	"Documentation":	"Function Description",
+	"Description"::
+		This function creates a new directory with the name provided.
+		Both <b>mkdir</b> and <b>md</b> do exactly the same.
+		<br><br>
+		These functions are ideally suited for interactive use.
+
+		+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "direcory name",
+		  "Direction": "input",
+		  "Types": [ "string" ],
+		  "Description"::
+			Specify the directory name.  If the directory shall be created in a location other than the working directory, then specify the full path.
+			Intermediate sub-directories between existing directories and the location of the new directory will be created automatically, too, so you don't need
+			to call this function for "dir1"; "dir1/dir2", "dir1/dir2/dir3" ... etc.
+			+++
+		}
+	],
+	"Exceptions": "Specified working directory already exist or is not accessible, will be printed out as a short message",
+	"Examples"::
+		include( Short Commands Library );
+		md( My Folder 1 ); // Create 5 directories
+		mkdir( My Folder 2 ); // Create 5 directories
+		if (system info[operating system]=Windows)
+		    system( 'dir /W "My Folder*"' ); // Show directory listing
+		else:
+		    system( "ls 'My Folder'* " ); // Show directory listing
+		rmdir( My Folder 1 );
+		rd( My Folder 2 );
+	  +++,
+	"Output": "automatic",
+	"See also": [ "directory create" ]
+},
+
+
+
+"remove directory commands" :
+{
+	"Function Names":	[ "rmdir", "rd" ],
+	"Documentation":	"Function Description",
+	"Description"::
+		This function removes a directory.  It will only work 
+		Both <b>rmdir</b> and <b>rd</b> do exactly the same.
+		<br><br>
+		These functions are ideally suited for interactive use.
+
+		+++,
+	"Call as":		"procedure",
+	"Parameter count":	"1",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Parameters":
+	[
+		{ "Number": "1",
+		  "Name": "direcory name",
+		  "Direction": "input",
+		  "Types": [ "string" ],
+		  "Description"::
+			Specify the name of an existing and empty directory.
+			+++
+		}
+	],
+	"Exceptions": "Specified working directory does not exist, is not empty or is not accessible, will be printed out as a short message",
+	"Examples"::
+		include( Short Commands Library );
+		md( My Folder 1 ); // Create 5 directories
+		mkdir( My Folder 2 ); // Create 5 directories
+		if (system info[operating system]=Windows)
+		    system( 'dir /W "My Folder*"' ); // Show directory listing
+		else:
+		    system( "ls 'My Folder'* " ); // Show directory listing
+		rmdir( My Folder 1 );
+		rd( My Folder 2 );
+	  +++,
+	"Output": "automatic",
+	"See also": [ "directory delete" ]
+},
+
+
+"pwd working directory command" :
+{
+	"Function Names":	[ "pwd" ],
+	"Documentation":	"Function Description",
+	"Description"::
+		This function prints out the active working directory path.
+		<br><br>
+		This function is ideally suited for interactive use.
+		+++,
+	"Call as":		"procedure",
+	"Parameter count":	"0",
+	"Restrictions":		"Indirect parameter passing is disabled",
+	"Examples"::
+		include( Short Commands Library );
+		pwd;
+	  +++,
+	"Output": "automatic",
+	"See also": [ "working directory" ]
+}
+
+
+
+
+B4PDOCU.STOP

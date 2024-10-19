@@ -1,14 +1,14 @@
 ﻿#!/usr/local/bin/b4p
-  define function ( square root, { { n, numeral } } )
-  {
-      // If the last parameter is 0, then the code up here will be shown and not at the function call.
-      if (n[] < 0) exception( stop, "1st parameter: Negative values are not allowed for square roots", 1 );
-      return( sqrt(n[]) );
-  }
+       define function ( square root, { { n, numeral } } )
+       {
+               // If the last parameter is 0, then the code up here will be shown and not at the function call.
+               if (n[] < 0) exception( stop, "1st parameter: Negative values are not allowed for square roots", 1 );
+               return( sqrt(n[]) );
+       }
 
-  // Main Program
+       // Main Program
 
-  {
-      echo("Try a negative square root.");
-      a[] = square root( -1 );
-  }
+       {
+               echo("Try a negative square root.");
+               a[] = square root( -1 );
+       }

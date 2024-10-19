@@ -1,18 +1,33 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize ( table 1,
-  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+       table initialize ( table 1,
+       { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
 
-  table copy table( table 1, t1 );
-  echo("Keep 2 rows: Bird and Tick:");
-  table keep selected rows( t1, ([Animal]='*i*') ); // Bird, Tick kept
-  table list( t1 ); // Only Dog and Fly are left
+       table copy table( table 1, t1 );
+       echo("Keep 2 rows: Bird and Tick:");
+       table keep selected rows( t1, ([Animal]='*i*') ); // Bird, Tick kept
+       table list( t1 ); // Only Dog and Fly are left
 
-  echo("Dog will also be kept:");
-  table copy table( table 1, t1 );
-  table keep selected rows( t1, ([Animal]='*i*'), 2 ); // Bird, Tick, Dog kept
-  table list( t1 ); // Only Dog and Fly are left
+       echo("Dog will also be kept:");
+       table copy table( table 1, t1 );
+       table keep selected rows( t1, ([Animal]='*i*'), 2 ); // Bird, Tick, Dog kept
+       table list( t1 ); // Only Dog and Fly are left
 
-  echo("Keep animal above Dog and Worm:");
-  table copy table( table 1, t1 );
-  table keep selected rows( t1, ([Animal]='*o*'), 1, -2 ); // Rows above Worm, Dog. Worm is header. Ignore.
-  table list( t1 ); // Only Dog and Fly are left
+       echo("Keep animal above Dog and Worm:");
+       table copy table( table 1, t1 );
+       table keep selected rows( t1, ([Animal]='*o*'), 1, -2 ); // Rows above Worm, Dog. Worm is header. Ignore.
+       table list( t1 ); // Only Dog and Fly are left
+
+
+       echo(new line, "Example with negative row numbers to delete remaining rows");
+       table initialize( t, {Values} );
+
+       echo("Delete from matching row (5) to end of table");
+       [t:Values,..] = {1..12};
+       table delete selected rows( t, [Values]==5, -1 );
+       table list( t );
+
+       echo("Delete from row belpow matching row (5) to 1 line avoe end of table");
+       [t:Values,..] = {1..12};
+       table delete selected rows( t, [Values]==5, -2, 1 );
+       table list( t );
+

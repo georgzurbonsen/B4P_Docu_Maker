@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize ( table,
-  { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
+       table initialize ( table,
+       { { Animal, leg count }, { Worm,  0}, { Bird, 2 }, { Dog, 4 }, { Fly, 6 }, { Tick, 8 } } );
 
-  table process selected rows( 
-      table, ([Animal]=Tick,Bird), 
-      echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
+       table process selected rows( 
+               table, ([Animal]=Tick,Bird), 
+               echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
 
-  echo;
-  table process selected rows( 
-      table, -1, // -1 -> Row 5 (Negative indexing)
-      echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
+       echo;
+       table process selected rows( 
+               table, -1, // -1 -> Row 5 (Negative indexing)
+               echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
 
-  echo;
-  table process selected rows( 
-      table, {1,3,-2},  // -2 -> Row 4 (Negative indexing)
-      echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );
+       echo;
+       table process selected rows( 
+               table, {1,3,-2},  // -2 -> Row 4 (Negative indexing)
+               echo( "row nr.: ", row(),"  Animal: ", [Animal], " has ", [leg count], " legs" ) );

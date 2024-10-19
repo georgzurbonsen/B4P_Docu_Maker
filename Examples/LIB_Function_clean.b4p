@@ -1,20 +1,20 @@
 ﻿#!/usr/local/bin/b4p
-  echo("Demonstrate cleaning up strange UNICODE spaces");
-  a[] = clean( 'ABC&nbsp;&#5760;&#8287; &#12288;DEF' );
+       echo("Demonstrate cleaning up strange UNICODE spaces");
+       a[] = clean( 'ABC&nbsp;&#5760;&#8287; &#12288;DEF' );
 
-  print( a[], "  - Char codes: " );
-  for (i[] = 0, i[] < a[]{}, i[] ++) print( code(a[]{i[]})," " );
-  echo(new line);
+       print( a[], "  - Char codes: " );
+       for (i[] = 0, i[] < a[]{}, i[] ++) print( code(a[]{i[]})," " );
+       echo(new line);
 
-  echo("Cleaning up strange UNICODE line breaks");
-  b[] = clean( 'ABC&#12;&#10;&#8232;DEF' );
+       echo("Cleaning up strange UNICODE line breaks");
+       b[] = clean( 'ABC&#12;&#10;&#8232;DEF' );
 
-  print( b[], "  - Char codes: " );
-  for (i[] = 0, i[] < a[]{}, i[] ++) print( code(b[]{i[]})," " );
-  echo(new line);
+       print( b[], "  - Char codes: " );
+       for (i[] = 0, i[] < a[]{}, i[] ++) print( code(b[]{i[]})," " );
+       echo(new line);
 
 
-  echo("Mixed technique: put it all into a parameter set");
-  c[] = {'Test',123, 'ABC&nbsp;&#5760;&#8287; &#12288;DEF', { 'X&nbsp;Y', 'A&#12;B'},'ABC&#12;&#10;&#8232;DEF' };
-  c[] = clean( c[] );
-  echo(c[]);
+       echo("Mixed technique: put it all into a set");
+       c[] = {'Test',123, 'ABC&nbsp;&#5760;&#8287; &#12288;DEF', { 'X&nbsp;Y', 'A&#12;B'},'ABC&#12;&#10;&#8232;DEF' };
+       c[] = clean( c[] );
+       echo(c[]);

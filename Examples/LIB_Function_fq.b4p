@@ -1,6 +1,8 @@
 ﻿#!/usr/local/bin/b4p
-  date[] = "2022-05-01";
-  echo( "Date is ", date[] );
+       date[] = "2022-05-01";
+       echo( "Date is ", date[] );
 
-  for (month[]=1, month[]<=12, month[]++ )
-      echo( "Year ending in ", str( date(2022,month[],1),"Mmmm" ), ": ", fq( date[], month[] ) );
+       for (month[]=1, month[]<=12, month[]++ )
+           echo( "Year ending in ", str( date(2022,month[],1),"Mmmm" ), ": ", fq( date[], month[] ) );
+       
+       echo( fy( { 31.12.2023, 01.01.2023, 06.01.2023 }, 3 ) );  // Vectorization exmaple

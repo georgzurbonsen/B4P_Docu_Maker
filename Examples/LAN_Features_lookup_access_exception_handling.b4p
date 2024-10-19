@@ -1,15 +1,15 @@
 ﻿#!/usr/local/bin/b4p
 
-  table load( table, "Cities.csv" );
+       table load( table, "Cities.csv" );
 
-  table keep columns( table, { City, Famous attraction, Moving along} );
+       table keep columns( table, { City, Famous attraction, Moving along} );
 
-  table configure( table, row not found, header row );
-  echo( [ table : City, Boston   , Moving along]  ); // 'Walking'
-  echo( [ table : City, New Haven, Moving along]  ); // 'Moving along' (Header row)
-  echo;
+       table configure( table, row not found, header row );
+       echo( [ table : City, Boston   , Moving along]  ); // 'Walking'
+       echo( [ table : City, New Haven, Moving along]  ); // 'Moving along' (Header row)
+       echo;
 
-  table configure( table, row not found, new row );
-  [ table : City, Kiruna, Moving along ] = Cross Country Skis; // Adds new row
+       table configure( table, row not found, new row );
+       [ table : City, Kiruna, Moving along ] = Cross Country Skis; // Adds new row
 
-  table list( table, 1st row, -3 ); // List last 3 rows
+       table list( table, 1st row, -3 ); // List last 3 rows

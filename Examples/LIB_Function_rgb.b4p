@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
-  a[0] = navy;
-  a[1] = {0,0,128};
-  a[2] = "#000080";
-  a[3] = "gnu not a color";
+       a[0] = navy;
+       a[1] = {0,0,128};
+       a[2] = "#000080";
+       a[3] = "gnu not a color";
 
-  for all variables( a[], value[], i[] )
-  {
-      msg[] = rgb( value[] );
-      echo(i[], ": ", value[], ",  Message: ", msg[] );
-  }
+       for all variables( a[], value[], i[] )
+       {
+           msg[] = rgb( value[] );
+           echo(i[], ": ", value[], ",  Message: ", msg[] );
+       }

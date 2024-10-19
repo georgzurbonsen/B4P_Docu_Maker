@@ -1,22 +1,19 @@
 ﻿#!/usr/local/bin/b4p
-  coord[A1] = { 0, 0 };
-  coord[B]  = { 1 };
-  coord[Z10]  = { 25, 9 };
-  coord[AA4]  = { 26, 3 };
-  coord[AZ4]  = { 51, 3 };
-  coord[BA14]  = { 52, 13 };
-  coord[ZZ]    = { 701 };
-  coord[AAA]   = { 702 };
-  coord[XFD1048576]   = { 16383, 1048575 };
-
-  for all variables( coord[], val[], i[], name[] )
-  {
-      coord[] = excel coordinates( val[] ); // Makes use of indirect parameter passing
-      echo("Input {col,row}: ", val[], "  Result: ", coord[], " (Expected: ", name[], ")" );
-  }
+       coord[A1] = { 0, 0 };
+       coord[B]  = { 1 };
+       coord[Z10]  = { 25, 9 };
+       coord[AA4]  = { 26, 3 };
+       coord[AZ4]  = { 51, 3 };
+       coord[BA14]  = { 52, 13 };
+       coord[ZZ]    = { 701 };
+       coord[AAA]   = { 702 };
+       coord[XFD1048576]   = { 16383, 1048575 };
 
 
-  echo( new line, "Apply the function with 0 parameters on a table:" );
-  table initialize ( blank table, {{ Name, Age }, { Zoe, 30 }, { Nic, 40 }} );
+       for all variables( coord[], val[], i[], name[] )
+       {
+               coord[] = excel coordinates( val[]{0}, val[]{1} );
+               echo("Input {col,row}: ", val[], "  Result: ", coord[], " (Expected: ", name[], ")" );
+       }
+       echo( "Vectorization: ", excel coordinates( {1,2,3}, {2,4,6} ) );
 
-  table process cells( blank table, echo( "Row: ", row(), "  Column: ", col(), "  Value: ", [.], "  Excel coordinates: ", excel coordinates() ) );

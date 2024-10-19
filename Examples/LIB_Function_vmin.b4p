@@ -1,0 +1,32 @@
+﻿#!/usr/local/bin/b4p
+a[] = { { 1, 2, 3 }, { 6, 5, 4 }};
+b[] = { { 4, 2, 0 }, { 1, 3, 5 }};
+s[] = { Hello, Ahoi, He, Huh };
+t[] = { Hallo, Ho,   Hi, Hey };
+
+echo( new line, "vmin:");
+echo( vmin( 1, 2 ) ); // The simple way
+echo( vmin( a[], b[] ) );
+echo( vmin( a[], 3 ) );
+echo( vmin( a[], {{ 2, 1, 4 }, 5 } ) );
+echo( vmin( s[], t[] ) );
+echo( vmin( {10.02.2024, 02.08.2024}, {11.02.2024,01.08.2024} ) );
+echo( vmin( {true, false}, {false, true} ) );
+
+echo( new line, "vmax:");
+echo( vmax( 1, 2 ) ); // The simple way
+echo( vmax( a[], b[] ) );
+echo( vmax( a[], 3 ) );
+echo( vmax( a[], {{ 2, 1, 4 }, 5 } ) );
+echo( vmax( {10.02.2024, 02.08.2024}, {11.02.2024,01.08.2024} ) );
+echo( vmax( {true, false}, {false, true} ) );
+
+a[] = { 100, "100", 30,   5, abc, Text };
+b[] = { 2,   "2",   200, 05, DEF, ''   };
+
+echo(new line, "Comparing ", a[], " with ", b[] );
+echo( "vmin abc: ", vmin abc( a[], b[] ), ' ignore case: ', vmin abc ignore case( a[], b[] ) );
+echo( "vmax abc: ", vmax abc( a[], b[] ), ' ignore case: ', vmax abc ignore case( a[], b[] ) );
+echo( "vmin 123: ", vmin 123( a[], b[] ) );
+echo( "vmax 123: ", vmax 123( a[], b[] ) );
+

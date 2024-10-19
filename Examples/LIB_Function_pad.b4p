@@ -1,0 +1,27 @@
+﻿#!/usr/local/bin/b4p
+       echo("Pad up to reach 20 characters:");
+       echo( "'", pad  ( "Hello Wörld", 20, "" ),"'");
+       echo( "'", align( "Hello Wörld", 20 ),"'");
+       echo( "'", pad  ( "Hello Wörld", 20, '_€__' ),"'");
+       echo( "'", align( "Hello Wörld", 20, Café ),"'");
+       echo( "'", pad right  ( "Hello Wörld", 20, "" ),"'");
+       echo( "'", align right( "Hello Wörld", 20 ),"'");
+       echo( "'", pad right  ( "Hello Wörld", 20, '_€__' ),"'");
+       echo( "'", align right( "Hello Wörld", 20, Café ),"'");
+
+       echo("Align to 8 characters:");
+       echo( "'", pad  ( "Hello Wörld", 8 ),"'");
+       echo( "'", align( "Hello Wörld", 8 ),"'");
+       echo( "'", pad  ( "Hello Wörld", 8, '_€__' ),"'");
+       echo( "'", align( "Hello Wörld", 8, Café ),"'");
+
+       echo("Align to 8 characters, pad: Show overflow:");
+       echo( "'", pad  ( "Hello Wörld", 8, '.', '###' ),"'");
+       echo( "'", align( "Hello Wörld", 8, '.','###' ),"'");
+       echo( "'", pad  ( "Hello Wörld", 8, '_€__', '###' ),"'");
+       echo( "'", align( "Hello Wörld", 8, Café, '###' ),"'");
+
+       echo("Vectorization:");
+       a[] = { "Hi", "Hello", "Ahoi" };
+       echo( pad  ( a[], 3, '.', '###' ) );
+       echo( align( a[], 3, '.', '###' ) );

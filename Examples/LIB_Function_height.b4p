@@ -1,5 +1,5 @@
 ﻿#!/usr/local/bin/b4p
-      echo( "Height 1  = ",  height ( 123.45 ) );
-      echo( "Height 2  = ",  height ( { One element, With line break + new line } ) ); // Height = 2
-      echo( "Height 3  = ",  height ( compose( Hello, new line, Everyone, new line, "!!!" ) ) );
+               echo( "Height 1  = ",  height ( 123.45 ) );
+               echo( "Height 2  = ",  height ( { One element, With line break + new line } ) ); // Height = 2
+               echo( "Height 3  = ",  height ( compose( Hello, new line, Everyone, new line, "!!!" ) ) );
 

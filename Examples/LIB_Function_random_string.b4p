@@ -1,5 +1,6 @@
 ﻿#!/usr/local/bin/b4p
-  for (i[] = 1, i[] <= 5, i[]++)
-  {
-      echo( random string( 10 ), " ", random letters( 10 ) );
-  }
+       for (i[] = 1, i[] <= 5, i[]++)
+       {
+               echo( random string( 10 ), " ", random letters( 10 ) );
+       }
+       echo( random string( 5, 5 ) ); // 5 strings returned in a set

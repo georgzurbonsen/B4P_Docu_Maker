@@ -1,39 +1,39 @@
 ﻿#!/usr/local/bin/b4p
-  echo(new line, "Processing 2 vectors of equal sizes:");
-  a[] = {1..6};  b[] = 7 -^ a[];                  // Output: b[] contains {6,5,4,3,2,1}
+       echo(new line, "Processing 2 vectors of equal sizes:");
+       a[] = {1..6};  b[] = 7 -^ a[];                  // Output: b[] contains {6,5,4,3,2,1}
 
-  echo( deep ( sum, {a[], b[]} ) );               // {7,7,7,7,7,7}
-  echo( deepr( sum, {a[], b[]} ) );               // {7,7,7,7,7,7}
+       echo( deep ( sum, {a[], b[]} ) );               // {7,7,7,7,7,7}
+       echo( deepr( sum, {a[], b[]} ) );               // {7,7,7,7,7,7}
 
-  echo(new line, "Processing 1 vector and 1 scalar:");
-  a[] = {1..6};                                   // Output:
-  echo( deep( sum, {a[], 10} ) );                 // {11,12,13,14,15,16}, same also for deepr
-  echo( deep( sum, {20, a[]} ) );                 // {21,22,23,24,25,26}, same also for deepr
+       echo(new line, "Processing 1 vector and 1 scalar:");
+       a[] = {1..6};                                   // Output:
+       echo( deep( sum, {a[], 10} ) );                 // {11,12,13,14,15,16}, same also for deepr
+       echo( deep( sum, {20, a[]} ) );                 // {21,22,23,24,25,26}, same also for deepr
 
 
-  echo(new line, "Processing with 2 vectors of different sizes:", new line,
-                 "Shorter vectors are extended to match length of longest one:");
-  a[] = {1..6};  b[] = {10,20};                   // Output:
+       echo(new line, "Processing with 2 vectors of different sizes:", new line,
+                                  "Shorter vectors are extended to match length of longest one:");
+       a[] = {1..6};  b[] = {10,20};                   // Output:
 
-  echo( deep ( sum, {a[], b[]} ) );               // {11,22,3,4,5,6}  (shorter vector padded with 0)
-  echo( deep ( sum, {a[], b[]}, 1, 0) );          // {11,22,3,4,5,6}  (shorter vector padded with 0)
-  echo( deep ( sum, {a[], b[]}, 1, 1) );          // {11,22,4,5,6,7}  (shorter vector padded with 1)
-  echo( deepr( sum, {a[], b[]} ) );               // {11,22,13,24,15,26} (shorter vector repeated)
+       echo( deep ( sum, {a[], b[]} ) );               // {11,22,3,4,5,6}  (shorter vector padded with 0)
+       echo( deep ( sum, {a[], b[]}, 1, 0) );          // {11,22,3,4,5,6}  (shorter vector padded with 0)
+       echo( deep ( sum, {a[], b[]}, 1, 1) );          // {11,22,4,5,6,7}  (shorter vector padded with 1)
+       echo( deepr( sum, {a[], b[]} ) );               // {11,22,13,24,15,26} (shorter vector repeated)
 
-  echo( deep ( product, {a[], b[]} ) );           // {10,40,0,0,0,0}
-  echo( deep ( product, {a[], b[]}, 1, 0 ) );     // {10,40,0,0,0,0}
-  echo( deep ( product, {a[], b[]}, 1, 1 ) );     // {10,40,3,4,5,6}
-  echo( deepr( product, {a[], b[]} ) );           // {10,40,30,80,50,120}
+       echo( deep ( product, {a[], b[]} ) );           // {10,40,0,0,0,0}
+       echo( deep ( product, {a[], b[]}, 1, 0 ) );     // {10,40,0,0,0,0}
+       echo( deep ( product, {a[], b[]}, 1, 1 ) );     // {10,40,3,4,5,6}
+       echo( deepr( product, {a[], b[]} ) );           // {10,40,30,80,50,120}
 
-  echo(new line, "Example with 3 vectors of different sizes:");
-  a[]={1}; b[]={10,11}; c[]={100,101,102};        // Output
-  echo( deep ( sum, {a[],b[],c[]} ) );            // {111,112,102}
-  echo( deep ( sum, {a[],b[],c[]}, 1, 1 ) );      // {111,113,104}
-  echo( deepr( sum, {a[],b[],c[]} ) );            // {111,113,113}
+       echo(new line, "Example with 3 vectors of different sizes:");
+       a[]={1}; b[]={10,11}; c[]={100,101,102};        // Output
+       echo( deep ( sum, {a[],b[],c[]} ) );            // {111,112,102}
+       echo( deep ( sum, {a[],b[],c[]}, 1, 1 ) );      // {111,113,104}
+       echo( deepr( sum, {a[],b[],c[]} ) );            // {111,113,113}
 
-  echo(new line, "Example with 2-dimensional Vectors:");
-  a[] = {{1..5},{11..15},{21..25}};
-  b[] = a[]*^^2;                                  // b[] contains {{2,4,6,8,10},… } all values doubled
-  echo( deep( sum, {a[], 1}, 2 ) );               // {{2,3,4,5,6},{12,13,14,15,16},{22,23,24,25,26}}
-  echo( deep( sum, {a[], {1,2,3}},2 ) );          // {{2,3,4,5,6},{13,14,15,16,17},{24,25,26,27,28}}
-  echo( deep( sum, {a[],b[]}, 2) );               // {{3,6,9,12,15},{33,36,39,42,45},{63,66,69,72,75}}
+       echo(new line, "Example with 2-dimensional Vectors:");
+       a[] = {{1..5},{11..15},{21..25}};
+       b[] = a[]*^^2;                                  // b[] contains {{2,4,6,8,10},… } all values doubled
+       echo( deep( sum, {a[], 1}, 2 ) );               // {{2,3,4,5,6},{12,13,14,15,16},{22,23,24,25,26}}
+       echo( deep( sum, {a[], {1,2,3}},2 ) );          // {{2,3,4,5,6},{13,14,15,16,17},{24,25,26,27,28}}
+       echo( deep( sum, {a[],b[]}, 2) );               // {{3,6,9,12,15},{33,36,39,42,45},{63,66,69,72,75}}

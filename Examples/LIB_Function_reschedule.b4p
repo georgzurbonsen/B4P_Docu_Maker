@@ -1,10 +1,11 @@
 ﻿#!/usr/local/bin/b4p
-      echo( reschedule ( "2011-12-24", -1, days )); //  2011-12-23
-      echo( reschedule ( "2012-01-31", 1, month )); //  2012-02-29
-      echo( reschedule ( "2011-12-06", end, month )); // 2011-12-31
-      echo( reschedule ( "2011-03-04", next, week)); //  2011-03-11
-      echo( reschedule ( "2011-03-04", day, 5)); //  2011-03-05
-      echo( reschedule ( "2012-12-31", next, week, end, week)); // 2013-01-13
-      echo( reschedule ( "2011-03-04", week, 25)); //  2011-06-20
-      echo( reschedule ("", 1, day)); //        Returns blank date
-      echo( reschedule ( now, time, "15:30" )); //    Changes time to 15:30.
+               echo( reschedule ( "2011-12-24", -1, days )); //  2011-12-23
+               echo( reschedule ( "2012-01-31", 1, month )); //  2012-02-29
+               echo( reschedule ( "2011-12-06", end, month )); // 2011-12-31
+               echo( reschedule ( "2011-03-04", next, week)); //  2011-03-11
+               echo( reschedule ( "2011-03-04", day, 5)); //  2011-03-05
+               echo( reschedule ( "2012-12-31", next, week, end, week)); // 2013-01-13
+               echo( reschedule ( "2011-03-04", week, 25)); //  2011-06-20
+               echo( reschedule ("", 1, day)); //            Returns blank date
+               echo( reschedule ( now, time, "15:30" )); //    Changes time to 15:30.
+               echo( reschedule ( {now, "2011-03-04"} , time, "15:30" ));  // Vectorization

@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
-  values[] = { 0, 11, 22, 33, 44, 55, 66, 77, 88, 99 };
-  a[] = This is the base variable;
+       values[] = { 0, 11, 22, 33, 44, 55, 66, 77, 88, 99 };
+       a[] = This is the base variable;
 
-  array( a[], values[] );
-  blank[] = {x,Blank};
+       array( a[], values[] );
+       blank[] = {x,Blank};
 
-  insert members( a[], 2, 3, 'Hi!' );
-  insert members( a[], 3, 2, '2xHo!', prevent deleting );
+       insert members( a[], 2, 3, 'Hi!' );
+       insert members( a[], 3, 2, '2xHo!', prevent deleting );
 
-  see(a[]);
+       see(a[]);

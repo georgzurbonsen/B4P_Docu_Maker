@@ -1,0 +1,38 @@
+﻿#!/usr/local/bin/b4p
+
+echo("1-dimensional histogram:", new line);
+
+values[]       = { 0, -1, b,c,'',3.5, 4.5, 4.5, 5, 5.5, 5.5, 6, 7, 8, 12 };
+bins[]         = { 0 .. 2 .. 10 };
+echo("Input values: ", values[], new line );
+
+a[]            = histogram( values[], bins[], '>=' );
+b[]            = histogram( values[], bins[], '>' );
+
+bins a[]       = {'<0' } + bins[] + { 'n/a' };
+bins b[]       = {'<0' } + ( '>' +^ vstr(bins[]) ) + { 'n/a' };
+
+print matrix   ("0", 3, "|", ">= case: ", bins a[], a[], "   > case: ", bins b[], b[] );
+
+echo(new line, "2-dimensional histograms:", new line);
+
+values 1[]     = { 1,  1.5, 2,   2.5, 2.6,  3, ''   };
+values 2[]     = { 5,  9,   10, 11,   20,  10, 20   };
+echo("Input values 1: ", values 1[] );
+echo("Input values 2: ", values 2[], new line );
+
+bins 1[]       = { 0..5 };
+bins 2[]       = { 0..10..20 };
+
+a[]            = histogram( { values 1[], values 2[] }, { bins 1[], bins 2[] }, '>=' );
+b[]            = histogram( { values 1[], values 2[] }, { bins 1[], bins 2[] }, '>'  );
+
+bins 1a[]      = {Bins, '<0'  } + bins 1[] + { 'n/a' };
+bins 1b[]      = {Bins, '<=0' } + ( '>' +^ vstr(bins 1[]) ) + { 'n/a' };
+bins 2a[]      = { '<0'  } + bins 2[] + { 'n/a' };
+bins 2b[]      = { '<=0' } + bins 2[] + { 'n/a' };
+
+a[]            = {bins 2a[]} + a[]; // Before outputting as matrix, add bin legend to the top
+b[]            = {bins 2b[]} + b[]; // "
+
+print matrix( "0", 4, "|", ">= case: ", bins 1a[], a[], "   > case: ", bins 1b[],  b[] );

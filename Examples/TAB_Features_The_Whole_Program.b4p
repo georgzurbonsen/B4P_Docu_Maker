@@ -1,0 +1,132 @@
+﻿#!/usr/local/bin/b4p
+
+// Part 1: Import
+
+file download overwrite         ( "https://de.wikipedia.org/wiki/Liste_der_Staaten_der_Erde", countries 1.html );
+table load                      ( c1, countries 1.html, HTML, "international gebr" );
+
+file download overwrite         ( "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)", countries 2.html );
+table load                      ( c2, countries 2.html, HTML, "mid-year estimates" );
+
+table initialize                ( country names resolved,
+                                { { Country Name Pattern,              Country Name to use },
+                                  { 'Gambia*',                         Gambia },
+                                  { 'Congo*Democratic*,DR*Congo',      'Congo (DR)' },
+                                  { 'Congo,Congo*Brazzaville*',        'Congo (Brazzaville)' },
+                                  { 'Lao*',                            Laos },
+                                  { 'Korea*Democratic*,North Korea',   'Korea (North)' },
+                                  { 'Korea*Republic*,South Korea',     'Korea (South)' },
+                                  { 'Micronesia*',                     Micronesia },
+                                  { 'Brunei*',                         Brunei },
+                                  { 'Türkiye',                         Turkey } } );
+
+// Part 2: Clean
+
+table clean                     ( c1 );
+table delete selected rows      ( c1, [0]='',Erde );           // Remove blank and summary rows
+table process all cells         ( c1, [.] = left( [.], '[' ) );        // Remove cited references
+table delete rows               ( c1, -1 );                    // Delete last row (bottom header row - repeated)
+
+table clean                     ( c2, trim spaces );
+table delete selected rows      ( c2, [0]='',World );          // Remove blank and summary rows
+table process all cells         ( c2, [.] = left( [.], '[' ) );        // Remove cited references
+
+
+// Part 3: Validate
+
+table correct headers           ( c1, { 'Einwohner*', 'Fläche*', Englischer Name }, 
+                                     { Inhabitants,  Area,      Country,        } );
+table keep columns              ( c1, { Country, Area, Inhabitants } );
+table process cells in columns  ( c1, { Area, Inhabitants }, [.] = replace(str([.]) / '.',',','.') );
+// Let's ignore messy data in CHINA and DENMARK (Free text on HK, Macao, Greenland, Faroer Is.)
+
+table keep selected rows        ( c1, is numeric( [Area] ) );
+table process                   ( c1, [Country] = left([Country],' oder ') ); // Remove country name in other language after ' oder'
+table lookup smart ignore case  ( c1, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+
+most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
+
+table delete selected rows      ( c2, [Country]=World );
+table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
+table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
+table keep columns              ( c2, { Country, Continent, Population } );
+table delete selected rows      ( c2, [Country]='*(*)*' );             // Overseas departements with home countries in parentheses
+table lookup smart ignore case  ( c2, Country, Country, country names resolved, Country Name Pattern, Country Name to use );
+
+
+// Part 4: Merge
+
+table merge extend columns      ( c2, c1, Country );
+table delete selected rows      ( c1, [Continent]='' ); // Questionable countries
+
+// Part 5: Augment
+
+[c1:Country,{China,Denmark},Area] = {9597000,42952}; // km2  (Denmark without Greenland, and CN without China South Sea)
+
+table insert columns            ( c1, { Inhabitants Variation, Inhabitants per km2 } );
+table process selected rows     ( c1, [Inhabitants] == '', [Inhabitants] = [Population]);
+table process                   ( c1, [Inhabitants per km2]   = [Inhabitants] / [Area];
+                                      [Inhabitants Variation] = ([Inhabitants] - [Population])/[Inhabitants] );
+
+
+// Part 6: Analyze
+
+// Create a histogram distribution across number of inhabitants and density
+
+intervals[inhabitants]          
+  = {  1000000, 2000000, 5000000, 10000000, 20000000, 50000000, 100000000, 200000000, 500000000, 1000000000 };
+intervals[density]              = { 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000 };
+intervals[]                     = { intervals[inhabitants], intervals[density] }; // Combine them in 1 set
+
+table histogram                 ( c1, histo, {Population,Inhabitants per km2}, intervals[] );
+table process selected rows     ( histo, is numeric([Intervals]), [Intervals] = ">=" + str([Intervals], "#,##0", local ) );
+table process selected columns  ( histo, 0, is numeric([.]), [.] = ">=" + str([.], "#,##0", local ) );
+
+// Remove the 'Others' as not needed.
+
+table delete columns           ( histo, Others );
+table delete selected rows     ( histo, [Intervals]=Others );
+
+// Provide consolidated info by continent
+
+table copy table                ( c1, c2 );
+table consolidate               ( c2, Continent, { Area, Population}, sum); // Consolidate by continent
+table process                   ( c2, [Inhabitants per km2]   = [Inhabitants] / [Area];
+                                      [Inhabitants Variation] = ([Inhabitants] - [Population])/[Inhabitants];
+                                      [Country] = "All countries in " + [Continent] );
+for all ( {c1, c2}, table[])   table delete columns( table[], Inhabitants);
+table merge                     ( c2, c1 );
+
+
+// Part 7: Format
+
+table sort selected rows        ( c1, [Country]{0..3}!="All ", Country ); // Ensure ascending order in English
+
+table style auto width          ( c1 );
+table style columns             ( c1, Area, sheet, column width, 16 );
+table style columns             ( c1, {Area, Population},    table, number format, "#,##0");
+table style columns             ( c1, Inhabitants Variation, table, number format, "0.00%");
+table style columns             ( c1, Inhabitants per km2,   table, number format, "#,##0.00");
+table style table               ( c1, sheet, freeze rows, 1, autofilter, 0 );
+table style rows                ( c1, 0, table, boldface, true );
+
+table style table               ( histo, sheet, column width, 10 );
+table style columns             ( histo, 0, sheet, column width, 20, boldface, true );
+table style rows                ( histo, 0, table, boldface, true, row height, 30 );
+table style cells               ( histo, 0, 0, single, wrap text, true );
+
+table process cells             ( histo, if (col()>0)
+                                  {
+                                      shade[] = limit(255-10*[.],0,255);
+                                      table style cells( histo, col(), row(), single, fill color, {shade[],255,shade[]});
+                                  } );
+
+
+// Part 8: Export
+
+table save excel file            ( {c1, histo}, {Countries, Histogram}, Result.xlsx );
+echo                             ( "The histogram");
+table list                       ( histo );    
+
+

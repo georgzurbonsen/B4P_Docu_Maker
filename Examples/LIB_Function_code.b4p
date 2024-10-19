@@ -1,7 +1,8 @@
 ﻿#!/usr/local/bin/b4p
-      echo( code( 'Café 4.0 €' ) ); // C
-      echo( code( 'Café 4.0 €', 3 ) ); // é
-      echo( code( 'Café 4.0 €', -1 ) ); // €
-      echo( code( 'Café 4.0 €', 99 ) ); // -1 (out of bounds)
-      echo( code( '&#119070;' ) ); // Violin clef
-      echo( code( '' ) ); // 0 returned
+               echo( code( 'Café 4.0 €' ) ); // C
+               echo( code( 'Café 4.0 €', 3 ) ); // é
+               echo( code( 'Café 4.0 €', -1 ) ); // €
+               echo( code( 'Café 4.0 €', 99 ) ); // -1 (out of bounds)
+               echo( code( '&#119070;' ) ); // Violin clef
+               echo( code( '' ) ); // 0 returned
+               echo( code( characters(Café) ) ); // Vectorization example

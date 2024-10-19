@@ -1,0 +1,120 @@
+-//
+B4PDOCU.START
+
+
+"Release History" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release History" ],
+
+    "Description 01:Overview"::
+	The roots of B4P date back to 2007 when the first C/C++ object class library has been developed to process
+	tables, but the solutions were still coded in C/C++.  The first version of the B4P language appeared in 2013,
+	following a series of improvments and extensions aiming to solve any form of business and analytical problems
+	involving big data.
+
+	<br><br>
+	The updates made in the most recent releases are summarized in the following subsections.
+	+++
+
+},
+
+
+"Release 11.00" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 11.00 Jørn Utzon" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 11.00, updated 2024-10-20, "Jørn Utzon"</b><br>
+	<i>Architect of the Sydney Opera House inaugurated and opened on 20.10.1973 by Queen Elizabeth II</i>
+
+    "Description 02:Bugfixes"::
+
+	* Color code for 'dark blue' used in entitites returned light blue.  Has been fixed.
+	* Outputting blank dates will alway be an empty string.  In the past, "0000-00-00" was occasionally returned.
+	* __table save excel file(__): Did not format any Excel sheet if the 1st shet contains no formatting info.  Resolved.
+	* __table load excel file(__): If Excel table is empty, an error message was generated in the past.  Has been resolved.
+	* __table load excel file(__): Entities were displayed on ampersand, greater and less than symbols for calculated string contents.  Has been fixed.
+	* __table load excel file(__): Missed time of day in some date formats.  Fixed.
+	* __table load excel file(__): Under certain conditions, some dates are read as integers.  Fixed.
+	* Error messages: Location of indentation of contents with marker where the error is assumed was not always correct
+	* Error messages: Association to type of code was sometimes wrong. Has been fixed
+	* __Ranges__: Ranges between 2 non-numeric values did not work, e.g.  <b>{a .. a }</b> -&gt; <b>{a}</b>. Has been resolved
+	* __table merge(__) function family: If source table is wider than destination table, the consolidation actions are ignored.  Fixed.
+	* __str(__): When calling to convert numbers into formatted text, the option 'swiss' is now supported for Swiss 1000 separators
+
+    "Description 03:New Functions"::
+
+	* __flip horizontally(__), flip vertically(__): Flips matrices
+	* __rotate left(__), rotate right(__): Rotates matrices
+	* __table flip rows(__), __table flip columns(__), __table flip selected rows(__)
+	* __table flip horizontally(__), table flip vertically(__)
+	* __table rotate left(__), __table rotate right(__)
+	* __identity(__): Returns identiy matrix of specified size
+	* __characters(__): Splits string into set of characters
+	* <b>for all parameters</b>() is replaced by __for all(__)
+	* __repeat(__): A simple loop function
+	* __for all characters(__): Loops through characters in a string
+	* __table insert cells in columns(__), __table insert cells selected rows(__)
+	* __cbrt(__): Cube root
+	* __histogram(__): Creates one- and multi-dimensional histograms
+	* __table assign(__): Allows assigning values into multiple table entries in a single statement
+	* __print matrix(__), __compose matrix(__), echo_matrix(__): Outputs 2-dimensional sets as matrices onto the console
+	* __pad(__), __align(__) and additional string functions
+	* __vmin(__), vmax(__): Vectorizable min and max functions
+	* __limit(__): Squeezes the numeric value into given lower and upper boundaries
+	* __include if(__), __include if any(__): Filters out the set with matches on other parameters, columns, etc.
+	* __table find cells(__) function family
+	* __table write cells(__) function family
+	* __table read cells(__) function family
+	* __table write cells(__) function family
+	* __table replace cells(__) function family
+	* __table add calculated columns(__), __table insert calculated columns(__) are smart variants of __table insert columns(__).
+	* __replace if(__): Replaces values if condition is true.  This function is vectorizable and the condition check is done for every element covered.
+
+    "Description 04:Improvements in Existing Functions"::
+
+	* Function __reschedule(__): Added options like "Next Monday", "This Monday", "Previous Monday"; applicable for all weekdays
+	* __table delete selected rows(__): Supports negative numbers.  If -1 is chosen, then delete rest of table (... and stop). 
+	* __assign(__): Allows assigning a value or expression into mulitple variables in a single statement
+	* <b>set</b>() renamed to __variable members(__) to make function namings more plausible
+	* <b>set names</b>() changed to __variable names(__) to make function namings more plausible
+	* <b>parameter set</b>() changed to __set(__) to make function namings more plausible
+	
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	* __Vectorization__: Ability to pass sets of values (such as vectors, matrices, etc.) into various mathematical, string and other functions for powerful execution
+
+
+    "Description 06:Other new Features"::
+
+	* Improved web documentation
+	* B4P Extension available for Visual Studio Code
+
+    "Description 07:Clean-ups and Streamlining"::
+
+	* Implementation of the function __reschedule(__) has been cleaned up.
+
+
+    "Description 08:Performance Improvements"::
+
+	* Function calls returning sets with large contents run faster
+
+
+    "Description 09:Depreciated and retired features"::
+
+	* <b>for all parameters</b>() is replaced by __for all(__)
+
+
+
+	+++
+
+}
+
+
+
+
+B4PDOCU.STOP

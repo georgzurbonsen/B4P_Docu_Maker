@@ -4,6 +4,7 @@
 	book[LIB] = "Function Library Guide";
 	book[LAN] = "Language Guide";
 	book[GUI] = "User Guide";
+	book[TAB] = "Tables and Big Data";
 	book[MAS] = "Master Document";
 	book[IDX] = "Index";
 
@@ -26,14 +27,14 @@
 
 	table process 			( toc, all keywords[] += tokenize( [Keywords], {}, "," ); all features[] += tokenize( [Feature Names], {}, "," ) );
 
-	table process 			( toc, [Keywords] = join( trim(parameter set([Feature Names]) | parameter set([Keywords])), "," );
-						[Feature Names] = parameter set([Keywords]){} );
+	table process 			( toc, [Keywords] = join( trim(set([Feature Names]) | set([Keywords])), "," );
+						[Feature Names] = set([Keywords]){} );
 	table rename column headers	( toc, Feature Names, Keyword Count );
 
 	table process			( toc, [Section Nr] = replace all( [Section Nr], '.0','.' ) );
 
 	table insert selected rows	( toc, true /* all */, [Keyword Count]-1, { Section Nr, Section Name, Keywords, HTML File Name }, Keyword Count );
-	table process			( toc, [Keywords] = parameter set([Keywords]){[Keyword Count]} );
+	table process			( toc, [Keywords] = set([Keywords]){[Keyword Count]} );
 	table delete columns		( toc, Keyword Count );
 
 	table delete selected rows	( toc, [Section Nr]=='' | [HTML File Name]=='' | [Keywords] = '','(*)' );

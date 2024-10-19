@@ -1,16 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( primes, 
-    { Number, 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello } );
+       table initialize( primes, 
+         { Number, 2, 3, 5, 7, 10, 11, 13, 17, 23, 31, 37, A, a, Hello } );
 
-  table process selected rows( primes, ([Number]=11,37),   echo( [Number],": ", "is 11 or 37" ) );
-  table process selected rows( primes,  [Number]==13,      echo( [Number],": ", "thirteen" ) );
-  table process selected rows( primes, ([Number]='H*'),    echo( [Number],": ", "Begins with H" ) );
-  table process selected rows( primes, ([Number]=3..5,10), echo( [Number],": ", "is one of 3..5,10" ) );
+       table process selected rows( primes, ([Number]=11,37),   echo( [Number],": ", "is 11 or 37" ) );
+       table process selected rows( primes,  [Number]==13,      echo( [Number],": ", "thirteen" ) );
+       table process selected rows( primes, ([Number]='H*'),    echo( [Number],": ", "Begins with H" ) );
+       table process selected rows( primes, ([Number]=3..5,10), echo( [Number],": ", "is one of 3..5,10" ) );
 
-  echo; // Do the same with expression in strings.  No parentheses needed-
+       echo; // Do the same with expression in strings.  No parentheses needed-
 
-  c[] = '[Number] = 3..5,10'; //
-  table process selected rows( primes, :c[], echo( [Number],": ", "is one of 3..5,10" ) );
+       c[] = '[Number] = 3..5,10'; //
+       table process selected rows( primes, :c[], echo( [Number],": ", "is one of 3..5,10" ) );
 
-  c[] = "[Number] = 'H*'";
-  table process selected rows( primes, :c[], echo( [Number],": ", "Begins with H" ) );
+       c[] = "[Number] = 'H*'";
+       table process selected rows( primes, :c[], echo( [Number],": ", "Begins with H" ) );

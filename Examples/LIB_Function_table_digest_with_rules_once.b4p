@@ -1,34 +1,34 @@
 ﻿#!/usr/local/bin/b4p
 
 
-  table initialize( animals,
-      { { Name,      Size,     Speed,     Movement,  Legs,  Surface,    Special Skills   },
-        { Parrot,    small,    50,        flying,    2,     feathers,   immitates voices },
-        { Donkey,    medium,   28,        walking,   4,     hair,       agriculture use  },
-        { Dog,       small,    30,        walking,   4,     hair,       sense of smell   },
-        { Cat,       small,    20,        walking,   4,     hair,       night vision     },
-        { Fox,       small,    25,        walking,   4,     hair,       relatively smart },
-        { Owl,       small,    80,        flying,    2,     feathers,   night vision     },
-        { Worm,      tiny,     0.01,      crawling,  0,     mucous skin,unclear          },
-        { Whale,     huge,     30,        swimming,  0,     skin,       relatively smart } } );
+       table initialize( animals,
+               { { Name,      Size,     Speed,     Movement,  Legs,  Surface,    Special Skills   },
+                 { Parrot,    small,    50,        flying,    2,     feathers,   immitates voices },
+                 { Donkey,    medium,   28,        walking,   4,     hair,       agriculture use  },
+                 { Dog,       small,    30,        walking,   4,     hair,       sense of smell   },
+                 { Cat,       small,    20,        walking,   4,     hair,       night vision     },
+                 { Fox,       small,    25,        walking,   4,     hair,       relatively smart },
+                 { Owl,       small,    80,        flying,    2,     feathers,   night vision     },
+                 { Worm,      tiny,     0.01,      crawling,  0,     mucous skin,unclear          },
+                 { Whale,     huge,     30,        swimming,  0,     skin,       relatively smart } } );
 
-  headers[] = [animals:..,0]-{Name};
+       headers[] = [animals:..,0]-{Name};
 
 
-  table initialize( target,
-          { { Size,     Speed,     Movement,  Legs, Surface, Special Skills   },
-            { '*',      ':mod([.],40)=0','*', '*',  '*',     '*'              }, // Speed divisible by 40 -> Owl
-            { small,    '20..30',  '*',       '*',  Hair,    '*'              }, // Dog, Cat, Fox
-            { small,    '20..30',  '*',       '*',  Hair,    '*'              }, // No match (items already found)
-            { '*',      '20..30',  '*',       '*',  '*',     '*'              } } ); // Donkey and Whale only
+       table initialize( target,
+                       { { Size,     Speed,     Movement,  Legs, Surface, Special Skills   },
+                         { '*',      ':mod([.],40)=0','*', '*',  '*',     '*'              }, // Speed divisible by 40 -> Owl
+                         { small,    '20..30',  '*',       '*',  Hair,    '*'              }, // Dog, Cat, Fox
+                         { small,    '20..30',  '*',       '*',  Hair,    '*'              }, // No match (items already found)
+                         { '*',      '20..30',  '*',       '*',  '*',     '*'              } } ); // Donkey and Whale only
 
-  count[] = table digest with rules once ignore case ( target, headers[],  {Legs, Animal, Avg Speed, Top Speed},
-            animals, headers[], {Legs, Name,   Speed, Speed},   { overwrite, append with space, average, max }, true, Counter );
+       count[] = table digest with rules once ignore case ( target, headers[],  {Legs, Animal, Avg Speed, Top Speed},
+                         animals, headers[], {Legs, Name,   Speed, Speed},   { overwrite, append with space, average, max }, true, Counter );
 
-  echo("List of animals with counted lookups:");
-  table list( animals );
+       echo("List of animals with counted lookups:");
+       table list( animals );
 
-  echo("Note: Dog/Cat/Fox can be found only once.  Row 4: Donkey and Whale found (Dog/Cat/Fox already taken)");
-  echo("Target table after lookup (", count[], " items found):");
-  table list( target );
+       echo("Note: Dog/Cat/Fox can be found only once.  Row 4: Donkey and Whale found (Dog/Cat/Fox already taken)");
+       echo("Target table after lookup (", count[], " items found):");
+       table list( target );
 

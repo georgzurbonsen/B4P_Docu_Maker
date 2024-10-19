@@ -1,21 +1,21 @@
 ﻿#!/usr/local/bin/b4p
 
-  echo("Test various date, numeric and boolean representations");
+       echo("Test various date, numeric and boolean representations");
 
-  table initialize( t, 
-  {   { Dates Lit 1,Dates Lit 2,Dates Num,Boolean EN,Boolean DE,Boolean Num,Numbers,Formulas },
-      { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=WURZEL(4)"  },
-      { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=G2*2"  },
-      { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=G2*2"  },
-      { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=SQRT(4)"  } } )    ;
+       table initialize( t, 
+       {   { Dates Lit 1,Dates Lit 2,Dates Num,Boolean EN,Boolean DE,Boolean Num,Numbers,Formulas },
+           { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=WURZEL(4)"  },
+           { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=G2*2"  },
+           { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=G2*2"  },
+           { "2017-01-30","30.01.2017",abs(date("2017-01-30")),TRUE,WAHR,1,123.45,"=SQRT(4)"  } } )    ;
 
-  table style columns( t, {0..7}, table, column width, 14 );
-  table style cells  ( t, Dates Num,   2, single, number format, "DD.MMM.YYYY" );
-  table style cells  ( t, Dates Lit 1, 2, single, number format, "DD.MMM.YYYY" );
-  table style cells  ( t, Dates Lit 2, 2, single, number format, "DD.MMM.YYYY" );
-  table style rows   ( t, 3, sheet, type, string );
-  table style cells  ( t, Boolean Num, 4, single, type, boolean );
+       table style columns( t, {0..7}, table, column width, 14 );
+       table style cells  ( t, Dates Num,   2, single, number format, "DD.MMM.YYYY" );
+       table style cells  ( t, Dates Lit 1, 2, single, number format, "DD.MMM.YYYY" );
+       table style cells  ( t, Dates Lit 2, 2, single, number format, "DD.MMM.YYYY" );
+       table style rows   ( t, 3, sheet, type, string );
+       table style cells  ( t, Boolean Num, 4, single, type, boolean );
 
-  table save( t, "Images/Style_Number_Formats.html", HTML );
-  table save( t, "Images/Style_Number_Formats.xls", EXCEL );
-  table save excel file( t, Contents, "Images/Style_Number_Formats.xlsx" );
+       table save( t, "Images/Style_Number_Formats.html", HTML );
+       table save( t, "Images/Style_Number_Formats.xls", EXCEL );
+       table save excel file( t, Contents, "Images/Style_Number_Formats.xlsx" );

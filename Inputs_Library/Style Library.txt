@@ -147,10 +147,10 @@ B4PDOCU.START
 		{ "Number": "3.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "string" ],
+		  "Types": [ "set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
-			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* As RGB in a set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
 			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
 			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
 			+++
@@ -188,7 +188,7 @@ B4PDOCU.START
 	"Library":		"Style Library",
 	"Description"::
 
-		This function converts a specified color into RGB values in a parameter set.
+		This function converts a specified color into RGB values in a set.
 	+++,
 	"Call as":		"function",
 	"Parameter count":	"1",
@@ -198,11 +198,11 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "reference",
-		  "Types": [ "parameter set", "string" ],
+		  "Types": [ "set", "string" ],
 		  "Description"::
 			The value must be provided in a variable which will be converted by this function to RGB colo
 			Three possibiltes to specify the color:
-			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>.  In this case, the values will be verified and, if necessary, corrected.
+			* As RGB in a set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>.  In this case, the values will be verified and, if necessary, corrected.
 			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
 			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
 			+++
@@ -254,10 +254,10 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "string" ],
+		  "Types": [ "set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
-			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* As RGB in a set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
 			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
 			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
 			+++
@@ -276,9 +276,9 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "RGB color",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Description"::
-			The color is specified in a parameter set containing 3 numbers (0..255).
+			The color is specified in a set containing 3 numbers (0..255).
 			+++
 		}
 	],
@@ -316,7 +316,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Row numbers",
 		  "Direction": "input",
-		  "Types": [ "numeral", "parameter set" ],
+		  "Types": [ "numeral", "set" ],
 		  "Description"::
 			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be lightened.<br>
 			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table..
@@ -388,10 +388,10 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "string" ],
+		  "Types": [ "set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
-			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* As RGB in a set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
 			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
 			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
 			+++
@@ -410,9 +410,9 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "RGB color",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Description"::
-			The color is specified in a parameter set containing 3 numbers (0..255).
+			The color is specified in a set containing 3 numbers (0..255).
 			+++
 		}
 	],
@@ -451,7 +451,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Row numbers",
 		  "Direction": "input",
-		  "Types": [ "numeral", "parameter set" ],
+		  "Types": [ "numeral", "set" ],
 		  "Description"::
 			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be darkened.<br>
 			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table..
@@ -523,10 +523,10 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Color",
 		  "Direction": "input",
-		  "Types": [ "parameter set", "string" ],
+		  "Types": [ "set", "string" ],
 		  "Description"::
 			Three possibiltes to specify the color:
-			* As RGB in a parameter set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
+			* As RGB in a set containing 3 numbers (0..255).  Example: <b>{ 255, 128, 64 }</b>
 			* Existing color name.  Example: <b>red, blue, navy, ecru</b>
 			* Hexadecimal code: '#' followed by 6 hexdecimal digits.  Example: <b>#FF8040</b>
 			+++
@@ -545,9 +545,9 @@ B4PDOCU.START
 	"Return value":
 	[
 		{ "Name": "RGB color",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Description"::
-			The color is specified in a parameter set containing 3 numbers (0..255).
+			The color is specified in a set containing 3 numbers (0..255).
 			+++
 		}
 	],
@@ -586,7 +586,7 @@ B4PDOCU.START
 		{ "Number": "1.",
 		  "Name": "Row numbers",
 		  "Direction": "input",
-		  "Types": [ "numeral", "parameter set" ],
+		  "Types": [ "numeral", "set" ],
 		  "Description"::
 			Specify one or multiple table row numbers in the table 'global color table'.  The colors specified in the corresponding row will be weakened.<br>
 			<u>Hint</u>: Use __table selected rows(__) to select table rows by contents in the table..
@@ -702,7 +702,7 @@ B4PDOCU.START
 	gridlines			| Boolean: true, false				| table			| Shows or hides Excel gridlines		| Excel (.xlsx) only
 	===
 
-	<sup>1</sup>Parameter set with two values: thickness (string) and __color specification__, e.g. <b>{ thin, red }</b>.  Valid thicknesses: hairline, thin, medium, thick<br>
+	<sup>1</sup>Set with two values: thickness (string) and __color specification__, e.g. <b>{ thin, red }</b>.  Valid thicknesses: hairline, thin, medium, thick<br>
 	<sup>2</sup>Comments in HTML files loaded with Excel will work on the 1st table only in case multiple table are saved.</br>
 	<sup>3</sup>See: <a href="https://exceljet.net/custom-number-formats" target="_blank"><b>Info about Excel number format codes</b></a><br>
 
@@ -940,7 +940,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Row numbers",
 		  "Direction": "input",
-		  "Types": [ "parameter set containing numerals", "numeral" ],
+		  "Types": [ "set containing numerals", "numeral" ],
 		  "Description": "Specify 1 or more row numbers.  <br><u>Hint</u>: Use __table selected rows(__) to identify row numbers using a condition to apply on every row."
 		},
 		{ "Number": "3.",
@@ -1127,7 +1127,7 @@ B4PDOCU.START
 		{ "Number": "2.",
 		  "Name": "Row numbers",
 		  "Direction": "input",
-		  "Types": [ "parameter set containing numerals", "numeral" ],
+		  "Types": [ "set containing numerals", "numeral" ],
 		  "Description": "Specify 1 or more row numbers.  <br><u>Hint</u>: Use __table selected rows(__) to identify row numbers using a condition to apply on every row."
 		},
 		{ "Number": "4.",
@@ -1136,9 +1136,9 @@ B4PDOCU.START
 		  "Types": [ "string" ],
 		  "Description"::
 			See __formatting coverages__.  Valid values are: 
-			* <b>single</b>: Single cell addressed.  If parameter set provided, then both parameter set must contain same number of elements. Each element pair corresponds to coordinates for one cell
+			* <b>single</b>: Single cell addressed.  If set provided, then both set must contain same number of elements. Each element pair corresponds to coordinates for one cell
 			* <b>matrix</b>: Intersections of all specified rows and columns will be formatted
-			* <b>field</b>: Pairs of 2 parameter set elements represent a field to format.
+			* <b>field</b>: Pairs of 2 set elements represent a field to format.
 			+++
 		},
 		{ "Number": "5, 7, ...",
@@ -1206,7 +1206,7 @@ B4PDOCU.START
 	<br>
 	You can save multiple formatted tables in one file using the __table save multiple(__) function.  In this case, the translation functions need to be
 	called for every table to be included as sheets in the file.  For Excel files (.xlsx), use __table save excel file(__) where you specify all tables
-	and sheet names in parameter sets and then save the file.
+	and sheet names in sets and then save the file.
 	<br><br>
 	<u>Attention</u>: The formatting is associated to the table names.  If you make a copy of the table with a different name, then the new table has no formatting information.
 
@@ -1422,7 +1422,7 @@ B4PDOCU.START
 								  The attributes are specified in the same way as for __table style table(__) applied on the whole sheet.  Example: "autofilter, 0, freeze rows, 1" to set autofiter row and freeze the first row.
 		table		| Attribute names and values	| Put one or multiple pairs of attribute names and values, separated by commas, <u>into a string</u>.\
 								  The attributes are specified in the same way as for __table style table(__) applied on the table.  Example: "autofilter, 0".
-		frame		| Border specification		| If you want a frame added around the whole table, then specify the attribute value for a border which is a parameter set \
+		frame		| Border specification		| If you want a frame added around the whole table, then specify the attribute value for a border which is a set \
 								  containing thickness and color, but must be put <u>into a string</u>.
 		pattern		| Value<br>(numeral type expected) | If used in conjunction with attribute names <b>Zebra ...</b> or <b>Quagga ...</b>, then this value rules the width of the zebra pattern, i.e. number of adjacent rows with same fill color. <br>\
 								  Example: <b>table style theme( my table, Quagga, pattern, 2 );</b> for 2 rows in one color and next 2 rows in a different color.
@@ -1434,7 +1434,7 @@ B4PDOCU.START
 		===
 
 		<sup>1</sup> Specify the the color either by supported color name (e.g. rad, orange, chestnut, navy, etc.), hexadecimal value (e.g. "#FF8040")
-		or parameter set containing three values, but must be converted to a string in this case (e.g. "{255,128,64}" ).
+		or set containing three values, but must be converted to a string in this case (e.g. "{255,128,64}" ).
 
 	+++,
 	"Call as":		"procedure",

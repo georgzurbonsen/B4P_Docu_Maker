@@ -1,6 +1,6 @@
 ﻿#!/usr/local/bin/b4p
-      echo( bool(TRUE), " ", bool(Falsch) );    // true, false
-      echo( bool("Ja"), " ", bool("No") );  // true, false
-      echo( bool("1"), " ",  bool(0) );       // true, false
-      echo( bool({{}}), " ", bool({}) );        // true, false
-      echo( bool( date( '10:30:00' )), " ", bool( date("") ) );   // true, fasle
+               echo( bool(TRUE), " ", bool(Falsch) );        // true, false
+               echo( bool("Ja"), " ", bool("No") );      // true, false
+               echo( bool("1"), " ",  bool(0) );           // true, false
+               echo( bool({{Yes,Ja},{No,Nein}} ) );            // Vectorization: {{true,true},{false,false}}
+               echo( bool( { date( '10:30:00' ), date("") } ) );     // true, fasle

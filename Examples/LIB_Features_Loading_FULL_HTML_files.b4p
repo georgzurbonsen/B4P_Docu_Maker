@@ -1,12 +1,12 @@
 ﻿#!/usr/local/bin/b4p
-  table load( t, "Example.html", TEXT );
+       table load( t, "Example.html", TEXT );
 
-  echo("This is the HTML file:");
-  table list( t );
+       echo("This is the HTML file:");
+       table list( t );
 
-  table load( t, "Example.html", FULL HTML );
+       table load( t, "Example.html", FULL HTML );
 
-  echo; echo;
-  echo("This are the loaded contents from the HTML file:");
-  table list( t );
+       echo; echo;
+       echo("This are the loaded contents from the HTML file:");
+       table list( t );
 

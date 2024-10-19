@@ -414,11 +414,11 @@ Massachusetts [quoted string]
     15 rows, max 8 columns, 8 columns in 1st row, 120 fields, list separator: ;
 
 >> =[t:..5,0]
-{'Country','City','State/Province','Inhabitants','Famous attraction','Alt. (m)'} [parameter set]
+{'Country','City','State/Province','Inhabitants','Famous attraction','Alt. (m)'} [set]
 >> =[t:City,3..5]
-{'Philadelphia','Boston','San Francisco'} [parameter set]
+{'Philadelphia','Boston','San Francisco'} [set]
 >> =[t:City,Boston,{Inhabitants,Famous attraction}]
-{620000,'Freedom trail'} [parameter set]
+{620000,'Freedom trail'} [set]
 >> table process selected rows ( t, [Country]==USA, echo( row(),": ", [Famous attraction] ) )
 1: St. of Liberty
 2: Lincoln Statue

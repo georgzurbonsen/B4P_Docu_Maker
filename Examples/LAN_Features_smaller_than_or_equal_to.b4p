@@ -1,15 +1,15 @@
 ﻿#!/usr/local/bin/b4p
-  echo("Basic comparisons:");
+       echo("Basic comparisons:");
 
-  a[0] = 3   <  3;            // false
-  a[1] = 3   <= 3;            // true
-  a[2] = 4.9 <  5;            // true
-  a[3] = Ha  < He;            // true (sorting order)
-  a[4] = {1,2,3} <  {3,2,1};  // true
-  a[5] = {1,2,3} <  {1,2,3};  // false
-  a[6] = {1,2,3} <= {1,2,3};  // true
-  a[7] = {1,2,3} < {1,2,3,4}; // true
-  a[8] = false < true;        // true
-  a[9] = a < 1;               // always false
+       a[0] = 3   <  3;            // false
+       a[1] = 3   <= 3;            // true
+       a[2] = 4.9 <  5;            // true
+       a[3] = Ha  < He;            // true (sorting order)
+       a[4] = {1,2,3} <  {3,2,1};  // true
+       a[5] = {1,2,3} <  {1,2,3};  // false
+       a[6] = {1,2,3} <= {1,2,3};  // true
+       a[7] = {1,2,3} < {1,2,3,4}; // true
+       a[8] = false < true;        // true
+       a[9] = a < 1;               // always false
 
-  for all variables( a[], x[] ) echo( x[] );
+       for all variables( a[], x[] ) echo( x[] );

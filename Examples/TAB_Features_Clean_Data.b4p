@@ -1,0 +1,18 @@
+﻿#!/usr/local/bin/b4p
+       table load                     ( c1, temp1.csv); // Hide!  Step 2 begins
+       table load                     ( c2, temp2.csv); // Hide!  Step 2 begins
+
+table clean                     ( c1 );
+table delete selected rows      ( c1, [0]='',Erde );            // Remove blank and summary rows
+table process all cells         ( c1, [.] = left( [.], '[' ) ); // Remove cited references
+table delete rows               ( c1, -1 );                     // Delete last row (bottom header row - repeated)
+
+table clean                     ( c2, trim spaces );
+table delete selected rows      ( c2, [0]='',World );           // Remove blank and summary rows
+table process all cells         ( c2, [.] = left( [.], '[' ) ); // Remove cited references
+
+echo( "Table C2: ");
+table list                      ( c2, briefly, 4, last col, 2 ); // List just 3 columns and first and last 4 rows
+
+       table save                     ( c1, temp1.csv); // Hide!  Step 2 ends
+       table save                     ( c2, temp2.csv); // Hide!  Step 2 ends

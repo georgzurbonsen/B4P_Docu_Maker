@@ -1,10 +1,10 @@
 ﻿#!/usr/local/bin/b4p
-      echo("All files in a directory   : ", count files( "C:\Program Files\B4P\" ), new line );
+               echo("All files in a directory   : ", count files( "C:\Program Files\B4P\" ), new line );
 
-      echo("All files                  : ", count files( ".\", "*.b4p"      ) );
-      echo("1st file only              : ", count files( ".\", "*.b4p", 0   ) );
-      echo("1st file only (same)       : ", count files( ".\", "*.b4p", 1   ) );
-      echo("3 files only               : ", count files( ".\", "*.b4p", 3   ), new line );
-      echo("All subdirectories         : ", count files( "C:\Program Files\B4P", "*", -1, directories   ) );
-      echo("All .b4p/.txt recursively  : ",
-          count files recursive( "C:\Program Files\B4P", "*.txt,*.b4p", -1, files  ) );
+               echo("All files                  : ", count files( ".\", "*.b4p"      ) );
+               echo("1st file only              : ", count files( ".\", "*.b4p", 0   ) );
+               echo("1st file only (same)       : ", count files( ".\", "*.b4p", 1   ) );
+               echo("3 files only               : ", count files( ".\", "*.b4p", 3   ), new line );
+               echo("All subdirectories         : ", count files( "C:\Program Files\B4P", "*", -1, directories   ) );
+               echo("All .b4p/.txt recursively  : ",
+                       count files recursive( "C:\Program Files\B4P", "*.txt,*.b4p", -1, files  ) );

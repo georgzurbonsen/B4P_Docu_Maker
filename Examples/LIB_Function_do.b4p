@@ -1,5 +1,5 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = 0;
-  do { print( a[], ' ' ); } while ( a[]++ < 10);
-  do { print( a[], ' ' ); } while ( a[]++ < 10); // Loop runs at least once more.
-  echo;
+       a[] = 0;
+       do { print( a[], ' ' ); } while ( a[]++ < 10);
+       do { print( a[], ' ' ); } while ( a[]++ < 10); // Loop runs at least once more.
+       echo;

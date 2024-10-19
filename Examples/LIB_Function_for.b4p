@@ -1,7 +1,7 @@
 ﻿#!/usr/local/bin/b4p
-      for (a[] = 3, a[] < 15, a[]+=2)
-      {
-          print(a[],' ');
-          if (a[]==9) a[]++; // Increment to 10
-      }
+               for (a[] = 3, a[] < 15, a[]+=2)
+               {
+                       print(a[],' ');
+                       if (a[]==9) a[]++; // Increment to 10
+               }
 

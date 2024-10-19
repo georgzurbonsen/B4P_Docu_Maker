@@ -1,6 +1,6 @@
 ﻿#!/usr/local/bin/b4p
-  echo( 1 );                   // Simple numeral
-  echo( 1 1 + 2 2 );           // Attention: These two numbers are strings : '1 12 2' is returned, not '33' or '3 3'
-  echo( 123.45 );
-  echo( 0123.450 );            // Same value as above
-  echo( 0123.450 *1);          // Operation applied (multplied by 1), therefore text representation has been dropped
+       echo( 1 );                   // Simple numeral
+       echo( 1 1 + 2 2 );           // Attention: These two numbers are strings : '1 12 2' is returned, not '33' or '3 3'
+       echo( 123.45 );
+       echo( 0123.450 );            // Same value as above
+       echo( 0123.450 *1);          // Operation applied (multplied by 1), therefore text representation has been dropped

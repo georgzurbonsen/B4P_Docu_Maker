@@ -88,7 +88,7 @@ B4PDOCU.START
 		
 
 		The function <b>format print</b> provides formatted output on the console, using the knowledge of the current console width (number of columns).<br>
-		The function <b>format</b> puts the formatted rows of text into a parameter set of strings in the return value, with one element per row.<br>
+		The function <b>format</b> puts the formatted rows of text into a set of strings in the return value, with one element per row.<br>
 		The text contents provided may contain the B4P-private UNICODE chracters to apply formatting for the console such as changing text color.
 		The formatting is not suitable for contents saved as tables and expecting Excel to see the formatting made.
 		<br><br>
@@ -125,7 +125,7 @@ B4PDOCU.START
 		{ "Number": "1",
 		  "Name": "Pattern",
 		  "Direction": "input",
-		  "Types": [ "parameter set" ],
+		  "Types": [ "set" ],
 		  "Default value": "Default settings apply as specified in the table above",
 		  "Description"::
 			The supplied pattern will be applied repeatedly until the screen or specified boundaries have been reached.
@@ -151,8 +151,8 @@ B4PDOCU.START
 		  "Description": "Applicable to __format print(__): The number of rows printed onthe console"
 		},
 		{ "Name": "Formatted output",
-		  "Types": [ "parameter set" ],
-		  "Description": "Applicable to __format(__): Generated output.  Every parameter set element contains one row of text."
+		  "Types": [ "set" ],
+		  "Description": "Applicable to __format(__): Generated output.  Every set element contains one row of text."
 		}
 	],
 	"Examples"::

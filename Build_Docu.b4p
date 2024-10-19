@@ -78,6 +78,7 @@ define procedure( gather input docu )
 
 	for all parameters( gathered input file names[], file name[] ) // Capture all JSON codes
 	{
+
 	    echo		( "  Scan ", file name[] );
 	    table load		( code, file name[], TEXT );
 	    table configure	( code, read numerals, no );
@@ -137,6 +138,7 @@ define procedure( gather input docu )
 
 	[ json extract : 0, -1 ] = "}"; // Last row: Replace final comma by closing braces
 	table save( json extract, file[ collected contents json ], new line ); // Save the JSON code
+
 }
 
 
@@ -207,6 +209,7 @@ supported types checked[] =
 
 	"all types," +
 	"valid types," +
+	"valid types except sets," +
 	"boolean," +
 	"numeral," +
 	"numeral or string," +
@@ -216,18 +219,18 @@ supported types checked[] =
 	"date," +
 	"string," +
 	"blank string," +
-	"parameter set," +
-	"parameter set containing numerals," +
-	"parameter set containing strings," +
-	"parameter set containing dates," +
-	"parameter set or string," +
+	"set," +
+	"set containing numerals," +
+	"set containing strings," +
+	"set containing dates," +
+	"set or string," +
 	"matrix,matrix of numerals," +
 	"variable," +
 	"comparison expression," +
 	"expression," +
 	"statements," +
 	":string," +
-	"parameter set of numerals," +
+	"set of numerals," +
 	"numerals or strings," +
 	"date or string converted to date";
 
@@ -253,7 +256,7 @@ table keep selected rows	( table of return value descriptors, [Name] = Name, Typ
 define procedure( check descriptions, { {name, string}, { item, all, reference }, {descriptor table, string } } )
 {
     echo("Check: ", name[] );
-    descriptors[] = set names( item[], 1, all );
+    descriptors[] = variable names( item[], 1, all );
 
     for all parameters( descriptors[], descriptor[], index[]) descriptors[]{index[]} = left( descriptor[], ':' ); // Keep main descriptor only
 
@@ -314,7 +317,7 @@ define procedure( check descriptions, { {name, string}, { item, all, reference }
 define procedure( check all descriptions )
 {
 	echo(new line, "Step 3: Ensure that all descriptions are inside, and pre-define the HTML file names", new line );
-	echo( "Identified following section names:", new line, join( set names( docu[], 1, all ), "    ", new line + "    "), new line  );
+	echo( "Identified following section names:", new line, join( variable names( docu[], 1, all ), "    ", new line + "    "), new line  );
 
 	for all variables( docu[], value[], counter[], name[] )
 	{
@@ -504,7 +507,11 @@ define procedure ( create navigator from revolving TOC )
 {
 	echo(new line, "Step 7: Create the navigator (to be integrated in HTML files) from revolving TOC", new line );
 
-	head[] = '<div class="booktitle_field">' + chosen book[title] + '</div>'; // Book title on top left of navigator.
+	first html link[] = [RTOC:Category,Body,HTML File Name];
+//	echo( first html link[] ); interactive;
+
+
+	head[] = '<div class="booktitle_field">' + '<a style="color:white;" href="' + first html link[] + '">' + chosen book[title] + '</a></div>'; // Book title on top left of navigator.
 	table initialize( navigator, { { head[], Level, HTML File Name, Section Name}, { "<ul>" } } );
 	level[] = 1; // Initial level
 
@@ -515,11 +522,13 @@ define procedure ( create navigator from revolving TOC )
 		section nr[] = replace all( right([Section Nr],' '), ".0", "."); // Change 4.02.01 to 4.2.1, etc.  This 2-digit format was needed to keep function lists in sorted order.
 		if ([HTML File Name] != '')
 		{
-			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><div class="navi">' + section nr[] + " " + [Section Name] + " </div></a></li>", level[], [HTML File Name], [Section Name] } } );
+//			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><div class="navi">' + section nr[] + " " + [Section Name] + " </div></a></li>", level[], [HTML File Name], [Section Name] } } );
+			table append( navigator, { { '<li class="navi">' + '<a href="' + [HTML File Name] + '"><div class="navi">' + " " + [Section Name] + " </div></a></li>", level[], [HTML File Name], [Section Name] } } );
 		}
 		else
 		{
-			table append( navigator, { { '<li class="navi"><div>' + section nr[] + " " + [Section Name] + " </div></li>", level[] } } );
+//			table append( navigator, { { '<li class="navi"><div>' + section nr[] + " " + [Section Name] + " </div></li>", level[] } } );
+			table append( navigator, { { '<li class="navi"><div>' + " " + [Section Name] + " </div></li>", level[] } } );
 		} );
 	while (1 < level[])  { table append( navigator, { "</ul></li>" } ); level[]--; } // Close all nested itemizations
 
@@ -708,7 +717,7 @@ define procedure( convert manuscript tables into HTML, { { text, all, reference 
 		{
 		    if (table state[]=idle)
 		    {
-			widths[] = parameter set( right(line[],'===') ); // Pick up widths
+			widths[] = set( right(line[],'===') ); // Pick up widths
 			table id[] = '';
 			table state[] = th;
 			text[i[]] = '';
@@ -772,7 +781,7 @@ define procedure ( create function description in HTML, { { item, all, reference
     table create( example program ); // Make sure this table is empty
     example program counter[] = 0;
 
-    all full descriptors[]	= set names( item[], 1, all );				// e.g. {"Descriptor 01:Intro", ...}
+    all full descriptors[]	= variable names( item[], 1, all );				// e.g. {"Descriptor 01:Intro", ...}
     all descriptors[]		= deep( left, { all full descriptors[], ':' } ); 	// e.g. {"Descriptor 01", ...}
 
 
@@ -792,7 +801,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 	    case ( '*append*' )
 	    {
 		apply HTML links on embedded keywords( item[full descriptor[]] );
-		table append( HTML out[], { "<h4> " + descriptor to show[] + ": " + '<span class="black_text">' + join( set( item[full descriptor[]], 1 ),", ") + "</span></h4>" } );
+		table append( HTML out[], { "<h4> " + descriptor to show[] + ": " + '<span class="black_text">' + join( variable members( item[full descriptor[]], 1 ),", ") + "</span></h4>" } );
 	    }
 
 
@@ -815,8 +824,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 			table append( HTML out[], 
 				{ "<tr><td>" + param[Number,0] + "<br/>" + param[Direction,0] + "</td>",
-				  "<td>" + join( set( param[Types], 1 ),"<br/>") + "</td>",
-				  "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( set( param[Description], 1 ),new line) + "</p>" } );
+				  "<td>" + join( variable members( param[Types], 1 ),"<br/>") + "</td>",
+				  "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( variable members( param[Description], 1 ),new line) + "</p>" } );
 			if (existing( param[Default value]))
 			    table append( HTML out[], { '<span class="black_text"><b> Default value: </b></span>' + param[Default value,0]  } );
 			table append( HTML out[], { "</td></tr>" } );
@@ -835,8 +844,8 @@ define procedure ( create function description in HTML, { { item, all, reference
 			convert manuscript tables into HTML( param[Description] );
 			apply HTML links on embedded keywords( param[Description] );
 			table append( HTML out[], 
-				{ "<tr>", "<td>" + join( set( param[Types], 1 ),"<br/>") + "</td>",
-			          "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( set( param[Description], 1 ),new line) + "</p></td></tr>" } );
+				{ "<tr>", "<td>" + join( variable members( param[Types], 1 ),"<br/>") + "</td>",
+			          "<td>" + "<b>" + param[Name,0] + "</b><br/><p>" + join( variable members( param[Description], 1 ),new line) + "</p></td></tr>" } );
 		}
 
 		table append( HTML out[], { "</table>" } );
@@ -904,7 +913,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		    class[] = compare select( [Todo], white_background_color, ('*code*'), code_background_color, ('*output*'), output_background_color );
 		    class[] = 'class="' + class[] + '"';
 
-		    payloads as set[] = filter( set (payloads[] , 1), <>'$SKIP$' );
+		    payloads as set[] = filter( variable members (payloads[] , 1), <>'$SKIP$' );
 
 		    payload[] = join ( payloads as set[], "<div " + class[] + " ><code>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</code></div>" );
 		    if (example program file name[]<>'')
@@ -915,7 +924,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 		}
 		else
 		{
-		    table append( HTML out[], { join ( set (item[full descriptor[]] , 1), "<p>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</p>" ) } );
+		    table append( HTML out[], { join ( variable members (item[full descriptor[]] , 1), "<p>", select if ( ([Todo]='*line break*'), "<br/>" + new line, ", " ), "</p>" ) } );
 		}
 	    }
 
@@ -927,7 +936,7 @@ define procedure ( create function description in HTML, { { item, all, reference
 
 	    case ( '*text*' )
 	    {
-		table append( HTML out[], { join ( set (item[full descriptor[]] , 1), "<p>", new line, "</p>" ) } );
+		table append( HTML out[], { join ( variable members (item[full descriptor[]] , 1), "<p>", new line, "</p>" ) } );
 	    }
 
 	}
@@ -981,7 +990,7 @@ define procedure ( create all general and function descriptions in HTML )
 			applicable row[]= -1; // Skip on table of contents
 		}
 
-	// The following rules determin which of the navigator orws to show and to hide.	
+	// The following rules determin which of the navigator rows to show and to hide.	
 
 	    if (applicable row[] > 0) // From applicable row to top: Mark all items at same level (local only) and superior levels visible
 	    {
@@ -1018,7 +1027,28 @@ define procedure ( create all general and function descriptions in HTML )
 		}
 	    }
 
-	    table process selected rows ( HTML navigator, [Action,row()+1]==Hide & [Action]!=Hide, substitute( [0], '<div class="navi">', '<div class="navi">+ ' ) ); // Add a plus sign
+
+	    table process ( HTML navigator, 
+		if ( [Action,row()+1]==Hide & [Action]!=Hide )
+		{
+		    substitute( [0], '<div class="navi">', '<div class="navi">+ ' ); // Add a plus sign (possibly to open up hidden subsections) (&#9655;)
+		}
+		else: if ( [Action,row()+1]!=Hide & [Action]!=Hide & ([Level,row()+1]-[Level]=1) )
+		{
+		    substitute( [0], '<div class="navi">', '<div class="navi"+>- ' ); // Add a triangle down &#9661;
+		}
+		else: if ( [Level]>1 )
+		{
+		    substitute( [0], '<div class="navi">', '<div class="navi"> &nbsp; ' ); // Indentation
+		} );
+/*
+//	    table process selected rows ( HTML navigator, [Action,row()+1]==Hide & [Action]!=Hide, substitute( [0], '<div class="navi">', '<div class="navi">+ ' ) ); // Add a plus sign
+	    table process selected rows ( HTML navigator, [Action,row()+1]==Hide & [Action]!=Hide, substitute( [0], '<div class="navi">', '<div class="navi">&#9655; ' ) ); // Add a plus sign
+
+table save( HTML navigator, test.csv); interactive;
+	    table process selected rows ( HTML navigator, [Action,row()+1]!=Hide & [Action]!=Hide & ([Level,row()+1]-[Level]=1), substitute( [0], '<div class="navi">', '<div class="navi">&#9661; ' ) ); // Add a triangle down sign
+
+*/
 
 	    table process	( HTML template,
 		switch( [0] )
@@ -1109,6 +1139,7 @@ define procedure ( create combined TOC )
 	gather input docu;
 	variable load( docu[], file[ collected contents json ], JSON ); // Load the JSON code into one variable (docu[])
 
+
 	check all descriptions;
 
 	collect keywords;
@@ -1142,9 +1173,11 @@ define procedure ( create combined TOC )
 	file copy recursive( ".\Images", destination path[]+"Images", "*.*" );
 	file copy overwrite ( styles.css, destination path[] + styles.css ); // Style sheet
 
-	if ( [RTOC:Category,Start] > 0 )
+
+//	if ( [RTOC:Category,Start] > 0 )  // Was old condition
+	if (chosen book[abbr]==MAS)
 	{
-		index html file name [] = [RTOC:Category,Start,HTML File Name];
+		index html file name [] = [RTOC:Category,Body,HTML File Name];  // Body was Start before. Take 1st body item
 		echo("Following HTML file name is duplicated to 'index.html': ", index html file name[] );
 		file copy overwrite ( destination path[] + index html file name [], destination path[] + index.html );
 	}

@@ -1,32 +1,32 @@
 ﻿#!/usr/local/bin/b4p
-  define procedure( zoo )
-  {
-      echo('Zoo in ', city[], ' ', country[]);
-      city[] = Cambridge;                  // city and country are regional variables
-      country[] = United Kingdom;
-      echo( "   Scope of country[] in 'zoo': ", scope(country[]), " and city[]: ", scope( city[]) );
-  }
+       define procedure( zoo )
+       {
+           echo('Zoo in ', city[], ' ', country[]);
+           city[] = Cambridge;                  // city and country are regional variables
+           country[] = United Kingdom;
+           echo( "   Scope of country[] in 'zoo': ", scope(country[]), " and city[]: ", scope( city[]) );
+       }
 
-  define procedure( bar )
-  {
-      country[] = USA;                     // country is a local variable, but city is not
-      echo('Bar in ', city[], ' ', country[]);
+       define procedure( bar )
+       {
+           country[] = USA;                     // country is a local variable, but city is not
+           echo('Bar in ', city[], ' ', country[]);
 
-      regional  // Alternative formulation
-      {
-          zoo;
-      }
-      echo('Bar in ', city[], ' ', country[]); // Cambridge, UK
-      echo( "   Scope of country[] in 'bar': ", scope(country[]), " and city[]: ", scope( city[]) );
+           regional  // Alternative formulation
+           {
+               zoo;
+           }
+           echo('Bar in ', city[], ' ', country[]); // Cambridge, UK
+           echo( "   Scope of country[] in 'bar': ", scope(country[]), " and city[]: ", scope( city[]) );
 
-  }
+       }
 
-  define procedure( foo )
-  {
-      city[] = Boston;
-      regional() bar;
-      echo('Foo(d) in ', city[]); // Cambridge
-  }
+       define procedure( foo )
+       {
+           city[] = Boston;
+           regional() bar;
+           echo('Foo(d) in ', city[]); // Cambridge
+       }
 
-  // Main program
-  foo;
+       // Main program
+       foo;

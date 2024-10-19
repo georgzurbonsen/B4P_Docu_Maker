@@ -1,12 +1,12 @@
 ﻿#!/usr/local/bin/b4p
-      st[] = "The taste of the coffee!";
+               st[] = "The taste of the coffee!";
 
-      echo( right( st[], 0 ), " / ", right( st[], 1 ), " / ", right( st[], -2 ), " / ", right( st[], -1 ) );
-      echo( right( st[],99 ), " / ", right( st[],-99) );
-      echo;
-      echo( right( st[], ' taste' ), " / ", right include( st[], ' taste' ) );
-      echo( right( st[], ' ' ), " / ", right last match( st[], ' ' ) );
-      echo( right last match include( st[], 'e' ) ); // Last 'e' and exclamation mark
-      echo;
-      echo( right( st[], 't?ste' ) ); // Softquoted string (no or single quotation marks) - matched
-      echo( right( st[], "t?ste" ) ); // Quoted string (double quotation marks) - not matched
+               echo( right( st[], 0 ), " / ", right( st[], 1 ), " / ", right( st[], -2 ), " / ", right( st[], -1 ) );
+               echo( right( st[],99 ), " / ", right( st[],-99) );
+               echo;
+               echo( right( st[], ' taste' ), " / ", right include( st[], ' taste' ) );
+               echo( right( st[], ' ' ), " / ", right last match( st[], ' ' ) );
+               echo( right last match include( st[], 'e' ) ); // Last 'e' and exclamation mark
+               echo;
+               echo( right( st[], 't?ste' ) ); // Softquoted string (no or single quotation marks) - matched
+               echo( right( st[], "t?ste" ) ); // Quoted string (double quotation marks) - not matched

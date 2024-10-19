@@ -1,28 +1,28 @@
 ﻿#!/usr/local/bin/b4p
-  table load( table, "Cities.csv");
-  with table( table, 5 ) // Row 5
-  {
-      echo( [ 1 ] );
-      echo( [ -7 ], new line );
+       table load( table, "Cities.csv");
+       with table( table, 5 ) // Row 5
+       {
+           echo( [ 1 ] );
+           echo( [ -7 ], new line );
 
-      echo( [ City ], new line );
+           echo( [ City ], new line );
 
-      echo( [ City, San Francisco], new line ); // Exception to rule: Returns row number
+           echo( [ City, San Francisco], new line ); // Exception to rule: Returns row number
 
-      echo( [ City, San Francisco, Famous attraction] );
-      echo( [ 1, row(), 4] );
-      echo( [ -7, row(), -4] );
+           echo( [ City, San Francisco, Famous attraction] );
+           echo( [ 1, row(), 4] );
+           echo( [ -7, row(), -4] );
 
-      echo("Horizontal access:");
-      [table row width( table, row() )] = Street roller;
-      echo( [0.."State/Province"] );
-      echo( [..] ); // Entire row (till column with last header on top row)
-      echo( [] )  ; // Entire row (all elements, inclding the Street roler)
-      echo( [,6] )  ; // Read data in next row
-      echo( [,row()-1] )  ; // Read data in previous row
+           echo("Horizontal access:");
+           [table row width( table, row() )] = Street roller;
+           echo( [0.."State/Province"] );
+           echo( [..] ); // Entire row (till column with last header on top row)
+           echo( [] )  ; // Entire row (all elements, inclding the Street roler)
+           echo( [,6] )  ; // Read data in next row
+           echo( [,row()-1] )  ; // Read data in previous row
 
-      echo( [,0] ); // All header names
+           echo( [,0] ); // All header names
 
-      echo("Vertical access:");
-      echo( trim( [0,] ) ); // Column 0, including header ( trim: Countries listed only once )
-  }   
+           echo("Vertical access:");
+           echo( trim( [0,] ) ); // Column 0, including header ( trim: Countries listed only once )
+       }       

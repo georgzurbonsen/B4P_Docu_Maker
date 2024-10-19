@@ -1,23 +1,23 @@
 ﻿#!/usr/local/bin/b4p
-  echo("Deep unary operators on simple parameter sets (vectors):");
+       echo("Deep unary operators on simple sets (vectors):");
 
-  a[] = { 1,2,3,4,5 };
-  b[] = { hu, ha, he, ho, hi };
+       a[] = { 1,2,3,4,5 };
+       b[] = { hu, ha, he, ho, hi };
 
 
-  echo( -a[] );      // Descending sorting order
-  echo( -^a[] );     // Negating elements
-  echo;
+       echo( -a[] );      // Descending sorting order
+       echo( -^a[] );     // Negating elements
+       echo;
 
-  echo( + b[] );     // Ascending sorting order
-  echo( +^b[] );     // Upper case on elements
-  echo( !^b[] );     // Capitalizing elements
-  echo;
+       echo( + b[] );     // Ascending sorting order
+       echo( +^b[] );     // Upper case on elements
+       echo( !^b[] );     // Capitalizing elements
+       echo;
 
-  echo("Deep unary operators on nested parameter sets (matrices):");
+       echo("Deep unary operators on nested sets (matrices):");
 
-  a[] = { { 5, 15, 10 }, { 16, 6, 26 }, { 37, 17, 7 } };  
+       a[] = { { 5, 15, 10 }, { 16, 6, 26 }, { 37, 17, 7 } };  
 
-  echo( - a [] );    // Descending sorting of all elements
-  echo( -^a [] );    // Desending sorting of each marix row
-  echo( -^^a[] );    // Negating the elements
+       echo( - a [] );    // Descending sorting of all elements
+       echo( -^a [] );    // Desending sorting of each marix row
+       echo( -^^a[] );    // Negating the elements

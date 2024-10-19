@@ -1,3 +1,4 @@
 ﻿#!/usr/local/bin/b4p
-      a[] = "14. July 2020, 15:30:40";
-      echo( year( a[] ), ", ", quarter( a[] ), ", ", month( a[] ), ", ", day( a[] ) );
+               a[] = "14. July 2020, 15:30:40";
+               echo( year( a[] ), ", ", quarter( a[] ), ", ", month( a[] ), ", ", day( a[] ) );
+               echo( year( { today, '14.07.2024' } )); // Vectorization example with 2 dates

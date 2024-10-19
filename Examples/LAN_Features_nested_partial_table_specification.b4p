@@ -1,21 +1,21 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( master, { { Name, Score }, { Angela, 10 }, { Bob, 12 }, { Charlotte, 14 }, { Dan, 10 } } );
+       table initialize( master, { { Name, Score }, { Angela, 10 }, { Bob, 12 }, { Charlotte, 14 }, { Dan, 10 } } );
 
-  table initialize( new scores,
-  { { Name, Score },
-    { Bob,  3 }, { Angela, 5}, { Dan, 1 }, { Bob, 5 }, { Charlotte, 2 }, { Bob, 1 }, { Angela, 2 } } );
+       table initialize( new scores,
+       { { Name, Score },
+         { Bob,  3 }, { Angela, 5}, { Dan, 1 }, { Bob, 5 }, { Charlotte, 2 }, { Bob, 1 }, { Angela, 2 } } );
 
-  echo("Master table:");    table list ( master );
-  echo("New scores to add:"); table list( new scores );
+       echo("Master table:");        table list ( master );
+       echo("New scores to add:"); table list( new scores );
 
-  table process( master,  
-      table process selected rows( new scores, [Name] == [^Name], [^Score] += [Score] ) );
+       table process( master,  
+           table process selected rows( new scores, [Name] == [^Name], [^Score] += [Score] ) );
 
-  echo("Updated master table:"); table list( master );
+       echo("Updated master table:"); table list( master );
 
-  echo("Demonstrate row numbers: ");
-  with table( master, 1 ) with table ( new scores, 3 )
-  {
-      echo( [Name], " in 'new scores' row ", row() );
-      echo( [^Name], " in 'master' row ", row(1) );
-  }
+       echo("Demonstrate row numbers: ");
+       with table( master, 1 ) with table ( new scores, 3 )
+       {
+           echo( [Name], " in 'new scores' row ", row() );
+           echo( [^Name], " in 'master' row ", row(1) );
+       }

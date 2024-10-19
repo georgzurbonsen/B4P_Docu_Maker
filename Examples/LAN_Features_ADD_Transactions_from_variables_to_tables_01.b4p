@@ -1,18 +1,18 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals,
-      { { Name,  Leg count, Special ability  },
-        { Owl,   2,         Night vision     },
-        { Dog,   4 and 1 tail,         Sensitive nose   },
-        { Ape,   2 or 4,    Relatively smart } } );
+       table initialize( animals,
+               { { Name,  Leg count, Special ability  },
+                 { Owl,   2,         Night vision     },
+                 { Dog,   4 and 1 tail,         Sensitive nose   },
+                 { Ape,   2 or 4,    Relatively smart } } );
 
-  structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
-                        { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
+       structure( animal1[], { Name, Special ability, Skin surface, Strange habit }, 
+                             { Bat, "On-flight acoustic radar", skin wings, hangs while sleeping } );
 
-  array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
+       array( animal2[], { Crab, 10, walks sideways, some are delicious  } );
 
-  [ animals: .., 2 ] +<=> animal1[];  // Bat is written to row 2 (other rows move down), other data not overwritten
-  [ animals: .., 1 ] +<=>^ animal2[]; // Owl data added to array
+       [ animals: .., 2 ] +<=> animal1[];  // Bat is written to row 2 (other rows move down), other data not overwritten
+       [ animals: .., 1 ] +<=>^ animal2[]; // Owl data added to array
 
-  see( animal1[] ); // Gets leg count from the dog
-  see( animal2[] ); // Ape, ...
-  table list( animals ); // Contains owl, bat and crab and ape with some info
+       see( animal1[] ); // Gets leg count from the dog
+       see( animal2[] ); // Ape, ...
+       table list( animals ); // Contains owl, bat and crab and ape with some info

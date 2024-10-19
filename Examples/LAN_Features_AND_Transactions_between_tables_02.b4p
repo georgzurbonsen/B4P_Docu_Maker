@@ -1,18 +1,18 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals1,
-      { { Name,  Leg count, Special ability, Strange habit  },
-        { Owl,   2,         Night vision, night time noise in the forest     },
-        { Dog,   4,         Sensitive nose, "Man's best friend"   },
-        { Ape,   2 or 4,    Relatively smart, often funny } } );
+       table initialize( animals1,
+               { { Name,  Leg count, Special ability, Strange habit  },
+                 { Owl,   2,         Night vision, night time noise in the forest     },
+                 { Dog,   4,         Sensitive nose, "Man's best friend"   },
+                 { Ape,   2 or 4,    Relatively smart, often funny } } );
 
-  table initialize( animals2,
-      { { Name,  Leg count, Special ability, Weapon  },
-        { Bee,   6,         Makes honey,     sting   },
-        { Gnu,   4,         Knows UNIX,      horns   },
-        { Cat,   4,         Empathy to humans, sharp claws } } );
+       table initialize( animals2,
+               { { Name,  Leg count, Special ability, Weapon  },
+                 { Bee,   6,         Makes honey,     sting   },
+                 { Gnu,   4,         Knows UNIX,      horns   },
+                 { Cat,   4,         Empathy to humans, sharp claws } } );
 
-  [ animals2: Name, Cat, .. ] &<=> [ animals1: Name, Dog,  ];
-  [ animals2: Name, Bee, Name..Special ability ] &<=> [ animals1: Name, Owl, ]; // Excludes the weapon
-  
-  table list( animals1 ); // No additional column created
-  table list( animals2 ); // No additional column created
+       [ animals2: Name, Cat, .. ] &<=> [ animals1: Name, Dog,  ];
+       [ animals2: Name, Bee, Name..Special ability ] &<=> [ animals1: Name, Owl, ]; // Excludes the weapon
+       
+       table list( animals1 ); // No additional column created
+       table list( animals2 ); // No additional column created

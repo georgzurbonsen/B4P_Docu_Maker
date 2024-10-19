@@ -42,6 +42,10 @@ a {
     text-decoration: none;
 }
 
+a_1 {
+    color: white;
+    text-decoration: none;
+}
 a:hover {
     color: blue;
     background: #ccc;

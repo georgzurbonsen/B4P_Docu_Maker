@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
 
-  table load( lookup, "Table Lookup Example 2.csv" );
-  table delete remaining rows ( lookup, -2 ); // Remove last 2 rows (the mom's place and 'not found' row)
+       table load( lookup, "Table Lookup Example 2.csv" );
+       table delete remaining rows ( lookup, -2 ); // Remove last 2 rows (the mom's place and 'not found' row)
 
-  table initialize( target, { Seating, inside, balcony, outside, bar } );
+       table initialize( target, { Seating, inside, balcony, outside, bar } );
 
-  count[] = table digest smart ignore case
-           ( target,   Seating, Place to go, lookup, Ambience, Restaurant Name, append with comma, true, Counter );
+       count[] = table digest smart ignore case
+                        ( target,   Seating, Place to go, lookup, Ambience, Restaurant Name, append with comma, true, Counter );
 
-  echo("Lookup table:");
-  table list( lookup );
+       echo("Lookup table:");
+       table list( lookup );
 
-  echo("Note: Nothing found for balcony.");
-  echo("Target table after lookup (", count[], " items found):");
-  table list( target );
+       echo("Note: Nothing found for balcony.");
+       echo("Target table after lookup (", count[], " items found):");
+       table list( target );
 

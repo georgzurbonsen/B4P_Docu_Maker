@@ -1,15 +1,15 @@
 ﻿#!/usr/local/bin/b4p
-  values[] =
-     { 1.2, date(today), true, { 1,2,{3,a} }, "Hello",  // No conversions
-       "true", "True",         // Only 'true' will be converted
-       "false", "False",       // Only 'false' will be converted
-       "2020-04-17", "2020-04-07 22:30:00", "2020-04-07 22:30", // Time conversion if fully specified.  3rd exmaple si not converted
-       "{1,2,{3,A} }",         // Converts to parameter set
-       "1.2", "1E+3",          // Converts to numbers
-       "0000-00-00" };         // Converts to blank date
+       values[] =
+          { 1.2, date(today), true, { 1,2,{3,a} }, "Hello",  // No conversions
+                "true", "True",         // Only 'true' will be converted
+                "false", "False",       // Only 'false' will be converted
+                "2020-04-17", "2020-04-07 22:30:00", "2020-04-07 22:30", // Time conversion if fully specified.  3rd exmaple si not converted
+                "{1,2,{3,A} }",         // Converts to set
+                "1.2", "1E+3",          // Converts to numbers
+                "0000-00-00" };         // Converts to blank date
 
-  for all parameters( values[], v[] )
-  {
-      n[] = best type( v[], true ); // 2nd parameter set also asks to convert strings containing parameter sets to parameter sets.
-      echo("Value: ", n[],  "   Type: ", type(n[]) );
-  }
+       for all ( values[], v[] )
+       {
+               n[] = best type( v[], true ); // 2nd set also asks to convert strings containing sets to sets.
+               echo("Value: ", n[],  "   Type: ", type(n[]) );
+       }

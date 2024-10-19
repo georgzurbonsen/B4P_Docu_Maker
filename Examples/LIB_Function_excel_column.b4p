@@ -1,6 +1,6 @@
 ﻿#!/usr/local/bin/b4p
-  for all parameters( { A, B5, Z23, AA1, ZZ, AAA, AAB, XFD, C A, '123 D', '123', ' B', '...' }, c[] )
-  {
-      echo(c[],": ", excel column ( c[] ) );
-      // Note: -1 is returned if no appropriate letter is recognized.
-  }
+       for all ( { A, B5, Z23, AA1, ZZ, AAA, AAB, XFD, C A, '123 D', '123', ' B', '...' }, c[] )
+       {
+               echo(c[],": ", excel column ( c[] ) );
+               // Note: -1 is returned if no appropriate letter is recognized.
+       }

@@ -1,36 +1,36 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( nute facts, // Nutritional facts, source: ndb.nal.usda.gov
-  {  {  Food, Ingredient, Portion  },
-     {  potato chips,  fat,            0.34  },
-     {  potato chips,  carbohydrates,  0.50  },
-     {  potato chips,  sodium,         0.08  },
-     {  potato chips,  proteins,       0.07  },
-     {  potato chips,  others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
-     {  broccoli,      water,          0.88  },
-     {  broccoli,      proteins,       0.03  },
-     {  broccoli,      carbohydrates,  0.06  },
-     {  broccoli,      others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
-     {  spring water,  water,          1.00  } } );
+       table initialize( nute facts, // Nutritional facts, source: ndb.nal.usda.gov
+       {  {  Food, Ingredient, Portion  },
+          {  potato chips,  fat,            0.34  },
+          {  potato chips,  carbohydrates,  0.50  },
+          {  potato chips,  sodium,         0.08  },
+          {  potato chips,  proteins,       0.07  },
+          {  potato chips,  others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
+          {  broccoli,      water,          0.88  },
+          {  broccoli,      proteins,       0.03  },
+          {  broccoli,      carbohydrates,  0.06  },
+          {  broccoli,      others,           ''  }, // Remaining weight subtracted from above (--> operation identifer 'mul')
+          {  spring water,  water,          1.00  } } );
 
-  table initialize( target, { { Name, Favorite Food },
-     { Rafael, Broccoli     }, { Steve, Parmesan cheese }, { Stephanie, Parmesan cheese  },
-     { Jane,   Potato chips }, { Nick, Potato chips },     { Fred,  Spring water         } } );
+       table initialize( target, { { Name, Favorite Food },
+          { Rafael, Broccoli     }, { Steve, Parmesan cheese }, { Stephanie, Parmesan cheese  },
+          { Jane,   Potato chips }, { Nick, Potato chips },     { Fred,  Spring water         } } );
 
 
-  echo("Target table before looking up with expanding contents:");
-  table list ( target );
+       echo("Target table before looking up with expanding contents:");
+       table list ( target );
 
-  count[] = table digest ignore case( target, Favorite Food, { Ingredient, Portion }, nute facts, Food,
-                { Ingredient, Portion }, { overwrite, add}, true, Counter );
+       count[] = table digest ignore case( target, Favorite Food, { Ingredient, Portion }, nute facts, Food,
+                                 { Ingredient, Portion }, { overwrite, add}, true, Counter );
 
-  echo("Lookup table:");
-  table list ( nute facts );
+       echo("Lookup table:");
+       table list ( nute facts );
 
-  // Note that food portions are multiplied with the weight of the food.
+       // Note that food portions are multiplied with the weight of the food.
 
-  echo("After expanding (listing ingredients and calculating their weights):");
-  echo("The portions are added up and yield resuts of 1 or less.");
-  echo("Note: Nothing found for parmesan cheese.");
-  echo("Target table after lookup (", count[], " items found):");
-  table list ( target );
+       echo("After expanding (listing ingredients and calculating their weights):");
+       echo("The portions are added up and yield resuts of 1 or less.");
+       echo("Note: Nothing found for parmesan cheese.");
+       echo("Target table after lookup (", count[], " items found):");
+       table list ( target );
 

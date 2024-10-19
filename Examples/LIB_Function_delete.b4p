@@ -1,32 +1,32 @@
 ﻿#!/usr/local/bin/b4p
-  values[] = { 0, 11, 22, 33, 44, 55, 66, 77, 88, 99 };
-  a[] = This is the base variable;
+       values[] = { 0, 11, 22, 33, 44, 55, 66, 77, 88, 99 };
+       a[] = This is the base variable;
 
-  array( a[], values[] );
-  delete( a[4], a[2] ); // Deletes subscript 2 and 4.  Good idea to work from bottom to top
+       array( a[], values[] );
+       delete( a[4], a[2] ); // Deletes subscript 2 and 4.  Good idea to work from bottom to top
 
-  for all variables( a[], v[] ) print( v[], " " ); echo ("Note: 22 and 44 are missing. OK.");
+       for all variables( a[], v[] ) print( v[], " " ); echo ("Note: 22 and 44 are missing. OK.");
 
-  echo("Attention when deleting lower subscripts before upper ones");
-  array( a[], values[] );
-  delete( a[2], a[4] ); // Deletes subscript 2 and 5 (not 4, becuase member variables have shifted up)
-  for all variables( a[], v[] ) print( v[], " " ); echo ("Note: 22 and 55 are missing this time");
+       echo("Attention when deleting lower subscripts before upper ones");
+       array( a[], values[] );
+       delete( a[2], a[4] ); // Deletes subscript 2 and 5 (not 4, becuase member variables have shifted up)
+       for all variables( a[], v[] ) print( v[], " " ); echo ("Note: 22 and 55 are missing this time");
 
-  echo;
-  echo("And with structures:", new line);
+       echo;
+       echo("And with structures:", new line);
 
-  structure( a[], { Cat,   Dog,  Bird,  { Parrot, Parakeet  }, Rat,  Mouse, Elephant, Zebra },
-          { Katze, Hund, Vogel, { Papagei, Sittich  }, Ratte, Maus, Elefant,  Zebra } );
+       structure( a[], { Cat,   Dog,  Bird,  { Parrot, Parakeet  }, Rat,  Mouse, Elephant, Zebra },
+                       { Katze, Hund, Vogel, { Papagei, Sittich  }, Ratte, Maus, Elefant,  Zebra } );
 
-  delete( a[Zebra]);
-  delete( a[Bird], a[Elephant], a[Cat] );
-  delete( a[Dinosaur] );
+       delete( a[Zebra]);
+       delete( a[Bird], a[Elephant], a[Cat] );
+       delete( a[Dinosaur] );
 
-  // B4P issues no error message if attempting to delete nonexisting variables,
-  // assuming they have already been deleted
+       // B4P issues no error message if attempting to delete nonexisting variables,
+       // assuming they have already been deleted
 
-  see(a[]);               // Dog Rat Mouse
+       see(a[]);                               // Dog Rat Mouse
 
-  delete(a[] );
-  echo( "Variable a[] existing? ", existing(a[]) );
+       delete(a[] );
+       echo( "Variable a[] existing? ", existing(a[]) );
 

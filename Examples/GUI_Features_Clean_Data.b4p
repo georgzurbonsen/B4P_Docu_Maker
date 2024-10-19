@@ -1,16 +1,16 @@
 ﻿#!/usr/local/bin/b4p
-  table load                     ( countries, temp.csv); // Hide!  Step 2 begins
-  // The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
-  // and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
-  // Note: str(...) is needed in order to avoid error messages when numbers are read from the table.
+       table load                     ( countries, temp.csv); // Hide!  Step 2 begins
+       // The table contains an exotic 'hairline spatium' space symbol, various fields begin with spaces,
+       // and references with 1 or 2 characters in brackets, e.g. [a], [aa].  The following two statements do the cleanup.
+       // Note: str(...) is needed in order to avoid error messages when numbers are read from the table.
 
-  table process all cells        ( countries, [.] = replace all( str([.]), {'[?]', '[??]' }, '' ) );
-  table clean                    ( countries, trim spaces );
+       table process all cells        ( countries, [.] = replace all( str([.]), {'[?]', '[??]' }, '' ) );
+       table clean                    ( countries, trim spaces );
 
-  table lift header row          ( countries, Name ); // Find header row automatically
-  table correct headers          ( countries, {Name, 'A-2', 'A-3'}, {Country name, 'Alpha-2 code', 'Alpha-3 code' } );
-  table process                  ( countries, [Country name]= left([Country name], ' (') ); // Remove name additions
+       table lift header row          ( countries, Name ); // Find header row automatically
+       table correct headers          ( countries, {Name, 'A-2', 'A-3'}, {Country name, 'Alpha-2 code', 'Alpha-3 code' } );
+       table process                  ( countries, [Country name]= left([Country name], ' (') ); // Remove name additions
 
-  table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
+       table list( countries, briefly, 5, 1st col, 0, last col, 1 ); // List first and last 5 rows and 2 columns only
 
-  table save                     ( countries, temp.csv); // Hide!  Step 2 ends
+       table save                     ( countries, temp.csv); // Hide!  Step 2 ends

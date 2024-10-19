@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
 
-  table initialize ( t,
-  { { Animal, leg count, size,         intelligence },
-    { Worm,   0,         very small,   low},
-    { Fox,    4,         quite small,  medium } });
+       table initialize ( t,
+       { { Animal, leg count, size,         intelligence },
+         { Worm,   0,         very small,   low},
+         { Fox,    4,         quite small,  medium } });
 
-  table write row( t, { size, Animal, leg count, skin }, 1, { tiny, null(), no legs }, { null(), Dog, four, haired } );
-  table add row  ( t, { Animal, size, intelligence }, { Ape, quite big, smart }, { Jellyfish, small } );
+       table write row( t, { size, Animal, leg count, skin }, 1, { tiny, null(), no legs }, { null(), Dog, four, haired } );
+       table add row  ( t, { Animal, size, intelligence }, { Ape, quite big, smart }, { Jellyfish, small } );
 
-  table list ( t );
+       table list ( t );

@@ -1,37 +1,37 @@
 ﻿#!/usr/local/bin/b4p
 
-  table initialize( animals,
-      { { Name,      Size,     Speed,     Movement,  Leg count,  Surface,    Special Skills   },
-        { Parrot,    small,    50,        flying,    2,          feathers,   immitates voices },
-        { Dog,       small,    30,        walking,   4,          hair,       sense of smell   },
-        { Cat,       small,    20,        walking,   4,          hair,       night vision     },
-        { Fox,       small,    25,        walking,   4,          hair,       relatively smart },
-        { Owl,       small,    80,        flying,    2,          feathers,   night vision     },
-        { Worm,      tiny,     0.01,      crawling,  0,          mucous skin,unclear          },
-        { Whale,     huge,     30,        swimming,  0,          skin,       relatively smart } } );
+       table initialize( animals,
+               { { Name,      Size,     Speed,     Movement,  Leg count,  Surface,    Special Skills   },
+                 { Parrot,    small,    50,        flying,    2,          feathers,   immitates voices },
+                 { Dog,       small,    30,        walking,   4,          hair,       sense of smell   },
+                 { Cat,       small,    20,        walking,   4,          hair,       night vision     },
+                 { Fox,       small,    25,        walking,   4,          hair,       relatively smart },
+                 { Owl,       small,    80,        flying,    2,          feathers,   night vision     },
+                 { Worm,      tiny,     0.01,      crawling,  0,          mucous skin,unclear          },
+                 { Whale,     huge,     30,        swimming,  0,          skin,       relatively smart } } );
 
-  headers[] = [animals:..,0]-{Name};
-
-
-  table initialize( target,
-          { { Size,     Speed,     Movement,  Leg count,  Surface,    Special Skills, Animal   },
-            { '*',      ':mod([.],40)=0','*', '*',        '*',        '*'              }, // Speed divisible by 40 -> Owl
-            { small,    '20..30',  '*',       '*',        Hair,       '*'              }, // Dog
-            { small,    '20..30',  '*',       '*',        Hair,       '*'              }, // Dog
-            { small,    '20..30',  '*',       '*',        Hair,       '*'              }, // Dog
-            { '*',      '<1',      '*',       '*',        '*',        '*'              } } );
-
-  echo("Target table before lookup:");
-  table list( target );
+       headers[] = [animals:..,0]-{Name};
 
 
-  echo("You can actually overwrite columns containing rules with the answers looked up, e.g. Leg count, surface, and speed");
-  count[] = table lookup with rules once ignore case ( target,  headers[], { Animal, Leg count, Surface, Speed, Movement },
-                                                       animals, headers[], { Name,   Leg count, Surface, Speed, Movement }, true, Counter );
+       table initialize( target,
+                       { { Size,     Speed,     Movement,  Leg count,  Surface,    Special Skills, Animal   },
+                         { '*',      ':mod([.],40)=0','*', '*',        '*',        '*'              }, // Speed divisible by 40 -> Owl
+                         { small,    '20..30',  '*',       '*',        Hair,       '*'              }, // Dog
+                         { small,    '20..30',  '*',       '*',        Hair,       '*'              }, // Dog
+                         { small,    '20..30',  '*',       '*',        Hair,       '*'              }, // Dog
+                         { '*',      '<1',      '*',       '*',        '*',        '*'              } } );
 
-  echo("List of animals with counted lookups:");
-  table list( animals );
+       echo("Target table before lookup:");
+       table list( target );
 
-  echo("Target table after lookup (", count[], " items found):");
-  table list( target );
+
+       echo("You can actually overwrite columns containing rules with the answers looked up, e.g. Leg count, surface, and speed");
+       count[] = table lookup with rules once ignore case ( target,  headers[], { Animal, Leg count, Surface, Speed, Movement },
+                                                                                                                animals, headers[], { Name,   Leg count, Surface, Speed, Movement }, true, Counter );
+
+       echo("List of animals with counted lookups:");
+       table list( animals );
+
+       echo("Target table after lookup (", count[], " items found):");
+       table list( target );
 

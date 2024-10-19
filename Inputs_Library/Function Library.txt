@@ -1,5 +1,6 @@
 
 
+
 B4PDOCU.START
 
 
@@ -103,7 +104,7 @@ B4PDOCU.START
 	* __do__ ... __while(__) / __until(__): Checking the condition whether to continue the loop is done after the loop is executed for the first time.
 	* __for(__): Loop statement where an interator variable is initialized, then repeatedly checked and updated (typically incremented) at the end over every loop.
 
-	In addition, a sesries of <b>for all ...()</b> statements exist which loop throgh __parameter sets__, __variables__
+	In addition, a sesries of <b>for all ...()</b> statements exist which loop throgh __sets__, __variables__
 
 	* __for all parameters(__)
 	* __for all variables(__)
@@ -146,7 +147,7 @@ B4PDOCU.START
 
 	=== 300, 700, bold_column_1
 	Name of local variable | Description
-	function name[] | Name of called function.  This is insofar useful if __additional function names__ have been defined for the same code
+	function name[] | Name of called function.  This is insofar useful if additional function names have been defined for the same code using __define additional function(__) and likes.
 	<i>parameter name</i>[] | Name of parameter provided.  Example: <b>hello[]</b> is defined if one of the parameters is called <b>hello</b>.
 	parameter <i>n</i>[] | Numbered parameter provided.  If the number of parameter is not limited, then all remaining parameters are numbered, with 1 as 1st parameter.
 	parameter count[] | Contains the number of parameters passed.  This is useful if the defined function allows for flexibility regarding number of parameters passed.
@@ -248,15 +249,8 @@ B4PDOCU.START
     "Feature Names":		[ "Code Execution Functions" ],
     "Description 01:Introduction"::
 
-	The following functions provide additional flexibility in code execution, e.g. calling functions with function names provided
-	as strings, or ad-hoc execution of B4P code provided as strings.
-
-	* __call(__): Call a B4P procedure or function with function name provided in a string
-	* __deep(__): Call a B4P procedure or function repeatedly on a parameter set
-	* __statements(__): Execute one or more __B4P statements__ provided directly or in a string
-	* __expression(__): Execute a __B4P expression__ provided directly or in a string
-	* __compare(__): Compare a value with a __comparison expression__ provided directly or in a string
-	* __assign(__): Assign a value to a B4P variable where the varialbe name (including members if needed) are provided directly or in a string.
+	The following functions provide additional flexibility in code execution which includes calling __procedures__ and __functions__ where their
+	names are proviided in variables, and execute small code fragments (also known as snippets) provided as strings or code.
 
 	$functions$
 
@@ -415,8 +409,8 @@ B4PDOCU.START
     "Feature Names":		[ "matrix functions" ],
     "Description 01:Introduction"::
 
-	B4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __parameter sets__ containing __numerals__,
-	matrices are modeled as __parameter sets__ (rows) containing __parameter sets__ containing __numerals__ (columns).
+	B4P provides a library of powerful matrix functions.  While vectors are modeled as 1-dimensional __sets__ containing __numerals__,
+	matrices are modeled as __sets__ (rows) containing __sets__ containing __numerals__ (columns).
 
 	Example: <b>{{ 1, 2, 3 }, { 4, 5, 6 }}</b> is a matrix consisting of 2 rows and 3 columns:<br><br>
 
@@ -445,7 +439,7 @@ B4PDOCU.START
 
 	* __horizontal__:  Converts a flat or vertical matrix to a horizontal matrix (1 row, several column elements)
 	* __vertical__: Converts a flat or horizontal matrix to a vertical matrix (1 column, several row elements)
-	* __flat__: Flattens the matrix to all values arranged in a simple parameter set
+	* __flat__: Flattens the matrix to all values arranged in a simple set
 	* __diagonal__: Creates a matrix with values along the diagonal and zero in the remaining fields
 	* __transpose__: Transposes a matrix
 
@@ -486,14 +480,14 @@ B4PDOCU.START
 
 
 
- "Parameter Set Functions" :
+ "Set Functions" :
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "parameter set functions" ],
+    "Feature Names":		[ "Set functions" ],
     "Description 01:Introduction"::
 
-	This section describes various functions used to process or check parameter sets.
-	<br>Additional powerful functions using parameter sets extensively are __series functions__, __matrix functions__, 
+	This section describes various functions used to process or check sets.
+	<br>Additional powerful functions using sets extensively are __series functions__, __matrix functions__, 
 	__statistics functions__ and __conditional combination functions__.
 
 	$functions$
@@ -506,11 +500,11 @@ B4PDOCU.START
 "Set Search and Extraction Functions":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "parameter set search and extraction" ],
-    "Keywords":			[ "parameter set search functions", "parameter set extraction functions" ],
+    "Feature Names":		[ "Set search and extraction" ],
+    "Keywords":			[ "Set search functions", "Set extraction functions" ],
     "Description 01:Introduction"::
 
-	This subsection describes various functions to search for parameter set patterns and extract subsets from parameter sets.
+	This subsection describes various functions to search for set patterns and extract subsets from sets.
 
 	$functions$
 
@@ -862,10 +856,10 @@ B4PDOCU.START
 
 
 
-"Search Functions":
+"Search and Replace Functions":
   {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Search functions" ],
+    "Feature Names":		[ "Search and replace functions" ],
     "Description 01:Introduction"::
 
 	This section summarizes the basic fuctions which include the following:
@@ -901,13 +895,13 @@ B4PDOCU.START
 
 	<br><br>
 
-	This function returns a parameter set containing 0, 1 or more coordinates for every sub-table found.
+	This function returns a set containing 0, 1 or more coordinates for every sub-table found.
 	The sub-tables beginning on the same row must contain a spacing of 1 column.  Direct neighboring is possible if the next table begins at a different tow (Illustration: See sub-table 2 and 3).
 
 	<br><br>
 
 	__table filter(__): The collection of coordinates can be narrowed down by matching header contents with given patterns and specifying minimum 
-	table widths and heights.  This function also returns the same kind of parameter set, but probably with fewer coordinates.
+	table widths and heights.  This function also returns the same kind of set, but probably with fewer coordinates.
 
 	<br><br>
 
@@ -1360,7 +1354,7 @@ B4PDOCU.START
 	Following rules will be applied when saving variables into JSON text. 
 	These rules are insofar important because the B4P can consist of both base variables, array and structure members and sub-members, 
 	and the simple JSON representation focuses on leaf data, meaning the final members and sub-members without the intermediate one.  
-	In addition, special rules are applied to save B4P specific formats such as dates (and times) and parameter sets.
+	In addition, special rules are applied to save B4P specific formats such as dates (and times) and sets.
 
 	Following special rules apply
 	=== 200, 800, noframe_1stcolbold, noheader
@@ -1368,13 +1362,13 @@ B4PDOCU.START
 	__Simple Variables__	| If the variable is a simple variable, then it will be saved as a JSON plain array containing 1 element.  Using 'JSON B4P' option in the loading process will recover the variable properly.
 	__Arrays__		| B4P arrays are stored as JSON arrays
 	__Structures__		| B4P structures are stored as JSON objects
-	strings		| string string contents are stored as text in double quotation marks
+	strings			| string string contents are stored as text in double quotation marks
 	Numerals		| Numerals are written as numbers without quotation marks.  When saving, scientific notation is not used.  However, JSON files containing scientific notation will be loaded correctly.
 	Booleans		| Will be written as <b>true</b> and <b>false</b>.  B4P will recognize boolean values and convert them to Boolean type
 	Void values		| Are written as <b>null</b> in JSON output.
 	Dates			| Dates (and times) are written as text in following formats: "YYYY-MM-DD", "hh:mm:ss", "YYYY-MM-DD hh:mm:ss", and "0000-00-00".  The last value refers to a blank date and will be recognized as such. When reading JSON data, dates and times must adhere strictly with the given formats, otherwise they will be loaded as text (e.g. "01 April 2020").
-	Parameter Sets		| Parameter sets will be converted to string format (similarly implemented as in the __str(__) function) and stored as text.  strings are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested parameter sets are supported.
-	Loading strings	| All loaded strings are declared as <b>quoted strings</b>
+	Sets			| Sets will be converted to string format (similarly implemented as in the __str(__) function) and stored as text.  strings are stored in single qutoation marks, aiming to avoid confusion wtih double quotation marks for JSON text contents.  Example: "{1,true,'Abc'}".  Nested sets are supported.
+	Loading strings		| All loaded strings are declared as <b>quoted strings</b>
 	Special characters	| Specific characters will be converted to JSON-compliant escape sequences, e.g. new line, quotation marks inside strings, etc. 
 	===
 	+++,
@@ -1440,8 +1434,8 @@ B4PDOCU.START
     "Description 01:Introduction"::
 
 	Resident attributes are values which can be stored in dedicated files.  In contrast to loading and saving variables, attributes are tuples
-	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, string, date, Boolean and parameter set.
-	Attribute names can be either flat (just one name) or hierarchical (parameter set containing multiple names representng a sort of path name).
+	consisting of <i>attribute names</i> and <i>attribute values</i>.  Values can take any type, e.g. numeral, string, date, Boolean and set.
+	Attribute names can be either flat (just one name) or hierarchical (set containing multiple names representng a sort of path name).
 
 	<br><br>
 	In contrast to Microsoft Windows registry, the B4P resident attributes is an operating-system independent solution to store small amounts of data

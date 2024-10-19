@@ -1,19 +1,19 @@
 ﻿#!/usr/local/bin/b4p
-  a[0] = 123.45;
-  a[1] = 007;
-  a[2] = 20.20;
-  a[3] = num( '1.5E-3' ); // String representation will not be included here
-  a[4] = 0.00;
+       a[0] = 123.45;
+       a[1] = 007;
+       a[2] = 20.20;
+       a[3] = num( '1.5E-3' ); // String representation will not be included here
+       a[4] = 0.00;
 
-  for all variables( a[], b[] )
-  {
-      c[] = str(b[]);  // Recover string representation
-      d[] = b[] + 0;       // String representation gets dropped because a calculation has been made
-      e[] = str(d[]);  // Convert back to string representation
+       for all variables( a[], b[] )
+       {
+           c[] = str(b[]);  // Recover string representation
+           d[] = b[] + 0;       // String representation gets dropped because a calculation has been made
+           e[] = str(d[]);  // Convert back to string representation
 
-      echo;
-      echo("For following numeral        : ", b[], " subtype: ", subtype(b[]) );
-      echo("   String representation     : ", c[], " subtype: ", subtype(c[]) );
-      echo("   Converted to plain numeral: ", d[], " subtype: ", subtype(d[]) );
-      echo("   Back to string again      : ", e[], " subtype: ", subtype(e[]) );
-  }
+           echo;
+           echo("For following numeral        : ", b[], " subtype: ", subtype(b[]) );
+           echo("   String representation     : ", c[], " subtype: ", subtype(c[]) );
+           echo("   Converted to plain numeral: ", d[], " subtype: ", subtype(d[]) );
+           echo("   Back to string again      : ", e[], " subtype: ", subtype(e[]) );
+       }

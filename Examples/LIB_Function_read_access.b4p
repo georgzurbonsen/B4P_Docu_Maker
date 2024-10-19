@@ -1,7 +1,7 @@
 ﻿#!/usr/local/bin/b4p
-      echo( read accessible  ( "C:\Program Files" ) );
-      echo( write accessible ( "C:\Program Files\B4P\B4P.exe" ) );
-      directory create( Test Dir );
-      echo( read accessible  ( Test Dir ) );
-      echo( write accessible ( Test Dir ) );
-      directory delete( Test Dir );
+               echo( read accessible  ( "C:\Program Files" ) );
+               echo( write accessible ( "C:\Program Files\B4P\B4P.exe" ) );
+               directory create( Test Dir );
+               echo( read accessible  ( Test Dir ) );
+               echo( write accessible ( Test Dir ) );
+               directory delete( Test Dir );

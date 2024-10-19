@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
 
-  echo(RHS Examples with variables);
+       echo(RHS Examples with variables);
 
-  a[]        = 10;
-  a[name]    = 'My Name';
-  a[four]    = (a[] - 2)/2;
-  a[colors]  = { red, yellow, green, blue };
-  a[nine]    = sqrt(81);
-  see(a[]);
+       a[]        = 10;
+       a[name]    = 'My Name';
+       a[four]    = (a[] - 2)/2;
+       a[colors]  = { red, yellow, green, blue };
+       a[nine]    = sqrt(81);
+       see(a[]);
 
-  echo(RHS Examples with a table);
-  table initialize ( List, {{Name, Score}, { Amy, 10}, { Bea, 20}, {Claus, 30}} );
-  echo( [List: Name, 2] );          // Bea
-  echo( [List: Name, Amy, Score] ); // Amy's Score: 10
-  echo( [List: Name, ..] );         // All names in a parameter set
+       echo(RHS Examples with a table);
+       table initialize ( List, {{Name, Score}, { Amy, 10}, { Bea, 20}, {Claus, 30}} );
+       echo( [List: Name, 2] );          // Bea
+       echo( [List: Name, Amy, Score] ); // Amy's Score: 10
+       echo( [List: Name, ..] );         // All names in a set
 

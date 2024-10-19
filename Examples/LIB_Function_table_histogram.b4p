@@ -1,0 +1,52 @@
+﻿#!/usr/local/bin/b4p
+
+table initialize     ( source, {{ Data 1, Data 2}} );
+
+[source:Data 1,..]   = { 1, -2, 3,  b,  c, '',3.5, 4.5, 4.5,  5, 5.5, 5.5, 6, 7, 8, 12 };
+[source:Data 2,..]   = { 5,  9, 0, 10, 11, 20, 10,  20,  20, 20, 20,  xyz,  3, 2, 1,  5 };
+
+bins 1[]             = { 0..5 };
+bins 2[]             = { 0,10,20 };
+
+
+echo ("Demonstrate a 1-dimensional histogram with default '>= operator and");
+
+table histogram                ( source, histogram 1, Data 1, bins 1[] );
+table process selected rows    ( histogram 1, is numeric([Intervals]), [Intervals] = ">= " + str([Intervals], "0.0" ) );
+
+echo ("Demonstrate a 1-dimensional histogram with '<' operator: ");
+
+table histogram                ( source, histogram 2, Data 1, bins 1[], "<" );
+table process selected rows    ( histogram 2, is numeric([Intervals]), [Intervals] = "< " + str([Intervals], "0.0" ) );
+table arrange with spacing     ( histogram 1, histogram 2 );
+table list                     ( histogram 1);
+
+echo ("Demonstrate a 1-dimensional histogram with '>' operator and");
+
+table histogram                ( source, histogram 1, Data 1, bins 1[], ">" );
+table process selected rows    ( histogram 1, is numeric([Intervals]), [Intervals] = "> " + str([Intervals], "0.0" ) );
+
+echo ("Demonstrate a 1-dimensional histogram with '<=' operator: ");
+
+table histogram                ( source, histogram 2, Data 1, bins 1[], "<=" );
+table process selected rows    ( histogram 2, is numeric([Intervals]), [Intervals] = "<= " + str([Intervals], "0.0" ) );
+table arrange with spacing     ( histogram 1, histogram 2 );
+table list                     ( histogram 1);
+
+
+
+echo ("Demonstrate a 2-dimensional histogram: ");
+
+table histogram                ( source, histogram, {Data 1, Data 2}, { bins 1[], bins 2[] } );
+table process selected rows    ( histogram, is numeric([Intervals]), [Intervals] = ">= " + str([Intervals], "0.0" ) );
+table process selected columns ( histogram, 0, is numeric([.]), [.] = ">= " + str([.], "0.0" ) );
+table list                     ( histogram );
+
+
+echo ("Demonstrate a 2-dimensional histogram with '<' operator: ");
+
+table histogram                ( source, histogram, {Data 1, Data 2}, { bins 1[], bins 2[] }, "<" );
+table process selected rows    ( histogram, is numeric([Intervals]), [Intervals] = "< " + str([Intervals], "0.0" ) );
+table process selected columns ( histogram, 0, is numeric([.]), [.] = "< " + str([.], "0.0" ) );
+table list                     ( histogram );
+               

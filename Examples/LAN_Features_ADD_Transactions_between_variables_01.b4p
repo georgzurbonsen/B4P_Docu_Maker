@@ -1,11 +1,11 @@
 ﻿#!/usr/local/bin/b4p
-  structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
-  structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
-  array ( animals1[insects], { bee, fly } );
+       structure( animals1[], { mammal, bird, fish }, { dog, owl, eel} );
+       structure( animals1[mammal], { carnivore, herbivore }, { bear, deer } );
+       array ( animals1[insects], { bee, fly } );
 
-  structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
-  array( animals2[mammal], { lynx, skunk } );
-  structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );
+       structure( animals2[], { mammal, fish, reptile }, { cat, trout, turtle } );
+       array( animals2[mammal], { lynx, skunk } );
+       structure ( animals2[insects], { useful, nasty, useless }, { ant, tick, mosquito } );
 
-  animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
-  see(animals1[]);
+       animals1[] +<== animals2[];  // animals1 gets all insects members, omnivore (skunk) and the turtle
+       see(animals1[]);

@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  
-  echo("Distinguish between simple and zero members variables");
-  a[] = Hi;
-  echo(identify(a[0])); // simple
+       
+       echo("Distinguish between simple and zero members variables");
+       a[] = Hi;
+       echo(identify(a[0])); // simple
 
-  a[0] = Ho;
-  echo(identify(a[0])); // array
+       a[0] = Ho;
+       echo(identify(a[0])); // array
 
-  delete(a[0]);
-  echo(identify(a[0])); // not found
-  echo(identify(a[])); // zero members
+       delete(a[0]);
+       echo(identify(a[0])); // not found
+       echo(identify(a[])); // zero members
 
-  a[dog] = Hund;
-  echo(identify(a[])); // structure
+       a[dog] = Hund;
+       echo(identify(a[])); // structure
 
 

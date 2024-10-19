@@ -1,25 +1,25 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals,
-      {{ Name, Class, Number of Legs,Surface},
-       { Dog, Mammal, 4, Hair }, { Snake, Reptile, 0, Skin }, { Parrot, Bird, 2, Feathers }} );
+       table initialize( animals,
+               {{ Name, Class, Number of Legs,Surface},
+                { Dog, Mammal, 4, Hair }, { Snake, Reptile, 0, Skin }, { Parrot, Bird, 2, Feathers }} );
 
-  // Choose all columns with headers containing 's'. The list results for row 2.
+       // Choose all columns with headers containing 's'. The list results for row 2.
 
-  for all table selected columns( animals, ('*s*'), 2, column[], header[], i[] ) // Leg count skipped
-  {
-      echo( i[],": Column ", column[], " (", header[], ") = ", [column[]] );
-  }
+       for all table selected columns( animals, ('*s*'), 2, column[], header[], i[] ) // Leg count skipped
+       {
+               echo( i[],": Column ", column[], " (", header[], ") = ", [column[]] );
+       }
 
-  echo;
+       echo;
 
-  for all table selected columns( animals, ('*s*'), 2, column[]) // Leg count skipped
-  {
-      echo( "Column ", column[], " (", [.,0], ") = ", [.] );
-  }
+       for all table selected columns( animals, ('*s*'), 2, column[]) // Leg count skipped
+       {
+               echo( "Column ", column[], " (", [.,0], ") = ", [.] );
+       }
 
-  echo;
+       echo;
 
-  for all table selected columns( animals, ('*s*') ) // Leg count skipped
-  {
-      echo( " (", [.], ") = ", [.,2] );
-  }
+       for all table selected columns( animals, ('*s*') ) // Leg count skipped
+       {
+               echo( " (", [.], ") = ", [.,2] );
+       }

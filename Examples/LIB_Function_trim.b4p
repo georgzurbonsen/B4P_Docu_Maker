@@ -1,3 +1,3 @@
 ﻿#!/usr/local/bin/b4p
-      echo( '"', trim    ( "  This   is a green  cat "), '"' );
-      echo( '"', trim all( "  This   is a green  cat "), '"' );
+               echo( '"', trim    ( "  This   is a green  cat "), '"' );
+               echo( '"', trim all( "  This   is a green  cat "), '"' );

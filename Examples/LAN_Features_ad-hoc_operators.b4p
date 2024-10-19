@@ -1,50 +1,50 @@
 ﻿#!/usr/local/bin/b4p
-  a[] = 10;
-  b[] = 20;
-  d[] = 30;
+       a[] = 10;
+       b[] = 20;
+       d[] = 30;
 
-  echo("Demonstrate ad-hoc operations in right-hand expressions:");
+       echo("Demonstrate ad-hoc operations in right-hand expressions:");
 
-  //    10          11            9             11
-  echo( a[]++, ' ', a[]--, ' ', --a[], ' ', ++ ++a[] );
+       //    10          11            9             11
+       echo( a[]++, ' ', a[]--, ' ', --a[], ' ', ++ ++a[] );
 
-  //    22             22 -> 66               6
-  echo( **(2)a[], ' ', a[]**(3), ' ', **(1/11)a[] );
+       //    22             22 -> 66               6
+       echo( **(2)a[], ' ', a[]**(3), ' ', **(1/11)a[] );
 
-  x[] = --(2) a[]++;  // Decrement a by 2, assign, then increment by 1. Result: 4, 5
+       x[] = --(2) a[]++;  // Decrement a by 2, assign, then increment by 1. Result: 4, 5
 
-  echo( x[], ' ', a[]);
+       echo( x[], ' ', a[]);
 
-  echo(new line, "Demonstrate ad-hoc operations in left-hand expressions:");
+       echo(new line, "Demonstrate ad-hoc operations in left-hand expressions:");
 
-  e[]++ = b[];       // becomes 21
-  f[]**(2) = 10;     // becomes 20
+       e[]++ = b[];       // becomes 21
+       f[]**(2) = 10;     // becomes 20
 
-  echo( e[], ' ', f[]) ;
+       echo( e[], ' ', f[]) ;
 
-  echo(new line, "Demonstrate stand-alone ad-hoc operations:");
+       echo(new line, "Demonstrate stand-alone ad-hoc operations:");
 
-  d[]++;             // Simple one, 31.
-  **(2)e[]--;        // Double 21 to 42, subract by 1 becomes 41.
+       d[]++;             // Simple one, 31.
+       **(2)e[]--;        // Double 21 to 42, subract by 1 becomes 41.
 
-  echo( d[], ' ', e[]) ;
+       echo( d[], ' ', e[]) ;
 
-  echo(new line, "Demonstrate stand-alone ad-hoc operations in tables:");
+       echo(new line, "Demonstrate stand-alone ad-hoc operations in tables:");
 
-  table create ( t );    // Ad-hoc operators applied on table cells
+       table create ( t );    // Ad-hoc operators applied on table cells
 
-  [t:0,0]++;             // Table entry was blank. Arithmetics interpret blanks as zero;  Contains 1.
-  [t:0,0]**(3);          // Multiplied by 3.
-  echo( [t:0,0] );       // 3
+       [t:0,0]++;             // Table entry was blank. Arithmetics interpret blanks as zero;  Contains 1.
+       [t:0,0]**(3);          // Multiplied by 3.
+       echo( [t:0,0] );       // 3
 
-  echo(new line, "Demonstrate stand-alone ad-hoc operations with dates:");
+       echo(new line, "Demonstrate stand-alone ad-hoc operations with dates:");
 
-  d[] = date( "2020-08-01 18:30:00" );
-  echo( --d[] ); // Previous day
-  echo( ++(0.5)d[] ); // Next day, 06:30
+       d[] = date( "2020-08-01 18:30:00" );
+       echo( --d[] ); // Previous day
+       echo( ++(0.5)d[] ); // Next day, 06:30
 
-  echo(new line, "Demonstrate stand-alone ad-hoc operations with parameter sets:");
+       echo(new line, "Demonstrate stand-alone ad-hoc operations with sets:");
 
-  a[] = { 1, 2, 5, 10, { 20, 50 } };
-  a[]++;
-  echo(a[]);
+       a[] = { 1, 2, 5, 10, { 20, 50 } };
+       a[]++;
+       echo(a[]);

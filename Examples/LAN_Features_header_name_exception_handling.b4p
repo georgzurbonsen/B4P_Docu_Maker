@@ -1,19 +1,19 @@
 ﻿#!/usr/local/bin/b4p
 
 
-  table load( table, "Cities.csv" );
+       table load( table, "Cities.csv" );
 
-  table keep columns( table, { Country, City, Famous attraction, Moving along} );
+       table keep columns( table, { Country, City, Famous attraction, Moving along} );
 
-  table configure( table, column not found, first column );
-  echo( [ table : City, Boston, Nation ] );
+       table configure( table, column not found, first column );
+       echo( [ table : City, Boston, Nation ] );
 
-  table configure( table, column not found, last column );
-  echo( [ table : City, Boston, Nation ] ); // Walking
+       table configure( table, column not found, last column );
+       echo( [ table : City, Boston, Nation ] ); // Walking
 
-  table configure( table, column not found, new column );
-  [ table : City, Boston, Best Restaurant ] = Legal Seafood;
-  [ table : City, Los Angeles, Best Restaurant ] = Jack in the Box; // A chain ...
-  [ table : City, Zürich, Pizza Takeaway ] = Dieci; // A chain ...
+       table configure( table, column not found, new column );
+       [ table : City, Boston, Best Restaurant ] = Legal Seafood;
+       [ table : City, Los Angeles, Best Restaurant ] = Jack in the Box; // A chain ...
+       [ table : City, Zürich, Pizza Takeaway ] = Dieci; // A chain ...
 
-  table list( table  ); 
+       table list( table  ); 

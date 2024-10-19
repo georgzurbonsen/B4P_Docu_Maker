@@ -1,0 +1,16 @@
+﻿#!/usr/local/bin/b4p
+table initialize( t, {{ Header 1, Header 2, Header 3, Header 4 }} );
+
+with table( t, 1 )
+{
+       a[] = '[Header 3]';
+       table assign   ( Contents 1, [Header 1]    );
+       table assign   ( Contents 2, :"[Header 2]" );
+       table assign   ( Contents 3, :a[]  );
+       table assign   ( {1,2,3}, [t: Header 3, 2.. ] );
+}
+table assign ( 3 Rows, [t: Header 2, 2..4] );
+
+// Assign to mulitple destinations
+table assign ( 2 Items, [t:Header 4, 1],:'[t:Header 4, 2]');
+table list(t);

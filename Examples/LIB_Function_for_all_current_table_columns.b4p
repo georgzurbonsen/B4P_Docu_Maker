@@ -1,19 +1,19 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals,
-      {{ Name, Class, Number of Legs},
-       { Dog, Mammal, 4 }, { Snake, Reptile, 0 }, { Human, Mammal, 2 }} );
+       table initialize( animals,
+               {{ Name, Class, Number of Legs},
+                { Dog, Mammal, 4 }, { Snake, Reptile, 0 }, { Human, Mammal, 2 }} );
 
-  with table ( animals, 1 )
-      for all current table columns( value[], i[] )
-      {
-          echo( i[],". ", [i[],0], ": ", value[] );
-      }
+       with table ( animals, 1 )
+               for all current table columns( value[], i[] )
+               {
+                       echo( i[],". ", [i[],0], ": ", value[] );
+               }
 
-  echo(new line, "Example with 0 parameters in 'for all current table columns':", new line);
-  // [.] = Current column and row, [.,0] = Current column from header row
+       echo(new line, "Example with 0 parameters in 'for all current table columns':", new line);
+       // [.] = Current column and row, [.,0] = Current column from header row
 
-  table process ( animals,
-      for all current table columns
-      {
-          echo( [.,0], ": ", [.] );
-      }; echo; );
+       table process ( animals,
+               for all current table columns
+               {
+                       echo( [.,0], ": ", [.] );
+               }; echo; );

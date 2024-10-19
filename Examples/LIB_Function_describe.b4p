@@ -1,5 +1,6 @@
 ﻿#!/usr/local/bin/b4p
-strings[] = { "", "  ", "13", " 12.1", "1E+3", " C", "Hello", "Hello World", "Hello" + new line + "World",
+       strings[] = { "", "  ", "13", " 12.1", "1E+3", " C", "Hello", "Hello World", "Hello" + new line + "World",
               "20. April 2021 13:15", "2021-04-20", "13:15:00" };
 
-for all parameters( strings[], string[] ) echo( string[], " --> ", describe(string[]), new line);
+       for all( strings[], string[] ) echo( string[], " --> ", describe(string[]), new line);
+       echo( describe( { a, abc, 1.3.2021 } ) ); // Exmaple with vectorization

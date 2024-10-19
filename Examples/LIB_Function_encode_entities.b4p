@@ -1,4 +1,5 @@
 ﻿#!/usr/local/bin/b4p
-      echo( encode entities( '4.50 €  <TABLE> "..." </DIV>' ) );
-      echo( encode entities( Line 1 + new line + Line 2, false ) ); // use &#10;
-      echo( encode entities( Line 1 + new line + Line 2, true ) ); // use <BR/>
+               echo( encode entities( '4.50 €  <TABLE> "..." </DIV>' ) );
+               echo( encode entities( Line 1 + new line + Line 2, false ) ); // use &#10;
+               echo( encode entities( Line 1 + new line + Line 2, true ) ); // use <BR/>
+               echo( encode entities( {Café,Caffè} ) ); // Vectorization example

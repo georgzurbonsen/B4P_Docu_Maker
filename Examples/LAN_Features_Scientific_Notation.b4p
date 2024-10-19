@@ -3,7 +3,7 @@ a[] = 1000;
 a[text 1] = 1E03;
 a[text 2] = '1e+03';  // Put into quotation marks to avoid adding 3 to '1e'
 a[num  1] = num(1E03);
-a[num  2] = num('1E+03');
+a[num  2] = num('1E+03'); // Quotation marks required because of plus symbol (confuses with addition)
 a[milli ] = num('1e-3');
 a[wrong ] = num('1E 03'); // Space inside.  Only 1st digit will be recgnized 
 see(a[])

@@ -499,7 +499,7 @@ B4PDOCU.START
 	Following approaches are available to create arrays:
 	=== 200, 800, noframe_1stcolbold, noheader
 	dim...() function family | Functions such as __dim(__), __redim(__), __dim protect(__) and __redim protect(__) initialize arrays with a specified number of elements and initial values.
-	array...() | Functions like __array(__) and __array protect(__) create arrays with initial values provided in parameter sets.
+	array...() | Functions like __array(__) and __array protect(__) create arrays with initial values provided in sets.
 	Direct referencing | (Spontaneous array creation) Assigning a simple variable with an index will automatically create an array with members 0...<i>index</i> where the members inbetween are not initialized and return __void__ values.
 	===
 
@@ -586,7 +586,7 @@ B4PDOCU.START
 	<br><br>
 	Following approaches are avialable to create structures:
 	=== 200, 800, noframe_1stcolbold, noheader
-	structure...() | Functions like __structure(__) and __structure protect(__) create structures with intial member names and values provided in two parameter sets.
+	structure...() | Functions like __structure(__) and __structure protect(__) create structures with intial member names and values provided in two sets.
 	Direct referencing | Assigning a simple variable with a member name will initialize it with a structure.  This will not be possible if the variable is already an array.
 	===
 	+++,
@@ -719,15 +719,15 @@ B4PDOCU.START
 
 
 
-"Parameter Sets Specifying Members" :
+"Sets Specifying Members" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "specifying members with parameter sets" ],
+    "Feature Names":		[ "specifying members with sets" ],
     "Description 01:Introduction"::
 
 	Variable members can either be specified with constant values, and expressions such as variables.
 	This provides flexibility, but sometimes you need the flexibility to access different members
-	in differently deep levels dynmically.  This is best done with using parameter sets which make up
+	in differently deep levels dynmically.  This is best done with using sets which make up
 	a part of the sequence of member names and/or index numbers or the whole one. See the following example:
 	+++,
     "Examples 01:"::
@@ -741,10 +741,10 @@ B4PDOCU.START
 	echo( var[ me, a[], b[] ] );
 
 	c[] = { you, we, us };
-	echo( var[me, c[]] );	// Use parameter set to specify sub-members behind 'me'
+	echo( var[me, c[]] );	// Use set to specify sub-members behind 'me'
 
 	c[] = {me} + c[];
-	echo( var[c[]] );	// Use parameter set to specify all nested members
+	echo( var[c[]] );	// Use set to specify all nested members
 
 	c[] = c[]{0..2}; 	// me, you we only
 	echo( var[c[]]  );      // Use paramter set to specify first part of all nested members

@@ -1,40 +1,40 @@
 ﻿#!/usr/local/bin/b4p
-  table load( t, "Cities.csv" );
+       table load( t, "Cities.csv" );
 
-  // Freeze panes and apply an autofilter
-  table style table( t, sheet, freeze rows, 1, freeze columns, 2, autofilter, 0 );    
+       // Freeze panes and apply an autofilter
+       table style table( t, sheet, freeze rows, 1, freeze columns, 2, autofilter, 0 );        
 
-  for all parameters( { 10, 20, 20, 14, 20, 10, 20, 20 }, width[], col[] )
-  {
-      table style columns( t, col[], sheet, column width, width[] );
-  }   
-  
-  table style rows( t, 0, table, row height, 32, vertical align, center, 
-      fill color, gray 14, boldface, true, font size, 12, wrap text, true );
+       for all parameters( { 10, 20, 20, 14, 20, 10, 20, 20 }, width[], col[] )
+       {
+           table style columns( t, col[], sheet, column width, width[] );
+       }       
+       
+       table style rows( t, 0, table, row height, 32, vertical align, center, 
+           fill color, gray 14, boldface, true, font size, 12, wrap text, true );
 
-  table style columns( t, { City, Country }, body, text color, blue, boldface, true, italic, true );
-  table process selected rows( t, [Inhabitants]>=1000000, 
-      table style cells( t, Inhabitants, row(), single, 
-      text color, royal purple, fill color, champagne, boldface, true ) );
+       table style columns( t, { City, Country }, body, text color, blue, boldface, true, italic, true );
+       table process selected rows( t, [Inhabitants]>=1000000, 
+           table style cells( t, Inhabitants, row(), single, 
+           text color, royal purple, fill color, champagne, boldface, true ) );
 
-  border[] = { medium, red };
-  table process selected rows( t, ([Famous cultural place]=+'*theater*','*opera*'), 
-      table style cells( t, { City, Famous cultural place}, row(), matrix, 
-      text color, mandarin, fill color, lemon, boldface, true,
-      left border, border[], right border, border[], top border, border[], bottom border, border[]  ) );
+       border[] = { medium, red };
+       table process selected rows( t, ([Famous cultural place]=+'*theater*','*opera*'), 
+           table style cells( t, { City, Famous cultural place}, row(), matrix, 
+           text color, mandarin, fill color, lemon, boldface, true,
+           left border, border[], right border, border[], top border, border[], bottom border, border[]  ) );
 
-  // Number format is supported in Excel only
-  table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
+       // Number format is supported in Excel only
+       table style columns( t, {Inhabitants,"Alt. (m)"},body,  horizontal align, right, number format, "#,##0" );
 
-  table save( t, "Images/Style_Function_table_style_professionally.xls", EXCEL );
-  table save excel file( t, Contents, "Images/Style_Function_table_style_professionally.xlsx"  );
+       table save( t, "Images/Style_Function_table_style_professionally.xls", EXCEL );
+       table save excel file( t, Contents, "Images/Style_Function_table_style_professionally.xlsx"  );
 
-  // How to apply number formats in HTML for browsers
+       // How to apply number formats in HTML for browsers
 
-  table process              ( t,                      [Inhabitants] = str([Inhabitants], '#,##0', local) );  
-  table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = str(['Alt. (m)'] , '#,##0', local) );
-  table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, string );
+       table process              ( t,                      [Inhabitants] = str([Inhabitants], '#,##0', local) );  
+       table process selected rows( t, ['Alt. (m)'] != '',  ['Alt. (m)']  = str(['Alt. (m)'] , '#,##0', local) );
+       table style columns( t, {Inhabitants,"Alt. (m)"},body,  type, string );
 
-  table save( t, "Images/Style_Function_table_style_professionally.html", HTML );
-  file copy overwrite( "Images/Style_Function_table_style_professionally.html", "Images/Style_Function_table_style_professionally_in_html.xls" );
-  echo("Done.");
+       table save( t, "Images/Style_Function_table_style_professionally.html", HTML );
+       file copy overwrite( "Images/Style_Function_table_style_professionally.html", "Images/Style_Function_table_style_professionally_in_html.xls" );
+       echo("Done.");

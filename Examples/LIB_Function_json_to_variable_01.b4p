@@ -1,18 +1,18 @@
 ﻿#!/usr/local/bin/b4p
 
-  misc[boolan] = true;
-  misc[numeral] = 123.45;
-  misc[date] = date( "2020-07-14 17:00" );
-  misc[set] = { a, 1, { b, 2 }, c, true, date( "2020-08-01 21:00" ) };
+       misc[boolan] = true;
+       misc[numeral] = 123.45;
+       misc[date] = date( "2020-07-14 17:00" );
+       misc[set] = { a, 1, { b, 2 }, c, true, date( "2020-08-01 21:00" ) };
 
-  j[] = variable to json( misc[], JSON );
+       j[] = variable to json( misc[], JSON );
 
-  // With 'All my pets' defined in the base variable, the JSON code will be a 'plain array'
-  // beginning with '[' and not with '{'.
+       // With 'All my pets' defined in the base variable, the JSON code will be a 'plain array'
+       // beginning with '[' and not with '{'.
 
-  echo("This is the JSON code:", new line, j[], new line, "_End of JSON text ___________");
+       echo("This is the JSON code:", new line, j[], new line, "_End of JSON text ___________");
 
-  echo("Load the JSON text, assuming it originated from B4P output");
-  json to variable( diverse[], j[], JSON B4P );
+       echo("Load the JSON text, assuming it originated from B4P output");
+       json to variable( diverse[], j[], JSON B4P );
 
-  see( diverse[] ); // You will see that all contents are preserved.
+       see( diverse[] ); // You will see that all contents are preserved.

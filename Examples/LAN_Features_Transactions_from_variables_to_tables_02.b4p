@@ -1,19 +1,19 @@
 ﻿#!/usr/local/bin/b4p
-  table initialize( animals,
-      { { Name,  Leg count, Special ability  },
-        { Owl,   2,         Night vision     },
-        { Dog,   4,         Sensitive nose   },
-        { Ape,   2 or 4,    Relatively smart } } );
+       table initialize( animals,
+               { { Name,  Leg count, Special ability  },
+                 { Owl,   2,         Night vision     },
+                 { Dog,   4,         Sensitive nose   },
+                 { Ape,   2 or 4,    Relatively smart } } );
 
-  structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
-  structure( animal1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table
+       structure( animal1[], { Name, Leg count, Weapon }, { Snake, 0, poison } );
+       structure( animal1[Weapon], { venom, muscles }, { rattle snake, boa constrictor } ); // Nested, not copied into table
 
-  structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );
-  animal2[] = Pets;
+       structure( animal2[], { Name, Leg count, Weapon, Special ability, size }, { Tick, 6, diseases, tricky to remove, tiny} );
+       animal2[] = Pets;
 
-  [ animals : Name, Owl, .. ] <<= animal1[];              // All columns are written, plus new ones
-  [ animals : Name, Ape, {Name, Leg count} ] <<=^ animal2[];      // Only name and leg count are written
+       [ animals : Name, Owl, .. ] <<= animal1[];                              // All columns are written, plus new ones
+       [ animals : Name, Ape, {Name, Leg count} ] <<=^ animal2[];              // Only name and leg count are written
 
-  table list ( animals );
-  echo("animal1[] existing? ", existing(animal1[]) );
-  see(animal2[]); 
+       table list ( animals );
+       echo("animal1[] existing? ", existing(animal1[]) );
+       see(animal2[]); 

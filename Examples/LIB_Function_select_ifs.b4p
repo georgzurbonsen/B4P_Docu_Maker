@@ -1,14 +1,14 @@
 ﻿#!/usr/local/bin/b4p
-  echo("Demonstrate 'select ifs':");
-  a[] = 1; b[] = 2; c[] = 3;
-  x[] = select ifs( echo("Others "), (a[]++=0), echo("1st "), (b[]++ = 2), echo("2nd "), (c[]++ = 3), echo("3rd ") );
-  // All parameter will be calculated.
+       echo("Demonstrate 'select ifs':");
+       a[] = 1; b[] = 2; c[] = 3;
+       x[] = select ifs( echo("Others "), (a[]++=0), echo("1st "), (b[]++ = 2), echo("2nd "), (c[]++ = 3), echo("3rd ") );
+       // All parameter will be calculated.
 
-  echo("a..c[] = ", a[], " ", b[], " ", c[],".  Result is ", x[] );
+       echo("a..c[] = ", a[], " ", b[], " ", c[],".  Result is ", x[] );
 
-  echo(new line, "Demonstrate 'pick ifs':");
-  a[] = 1; b[] = 2; c[] = 3;
-  x[] = pick ifs( echo("Others "), (a[]++=0), echo("1st "), (b[]++ = 2), echo("2nd "), (c[]++ = 3), echo("3rd ") );
-  // The first two conditions will be calculated as well as 'echo("2nd ")'.
+       echo(new line, "Demonstrate 'pick ifs':");
+       a[] = 1; b[] = 2; c[] = 3;
+       x[] = pick ifs( echo("Others "), (a[]++=0), echo("1st "), (b[]++ = 2), echo("2nd "), (c[]++ = 3), echo("3rd ") );
+       // The first two conditions will be calculated as well as 'echo("2nd ")'.
 
-  echo("a..c[] = ", a[], " ", b[], " ", c[],".  Result is ", x[] );
+       echo("a..c[] = ", a[], " ", b[], " ", c[],".  Result is ", x[] );

@@ -1,0 +1,21 @@
+﻿#!/usr/local/bin/b4p
+table initialize( t,
+               { { City,        State, Country },
+                 { Tuscon,      AZ,    United States },
+                 { Toronto,     ON,    Canada },
+                 { Missisauga,  ON,    Canada },
+                 { Zürich,      ZH,    Switzerland },
+                 { Lake Zurich, MI,    United States } } );
+
+table copy table ( t, u );
+c[] = table replace cells( u, { United States, canada, 'swit*' }, { US, CA, CH }, ignore case );
+table replace cells in columns( t, City, '*Zurich*', Fake Place, { 3:right } );
+table list ( u );
+echo("Number of replacements in first function call ", c[], new line );
+
+table replace cells selected rows in columns( t, [Country]==Canada, State, ON, Ontario, once );
+table replace cells in columns ( t, Country, { United States, Canada }, { US, CA }, once each );
+table replace cells( t, US, ' (near California)', append );
+table list ( t );
+
+

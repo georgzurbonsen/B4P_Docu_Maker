@@ -1,17 +1,17 @@
 ﻿#!/usr/local/bin/b4p
-  table load( c, "Cities.csv");
+       table load( c, "Cities.csv");
 
-  row[] = table find row( c, { City, Country }, { Los Angeles, USA } );
-  echo("Los Angeles is found in row: ", row[] );
+       row[] = table find row( c, { City, Country }, { Los Angeles, USA } );
+       echo("Los Angeles is found in row: ", row[] );
 
-  row[] = table find row( c, { City, Country }, { Los Angeles, CAN } );
-  echo("Los Angeles is not found, returning : ", row[] );
+       row[] = table find row( c, { City, Country }, { Los Angeles, CAN } );
+       echo("Los Angeles is not found, returning : ", row[] );
 
-  row[] = table find row( c, { City, Country }, { Los Angeles, 'U*' } );
-  echo("Los angeles is found in row: ", row[] );
+       row[] = table find row( c, { City, Country }, { Los Angeles, 'U*' } );
+       echo("Los angeles is found in row: ", row[] );
 
-  row[] = table find row( c, { City, Country }, { Los Angeles, "U*" } );
-  echo("Los Angeles is not found, returning : ", row[] );
+       row[] = table find row( c, { City, Country }, { Los Angeles, "U*" } );
+       echo("Los Angeles is not found, returning : ", row[] );
 
-  row[] = table find row( c, { Inhabitants, Country }, { 404000, '*' } );
-  echo("Zürich found in row: ", row[] );
+       row[] = table find row( c, { Inhabitants, Country }, { 404000, '*' } );
+       echo("Zürich found in row: ", row[] );
