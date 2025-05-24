@@ -1,0 +1,15 @@
+﻿#!/usr/local/bin/b4p
+       date[] = "2022-05-01";
+       echo( "Date is ", date[] );
+
+       for (month[]=1, month[]<=12, month[]++ )
+               echo( "Year ending in ", str( date(2022,month[],1),"Mmmm" ), ": ", fm( date[], month[] ) );
+
+       echo("Vectorization exmaple:");
+       echo( fm( { 31.12.2023, 01.01.2023, 06.01.2023,01.04.2024 }, 3 ) );  // Vectorization exmaple
+
+       echo("Numeric exmaple with months specified:");
+       echo( fm( { 11, 12, 1, 2, 3, 4 }, 3 ) );  // Vectorization exmaple
+
+       echo("String exmaple with months specified:");
+       echo( fm( { Jun, Jul, Dec, Jan }, 6 ) );  // Vectorization exmaple

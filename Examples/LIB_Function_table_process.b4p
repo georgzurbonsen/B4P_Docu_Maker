@@ -1,10 +1,40 @@
 ﻿#!/usr/local/bin/b4p
-       table initialize ( animals, { {Animal, Group, Characteristics},
-                { parakeet, bird },  { moose, mammal },  { ape, mammal },  { sparrow, bird } , { trout, fish }, { bass, fish },
-                { canary, bird }, { penguin, bird }, { beluga, mammal} } );
 
-       table process                   ( animals, [Animal] = ![Animal] ); // Capitalize
-       table process selected rows     ( animals, ([Group] = bird), [Characteristics] = "Can fly", [Characteristics] = "Can't fly" );
-       table process selected rows     ( animals, ([Group] = fish) | ([Animal]=Penguin,Beluga), [Characteristics] = "Can swim" );
+table initialize       ( table, {{ Name, Out 1, Out 2, Out 3, Out 4, Out 5, Out 6, Out 7, Out 8 },
+                                                Abel, Brigitte, Charles, Daniela, Emily, Fred, Gregor, Hella, Ingo, Jan, Klaus, Linda } );
 
-       table list ( animals );
+table copy table       ( table, t );
+
+i[] = 1;
+
+table process rows                   ( t, [Out 1] = i[]++ );
+table process all rows               ( t, [Out 2] = i[]++ ); // Note: Header 'Out 2' will be verwritten
+table process rows up                ( t, [Out 3] = i[]++ );
+table process all rows up            ( t, [Out 4] = i[]++ ); // Note: Header 'Out 4' will be verwritten
+
+i[] = 1;
+table process selected rows          ( t, {2..5,9,-1},  [Out 5] = i[]++, [Out 5] = No ); // Rows 2-5,9,last row
+table process all selected rows      ( t, 0,  [Out 6] = i[]++ ); // Just row 0
+table process selected rows up       ( t, ([Name]<>'*a*'), [Out 7] = i[]++, [Out 7] = No );
+table process all selected rows up   ( t, ([Name]='*m*',Linda), [Out 8] = i[]++ );
+// Note the parentheses around the expressions: = and <> may expect multiple operands separated by comma like
+// the last example above: Containing 'm' or eqal to 'Linda'.
+
+table list (t);
+
+
+echo( new line, "Demonstrate the 'start' and 'stop' features:");
+table copy table       ( table, t );
+
+table process rows start              ( t, ([Name]='*n*'), [Out 1] = i[]++, [Out 1] = No );
+table process rows stop               ( t, ([Name]='*n*'), [Out 2] = i[]++, [Out 2] = No );
+table process all rows start          ( t, ([Name]='*m*'), [Out 3] = i[]++ );
+table process all rows stop           ( t, ([Name]='*a'),  [Out 4] = i[]++ );
+
+i[] = 1;
+table process rows up start           ( t, ([Name]='*y'),  [Out 5] = i[]++, [Out 5] = No );
+table process rows up stop            ( t, ([Name]='*y'),  [Out 6] = i[]++, [Out 6] = No );
+table process all rows up start       ( t, ([Name]='*y'),  [Out 7] = i[]++ );
+table process all rows up stop        ( t, ([Name]='*y'),  [Out 8] = i[]++ );
+
+table list (t);

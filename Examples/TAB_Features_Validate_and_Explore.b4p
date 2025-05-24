@@ -17,8 +17,8 @@ table lookup smart ignore case  ( c1, Country, Country, country names resolved, 
 
 most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
 
+table correct headers           ( c2, { 'Country*', most recent population[], '*tinent*' }, { Country, Population, Continent } );
 table delete selected rows      ( c2, [Country]=World );
-table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
 table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
 table keep columns              ( c2, { Country, Continent, Population } );
 table delete selected rows      ( c2, [Country]='*(*)*' );             // Overseas departements with home countries in parentheses

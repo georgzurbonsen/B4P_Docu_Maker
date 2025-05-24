@@ -1,4 +1,14 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
+MAS;B 5.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
+MAS;B 5.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
+MAS;B 5.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
+MAS;B 3;Features and Benefits;MAS_Features_Features_and_Benefits.html;General Description;Features and Benefits
+MAS;;Index;MAS_Features_Index.html;General Description;Index
+MAS;B 5.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
+MAS;B 1;Overview;MAS_Features_Overview.html;General Description;Overview
+MAS;B 2;Problem Statement;MAS_Features_Problem_Statement.html;General Description;Problem Statement
+MAS;B 5;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
+MAS;B 4;Workflow Overview;MAS_Features_Workflow_Overview.html;General Description;Workflow Overview
 LIB;B 9.04;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;B 9.07.04.05.01;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;B 5.03.01;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
@@ -208,8 +218,8 @@ LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Pr
 LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Coverages
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Styles
-LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
-LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
+LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
+LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Values
@@ -611,13 +621,15 @@ LIB;B 5.04.08;flat;LIB_Function_flat.html;Function Description;;Flatten matrix
 LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;flip horizontally
 LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;flip vertically
 LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;;flip matrix
+LIB;B 7.01.07;fm - Fiscal Month;LIB_Function_fm.html;Function Description;fm
+LIB;B 7.01.07;fm - Fiscal Month;LIB_Function_fm.html;Function Description;;fiscal month
 LIB;B 2.02.03;for;LIB_Function_for.html;Function Description;for
 LIB;B 2.02.03;for;LIB_Function_for.html;Function Description;;For-loops
 LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;for all
 LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;for all parameters
 LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;;For-loop across set elements
-LIB;B 2.02.08;for all characters;LIB_Function_for_all_characters.html;Function Description;for all characters
-LIB;B 2.02.08;for all characters;LIB_Function_for_all_characters.html;Function Description;;For-loop through characters
+LIB;B 2.02.07;for all characters;LIB_Function_for_all_characters.html;Function Description;for all characters
+LIB;B 2.02.07;for all characters;LIB_Function_for_all_characters.html;Function Description;;For-loop through characters
 LIB;B 9.06.06;for all current table columns;LIB_Function_for_all_current_table_columns.html;Function Description;for all current table columns
 LIB;B 9.06.07;for all current table selected columns;LIB_Function_for_all_current_table_selected_columns.html;Function Description;for all current table selected columns
 LIB;B 9.06.04;for all table columns;LIB_Function_for_all_table_columns.html;Function Description;for all table columns
@@ -626,22 +638,22 @@ LIB;B 9.06.02;for all table rows;LIB_Function_for_all_table_rows.html;Function D
 LIB;B 9.06.02;for all table rows;LIB_Function_for_all_table_rows.html;Function Description;;For-loop through table rows
 LIB;B 9.06.05;for all table selected columns;LIB_Function_for_all_table_selected_columns.html;Function Description;for all table selected columns
 LIB;B 9.06.03;for all table selected rows;LIB_Function_for_all_table_selected_rows.html;Function Description;for all table selected rows
-LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables
-LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing
-LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing and valid
-LIB;B 2.02.07;for all variables;LIB_Function_for_all_variables.html;Function Description;;For-loop through variables
+LIB;B 2.02.06;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables
+LIB;B 2.02.06;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing
+LIB;B 2.02.06;for all variables;LIB_Function_for_all_variables.html;Function Description;for all variables if existing and valid
+LIB;B 2.02.06;for all variables;LIB_Function_for_all_variables.html;Function Description;;For-loop through variables
 LIB;B 9.03.01.04;forget memorized table columns;LIB_Function_forget_memorized_table_columns.html;Function Description;forget memorized table columns
 LIB;B 3.01.03;format, format print;LIB_Function_format.html;Function Description;format
 LIB;B 3.01.03;format, format print;LIB_Function_format.html;Function Description;format print
-LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;fq
-LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;financial quarter
-LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fiscal quarter
+LIB;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;fq
+LIB;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;financial quarter
+LIB;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fiscal quarter
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;function existing
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;user function existing
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;;Check if function existing
-LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;fy
-LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;financial year
-LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;fiscal year
+LIB;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;Function Description;fy
+LIB;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;financial year
+LIB;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;fiscal year
 LIB;B 6.01.15;get differences;LIB_Function_get_differences.html;Function Description;get differences
 LIB;B 2.04.03;get long options;LIB_Function_get_long_options.html;Function Description;get long options
 LIB;B 3.01.08;getch ...;LIB_Function_getch.html;Function Description;getch
@@ -878,7 +890,7 @@ LIB;B 6.01.02;replace, replace all;LIB_Function_replace.html;Function Descriptio
 LIB;B 6.03.02;replicate ... (string function);LIB_Function_replicate.html;Function Description;replicate
 LIB;B 6.03.02;replicate ... (string function);LIB_Function_replicate.html;Function Description;replicate characters
 LIB;B 6.03.02;replicate ... (string function);LIB_Function_replicate.html;Function Description;;replicate strings
-LIB;B 7.01.09;reschedule;LIB_Function_reschedule.html;Function Description;reschedule
+LIB;B 7.01.10;reschedule;LIB_Function_reschedule.html;Function Description;reschedule
 LIB;B 3.02.10;reset console;LIB_Function_reset_console.html;Function Description;reset console
 LIB;B 11.02.08;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;resolve path name
 LIB;B 11.02.08;resolve path/directory/file name;LIB_Function_resolve_path_name.html;Function Description;resolve directory name
@@ -1230,15 +1242,27 @@ LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Func
 LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay columns
 LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;table overlay exclusive columns
 LIB;B 9.08.03.02;table overlay/subtract ...;LIB_Function_table_overlay.html;Function Description;;Table overlays the other table
-LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process
-LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process rows
-LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process all rows
-LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process selected rows
-LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;table process all selected rows
-LIB;B 9.07.04.01;table process (all) (selected rows);LIB_Function_table_process.html;Function Description;;Process table rows
 LIB;B 9.07.04.03;table process (selected) columns;LIB_Function_table_process_columns.html;Function Description;table process columns
 LIB;B 9.07.04.03;table process (selected) columns;LIB_Function_table_process_columns.html;Function Description;table process selected columns
 LIB;B 9.07.04.03;table process (selected) columns;LIB_Function_table_process_columns.html;Function Description;;Process table columns
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process rows
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all rows
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process selected rows
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all selected rows
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process rows up
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all rows up
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process selected rows up
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all selected rows up
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process rows start
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all rows start
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process rows stop
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all rows stop
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process rows up start
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all rows up start
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process rows up stop
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;table process all rows up stop
+LIB;B 9.07.04.01;table process ...;LIB_Function_table_process.html;Function Description;;Process table rows
 LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;table process cells
 LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;table process all cells
 LIB;B 9.07.04.04;table process cells (selected rows);LIB_Function_table_process_cells.html;Function Description;table process cells selected rows
@@ -1418,6 +1442,18 @@ LIB;B 11.04.01;zip compress;LIB_Function_zip_compress.html;Function Description;
 LIB;B 11.04.01;zip compress;LIB_Function_zip_compress.html;Function Description;;File comporession and decompression
 LIB;B 11.04.03;zip extract all;LIB_Function_zip_extract_all.html;Function Description;zip extract all
 LIB;B 11.04.02;zip extract files;LIB_Function_zip_extract_files.html;Function Description;zip extract files
+TAB;B 1.01;A - Import;TAB_Features_Import_source_data.html;General Description;Import source data
+TAB;B 1.02;B - Clean;TAB_Features_Clean_Data.html;General Description;Clean Data
+TAB;B 1.03;C - Validate;TAB_Features_Validate_and_Explore.html;General Description;Validate and Explore
+TAB;B 1.04;D - Merge;TAB_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
+TAB;B 1.05;E - Augment;TAB_Features_Enrichment.html;General Description;Enrichment
+TAB;B 1.06;F - Analyze;TAB_Features_Align_and_Process.html;General Description;Align and Process
+TAB;B 1.07;G - Format;TAB_Features_Format_the_results.html;General Description;Format the results
+TAB;B 1.08;H - Export;TAB_Features_Save_and_Export.html;General Description;Save and Export
+TAB;;Index;TAB_Features_Index.html;General Description;Index
+TAB;;Processing Tables and Big Data;TAB_Features_Processing_Tables_and_Big_Data.html;General Description;Processing Tables and Big Data
+TAB;;Table of Contents;TAB_Features_Table_of_Contents.html;General Description;Table of Contents
+TAB;B 1.09;The Whole Program;TAB_Features_The_Whole_Program.html;General Description;The Whole Program
 LAN;B 5.05;"&#43; Transaction Assignment Operators";LAN_Features_Transactions_with_ADD_assignment_operator.html;General Description;Transactions with ADD assignment operator
 LAN;B 5.05.04;"&#43; Transactions between Tables";LAN_Features_ADD_Transactions_between_tables.html;General Description;ADD Transactions between tables
 LAN;B 5.05.01;"&#43; Transactions between Variables";LAN_Features_ADD_Transactions_between_variables.html;General Description;ADD Transactions between variables
@@ -1795,7 +1831,8 @@ GUI;B 3.03.02.01;MacOS Start B4P Programs as Executables;GUI_Features_Start_B4P_
 GUI;B 3.03.02.02;MacOS Start B4P to run B4P programs;GUI_Features_MacOS_Start_B4P_to_run_B4P_programs.html;General Description;MacOS Start B4P to run B4P programs
 GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;Operating System Commands
 GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;;OS Commands
-GUI;B 7.01;Release 11.00;GUI_Features_Release_11.00_Jørn_Utzon.html;General Description;Release 11.00 Jørn Utzon
+GUI;B 7.01;Release 11.00;GUI_Features_Release_11.00_-_Sydney_Opera_House.html;General Description;Release 11.00 - Sydney Opera House
+GUI;B 7.02;Release 11.02;GUI_Features_Release_11.02_-_Yellowstone.html;General Description;Release 11.02 - Yellowstone
 GUI;B 7;Release History;GUI_Features_Release_History.html;General Description;Release History
 GUI;B 3.02;Starting B4P under Linux;GUI_Features_Starting_B4P_under_Linux.html;General Description;Starting B4P under Linux
 GUI;B 3.03;Starting B4P under MacOS;GUI_Features_Starting_B4P_under_MacOS.html;General Description;Starting B4P under MacOS
@@ -1826,25 +1863,3 @@ GUI;B 3.01.01;Windows Edit B4P Programs;GUI_Features_Edit_B4P_Programs_under_Win
 GUI;B 3.01.03;Windows Start B4P Directly;GUI_Features_Starting_B4P_Directly_under_Windows.html;General Description;Starting B4P Directly under Windows
 GUI;B 3.01.02;Windows Start B4P Programs;GUI_Features_Starting_a_B4P_Program_under_Windows.html;General Description;Starting a B4P Program under Windows
 GUI;B 5;Workflow;GUI_Features_Workflow.html;General Description;Workflow
-MAS;B 5.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
-MAS;B 5.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
-MAS;B 5.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
-MAS;B 3;Features and Benefits;MAS_Features_Features_and_Benefits.html;General Description;Features and Benefits
-MAS;;Index;MAS_Features_Index.html;General Description;Index
-MAS;B 5.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
-MAS;B 1;Overview;MAS_Features_Overview.html;General Description;Overview
-MAS;B 2;Problem Statement;MAS_Features_Problem_Statement.html;General Description;Problem Statement
-MAS;B 5;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
-MAS;B 4;Workflow Overview;MAS_Features_Workflow_Overview.html;General Description;Workflow Overview
-TAB;B 1.01;A - Import;TAB_Features_Import_source_data.html;General Description;Import source data
-TAB;B 1.02;B - Clean;TAB_Features_Clean_Data.html;General Description;Clean Data
-TAB;B 1.03;C - Validate;TAB_Features_Validate_and_Explore.html;General Description;Validate and Explore
-TAB;B 1.04;D - Merge;TAB_Features_Merge_and_Consolidate.html;General Description;Merge and Consolidate
-TAB;B 1.05;E - Augment;TAB_Features_Enrichment.html;General Description;Enrichment
-TAB;B 1.06;F - Analyze;TAB_Features_Align_and_Process.html;General Description;Align and Process
-TAB;B 1.07;G - Format;TAB_Features_Format_the_results.html;General Description;Format the results
-TAB;B 1.08;H - Export;TAB_Features_Save_and_Export.html;General Description;Save and Export
-TAB;;Index;TAB_Features_Index.html;General Description;Index
-TAB;;Processing Tables and Big Data;TAB_Features_Processing_Tables_and_Big_Data.html;General Description;Processing Tables and Big Data
-TAB;;Table of Contents;TAB_Features_Table_of_Contents.html;General Description;Table of Contents
-TAB;B 1.09;The Whole Program;TAB_Features_The_Whole_Program.html;General Description;The Whole Program

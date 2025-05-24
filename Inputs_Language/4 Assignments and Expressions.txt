@@ -649,25 +649,31 @@ echo( 3 + (2 >= 2) + 2 );   // 6 (True in middle converts to 1)
 	"Examples 01:Programming example"::
 	include( Support Library );
 
-	table initialize ( demo wildcards,
-	{ { Target string, '*', '~', 'A*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*' },
-	    Hello,
-	    1234,
-	    12345,              // Column headers contain wildcard symbols
-	    Zip 12010,          // 1st column contain target strings to compare with these patterns
-	    Cat,                // The blank rows will be filled in with comparison results
-	    Bat,                // 'true' and 'false'.
-	    halt } );
+table initialize ( demo wildcards,
+       { { String, '*', '~', 'B*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*','*##','*i*','*i*1*' },
+           Hello,
+	   '',
+	   12,
+	   123,
+           1234,
+           12345,
+           Zip 12010,          
+           Zip__12010,         
+           Zip 1201,           
+           Cat,                
+           Bat,                
+	   Bit,
+           halt } );
 
-	table configure( demo wildcards, read numerals, no ); // Read numbers from tables as strings
+       table configure( demo wildcards, read numerals, no ); // Read numbers from tables as strings
 
-	table process( demo wildcards,
-	    for (c[] = 1, c[] < table row width( demo wildcards, 0 ), c[]++ )
-	    {
-	        [c[]]      = [0]      = soft( [c[], 0 ] ); // Compare and write the result
-	        // Current   Column   Compared with corresponding header name above
-	        // column    zero
-	    } );
+       table process( demo wildcards,
+           for (c[] = 1, c[] < table row width( demo wildcards, 0 ), c[]++ )
+           {
+               [c[]]      = [0]      = soft( [c[], 0 ] ); // Compare and write the result
+               // Current   Column   Compared with corresponding header name above
+               // column    zero
+           } );
 
 	table list( demo wildcards );
 	+++,

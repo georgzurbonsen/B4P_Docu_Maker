@@ -349,8 +349,8 @@ table lookup smart ignore case  ( c1, Country, Country, country names resolved, 
 
 most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
 
+table correct headers           ( c2, { 'Country*', most recent population[], '*tinent*' }, { Country, Population, Continent } );
 table delete selected rows      ( c2, [Country]=World );
-table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
 table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
 table keep columns              ( c2, { Country, Continent, Population } );
 table delete selected rows      ( c2, [Country]='*(*)*' ); 		// Overseas departements with home countries in parentheses
@@ -462,7 +462,8 @@ table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 
 	include ( Support Library );
 	table load                     ( c1, temp1.csv); // Hide!  Step 5 begins
 
-[c1:Country,{China,Denmark},Area] = {9597000,42952}; // km2  (Denmark without Greenland, and CN without China South Sea)
+[c1:Country,{China,Denmark,'Timor-Leste'},Area] = {9597000,42952,14950}; // km2 
+//  (Denmark without Greenland, and CN without China South Sea, and area was missing for East Timor
 
 table insert columns            ( c1, { Inhabitants Variation, Inhabitants per km2 } );
 table process selected rows     ( c1, [Inhabitants] == '', [Inhabitants] = [Population]);
@@ -502,7 +503,6 @@ table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 
 	__table serialize(__)			| Serialize data where values are spread horizontally, e.g. by quarterse and years to a pure sequential list.
 	__table spread(__)			| Spread sequential data horizontally, e.g. by month and year in separate columns.
 	__table consolidate(__)			| Condense the data and apply algorithms on the values to condense, e.g. adding up, taking maximum, etc.
-	__table distribute(__)			| Very useful for production planning.
 	__table transpose(__)			| Exchange rows with columns.
 	__table rotate left(__) <br>__table rotate right(__) | Rotate table contents
 	__table flip horizontally(__) <br>__table flip vertically(__) | Flip, i.e. mirror table contents
@@ -511,13 +511,14 @@ table list                      ( c1, briefly, 4, last col, 2 ); // List just 3 
 	+++,
 
 
-    "Description 03:Statistics"::
+    "Description 03:Statistics and Analytics"::
 
 	Below you find a selection of statistics functions.  B4P provides a large collection of functions able to fulfill your analytical needs.
 
 	<hr>
 	=== 250, 750, bold_column_1, noframe, noheader
-	__histogram(__)				| Create a 1- or multi-dimensional histogram
+	__table histogram(__)			| Create 1- or 2-dimensional histograms
+	__table distribute(__)			| Very useful for production planning.
 	__linear interpolation(__)		| Do linar interpolation for missing points
 	__cagr(__)				| Calculate compound average growth rate
 	__discount(__)				| Calculate discounted cash flow, i.e. net present value (NPV)
@@ -765,7 +766,6 @@ table save excel file            ( {c1, histo}, {Countries, Histogram}, "Images/
 	include ( Support Library );
 	include ( Style Library );
 	include ( Office Library );
-
 // Part 1: Import
 
 file download overwrite         ( "https://de.wikipedia.org/wiki/Liste_der_Staaten_der_Erde", countries 1.html );
@@ -813,8 +813,8 @@ table lookup smart ignore case  ( c1, Country, Country, country names resolved, 
 
 most recent population[]        = filter( [c2:..,0], 'Population*' ) { -1 }; // Take right most matching header name from row 0
 
+table correct headers           ( c2, { 'Country*', most recent population[], '*tinent*' }, { Country, Population, Continent } );
 table delete selected rows      ( c2, [Country]=World );
-table correct headers           ( c2, { most recent population[], '*Continent*' }, { Population, Continent } );
 table process cells in columns  ( c2, Population, [.] = str([.]) / ',' );
 table keep columns              ( c2, { Country, Continent, Population } );
 table delete selected rows      ( c2, [Country]='*(*)*' ); 		// Overseas departements with home countries in parentheses
@@ -828,7 +828,8 @@ table delete selected rows      ( c1, [Continent]='' ); // Questionable countrie
 
 // Part 5: Augment
 
-[c1:Country,{China,Denmark},Area] = {9597000,42952}; // km2  (Denmark without Greenland, and CN without China South Sea)
+[c1:Country,{China,Denmark,'Timor-Leste'},Area] = {9597000,42952,14950}; // km2 
+//  (Denmark without Greenland, and CN without China South Sea, and area was missing for East Timor
 
 table insert columns            ( c1, { Inhabitants Variation, Inhabitants per km2 } );
 table process selected rows     ( c1, [Inhabitants] == '', [Inhabitants] = [Population]);

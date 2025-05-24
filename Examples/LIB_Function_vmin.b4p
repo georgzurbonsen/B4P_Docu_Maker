@@ -10,7 +10,7 @@ echo( vmin( a[], b[] ) );
 echo( vmin( a[], 3 ) );
 echo( vmin( a[], {{ 2, 1, 4 }, 5 } ) );
 echo( vmin( s[], t[] ) );
-echo( vmin( {10.02.2024, 02.08.2024}, {11.02.2024,01.08.2024} ) );
+echo( vmin( {10.02.2025, 02.08.2025}, {11.02.2025,01.08.2025} ) );
 echo( vmin( {true, false}, {false, true} ) );
 
 echo( new line, "vmax:");
@@ -18,7 +18,7 @@ echo( vmax( 1, 2 ) ); // The simple way
 echo( vmax( a[], b[] ) );
 echo( vmax( a[], 3 ) );
 echo( vmax( a[], {{ 2, 1, 4 }, 5 } ) );
-echo( vmax( {10.02.2024, 02.08.2024}, {11.02.2024,01.08.2024} ) );
+echo( vmax( {10.02.2025, 02.08.2025}, {11.02.2025,01.08.2025} ) );
 echo( vmax( {true, false}, {false, true} ) );
 
 a[] = { 100, "100", 30,   5, abc, Text };

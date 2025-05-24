@@ -13,11 +13,11 @@ echo( limit( a[], Eel, Eel ) ); // All results = 7
 echo( limit( a[], Eel, Cow ) ); // No limitations
 echo;
 
-a[] = date( { 01.01.2024, 01.04.2024, 01.07.2024, 01.10.2024, 31.12.2024 } );
+a[] = date( { 01.01.2025, 01.04.2025, 01.07.2025, 01.10.2025, 31.12.2025 } );
 
-echo( limit( a[], date(28.02.2024), date(01.09.2024) ) ); // Limitation to specifeid dates
-echo( limit( a[], date(14.07.2024), date(14.07.2024) ) ); // All results set to limit values
-echo( limit( a[], date(01.09.2024), date(28.02.2024) ) ); // No Limitation
+echo( limit( a[], date(28.02.2025), date(01.09.2025) ) ); // Limitation to specifeid dates
+echo( limit( a[], date(14.07.2025), date(14.07.2025) ) ); // All results set to limit values
+echo( limit( a[], date(01.09.2025), date(28.02.2025) ) ); // No Limitation
 echo;
 
 a[] = { false, true };

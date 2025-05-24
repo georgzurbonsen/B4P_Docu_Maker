@@ -23,12 +23,12 @@ B4PDOCU.START
 "Release 11.00" :
 {
     "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "Release 11.00 Jørn Utzon" ],
+    "Feature Names":		[ "Release 11.00 - Sydney Opera House" ],
 
     "Description 01:Overview"::
 
-	<b>Release 11.00, updated 2024-10-20, "Jørn Utzon"</b><br>
-	<i>Architect of the Sydney Opera House inaugurated and opened on 20.10.1973 by Queen Elizabeth II</i>
+	<b>Release 11.00, issued 2024-10-20, "Sydndey Opera House"</b><br>
+	<i>Inaugurated and opened on 20.10.1973 by Queen Elizabeth II</i>
 
     "Description 02:Bugfixes"::
 
@@ -60,6 +60,7 @@ B4PDOCU.START
 	* __table insert cells in columns(__), __table insert cells selected rows(__)
 	* __cbrt(__): Cube root
 	* __histogram(__): Creates one- and multi-dimensional histograms
+	* __table histogram(__): Creates one- and two-dimensional histograms using tables
 	* __table assign(__): Allows assigning values into multiple table entries in a single statement
 	* __print matrix(__), __compose matrix(__), echo_matrix(__): Outputs 2-dimensional sets as matrices onto the console
 	* __pad(__), __align(__) and additional string functions
@@ -73,6 +74,7 @@ B4PDOCU.START
 	* __table replace cells(__) function family
 	* __table add calculated columns(__), __table insert calculated columns(__) are smart variants of __table insert columns(__).
 	* __replace if(__): Replaces values if condition is true.  This function is vectorizable and the condition check is done for every element covered.
+	And many more ...
 
     "Description 04:Improvements in Existing Functions"::
 
@@ -108,11 +110,62 @@ B4PDOCU.START
 
 	* <b>for all parameters</b>() is replaced by __for all(__)
 
+	+++
 
+},
+
+
+"Release 11.02" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 11.02 - Yellowstone" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 11.02, issued 2025-03-01, "Yellowstone"</b><br>
+	<i>Park has been iunaugurated and opened on 01.03.1872 as first U.S. National Park ever</i>
+
+    "Description 02:Bugfixes"::
+
+	* __reschedule(__) gave wrong result when appyling week number calculation in combination with other rescheduling operations.
+	* __table process(__) function family: Bug fixed with deciding whether to process row 0 or not.
+	* __fy(__) crashed if used in combination of vectorization and format string.
+	* Attempting to assign a __reference__ to a table makes B4P crash instead of returning an error message.
+	* Combination of assigning a __reference__ with assignment operator was not issuing an error message.
+	* Comparison operator with wildcard was not always functioning properly with ends-with comparisons.
+	
+
+    "Description 03:New Functions"::
+
+	* New members added to __table process(__) family, including start-stop and bottom-up processing.
+	* __fm(__) has been added to calculate fiscal month
+
+    "Description 04:Improvements in Existing Functions"::
+
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+
+    "Description 06:Other new Features"::
+
+
+    "Description 07:Clean-ups and Streamlining"::
+
+
+    "Description 08:Performance Improvements"::
+
+	* Comparing strings with wildcards should improve performance slightly
+
+
+    "Description 09:Depreciated and retired features"::
+
+	* <b>for all parameters</b>() is replaced by __for all(__)  (Still existing, but no longer recommended to use)
 
 	+++
 
 }
+
+
 
 
 

@@ -1,13 +1,19 @@
 ﻿#!/usr/local/bin/b4p
 
-       table initialize ( demo wildcards,
-       { { Target string, '*', '~', 'A*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*' },
+table initialize ( demo wildcards,
+       { { String, '*', '~', 'B*', '&', 'Zip*#####', '??t', '*t', 'A*,B*,C*','*##','*i*','*i*1*' },
            Hello,
+          '',
+          12,
+          123,
            1234,
-           12345,              // Column headers contain wildcard symbols
-           Zip 12010,          // 1st column contain target strings to compare with these patterns
-           Cat,                // The blank rows will be filled in with comparison results
-           Bat,                // 'true' and 'false'.
+           12345,
+           Zip 12010,          
+           Zip__12010,         
+           Zip 1201,           
+           Cat,                
+           Bat,                
+          Bit,
            halt } );
 
        table configure( demo wildcards, read numerals, no ); // Read numbers from tables as strings

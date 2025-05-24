@@ -13,3 +13,5 @@
            }
            echo;
        }
+       echo("Vectorization exmaple:");
+       echo( fy( { 31.12.2023, 01.01.2023, 06.01.2023 }, 3 ) );  // Vectorization exmaple
