@@ -1,14 +1,4 @@
 ﻿Abbreviation;Section Nr;Section Name;HTML File Name;Documentation Type;Feature Names;Keywords
-MAS;B 5.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
-MAS;B 5.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
-MAS;B 5.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
-MAS;B 3;Features and Benefits;MAS_Features_Features_and_Benefits.html;General Description;Features and Benefits
-MAS;;Index;MAS_Features_Index.html;General Description;Index
-MAS;B 5.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
-MAS;B 1;Overview;MAS_Features_Overview.html;General Description;Overview
-MAS;B 2;Problem Statement;MAS_Features_Problem_Statement.html;General Description;Problem Statement
-MAS;B 5;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
-MAS;B 4;Workflow Overview;MAS_Features_Workflow_Overview.html;General Description;Workflow Overview
 LIB;B 9.04;Accessing Table Information;LIB_Features_Accessing_table_information.html;General Description;Accessing table information
 LIB;B 9.07.04.05.01;Addt'l Info on fast rows processing;LIB_Features_Additional_info_on_fast_processing_of_rows.html;General Description;Additional info on fast processing of rows
 LIB;B 5.03.01;Arithmetic and Boolean Series Functions;LIB_Function_add.html;Function Description;add
@@ -218,8 +208,8 @@ LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Pr
 LIB;B 9.09.02.06;Formatting Coverages and Precedences;LIB_Features_Formatting_Precedences.html;General Description;Formatting Coverages
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Formatting and styling tables
 LIB;B 9.09;Formatting and Styling Tables;LIB_Features_Formatting_and_styling_tables.html;General Description;Styles
-LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
-LIB;;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
+LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library
+LIB;B 1;Function Library;LIB_Features_Function_Library.html;General Description;Function Library Guide
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;Generic Formatting Attributes
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Names
 LIB;B 9.09.02.05;Generic Formatting Attributes;LIB_Features_Generic_Formatting_Attributes.html;General Description;;Generic Attribute Values
@@ -621,8 +611,8 @@ LIB;B 5.04.08;flat;LIB_Function_flat.html;Function Description;;Flatten matrix
 LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;flip horizontally
 LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;flip vertically
 LIB;B 5.04.11;flip horizontally / vertically;LIB_Function_flip_horizontally.html;Function Description;;flip matrix
-LIB;B 7.01.07;fm - Fiscal Month;LIB_Function_fm.html;Function Description;fm
-LIB;B 7.01.07;fm - Fiscal Month;LIB_Function_fm.html;Function Description;;fiscal month
+LIB;B 7.01.09;fm - Fiscal Month;LIB_Function_fm.html;Function Description;fm
+LIB;B 7.01.09;fm - Fiscal Month;LIB_Function_fm.html;Function Description;;fiscal month
 LIB;B 2.02.03;for;LIB_Function_for.html;Function Description;for
 LIB;B 2.02.03;for;LIB_Function_for.html;Function Description;;For-loops
 LIB;B 2.02.05;for all;LIB_Function_for_all.html;Function Description;for all
@@ -645,15 +635,15 @@ LIB;B 2.02.06;for all variables;LIB_Function_for_all_variables.html;Function Des
 LIB;B 9.03.01.04;forget memorized table columns;LIB_Function_forget_memorized_table_columns.html;Function Description;forget memorized table columns
 LIB;B 3.01.03;format, format print;LIB_Function_format.html;Function Description;format
 LIB;B 3.01.03;format, format print;LIB_Function_format.html;Function Description;format print
-LIB;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;fq
-LIB;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;financial quarter
-LIB;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fiscal quarter
+LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;fq
+LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;financial quarter
+LIB;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;Function Description;;fiscal quarter
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;function existing
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;user function existing
 LIB;B 2.03.05;function / user function existing;LIB_Function_function_existing.html;Function Description;;Check if function existing
-LIB;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;Function Description;fy
-LIB;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;financial year
-LIB;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;fiscal year
+LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;fy
+LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;financial year
+LIB;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;Function Description;;fiscal year
 LIB;B 6.01.15;get differences;LIB_Function_get_differences.html;Function Description;get differences
 LIB;B 2.04.03;get long options;LIB_Function_get_long_options.html;Function Description;get long options
 LIB;B 3.01.08;getch ...;LIB_Function_getch.html;Function Description;getch
@@ -1021,14 +1011,15 @@ LIB;B 9.08.01.03;table check duplicates ...;LIB_Function_table_check_duplicates.
 LIB;B 9.08.01.03;table check duplicates ...;LIB_Function_table_check_duplicates.html;Function Description;table check duplicates ingore both selected rows
 LIB;B 9.07.01.01;table check header;LIB_Function_table_check_header.html;Function Description;table check header
 LIB;B 9.07.01.01;table check header;LIB_Function_table_check_header.html;Function Description;;Checking and processing headers
-LIB;B 9.07.01.03;table check headers ...;LIB_Function_table_check_headers.html;Function Description;table check headers
-LIB;B 9.07.01.03;table check headers ...;LIB_Function_table_check_headers.html;Function Description;table check headers silently
+LIB;B 9.07.01.04;table check headers ...;LIB_Function_table_check_headers.html;Function Description;table check headers
+LIB;B 9.07.01.04;table check headers ...;LIB_Function_table_check_headers.html;Function Description;table check headers silently
 LIB;B 9.07.03.08;table check row;LIB_Function_table_check_row.html;Function Description;table check row
 LIB;B 9.07.03.08;table check row;LIB_Function_table_check_row.html;Function Description;;Check table rows
 LIB;B 9.07.04.18;table clean;LIB_Function_table_clean.html;Function Description;table clean
 LIB;B 9.03.04.01;table clear ...;LIB_Function_table_clear.html;Function Description;table clear
 LIB;B 9.03.04.01;table clear ...;LIB_Function_table_clear.html;Function Description;;Clearing and deleting tables
 LIB;B 9.07.01.02;table column number;LIB_Function_table_column_number.html;Function Description;table column number
+LIB;B 9.07.01.03;table column numbers;LIB_Function_table_column_numbers.html;Function Description;table column numbers
 LIB;B 9.08.01.01;table compare ...;LIB_Function_table_compare.html;Function Description;table compare
 LIB;B 9.08.01.01;table compare ...;LIB_Function_table_compare.html;Function Description;table compare ignore case
 LIB;B 9.08.01.01;table compare ...;LIB_Function_table_compare.html;Function Description;table compare ignore blanks
@@ -1048,8 +1039,8 @@ LIB;B 9.07.06.04;table copy table columns ...;LIB_Function_table_copy_table_colu
 LIB;B 9.07.06.04;table copy table columns ...;LIB_Function_table_copy_table_columns.html;Function Description;table copy table columns selected rows
 LIB;B 9.07.06.03;table copy/split table selected rows;LIB_Function_table_copy_table_selected_rows.html;Function Description;table copy table selected rows
 LIB;B 9.07.06.03;table copy/split table selected rows;LIB_Function_table_copy_table_selected_rows.html;Function Description;table split table selected rows
-LIB;B 9.07.01.05;table correct headers ...;LIB_Function_table_correct_headers.html;Function Description;table correct headers
-LIB;B 9.07.01.05;table correct headers ...;LIB_Function_table_correct_headers.html;Function Description;table correct headers ignore case
+LIB;B 9.07.01.06;table correct headers ...;LIB_Function_table_correct_headers.html;Function Description;table correct headers
+LIB;B 9.07.01.06;table correct headers ...;LIB_Function_table_correct_headers.html;Function Description;table correct headers ignore case
 LIB;B 9.03.01.01;table create ...;LIB_Function_table_create.html;Function Description;table create
 LIB;B 9.03.01.01;table create ...;LIB_Function_table_create.html;Function Description;table create if not existing
 LIB;B 9.03.01.01;table create ...;LIB_Function_table_create.html;Function Description;;Create and initialize tables
@@ -1191,9 +1182,9 @@ LIB;B 9.07.02.07;table keep ... columns;LIB_Function_table_keep_columns.html;Fun
 LIB;B 9.07.02.07;table keep ... columns;LIB_Function_table_keep_columns.html;Function Description;;Keeping and deleting table columns
 LIB;B 9.07.03.06;table keep selected rows;LIB_Function_table_keep_selected_rows.html;Function Description;table keep selected rows
 LIB;B 9.04.03;table length;LIB_Function_table_length.html;Function Description;table length
-LIB;B 9.07.01.06;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift header row
-LIB;B 9.07.01.06;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift headers
-LIB;B 9.07.01.06;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift contents
+LIB;B 9.07.01.07;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift header row
+LIB;B 9.07.01.07;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift headers
+LIB;B 9.07.01.07;table lift ...;LIB_Function_table_lift_header_row.html;Function Description;table lift contents
 LIB;B 9.02.01;table list;LIB_Function_table_list.html;Function Description;table list
 LIB;B 9.02.01;table list;LIB_Function_table_list.html;Function Description;;Table console I/O
 LIB;B 9.01.01;table load ...;LIB_Function_table_load.html;Function Description;table load
@@ -1284,9 +1275,9 @@ LIB;B 9.07.02.06;table rearrange ... columns;LIB_Function_table_rearrange_column
 LIB;B 9.07.03.11;table rearrange selected rows;LIB_Function_table_rearrange_selected_rows.html;Function Description;table rearrange selected rows
 LIB;B 9.07.06.01;table rename;LIB_Function_table_rename.html;Function Description;table rename
 LIB;B 9.07.06.01;table rename;LIB_Function_table_rename.html;Function Description;;Renaming tables
-LIB;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename headers
-LIB;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename column headers
-LIB;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename existing headers
+LIB;B 9.07.01.05;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename headers
+LIB;B 9.07.01.05;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename column headers
+LIB;B 9.07.01.05;table rename ... headers;LIB_Function_table_rename_headers.html;Function Description;table rename existing headers
 LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells
 LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells seleted rows
 LIB;B 9.05.01.08;table replace cells ...;LIB_Function_table_replace_cells.html;Function Description;table replace cells in columns
@@ -1734,6 +1725,7 @@ LAN;B 2.03.04;System Variables;LAN_Features_system_variables.html;General Descri
 LAN;B 2.03.04;System Variables;LAN_Features_system_variables.html;General Description;;system variable
 LAN;B 6.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;Table columns
 LAN;B 6.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;;table columns as function parameters
+LAN;B 6.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;General Description;;column ranges
 LAN;B 3.03;Table Properties;LAN_Features_Table_properties.html;General Description;Table properties
 LAN;;Table of Contents;LAN_Features_Table_of_Contents.html;General Description;Table of Contents
 LAN;B 3;Tables;LAN_Features_tables.html;General Description;tables
@@ -1806,7 +1798,6 @@ GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;Gen
 GUI;B 4.01;Interactive Input and Editing;GUI_Features_Interactive_input.html;General Description;Interactive editing
 GUI;B 4;Interactive Mode;GUI_Features_interactive_mode.html;General Description;interactive mode
 GUI;B 4.08.01;Interactive Visualization;GUI_Features_Interactive_Visualization.html;General Description;Interactive Visualization
-GUI;B 2.08;License Activation;GUI_Features_License_Activation.html;General Description;License Activation
 GUI;B 2.02;Linux;GUI_Features_Installation_on_Linux.html;General Description;Installation on Linux
 GUI;B 2.02.04;Linux - Batch Installation;GUI_Features_Linux_-_Batch_Installation.html;General Description;Linux - Batch Installation
 GUI;B 2.02.02;Linux - Download;GUI_Features_Linux_Download.html;General Description;Linux Download
@@ -1833,6 +1824,7 @@ GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html
 GUI;B 4.05;Operating System Commands;GUI_Features_Operating_System_Commands.html;General Description;;OS Commands
 GUI;B 7.01;Release 11.00;GUI_Features_Release_11.00_-_Sydney_Opera_House.html;General Description;Release 11.00 - Sydney Opera House
 GUI;B 7.02;Release 11.02;GUI_Features_Release_11.02_-_Yellowstone.html;General Description;Release 11.02 - Yellowstone
+GUI;B 7.03;Release 12.00;GUI_Features_Release_12.00_-_Johann_C._F._Gauss.html;General Description;Release 12.00 - Johann C. F. Gauss
 GUI;B 7;Release History;GUI_Features_Release_History.html;General Description;Release History
 GUI;B 3.02;Starting B4P under Linux;GUI_Features_Starting_B4P_under_Linux.html;General Description;Starting B4P under Linux
 GUI;B 3.03;Starting B4P under MacOS;GUI_Features_Starting_B4P_under_MacOS.html;General Description;Starting B4P under MacOS
@@ -1863,3 +1855,13 @@ GUI;B 3.01.01;Windows Edit B4P Programs;GUI_Features_Edit_B4P_Programs_under_Win
 GUI;B 3.01.03;Windows Start B4P Directly;GUI_Features_Starting_B4P_Directly_under_Windows.html;General Description;Starting B4P Directly under Windows
 GUI;B 3.01.02;Windows Start B4P Programs;GUI_Features_Starting_a_B4P_Program_under_Windows.html;General Description;Starting a B4P Program under Windows
 GUI;B 5;Workflow;GUI_Features_Workflow.html;General Description;Workflow
+MAS;B 5.01;Analyzing Stock Data;MAS_Features_Use_case_-_Analyzing_Stock_Data.html;General Description;Use case - Analyzing Stock Data
+MAS;B 5.02;Comparing Bills of Material;MAS_Features_Use_case_-_Comparing_Bills_of_Material.html;General Description;Use case - Comparing Bills of Material
+MAS;B 5.03;Different data from different sources;MAS_Features_Use_case_-_Different_data_from_different_sources.html;General Description;Use case - Different data from different sources
+MAS;B 3;Features and Benefits;MAS_Features_Features_and_Benefits.html;General Description;Features and Benefits
+MAS;;Index;MAS_Features_Index.html;General Description;Index
+MAS;B 5.04;Machine to Machine Data Transfer;MAS_Features_Use_case_-_Machine_to_Machine_Data_Transfer.html;General Description;Use case - Machine to Machine Data Transfer
+MAS;B 1;Overview;MAS_Features_Overview.html;General Description;Overview
+MAS;B 2;Problem Statement;MAS_Features_Problem_Statement.html;General Description;Problem Statement
+MAS;B 5;Use Cases;MAS_Features_Use_cases.html;General Description;Use cases
+MAS;B 4;Workflow Overview;MAS_Features_Workflow_Overview.html;General Description;Workflow Overview

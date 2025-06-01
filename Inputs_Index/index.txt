@@ -280,6 +280,8 @@ __Color Palettes__<br>
 Function Library Guide: 9.9.1.1 Color Palettes<br><br>
 __Color Specification__<br>
 Function Library Guide: 9.9.1 Defining User Specific Colors<br><br>
+__column ranges__<br>
+Language Guide: 6.4.2 Table Columns (Func. Param. Type)<br><br>
 __Combining multiple tables__<br>
 Function Library Guide: 9.8.3 Combining Multiple Tables<br><br>
 __Command line arguments__<br>
@@ -736,9 +738,9 @@ Function Library Guide: 8.1.10 filter ...<br><br>
 __finance functions__<br>
 Function Library Guide: 5.7 Finance and Business Functions<br><br>
 __financial quarter__<br>
-Function Library Guide: 7.1.8 fq - Fiscal Quarter<br><br>
+Function Library Guide: 7.1.7 fq - Fiscal Quarter<br><br>
 __financial year__<br>
-Function Library Guide: 7.1.9 fy - Fiscal Year<br><br>
+Function Library Guide: 7.1.8 fy - Fiscal Year<br><br>
 __find__<br>
 Function Library Guide: 6.1.1 find ... (string function)<br><br>
 __find__<br>
@@ -760,11 +762,11 @@ Function Library Guide: 6.1.1 find ... (string function)<br><br>
 __Finishing up formatting__<br>
 Function Library Guide: 9.9.3 Finishing up formatting<br><br>
 __fiscal month__<br>
-Function Library Guide: 7.1.7 fm - Fiscal Month<br><br>
+Function Library Guide: 7.1.9 fm - Fiscal Month<br><br>
 __fiscal quarter__<br>
-Function Library Guide: 7.1.8 fq - Fiscal Quarter<br><br>
+Function Library Guide: 7.1.7 fq - Fiscal Quarter<br><br>
 __fiscal year__<br>
-Function Library Guide: 7.1.9 fy - Fiscal Year<br><br>
+Function Library Guide: 7.1.8 fy - Fiscal Year<br><br>
 __flat__, __Flatten matrix__<br>
 Function Library Guide: 5.4.8 flat<br><br>
 __Flip columns__<br>
@@ -776,7 +778,7 @@ Function Library Guide: 9.7.5.2 table flip rows<br><br>
 __flip vertically__<br>
 Function Library Guide: 5.4.11 flip horizontally / vertically<br><br>
 __fm__<br>
-Function Library Guide: 7.1.7 fm - Fiscal Month<br><br>
+Function Library Guide: 7.1.9 fm - Fiscal Month<br><br>
 __font color__<br>
 Function Library Guide: 3.2.4 text / background color<br><br>
 __for__<br>
@@ -830,7 +832,7 @@ Function Library Guide: 4.1 str, soft<br><br>
 __Formatting the Tables__<br>
 Function Library Guide: 9.9.2 Styling Functions<br><br>
 __fq__<br>
-Function Library Guide: 7.1.8 fq - Fiscal Quarter<br><br>
+Function Library Guide: 7.1.7 fq - Fiscal Quarter<br><br>
 __Full UNICODE Support__<br>
 Language Guide: 1.1.5.1 Full UNICODE Support<br><br>
 __Function call__, __Function calls__<br>
@@ -856,7 +858,7 @@ Function Library Guide: 9.3.3 Reading Tables<br><br>
 __Functions for writing tables__<br>
 Function Library Guide: 9.3.2 Writing Tables<br><br>
 __fy__<br>
-Function Library Guide: 7.1.9 fy - Fiscal Year<br><br>
+Function Library Guide: 7.1.8 fy - Fiscal Year<br><br>
 "Description 08:G"::
 __Generic Attribute Names__, __Generic Attribute Values__, __Generic Formatting Attributes__<br>
 Function Library Guide: 9.9.2.5 Generic Formatting Attributes<br><br>
@@ -1091,8 +1093,6 @@ __length [string function]__<br>
 Function Library Guide: 6.1.4 length ... (string function)<br><br>
 __LHS Expression__, __LHS Expressions__<br>
 Language Guide: 4.2.1 Left-Hand Side Expressions<br><br>
-__License Activation__<br>
-User Guide: 2.8 License Activation<br><br>
 __license apply key__<br>
 Function Library Guide: 12.4.3 license apply key<br><br>
 __license provide identification__<br>
@@ -1647,6 +1647,8 @@ __Release 11.00 - Sydney Opera House__<br>
 User Guide: 7.1 Release 11.00<br><br>
 __Release 11.02 - Yellowstone__<br>
 User Guide: 7.2 Release 11.02<br><br>
+__Release 12.00 - Johann C. F. Gauss__<br>
+User Guide: 7.3 Release 12.00<br><br>
 __release all__<br>
 Function Library Guide: 10.4.2 release all<br><br>
 __Release History__<br>
@@ -1984,7 +1986,7 @@ Function Library Guide: 9.8.1.3 table check duplicates ...<br><br>
 __table check header__<br>
 Function Library Guide: 9.7.1.1 table check header<br><br>
 __table check headers__, __table check headers silently__<br>
-Function Library Guide: 9.7.1.3 table check headers ...<br><br>
+Function Library Guide: 9.7.1.4 table check headers ...<br><br>
 __table check row__<br>
 Function Library Guide: 9.7.3.8 table check row<br><br>
 __table clean__<br>
@@ -1993,6 +1995,8 @@ __table clear__<br>
 Function Library Guide: 9.3.4.1 table clear ...<br><br>
 __table column number__<br>
 Function Library Guide: 9.7.1.2 table column number<br><br>
+__table column numbers__<br>
+Function Library Guide: 9.7.1.3 table column numbers<br><br>
 __Table columns__, __table columns as function parameters__<br>
 Language Guide: 6.4.2 Table Columns (Func. Param. Type)<br><br>
 __table compare__, __table compare ignore blanks__, __table compare ignore both__, __table compare ignore case__<br>
@@ -2018,7 +2022,7 @@ Function Library Guide: 9.7.6.4 table copy table columns ...<br><br>
 __table copy table selected rows__<br>
 Function Library Guide: 9.7.6.3 table copy/split table selected rows<br><br>
 __table correct headers__, __table correct headers ignore case__<br>
-Function Library Guide: 9.7.1.5 table correct headers ...<br><br>
+Function Library Guide: 9.7.1.6 table correct headers ...<br><br>
 __table create__, __table create if not existing__<br>
 Function Library Guide: 9.3.1.1 table create ...<br><br>
 __table delete__<br>
@@ -2162,7 +2166,7 @@ Function Library Guide: 9.7.3.6 table keep selected rows<br><br>
 __table length__<br>
 Function Library Guide: 9.4.3 table length<br><br>
 __table lift contents__, __table lift header row__, __table lift headers__<br>
-Function Library Guide: 9.7.1.6 table lift ...<br><br>
+Function Library Guide: 9.7.1.7 table lift ...<br><br>
 __table list__<br>
 Function Library Guide: 9.2.1 table list<br><br>
 __table load__<br>
@@ -2254,7 +2258,7 @@ Language Guide: 3.5 Accessing Tables<br><br>
 __table rename__<br>
 Function Library Guide: 9.7.6.1 table rename<br><br>
 __table rename column headers__, __table rename existing headers__, __table rename headers__<br>
-Function Library Guide: 9.7.1.4 table rename ... headers<br><br>
+Function Library Guide: 9.7.1.5 table rename ... headers<br><br>
 __table replace cells__, __table replace cells in columns__, __table replace cells selected rows in columns__, __table replace cells seleted rows__<br>
 Function Library Guide: 9.5.1.8 table replace cells ...<br><br>
 __table rotate left__, __table rotate right__<br>

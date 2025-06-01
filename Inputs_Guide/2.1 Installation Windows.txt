@@ -18,8 +18,6 @@ B4PDOCU.START
 },
 
 
-
-
 "Windows - Prerequisites" :
 {
     "Documentation":		"General Description", // Required value
@@ -55,11 +53,11 @@ B4PDOCU.START
     "Feature Names":		[ "Windows Download" ],
     "Description 01:Introduction"::
 
-	B4P for Windows can be downloaded by clicking on the following link:
+	B4P for Windows can be downloaded by clicking on <b>Download B4P</b> on the left-hand naviagtion menu or on the following link:
 
 	<br><br>
-
-	( Placeholder for a link to download the file )
+	<a href="https://github.com/georgzurbonsen/b4p-download" target="_blank"><b>https://github.com/georgzurbonsen/b4p-download</b></a>
+	
 
 	<br><br>
 
@@ -75,13 +73,13 @@ B4PDOCU.START
 	* Then use the right mouse key to click on the file.  A pop-up menu occurs and use the the decompression option provided by Windows or 7-ZIP.
 
 	<br><br>
-	You should see the following extracted files and directories:
+	Amongst other files, you will find the following filers
 
 	=== 300, 700, noheader, bold_column_1
 	B4P.exe			| B4P interpreter. A link to this file will be included in the start menu and added to the desktop if requested.
 	Setup.exe		| B4P installation program
 	Install.txt		| Installation script, open source, written in B4P.  This program is protected from modifications.
-	vcruntime140_1.dll	| Dynamic link library used by B4P.exe
+	*.dll			| A few dynamic link library (DLL) used by B4P.exe
 	b4picon.ico		| Windows icon for B4P files (.b4p filetype)
 	List of Locales.csv	| Contains locale-specific details (e.g. number and date formats, weekday and months in different language, etc.)
 	lib\			| Directory containing B4P library files
@@ -100,6 +98,7 @@ B4PDOCU.START
 	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P \
 					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.
 	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.
+	Tetris.b4p			| A well-known game coded in B4P
 	===	
 
 	<br><br>
@@ -124,66 +123,105 @@ B4PDOCU.START
 	+++,
     "Examples 01:"::
 B4P - Installation Program
+Version 12.00 'Johann Carl Friedrdich Gauss' (2025-06-01)
+Copyright (C) 2012..2025 Georg zur Bonsen, all rights reserved.
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-04)
-Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
-Info: Enhanced access privileges activated for this B4P script.
+Warning: Activation code does not relate to this B4P script.
+Program execution continues anyway with ongoing license privileges.
 
 
-B4P installation program is starting ...
+    Application Script Checksum: 0xc4d3bd93e85e6900
 
-1 >> Check the B4P privileges to run installation program ...
 
+B4P installation program 11.01 2025-06-21 (Windows) is starting ...
+
+1 >> Check for necessary privileges and admin rights ...
 
 2 >> Installation program - Main Menu ...
 
-     M :  Do Machine installation for all users
-     U :  Do User installation (your user name only)
-     D :  De-install B4P
-     I :  Do Identification for acquiring a license
+     I :  Install B4P on your machine
+     U :  Un-install B4P
      E :  Exit installer without actions
-Please select:
+Please select: 
+
 	+++,
     "Description 02:"::
-	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\Program Files\B4P</b>.  
-	However, Choice 'U' puts the file into a directory owned by you only and will not be visible by other users sharing the same machine.
-	If no specific issues apply, choice 'M' is strongly recommended.
-
-	<br><br>
+	Choice 'I' installs B4P in the subdirectory <b>C:\Program Files\B4P</b>.  
+	<br>
 	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.
 
 	+++,
     "Examples 02:"::
 
-2 >> Installation program - Main Menu ...
-
-     M :  Do Machine installation for all users
-     U :  Do User installation (your user name only)
-     D :  De-install B4P
-     I :  Do Identification for acquiring a license
-     E :  Exit installer without actions
-Please select: M
-
 3 >> Check that all required files are available for installation ...
-...
-4.1 >> Remove legacy files ...
-...
-4.2 >> Identify locations for the program files ...
-...
-5 >> Deleting B4P program and application data subdirectories (if existing) ...
-...
-6 >> Windows - Identify desktop and start menu locations ...
-...
-7 >> Windows - Delete old contents in desktop and start menu locations ...
-...
-8 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...
-...
-9 >> Create new folders for B4P program ...
-...
-10 >> Copy all files to destination directory 'C:\Program Files\B4P ...
-...
+
+    Check file vcruntime140.dll
+    Check file vcruntime140_1.dll
+    Check file b4picon.ico
+    Check file Install.txt
+    Check file List of Locales.csv
+    Check file B4P Reference Manual.b4p
+    Check file B4P.exe
+    Check file Setup.exe
+    Check file B4P Style Themes.xlsx
+    Check directory lib
+    Check directory weblib
+
+4 >> Identify locations for the program files ...
+
+    Identified following directories:
+
+    Directory for local  machine  installation: C:\Program Files
+    Directory for  current  user  installation: C:\Users\username\AppData\Local
+    Using following directory for installation: C:\Program Files
+
+5 >> Check for existing user, local and themes setting ...
+
+    Found following settings files:
+
+    User   settings :  No.
+    Locale settings :  No.
+    My B4P init file:  No.
+    B4P Style Themes:  No.
+
+6 >> Deleting B4P program and application data subdirectories (if existing) ...
+
+
+7 >> Windows - Identify desktop and start menu locations ...
+
+    Local machine start menu path: C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+    Local machine desktop    path: C:\Users\Public\Desktop
+    Current user start menu  path: C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+    Current user desktop     path: C:\Users\username\Desktop
+
+8 >> Windows - Delete old contents in desktop and start menu locations ...
+
+
+9 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...
+
+10 >> Create new folders for B4P program ...
+
+
+11 >> Copy all files to destination directory 'C:\Program Files\B4P ...
+
+    vcruntime140.dll
+    vcruntime140_1.dll
+    b4picon.ico
+    Install.txt
+    List of Locales.csv
+    B4P Reference Manual.b4p
+    B4P.exe
+    Setup.exe
+    B4P Style Themes.xlsx
+    lib
+    weblib
+
+12 >> Restore user settings (where available) ...
+
+    User settings file: skipped.
+
 	+++,
     "Description 03:Select Country and Language Settings"::
 	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules
@@ -198,9 +236,8 @@ Please select: M
 
 	+++,
     "Examples 03:"::
-11 >> Restore user and locale settings (if available) ...
 
-    User settings file: skipped.
+13 >> Define locale settings ...
 
     No locale settings have been defined yet.
 
@@ -213,15 +250,18 @@ Please select: M
      F :  Italian
      G :  Spanish
      H :  Swedish
+     I :  Dutch
+     J :  Swiss
 Please select: D
 
     Step 2 - Choose country:
      A :  Germany
      B :  Switzerland
-     C :  Austria
-     D :  Italy
-Please select: B
-    Locale chosen: de_CH
+     C :  Switzerland HP
+     D :  Austria
+     E :  Italy
+Please select: C
+    Locale chosen: de_CH_HP ( German / Switzerland HP.
     Done setting locale.
 
 	+++,
@@ -230,48 +270,28 @@ Please select: B
 
 	+++,
     "Examples 04:"::
-12 >> Adding B4P shortcut on the desktop ...
+
+14 >> Windows - Adding B4P shortcut on the desktop ...
 
 
-    Do you want to create a shortcut on the desktop (N,Y)?
-    Create shortcut on the desktop
+    The installer wants to place two shortcut icons (one for the B4P engine,
+    and the other for accessing the online documentation) onto the desktop.
 
-13 >> Adding B4P shortcut in the main menu ...
-...
-14.1 >> Windows - Assign file type '.b4p' to B4P (start) and Editor (edit) and to an icon ...
-...
-14.2 >> Windows - Include B4P in path environment variable.
-...
-	+++,
-    "Description 05:Activating B4P with License File or in Demo Mode"::
-	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,
-	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have
-	received in order to deactivate all restrictions.
 
-	<br><br>
-	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path
-	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.
-	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.
+    Do you want to create shortcuts on the desktop ?  Y
+    Create the shortcuts on the desktop ...
+
+15 >> Adding B4P shortcut in the main menu ...
+
+
+16.1 >> Windows - Assign file type '.b4p' to B4P (start) and Editor (edit) and to an icon ...
+
+
+16.2 >> Windows - Include B4P in path environment variable.
 
 	+++,
 
-    "Examples 05:"::
-
-15 >> Program Licensing ...
-
-
-License activation ...
-
-    Specify the license file (typically called 'B4P Licsense File.json'), or
-    press [Enter] to skip this and run B4P in demo mode with some restrictions.
-    Enter path + file name or press [Enter] to skip
-    -->
-    Nothing entered.  B4P will be activated in demo mode.
-
->>  Congratulations! Installation has been completed.
-
-	+++,
-    "Description 06:Option - Create a personal folder"::
+    "Description 05:Option - Create a personal folder"::
 	This is a nice feature especially for beginners. Highly recommended.
 	A directory called <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b> will be created
 	and contains the following files: 
@@ -283,30 +303,36 @@ License activation ...
 	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.
 
 	+++,
-    "Examples 06:"::
-    Do you want to create a personal B4P program folder ?  Y
-    Creating directory: C:\Users\Zur Bonsen Georg\Documents\Programs\B4P
-    If directory or files already exist, then existing files will not be overwritten.
+    "Examples 05:"::
+17 >> Option: Creating a personal folder ...
+
+
+    Do you want to create a personal folder 'B4P' in C:\Users\username ?  Y
+    Creating personal folder: C:\Users\username\B4P
+    Note: If directory or files already exist, then these files will not be overwritten.
 
     Done creating this directory.
-    When you start B4P from start menu or desktop without file specified, the 'Main.b4p'
-    in this directory will be started.
+    When you start B4P from start menu or desktop without file specified
+    then 'main.b4p' in this directory will be started.
 
+18 >> Define locale settings ...
+
+
+
+>>  Congratulations! Installation has been completed.
 
     Highly advisable to restart your machine so all configuration settings for this installation are in effect.
-
 
 Done - Press ENTER key
 
     +++,
-    "Description 07:Concluding the Installation"::
+    "Description 06:Concluding the Installation"::
 	Press [Enter] to close the console window.  Now you are ready to start working with B4P.
 
 	<br><br>Continue with __Starting B4P on Windows__.
 
     +++
 },
-
 
 
 
@@ -343,7 +369,6 @@ Done - Press ENTER key
 	--choice=exit<br>		| Do installation on local machine for all users<br>\
 					  Do installation for current user account on<br>\
 					  De-install B4P<br>\
-					  Provide information for generating a license<br>\
 					  Exit installation program without any actions<br>\
 					  The option '--choice' will ensure that the whole installation process is suitable for batch processing.
 	--keep-user-settings		| The user settings from the previous installation (e.g. prompt) will be kept.
@@ -351,13 +376,6 @@ Done - Press ENTER key
 	--keep-my-themes		| Keep own 'B4P Style Themes.xlsx' file and do not use the newest one provided in the installation.
 	--create-shortcuts		| Create two shortcuts on the desktop: 1. The B4P, and 2. access to online documentation.
 	--create-personal-folder	| Create a personal folder for own programs.
-	--license=keep<br>\
-	--license=new<br>\
-	--license=no<br>\
-	--license="<i>Lic. File Name.json</i>"	| Keep the existing license from the previous installation, if applicable <br>\
-					  Use the new license file as provided in the installation directory (B4P License File.json)<br>\
-					  Do not apply the license.  B4P shall run in demo mode only<br>\
-					  Use specified path and file name (.json) containing the license information.
 	--locale=keep<br>\
 	--locale=xx_YY			| Keep the existing locale settings from the previous installation<br>\
 					  Specify the combination of ISO 2-character language and country code.  The locale will be accepted if supported \

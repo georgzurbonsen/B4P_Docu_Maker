@@ -8,9 +8,9 @@ B4PDOCU.START
     "Feature Names":		[ "Terms and Conditions" ],
     "Description 01:Introduction"::
 
-	Updated on 20 October, 20251 and effective immediately.<br><br>
+	Updated on 01 Uune, 2025 and effective immediately.<br><br>
 
-	<b>Copyright (C) 2007 - 2024 by Georg zur Bonsen, All rights reserved.</b>
+	<b>Copyright (C) 2007 - 2025 by Georg zur Bonsen, All rights reserved.</b>
 	<br>Hereinafter referred to as "Owner".
 
 	<br><br>
@@ -20,8 +20,7 @@ B4PDOCU.START
 	* The B4P programming language, including all language constructs and syntactic and semantic language features which are unique to B4P.
 	* All B4P library files and B4P library functions which are either part of the installation packages or optionally available from B4P to enhance the functionality.
 	* The trademark names "Beyond Former Performance" and the abbreviation "B4P" under the Nice Classification (#42) of <i>"Scientific and technological services and research and design relating thereto; \
-	  industrial analysis and research services; design and development of computer hardware and software; legal services."</i> are property of the Owner.
-
+	  industrial analysis and research services; design and development of computer hardware and Software; legal services."</i> are property of the Owner.
 
 	By accepting this agreement or by downloading and/or installing any Software offered by the Owner or by 
 	clicking or typing "Install" or "Setup" or similar terms or relate terms in other languages, you agree to the following terms, notwithstanding anything
@@ -31,51 +30,42 @@ B4PDOCU.START
 	+++,
     "Description 02:B4P Interpreter - Free Usage"::
 
-	The Software (here more precisely the installation package) can be downloaded, installed and used at free of charge for the following
+	The Software (here more precisely the installation package) can be downloaded, installed and used at free of charge for following uses:
 	<u>personal and non-commercial purposes</u> such as:
 
-	* Evaluations
-	* Demonstrations
 	* Education
-	* Other non-commercial uses
-
-	The Software available as in the free-of-charge configuration runs in <u>demo mode</u> where the following functional restrictions are applying:
-
-	* B4P tables can only be saved if they contain at most 5000 rows and 500 columns.
-	* During on B4P session, at most 10 tables can be saved.  The same applies to number of tables and not number of files if using the functions which save multiple tables in one file.
-
-	The Owner reserves the right to alter the limitations of the Software for the free-of-charge demonstration package any time and without prior notice.
-	Please contact the Owner for obtaining a license for unrestricted and/or commercial purposes.
-
+	* Commercial and non-commercial use
+	* Evaluations and demonstrations
 
 	+++,
     "Description 03:Restrictions"::
 
 	The intellectual property inside the Software, particularly the unique syntactic and semantic language features, the Software (including, but not limited to the B4P interpreter and all libraries provided), are trade secrets.
 	With the download of the Software, you agree not to do any of the following:
-	* Make duplicates of the Software to third parties except for passing original and unaltered downloaded B4P installation packages for approved non-commercial uses such as evaluation, demonstration and education.
+	* Make duplicates of the Software to third parties except for passing original and unaltered downloaded B4P installation packages.
 	* Make any modifications on the Software such as, but not limited to, manipulating the B4P interpreter or altering the standard library files.
-	* Transfer, lease out, lend or otherwise distribute the Software or purchased or obtained B4P licences which have been granted to you to any third party.
+	* Resell this Software to others with the intention generate personal earnings without permisison by the Owner.
 	* Reverse-engineer, decompile or disassemble the Software (including, but not limited to, the B4P Data Engine and/or any other files in whole or in part inside the B4P Software package), \
 	  aiming to access trade secrets, obtaining competitive advantages, intending to copy functional contents for other purposes and/or committing any other actions with illegal or fraudulent intentions.
-	* The Software contains license security functions which prevent unauthorized use.  You are not permitted to make any manipulations on these functions intending to circumvent any restrictions or license management functions \
-	  and/or implement or execute any kind of software aiming to fraudulently generate functioning license activation keys with the intention to unlock applicable restrictions and make full use of B4P functionality without holding a valid license issued by the Owner.
+	* The Software contains security functions which prevent unauthorized use.  You are not permitted to make any manipulations on these functions intending to circumvent any functional restrictions  \
+	  and/or implement or execute any kind of software.
 	* Use the Software (including, but not limited to the B4P interpreter and/or B4P library files) or the B4P programming language for benchmarking and/or for competitive analysis purposes with the intention to develop a competing product and/or similar programming language.
 	* Intending to alter the Software and/or the B4P programming language in order to make it operational on other system platforms not yet supported without written approval by the Owner.
 	* Any attempt to rebrand the Software and/or the B4P programming language in any aspects or illegally assume ownership of the Software and/or the programming language.
 	* Using the Software and/or the B4P programming language for any illegal and/or unethical purposes, including, but not limited to,
 	** initiating actions to download or import illegal and/or unethical contents to be processed by the Software,
 	** accessing illegal or unethical websites or other data sources or attaining data illegally or with unethical methods to be processed by the Software,
+	** developing B4P applications for criminal or offensive purposes of any kind,
 	** and/or generating output data intended for illegal and/or unethical purposes of any kind.
 
 	+++,
     "Description 04:Disclaimer"::
 	The Owner does not warrant and disclaims any responsibility
 
-	* That the Software, including the programming language and the libraries, will function, sound, or appear as offered or hoped, or be complete, accurate, reliable, free from interruptions, or free from bugs, errors, viruses, or other harmful content. 
+	* That the Software, including the programming language and the libraries, will function, sound, or appear as offered or hoped, or be complete, accurate, reliable, free from interruptions, or free from bugs, errors, viruses, malware, or other harmful content. 
 	* From any harm on your target systems resulting from downloading, installing and running the B4P package,
 	* That the Software is perfectly running in order to fulfill your requirements,
-	* That all reported and known software errors will be corrected.
+	* That all reported and known Software errors will be corrected immediately.
 
 	The Owner expressly disclaims any warranties and conditions, express or implied, including but not limited to any implied warranties and conditions of
 	merchanatability, fitness for a particular purpose and non-infringement, and any warranties and conditions arising out of course of dealing or usage of trade
@@ -100,7 +90,10 @@ B4PDOCU.START
 
     "Description 06:Contact"::
 
-	To be disclosed.
+	Georg zur Bonsen<br>
+	Baden, Switzerland<br>
+	Tel: +41 79 529 45 12 <br>
+
 
 	+++
 

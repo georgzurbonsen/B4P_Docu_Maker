@@ -228,8 +228,7 @@ for (a[]=0, a[]<n[], a[]++) echo("Argument ", a[], ": ", command line arguments[
 	-i	| (lower-case i) Start B4P and enter __interactive mode__ immediately.  Even if a B4P program has been specified, the program will not be loaded and started</b>.
 	-I	| (upper-case i) MacOS / Linux only: Starty B4P in installation mode where the welcoming text and loading library files are skipped.  Not recommended for regular B4P program use.  The switch '-c' will also come effective here to suppress console features.
 	-w	| Suppress B4P welcome text. <br>\
-		  <u>Attention 1:</u> Also the license info text (e.g. demo mode only if no valid license exists) will be hidden.<br>\
-		  <u>Attention 2:</u> The B4P initialization program "B4P Init.b4p" will not be started.  This file would otherwise load the default B4P library files (e.g. "Support Library").<br>\
+		  <u>Attention:</u> The B4P initialization program "B4P Init.b4p" will not be started.  This file would otherwise load the default B4P library files (e.g. "Support Library").<br>\
 		  The system variable <b>runtime settings[verbose]</b> is set to <b>quiet</b>. This feature is useful for batch scripts which shall run fast and not outputting unnecessary text.
 	-q	| Starts the B4P program with runtime <b>settings[verbose]= quiet</b> to suppress any unnecessary output.<br>\
 		  To suppress the welcome text, too, use teh command lie swtich -w, too.

@@ -184,8 +184,7 @@ The B4P installation program is now started, and will guide you through the rema
 	Step	| Action | Terminal Commands
 	E	| Choose installation type: 'Machine' 	| M 
 	F	| Select language and country settings 	| B (English); A (USA)
-	G	| License activation file				| (optional)
-	H	| Create personal B4P folder: 'Yes'		| Y
+	G	| Create personal B4P folder: 'Yes'		| Y
 	===
 
 
@@ -198,7 +197,6 @@ _______________________________________________________________________________
 
 Version 8.00 Candidate (2020-11-12)
 Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
-Licensed (current user) with standard privileges for Rafael Richards.
 
 B4P installation program is starting (Linux and MacOS platforms) ...
 
@@ -206,9 +204,8 @@ B4P installation program is starting (Linux and MacOS platforms) ...
 
 2 >> Installation program - Main Menu ...
 
-     M :  Do Machine installation for all users
+     I :  Install B4P
      D :  De-install B4P
-     I :  Do Identification for acquiring a license
      E :  Exit installer without actions
 Please select: M
 
@@ -216,7 +213,7 @@ Please select: M
 
 
 "Description 05:"::
-	Choice 'M' is the preferred choice, as it makes the B4P application available to all users of the computer.
+	The installation will be done on the local machine, accessible to all users logged in.
 
 
 "Description 06:Informational "::
@@ -288,31 +285,8 @@ Please select: A
 
 	+++,
 
-"Description 08:Optional: Activating B4P with License File"::
-	If you have a B4P License file, specify the full path to the file to inactivate
-	any restrictions. 
-	<br>
-	Otherwise, press [Enter] to continue without a license file  and use 
-	B4P for evaluation and demonstration purposes with some restrictions.
-	+++,
 
-"Examples 08:"::
-9 >> Program Licensing ...
-
-License activation ...
-
-    Specify the license file (typically called 'B4P Licsense File.json'), or
-    press [Enter] to skip this and run B4P in demo mode with some restrictions.
-    Enter path + file name or press [Enter] to skip
-    -->     
-    Nothing entered.  B4P will be activated in demo mode.
-
->>  Congratulations! Installation has been completed.
-	+++,
-
-
-
-"Description 09:Optional: Create a personal folder"::
+"Description 08:Optional: Create a personal folder"::
 	This is a very useful feature and is highly recommended to create this. 
 	A directory called <b>Users\<i>Your user name</i>\b4p</b> will be created 
 	and contain the following files: 
@@ -327,7 +301,7 @@ License activation ...
 	
 	+++,
 
-"Examples 09:"::
+"Examples 08:"::
 	Do you want to create a personal B4P program folder ?  Y
     Creating directory: /Users/rafael/b4p
     If directory or files already exist, then existing files
@@ -342,7 +316,7 @@ License activation ...
 Done - Press ENTER key
     +++,
 
-"Description 10:Concluding the Installation"::
+"Description 09:Concluding the Installation"::
 	Press [Enter] to close the installer.  Now you are ready to start working with B4P.
 
 	
@@ -385,20 +359,12 @@ Done - Press ENTER key
 	--choice=info<br>\
 	--choice=exit<br>		| Do installation on local machine for all users<br>\
 					  De-install B4P<br>\
-					  Provide information for generating a license<br>\
 					  Exit installation program without any actions<br>\
 					  The option '--choice' will ensure that the whole installation process is suitable for batch processing.
 	--keep-user-settings		| The user settings from the previous installation (e.g. prompt) will be kept.
 	--keep-my-init			| Keep own 'My B4P Init.b4p' file which can carry out user-specific initialization sequences
 	--keep-my-themes		| Keep own 'B4P Style Themes.xlsx' file and do not use the newest one provided in the installation.
 	--create-personal-folder	| Create a personal folder for own programs.
-	--license=keep<br>\
-	--license=new<br>\
-	--license=no<br>\
-	--license="<i>Lic. File Name.json</i>"	| Keep the existing license from the previous installation, if applicable <br>\
-					  Use the new license file as provided in the installation directory (B4P License File.json)<br>\
-					  Do not apply the license.  B4P shall run in demo mode only<br>\
-					  Use specified path and file name (.json) containing the license information.
 	--locale=keep<br>\
 	--locale=xx_YY			| Keep the existing locale settings from the previous installation<br>\
 					  Specify the combination of ISO 2-character language and country code.  The locale will be accepted if supported \

@@ -56,8 +56,7 @@ B4PDOCU.START
 	B4P for Linux can be downloaded by clicking on the following link:
 
 	<br><br>
-
-	( Placeholder for a link to download the file )
+	<a href="https://github.com/georgzurbonsen/b4p-download" target="_blank"><b>https://github.com/georgzurbonsen/b4p-download</b></a>
 
 	<br><br>
 
@@ -97,6 +96,7 @@ B4PDOCU.START
 	start B4P here.b4p		| A 1-statement B4P program which sets current directoy as starting directory. If B4P is started without a B4P program file, then B4P \
 					  will look in this directory for 'main.b4p'.  If not found, then it will go into interactive mode.
 	My B4P Init.b4p			| A user-customizable B4P initialization file and template which will be copied into the user application directory and you.
+	Tetris.b4p			| A well-known game coded in B4P
 	===	
 
 	+++,
@@ -142,28 +142,28 @@ username@domain:~/b4p_installation$
 	+++,
     "Examples 01:"::
 username@domain:~/b4p_installation$ sudo ./setup
+[sudo] Password for username: 
 
 B4P - Installation Program
+Version 12.00 'Johann Carl Friedrich Gauss' (2025-06-01)
+Copyright (C) 2012..2025 Georg zur Bonsen, all rights reserved.
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-08)
-Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
-B4P installation program is starting (Linux and MacOS platforms) ... 
+B4P installation program 12.00 2025-06-01 (Linux & MacOS) is starting ... 
 
 1 >> Check the B4P privileges to run installation program ...
 
 
 2 >> Installation program - Main Menu ...
 
-     M :  Do Machine installation for all users
-     D :  De-install B4P
-     I :  Do Identification for acquiring a license
+     I :  Install B4P on your machine
+     U :  Un-install B4P
      E :  Exit installer without actions
 Please select: 
 	+++,
     "Description 02:"::
-	Choice 'M' makes the installation visible for all users and puts the executable file into a subdirectory of <b>C:\Program Files\B4P</b>.  
+	Choice 'I' does the installation for all users and puts the executable file into a subdirectory of <b>/usr/local/bin/b4p</b>.  
 
 	<br><br>
 	The output shown below has been shortened in this documentation.  The installer will list all working steps and files processed.
@@ -171,15 +171,53 @@ Please select:
 	+++,
     "Examples 02:"::
 3 >> Check that all required files are available for installation ...
-...
+
+    Check lib
+    Check weblib
+    Check List of Locales.csv
+    Check B4P Style Themes.xlsx
+    Check setup
+    Check B4P Reference Manual.b4p
+    Check b4p
+
 4 >> Identify locations for the program files ...
-...
-5 >> Deleting B4P program and application data subdirectories (if existing) ...
-...
-6 >> Create new folders for B4P program ...
-...
-7 >> Copy all files to destination directory '/usr/local/etc/b4p ...
-...
+
+Identified following directories:
+
+    For executable program:                     /usr/local/bin
+    For program related files (e.g. libraries): /usr/local/etc/b4p
+    For user application data:                  /home/georg/.config/b4p
+
+5 >> Check for exisintg user, local and themes setting ...
+
+
+    Found following settings files:
+
+    User   settings :  No.
+    Locale settings :  No.
+    My B4P init file:  No.
+    B4P Style Themes:  No.
+
+6 >> Deleting B4P program and application data subdirectories (if existing) ...
+
+    Deleted /usr/local/etc/b4p
+    Done.
+
+7 >> Create new folders for B4P program ...
+
+    Created /usr/local/etc/b4p/lib.
+    Created /home/georg/.config/b4p.
+
+8 >> Copy all files to destination directory '/usr/local/etc/b4p ...
+
+    Copying file List of Locales.csv ...
+    Copying file B4P Style Themes.xlsx ...
+    Copying directory lib ...
+    Copying directory weblib ...
+    Copying b4p to /usr/local/bin ...
+
+    Info: User settings file not found. Skipped copying
+
 	+++,
     "Description 03:Select Country and Language Settings"::
 	The B4P installaion program asks for both language and country.  This combination is a <i>locale</i> information which rules
@@ -194,15 +232,15 @@ Please select:
 
 	+++,
     "Examples 03:"::
-8 >> Restore user and locale settings (if available) ...
+
+9 >> Restore user settings (where available) ...
 
     Info: User settings file not found. Skipped copying
 
-    Info: No locale settings have been defined yet.
 
-    Loaded CSV/TSV file 'List of Locales.csv':
-    31 rows, max 28 columns, 28 columns in 1st row, 868 fields, list separator: ;
+10 >> Define locale settings ...
 
+    No locale settings have been defined yet.
 
     Step 1 - Choose language:
      A :  none
@@ -213,46 +251,22 @@ Please select:
      F :  Italian
      G :  Spanish
      H :  Swedish
+     I :  Dutch
+     J :  Swiss
 Please select: D
 
     Step 2 - Choose country:
      A :  Germany
      B :  Switzerland
-     C :  Austria
-     D :  Italy
-Please select: B
-    Locale chosen: de_CH
+     C :  Switzerland HP
+     D :  Austria
+     E :  Italy
+Please select: C
+    Locale chosen: de_CH_HP ( German / Switzerland HP.
     Done setting locale.
 
 	+++,
-    "Description 05:Activating B4P with License File or in Demo Mode"::
-	If you do not have a license file and you plan to use B4P for demonstration, evaluation and/or educational purposes,
-	then press [Enter] to continue.  Otherwise, specify the full path an file name of the license file you have
-	received in order to deactivate all restrictions.
-
-	<br><br>
-	<u>Hint</u>: Instead of typing the full path and file name: if you see the license file in an explorer file, copy the path
-	from the address bar, paste it into the line, and then copy the file name (not the whole file) and paste it here, with a directory separator inbetween.
-	B4P will verify if the file is available and the license code is valid.  If not, the query will be repeated.
-
-	+++,
-
-    "Examples 05:"::
-
-9 >> Program Licensing ...
-
-License activation ...
-
-    Specify the license file (typically called 'B4P Licsense File.json'), or
-    press [Enter] to skip this and run B4P in demo mode with some restrictions.
-    Enter path + file name or press [Enter] to skip
-    -->     
-    Nothing entered.  B4P will be activated in demo mode.
-
->>  Congratulations! Installation has been completed.
-
-	+++,
-    "Description 06:Option - Create a personal folder"::
+    "Description 05:Option - Create a personal folder"::
 	This is a nice feature especially for beginners. Highly recommended.
 	A directory called <b>C:\Users\<i>Your user name</i>\Documents\Programs\B4P</b> will be created
 	and contains the following files: 
@@ -265,9 +279,15 @@ License activation ...
 	In case the folder is already existing, then only the missing files will be overwritten.  This is the case if you redo the installation.
 
 	+++,
-    "Examples 06:"::
-    Do you want to create a personal B4P program folder ?  Y
-    Creating directory: /home/georg/b4p
+    "Examples 05:"::
+
+
+11 >> Opion: Creating a personal folder ...
+
+
+    Do you want to create a personal B4P program folder ?  
+
+   Creating directory: /home/georg/b4p
     If directory or files already exist, then existing files
     will not be overwritten.
 
@@ -275,13 +295,16 @@ License activation ...
     When you start B4P without file specified, 'Main.b4p' in this directory will be started.
 
 
+>>  Congratulations! Installation has completed.
+
     Highly advisable to restart your machine so all configuration settings for this installation are in effect.
+
 
 
 Done - Press ENTER key
 
     +++,
-    "Description 07:Concluding the Installation"::
+    "Description 06:Concluding the Installation"::
 	Press [Enter] to close the installer.  Now you are ready to start working with B4P.
 
 	<br><br>Continue with __Starting B4P on Linux__.
@@ -324,20 +347,12 @@ Done - Press ENTER key
 	--choice=info<br>\
 	--choice=exit<br>		| Do installation on local machine for all users<br>\
 					  De-install B4P<br>\
-					  Provide information for generating a license<br>\
 					  Exit installation program without any actions<br>\
 					  The option '--choice' will ensure that the whole installation process is suitable for batch processing.
 	--keep-user-settings		| The user settings from the previous installation (e.g. prompt) will be kept.
 	--keep-my-init			| Keep own 'My B4P Init.b4p' file which can carry out user-specific initialization sequences
 	--keep-my-themes		| Keep own 'B4P Style Themes.xlsx' file and do not use the newest one provided in the installation.
 	--create-personal-folder	| Create a personal folder for own programs.
-	--license=keep<br>\
-	--license=new<br>\
-	--license=no<br>\
-	--license="<i>Lic. File Name.json</i>"	| Keep the existing license from the previous installation, if applicable <br>\
-					  Use the new license file as provided in the installation directory (B4P License File.json)<br>\
-					  Do not apply the license.  B4P shall run in demo mode only<br>\
-					  Use specified path and file name (.json) containing the license information.
 	--locale=keep<br>\
 	--locale=xx_YY			| Keep the existing locale settings from the previous installation<br>\
 					  Specify the combination of ISO 2-character language and country code.  The locale will be accepted if supported \

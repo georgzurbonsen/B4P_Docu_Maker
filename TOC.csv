@@ -29,7 +29,6 @@ OK;Body;2;2: User Guide;B 2.04;VS Code Extension for B4P;GUI_Features_VS_Code_Ex
 OK;Body;2;2: User Guide;B 2.05;Updates and Upgrades;GUI_Features_Updates_and_Upgrades.html;Updates and Upgrades;Updates and Upgrades;
 OK;Body;2;2: User Guide;B 2.06;Uninstallation;GUI_Features_Uninstallation.html;Uninstallation;Uninstallation;
 OK;Body;2;2: User Guide;B 2.07;Terms and Conditions;GUI_Features_Terms_and_Conditions.html;Terms and Conditions;Terms and Conditions;
-OK;Body;2;2: User Guide;B 2.08;License Activation;GUI_Features_License_Activation.html;License Activation;License Activation;
 OK;Body;1;2: User Guide;B 3;Getting Started;GUI_Features_Getting_Started.html;Getting Started;Getting Started;
 OK;Body;2;2: User Guide;B 3.01;Starting B4P under Windows;GUI_Features_Starting_B4P_under_Windows.html;Starting B4P under Windows;Starting B4P under Windows;
 OK;Body;3;2: User Guide;B 3.01.01;Windows Edit B4P Programs;GUI_Features_Edit_B4P_Programs_under_Windows.html;Edit B4P Programs under Windows;Edit B4P Programs under Windows;
@@ -72,6 +71,7 @@ OK;Body;2;2: User Guide;B 6.02;Football Club Merger - Program;GUI_Features_Examp
 OK;Body;1;2: User Guide;B 7;Release History;GUI_Features_Release_History.html;Release History;Release History;
 OK;Body;2;2: User Guide;B 7.01;Release 11.00;GUI_Features_Release_11.00_-_Sydney_Opera_House.html;Release 11.00 - Sydney Opera House;Release 11.00 - Sydney Opera House;
 OK;Body;2;2: User Guide;B 7.02;Release 11.02;GUI_Features_Release_11.02_-_Yellowstone.html;Release 11.02 - Yellowstone;Release 11.02 - Yellowstone;
+OK;Body;2;2: User Guide;B 7.03;Release 12.00;GUI_Features_Release_12.00_-_Johann_C._F._Gauss.html;Release 12.00 - Johann C. F. Gauss;Release 12.00 - Johann C. F. Gauss;
 OK;Body;1;3: Language Guide;B 1;The Language;LAN_Features_Language_Guide.html;Language Guide,B4P Language;Language Guide,B4P Language;
 OK;Body;2;3: Language Guide;B 1.01;Basics;LAN_Features_Basic_language_elements.html;Basic language elements;Basic language elements,Values;
 OK;Body;3;3: Language Guide;B 1.01.01;Text;LAN_Features_Text.html;Text;Text;
@@ -232,7 +232,7 @@ OK;Body;2;3: Language Guide;B 6.02;Function Parameters;LAN_Features_Function_Par
 OK;Body;2;3: Language Guide;B 6.03;Function Parameter Directions;LAN_Features_Function_parameter_directions.html;Function parameter directions,input parameters,output parameters,I/O parameters;Function parameter directions,input parameters,output parameters,I/O parameters;
 OK;Body;2;3: Language Guide;B 6.04;Function Parameter Types;LAN_Features_Function_parameter_types.html;Function parameter types;Function parameter types;
 OK;Body;3;3: Language Guide;B 6.04.01;Set or String (Func. Param. Type);LAN_Features_set_or_string.html;set or string;set or string;
-OK;Body;3;3: Language Guide;B 6.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;Table columns;Table columns,table columns as function parameters;
+OK;Body;3;3: Language Guide;B 6.04.02;Table Columns (Func. Param. Type);LAN_Features_Table_columns.html;Table columns;Table columns,table columns as function parameters,column ranges;
 OK;Body;3;3: Language Guide;B 6.04.03;Code Pieces (Func. Param. Type);LAN_Features_Code_piece.html;Code piece;Code piece,Code pieces;
 OK;Body;4;3: Language Guide;B 6.04.03.01;Comparison Expressions (func. params);LAN_Features_Comparison_Expression_[func._params].html;Comparison Expression [func. params];Comparison Expression [func. params],Comparison Expressions;
 OK;Body;4;3: Language Guide;B 6.04.03.02;Expressions (func. params);LAN_Features_Expressions_[func_params].html;Expressions [func params];Expressions [func params];
@@ -457,9 +457,9 @@ OK;Body;3;5: Function Library;B 7.01.03;day of year;LIB_Function_day_of_year.htm
 OK;Body;3;5: Function Library;B 7.01.04;serial date;LIB_Function_serial_date.html;serial date,serial date time;serial date,serial date time,date info functions;
 OK;Body;3;5: Function Library;B 7.01.05;weekday;LIB_Function_weekday.html;weekday;weekday,weekday from date;
 OK;Body;3;5: Function Library;B 7.01.06;week;LIB_Function_week.html;week;week;
-OK;Body;3;5: Function Library;B 7.01.07;fm - Fiscal Month;LIB_Function_fm.html;fm;fm,fiscal month;
-OK;Body;3;5: Function Library;B 7.01.08;fq - Fiscal Quarter;LIB_Function_fq.html;fq;fq,financial quarter,fiscal quarter;
-OK;Body;3;5: Function Library;B 7.01.09;fy - Fiscal Year;LIB_Function_fy.html;fy;fy,financial year,fiscal year;
+OK;Body;3;5: Function Library;B 7.01.07;fq - Fiscal Quarter;LIB_Function_fq.html;fq;fq,financial quarter,fiscal quarter;
+OK;Body;3;5: Function Library;B 7.01.08;fy - Fiscal Year;LIB_Function_fy.html;fy;fy,financial year,fiscal year;
+OK;Body;3;5: Function Library;B 7.01.09;fm - Fiscal Month;LIB_Function_fm.html;fm;fm,fiscal month;
 OK;Body;3;5: Function Library;B 7.01.10;reschedule;LIB_Function_reschedule.html;reschedule;reschedule;
 OK;Body;2;5: Function Library;B 7.02;Time and Stopwatch Functions;LIB_Features_time_and_stopwatch_functions.html;time and stopwatch functions;time and stopwatch functions,time functions;
 OK;Body;3;5: Function Library;B 7.02.01;hour, minute, second;LIB_Function_hour.html;hour,minute,second;hour,minute,second,Time Info Functions;
@@ -550,10 +550,11 @@ OK;Body;2;5: Function Library;B 9.07;Processing Tables;LIB_Features_Processing_t
 OK;Body;3;5: Function Library;B 9.07.01;Checking and Processing Headers;LIB_Features_Checking_headers.html;Checking headers,Processing headers;Checking headers,Processing headers;
 OK;Body;4;5: Function Library;B 9.07.01.01;table check header;LIB_Function_table_check_header.html;table check header;table check header,Checking and processing headers;
 OK;Body;4;5: Function Library;B 9.07.01.02;table column number;LIB_Function_table_column_number.html;table column number;table column number;
-OK;Body;4;5: Function Library;B 9.07.01.03;table check headers ...;LIB_Function_table_check_headers.html;table check headers,table check headers silently;table check headers,table check headers silently;
-OK;Body;4;5: Function Library;B 9.07.01.04;table rename ... headers;LIB_Function_table_rename_headers.html;table rename headers,table rename column headers,table rename existing headers;table rename headers,table rename column headers,table rename existing headers;
-OK;Body;4;5: Function Library;B 9.07.01.05;table correct headers ...;LIB_Function_table_correct_headers.html;table correct headers,table correct headers ignore case;table correct headers,table correct headers ignore case;
-OK;Body;4;5: Function Library;B 9.07.01.06;table lift ...;LIB_Function_table_lift_header_row.html;table lift header row,table lift headers,table lift contents;table lift header row,table lift headers,table lift contents;
+OK;Body;4;5: Function Library;B 9.07.01.03;table column numbers;LIB_Function_table_column_numbers.html;table column numbers;table column numbers;
+OK;Body;4;5: Function Library;B 9.07.01.04;table check headers ...;LIB_Function_table_check_headers.html;table check headers,table check headers silently;table check headers,table check headers silently;
+OK;Body;4;5: Function Library;B 9.07.01.05;table rename ... headers;LIB_Function_table_rename_headers.html;table rename headers,table rename column headers,table rename existing headers;table rename headers,table rename column headers,table rename existing headers;
+OK;Body;4;5: Function Library;B 9.07.01.06;table correct headers ...;LIB_Function_table_correct_headers.html;table correct headers,table correct headers ignore case;table correct headers,table correct headers ignore case;
+OK;Body;4;5: Function Library;B 9.07.01.07;table lift ...;LIB_Function_table_lift_header_row.html;table lift header row,table lift headers,table lift contents;table lift header row,table lift headers,table lift contents;
 OK;Body;3;5: Function Library;B 9.07.02;Processing Table Columns;LIB_Features_Processing_table_columns.html;Processing table columns;Processing table columns;
 OK;Body;4;5: Function Library;B 9.07.02.01;table insert (missing) columns;LIB_Function_table_insert_columns.html;table insert columns,table insert missing columns;table insert columns,table insert missing columns,Inserting table columns;
 OK;Body;4;5: Function Library;B 9.07.02.02;table add/insert calculated columns;LIB_Function_table_add_calculated_columns.html;table add calculated columns,table insert calculated columns;table add calculated columns,table insert calculated columns,Inserting calculated table columns;

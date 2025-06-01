@@ -317,7 +317,7 @@ B4PDOCU.START
 {
     "Documentation":		"General Description", // Required value
     "Feature Names":		[ "Table columns" ],
-    "Keywords":			[ "table columns as function parameters" ],
+    "Keywords":			[ "table columns as function parameters", "column ranges" ],
     "Description 01:Introduction"::
 
 	Whenever a function expects a __function parameter__ for table columns, the following types are supported:
@@ -325,17 +325,58 @@ B4PDOCU.START
 	=== 200, 500, 300, bold_column_1
 	Type			| Description				| Example
 	Numeral			| Specifies a __table column number__, beginning with 0.  __Negative indexing__ is allowed, i.e. -1 is last column in the top row, counting leftward. | 0 (left most column)<br> -2 (2nd. last column)
-	Quoted string		| The content of the entire string is interpreted as one header name. <br>\
+	Quoted string		| The content of the entire string is interpreted as one header name, even if it contains numbers.<br>\
 				  Empty strings ("") refer to the first column with blank header name.		 | "Last,First Name" refers to one header name<br>"" is a blank header name
-	Softquoted string	| The content of the entire string is interpreted as one header name. <br>\
+	Softquoted string	| The content of the entire string is interpreted as one header name, even if it contains numbers. <br>\
 				  Empty strings ('') refer to the first column with blank header name.<br>\
 				  __shifted table column specifications__ are allowed here to reference neighboring columns.<br>\
+				  Two consecutive points ('..') define <b>column ranges</b> in order to cover multiple consecutive columns<br>\
 				  Some function-specific exceptions may apply and are explicitly documented in the function library documentation. | 'Last,First Name' refers to one header name<br>'' is a blank header name
-	Set			| Sets contain a colection of header names and/or column numbers 	 | { 1, Last Name, first Name, "Value [EUR]" }
+	Set			| Sets contain a collection of header names and/or column numbers 	 | { 1, Last Name, first Name, "Value [EUR]" }
 	===
 
+	+++,
+    "Description 02:Column Ranges"::
 
-	Addtional function-specific rules may apply.  Below are some examples:
+	'..' provided as __softquoted string__ defines a range covering multiple columns in a <i>from..to</i> approach.
+	<br>
+
+	* <b>'..'</b> specified alone selects all columns as defined in the header row.
+	* <b><i>Column</i>, '..'</b> includes the specified column plus all further ones to the right.
+	* <b>'..', <i>Column</i></b> includes the first column till the specified column.
+	* <b><i>Column A</i>, '..', <i>Column B</i></b> specifies all columns between and including the specified columns.  If the first column lies further to the right to the second column, then no columns will be included.
+	* Multipe column ranges are allowd, e.g. <b>{ a, '..', b, c, '..', d }</b>.
+	<br>
+	Items to watch out for.
+	<br>
+	* Two consecutive ranges <b>{ a, '..' ,'..', b }</b> are not permiited and result in exceptions.
+	* Ranges on both sides of a specified column <b>{ a, '..', 'b', '..', 'c'}</b> are not permitted and flag exceptions.
+	* Ranges in quoted strings are interpreted as header names to look for, e.g. <b>{ a, "..", b }</b>.  The example looks for a header containing <b>".."</b>.
+	* Following syntax will not work unless you want to create a set containing typical __ranges__:  <b> {a .. e} </b> which translates into <b>{ a,b,c,d,e }</b>.
+	* Following syntax is wrong and flags a syntax error as <b>..</b> is the B4P range symbol for sets to be used without commas: <b>{a, .. , b}</b>.
+
+
+	+++,
+    "Examples 02:Different ways to specify Column Ranges"::
+table initialize( t, {{ Red, Orange, Yellow, Green, Turquoise, Blue, Purple, Brown, Black, ".." },
+                      { Rot, Orange, Gelb,   Grün,  Türkis,    Blau, Purpur, Braun, Schwarz, Joker}} );
+
+echo( table read row( t, { Green, Red }, 1 ) ); 
+echo( table read row( t, { Yellow, '..', Blue }, 1 ) ); 
+echo( table read row( t, { '..' }, 1 ) ); // Reads all columns
+echo( table read row( t, { ".." }, 1 ) ); // Reads the column named "..", returning Joker only
+echo( table read row( t, { Yellow, '..' }, 1 ) ); 
+
+echo( table read row( t, { '..', Green }, 1 ) ); 
+echo( table read row( t, { Brown, '..', Green }, 1 ) );  // Returns empty set because Brown lies past Green.
+echo( table read row( t, { Yellow, '..', Blue, Brown, '..', Green }, 1 ) ); 
+	+++,
+    "Output 02:": "automatic",
+    "Description 03:Function-Specific Rules"::
+
+	Addtional function-specific rules may apply depending on the function called and are documented accordingly.  Below are some examples:
+	<br>
+
 	* Header names must exist
 	* Header names may exist (missing ones may be created as additinal columns in the table)
 	* Header names must not exist (e.g. to check if specific header names are <i>not</i> used in a specific table

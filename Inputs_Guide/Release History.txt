@@ -163,7 +163,55 @@ B4PDOCU.START
 
 	+++
 
+},
+
+
+"Release 12.00" :
+{
+    "Documentation":		"General Description", // Required value
+    "Feature Names":		[ "Release 12.00 - Johann C. F. Gauss" ],
+
+    "Description 01:Overview"::
+
+	<b>Release 12.00, issued 2025-06-01, "Johann C. F. Gauss"</b><br>
+	<i>1777-1855, mathematican, geodetist, astronomer and physicist.</i>
+
+    "Description 02:Bugfixes"::
+
+	* Some error messages involving sets provided in variables referred to the wrong location in the code, making debugging more challenging. Has been fixed.
+
+
+    "Description 03:New Functions"::
+
+	* __table column numbers(__) added to return positive table column numbers are providing (mix of) table header names and column numbers
+
+    "Description 04:Improvements in Existing Functions"::
+
+
+    "Description 05:New Language Features (e.g. syntax and semantics)"::
+
+	* Function parameters table columns now support __column ranges__, provided as softquoted strings, e.g. '..'.
+
+
+    "Description 06:Other new Features"::
+
+
+    "Description 07:Clean-ups and Streamlining"::
+
+	* No license file required anymore when installing B4P
+
+    "Description 08:Performance Improvements"::
+
+	* No changes
+
+    "Description 09:Depreciated and retired features"::
+
+	* <b>for all parameters</b>() is replaced by __for all(__)  (Still existing, but no longer recommended to use)
+
+	+++
+
 }
+
 
 
 

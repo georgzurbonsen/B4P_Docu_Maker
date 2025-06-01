@@ -1,0 +1,7 @@
+﻿#!/usr/local/bin/b4p
+table initialize( t, {{ Red, Orange, Yellow, Green, Turquoise, Blue, Purple, Brown, Black, ".." },
+                                         { Rot, Orange, Gelb,   Grün,  Türkis,    Blau, Purpur, Braun, Schwarz, Joker}} );
+
+echo( table column numbers( t, { Red, Green, Black } ) );
+echo( table column numbers( t, { 0, 3, -2 } ) );  // Same output
+echo( table column numbers( t, { '..' } ) );  // All columns

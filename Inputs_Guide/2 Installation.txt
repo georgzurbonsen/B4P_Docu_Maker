@@ -3,7 +3,6 @@ B4PDOCU.START
 
 
 
-
 "Installation" :
 {
     "Documentation":		"General Description", // Required value
@@ -18,12 +17,14 @@ B4PDOCU.START
 
 	Since the installation script has also been implemented in B4P, the installation procedure 
 	appears a bit differently as compared to installing other software, however you will be
-	experiencing a very fast installation procedure.
+	experiencing a very fast installation procedure.  All installations are machine-based, i.e. different
+	users can access B4P on the same machine.
+
+	<br><br>
+	<u>Attention:</u> Local administrator rights are needed to install B4P, similar to intalling any other software on your machine.
 
 	+++
 },
-
-
 
 
 
@@ -37,20 +38,18 @@ B4PDOCU.START
 
 	B4P update installations using the same version of the B4P interpreter can be carried out by starting
 	the same installation program.  Typical cases are repeating installations with different settings such as changed
-	locale settings, or including an approved license in order to lift the applicable restrictions.
+	locale settings.
 
 	<br><br>
 
 	Start the same installation program (setup) as you have done with the intial installation and choose 
-	"M" for local machine (or "U" user specific installation, Windows only) to redo the installation.
+	"I" to redo the installation.
 	The installer will automatically check for any existing installations including the following:
 
 	* User-specific settings (for example it contains the chosen browser for the 'docs' function)
 	* Locale settings (country and language settings)
-	* License information (<b>B4P License File.json</b>)
 	* User-specific initialization program(<b>My B4P Init.b4p</b>).
 
-	The following example shows an update installation:
 
 	+++
 
@@ -84,124 +83,66 @@ B4PDOCU.START
 
     "Examples 01:"::
 B4P - Installation Program
+Version 12.00 Johan C. F. Gauss (2025-06-01)
+Copyright (C) 2012..2025 Georg zur Bonsen, all rights reserved.
 _______________________________________________________________________________
 
-Version 8.00 Candidate (2020-11-04)
-Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
 
-Info: Enhanced access privileges activated for this B4P script.
+Warning: Activation code does not relate to this B4P script.
+Program execution continues anyway with ongoing license privileges.
 
 
-B4P installation program is starting ...
+    Application Script Checksum: 0x583c48913ac6040d
 
-1 >> Check the B4P privileges to run installation program ...
 
+B4P installation program 11.01 2025-06-21 (Windows) is starting ...
+
+1 >> Check for necessary privileges and admin rights ...
 
 2 >> Installation program - Main Menu ...
 
-     M :  Do Machine installation for all users
-     U :  Do User installation (your user name only)
-     D :  De-install B4P
-     I :  Do Identification for acquiring a license
+     I :  Install B4P on your machine
+     U :  Un-install B4P
      E :  Exit installer without actions
-Please select: D
+Please select: U
 
-A t t e n t i o n
-Are you sure you want to de-install B4P? Y
-	+++,
-    "Description 02:"::
-	The de-installation process runs and takes only a fraction of a second.
-	+++,
-    "Examples 02:"::
-3 >> Check that all required files are available for installation ...
-...
-4.1 >> Remove legacy files ...
-...
-...
-4.2 >> Identify locations for the program files ...
-...
-5 >> Deleting B4P program and application data subdirectories (if existing) ...
-...
-6. >> Windows - Identify desktop and start menu locations ...
-...
-7 >> Windows - Delete old contents in desktop and start menu locations ...
-...
-8 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...
+    A t t e n t i o n
+    Are you sure you want to de-install B4P?  Y
+
+4 >> Identify locations for the program files ...
+
+    Identified following directories:
+
+    Directory for local  machine  installation: C:\Program Files
+    Directory for  current  user  installation: C:\Users\username\AppData\Local
+    Using following directory for installation: C:\Program Files
+
+5 >> Check for existing user, local and themes setting ...
+
+
+6 >> Deleting B4P program and application data subdirectories (if existing) ...
+
+    Deleted: C:\Users\username\AppData\Local\b4p
+    Deleted: C:\Program Files\b4p
+
+7 >> Windows - Identify desktop and start menu locations ...
+
+    Local machine start menu path: C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+    Local machine desktop    path: C:\Users\Public\Desktop
+    Current user start menu  path: C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+    Current user desktop     path: C:\Users\username\Desktop
+
+8 >> Windows - Delete old contents in desktop and start menu locations ...
+
+
+9 >> Windows - Delete old registry settings (e.g. assignment of file extension) ...
 
 De-Installation completed.
 
-exit (); called
-Code execution will stop.  Exiting program.
-_______________________________________________________________________________
 Done - Press ENTER key
-
-	+++
-},
-
-
-"License Activation" :
-{
-    "Documentation":		"General Description", // Required value
-    "Feature Names":		[ "License Activation" ],
-    "Description 01:Introduction"::
-
-	If you are interested for obtaining a license, please get in touch with the author.
-	Typically, you will be asked to provide an identification file which contains a short
-	hexadicmal signature together with the proposed license holder name.  The example below shows how to
-	provide such an identfication
-	+++,
-    "Examples 01:"::
-B4P - Installation Program
-_______________________________________________________________________________
-
-Version 8.00 Candidate (2020-11-04)
-Copyright (C) 2012..2020 Georg zur Bonsen, all rights reserved.
-
-Info: Enhanced access privileges activated for this B4P script.
-
-
-B4P installation program is starting ...
-
-1 >> Check the B4P privileges to run installation program ...
-
-
-2 >> Installation program - Main Menu ...
-
-     M :  Do Machine installation for all users
-     U :  Do User installation (your user name only)
-     D :  De-install B4P
-     I :  Do Identification for acquiring a license
-     E :  Exit installer without actions
-Please select: I
-
-    Getting system identfication for license generation ...
-
-    Specify a personal name and/or company name as license holder name
-    Enter the name: Joe Public
-	+++,
-    "Description 02:"::
-	Once you have received the license, then this name will show up in the
-	welcoming message when you start B4P with the license activated.
-	+++,
-    "Examples 02:"::
-    The identification info is stored in this file: B4P Identification File.json
-    --> Please send this .JSON file out by mail in order to receive the license key.
-
-_______________________________________________________________________________
-Done - Press ENTER key
-	+++,
-    "Description 03:Submit the identification code"::
-	In the directory where the installation is located, you will find the file <b>B4P Identification File.json</b>
-	which you need to send to us.  The file typically looks like the one shown below:
-	+++,
-    "Output 03:"::
-{
-  "Holder" : "Joe Public",
-  "Identification" : "13 5E 3E DE  C0 CE 99 E8  D2 CC 4B AE  8E 67 9D 92  ",
-  "Timestamp" : "2020-11-15 18:09:59"
-}
 	+++
 }
+
 
 
 
